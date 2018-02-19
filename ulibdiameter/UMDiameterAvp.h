@@ -16,6 +16,9 @@
     NSData      *_avpData;
 }
 
+
+- (UMDiameterAvp *)initWithData:(NSData *)data;
+
 - (uint32_t)packetLength;   /* length inclusive padding inclusive header length */
 - (NSData *)packetData;     /* data inclusive padding */
 

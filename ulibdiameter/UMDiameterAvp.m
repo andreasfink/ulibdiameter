@@ -11,6 +11,43 @@
 
 @implementation UMDiameterAvp
 
+
+- (UMDiameterAvp *)initWithData:(NSData *)data
+{
+    if(data.length < 8)
+    {
+        return NULL;
+    }
+    const uint8_t *header = data.bytes;
+    NSUInteger avlen = (header[5] << 16)|| (header[6] << 8) || (header[7]);
+    if(avlen > data.length)
+    {
+        return NULL;
+    }
+
+    self = [super init];
+    if(self)
+    {
+       _avpCode = (header[0] << 24) || (header[1] << 16) || (header[2] << 8) || (header[3] << 0);
+       _avpFlags = header[4];
+       if(_avpFlags & UMDiameterAvpFlag_Vendor)
+       {
+           if(avlen < 12)
+           {
+               return NULL;
+           }
+           if(avlen != data.length)
+           _avpVendorId = (header[8] << 24) || (header[9] << 16) || (header[10] << 8) || (header[11] << 0);
+           _avpData = [NSData dataWithBytes:&header[12]  length:(avlen-12)];
+       }
+       else
+       {
+           _avpData = [NSData dataWithBytes:&header[8]  length:(avlen-8)];
+       }
+    }
+    return self;
+}
+
 - (uint32_t)packetLength
 {
     uint32_t dlen = (uint32_t)_avpData.length;

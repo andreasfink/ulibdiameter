@@ -15,18 +15,27 @@
 
 @interface UMDiameterPacket : UMObject
 {
-    uint8_t _version;
-    uint32_t _messageLength;
+    uint8_t     _version;
     uint8_t     _commandFlags;
     uint32_t    _commandCode;
     uint32_t    _applicationId;
     uint32_t    _hopByHopIdentifier;
     uint32_t    _endToEndIdentifier;
-
-    UMSynchronizedSortedDictionary *avps;
+    UMSynchronizedArray *_avps;
 }
 
-- (NSData *)packedData;
+- (UMDiameterPacket *)init;
+- (UMDiameterPacket *)initWithData:(NSData *)packet;
+- (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr;
 
+- (NSData *)packedData;
+- (BOOL)flagRequest;
+- (BOOL)flagProxyable;
+- (BOOL)flagError;
+- (BOOL)flagTransmit;
+- (void)setFlagRequest:(BOOL)flag;
+- (void)setFlagProxyable:(BOOL)flag;
+- (void)setFlagError:(BOOL)flag;
+- (void)setFlagTransmit:(BOOL)flag;
 
 @end

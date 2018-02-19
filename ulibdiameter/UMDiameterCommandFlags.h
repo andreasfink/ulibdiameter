@@ -9,6 +9,7 @@
 #define UMDiameterCommandFlag_Request      0x01
 #define UMDiameterCommandFlag_Proxyable    0x02
 #define UMDiameterCommandFlag_Error        0x04
+#define UMDiameterCommandFlag_Transmit     0x08
 
 
-@end
+
