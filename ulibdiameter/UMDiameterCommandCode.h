@@ -18,3 +18,4 @@ typedef enum UMDiameterCommandCode
     UMDiameterCommandCode_Session_Termination = 275,
 } UMDiameterCommandCode;
 
+extern NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL request);

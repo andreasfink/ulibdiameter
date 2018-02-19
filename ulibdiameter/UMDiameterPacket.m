@@ -60,17 +60,17 @@
     {
         _version = header[0];
         _commandFlags = header[4];
-        _commandCode = (header[5] << 16) || (header[6] << 8) || ( header[7]);
-        _applicationId =  (header[8] << 24) || (header[9] << 16) || (header[10] << 8) || ( header[11]);
-        _hopByHopIdentifier =  (header[12] << 24) || (header[13] << 16) || (header[14] << 8) || ( header[15]);
-        _endToEndIdentifier =  (header[16] << 24) || (header[17] << 16) || (header[18] << 8) || ( header[19]);
+        _commandCode = (header[5] << 16) | (header[6] << 8) | ( header[7]);
+        _applicationId =  (header[8] << 24) | (header[9] << 16) | (header[10] << 8) | ( header[11]);
+        _hopByHopIdentifier =  (header[12] << 24) | (header[13] << 16) | (header[14] << 8) | ( header[15]);
+        _endToEndIdentifier =  (header[16] << 24) | (header[17] << 16) | (header[18] << 8) | ( header[19]);
 
         while(packet.length >= (pos+8))
         {
             uint8_t avpheader[8];
             memcpy(avpheader,&packet.bytes[pos],8);
 
-            NSUInteger avplen = (avpheader[5] << 16)|| (avpheader[6] << 8) || (avpheader[7]);
+            NSUInteger avplen = (avpheader[5] << 16)| (avpheader[6] << 8) | (avpheader[7]);
             if(packet.length < (pos+avplen))
             {
                 @throw([NSException exceptionWithName:@"INVALID_PACKET" reason:@"AVP Packets longer than surrounding packet" userInfo:NULL]);

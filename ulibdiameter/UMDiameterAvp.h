@@ -38,4 +38,7 @@
 - (void)setFlagProtected:(BOOL)flag;
 - (void)setFlagMandatory:(BOOL)flag;
 
+- (void)afterDecode;
+- (void)beforeEncode;
+
 @end
