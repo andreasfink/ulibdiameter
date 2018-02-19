@@ -1,0 +1,157 @@
+//
+//  UMDiameterAvp.m
+//  ulibdiameter
+//
+//  Created by Andreas Fink on 19.02.18.
+//  Copyright © 2018 Andreas Fink. All rights reserved.
+//
+
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpFlags.h"
+
+@implementation UMDiameterAvp
+
+- (uint32_t)packetLength
+{
+    uint32_t dlen = (uint32_t)_avpData.length;
+    switch(dlen % 4)
+    {
+        case 1:
+            dlen =  dlen+3;
+            break;
+        case 2:
+            dlen =  dlen+2;
+            break;
+        case 3:
+            dlen =  dlen+1;
+            break;
+    }
+    dlen = dlen + 8; /* code & length */
+    if(_avpFlags & UMDiameterAvpFlag_Vendor )
+    {
+        dlen += 4;
+    }
+    return dlen;
+}
+
+- (uint32_t )dataLength
+{
+    return (uint32_t)_avpData.length;
+}
+
+- (NSData *)packetData
+{
+    uint8_t header[12];
+    uint32_t headerlen;
+    uint32_t dlen = (uint32_t)_avpData.length;
+
+    header[0] = _avpCode & 0xFF000000 >> 24;
+    header[1] = _avpCode & 0x00FF0000 >> 16;
+    header[2] = _avpCode & 0x0000FF00 >> 8;
+    header[3] = _avpCode & 0x000000FF >> 0;
+
+    header[4] = _avpFlags & 0xFF;
+    header[5] = dlen & 0x00FF0000 >> 16;
+    header[6] = dlen & 0x0000FF00 >> 8;
+    header[7] = dlen & 0x000000FF >> 0;
+
+    if(_avpFlags & UMDiameterAvpFlag_Vendor )
+    {
+        headerlen = 12;
+        header[8] = _avpVendorId & 0xFF000000 >> 24;
+        header[9] = _avpVendorId & 0x00FF0000 >> 16;
+        header[10] = _avpVendorId & 0x0000FF00 >> 8;
+        header[11] = _avpVendorId & 0x000000FF >> 0;
+    }
+    else
+    {
+        headerlen = 8;
+    }
+    NSMutableData *d = [[NSMutableData alloc]initWithBytes:header length:headerlen];
+
+    if(dlen > 0)
+    {
+        [d appendData:_avpData];
+        /* append padding bytes */
+        switch(dlen % 4)
+        {
+            case 1:
+                [d appendBytes:"\0\0\0" length:3];
+                break;
+            case 2:
+                [d appendBytes:"\0\0" length:2];
+                break;
+            case 3:
+                [d appendBytes:"\0" length:1];
+                break;
+        }
+    }
+    return d;
+}
+
+- (BOOL)flagVendor
+{
+    if(_avpFlags & UMDiameterAvpFlag_Vendor )
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)flagProtected
+{
+    if(_avpFlags & UMDiameterAvpFlag_Protected )
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)flagMandatory
+{
+    if(_avpFlags & UMDiameterAvpFlag_Mandatory )
+    {
+        return YES;
+    }
+    return NO;
+}
+
+
+
+- (void)setFlagVendor:(BOOL)flag
+{
+    if(flag)
+    {
+        _avpFlags |=  UMDiameterAvpFlag_Vendor;
+    }
+    else
+    {
+        _avpFlags &= ~UMDiameterAvpFlag_Vendor;
+    }
+}
+
+- (void)setFlagProtected:(BOOL)flag
+{
+    if(flag)
+    {
+        _avpFlags |=  UMDiameterAvpFlag_Protected;
+    }
+    else
+    {
+        _avpFlags &= ~UMDiameterAvpFlag_Protected;
+    }
+}
+
+- (void)setFlagMandatory:(BOOL)flag
+{
+    if(flag)
+    {
+        _avpFlags |=  UMDiameterAvpFlag_Mandatory;
+    }
+    else
+    {
+        _avpFlags &= ~UMDiameterAvpFlag_Mandatory;
+    }
+}
+
+@end
