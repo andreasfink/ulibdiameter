@@ -11,6 +11,15 @@
 
 @implementation UMDiameterAvp
 
+- (NSString *)avpType
+{
+    return @"undefined";
+}
+
+- (NSString *)avpName
+{
+    return umdiameter_avp_code_string (self.avpCode);
+}
 
 - (UMDiameterAvp *)initWithData:(NSData *)data
 {
@@ -84,13 +93,16 @@
     uint8_t header[12];
     uint32_t headerlen;
     uint32_t dlen = (uint32_t)_avpData.length;
-    
-    header[0] = _avpCode & 0xFF000000 >> 24;
-    header[1] = _avpCode & 0x00FF0000 >> 16;
-    header[2] = _avpCode & 0x0000FF00 >> 8;
-    header[3] = _avpCode & 0x000000FF >> 0;
-    
-    header[4] = _avpFlags & 0xFF;
+
+    uint32_t code = self.avpCode;
+    header[0] = code & 0xFF000000 >> 24;
+    header[1] = code & 0x00FF0000 >> 16;
+    header[2] = code & 0x0000FF00 >> 8;
+    header[3] = code & 0x000000FF >> 0;
+
+    uint8_t flags = self.avpFlags;
+
+    header[4] = flags & 0xFF;
     header[5] = dlen & 0x00FF0000 >> 16;
     header[6] = dlen & 0x0000FF00 >> 8;
     header[7] = dlen & 0x000000FF >> 0;

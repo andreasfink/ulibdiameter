@@ -11,6 +11,10 @@
 
 @implementation UMDiameterAvpInteger32
 
+- (NSString *)avpType
+{
+    return @"Integer32";
+}
 
 - (void)afterDecode
 {
@@ -18,20 +22,16 @@
     {
         @throw([NSException exceptionWithName:@"INVALID_PACKET" reason:@"AVP Integer32 Packet length is not 4" userInfo:NULL]);
     }
-    const uint8_t *bytes = _avpData.bytes;
-    _value =    (bytes[0] << 24) | (bytes[1] << 16) | (bytes[2] << 8) | (bytes[3] << 0);
+    _value = (int32_t)ntohl( *(int32_t *)_avpData.bytes);
 }
 
 - (void)beforeEncode
 {
     uint8_t bytes[4];
-    
-    bytes[0] = _value & 0xFF000000 >> 24;
-    bytes[1] = _value & 0x00FF0000 >> 16;
-    bytes[2] = _value & 0x0000FF00 >> 8;
-    bytes[3] = _value & 0x000000FF >> 0;
-    
+
+    *(int32_t *)&bytes[0]  = (int32_t)htonl( (int32_t)_value);
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
+
 
 @end

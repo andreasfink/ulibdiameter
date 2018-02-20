@@ -7,6 +7,7 @@
 //
 
 #import <ulib/ulib.h>
+#import "UMDiameterAvpCodes.h"
 
 @interface UMDiameterAvp : UMObject
 {
@@ -16,7 +17,7 @@
     NSData      *_avpData;
 }
 
-
+- (NSString *)avpType;
 - (UMDiameterAvp *)initWithData:(NSData *)data;
 
 - (uint32_t)packetLength;   /* length inclusive padding inclusive header length */

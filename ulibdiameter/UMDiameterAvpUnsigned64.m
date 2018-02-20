@@ -10,33 +10,26 @@
 
 @implementation UMDiameterAvpUnsigned64
 
+
+- (NSString *)avpType
+{
+    return @"Unsigned64";
+}
+
 - (void)afterDecode
 {
     if(_avpData.length != 8)
     {
         @throw([NSException exceptionWithName:@"INVALID_PACKET" reason:@"AVP Unsigned64 Packet length is not 8" userInfo:NULL]);
     }
-    const uint8_t *bytes = _avpData.bytes;
-    _value = 0;
-    for(int i=0;i<8;i++)
-    {
-        _value = (_value << 8) || bytes[i];
-    }
+    _value = (uint64_t)ntohll( *(uint64_t *)_avpData.bytes);
 }
 
 - (void)beforeEncode
 {
     uint8_t bytes[8];
-    
-    bytes[0] = _value & 0xFF00000000000000LL >> 56;
-    bytes[1] = _value & 0x00FF000000000000LL >> 48;
-    bytes[2] = _value & 0x0000FF0000000000LL >> 40;
-    bytes[3] = _value & 0x000000FF00000000LL >> 32;
-    bytes[4] = _value & 0x00000000FF000000LL >> 24;
-    bytes[5] = _value & 0x0000000000FF0000LL >> 16;
-    bytes[6] = _value & 0x000000000000FF00LL >> 8;
-    bytes[7] = _value & 0x00000000000000FFLL >> 0;
-    
+
+    *(uint64_t *)&bytes[0]  = (uint64_t)htonll( (uint64_t)_value);
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
