@@ -15,4 +15,14 @@
     return @"UTF8String";
 }
 
+- (NSString *)value
+{
+    return [[NSString alloc] initWithData:_avpData encoding:NSUTF8StringEncoding];
+}
+
+- (void)setValue:(NSString *)v
+{
+    _avpData = [v dataUsingEncoding:NSUTF8StringEncoding];
+}
+
 @end

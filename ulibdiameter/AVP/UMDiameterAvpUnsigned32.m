@@ -33,4 +33,16 @@
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
+
+
+- (NSNumber *)number
+{
+    return [[NSNumber alloc]initWithUnsignedInt:self.value];
+}
+
+- (void)setNumber:(NSNumber *)n
+{
+    self.value = n.unsignedIntValue;
+}
+
 @end

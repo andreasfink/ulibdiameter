@@ -8,10 +8,14 @@
 
 #import <ulib/ulib.h>
 
+#import "UMDiameterCommandFlags.h"
+#import "UMDiameterCommandCode.h"
+
 #define DIAMETER_COMMAND_FLAG_REQUEST
 #define DIAMETER_COMMAND_FLAG_PROXIABLE
 #define DIAMETER_COMMAND_FLAG_ERROR
 #define DIAMETER_COMMAND_FLAG_POTENTIAL_RETRANSMIT
+@class UMDiameterAvp;
 
 @interface UMDiameterPacket : UMObject
 {
@@ -23,6 +27,14 @@
     uint32_t    _endToEndIdentifier;
     UMSynchronizedArray *_avps;
 }
+
+
+@property(readwrite,assign,atomic)  uint8_t     version;
+@property(readwrite,assign,atomic)  uint8_t     commandFlags;
+@property(readwrite,assign,atomic)  uint32_t    commandCode;
+@property(readwrite,assign,atomic)  uint32_t    applicationId;
+@property(readwrite,assign,atomic)  uint32_t    hopByHopIdentifier;
+@property(readwrite,assign,atomic)  uint32_t    endToEndIdentifier;
 
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;
@@ -37,5 +49,5 @@
 - (void)setFlagProxyable:(BOOL)flag;
 - (void)setFlagError:(BOOL)flag;
 - (void)setFlagTransmit:(BOOL)flag;
-
+- (void)appendAvp:(UMDiameterAvp *)avp;
 @end

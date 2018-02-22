@@ -33,5 +33,15 @@
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
+- (NSNumber *)number
+{
+    return [[NSNumber alloc]initWithInt:self.value];
+}
+
+- (void)setNumber:(NSNumber *)n
+{
+    self.value = n.intValue;
+}
+
 
 @end

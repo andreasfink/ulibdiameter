@@ -18,6 +18,7 @@
     if(self)
     {
         _avps = [[UMSynchronizedArray alloc]init];
+        _version = 1;
     }
     return self;
 }
@@ -223,6 +224,12 @@
     {
         _commandFlags &= ~UMDiameterCommandFlag_Transmit;
     }
+}
+
+
+- (void)appendAvp:(UMDiameterAvp *)avp
+{
+    [_avps addObject:avp];
 }
 
 @end

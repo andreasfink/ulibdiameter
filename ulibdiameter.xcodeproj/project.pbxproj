@@ -27,6 +27,10 @@
 		A61BFECA203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFEC8203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m */; };
 		A61BFECD203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFECB203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.h */; };
 		A61BFECE203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFECC203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.m */; };
+		A61BFED1203D685F00072EB4 /* UMDiameterAvpAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFECF203D685F00072EB4 /* UMDiameterAvpAll.h */; };
+		A61BFED2203D685F00072EB4 /* UMDiameterAvpAll.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFED0203D685F00072EB4 /* UMDiameterAvpAll.m */; };
+		A61BFED5203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFED3203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h */; };
+		A61BFED6203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFED4203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m */; };
 		A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
 		A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */; };
 		A6609EBA203A66A600C25C7B /* ulibdiameter.h in Headers */ = {isa = PBXBuildFile; fileRef = A6609EAC203A66A600C25C7B /* ulibdiameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -203,6 +207,10 @@
 		A61BFEC8203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAccountingServerStateIdle.m; sourceTree = "<group>"; };
 		A61BFECB203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAccountingServerStateOpen.h; sourceTree = "<group>"; };
 		A61BFECC203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAccountingServerStateOpen.m; sourceTree = "<group>"; };
+		A61BFECF203D685F00072EB4 /* UMDiameterAvpAll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAll.h; sourceTree = "<group>"; };
+		A61BFED0203D685F00072EB4 /* UMDiameterAvpAll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAll.m; sourceTree = "<group>"; };
+		A61BFED3203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAuthApplicationId.h; sourceTree = "<group>"; };
+		A61BFED4203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAuthApplicationId.m; sourceTree = "<group>"; };
 		A6609EA9203A66A600C25C7B /* ulibdiameter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ulibdiameter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6609EAC203A66A600C25C7B /* ulibdiameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ulibdiameter.h; sourceTree = "<group>"; };
 		A6609EAD203A66A600C25C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -456,6 +464,8 @@
 		A6A58CB3203CE9FF00D0C2BE /* AVP */ = {
 			isa = PBXGroup;
 			children = (
+				A61BFECF203D685F00072EB4 /* UMDiameterAvpAll.h */,
+				A61BFED0203D685F00072EB4 /* UMDiameterAvpAll.m */,
 				A6A58BBD203AEC0000D0C2BE /* UMDiameterAvpFlags.h */,
 				A6A58CA1203CA1BA00D0C2BE /* UMDiameterAvpCodes.h */,
 				A6A58CA5203CA1FB00D0C2BE /* UMDiameterAvpCodes.m */,
@@ -465,6 +475,8 @@
 				A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.m */,
 				A6A58BFD203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.h */,
 				A6A58BFE203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.m */,
+				A61BFED3203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h */,
+				A61BFED4203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m */,
 				A6A58BE5203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.h */,
 				A6A58BE6203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.m */,
 				A6A58BED203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.h */,
@@ -620,6 +632,7 @@
 				A6609EBA203A66A600C25C7B /* ulibdiameter.h in Headers */,
 				A6A58C23203C9EEB00D0C2BE /* UMDiameterAvpDisconnectCause.h in Headers */,
 				A6A58BC7203C636700D0C2BE /* UMDiameterAvpOctetString.h in Headers */,
+				A61BFED1203D685F00072EB4 /* UMDiameterAvpAll.h in Headers */,
 				A6F2C90B203B897000DA49BF /* UMDiameterAvpUnsigned32.h in Headers */,
 				A6A58BAF203A6D9700D0C2BE /* UMDiameterPacket.h in Headers */,
 				A6A58C6F203CA07900D0C2BE /* UMDiameterAvpRedirectHostUsage.h in Headers */,
@@ -639,6 +652,7 @@
 				A6A58C2B203C9F1200D0C2BE /* UMDiameterAvpErrorReportingHost.h in Headers */,
 				A6A58C07203C9E7100D0C2BE /* UMDiameterAvpAuthorizationLifetime.h in Headers */,
 				A6A58C87203CA12C00D0C2BE /* UMDiameterAvpSessionTimeout.h in Headers */,
+				A61BFED5203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h in Headers */,
 				A6A58BF7203C9D8600D0C2BE /* UMDiameterAvpAcctSessionId.h in Headers */,
 				A6A58C97203CA17A00D0C2BE /* UMDiameterAvpUserName.h in Headers */,
 				A6A58C77203CA0A200D0C2BE /* UMDiameterAvpResultCode.h in Headers */,
@@ -777,6 +791,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61BFED2203D685F00072EB4 /* UMDiameterAvpAll.m in Sources */,
 				A6A58BE0203C675600D0C2BE /* UMDiameterAvpEnumerated.m in Sources */,
 				A6A58C34203C9F3600D0C2BE /* UMDiameterAvpExperimentalResult.m in Sources */,
 				A6A58BF8203C9D8600D0C2BE /* UMDiameterAvpAcctSessionId.m in Sources */,
@@ -800,6 +815,7 @@
 				A61BFECA203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m in Sources */,
 				A6A58C4C203C9FCC00D0C2BE /* UMDiameterAvpMultiRoundTimeout.m in Sources */,
 				A6A58C94203CA16F00D0C2BE /* UMDiameterAvpTerminationCause.m in Sources */,
+				A61BFED6203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m in Sources */,
 				A6A58C28203C9F0300D0C2BE /* UMDiameterAvpErrorMessage.m in Sources */,
 				A6A58C6C203CA06800D0C2BE /* UMDiameterAvpRedirectHost.m in Sources */,
 				A61BFEC6203CF58B00072EB4 /* UMDiameterAccountingServerState.m in Sources */,

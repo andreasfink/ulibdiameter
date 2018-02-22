@@ -15,4 +15,8 @@
 
 @property(readwrite,assign,atomic) int64_t value;
 
+- (NSNumber *)number;
+- (void)setNumber:(NSNumber *)n;
+
+
 @end
