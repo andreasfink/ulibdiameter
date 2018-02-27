@@ -60,7 +60,7 @@
 
 - (uint32_t)packetLength
 {
-    uint32_t dlen = (uint32_t)_avpData.length;
+    uint32_t dlen = (uint32_t)self.dataLength;
     switch(dlen % 4)
     {
         case 1:
@@ -93,27 +93,34 @@
     uint8_t header[12];
     uint32_t headerlen;
     uint32_t dlen = (uint32_t)_avpData.length;
-
+    if(_avpFlags & UMDiameterAvpFlag_Vendor )
+    {
+        dlen+=12;
+    }
+    else
+    {
+        dlen+=8;
+    }
     uint32_t code = self.avpCode;
-    header[0] = code & 0xFF000000 >> 24;
-    header[1] = code & 0x00FF0000 >> 16;
-    header[2] = code & 0x0000FF00 >> 8;
-    header[3] = code & 0x000000FF >> 0;
+    header[0] = (code & 0xFF000000) >> 24;
+    header[1] = (code & 0x00FF0000) >> 16;
+    header[2] = (code & 0x0000FF00) >> 8;
+    header[3] = (code & 0x000000FF) >> 0;
 
     uint8_t flags = self.avpFlags;
 
     header[4] = flags & 0xFF;
-    header[5] = dlen & 0x00FF0000 >> 16;
-    header[6] = dlen & 0x0000FF00 >> 8;
-    header[7] = dlen & 0x000000FF >> 0;
+    header[5] = (dlen & 0x00FF0000) >> 16;
+    header[6] = (dlen & 0x0000FF00) >> 8;
+    header[7] = (dlen & 0x000000FF) >> 0;
     
     if(_avpFlags & UMDiameterAvpFlag_Vendor )
     {
         headerlen = 12;
-        header[8] = _avpVendorId & 0xFF000000 >> 24;
-        header[9] = _avpVendorId & 0x00FF0000 >> 16;
-        header[10] = _avpVendorId & 0x0000FF00 >> 8;
-        header[11] = _avpVendorId & 0x000000FF >> 0;
+        header[8] = (_avpVendorId & 0xFF000000) >> 24;
+        header[9] = (_avpVendorId & 0x00FF0000) >> 16;
+        header[10] = (_avpVendorId & 0x0000FF00) >> 8;
+        header[11] = (_avpVendorId & 0x000000FF) >> 0;
     }
     else
     {
@@ -121,7 +128,7 @@
     }
     NSMutableData *d = [[NSMutableData alloc]initWithBytes:header length:headerlen];
     
-    if(dlen > 0)
+    if(_avpData.length > 0)
     {
         [d appendData:_avpData];
         /* append padding bytes */

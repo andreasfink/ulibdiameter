@@ -55,5 +55,17 @@
     _avpData = d;
 }
 
+- (NSArray *)array
+{
+    return [_avps arrayCopy];
+}
 
+- (void)setArray:(NSArray *)array
+{
+    _avps = [[UMSynchronizedArray alloc]init];
+    for(id item in array)
+    {
+        [_avps addObject:item];
+    }
+}
 @end

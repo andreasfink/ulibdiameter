@@ -43,5 +43,9 @@
     self.value = n.intValue;
 }
 
+- (uint32_t)dataLength
+{
+    return 4;
+}
 
 @end

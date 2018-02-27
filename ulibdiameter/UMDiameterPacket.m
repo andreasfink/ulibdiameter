@@ -23,7 +23,6 @@
     return self;
 }
 
-
 - (UMDiameterPacket *)initWithData:(NSData *)packet
 {
     return [self initWithData:packet atPosition:NULL];
@@ -95,7 +94,7 @@
 
     uint8_t header[20];
 
-    uint32_t _messageLength = 20;
+    uint32_t _messageLength = sizeof(header);
 
     NSUInteger n = _avps.count;
     for(NSUInteger i = 0;i<n;i++)
@@ -105,35 +104,39 @@
     }
 
     header[0] = _version & 0xFF;
-    header[1] = _messageLength & 0x00FF0000 >> 16;
-    header[2] = _messageLength & 0x0000FF00 >> 8;
-    header[3] = _messageLength & 0x000000FF >> 0;
-    header[4] = _commandFlags & 0x000000FF >> 0;
-    header[5] = _commandCode & 0x00FF0000 >> 16;
-    header[6] = _commandCode & 0x0000FF00 >> 8;
-    header[7] = _commandCode & 0x000000FF >> 0;
-    header[8] = _applicationId & 0xFF00000 >> 24;
-    header[9] = _applicationId & 0x00FF0000 >> 16;
-    header[10] = _applicationId & 0x0000FF00 >> 8;
-    header[11] = _applicationId & 0x000000FF >> 0;
-    header[12] = _hopByHopIdentifier & 0xFF00000 >> 24;
-    header[13] = _hopByHopIdentifier & 0x00FF0000 >> 16;
-    header[14] = _hopByHopIdentifier & 0x0000FF00 >> 8;
-    header[15] = _hopByHopIdentifier & 0x000000FF >> 0;
-    header[16] = _endToEndIdentifier & 0xFF00000 >> 24;
-    header[17] = _endToEndIdentifier & 0x00FF0000 >> 16;
-    header[18] = _endToEndIdentifier & 0x0000FF00 >> 8;
-    header[19] = _endToEndIdentifier & 0x000000FF >> 0;
-
+    header[1] = (_messageLength & 0x00FF0000) >> 16;
+    header[2] = (_messageLength & 0x0000FF00) >> 8;
+    header[3] = (_messageLength & 0x000000FF) >> 0;
+    header[4] = (_commandFlags & 0x000000FF) >> 0;
+    header[5] = (_commandCode & 0x00FF0000) >> 16;
+    header[6] = (_commandCode & 0x0000FF00) >> 8;
+    header[7] = (_commandCode & 0x000000FF) >> 0;
+    header[8] = (_applicationId & 0xFF00000) >> 24;
+    header[9] = (_applicationId & 0x00FF0000) >> 16;
+    header[10] = (_applicationId & 0x0000FF00) >> 8;
+    header[11] = (_applicationId & 0x000000FF) >> 0;
+    header[12] = (_hopByHopIdentifier & 0xFF00000) >> 24;
+    header[13] = (_hopByHopIdentifier & 0x00FF0000) >> 16;
+    header[14] = (_hopByHopIdentifier & 0x0000FF00) >> 8;
+    header[15] = (_hopByHopIdentifier & 0x000000FF) >> 0;
+    header[16] = (_endToEndIdentifier & 0xFF00000) >> 24;
+    header[17] = (_endToEndIdentifier & 0x00FF0000) >> 16;
+    header[18] = (_endToEndIdentifier & 0x0000FF00) >> 8;
+    header[19] = (_endToEndIdentifier & 0x000000FF) >> 0;
 
     NSMutableData *data = [NSMutableData dataWithBytes:header length:sizeof(header)];
 
+    int dlen=20;
     for(NSUInteger i = 0;i<n;i++)
     {
         UMDiameterAvp *avp = _avps[i];
-        [data appendData: avp.packetData];
+        NSData *avpData = avp.packetData;
+        [data appendData:avpData];
+        dlen+=avpData.length;
+        
+        NSLog(@"i=%u: %lu  %lu",i,avpData.length,dlen);
     }
-    NSUInteger dlen = data.length;
+
     if((dlen % 4) !=0)
     {
         @throw([NSException exceptionWithName:@"ALIGNMENT" reason:@"packet does not have aligned length" userInfo:NULL]);

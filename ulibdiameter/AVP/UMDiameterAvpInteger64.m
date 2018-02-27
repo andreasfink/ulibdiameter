@@ -42,5 +42,9 @@
     self.value = n.unsignedLongLongValue;
 }
 
+- (uint32_t)dataLength
+{
+    return 8;
+}
 
 @end

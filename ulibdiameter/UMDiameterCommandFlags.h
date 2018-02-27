@@ -6,10 +6,10 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#define UMDiameterCommandFlag_Request      0x01
-#define UMDiameterCommandFlag_Proxyable    0x02
-#define UMDiameterCommandFlag_Error        0x04
-#define UMDiameterCommandFlag_Transmit     0x08
+#define UMDiameterCommandFlag_Request      0x80
+#define UMDiameterCommandFlag_Proxyable    0x40
+#define UMDiameterCommandFlag_Error        0x20
+#define UMDiameterCommandFlag_Transmit     0x10
 
 
 

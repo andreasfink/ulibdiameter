@@ -161,6 +161,14 @@
 		A6A58CAA203CABBE00D0C2BE /* UMDiameterAvpSessionBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58CA8203CABBE00D0C2BE /* UMDiameterAvpSessionBinding.m */; };
 		A6A58CAD203CAE9700D0C2BE /* UMDiameterError.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58CAB203CAE9700D0C2BE /* UMDiameterError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6A58CAE203CAE9700D0C2BE /* UMDiameterError.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58CAC203CAE9700D0C2BE /* UMDiameterError.m */; };
+		A6DE5FEF2045453A00F08DCD /* UMDiameterAVP_Options.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DE5FED2045453A00F08DCD /* UMDiameterAVP_Options.h */; };
+		A6DE5FF82045781400F08DCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE5FF72045781400F08DCD /* main.m */; };
+		A6DE5FFC204578BA00F08DCD /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA9203A67C200D0C2BE /* ulibpcap.framework */; };
+		A6DE5FFD204578C100F08DCD /* ulibsctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA7203A67B900D0C2BE /* ulibsctp.framework */; };
+		A6DE5FFE204578C600F08DCD /* sctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA5203A67AE00D0C2BE /* sctp.framework */; };
+		A6DE5FFF204578CA00F08DCD /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA3203A67A600D0C2BE /* ulib.framework */; };
+		A6DE600020457B3900F08DCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE5FF72045781400F08DCD /* main.m */; };
+		A6DE600120457B6900F08DCD /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
 		A6F2C900203B80CF00DA49BF /* UMDiameterCommandCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F2C8FF203B80CF00DA49BF /* UMDiameterCommandCode.m */; };
 		A6F2C903203B845F00DA49BF /* UMDiameterAvpInteger32.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F2C901203B845F00DA49BF /* UMDiameterAvpInteger32.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6F2C904203B845F00DA49BF /* UMDiameterAvpInteger32.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F2C902203B845F00DA49BF /* UMDiameterAvpInteger32.m */; };
@@ -185,6 +193,18 @@
 			remoteInfo = ulibdiameter;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A6DE5FF32045781400F08DCD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A61BFEA1203CEB2A00072EB4 /* UMDiameterAuthorisationServerState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAuthorisationServerState.h; sourceTree = "<group>"; };
@@ -344,6 +364,9 @@
 		A6A58CA8203CABBE00D0C2BE /* UMDiameterAvpSessionBinding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpSessionBinding.m; sourceTree = "<group>"; };
 		A6A58CAB203CAE9700D0C2BE /* UMDiameterError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterError.h; sourceTree = "<group>"; };
 		A6A58CAC203CAE9700D0C2BE /* UMDiameterError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterError.m; sourceTree = "<group>"; };
+		A6DE5FED2045453A00F08DCD /* UMDiameterAVP_Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAVP_Options.h; sourceTree = "<group>"; };
+		A6DE5FF52045781400F08DCD /* client-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "client-test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6DE5FF72045781400F08DCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A6F2C8FE203B7F8D00DA49BF /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		A6F2C8FF203B80CF00DA49BF /* UMDiameterCommandCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterCommandCode.m; sourceTree = "<group>"; };
 		A6F2C901203B845F00DA49BF /* UMDiameterAvpInteger32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpInteger32.h; sourceTree = "<group>"; };
@@ -381,6 +404,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6DE5FF22045781400F08DCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6DE5FFD204578C100F08DCD /* ulibsctp.framework in Frameworks */,
+				A6DE5FFC204578BA00F08DCD /* ulibpcap.framework in Frameworks */,
+				A6DE5FFF204578CA00F08DCD /* ulib.framework in Frameworks */,
+				A6DE600120457B6900F08DCD /* ulibdiameter.framework in Frameworks */,
+				A6DE5FFE204578C600F08DCD /* sctp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -390,6 +425,7 @@
 				A6F2C8FE203B7F8D00DA49BF /* doc */,
 				A6609EAB203A66A600C25C7B /* ulibdiameter */,
 				A6609EB6203A66A600C25C7B /* ulibdiameterTests */,
+				A6DE5FF62045781400F08DCD /* client-test */,
 				A6609EAA203A66A600C25C7B /* Products */,
 				A6A58BA2203A678600D0C2BE /* Frameworks */,
 			);
@@ -400,6 +436,7 @@
 			children = (
 				A6609EA9203A66A600C25C7B /* ulibdiameter.framework */,
 				A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */,
+				A6DE5FF52045781400F08DCD /* client-test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,6 +455,7 @@
 				A6A58CAC203CAE9700D0C2BE /* UMDiameterError.m */,
 				A61BFEBD203CF31600072EB4 /* UMDiameterService.h */,
 				A61BFEBE203CF31600072EB4 /* UMDiameterService.m */,
+				A6DE5FED2045453A00F08DCD /* UMDiameterAVP_Options.h */,
 				A6A58CB3203CE9FF00D0C2BE /* AVP */,
 				A61BFEA9203CEC1500072EB4 /* UMDiameterAuthorisationServerStateAll.h */,
 				A61BFEA1203CEB2A00072EB4 /* UMDiameterAuthorisationServerState.h */,
@@ -601,6 +639,14 @@
 			path = AVP;
 			sourceTree = "<group>";
 		};
+		A6DE5FF62045781400F08DCD /* client-test */ = {
+			isa = PBXGroup;
+			children = (
+				A6DE5FF72045781400F08DCD /* main.m */,
+			);
+			path = "client-test";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -681,6 +727,7 @@
 				A61BFEC5203CF58B00072EB4 /* UMDiameterAccountingServerState.h in Headers */,
 				A6A58CA3203CA1BA00D0C2BE /* UMDiameterAvpCodes.h in Headers */,
 				A6A58C37203C9F4E00D0C2BE /* UMDiameterAvpExperimentalResultCode.h in Headers */,
+				A6DE5FEF2045453A00F08DCD /* UMDiameterAVP_Options.h in Headers */,
 				A61BFECD203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.h in Headers */,
 				A6A58BDF203C675600D0C2BE /* UMDiameterAvpEnumerated.h in Headers */,
 				A6A58C5F203CA02300D0C2BE /* UMDiameterAvpProxyHost.h in Headers */,
@@ -732,6 +779,23 @@
 			productReference = A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A6DE5FF42045781400F08DCD /* client-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6DE5FF92045781400F08DCD /* Build configuration list for PBXNativeTarget "client-test" */;
+			buildPhases = (
+				A6DE5FF12045781400F08DCD /* Sources */,
+				A6DE5FF22045781400F08DCD /* Frameworks */,
+				A6DE5FF32045781400F08DCD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "client-test";
+			productName = "client-test";
+			productReference = A6DE5FF52045781400F08DCD /* client-test */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -746,6 +810,10 @@
 						ProvisioningStyle = Automatic;
 					};
 					A6609EB1203A66A600C25C7B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					A6DE5FF42045781400F08DCD = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -765,6 +833,7 @@
 			targets = (
 				A6609EA8203A66A600C25C7B /* ulibdiameter */,
 				A6609EB1203A66A600C25C7B /* ulibdiameterTests */,
+				A6DE5FF42045781400F08DCD /* client-test */,
 			);
 		};
 /* End PBXProject section */
@@ -819,6 +888,7 @@
 				A6A58C28203C9F0300D0C2BE /* UMDiameterAvpErrorMessage.m in Sources */,
 				A6A58C6C203CA06800D0C2BE /* UMDiameterAvpRedirectHost.m in Sources */,
 				A61BFEC6203CF58B00072EB4 /* UMDiameterAccountingServerState.m in Sources */,
+				A6DE600020457B3900F08DCD /* main.m in Sources */,
 				A6A58BF0203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.m in Sources */,
 				A6A58BCC203C645100D0C2BE /* UMDiameterAvpAddress.m in Sources */,
 				A6A58C00203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.m in Sources */,
@@ -880,6 +950,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6DE5FF12045781400F08DCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6DE5FF82045781400F08DCD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -899,7 +977,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -957,7 +1035,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1076,6 +1154,34 @@
 			};
 			name = Release;
 		};
+		A6DE5FFA2045781400F08DCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6DE5FFB2045781400F08DCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1102,6 +1208,15 @@
 			buildConfigurations = (
 				A6609EC1203A66A600C25C7B /* Debug */,
 				A6609EC2203A66A600C25C7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6DE5FF92045781400F08DCD /* Build configuration list for PBXNativeTarget "client-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6DE5FFA2045781400F08DCD /* Debug */,
+				A6DE5FFB2045781400F08DCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

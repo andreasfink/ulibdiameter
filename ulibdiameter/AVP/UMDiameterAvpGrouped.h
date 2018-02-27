@@ -13,4 +13,7 @@
     UMSynchronizedArray *_avps;
 }
 
+- (NSArray *)array;
+- (void)setArray:(NSArray *)array;
+
 @end

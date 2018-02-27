@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#define UMDiameterAvpFlag_Vendor    0x01
-#define UMDiameterAvpFlag_Mandatory 0x02
-#define UMDiameterAvpFlag_Protected 0x04
+#define UMDiameterAvpFlag_Vendor    0x80
+#define UMDiameterAvpFlag_Mandatory 0x40
+#define UMDiameterAvpFlag_Protected 0x20
 
