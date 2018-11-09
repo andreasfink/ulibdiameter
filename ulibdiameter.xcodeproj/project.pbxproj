@@ -27,7 +27,7 @@
 		A61BFECA203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFEC8203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m */; };
 		A61BFECD203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFECB203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.h */; };
 		A61BFECE203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFECC203CF5F200072EB4 /* UMDiameterAccountingServerStateOpen.m */; };
-		A61BFED1203D685F00072EB4 /* UMDiameterAvpAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFECF203D685F00072EB4 /* UMDiameterAvpAll.h */; };
+		A61BFED1203D685F00072EB4 /* UMDiameterAvpAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFECF203D685F00072EB4 /* UMDiameterAvpAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A61BFED2203D685F00072EB4 /* UMDiameterAvpAll.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFED0203D685F00072EB4 /* UMDiameterAvpAll.m */; };
 		A61BFED5203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFED3203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h */; };
 		A61BFED6203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BFED4203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.m */; };
