@@ -658,7 +658,7 @@ static int multi_check(int options)
         NSData *pdu =[_packetTracePseudoConnection tcpPacket:packedData inbound:NO];
         [_packetTraceFile writePdu:pdu];
     }
-	[_socket sendData:packetData];
+	[_socket sendData:packedData];
 }
 
 - (void)addLocalIPv4Address:(NSString *)addr

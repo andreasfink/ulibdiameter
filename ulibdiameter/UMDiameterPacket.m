@@ -134,7 +134,7 @@
         [data appendData:avpData];
         dlen+=avpData.length;
         
-        NSLog(@"i=%u: %lu  %lu",i,avpData.length,dlen);
+        NSLog(@"i=%lu: %lu  %lu",(unsigned long)i,(unsigned long)avpData.length,(unsigned long)dlen);
     }
 
     if((dlen % 4) !=0)
