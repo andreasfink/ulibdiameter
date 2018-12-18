@@ -166,7 +166,7 @@ AC_SUBST(SHARED_LIBRARY_EXTENSION)
 AC_CONFIG_FILES([Makefile.osx])
 AC_CONFIG_FILES([Makefile.linux])
 AC_CONFIG_FILES([ulibdiameter.pc])
-
+AC_CONFIG_FILES([ulibdiameter/ulibdiameter_config.h])
 AC_OUTPUT
 case "$host" in
   *apple-darwin*) 
