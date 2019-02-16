@@ -12,7 +12,7 @@
 @class UMDiameterPeerState;
 @class UMDiameterRouter;
 
-@interface UMDiameterPeer : UMLayer
+@interface UMDiameterPeer : UMLayer<UMLayerUserProtocol>
 {
     UMLayerSctp             *_sctp;
     UMDiameterRouter        *_router;

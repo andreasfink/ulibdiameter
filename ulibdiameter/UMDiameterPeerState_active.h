@@ -8,10 +8,8 @@
 
 #import "UMDiameterPeerState.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface UMDiameterPeerState_active : UMDiameterPeerState
 
 @end
 
-NS_ASSUME_NONNULL_END

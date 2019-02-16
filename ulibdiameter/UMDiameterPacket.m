@@ -235,4 +235,11 @@
     [_avps addObject:avp];
 }
 
+
+- (NSString *)getSessionIdentifier
+{
+    /* FIXME */
+    return NULL;
+}
+
 @end
