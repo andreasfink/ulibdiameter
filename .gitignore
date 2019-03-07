@@ -11,9 +11,8 @@ config.log
 config.status
 stamp-h1
 autom4te.cache
-Classes/ulib_config.h
+ulibdiameter/ulibdiameter_config.h
 version.h
-
 
 #########################
 # .gitignore file for Xcode4 and Xcode5 Source projects

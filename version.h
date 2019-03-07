@@ -1,0 +1,4 @@
+#define VERSION "1.9.2"
+#define BUILD "ccbc9eec403ef9515e730d640911b6d5c5e38301"
+#define BUILDDATE "Thu Feb 28 09:39:53 2019 +0100"
+#define COMPILEDATE "2019.03.06-20:16:17"

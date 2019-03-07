@@ -50,4 +50,7 @@
 - (void)setFlagError:(BOOL)flag;
 - (void)setFlagTransmit:(BOOL)flag;
 - (void)appendAvp:(UMDiameterAvp *)avp;
+
+- (NSString *)getSessionIdentifier;
+
 @end
