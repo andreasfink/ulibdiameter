@@ -22,6 +22,8 @@
 
 }
 
+- (authorizeIncomingDiameterConnection:
+
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq name:(NSString *)name;
 
 - (void)queuePacketForRouting:(UMDiameterPacket *)pkt           source:(UMDiameterPeer *)peer;

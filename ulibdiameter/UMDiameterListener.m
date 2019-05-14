@@ -7,6 +7,8 @@
 //
 
 #import "UMDiameterListener.h"
+#import "UMDiameterRouter.h"
+#import "UMDiameterConnection.h"
 
 @implementation UMDiameterListener
 #include <sys/types.h>
@@ -31,77 +33,57 @@ run on top of SCTP when it is used.
 
 - (id) init
 {
-    return [self initWithPort:UMDIAMETER_DEFAULT_PORT socketType:UMSOCKET_TYPE_TCP];
-}
-
-- (id) initWithPort:(in_port_t)port
-{
-    return [self initWithPort:port socketType:UMSOCKET_TYPE_TCP];
-}
-
-- (id) initWithPort:(in_port_t)port socketType:(UMSocketType)type
-{
-    return [self initWithPort:port socketType:type ssl:NO sslKeyFile:NULL sslCertFile:NULL];
+	UMAssert(0, @"call initWithPort:socketType:tls:sslKeyFile:sslCertFile:taskQueue:sctpRegistry:sctpListener: instead");
+	return NULL;
 }
 
 - (id) initWithPort:(in_port_t)port
          socketType:(UMSocketType)type
-                ssl:(BOOL)doSSL
-         sslKeyFile:(NSString *)sslKeyFile
-        sslCertFile:(NSString *)sslCertFile
-{
-    return [self initWithPort:port
-                   socketType:type
-                          ssl:doSSL
-                   sslKeyFile:sslKeyFile
-                  sslCertFile:sslCertFile
-                    taskQueue:NULL];
-}
-
-- (id) initWithPort:(in_port_t)port
-         socketType:(UMSocketType)type
-                ssl:(BOOL)doSSL
+                tls:(BOOL)doTLS
          sslKeyFile:(NSString *)sslKeyFile
         sslCertFile:(NSString *)sslCertFile
           taskQueue:(UMTaskQueue *)tq
+	   sctpRegistry:(UMSocketSCTPRegistry *)registry
+	   sctpListener:(UMSocketSCTPListener *)sctpListener
 {
     self = [super init];
     if(self)
     {
-        _listenerSocket = [[UMSocket alloc] initWithType:type name:@"listener"];
-        [_listenerSocket setLocalPort:port];
+		_listenerSctp = sctpListener;
+		_sctpRegistry = registry;
+		if((type==UMSOCKET_TYPE_SCTP) || (type==UMSOCKET_TYPE_SCTP4ONLY) || (type==UMSOCKET_TYPE_SCTP6ONLY))
+		{
+			_listenerSctp.port = port;
+		}
+		else
+		{
+        	_listenerTcp = [[UMSocket alloc] initWithType:type name:@"listener"];
+		}
+
         _sleeper        = [[UMSleeper alloc]initFromFile:__FILE__ line:__LINE__ function:__func__];
         [_sleeper prepare];
-        connections = [[UMSynchronizedArray alloc] init];
-        _connectionsLock = [[UMMutex alloc]initWithName:@"http-connections-lock"];
 
-        terminatedConnections = [[UMSynchronizedArray alloc]init];
-        lock        = [[NSLock alloc] init];
-        sslLock     = [[NSLock alloc]init];
-        name =  @"unnamed";
+        _connections = [[UMSynchronizedArray alloc] init];
+        _connectionsLock = [[UMMutex alloc]initWithName:@"diameter-connections-lock"];
+
+        _terminatedConnections = [[UMSynchronizedArray alloc]init];
+        _lock        = [[UMMutex alloc] init];
+        _sslLock     = [[UMMutex alloc]init];
         _receivePollTimeoutMs = 5000;
-        serverName = @"UMHTTPServer 1.0";
-        enableSSL = doSSL;
-
+        _useTLS = doTLS;
+		_listenerName = [NSString stringWithFormat:@"diameter-listener-%d",port];
         if(tq)
         {
             _taskQueue = tq;
         }
         else
         {
-            NSString *tqname;
-            if(doSSL)
-            {
-                tqname = @"HTTPS_TaskQueue";
-            }
-            else
-            {
-                tqname = @"HTTP_TaskQueue";
-            }
-            _taskQueue = [[UMTaskQueue alloc]initWithNumberOfThreads:ulib_cpu_count() name:tqname enableLogging:NO];
+            _taskQueue = [[UMTaskQueue alloc]initWithNumberOfThreads:ulib_cpu_count()
+																name:_listenerName
+													   enableLogging:NO];
             [_taskQueue start];
         }
-        if(doSSL)
+        if(doTLS)
         {
             if(sslKeyFile)
             {
@@ -112,56 +94,39 @@ run on top of SCTP when it is used.
                 [self setCertificateFile:sslCertFile];
             }
         }
-        pendingRequests = [[UMSynchronizedArray alloc]init];
     }
     return self;
 }
 
-- (NSString *)description
+- (UMSocketError) startTcp
 {
-    NSMutableString *desc;
-
-    desc = [[NSMutableString alloc] initWithString:@"UM HTTP server dump starts\n"];
-    [desc appendFormat:@"server name was %@\n", serverName ? serverName : @"not set"];
-    [desc appendFormat:@"listenerSocket was %@\n", listenerSocket ? listenerSocket : @"not set"];
-    [desc appendFormat:@"connections were %@\n", connections ? connections : @"none"];
-    [desc appendFormat:@"terminated connections were %@\n", terminatedConnections ? terminatedConnections : @"none"];
-    [desc appendString:@"UM HTTP server dump ends\n"];
-    return desc;
-}
-
-- (UMSocketError) start
-{
-    UMSocketError    sErr;
+    UMSocketError    sErr = UMSocketError_no_error;
     self.logFeed.copyToConsole = 1;
 
-    listenerSocket.objectStatisticsName = [NSString stringWithFormat: @"UMSocket(UMHTTPServer-listener:%@)",serverName];
+	_listenerTcp.objectStatisticsName = [NSString stringWithFormat: @"UMSocket(%@)",_listenerName];
 
     @autoreleasepool
     {
-        if(self.status != UMHTTPServerStatus_notRunning)
+        if(self.status != UMDiameterListenerStatus_notRunning)
         {
-            [self.logFeed majorError:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d failed to start because its already started",name, [listenerSocket requestedLocalPort]]];
+            [_logFeed majorError:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d failed to start because its already started",_listenerName, [_listenerTcp requestedLocalPort]]];
             return UMSocketError_generic_error;
         }
 
-        [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is starting up\r\n",name, [listenerSocket requestedLocalPort]]];
-        [lock lock];
+        [_logFeed info:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d is starting up",_listenerName, [_listenerTcp requestedLocalPort]]];
+        [_lock lock];
 
-        self.status = UMHTTPServerStatus_startingUp;
+        self.status = UMDiameterListenerStatus_startingUp;
         [self runSelectorInBackground:@selector(mainListener)
                            withObject:NULL
                                  file:__FILE__
                                  line:__LINE__
                              function:__func__];
 
-        //       [NSThread detachNewThreadSelector:@selector(mainListener) toTarget:self withObject:nil];
-
-        [sleeper reset];
-
-        while(self.status == UMHTTPServerStatus_startingUp)
+        [_sleeper reset];
+        while(_status == UMDiameterListenerStatus_startingUp)
         {
-            [sleeper sleep:100000];/* wait 100ms */
+            [_sleeper sleep:100000];/* wait 100ms */
         }
 
         if( self.status == UMHTTPServerStatus_running )
@@ -170,19 +135,20 @@ run on top of SCTP when it is used.
         }
         else
         {
-            sErr = lastErr;
+			sErr = _lastErr;
+
             self.status = UMHTTPServerStatus_notRunning;
         }
 
-        [lock unlock];
+        [_lock unlock];
 
         if( self.status == UMHTTPServerStatus_running)
         {
-            [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is running\n",name, [listenerSocket requestedLocalPort]]];
+            [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d is running\n",_listenerName, [_listenerTcp requestedLocalPort]]];
         }
         else
         {
-            [self.logFeed majorError:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d failed to start due to '%@'\n",name, [listenerSocket requestedLocalPort] ,[UMSocket getSocketErrorString:sErr]]];
+            [self.logFeed majorError:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d failed to start due to '%@'\n",_listenerName, [_listenerTcp requestedLocalPort] ,[UMSocket getSocketErrorString:sErr]]];
         }
     }
     return sErr;
@@ -192,7 +158,8 @@ run on top of SCTP when it is used.
 {
     @autoreleasepool
     {
-        ulib_set_thread_name(@"[UMHTTPServer mainListener]");
+		NSString *s = [NSString stringWithFormat:@"DiameterListener %@",_listenerName];
+        ulib_set_thread_name(s);
 
         /* performSelector will handle pool by itself */
         UMSocketError sErr = 0;
@@ -208,11 +175,11 @@ run on top of SCTP when it is used.
 
          */
 
-        listenerRunning = YES;
+        _listenerRunning = YES;
         int counter = 0;
         while(counter < 60)
         {
-            sErr  = [listenerSocket bind];
+            sErr  = [_listenerTcp bind];
             if(sErr != UMSocketError_address_already_in_use)
             {
                 break;
@@ -222,64 +189,52 @@ run on top of SCTP when it is used.
         }
         if(!sErr)
         {
-            sErr  = [listenerSocket listen];
+            sErr  = [_listenerTcp listen];
         }
         if(sErr == UMSocketError_no_error)
         {
-            self.status = UMHTTPServerStatus_running;
+            self.status = UMDiameterListenerStatus_running;
         }
         else
         {
-            lastErr = sErr;
-            self.status = UMHTTPServerStatus_failed;
+            self.lastErr = sErr;
+            self.status = UMDiameterListenerStatus_failed;
         }
 
-        if([advertizeName length]>0)
-        {
-            listenerSocket.advertizeDomain=@"";
-            listenerSocket.advertizeName=advertizeName;
-            listenerSocket.advertizeType=@"_http._tcp";
-            [listenerSocket publish];
-        }
-        [sleeper wakeUp];
+        [_sleeper wakeUp];
 
-        while(self.status == UMHTTPServerStatus_running)
+        while(self.status == UMDiameterListenerStatus_running)
         {
             @autoreleasepool
             {
                 //NSLog(@"_receivePollTimeoutMs=%ld",_receivePollTimeoutMs);
-                pollResult = [listenerSocket dataIsAvailable:_receivePollTimeoutMs];
+                pollResult = [_listenerTcp dataIsAvailable:_receivePollTimeoutMs];
                 if(pollResult == UMSocketError_has_data_and_hup)
                 {
                     NSLog(@"  UMSocketError_has_data_and_hup");
 
-                    /* we get HTTP request but nobody is there to read the answer so we ignore it */
+                    /* we get connection request but nobody is there to read the answer so we ignore it */
                     ;
                 }
                 else if (pollResult == UMSocketError_has_data)
                 {
-                    /* we get new HTTP request */
+                    /* we get new connection request */
                     UMSocketError ret1=UMSocketError_no_error;
-                    UMSocket *clientSocket = [listenerSocket accept:&ret1];
+                    UMSocket *clientSocket = [_listenerTcp accept:&ret1];
                     if(clientSocket)
                     {
-                        clientSocket.useSSL=enableSSL;
-                        clientSocket.serverSideKeyFilename  = privateKeyFile;
-                        clientSocket.serverSideKeyData      = privateKeyFileData;
-                        clientSocket.serverSideCertFilename = certFile;
-                        clientSocket.serverSideCertData     = certFileData;
+                        clientSocket.useSSL=_useTLS;
+                        clientSocket.serverSideKeyFilename  = _privateKeyFile;
+                        clientSocket.serverSideKeyData      = _privateKeyFileData;
+                        clientSocket.serverSideCertFilename = _certFile;
+                        clientSocket.serverSideCertData     = _certFileData;
                         if ([self authorizeConnection:clientSocket] == UMHTTPServerAuthorize_successful)
                         {
 
-                            UMHTTPConnection *con = [[UMHTTPConnection alloc] initWithSocket:clientSocket server:self];
-                            con.name = [NSString stringWithFormat:@"HTTPConnection %@:%d",clientSocket.connectedRemoteAddress,clientSocket.connectedRemotePort];
+							UMDiameterConnection *con = [[UMDiameterConnection alloc] initWithSocket:clientSocket listener:self router:_router];
+                            con.name = [NSString stringWithFormat:@"DiameterConnection %@:%d",clientSocket.connectedRemoteAddress,clientSocket.connectedRemotePort];
                             con.enableKeepalive = _enableKeepalive;
-                            con.server = self;
-
-                            [connections addObject:con];
-
-                            UMHTTPTask_ReadRequest *task = [[UMHTTPTask_ReadRequest alloc]initWithConnection:con];
-                            [_taskQueue queueTask:task];
+                            [_connections addObject:con];
                             con = nil;
                         }
                         else
@@ -289,7 +244,7 @@ run on top of SCTP when it is used.
                     }
                     else
                     {
-                        lastErr = ret1;
+                        _lastErr = ret1;
                     }
                 }
                 else if(pollResult == UMSocketError_no_data)
@@ -298,246 +253,85 @@ run on top of SCTP when it is used.
                 }
                 else
                 {
-                    lastErr = pollResult;
+                    _lastErr = pollResult;
                     self.status = UMHTTPServerStatus_failed;
                 }
             }
             /* maintenance work */
-            while ([terminatedConnections count] > 0)
+            while ([_terminatedConnections count] > 0)
             {
-                UMHTTPConnection *con = [terminatedConnections removeFirst];
+                UMDiameterConnection *con = [_terminatedConnections removeFirst];
                 if(con==NULL)
                 {
                     break;
                 }
-                [con terminateForServer];
+                [con terminate];
                 con = NULL;
             }
         }
-        self.status = UMHTTPServerStatus_shutDown;
-        [listenerSocket unpublish];
-        [listenerSocket close];
-        listenerRunning = NO;
+        self.status = UMDiameterListenerStatus_shutDown;
+        [_listenerTcp close];
+        _listenerRunning = NO;
     }
 }
 
--(UMHTTPServerAuthorizeResult) authorizeConnection:(UMSocket *)us
+-(UMDiameterConnectionAuthorisationResult) authorizeConnection:(UMSocket *)us
 {
-    if(authorizeConnectionDelegate)
+    if(_authorizeConnectionDelegate)
     {
-        if([authorizeConnectionDelegate respondsToSelector:@selector(httpAuthorizeConnection:)])
+        if([_authorizeConnectionDelegate respondsToSelector:@selector(authorizeIncomingDiameterConnection:)])
         {
-            return [authorizeConnectionDelegate httpAuthorizeConnection:us];
+            return [_authorizeConnectionDelegate authorizeIncomingDiameterConnection:us];
         }
     }
-    return UMHTTPServerAuthorize_successful;
+    return UMDiameterConnectionAuthorisationResult_successful;
 }
 
-- (void) stop
+- (void) stopTcp
 {
-    [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is stopping\r\n",name, [listenerSocket requestedLocalPort]]];
+    [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is stopping\r\n",name, [_listenerTcp requestedLocalPort]]];
 
-    if((self.status !=UMHTTPServerStatus_running) && (listenerRunning!=YES))
+    if((self.status !=UMDiameterListenerStatus_running) && (_listenerRunning!=YES))
     {
         return;
     }
-    self.status = UMHTTPServerStatus_shuttingDown;
-    while(self.status == UMHTTPServerStatus_shuttingDown)
+    self.status = UMDiameterListenerStatus_shuttingDown;
+    while(self.status == UMDiameterListenerStatus_shuttingDown)
     {
-        [sleeper sleep:100]; /* wait 100ms */
+        [_sleeper sleep:100]; /* wait 100ms */
     }
-    self.status = UMHTTPServerStatus_notRunning;
+    self.status = UMDiameterListenerStatus_notRunning;
 
-    [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is stopped\r\n",name, [listenerSocket requestedLocalPort]]];
+    [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is stopped\r\n",name, [_listenerTcp requestedLocalPort]]];
 }
 
 
-- (void)connectionDone:(UMHTTPConnection *)con
+- (void)connectionDone:(UMDiameterConnection *)con
 {
     if(con)
     {
         [_connectionsLock lock];
-        [connections removeObject:con];
-        [terminatedConnections addObject:con];
+        [_connections removeObject:con];
+        [_terminatedConnections addObject:con];
         [_connectionsLock unlock];
     }
 }
 
-/* calling the delegates */
-
-- (void) httpOptions:(UMHTTPRequest *)req
-{
-    if( [httpOptionsDelegate respondsToSelector:@selector(httpOptions:)] )
-    {
-        [httpOptionsDelegate httpOptions:req];
-    }
-    else
-    {
-        [self httpUnknownMethod:req];
-    }
-}
-
-- (void) httpGet:(UMHTTPRequest *)req
-{
-    [req extractGetParams];
-
-    if( [httpGetDelegate respondsToSelector:@selector(httpGet:)] )
-    {
-        [httpGetDelegate  httpGet:req];
-    }
-    else
-    {
-        [self httpGetPost:req];
-    }
-}
-
-- (void) httpHead:(UMHTTPRequest *)req
-{
-    [req extractGetParams];
-    if( [httpHeadDelegate respondsToSelector:@selector(httpHead:)] )
-    {
-        [httpHeadDelegate  httpHead:req];
-    }
-    else
-    {
-        [self httpUnknownMethod:req];
-    }
-}
-
-- (void) httpPost:(UMHTTPRequest *)req
-{
-    [req extractPostParams];
-
-    if( [httpPostDelegate respondsToSelector:@selector(httpPost:)] )
-    {
-        [httpPostDelegate  httpPost:req];
-    }
-    else
-    {
-        [self httpGetPost:req];
-    }
-}
-
-- (void) httpPut:(UMHTTPRequest *)req
-{
-    [req extractPutParams];
-
-    if( [httpPutDelegate respondsToSelector:@selector(httpPut:)] )
-    {
-        [httpPutDelegate  httpPut:req];
-    }
-    else
-    {
-        [self httpGetPost:req];
-    }
-}
-
-
-- (void) httpDelete:(UMHTTPRequest *)req
-{
-    if( [httpDeleteDelegate respondsToSelector:@selector(httpDelete:)] )
-    {
-        [httpDeleteDelegate  httpDelete:req];
-    }
-    else
-    {
-        [self httpUnknownMethod:req];
-    }
-}
-
-- (void) httpTrace:(UMHTTPRequest *)req
-{
-    if( [httpTraceDelegate respondsToSelector:@selector(httpTrace:)] )
-    {
-        [httpTraceDelegate  httpTrace:req];
-    }
-    else
-    {
-        [self httpUnknownMethod:req];
-    }
-}
-
-- (void) httpConnect:(UMHTTPRequest *)req
-{
-    if( [httpConnectDelegate respondsToSelector:@selector(httpConnect:)] )
-    {
-        [httpConnectDelegate  httpConnect:req];
-    }
-    else
-    {
-        [self httpUnknownMethod:req];
-    }
-}
-
-- (void) httpGetPost:(UMHTTPRequest *)req
-{
-    UMHTTPPageHandler *handler = [getPostDict objectForKey:[req.url path]];
-    if(handler)
-    {
-        [handler call:req];
-    }
-    else if( [httpGetPostDelegate respondsToSelector:@selector(httpGetPost:)] )
-    {
-        @try
-        {
-            [httpGetPostDelegate  httpGetPost:req];
-        }
-        @catch(NSException *ex)
-        {
-            [req setResponsePlainText:ex.userInfo[@"sysmsg"]];
-        }
-    }
-    else
-    {
-        [self httpUnknownMethod:req];
-    }
-}
-
-- (void) httpUnknownMethod:(UMHTTPRequest *) req;
-{
-    [req setNotFound];
-
-    /*
-     NSString ("HTTP/1.1 302 Found
-     Date: Mon, 29 Aug 2011 12:50:51 GMT
-     Server: Apache/2.2.19 (Unix) mod_ssl/2.2.19 OpenSSL/0.9.8r DAV/2 PHP/5.3.6 with Suhosin-Patch
-     Location: https:///
-     Content-Length: 323
-     Connection: close
-     Content-Type: text/html; charset=iso-8859-1
-     */
-}
-
-- (void) addPageHandler:(UMHTTPPageHandler *)h
-{
-    [getPostDict setObject:h forKey:[h path]];
-}
 
 - (void) setPrivateKeyFile:(NSString *)filename
 {
-    privateKeyFile = filename;
-    privateKeyFileData = [NSData dataWithContentsOfFile:filename];
+    _privateKeyFile = filename;
+    _privateKeyFileData = [NSData dataWithContentsOfFile:filename];
 
 }
 
 - (void) setCertificateFile:(NSString *)filename
 {
-    certFile = filename;
-    certFileData = [NSData dataWithContentsOfFile:filename];
+    _certFile = filename;
+    _certFileData = [NSData dataWithContentsOfFile:filename];
 
 }
 
-- (UMHTTPAuthenticationStatus) httpAuthenticateRequest:(UMHTTPRequest *) req realm:(NSString **)realm
-{
-    if(authenticateRequestDelegate)
-    {
-        if([authenticateRequestDelegate respondsToSelector:@selector(httpAuthenticateRequest:realm:)])
-        {
-            return [authenticateRequestDelegate httpAuthenticateRequest:req realm:realm];
-        }
-    }
-    return UMHTTP_AUTHENTICATION_STATUS_NOT_REQUESTED;
-}
 @end
 
 
