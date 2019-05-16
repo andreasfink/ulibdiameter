@@ -11,10 +11,10 @@
 #import "UMDiameterCommandFlags.h"
 #import "UMDiameterCommandCode.h"
 
-#define DIAMETER_COMMAND_FLAG_REQUEST
-#define DIAMETER_COMMAND_FLAG_PROXIABLE
-#define DIAMETER_COMMAND_FLAG_ERROR
-#define DIAMETER_COMMAND_FLAG_POTENTIAL_RETRANSMIT
+#define DIAMETER_COMMAND_FLAG_REQUEST				0x80
+#define DIAMETER_COMMAND_FLAG_PROXIABLE				0x40
+#define DIAMETER_COMMAND_FLAG_ERROR					0x20
+#define DIAMETER_COMMAND_FLAG_POTENTIAL_RETRANSMIT	0x10
 @class UMDiameterAvp;
 
 @interface UMDiameterPacket : UMObject
@@ -25,6 +25,7 @@
     uint32_t    _applicationId;
     uint32_t    _hopByHopIdentifier;
     uint32_t    _endToEndIdentifier;
+	uint32_t	_messageLength; /* calculated  */
     UMSynchronizedArray *_avps;
 }
 

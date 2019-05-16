@@ -28,9 +28,18 @@
     return [self initWithData:packet atPosition:NULL];
 }
 
+- (void)genericInitialisation
+{
+	_avps = [[UMSynchronizedArray alloc]init];
+}
+
+
+#define PADDING_TO_4(a)  (((a + 3) / 4) * 4)
+
+
 - (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr
 {
-    NSInteger pos;
+    NSInteger pos=0;
     if(posPtr==NULL)
     {
         pos = 0;
@@ -48,7 +57,7 @@
     uint8_t header[20];
     memcpy(header,&packet.bytes[startpos],20);
     pos += 20;
-    uint32_t _messageLength = (header[1] << 16) || (header[2] << 8) || ( header[3]);
+    _messageLength = (header[1] << 16) | (header[2] << 8) | ( header[3]);
 
     if(packet.length < _messageLength)
     {
@@ -58,32 +67,42 @@
     self = [super init];
     if(self)
     {
+		[self genericInitialisation];
         _version = header[0];
         _commandFlags = header[4];
         _commandCode = (header[5] << 16) | (header[6] << 8) | ( header[7]);
         _applicationId =  (header[8] << 24) | (header[9] << 16) | (header[10] << 8) | ( header[11]);
         _hopByHopIdentifier =  (header[12] << 24) | (header[13] << 16) | (header[14] << 8) | ( header[15]);
         _endToEndIdentifier =  (header[16] << 24) | (header[17] << 16) | (header[18] << 8) | ( header[19]);
-
         while(packet.length >= (pos+8))
         {
             uint8_t avpheader[8];
             memcpy(avpheader,&packet.bytes[pos],8);
 
-            NSUInteger avplen = (avpheader[5] << 16)| (avpheader[6] << 8) | (avpheader[7]);
+			uint32_t avpCode = (avpheader[0] << 24) | (avpheader[1] << 16) | (avpheader[2] << 8) | (avpheader[3] << 0);
+			NSUInteger avplen = (avpheader[5] << 16)| (avpheader[6] << 8) | (avpheader[7]);
+
             if(packet.length < (pos+avplen))
             {
-                @throw([NSException exceptionWithName:@"INVALID_PACKET" reason:@"AVP Packets longer than surrounding packet" userInfo:NULL]);
+                @throw([NSException exceptionWithName:@"INVALID_PACKET"
+											   reason:@"AVP Packets longer than surrounding packet"
+											 userInfo:NULL]);
             }
             NSData *avpdata = [NSData dataWithBytes:&packet.bytes[pos] length:avplen];
-            UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata];
+
+			UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata avpCode:avpCode];
             if(avp)
             {
                 [_avps addObject:avp];
             }
-            pos += avplen;
+			NSInteger avplen_padded = PADDING_TO_4(avplen);
+			pos  = pos + avplen_padded;
+
         }
-        *posPtr = pos;
+		if(posPtr)
+		{
+        	*posPtr = pos;
+		}
     }
     return self;
 }
@@ -94,7 +113,7 @@
 
     uint8_t header[20];
 
-    uint32_t _messageLength = sizeof(header);
+    _messageLength = sizeof(header);
 
     NSUInteger n = _avps.count;
     for(NSUInteger i = 0;i<n;i++)
@@ -240,6 +259,71 @@
 {
     /* FIXME */
     return NULL;
+}
+
+
+- (NSString *)description
+{
+	BOOL isRequest = NO;
+	NSMutableString *s = [[NSMutableString alloc]init];
+	[s appendString:@"--- DIAMETER PACKET BEGIN --------------\n"];
+	[s appendFormat:@"Version: 0x%02X\n",_version];
+	[s appendFormat:@"Length: %d\n",_messageLength];
+	[s appendFormat:@"Flags: 0x%2X",_commandFlags];
+	if(_commandFlags & DIAMETER_COMMAND_FLAG_REQUEST)
+	{
+		[s appendString:@", Request"];
+		isRequest = YES;
+	}
+	if(_commandFlags & DIAMETER_COMMAND_FLAG_PROXIABLE)
+	{
+		[s appendString:@", Proxyable"];
+	}
+	if(_commandFlags & DIAMETER_COMMAND_FLAG_ERROR)
+	{
+		[s appendString:@", Error"];
+	}
+	if(_commandFlags & DIAMETER_COMMAND_FLAG_POTENTIAL_RETRANSMIT)
+	{
+		[s appendString:@", Potential-Retransmit"];
+	}
+	[s appendString:@"\n"];
+
+	NSString *cmd = UMDiameterCommandCode_description(_commandCode,isRequest);
+
+	[s appendFormat:@"Command Code: %d %@\n",_commandCode,cmd];
+	[s appendFormat:@"ApplicationId: %@ (%d)\n",[UMDiameterPacket applicationIdToString:_applicationId],_applicationId];
+	[s appendFormat:@"Hop-by-Hop Identifier: 0x%08X\n",_hopByHopIdentifier];
+	[s appendFormat:@"End-to-End Identifier: 0x%08X\n",_endToEndIdentifier];
+	[s appendString:@"    ------------------------------------\n"];
+
+	for(UMDiameterAvp *avp in _avps)
+	{
+		NSString *m =[avp description];
+		NSArray *lines = [m componentsSeparatedByString:@"\n"];
+		for(NSString *line in lines)
+		{
+			if([line isEqualToString:@""])
+				continue;
+			[s appendFormat:@"    %@\n",line];
+		}
+		[s appendString:@"    ------------------------------------\n"];
+	}
+	[s appendString:@"--- DIAMETER PACKET END ----------------\n"];
+
+	return s;
+}
+
++(NSString *)applicationIdToString:(uint32_t)ai
+{
+	switch(ai)
+	{
+		case 16777251:
+			return @"3GPP S6a/S6d";
+
+	}
+	return @"";
+
 }
 
 @end

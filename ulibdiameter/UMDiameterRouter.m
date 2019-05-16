@@ -10,6 +10,7 @@
 #import "UMDiameterRouter_RouteTask.h"
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterPacket.h"
+#import "UMDiameterConnection.h"
 
 @implementation UMDiameterRouter
 
@@ -23,7 +24,8 @@
     self = [super initWithTaskQueueMulti:tq name:name];
     if(self)
     {
-        _sessions = [[UMSynchronizedDictionary alloc]init];
+		_peers = [[UMSynchronizedDictionary alloc]init];
+		_sessions = [[UMSynchronizedDictionary alloc]init];
         _defaultSessionTimeout = 90;
         _inboundThroughputPackets   = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
@@ -85,6 +87,47 @@
         return _sessions[sid];
     }
     return NULL;
+}
+
+
+- (UMDiameterConnectionAuthorisationResult)authorizeIncomingDiameterConnection:(UMSocket *)socket
+{
+	/* FIXME: check list of peers */
+	return UMDiameterConnectionAuthorisationResult_successful;
+}
+
+
+/* this is used for incoming tcp peers. for SCTP the connections are established outbound/inbound and are nailed down */
+- (UMDiameterPeer *) getPeerForConnection:(UMDiameterConnection *)connection
+{
+	NSArray *peerNames = [_peers allKeys];
+	NSString *remoteIP = connection.socket.connectedRemoteAddress;
+
+	for(NSString *peerName in peerNames)
+	{
+		UMDiameterPeer *peer = _peers[peerName];
+		if(peer==NULL)
+		{
+			continue;
+		}
+		NSString *remoteIP;
+
+		NSString *type;
+		if((connection.socket.type!= UMSOCKET_TYPE_TCP)
+		   || (connection.socket.type!=UMSOCKET_TYPE_TCP4ONLY)
+		   || (connection.socket.type!=UMSOCKET_TYPE_TCP6ONLY))
+		{
+			UMAssert(0,@"this is not a tcp socket");
+			return NULL;
+		}
+		if(([peer.tcpRemoteIP isEqualToString:connection.socket.connectedRemoteAddress]) &&
+			(peer.tcpRemotePort == connection.socket.connectedRemotePort))
+		{
+			peer.tcpConnection = connection;
+			return peer;
+		}
+	}
+	return NULL;
 }
 
 @end

@@ -40,6 +40,11 @@
 		A6260C3E228AA56C00C94036 /* UMDiameterConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = A6260C3C228AA56C00C94036 /* UMDiameterConnection.h */; };
 		A6260C3F228AA56C00C94036 /* UMDiameterConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A6260C3D228AA56C00C94036 /* UMDiameterConnection.m */; };
 		A6260C42228AE79500C94036 /* UMDiameterConnectionAuthorisationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A6260C40228AE79500C94036 /* UMDiameterConnectionAuthorisationProtocol.h */; };
+		A6260C59228C004F00C94036 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6260C58228C004F00C94036 /* main.m */; };
+		A6260C5D228C016700C94036 /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA9203A67C200D0C2BE /* ulibpcap.framework */; };
+		A6260C5E228C016B00C94036 /* ulibsctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA7203A67B900D0C2BE /* ulibsctp.framework */; };
+		A6260C5F228C017000C94036 /* sctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA5203A67AE00D0C2BE /* sctp.framework */; };
+		A6260C60228C019700C94036 /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
 		A63B0394228A8A5F00D0AE8B /* UMDiameterListener.h in Headers */ = {isa = PBXBuildFile; fileRef = A63B0392228A8A5F00D0AE8B /* UMDiameterListener.h */; };
 		A63B0395228A8A5F00D0AE8B /* UMDiameterListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A63B0393228A8A5F00D0AE8B /* UMDiameterListener.m */; };
 		A6506EB72211B32B006665A9 /* UMDiameterPeer.h in Headers */ = {isa = PBXBuildFile; fileRef = A6506EB52211B32B006665A9 /* UMDiameterPeer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,8 +96,8 @@
 		A6A58BE4203C677000D0C2BE /* UMDiameterAvpIPFilterRule.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58BE2203C677000D0C2BE /* UMDiameterAvpIPFilterRule.m */; };
 		A6A58BE7203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58BE5203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6A58BE8203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58BE6203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.m */; };
-		A6A58BEB203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6A58BEC203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.m */; };
+		A6A58BEB203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6A58BEC203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m */; };
 		A6A58BEF203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58BED203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6A58BF0203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58BEE203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.m */; };
 		A6A58BF3203C9D6500D0C2BE /* UMDiameterAvpAcctRecordType.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58BF1203C9D6500D0C2BE /* UMDiameterAvpAcctRecordType.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -221,6 +226,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A6260C54228C004F00C94036 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		A6DE5FF32045781400F08DCD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +280,8 @@
 		A6260C3C228AA56C00C94036 /* UMDiameterConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterConnection.h; sourceTree = "<group>"; };
 		A6260C3D228AA56C00C94036 /* UMDiameterConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterConnection.m; sourceTree = "<group>"; };
 		A6260C40228AE79500C94036 /* UMDiameterConnectionAuthorisationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterConnectionAuthorisationProtocol.h; sourceTree = "<group>"; };
+		A6260C56228C004F00C94036 /* decode-diameter-pdu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "decode-diameter-pdu"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6260C58228C004F00C94036 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A63B0392228A8A5F00D0AE8B /* UMDiameterListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterListener.h; sourceTree = "<group>"; };
 		A63B0393228A8A5F00D0AE8B /* UMDiameterListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterListener.m; sourceTree = "<group>"; };
 		A6506EB52211B32B006665A9 /* UMDiameterPeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeer.h; sourceTree = "<group>"; };
@@ -320,8 +336,8 @@
 		A6A58BE2203C677000D0C2BE /* UMDiameterAvpIPFilterRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpIPFilterRule.m; sourceTree = "<group>"; };
 		A6A58BE5203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAcctInterimIntervall.h; sourceTree = "<group>"; };
 		A6A58BE6203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAcctInterimIntervall.m; sourceTree = "<group>"; };
-		A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAccountingRealtimeRequired.h; sourceTree = "<group>"; };
-		A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAccountingRealtimeRequired.m; sourceTree = "<group>"; };
+		A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAcctRealtimeRequired.h; sourceTree = "<group>"; };
+		A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAcctRealtimeRequired.m; sourceTree = "<group>"; };
 		A6A58BED203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAcctMultiSessionId.h; sourceTree = "<group>"; };
 		A6A58BEE203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAcctMultiSessionId.m; sourceTree = "<group>"; };
 		A6A58BF1203C9D6500D0C2BE /* UMDiameterAvpAcctRecordType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAcctRecordType.h; sourceTree = "<group>"; };
@@ -436,6 +452,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A6260C53228C004F00C94036 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6260C5E228C016B00C94036 /* ulibsctp.framework in Frameworks */,
+				A6260C60228C019700C94036 /* ulibdiameter.framework in Frameworks */,
+				A6260C5D228C016700C94036 /* ulibpcap.framework in Frameworks */,
+				A6260C5F228C017000C94036 /* sctp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6609EA5203A66A600C25C7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -471,6 +498,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6260C57228C004F00C94036 /* decode-diameter-pdu */ = {
+			isa = PBXGroup;
+			children = (
+				A6260C58228C004F00C94036 /* main.m */,
+			);
+			path = "decode-diameter-pdu";
+			sourceTree = "<group>";
+		};
 		A6609E9F203A66A600C25C7B = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +513,7 @@
 				A6609EAB203A66A600C25C7B /* ulibdiameter */,
 				A6609EB6203A66A600C25C7B /* ulibdiameterTests */,
 				A6DE5FF62045781400F08DCD /* client-test */,
+				A6260C57228C004F00C94036 /* decode-diameter-pdu */,
 				A6609EAA203A66A600C25C7B /* Products */,
 				A6A58BA2203A678600D0C2BE /* Frameworks */,
 			);
@@ -489,6 +525,7 @@
 				A6609EA9203A66A600C25C7B /* ulibdiameter.framework */,
 				A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */,
 				A6DE5FF52045781400F08DCD /* client-test */,
+				A6260C56228C004F00C94036 /* decode-diameter-pdu */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -542,8 +579,8 @@
 				A6506ECD2211B8DA006665A9 /* UMDiameterPeerState_forced_out_of_service.h */,
 				A6506ECE2211B8DA006665A9 /* UMDiameterPeerState_forced_out_of_service.m */,
 				A6506ED52211C107006665A9 /* UMDiameterRouter.h */,
-				A6260C40228AE79500C94036 /* UMDiameterConnectionAuthorisationProtocol.h */,
 				A6506ED62211C107006665A9 /* UMDiameterRouter.m */,
+				A6260C40228AE79500C94036 /* UMDiameterConnectionAuthorisationProtocol.h */,
 				A6075AFA2213002C00750CCD /* UMDiameterRouter_RouteTask.h */,
 				A6075AFB2213002C00750CCD /* UMDiameterRouter_RouteTask.m */,
 				A6075AFE221304EC00750CCD /* UMDiameterRouterSession.h */,
@@ -587,8 +624,8 @@
 				A6A58CA5203CA1FB00D0C2BE /* UMDiameterAvpCodes.m */,
 				A6A58BB1203A6EEB00D0C2BE /* UMDiameterAvp.h */,
 				A6A58BB2203A6EEB00D0C2BE /* UMDiameterAvp.m */,
-				A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.h */,
-				A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.m */,
+				A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.h */,
+				A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m */,
 				A6A58BFD203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.h */,
 				A6A58BFE203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.m */,
 				A61BFED3203DB41200072EB4 /* UMDiameterAvpAuthApplicationId.h */,
@@ -770,7 +807,7 @@
 				A6A58BFF203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.h in Headers */,
 				A61BFEC9203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.h in Headers */,
 				A6A58C03203C9E5100D0C2BE /* UMDiameterAvpAuthRequestType.h in Headers */,
-				A6A58BEB203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.h in Headers */,
+				A6A58BEB203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.h in Headers */,
 				A6260C42228AE79500C94036 /* UMDiameterConnectionAuthorisationProtocol.h in Headers */,
 				A6075B00221304EC00750CCD /* UMDiameterRouterSession.h in Headers */,
 				A6A58BEF203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.h in Headers */,
@@ -835,6 +872,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A6260C55228C004F00C94036 /* decode-diameter-pdu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6260C5A228C004F00C94036 /* Build configuration list for PBXNativeTarget "decode-diameter-pdu" */;
+			buildPhases = (
+				A6260C52228C004F00C94036 /* Sources */,
+				A6260C53228C004F00C94036 /* Frameworks */,
+				A6260C54228C004F00C94036 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "decode-diameter-pdu";
+			productName = "decode-diameter-pdu";
+			productReference = A6260C56228C004F00C94036 /* decode-diameter-pdu */;
+			productType = "com.apple.product-type.tool";
+		};
 		A6609EA8203A66A600C25C7B /* ulibdiameter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6609EBD203A66A600C25C7B /* Build configuration list for PBXNativeTarget "ulibdiameter" */;
@@ -897,6 +951,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Andreas Fink";
 				TargetAttributes = {
+					A6260C55228C004F00C94036 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 					A6609EA8203A66A600C25C7B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -927,6 +985,7 @@
 				A6609EA8203A66A600C25C7B /* ulibdiameter */,
 				A6609EB1203A66A600C25C7B /* ulibdiameterTests */,
 				A6DE5FF42045781400F08DCD /* client-test */,
+				A6260C55228C004F00C94036 /* decode-diameter-pdu */,
 			);
 		};
 /* End PBXProject section */
@@ -949,6 +1008,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A6260C52228C004F00C94036 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6260C59228C004F00C94036 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6609EA4203A66A600C25C7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1008,7 +1075,7 @@
 				A6506ED02211B8DA006665A9 /* UMDiameterPeerState_forced_out_of_service.m in Sources */,
 				A6A58C38203C9F4E00D0C2BE /* UMDiameterAvpExperimentalResultCode.m in Sources */,
 				A6A58C98203CA17A00D0C2BE /* UMDiameterAvpUserName.m in Sources */,
-				A6A58BEC203C9D2800D0C2BE /* UMDiameterAvpAccountingRealtimeRequired.m in Sources */,
+				A6A58BEC203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m in Sources */,
 				A6506ECC2211B8CC006665A9 /* UMDiameterPeerState_active.m in Sources */,
 				A6A58BC4203C605200D0C2BE /* UMDiameterAvpGrouped.m in Sources */,
 				A6A58C10203C9E8F00D0C2BE /* UMDiameterAvpAuthSessionState.m in Sources */,
@@ -1074,6 +1141,41 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A6260C5B228C004F00C94036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6260C5C228C004F00C94036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A6609EBB203A66A600C25C7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1127,7 +1229,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = /Library/Frameworks/;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1184,7 +1285,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = /Library/Frameworks/;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -1304,6 +1404,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A6260C5A228C004F00C94036 /* Build configuration list for PBXNativeTarget "decode-diameter-pdu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6260C5B228C004F00C94036 /* Debug */,
+				A6260C5C228C004F00C94036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A6609EA3203A66A600C25C7B /* Build configuration list for PBXProject "ulibdiameter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

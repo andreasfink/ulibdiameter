@@ -1,5 +1,5 @@
 //
-//  UMDiameterAvpAccountingRealtimeRequired.h
+//  UMDiameterAvpAcctRealtimeRequired.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 20.02.18.
@@ -8,6 +8,6 @@
 
 #import "UMDiameterAvpEnumerated.h"
 
-@interface UMDiameterAvpAccountingRealtimeRequired : UMDiameterAvpEnumerated
+@interface UMDiameterAvpAcctRealtimeRequired : UMDiameterAvpEnumerated
 
 @end

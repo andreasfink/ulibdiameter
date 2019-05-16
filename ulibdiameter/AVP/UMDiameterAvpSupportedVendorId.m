@@ -16,5 +16,4 @@
     return UMDiameterAvpCode_SupportedVendorId;
 }
 
-
 @end

@@ -20,7 +20,7 @@
 	UMSocket 			*_socket;
 	UMDiameterListener 	*_listener;
 	UMDiameterRouter 	*_router;
-
+	UMDiameterPeer		*_peer;
 	BOOL				_enableKeepalive;
 	NSString			*_name;
 }
@@ -28,6 +28,7 @@
 @property(readwrite,strong,atomic)	UMSocket 			*socket;
 @property(readwrite,strong,atomic)	UMDiameterListener 	*listener;
 @property(readwrite,strong,atomic)	UMDiameterRouter 	*router;
+@property(readwrite,strong,atomic)	UMDiameterPeer		*peer;
 @property(readwrite,assign,atomic)	BOOL				enableKeepalive;
 @property(readwrite,strong,atomic)	NSString			*name;
 - (UMDiameterConnection *)initWithSocket:(UMSocket *)socket

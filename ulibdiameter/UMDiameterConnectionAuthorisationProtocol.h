@@ -16,6 +16,6 @@ typedef enum UMDiameterConnectionAuthorisationResult
 
 @protocol UMDiameterConnectionAuthorisationProtocol
 
-- (
+- (UMDiameterConnectionAuthorisationResult)authorizeIncomingDiameterConnection:(UMSocket *)socket;
 
 @end

@@ -83,19 +83,19 @@ NSString *umdiameter_avp_code_string (UMDiameterAvpCode code)
         case UMDiameterAvpCode_ExperimentalResultCode:
             return @"Experimental-Result-Code";
             break;
-        case UMDiameterAvpCode_FailedAVP:
+        case UMDiameterAvpCode_FailedAvp:
             return @"Failed-AVP";
             break;
         case UMDiameterAvpCode_FirmwareRevision:
             return @"Firmware-Revision";
             break;
-        case UMDiameterAvpCode_HostIPAddress:
+        case UMDiameterAvpCode_HostIpAddress:
             return @"Host-IP-Address";
             break;
         case UMDiameterAvpCode_InbandSecurityId:
             return @"Inband-Security-Id";
             break;
-        case UMDiameterAvpCode_MultiRoundTimeOut:
+        case UMDiameterAvpCode_MultiRoundTimeout:
             return @"Multi-Round-Time-Out";
             break;
         case UMDiameterAvpCode_OriginHost:

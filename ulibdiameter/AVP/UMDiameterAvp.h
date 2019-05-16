@@ -14,11 +14,13 @@
     uint32_t    _avpCode;
     uint8_t     _avpFlags;
     uint32_t    _avpVendorId;
+	uint32_t	_avpLength;
     NSData      *_avpData;
 }
 
 - (NSString *)avpType;
 - (UMDiameterAvp *)initWithData:(NSData *)data;
+- (UMDiameterAvp *)initWithData:(NSData *)data avpCode:(uint32_t)avpCode;
 
 - (uint32_t)packetLength;   /* length inclusive padding inclusive header length */
 - (NSData *)packetData;     /* data inclusive padding */

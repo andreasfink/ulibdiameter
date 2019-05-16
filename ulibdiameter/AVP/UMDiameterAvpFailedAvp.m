@@ -13,7 +13,7 @@
 
 - (uint32_t)avpCode
 {
-    return UMDiameterAvpCode_FailedAVP;
+    return UMDiameterAvpCode_FailedAvp;
 }
 
 

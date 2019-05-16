@@ -228,20 +228,21 @@ run on top of SCTP when it is used.
                         clientSocket.serverSideKeyData      = _privateKeyFileData;
                         clientSocket.serverSideCertFilename = _certFile;
                         clientSocket.serverSideCertData     = _certFileData;
-                        if ([self authorizeConnection:clientSocket] == UMHTTPServerAuthorize_successful)
-                        {
 
-							UMDiameterConnection *con = [[UMDiameterConnection alloc] initWithSocket:clientSocket listener:self router:_router];
-                            con.name = [NSString stringWithFormat:@"DiameterConnection %@:%d",clientSocket.connectedRemoteAddress,clientSocket.connectedRemotePort];
-                            con.enableKeepalive = _enableKeepalive;
+						UMDiameterConnection *con = [[UMDiameterConnection alloc] initWithSocket:clientSocket listener:self router:_router];
+						con.name = [NSString stringWithFormat:@"DiameterConnection %@:%d",clientSocket.connectedRemoteAddress,clientSocket.connectedRemotePort];
+						con.enableKeepalive = _enableKeepalive;
+						UMDiameterPeer *peer = [_router getPeerForConnection:con];
+						if(peer==NULL)
+						{
+							[clientSocket close];
+							con = NULL;
+						}
+						else
+						{
                             [_connections addObject:con];
-                            con = nil;
-                        }
-                        else
-                        {
-                            [clientSocket close];
-                        }
-                    }
+						}
+					}
                     else
                     {
                         _lastErr = ret1;
@@ -275,24 +276,22 @@ run on top of SCTP when it is used.
     }
 }
 
--(UMDiameterConnectionAuthorisationResult) authorizeConnection:(UMSocket *)us
+-(UMDiameterConnectionAuthorisationResult) authorizeIncomingDiameterConnection:(UMSocket *)us
 {
-    if(_authorizeConnectionDelegate)
+    if(_authorizeConnectionDelegate == NULL)
     {
-        if([_authorizeConnectionDelegate respondsToSelector:@selector(authorizeIncomingDiameterConnection:)])
-        {
-            return [_authorizeConnectionDelegate authorizeIncomingDiameterConnection:us];
-        }
-    }
-    return UMDiameterConnectionAuthorisationResult_successful;
+		return UMDiameterConnectionAuthorisationResult_successful;
+	}
+	return [_authorizeConnectionDelegate authorizeIncomingDiameterConnection:us];
 }
 
 - (void) stopTcp
 {
-    [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is stopping\r\n",name, [_listenerTcp requestedLocalPort]]];
+    [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d is stopping\r\n",[_listenerTcp requestedLocalPort]]];
 
     if((self.status !=UMDiameterListenerStatus_running) && (_listenerRunning!=YES))
     {
+		[self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d was not running\r\n",[_listenerTcp requestedLocalPort]]];
         return;
     }
     self.status = UMDiameterListenerStatus_shuttingDown;
@@ -302,7 +301,7 @@ run on top of SCTP when it is used.
     }
     self.status = UMDiameterListenerStatus_notRunning;
 
-    [self.logFeed info:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d is stopped\r\n",name, [_listenerTcp requestedLocalPort]]];
+    [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d is stopped\r\n",[_listenerTcp requestedLocalPort]]];
 }
 
 

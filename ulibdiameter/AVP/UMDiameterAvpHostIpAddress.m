@@ -13,7 +13,7 @@
 
 - (uint32_t)avpCode
 {
-    return UMDiameterAvpCode_HostIPAddress;
+    return UMDiameterAvpCode_HostIpAddress;
 }
 
 

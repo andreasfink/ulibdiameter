@@ -11,9 +11,14 @@
 
 @class UMDiameterPeerState;
 @class UMDiameterRouter;
+@class UMDiameterConnection;
 
 @interface UMDiameterPeer : UMLayer<UMLayerUserProtocol>
 {
+	BOOL					_tcpPeer;
+	NSString				*_tcpRemoteIP;
+	int						_tcpRemotePort;
+	UMDiameterConnection	*_tcpConnection;
     UMLayerSctp             *_sctp;
     UMDiameterRouter        *_router;
     SCTP_Status             _sctpStatus;
@@ -25,6 +30,10 @@
     BOOL                    _isForcedOutOfService;
 }
 
+@property(readwrite,assign,atomic)		BOOL					tcpPeer;
+@property(readwrite,strong,atomic)		NSString				*tcpRemoteIP;
+@property(readwrite,assign,atomic)		int						tcpRemotePort;
+@property(readwrite,strong,atomic)		UMDiameterConnection	*tcpConnection;
 @property(readwrite,strong,atomic)      UMLayerSctp             *sctp;
 @property(readwrite,strong,atomic)      UMDiameterRouter        *router;
 @property(readwrite,strong,atomic)      UMDiameterPeerState     *peerState;

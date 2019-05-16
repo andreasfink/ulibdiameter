@@ -54,7 +54,6 @@ typedef enum UMDiameterListenerStatus
 
 	NSString *_certFile;
 	NSData *_certFileData;
-
 }
 
 @property(readwrite,assign,atomic)  in_port_t   port;

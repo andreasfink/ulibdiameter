@@ -9,6 +9,7 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterPacket.h"
 #import "UMDiameterPeerState_all.h"
+#import "UMDiameterConnection.h"
 
 @implementation UMDiameterPeer
 
