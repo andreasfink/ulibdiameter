@@ -1,0 +1,10 @@
+
+the syntax for packet definitions in the Diameter documents is as following
+
+<>  indicates the AVP is in a fixed position and mandatory
+{}  indicates the AVP is mandatory but can be in any position
+[]  indicates the AVP is optional. They can be in any position
+*   indicates minimum/maximum values
+    if an optional AVP requires these values
+    and precedes it  1 * indicates
+    the number of times the element is present in the message

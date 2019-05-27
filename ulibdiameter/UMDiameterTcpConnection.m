@@ -1,21 +1,21 @@
 //
-//  UMDiameterConnection.m
+//  UMDiameterTcpConnection.m
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 14.05.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterConnection.h"
+#import "UMDiameterTcpConnection.h"
 
-#import "UMDiameterListener.h"
+#import "UMDiameterTcpListener.h"
 #import "UMDiameterRouter.h"
 
-@implementation UMDiameterConnection
+@implementation UMDiameterTcpConnection
 
 
-- (UMDiameterConnection *)initWithSocket:(UMSocket *)socket
-								listener:(UMDiameterListener *)listener
+- (UMDiameterTcpConnection *)initWithSocket:(UMSocket *)socket
+								listener:(UMDiameterTcpListener *)listener
 								  router:(UMDiameterRouter *)router
 {
 	self = [super init];

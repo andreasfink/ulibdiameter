@@ -7,6 +7,7 @@
 //
 
 #import "UMDiameterPeerState_all.h"
+#import "UMDiameterPeer.h"
 
 @implementation UMDiameterPeerState_off
 
@@ -31,7 +32,8 @@
 
 - (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer
 {
-    return self;
+    [peer sendCER];
+    return [[UMDiameterPeerState_connected alloc]init];
 }
 
 @end

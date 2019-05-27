@@ -1,5 +1,5 @@
 //
-//  UMDiameterListener.h
+//  UMDiameterTcpListener.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 14.05.19.
@@ -8,27 +8,24 @@
 
 #import <ulib/ulib.h>
 #import <ulibsctp/ulibsctp.h>
-#import "UMDiameterConnectionAuthorisationProtocol.h"
+#import "UMDiameterTcpConnectionAuthorisationProtocol.h"
 @class UMDiameterRouter;
 
-typedef enum UMDiameterListenerStatus
+typedef enum UMDiameterTcpListenerStatus
 {
-	UMDiameterListenerStatus_notRunning = 0,
-	UMDiameterListenerStatus_startingUp,
-	UMDiameterListenerStatus_running,
-	UMDiameterListenerStatus_shuttingDown,
-	UMDiameterListenerStatus_shutDown,
-	UMDiameterListenerStatus_failed,
-} UMDiameterListenerStatus;
+	UMDiameterTcpListenerStatus_notRunning = 0,
+	UMDiameterTcpListenerStatus_startingUp,
+	UMDiameterTcpListenerStatus_running,
+	UMDiameterTcpListenerStatus_shuttingDown,
+	UMDiameterTcpListenerStatus_shutDown,
+	UMDiameterTcpListenerStatus_failed,
+} UMDiameterTcpListenerStatus;
 
 
-@interface UMDiameterListener : UMObject
+@interface UMDiameterTcpListener : UMObject
 {
     in_port_t   				_port;
     UMSocket    				*_listenerTcp;
-	UMSocketSCTPListener    	*_listenerSctp;
-	UMSocketSCTPRegistry		*_sctpRegistry;
-
     BOOL        				_useTLS;
     id          				_authorizeConnectionDelegate;
 	
@@ -43,7 +40,7 @@ typedef enum UMDiameterListenerStatus
 	int							_receivePollTimeoutMs;
 	UMDiameterRouter			*_router;
 	NSString					*_listenerName;
-	UMDiameterListenerStatus	_status;
+	UMDiameterTcpListenerStatus	_status;
 	UMSocketError				_lastErr;
 
 	BOOL						_listenerRunning;
@@ -58,14 +55,12 @@ typedef enum UMDiameterListenerStatus
 
 @property(readwrite,assign,atomic)  in_port_t   port;
 @property(readwrite,strong,atomic)  UMSocket    *listenerTcp;
-@property(readwrite,strong,atomic)  UMSocketSCTPListener    *listenerSctp;
-@property(readwrite,strong,atomic)  UMSocketSCTPRegistry	*sctpRegistry;
 
 @property(readwrite,assign,atomic)  BOOL        useTLS;
 @property(readwrite,assign,atomic)  BOOL        enableKeepalive;
 @property(readwrite,strong,atomic)  id          authorizeConnectionDelegate;
 @property(readwrite,strong,atomic) NSString 	*listenerName;
-@property(readwrite,assign,atomic)  UMDiameterListenerStatus	status;
+@property(readwrite,assign,atomic)  UMDiameterTcpListenerStatus	status;
 @property(readwrite,assign,atomic)  UMSocketError				lastErr;
 
 - (id) initWithPort:(in_port_t)port
@@ -73,9 +68,7 @@ typedef enum UMDiameterListenerStatus
                 tls:(BOOL)doTLS
          sslKeyFile:(NSString *)sslKeyFile
         sslCertFile:(NSString *)sslCertFile
-          taskQueue:(UMTaskQueue *)tq
-	   sctpRegistry:(UMSocketSCTPRegistry *)registry
-	   sctpListener:(UMSocketSCTPListener *)sctpListener;
+          taskQueue:(UMTaskQueue *)tq;
 
 
 @end

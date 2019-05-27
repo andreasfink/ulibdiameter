@@ -10,7 +10,7 @@
 #import "UMDiameterRouter_RouteTask.h"
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterPacket.h"
-#import "UMDiameterConnection.h"
+#import "UMDiameterTcpConnection.h"
 
 @implementation UMDiameterRouter
 
@@ -31,7 +31,13 @@
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _housekeepingTimer = [[UMTimer alloc]initWithTarget:self selector:@selector(housekeeping) object:NULL seconds:30 name:@"housekeeping-timer" repeats:YES];
         _housekeepingLock = [[UMMutex alloc]initWithName:@"housekeeping-timer-lock"];
-
+        _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
+        _vendorId = @"Fink Telecom Services";
+        _productName = @"Fink Telecom Services ulibdiameter";
+        _supportedVendorIds = [[UMSynchronizedArray alloc]init];
+        _inbandSecurityIds = [[UMSynchronizedArray alloc]init];
+        [_inbandSecurityIds addObject:@(0)]; /* means NO_INBAND_SECURITY */
+        _firmwareRevision = NULL;
     }
     return self;
 }
@@ -90,16 +96,17 @@
 }
 
 
-- (UMDiameterConnectionAuthorisationResult)authorizeIncomingDiameterConnection:(UMSocket *)socket
+- (UMDiameterTcpConnectionAuthorisationResult)authorizeIncomingDiameterTcpConnection:(UMSocket *)socket
 {
 	/* FIXME: check list of peers */
-	return UMDiameterConnectionAuthorisationResult_successful;
+	return UMDiameterTcpConnectionAuthorisationResult_successful;
 }
 
 
 /* this is used for incoming tcp peers. for SCTP the connections are established outbound/inbound and are nailed down */
-- (UMDiameterPeer *) getPeerForConnection:(UMDiameterConnection *)connection
+- (UMDiameterPeer *) getPeerForConnection:(UMDiameterTcpConnection *)connection
 {
+#if 0
 	NSArray *peerNames = [_peers allKeys];
 	NSString *remoteIP = connection.socket.connectedRemoteAddress;
 
@@ -127,7 +134,61 @@
 			return peer;
 		}
 	}
+#endif
 	return NULL;
+}
+
+- (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterRouterAppDelegateProtocol>)appContext
+{
+
+    [self readLayerConfig:cfg];
+
+    if(cfg[@"name"])
+    {
+        self.layerName = [cfg[@"name"] stringValue];
+    }
+}
+
+- (void)stopDetachAndDestroy
+{
+    /* FIXME */
+}
+
+- (void)addPeer:(UMDiameterPeer *)peer
+{
+    _peers[peer.layerName] = peer;
+}
+
+- (void)start
+{
+    NSArray *peerNames = [_peers allKeys];
+    for(NSString *name in peerNames)
+    {
+        UMDiameterPeer *peer = _peers[name];
+        peer.router = self;
+        [peer powerOn];
+    }
+}
+
+- (void)stop
+{
+    NSArray *peerNames = [_peers allKeys];
+    for(NSString *name in peerNames)
+    {
+        UMDiameterPeer *peer = _peers[name];
+        [peer powerOff];
+    }
+}
+
+
+
+- (uint32_t)nextEndToEndIdentifier;
+{
+    uint32_t r;
+    [_endToEndIdentifierLock lock];
+    r = ++_lastEndToEndIdentifier;
+    [_endToEndIdentifierLock unlock];
+    return r;
 }
 
 @end

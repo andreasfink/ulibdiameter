@@ -1,5 +1,5 @@
 //
-//  UMDiameterConnection.h
+//  UMDiameterTcpConnection.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 14.05.19.
@@ -8,17 +8,17 @@
 
 #import <ulib/ulib.h>
 
-#import "UMDiameterListener.h"
+#import "UMDiameterTcpListener.h"
 #import "UMDiameterRouter.h"
 
-@class UMDiameterListener;
+@class UMDiameterTcpListener;
 @class UMDiameterRouter;
 @class UMSocket;
 
-@interface UMDiameterConnection : NSObject
+@interface UMDiameterTcpConnection : NSObject
 {
 	UMSocket 			*_socket;
-	UMDiameterListener 	*_listener;
+	UMDiameterTcpListener 	*_listener;
 	UMDiameterRouter 	*_router;
 	UMDiameterPeer		*_peer;
 	BOOL				_enableKeepalive;
@@ -26,13 +26,13 @@
 }
 
 @property(readwrite,strong,atomic)	UMSocket 			*socket;
-@property(readwrite,strong,atomic)	UMDiameterListener 	*listener;
+@property(readwrite,strong,atomic)	UMDiameterTcpListener 	*listener;
 @property(readwrite,strong,atomic)	UMDiameterRouter 	*router;
 @property(readwrite,strong,atomic)	UMDiameterPeer		*peer;
 @property(readwrite,assign,atomic)	BOOL				enableKeepalive;
 @property(readwrite,strong,atomic)	NSString			*name;
-- (UMDiameterConnection *)initWithSocket:(UMSocket *)socket
-								listener:(UMDiameterListener *)listener
+- (UMDiameterTcpConnection *)initWithSocket:(UMSocket *)socket
+								listener:(UMDiameterTcpListener *)listener
 								  router:(UMDiameterRouter *)router;
 
 - (void)terminate;
