@@ -7,9 +7,12 @@
 //
 
 #import "UMDiameterPeerState.h"
-#import "UMDiameterPeerState_off.h"
-#import "UMDiameterPeerState_connected.h"
 #import "UMDiameterPeerState_active.h"
 #import "UMDiameterPeerState_forced_out_of_service.h"
 
+#import "UMDiameterPeerState_Closed.h"
+#import "UMDiameterPeerState_Connecting.h"
+#import "UMDiameterPeerState_Connected.h"
+#import "UMDiameterPeerState_Open.h"
+#import "UMDiameterPeerState_Closing.h"
 

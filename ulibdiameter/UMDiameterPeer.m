@@ -21,7 +21,7 @@
     self = [super init];
     if(self)
     {
-        _peerState = [[UMDiameterPeerState_off alloc]init];
+        _peerState = [[UMDiameterPeerState_Closed alloc]init];
         _isConnected = NO;
         _isActive = NO;
         _isConnecting = NO;
@@ -34,21 +34,59 @@
                        userId:(id)uid
                        status:(SCTP_Status)s
 {
+    if(_sctpStatus == s)
+    {
+        return;
+    }
+    SCTP_Status previousStatus = _sctpStatus;
+    NSString *oldStatusString= @"undefined";
+    switch(previousStatus)
+    {
+        case  SCTP_STATUS_M_FOOS:
+            oldStatusString = @"M_FOOS";
+            break;
+        case SCTP_STATUS_OFF:
+            oldStatusString = @"OFF";
+            break;
+        case SCTP_STATUS_OOS:
+            oldStatusString = @"OOS";
+            break;
+        case SCTP_STATUS_IS:
+            oldStatusString = @"IS";
+            break;
+    }
     _sctpStatus = s;
     switch(_sctpStatus)
     {
         case  SCTP_STATUS_M_FOOS:
+        {
+            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->M_FOOS",oldStatusString];
+            [self.logFeed infoText:s];
             _peerState = [_peerState eventSctpForcedOutOfService:self];
             break;
+        }
         case SCTP_STATUS_OFF:
+        {
+            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OFF",oldStatusString];
+            [self.logFeed infoText:s];
             _peerState = [_peerState eventSctpOff:self];
             break;
+        }
         case SCTP_STATUS_OOS:
+        {
+            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OOS",oldStatusString];
+            [self.logFeed infoText:s];
             _peerState = [_peerState eventSctpOutOfService:self];
             break;
+        }
         case SCTP_STATUS_IS:
+        {
+            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->IS",oldStatusString];
+            [self.logFeed infoText:s];
             _peerState = [_peerState eventSctpInService:self];
+            [self sendCER];
             break;
+        }
     }
 }
 
@@ -61,7 +99,67 @@
     UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:d];
     if(!packet)
     {
-        NSLog(@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)sid, (int)pid, [d hexString]);
+        NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)sid, (int)pid, [d hexString]];
+        NSLog(@"%@",s);
+        [self.logFeed majorError:0 withText:s];
+        _peerState = [_peerState eventStop:self];
+    }
+    if((pid!=0) && (pid!=DIAMETER_SCTP_PPID_CLEAR))
+    {
+        NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)pid];
+        NSLog(@"%@",s);
+        [self.logFeed majorError:0 withText:s];
+        _peerState = [_peerState eventStop:self];
+    }
+
+    if(packet.commandFlags & UMDiameterCommandFlag_Request)
+    {
+        if((packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages)
+            && (packet.commandCode == UMDiameterCommandCode_Capabilities_Exchange))
+        {
+            [self processCER:packet];
+        }
+        if((packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages)
+           && (packet.commandCode == UMDiameterCommandCode_Device_Watchdog))
+        {
+            [self processDWR:packet];
+        }
+    }
+    else if(!(packet.commandFlags & UMDiameterCommandFlag_Request))
+    {
+        switch(packet.applicationId)
+        {
+            case UMDiameterApplicationId_Diameter_Common_Messages:
+            {
+                switch(packet.commandCode)
+                {
+                    case UMDiameterCommandCode_Capabilities_Exchange:
+                        [self processCEA:packet];
+                        break;
+                    case UMDiameterCommandCode_Device_Watchdog:
+                        [self processDWA:packet];
+                        break;
+                    case UMDiameterCommandCode_Abort_Session:
+                        [self processASR:packet];
+                        break;
+                    case UMDiameterCommandCode_Accounting:
+                        [self processACR:packet];
+                        break;
+                    case UMDiameterCommandCode_Disconnect_Peer:
+                        [self processDPR:packet];
+                        break;
+                    case UMDiameterCommandCode_Re_Auth:
+                        [self processRAR:packet];
+
+                    case UMDiameterCommandCode_Session_Termination:
+                        [self processSTR:packet];
+                        break;
+                }
+                break;
+            }
+            case UMDiameterApplicationId_Diameter_Common_Messages:
+
+        }
     }
 }
 
@@ -536,8 +634,46 @@
         [avp setNumber:_router.firmwareRevision];
         [packet appendAvp:avp];
     }
-
     return packet;
+}
+
+- (void)processCER:(UMDiameterPacket *)pkt
+{
+    uint32_t resultCode = 0;
+
+    [self sendCEA:pkt.hopByHopIdentifier
+         endToEnd:pkt.endToEndIdentifier
+       resultCode:resultCode
+     errorMessage:NULL
+        failedAvp:NULL];
+}
+
+- (void)processCEA:(UMDiameterPacket *)pkt
+{
+}
+
+- (void)processDWR:(UMDiameterPacket *)pkt
+{
+}
+
+- (void)processDWA:(UMDiameterPacket *)pkt
+{
+}
+
+- (void)processASR:(UMDiameterPacket *)pkt
+{
+}
+- (void)processACR:(UMDiameterPacket *)pkt
+{
+}
+- (void)processDPR:(UMDiameterPacket *)pkt
+{
+}
+- (void)processRAR:(UMDiameterPacket *)pkt
+{
+}
+- (void)processSTR:(UMDiameterPacket *)pkt
+{
 }
 
 @end

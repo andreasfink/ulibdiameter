@@ -1,5 +1,5 @@
 //
-//  UMDiameterPeerState_connected.h
+//  UMDiameterPeerState_Closed.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 11.02.19.
@@ -9,7 +9,7 @@
 #import "UMDiameterPeerState.h"
 
 
-@interface UMDiameterPeerState_connected : UMDiameterPeerState
+@interface UMDiameterPeerState_Closed : UMDiameterPeerState
 
 @end
 

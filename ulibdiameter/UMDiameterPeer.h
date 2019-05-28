@@ -20,6 +20,7 @@
 @class UMDiameterPeerState;
 @class UMDiameterRouter;
 @class UMDiameterTcpConnection;
+@class UMDiameterPacket;
 
 @interface UMDiameterPeer : UMLayer<UMLayerUserProtocol,UMLayerSctpUserProtocol>
 {
@@ -41,7 +42,9 @@
     NSNumber                *_originStateId;
 
     uint32_t                _lastHopByHopIdentifier;
-
+    uint32_t                _lastReceivedHopByHopIdentifier;
+    uint32_t                _lastReceivedEndtoEndIdentifier;
+    
     UMPCAPFile              *_packetTraceFile;
     UMPCAPPseudoConnection  *_packetTracePseudoConnection;
 }
@@ -72,6 +75,13 @@
 
 - (void)powerOn;
 - (void)powerOff;
+
+- (void)processCER:(UMDiameterPacket *)pkt;
+- (void)processCEA:(UMDiameterPacket *)pkt;
+- (void)processDWR:(UMDiameterPacket *)pkt;
+- (void)processDWA:(UMDiameterPacket *)pkt;
+- (void)processDCR:(UMDiameterPacket *)pkt;
+- (void)processDCA:(UMDiameterPacket *)pkt;
 
 @end
 

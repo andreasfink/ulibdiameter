@@ -1,5 +1,5 @@
 //
-//  UMDiameterPeerState_off.m
+//  UMDiameterPeerState_Closed.m
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 11.02.19.
@@ -8,9 +8,14 @@
 
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterPeer.h"
+#import "UMDiameterPeerState_Connected.h"
 
-@implementation UMDiameterPeerState_off
+@implementation UMDiameterPeerState_Closed
 
+- (NSString *)currentState
+{
+    return @"Closed";
+}
 
 - (UMDiameterPeerState *)eventSctpForcedOutOfService:(UMDiameterPeer *)peer
 {
@@ -33,7 +38,7 @@
 - (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer
 {
     [peer sendCER];
-    return [[UMDiameterPeerState_connected alloc]init];
+    return [[UMDiameterPeerState_Connected alloc]init];
 }
 
 @end
