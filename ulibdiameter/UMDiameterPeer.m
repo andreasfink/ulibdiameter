@@ -157,7 +157,10 @@
                 }
                 break;
             }
-            case UMDiameterApplicationId_Diameter_Common_Messages:
+            case UMDiameterApplicationId_Diameter_Base_Accounting:
+            case UMDiameterApplicationId_3GPP_S6a_S6d:
+            case UMDiameterApplicationId_3GPP_S9:
+                break;
 
         }
     }
@@ -674,6 +677,17 @@
 }
 - (void)processSTR:(UMDiameterPacket *)pkt
 {
+}
+
+
+- (void)processDCR:(UMDiameterPacket *)pkt
+{
+    
+}
+
+- (void)processDCA:(UMDiameterPacket *)pkt
+{
+    
 }
 
 @end
