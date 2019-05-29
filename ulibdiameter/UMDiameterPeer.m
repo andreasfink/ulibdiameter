@@ -157,8 +157,6 @@
                 }
                 break;
             }
-            case UMDiameterApplicationId_Diameter_Common_Messages:
-
         }
     }
 }
@@ -673,6 +671,14 @@
 {
 }
 - (void)processSTR:(UMDiameterPacket *)pkt
+{
+}
+
+- (void)processDCR:(UMDiameterPacket *)pkt
+{
+}
+
+- (void)processDCA:(UMDiameterPacket *)pkt
 {
 }
 
