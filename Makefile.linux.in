@@ -18,7 +18,7 @@ SLIB=lib@PROJECT_NAME@.a
 
 PKGCONFIGFILE=@PROJECT_NAME@.pc
 
-MFILES = $(wildcard Classes/*.m) $(wildcard Classes/*/*.m)
+MFILES = $(wildcard Classes/*.m) $(wildcard Classes/*/*.m) $(wildcard @PROJECT_NAME@/*.m) $(wildcard @PROJECT_NAME@/*/*.m)
 HFILES = version.h $(wildcard Classes/*.h) $(wildcard Classes/*/*.h)
 MOFILES  = $(MFILES:.m=.m.o)
 OFILES = $(MOFILES)
