@@ -23,7 +23,7 @@ HFILES = version.h $(wildcard Classes/*.h) $(wildcard Classes/*/*.h) $(wildcard 
 MOFILES  = $(MFILES:.m=.m.o)
 OFILES = $(MOFILES)
 
-INCLUDEDIRS = -I Classes
+INCLUDEDIRS = -I Classes -I @PROJECT_NAME@ -I @PROJECT_NAME@/AVP
 
 DEBUG_RELEASE = -DCONFIGURATION_${CONFIGURATION}=1 -DCONFIGURATION=${CONFIGURATION}
 
