@@ -286,7 +286,6 @@
     [self sendPacket:p];
 }
 
-
 - (UMDiameterPacket *)createCER
 {
     /*

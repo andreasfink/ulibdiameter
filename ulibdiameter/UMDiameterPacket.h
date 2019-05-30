@@ -53,5 +53,6 @@
 - (void)appendAvp:(UMDiameterAvp *)avp;
 
 - (NSString *)getSessionIdentifier;
+- (UMSynchronizedSortedDictionary *)objectValue;
 
 @end

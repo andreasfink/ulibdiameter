@@ -27,6 +27,7 @@
 
 - (uint32_t)dataLength;     /* length exclusive padding exclusive header length */
 
+- (UMSynchronizedSortedDictionary *)objectValue;
 
 @property(readwrite,assign,atomic)  uint32_t    avpCode;
 @property(readwrite,assign,atomic)  uint8_t     avpFlags;

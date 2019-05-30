@@ -76,6 +76,8 @@
 - (void)powerOn;
 - (void)powerOff;
 
+- (void)sendPacket:(UMDiameterPacket *)packet;
+
 - (void)processCER:(UMDiameterPacket *)pkt;
 - (void)processCEA:(UMDiameterPacket *)pkt;
 - (void)processDWR:(UMDiameterPacket *)pkt;

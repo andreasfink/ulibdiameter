@@ -53,7 +53,6 @@
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterRouterAppDelegateProtocol>)appContext;
 - (void)stopDetachAndDestroy;
 
-
 - (UMDiameterTcpConnectionAuthorisationResult)authorizeIncomingDiameterTcpConnection:(UMSocket *)socket;
 
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq name:(NSString *)name;
@@ -67,5 +66,7 @@
 
 - (void)addPeer:(UMDiameterPeer *)peer;
 - (void)start;
+
+- (BOOL)localSendPacket:(UMDiameterPacket *)p toPeer:(UMDiameterPeer *)peer; /* peer can be NULL if route has to be discovered */
 
 @end

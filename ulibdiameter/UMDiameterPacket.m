@@ -9,6 +9,7 @@
 #import "UMDiameterPacket.h"
 #import "UMDiameterAvp.h"
 #import "UMDiameterCommandFlags.h"
+#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacket
 
@@ -318,12 +319,58 @@
 {
 	switch(ai)
 	{
-		case 16777251:
+        case UMDiameterApplicationId_Diameter_Common_Messages:
+            return @"Diameter Common Messages";
+        case UMDiameterApplicationId_Diameter_Base_Accounting:
+            return @"Diameter Base Accounting";
+		case UMDiameterApplicationId_3GPP_S6a_S6d:
 			return @"3GPP S6a/S6d";
-
+        case UMDiameterApplicationId_3GPP_S9:
+            return @"3GPP S9";
 	}
-	return @"";
+    return [NSString stringWithFormat:@"APPLICATION(%u)",ai];
+}
 
+
+- (UMSynchronizedSortedDictionary *)objectValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    dict[@"version"] = @(_version);
+
+    NSMutableArray *flags = [[NSMutableArray alloc]init];
+    if(_commandFlags & UMDiameterCommandFlag_Request)
+    {
+        [flags addObject:@"REQUEST"];
+    }
+    if(_commandFlags & UMDiameterCommandFlag_Proxyable)
+    {
+        [flags addObject:@"PROXYABLE"];
+    }
+    if(_commandFlags & UMDiameterCommandFlag_Proxyable)
+    {
+        [flags addObject:@"ERROR"];
+    }
+    if(_commandFlags & UMDiameterCommandFlag_Proxyable)
+    {
+        [flags addObject:@"TRANSMIT"];
+    }
+    dict[@"commandFlags"] = [flags componentsJoinedByString:@","];
+    dict[@"command"] = UMDiameterCommandCode_description(_commandCode, (_commandFlags & UMDiameterCommandFlag_Request));
+    dict[@"commandCode"] = @(_commandCode);
+    dict[@"application"] = [UMDiameterPacket applicationIdToString:_applicationId];
+    dict[@"applicationId"] = @(_applicationId);
+    dict[@"hopByHopIdentifier"] = @(_hopByHopIdentifier);
+    dict[@"endToEndIdentifier"] = @(_endToEndIdentifier);
+    NSMutableArray *a = [[NSMutableArray alloc]init];
+    for(UMDiameterAvp *avp in _avps)
+    {
+        [a addObject:[avp objectValue]];
+    }
+    if(a.count > 0)
+    {
+        dict[@"avp"] = a;
+    }
+    return dict;
 }
 
 @end

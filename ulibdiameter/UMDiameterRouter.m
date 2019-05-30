@@ -191,4 +191,25 @@
     return r;
 }
 
+- (BOOL)localSendPacket:(UMDiameterPacket *)pkt toPeer:(UMDiameterPeer *)peer /* peer can be NULL if route has to be discovered, Returns YES on success */
+{
+    if(peer == NULL)
+    {
+        NSArray *names = [_peers allKeys];
+        if(names.count == 0)
+        {
+            return NO;
+        }
+        /* we take the first peer for now */
+        /* FIXME: do some routing here!! */
+        peer = _peers[names[0]];
+    }
+    if(peer == NULL)
+    {
+        return NO;
+    }
+    [peer sendPacket:pkt];
+    return YES;
+}
+
 @end
