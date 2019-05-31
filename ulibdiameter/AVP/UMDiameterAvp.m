@@ -473,6 +473,32 @@
 }
 
 
+- (UMSynchronizedSortedDictionary *)objectValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 
+    dict[@"avp-code"] = @(_avpCode);
+    NSMutableArray *flags = [[NSMutableArray alloc]init];
+    if(self.flagMandatory)
+    {
+        [flags addObject:@"MANDATORY"];
+    }
+    if(self.flagProtected)
+    {
+        [flags addObject:@"PROTECTED"];
+    }
+    if(self.flagVendor)
+    {
+        [flags addObject:@"VENDOR"];
+    }
+    dict[@"avp-flags"] = [flags componentsJoinedByString:@","];
+
+    if(self.flagVendor)
+    {
+        dict[@"avp-vendor"] = @(_avpVendorId);
+    }
+    dict[@"avp-data"] = _avpData;
+    return dict;
+}
 @end
 

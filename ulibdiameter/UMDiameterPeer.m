@@ -157,11 +157,14 @@
                 }
                 break;
             }
+<<<<<<< HEAD
             case UMDiameterApplicationId_Diameter_Base_Accounting:
             case UMDiameterApplicationId_3GPP_S6a_S6d:
             case UMDiameterApplicationId_3GPP_S9:
                 break;
 
+=======
+>>>>>>> 363b75b1ca773a3d7e67610ab737e741602b4976
         }
     }
 }
@@ -290,7 +293,6 @@
     UMDiameterPacket *p = [self createCER];
     [self sendPacket:p];
 }
-
 
 - (UMDiameterPacket *)createCER
 {
@@ -679,15 +681,23 @@
 {
 }
 
+<<<<<<< HEAD
 
 - (void)processDCR:(UMDiameterPacket *)pkt
 {
     
+=======
+- (void)processDCR:(UMDiameterPacket *)pkt
+{
+>>>>>>> 363b75b1ca773a3d7e67610ab737e741602b4976
 }
 
 - (void)processDCA:(UMDiameterPacket *)pkt
 {
+<<<<<<< HEAD
     
+=======
+>>>>>>> 363b75b1ca773a3d7e67610ab737e741602b4976
 }
 
 @end

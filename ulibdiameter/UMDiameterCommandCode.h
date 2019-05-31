@@ -14,23 +14,23 @@ typedef enum UMDiameterCommandCode
     
     UMDiameterCommandCode_AA = 265,
     UMDiameterCommandCode_DE = 268,
+
     UMDiameterCommandCode_AS = 274,
     UMDiameterCommandCode_AC = 271,
-    UMDiameterCommandCode_CC = 272,
     UMDiameterCommandCode_CE = 257,
     UMDiameterCommandCode_DW = 280,
     UMDiameterCommandCode_DP = 282,
     UMDiameterCommandCode_RA = 258,
     UMDiameterCommandCode_ST = 275,
+
+    UMDiameterCommandCode_CC = 272,
     UMDiameterCommandCode_SIP_UA = 283,
     UMDiameterCommandCode_SIP_SA = 284,
     UMDiameterCommandCode_SIP_LI = 285,
     UMDiameterCommandCode_SIP_MA = 286,
     UMDiameterCommandCode_SIP_RT = 287,
     UMDiameterCommandCode_SIP_PP = 288,
-    
-    
-    
+
     /* https://tools.ietf.org/html/rfc3589 TS 29.229*/
 
     UMDiameterCommandCode_3GPP_TS_29_272_UA = 300,
@@ -74,6 +74,12 @@ typedef enum UMDiameterCommandCode
     UMDiameterCommandCode_Re_Auth = 258,
     UMDiameterCommandCode_Session_Termination = 275,
 
+
+    /* TS29.338  S6c*/
+    /* The Diameter application identifier assigned to the S6c Diameter application is 16777312 (allocated by IANA). */
+    UMDiameterCommandCode_3GPP_TS_29_338_SR = 8388647,
+    UMDiameterCommandCode_3GPP_TS_29_338_AL = 8388648,
+    UMDiameterCommandCode_3GPP_TS_29_338_RD = 8388649,
 } UMDiameterCommandCode;
 
 extern NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL request);

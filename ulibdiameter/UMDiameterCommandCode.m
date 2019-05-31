@@ -175,6 +175,17 @@ NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL req
         case UMDiameterCommandCode_3GPP_TS_29_336_NI:
             s = @"3GPP_TS_29_336-NI";
             break;
+
+        case UMDiameterCommandCode_3GPP_TS_29_338_SR:
+            s = @"3GPP_TS_29_338-SR";
+            break;
+        case UMDiameterCommandCode_3GPP_TS_29_338_AL:
+            s = @"3GPP_TS_29_338-AL";
+            break;
+        case UMDiameterCommandCode_3GPP_TS_29_338_RD:
+            s = @"3GPP_TS_29_338-RD";
+            break;
+
     }
     if(request)
     {
