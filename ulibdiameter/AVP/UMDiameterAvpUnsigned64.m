@@ -30,8 +30,6 @@
 - (void)beforeEncode
 {
     uint8_t bytes[8];
-    *(uint64_t *)&bytes[0]  = (uint64_t)htonll( (uint64_t)_value);
-    
     uint64_to_bytes((uint64_t)_value,&bytes[0]);
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
