@@ -7,6 +7,7 @@
 //
 
 #import "UMDiameterAvpInteger64.h"
+#import "UMDiameterNetworkOrder.h"
 
 @implementation UMDiameterAvpInteger64
 
@@ -21,14 +22,14 @@
     {
         @throw([NSException exceptionWithName:@"INVALID_PACKET" reason:@"AVP Integer64 Packet length is not 8" userInfo:NULL]);
     }
-    _value = (int64_t)ntohll( *(int64_t *)_avpData.bytes);
+    
+    _value = (int64_t)bytes_to_uint64(_avpData.bytes);
 }
 
 - (void)beforeEncode
 {
     uint8_t bytes[8];
-
-    *(int64_t *)&bytes[0]  = (int64_t)htonll( (int64_t)_value);
+    uint64_to_bytes((uint64_t)_value,&bytes[0]);
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 

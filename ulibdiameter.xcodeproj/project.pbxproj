@@ -62,6 +62,8 @@
 		A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
 		A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */; };
 		A6609EBA203A66A600C25C7B /* ulibdiameter.h in Headers */ = {isa = PBXBuildFile; fileRef = A6609EAC203A66A600C25C7B /* ulibdiameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A661A52B22A1728B00CCEE02 /* UMDiameterNetworkOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = A661A52922A1728B00CCEE02 /* UMDiameterNetworkOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A661A52C22A1728B00CCEE02 /* UMDiameterNetworkOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = A661A52A22A1728B00CCEE02 /* UMDiameterNetworkOrder.m */; };
 		A6A58BA4203A67A600D0C2BE /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA3203A67A600D0C2BE /* ulib.framework */; };
 		A6A58BA6203A67AE00D0C2BE /* sctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA5203A67AE00D0C2BE /* sctp.framework */; };
 		A6A58BA8203A67B900D0C2BE /* ulibsctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A58BA7203A67B900D0C2BE /* ulibsctp.framework */; };
@@ -316,6 +318,8 @@
 		A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ulibdiameterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ulibdiameterTests.m; sourceTree = "<group>"; };
 		A6609EB9203A66A600C25C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A661A52922A1728B00CCEE02 /* UMDiameterNetworkOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterNetworkOrder.h; sourceTree = "<group>"; };
+		A661A52A22A1728B00CCEE02 /* UMDiameterNetworkOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterNetworkOrder.m; sourceTree = "<group>"; };
 		A6A58BA3203A67A600D0C2BE /* ulib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulib.framework; path = ../../../../../../Library/Frameworks/ulib.framework; sourceTree = "<group>"; };
 		A6A58BA5203A67AE00D0C2BE /* sctp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sctp.framework; path = ../../../../../../Library/Frameworks/sctp.framework; sourceTree = "<group>"; };
 		A6A58BA7203A67B900D0C2BE /* ulibsctp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibsctp.framework; path = ../../../../../../Library/Frameworks/ulibsctp.framework; sourceTree = "<group>"; };
@@ -563,6 +567,8 @@
 			children = (
 				A6609EAD203A66A600C25C7B /* Info.plist */,
 				A6609EAC203A66A600C25C7B /* ulibdiameter.h */,
+				A661A52922A1728B00CCEE02 /* UMDiameterNetworkOrder.h */,
+				A661A52A22A1728B00CCEE02 /* UMDiameterNetworkOrder.m */,
 				A6A58BB9203AEA8200D0C2BE /* UMDiameterCommandFlags.h */,
 				A6BF3188229C3AD80000578B /* UMDiameterApplicationId.h */,
 				A6A58BB5203AE65B00D0C2BE /* UMDiameterCommandCode.h */,
@@ -824,6 +830,7 @@
 				A6A58C73203CA08A00D0C2BE /* UMDiameterAvpRedirectMaxCacheTime.h in Headers */,
 				A6A58C1F203C9ED800D0C2BE /* UMDiameterAvpDestinationRealm.h in Headers */,
 				A6A58C67203CA05000D0C2BE /* UMDiameterAvpProxyState.h in Headers */,
+				A661A52B22A1728B00CCEE02 /* UMDiameterNetworkOrder.h in Headers */,
 				A6BF31A2229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.h in Headers */,
 				A6F2C913203B8A1F00DA49BF /* UMDiameterAvpFloat32.h in Headers */,
 				A6F2C90F203B897D00DA49BF /* UMDiameterAvpUnsigned64.h in Headers */,
@@ -1130,6 +1137,7 @@
 				A6A58C38203C9F4E00D0C2BE /* UMDiameterAvpExperimentalResultCode.m in Sources */,
 				A6A58C98203CA17A00D0C2BE /* UMDiameterAvpUserName.m in Sources */,
 				A6A58BEC203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m in Sources */,
+				A661A52C22A1728B00CCEE02 /* UMDiameterNetworkOrder.m in Sources */,
 				A6506ECC2211B8CC006665A9 /* UMDiameterPeerState_active.m in Sources */,
 				A6BF319B229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m in Sources */,
 				A6A58BC4203C605200D0C2BE /* UMDiameterAvpGrouped.m in Sources */,

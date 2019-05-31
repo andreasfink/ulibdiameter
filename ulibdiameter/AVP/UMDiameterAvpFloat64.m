@@ -7,7 +7,7 @@
 //
 
 #import "UMDiameterAvpFloat64.h"
-
+#import "UMDiameterNetworkOrder.h"
 /*
  
  [FLOATPOINT]
@@ -30,14 +30,16 @@
     {
         @throw([NSException exceptionWithName:@"INVALID_PACKET" reason:@"AVP Float64 Packet length is not 8" userInfo:NULL]);
     }
-    _value = (double)ntohll( *(uint64_t *)_avpData.bytes);
+
+    uint64_t u = bytes_to_uint64(_avpData.bytes);
+    _value = (double)u;
 }
 
 - (void)beforeEncode
 {
     uint8_t bytes[8];
 
-    *(uint64_t *)&bytes[0]  = (double)htonll( (uint64_t)_value);
+    uint64_to_bytes((uint64_t)_value,&bytes[0]);
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
