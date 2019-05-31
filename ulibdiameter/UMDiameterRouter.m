@@ -147,7 +147,7 @@
     {
         self.layerName = [cfg[@"name"] stringValue];
     }
-    if(cfg[@"local-host-name"])
+    if(cfg[@"local-hostname"])
     {
         self.localHostName = [cfg[@"local-hostname"] stringValue];
     }
