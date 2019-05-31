@@ -32,7 +32,7 @@
         _housekeepingTimer = [[UMTimer alloc]initWithTarget:self selector:@selector(housekeeping) object:NULL seconds:30 name:@"housekeeping-timer" repeats:YES];
         _housekeepingLock = [[UMMutex alloc]initWithName:@"housekeeping-timer-lock"];
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
-        _vendorId = @"Fink Telecom Services";
+        _vendorId = 54013; /* fts */
         _productName = @"Fink Telecom Services ulibdiameter";
         _supportedVendorIds = [[UMSynchronizedArray alloc]init];
         _inbandSecurityIds = [[UMSynchronizedArray alloc]init];
@@ -147,6 +147,15 @@
     {
         self.layerName = [cfg[@"name"] stringValue];
     }
+    if(cfg[@"local-host-name"])
+    {
+        self.localHostName = [cfg[@"local-hostname"] stringValue];
+    }
+    if(cfg[@"local-realm"])
+    {
+        self.localRealm = [cfg[@"local-realm"] stringValue];
+    }
+    _vendorId = 54013; /* fink telecom services vendor ID */
 }
 
 - (void)stopDetachAndDestroy

@@ -26,7 +26,7 @@
     UMMutex *_housekeepingLock;
     NSString    *_localHostName;
     NSString    *_localRealm;
-    NSString    *_vendorId;
+    uint32_t    _vendorId;
     NSString    *_productName;
     NSNumber    *_firmwareRevision;
     UMMutex     *_endToEndIdentifierLock;
@@ -40,7 +40,7 @@
 
 @property(readwrite,strong,atomic)  NSString    *localHostName;
 @property(readwrite,strong,atomic)  NSString    *localRealm;
-@property(readwrite,strong,atomic)  NSString    *vendorId;
+@property(readwrite,assign,atomic)  uint32_t    vendorId;
 @property(readwrite,strong,atomic)  NSString    *productName;
 @property(readwrite,strong,atomic)  NSNumber    *firmwareRevision;
 @property(readwrite,strong,atomic)  UMSynchronizedArray *supportedVendorIds;

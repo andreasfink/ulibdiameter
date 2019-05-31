@@ -344,7 +344,7 @@
     {
         UMDiameterAvpVendorId *avp = [[UMDiameterAvpVendorId alloc]init];
         [avp setFlagMandatory:YES];
-        avp.avpData =[_router.vendorId  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp setNumber:@(_router.vendorId)];
         [packet appendAvp:avp];
     }
     // { Product-Name }
@@ -518,7 +518,7 @@
     {
         UMDiameterAvpVendorId *avp = [[UMDiameterAvpVendorId alloc]init];
         [avp setFlagMandatory:YES];
-        avp.avpData =[_router.vendorId  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp setNumber:@(_router.vendorId)];
         [packet appendAvp:avp];
     }
     // { Product-Name }
