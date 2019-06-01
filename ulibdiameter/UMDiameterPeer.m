@@ -341,10 +341,13 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
+            NSLog(@"addr = %@",addr);
+
             UMDiameterAvpHostIpAddress *avp =  [[UMDiameterAvpHostIpAddress alloc]init];
             [avp setFlagMandatory:YES];
             [avp setHostIPAddress:addr];
             [packet appendAvp:avp];
+            NSLog(@"data = %@",avp.avpData);
         }
     }
     // { Vendor-Id }
