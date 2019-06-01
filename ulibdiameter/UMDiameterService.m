@@ -22,6 +22,7 @@
         _productName = @"ulibdiameter";
         _hostIPs = [[NSMutableArray alloc]init];
         _supportedVendorIds = [[NSMutableArray alloc]init];
+
         _authAppIds = [[NSMutableArray alloc]init];
         _inbandSecurityIds = [[NSMutableArray alloc]init];
         _acctApplicationIds = [[NSMutableArray alloc]init];
@@ -403,7 +404,9 @@ static int multi_check(int options)
 }
 
 
-- (void)addSupportedVendorIdAVP:(UMDiameterPacket *)packet options:(int)options values:(NSArray<NSNumber *> *)values
+- (void)addSupportedVendorIdAVP:(UMDiameterPacket *)packet
+                        options:(int)options
+                         values:(NSArray<NSNumber *> *)values
 {
     /*  * [ Supported-Vendor-Id ] */
     mandatory_check(options,values,@"Supported-Vendor-Id");
@@ -515,33 +518,7 @@ static int multi_check(int options)
     }
 }
 
-- (void)addVendorSpecificApplicationIdAVP:(UMDiameterPacket *)packet options:(int)options values:(NSArray<NSArray *> *)values
-{
-    /*  * [ Vendor-Specific-Application-Id ] */
-    mandatory_check(options,values,@"Vendor-Specific-Application-Id");
-    if(_inbandSecurityIds)
-    {
-        if(multi_check(options)==0)
-        {
-            if(values.count>0)
-            {
-                NSArray *value = values[0];
-                UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
-                avp.array = value;
-                [packet appendAvp:avp];
-            }
-        }
-        else
-        {
-            for(NSArray *value in values)
-            {
-                UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
-                avp.array = value;
-                [packet appendAvp:avp];
-            }
-        }
-    }
-}
+
 
 - (void)addFirmwareRevisionAVP:(UMDiameterPacket *)packet options:(int)options values:(NSArray<NSNumber *> *)values
 {
@@ -615,7 +592,6 @@ static int multi_check(int options)
     [self addAuthApplicationIdAVP:packet options:UMDiameterAVP_Option_Zero_or_more values:_authAppIds];
     [self addInbandSecurityIdAVP:packet options:UMDiameterAVP_Option_Zero_or_more values:_inbandSecurityIds];
     [self addAcctApplicationIdAVP:packet options:UMDiameterAVP_Option_Zero_or_more values:_authAppIds];
-    [self addVendorSpecificApplicationIdAVP:packet options:UMDiameterAVP_Option_Zero_or_more values:_vendorSpecificApplicationIds];
     [self addFirmwareRevisionAVP:packet options:UMDiameterAVP_Option_Optional values:@[_firmareRevision]];
     return packet;
 }

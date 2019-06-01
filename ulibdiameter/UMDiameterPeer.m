@@ -11,6 +11,7 @@
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
+#import "UMDiameterAvpVendorSpecificApplicationId.h"
 
 #import "UMDiameterAvpAll.h"
 
@@ -379,7 +380,7 @@
     // * [ Supported-Vendor-Id ]
     if([_router.supportedVendorIds count] > 0)
     {
-        NSArray *a = [_router.supportedVendorIds arrayCopy];
+        NSArray *a = [_router supportedVendorIds];
         for(NSNumber *n in a)
         {
             UMDiameterAvpSupportedVendorId *avp =  [[UMDiameterAvpSupportedVendorId alloc]init];
@@ -414,22 +415,28 @@
         }
     }
 
-#if 0
-    // * [ Vendor-Specific-Application-Id ]
-    if([_router.vendorSpecificIds count] > 0)
+    NSArray<NSDictionary *>*vids = _router.vendorSpecificIds;
+    for(NSDictionary *vid in vids)
     {
-        NSArray *a = [_router.vendorSpecificIds arrayCopy];
-        UMDiameterAvpVendorSpecificApplicationId *avp =  [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
+        NSNumber *vendor = vid[@"vendor"];
+        NSNumber *application = vid[@"application"];
+        UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
 
-        for(NSNumber *n in a)
-        {
-            UMDiameterVendorSpecificApplicationId *avp1 =  [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
-            [avp setFlagMandatory:YES];
-            [avp setNumber:n];
-            [packet appendAvp:avp];
-        }
+        NSMutableArray *entries = [[NSMutableArray alloc]init];
+
+        UMDiameterAvpVendorId *avp_vendor = [[UMDiameterAvpVendorId alloc]init];
+        avp_vendor.number = vendor;
+        [entries addObject:avp_vendor];
+
+        UMDiameterAvpAuthApplicationId *avp_app = [[UMDiameterAvpAuthApplicationId alloc]init];
+        avp_app.number = application;
+        [entries addObject:avp_app];
+
+        [avp setArray:entries];
+
+        [packet appendAvp:avp];
     }
-#endif
+
 
     // [ Firmware-Revision ]
     if(_router.firmwareRevision)
@@ -571,7 +578,7 @@
     // * [ Supported-Vendor-Id ]
     if([_router.supportedVendorIds count] > 0)
     {
-        NSArray *a = [_router.supportedVendorIds arrayCopy];
+        NSArray *a = [_router supportedVendorIds];
         for(NSNumber *n in a)
         {
             UMDiameterAvpSupportedVendorId *avp =  [[UMDiameterAvpSupportedVendorId alloc]init];
