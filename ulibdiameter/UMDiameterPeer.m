@@ -336,8 +336,16 @@
     }
 
     // 1* { Host-IP-Address }
-    if(0)
+    if(1)
     {
+        NSArray *addrs = _sctp.configured_local_addresses;
+        for (NSString *addr in addrs)
+        {
+            UMDiameterAvpHostIpAddress *avp =  [[UMDiameterAvpHostIpAddress alloc]init];
+            [avp setFlagMandatory:YES];
+            [avp setHostIPAddress:addr];
+            [packet appendAvp:avp];
+        }
     }
     // { Vendor-Id }
     if(1)

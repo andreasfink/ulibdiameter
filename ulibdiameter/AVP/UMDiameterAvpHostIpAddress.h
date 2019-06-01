@@ -10,4 +10,9 @@
 
 @interface UMDiameterAvpHostIpAddress : UMDiameterAvpAddress
 
+- (void)setHostIPAddress:(NSString *)theAddr;
+- (void)setHostIPv4Address:(NSString *)theAddr;
+- (void)setHostIPv6Address:(NSString *)theAddr;
+
+
 @end
