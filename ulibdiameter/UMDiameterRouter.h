@@ -43,8 +43,8 @@
 @property(readwrite,assign,atomic)  uint32_t    vendorId;
 @property(readwrite,strong,atomic)  NSString    *productName;
 @property(readwrite,strong,atomic)  NSNumber    *firmwareRevision;
-@property(readwrite,strong,atomic)  NSMutableArray<NSNumber *> *supportedVendorIds;
-@property(readwrite,strong,atomic)  NSMutableArray<NSDictionary *> *vendorSpecificIds;
+@property(readonly,copy,atomic)     NSArray<NSNumber *> *supportedVendorIds;
+@property(readonly,copy,atomic)     NSArray<NSDictionary *> *vendorSpecificIds;
 @property(readwrite,strong,atomic)  UMSynchronizedArray *inbandSecurityIds;
 @property(readwrite,strong,atomic)  UMSynchronizedArray *authApplicationIds;
 

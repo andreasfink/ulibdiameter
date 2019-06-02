@@ -416,10 +416,14 @@
     }
 
     NSArray<NSDictionary *>*vids = _router.vendorSpecificIds;
+    NSLog(@"vids=%@",vids);
     for(NSDictionary *vid in vids)
     {
         NSNumber *vendor = vid[@"vendor"];
         NSNumber *application = vid[@"application"];
+        NSLog(@"vendor=%@",vendor);
+        NSLog(@"app=%@",application);
+
         UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
 
         NSMutableArray *entries = [[NSMutableArray alloc]init];
@@ -433,7 +437,7 @@
         [entries addObject:avp_app];
 
         [avp setArray:entries];
-
+        NSLog(@"avp=%@",avp);
         [packet appendAvp:avp];
     }
 
