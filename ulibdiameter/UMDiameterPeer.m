@@ -342,13 +342,10 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
-            NSLog(@"addr = %@",addr);
-
             UMDiameterAvpHostIpAddress *avp =  [[UMDiameterAvpHostIpAddress alloc]init];
             [avp setFlagMandatory:YES];
             [avp setHostIPAddress:addr];
             [packet appendAvp:avp];
-            NSLog(@"data = %@",avp.avpData);
         }
     }
     // { Vendor-Id }
@@ -416,13 +413,10 @@
     }
 
     NSArray<NSDictionary *>*vids = _router.vendorSpecificIds;
-    NSLog(@"vids=%@",vids);
     for(NSDictionary *vid in vids)
     {
         NSNumber *vendor = vid[@"vendor"];
         NSNumber *application = vid[@"application"];
-        NSLog(@"vendor=%@",vendor);
-        NSLog(@"app=%@",application);
 
         UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
 
@@ -437,7 +431,6 @@
         [entries addObject:avp_app];
 
         [avp setArray:entries];
-        NSLog(@"avp=%@",avp);
         [packet appendAvp:avp];
     }
 
