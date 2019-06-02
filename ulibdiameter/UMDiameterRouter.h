@@ -33,7 +33,7 @@
     uint32_t    _lastEndToEndIdentifier;
 
     NSMutableArray<NSNumber *>     *_supportedVendorIds;
-    NSMutableArray<NSDictionary *>  *_vendorSpecifIds;
+    NSMutableArray<NSDictionary *>  *_vendorSpecificIds;
     UMSynchronizedArray *_inbandSecurityIds;
     UMSynchronizedArray *_authApplicationIds;
 }
