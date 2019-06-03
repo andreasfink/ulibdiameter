@@ -387,7 +387,7 @@
     // * [ Supported-Vendor-Id ]
     if([_router.supportedVendorIds count] > 0)
     {
-        NSArray *a = [_router supportedVendorIds];
+        NSArray *a = _router.supportedVendorIds;
         for(NSNumber *n in a)
         {
             UMDiameterAvpSupportedVendorId *avp =  [[UMDiameterAvpSupportedVendorId alloc]init];
@@ -399,7 +399,7 @@
     // * [ Auth-Application-Id ]
     if([_router.authApplicationIds count] > 0)
     {
-        NSArray *a = [_router.authApplicationIds arrayCopy];
+        NSArray *a = _router.authApplicationIds;
         for(NSNumber *n in a)
         {
             UMDiameterAvpAuthApplicationId *avp =  [[UMDiameterAvpAuthApplicationId alloc]init];
@@ -412,7 +412,7 @@
     // * [ Inband-Security-Id ]
     if([_router.inbandSecurityIds count] > 0)
     {
-        NSArray *a = [_router.inbandSecurityIds arrayCopy];
+        NSArray *a = _router.inbandSecurityIds;
         for(NSNumber *n in a)
         {
             UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
@@ -609,7 +609,7 @@
     // * [ Inband-Security-Id ]
     if([_router.inbandSecurityIds count] > 0)
     {
-        NSArray *a = [_router.inbandSecurityIds arrayCopy];
+        NSArray *a = _router.inbandSecurityIds;
         for(NSNumber *n in a)
         {
             UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
@@ -651,7 +651,7 @@
     // * [ Auth-Application-Id ]
     if([_router.authApplicationIds count] > 0)
     {
-        NSArray *a = [_router.authApplicationIds arrayCopy];
+        NSArray *a = _router.authApplicationIds;
         for(NSNumber *n in a)
         {
             UMDiameterAvpAuthApplicationId *avp =  [[UMDiameterAvpAuthApplicationId alloc]init];

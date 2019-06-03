@@ -35,8 +35,18 @@
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
         _vendorId = 54013; /* fts */
         _productName = @"Fink Telecom Services ulibdiameter";
+
         _supportedVendorIds = [[NSMutableArray alloc]init];
         [_supportedVendorIds addObject:@(0xFFFFFFFF)];
+
+        _authApplicationIds = [[NSMutableArray alloc]init];
+        [_authApplicationIds addObject:@(0xFFFFFFFF)];
+
+        _inbandSecurityIds = [[NSMutableArray alloc]init];
+        [_inbandSecurityIds addObject:@(0)]; /* means NO_INBAND_SECURITY */
+        _firmwareRevision = @(1);
+
+
         _vendorSpecificIds = [[NSMutableArray alloc]init];
         [_vendorSpecificIds addObject:@{
                                         @"vendor":@(UMDiameterApplicationId_3GPP) ,
@@ -300,9 +310,6 @@
                                       @"application": @(UMDiameterApplicationId_3GPP_Zpn)
                                       }];
          */
-        _inbandSecurityIds = [[UMSynchronizedArray alloc]init];
-        [_inbandSecurityIds addObject:@(0)]; /* means NO_INBAND_SECURITY */
-        _firmwareRevision = @(1);
     }
     return self;
 }
