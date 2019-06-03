@@ -457,6 +457,91 @@
     return packet;
 }
 
+
+- (void)sendDWA:(uint32_t)hopByHop
+       endToEnd:(uint32_t)endToEnd
+     resultCode:(uint32_t)resultCode
+   errorMessage:(NSString *)errorMessage
+      failedAvp:(NSArray *)failedAvp
+
+{
+    UMDiameterPacket *p = [self createDWA:hopByHop
+                                 endToEnd:endToEnd
+                               resultCode:resultCode
+                             errorMessage:errorMessage
+                                failedAvp:failedAvp];
+    [self sendPacket:p];
+    _lastIncomingWatchdogAnswerSent = [NSDate date];
+}
+
+
+- (UMDiameterPacket *)createDWA:(uint32_t)hopByHop
+                       endToEnd:(uint32_t)endToEnd
+                     resultCode:(uint32_t)resultCode
+                   errorMessage:(NSString *)errorMessage
+                      failedAvp:(NSArray *)failedAvp
+
+{
+    /*
+     <DWA>  ::= < Diameter Header: 280 >
+     { Result-Code }
+     { Origin-Host }
+     { Origin-Realm }
+     [ Error-Message ]
+     [ Failed-AVP ]
+     [ Origin-State-Id ]
+     * [ AVP ]
+
+
+     */
+
+    UMDiameterPacket *packet = [[UMDiameterPacket alloc]init];
+    packet.version = 1;
+    packet.commandFlags = 0;
+    packet.commandCode = UMDiameterCommandCode_Device_Watchdog;
+    packet.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
+    packet.hopByHopIdentifier = hopByHop;
+    packet.endToEndIdentifier = endToEnd;
+
+    // { Origin-Host }
+    if(1)
+    {
+        UMDiameterAvpOriginHost *avp = [[UMDiameterAvpOriginHost alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.avpData = [_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
+        [packet appendAvp:avp];
+    }
+    // { Origin-Realm }
+    if(1)
+    {
+        UMDiameterAvpOriginRealm *avp = [[UMDiameterAvpOriginRealm alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
+        [packet appendAvp:avp];
+    }
+
+
+    //     [ Error-Message ]
+    if(errorMessage.length > 0)
+    {
+        UMDiameterAvpErrorMessage *avp =  [[UMDiameterAvpErrorMessage alloc]init];
+        [avp setFlagMandatory:NO];
+        [avp setValue:errorMessage];
+        [packet appendAvp:avp];
+    }
+    // [ Failed-AVP ]
+    if(failedAvp)
+    {
+        UMDiameterAvpFailedAvp *avp =  [[UMDiameterAvpFailedAvp alloc]init];
+        [avp setFlagMandatory:NO];
+        [avp setArray:failedAvp];
+        [packet appendAvp:avp];
+    }
+
+    return packet;
+}
+
+
 - (void)sendCEA:(uint32_t)hopByHop
        endToEnd:(uint32_t)endToEnd
      resultCode:(uint32_t)resultCode
@@ -681,10 +766,19 @@
 
 - (void)processDWR:(UMDiameterPacket *)pkt
 {
+    _lastIncomingWatchdogRequestReceived = [NSDate date];
+
+    [self sendDWA:pkt.hopByHopIdentifier
+         endToEnd:pkt.endToEndIdentifier
+       resultCode:UMDiameterResultCode_DIAMETER_SUCCESS
+     errorMessage:NULL
+        failedAvp:NULL];
+
 }
 
 - (void)processDWA:(UMDiameterPacket *)pkt
 {
+    _lastOutgoingWatchdogAnswerReceived = [NSDate date];
 }
 
 - (void)processASR:(UMDiameterPacket *)pkt
@@ -705,6 +799,7 @@
 
 - (void)processDCR:(UMDiameterPacket *)pkt
 {
+    /* disconnect request */
 }
 
 - (void)processDCA:(UMDiameterPacket *)pkt

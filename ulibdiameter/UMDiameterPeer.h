@@ -47,6 +47,11 @@
     
     UMPCAPFile              *_packetTraceFile;
     UMPCAPPseudoConnection  *_packetTracePseudoConnection;
+    NSDate                  *_lastIncomingWatchdogRequestReceived;
+    NSDate                  *_lastIncomingWatchdogAnswerSent;
+    NSDate                  *_lastOutgoingWatchdogRequestSent;
+    NSDate                  *_lastOutgoingWatchdogAnswerReceived;
+
 }
 
 @property(readwrite,assign,atomic)		BOOL					tcpPeer;
