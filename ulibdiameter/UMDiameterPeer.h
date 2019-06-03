@@ -32,7 +32,7 @@
     UMDiameterRouter        *_router;
     SCTP_Status             _sctpStatus;
     UMDiameterPeerState     *_peerState;
-
+    BOOL                    _isIncoming;
     BOOL                    _isConnected;
     BOOL                    _isActive;
     BOOL                    _isConnecting;

@@ -85,7 +85,14 @@
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->IS",oldStatusString];
             [self.logFeed infoText:s];
             _peerState = [_peerState eventSctpInService:self];
-            [self sendCER];
+            if(_sctp.isPassive==YES)
+            {
+                _isIncoming = YES;
+            }
+            else
+            {
+                [self sendCER];
+            }
             break;
         }
     }
@@ -497,15 +504,6 @@
     packet.hopByHopIdentifier = hopByHop;
     packet.endToEndIdentifier = endToEnd;
 
-    // { Result-Code }
-    if(1)
-    {
-        UMDiameterAvpResultCode *avp = [[UMDiameterAvpResultCode alloc]init];
-        [avp setFlagMandatory:YES];
-        [avp setNumber:@(resultCode)];
-        [packet appendAvp:avp];
-    }
-
     // { Origin-Host }
     if(1)
     {
@@ -523,9 +521,27 @@
         [packet appendAvp:avp];
     }
 
-    // 1* { Host-IP-Address }
-    if(0)
+    // { Result-Code }
+    if(1)
     {
+        UMDiameterAvpResultCode *avp = [[UMDiameterAvpResultCode alloc]init];
+        [avp setFlagMandatory:YES];
+        [avp setNumber:@(resultCode)];
+        [packet appendAvp:avp];
+    }
+
+
+    // 1* { Host-IP-Address }
+    if(1)
+    {
+        NSArray *addrs = _sctp.configured_local_addresses;
+        for (NSString *addr in addrs)
+        {
+            UMDiameterAvpHostIpAddress *avp =  [[UMDiameterAvpHostIpAddress alloc]init];
+            [avp setFlagMandatory:YES];
+            [avp setHostIPAddress:addr];
+            [packet appendAvp:avp];
+        }
     }
 
     // { Vendor-Id }
