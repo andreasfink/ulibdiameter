@@ -299,7 +299,7 @@
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Zpn)
                                       }];
-
+         */
         _inbandSecurityIds = [[UMSynchronizedArray alloc]init];
         [_inbandSecurityIds addObject:@(0)]; /* means NO_INBAND_SECURITY */
         _firmwareRevision = @(1);
