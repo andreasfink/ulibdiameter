@@ -39,6 +39,20 @@
         [_supportedVendorIds addObject:@(0xFFFFFFFF)];
         _vendorSpecificIds = [[NSMutableArray alloc]init];
         [_vendorSpecificIds addObject:@{
+                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"application": @(UMDiameterApplicationId_3GPP_S6a_S6d)
+                                        }];
+        [_vendorSpecificIds addObject:@{
+                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"application": @(UMDiameterApplicationId_3GPP_S9)
+                                        }];
+        [_vendorSpecificIds addObject:@{
+                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"application": @(UMDiameterApplicationId_3GPP_SLh)
+                                        }];
+
+        /*
+        [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Cx)
                                       }];
@@ -158,10 +172,6 @@
                                       @"application": @(UMDiameterApplicationId_3GPP_S15)
                                       }];
 
-        [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
-                                      @"application": @(UMDiameterApplicationId_3GPP_S6a_S6d)
-                                      }];
 
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
@@ -188,10 +198,6 @@
                                       @"application": @(UMDiameterApplicationId_3GPP_S7a)
                                       }];
 
-        [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
-                                      @"application": @(UMDiameterApplicationId_3GPP_S9)
-                                      }];
 
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
@@ -223,10 +229,6 @@
                                       @"application": @(UMDiameterApplicationId_3GPP_Sh)
                                       }];
 
-        [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
-                                      @"application": @(UMDiameterApplicationId_3GPP_SLh)
-                                      }];
 
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
