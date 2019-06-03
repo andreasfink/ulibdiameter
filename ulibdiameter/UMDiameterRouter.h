@@ -11,6 +11,7 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterTcpConnectionAuthorisationProtocol.h"
+#import "UMDiameterLocalUserProtocol.h"
 
 @protocol UMDiameterRouterAppDelegateProtocol
 @end
@@ -36,6 +37,7 @@
     NSMutableArray<NSDictionary *>  *_vendorSpecificIds;
     UMSynchronizedArray *_inbandSecurityIds;
     UMSynchronizedArray *_authApplicationIds;
+    id<UMDiameterLocalUserProtocol> _localUser;
 }
 
 @property(readwrite,strong,atomic)  NSString    *localHostName;
@@ -68,5 +70,6 @@
 - (void)start;
 
 - (BOOL)localSendPacket:(UMDiameterPacket *)p toPeer:(UMDiameterPeer *)peer; /* peer can be NULL if route has to be discovered */
+- (void)processIncomingPacket:(UMDiameterPacket *)packet fromPeer:(UMDiameterPeer *)peer;
 
 @end

@@ -169,8 +169,10 @@
             case UMDiameterApplicationId_Diameter_Base_Accounting:
             case UMDiameterApplicationId_3GPP_S6a_S6d:
             case UMDiameterApplicationId_3GPP_S9:
+            case UMDiameterApplicationId_3GPP_SLh:
+            default:
+                [_router processIncomingPacket:packet fromPeer:self];
                 break;
-
         }
     }
 }

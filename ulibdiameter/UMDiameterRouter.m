@@ -486,4 +486,44 @@
     return YES;
 }
 
+- (void)processIncomingPacket:(UMDiameterPacket *)packet
+                     fromPeer:(UMDiameterPeer *)peer
+{
+    if(packet.commandFlags & DIAMETER_COMMAND_FLAG_REQUEST)
+    {
+        [self processIncomingRequestPacket:packet fromPeer:peer];
+    }
+    else if(packet.commandFlags & DIAMETER_COMMAND_FLAG_ERROR)
+    {
+        [self processIncomingErrorPacket:packet fromPeer:peer];
+    }
+    else
+    {
+            [self processIncomingResponsePacket:packet fromPeer:peer];
+    }
+}
+
+- (void)processIncomingRequestPacket:(UMDiameterPacket *)packet
+                            fromPeer:(UMDiameterPeer *)peer
+{
+    /* route the packet */
+    [_localUser processIncomingRequestPacket:packet router:self peer:peer];
+}
+
+- (void)processIncomingErrorPacket:(UMDiameterPacket *)packet
+                          fromPeer:(UMDiameterPeer *)peer
+{
+    [_localUser processIncomingErrorPacket:packet router:self peer:peer];
+
+}
+
+- (void)processIncomingResponsePacket:(UMDiameterPacket *)packet
+                             fromPeer:(UMDiameterPeer *)peer
+{
+    [_localUser processIncomingResponsePacket:packet router:self peer:peer];
+}
+
+
+
+
 @end
