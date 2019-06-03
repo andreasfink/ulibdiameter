@@ -27,3 +27,4 @@ FOUNDATION_EXPORT const unsigned char ulibdiameterVersionString[];
 #import "UMDiameterPeer.h"
 #import "UMDiameterRouter.h"
 #import "UMDiameterApplicationId.h"
+#import "UMDiameterResultCode.h"

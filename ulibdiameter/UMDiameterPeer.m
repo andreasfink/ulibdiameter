@@ -12,6 +12,7 @@
 #import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterAvpVendorSpecificApplicationId.h"
+#import "UMDiameterResultCode.h"
 
 #import "UMDiameterAvpAll.h"
 
@@ -528,6 +529,10 @@
         [avp setFlagMandatory:YES];
         [avp setNumber:@(resultCode)];
         [packet appendAvp:avp];
+        if(resultCode != UMDiameterResultCode_DIAMETER_SUCCESS)
+        {
+            packet.commandFlags |= UMDiameterCommandFlag_Error;
+        }
     }
 
 
@@ -587,7 +592,6 @@
         [avp setArray:failedAvp];
         [packet appendAvp:avp];
     }
-
     // * [ Supported-Vendor-Id ]
     if([_router.supportedVendorIds count] > 0)
     {
@@ -599,6 +603,48 @@
             [avp setNumber:n];
             [packet appendAvp:avp];
         }
+    }
+    // * [ Inband-Security-Id ]
+    if([_router.inbandSecurityIds count] > 0)
+    {
+        NSArray *a = [_router.inbandSecurityIds arrayCopy];
+        for(NSNumber *n in a)
+        {
+            UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
+            [avp setFlagMandatory:YES];
+            [avp setNumber:n]; /* NO_INBAND_SECURITY */
+            [packet appendAvp:avp];
+        }
+    }
+    // [ Firmware-Revision ]
+    if(_router.firmwareRevision)
+    {
+        UMDiameterAvpFirmwareRevision *avp =  [[UMDiameterAvpFirmwareRevision alloc]init];
+        [avp setFlagMandatory:NO];
+        [avp setNumber:_router.firmwareRevision];
+        [packet appendAvp:avp];
+    }
+
+    NSArray<NSDictionary *>*vids = _router.vendorSpecificIds;
+    for(NSDictionary *vid in vids)
+    {
+        NSNumber *vendor = vid[@"vendor"];
+        NSNumber *application = vid[@"application"];
+
+        UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
+
+        NSMutableArray *entries = [[NSMutableArray alloc]init];
+
+        UMDiameterAvpVendorId *avp_vendor = [[UMDiameterAvpVendorId alloc]init];
+        avp_vendor.number = vendor;
+        [entries addObject:avp_vendor];
+
+        UMDiameterAvpAuthApplicationId *avp_app = [[UMDiameterAvpAuthApplicationId alloc]init];
+        avp_app.number = application;
+        [entries addObject:avp_app];
+
+        [avp setArray:entries];
+        [packet appendAvp:avp];
     }
     // * [ Auth-Application-Id ]
     if([_router.authApplicationIds count] > 0)
@@ -613,66 +659,12 @@
         }
     }
 
-    // * [ Inband-Security-Id ]
-    if([_router.inbandSecurityIds count] > 0)
-    {
-        NSArray *a = [_router.inbandSecurityIds arrayCopy];
-        for(NSNumber *n in a)
-        {
-            UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
-            [avp setFlagMandatory:YES];
-            [avp setNumber:n]; /* NO_INBAND_SECURITY */
-            [packet appendAvp:avp];
-        }
-    }
-
-    // * [ Acct-Application-Id ]
-#if 0
-    if([_router.inbandSecurityIds count] > 0)
-    {
-        NSArray *a = [_router.inbandSecurityIds arrayCopy];
-        for(NSNumber *n in a)
-        {
-            UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
-            [avp setFlagMandatory:YES];
-            [avp setNumber:n];
-            [packet appendAvp:avp];
-        }
-    }
-#endif
-
-
-#if 0
-    // * [ Vendor-Specific-Application-Id ]
-    if([_router.vendorSpecificIds count] > 0)
-    {
-        NSArray *a = [_router.vendorSpecificIds arrayCopy];
-        UMDiameterAvpVendorSpecificApplicationId *avp =  [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
-
-        for(NSNumber *n in a)
-        {
-            UMDiameterVendorSpecificApplicationId *avp1 =  [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
-            [avp setFlagMandatory:YES];
-            [avp setNumber:n];
-            [packet appendAvp:avp];
-        }
-    }
-#endif
-
-    // [ Firmware-Revision ]
-    if(_router.firmwareRevision)
-    {
-        UMDiameterAvpFirmwareRevision *avp =  [[UMDiameterAvpFirmwareRevision alloc]init];
-        [avp setFlagMandatory:NO];
-        [avp setNumber:_router.firmwareRevision];
-        [packet appendAvp:avp];
-    }
     return packet;
 }
 
 - (void)processCER:(UMDiameterPacket *)pkt
 {
-    uint32_t resultCode = 0;
+    uint32_t resultCode = UMDiameterResultCode_DIAMETER_SUCCESS;
 
     [self sendCEA:pkt.hopByHopIdentifier
          endToEnd:pkt.endToEndIdentifier

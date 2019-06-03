@@ -1,0 +1,45 @@
+//
+//  UMDiameterResultCode.h
+//  ulibdiameter
+//
+//  Created by Andreas Fink on 03.06.19.
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+typedef enum UMDiameterResultCode
+{
+    UMDiameterResultCode_DIAMETER_MULTI_ROUND_AUTH = 1001,
+    UMDiameterResultCode_DIAMETER_SUCCESS = 2001,
+    UMDiameterResultCode_DIAMETER_LIMITED_SUCCESS = 2002,
+    UMDiameterResultCode_DIAMETER_COMMAND_UNSUPPORTED = 3001,
+    UMDiameterResultCode_DIAMETER_UNABLE_TO_DELIVER = 3002,
+    UMDiameterResultCode_DIAMETER_REALM_NOT_SERVED = 3003,
+    UMDiameterResultCode_DIAMETER_TOO_BUSY = 3004,
+    UMDiameterResultCode_DIAMETER_LOOP_DETECTED = 3005,
+    UMDiameterResultCode_DIAMETER_REDIRECT_INDICATION = 3006,
+    UMDiameterResultCode_DIAMETER_APPLICATION_UNSUPPORTED = 3007,
+    UMDiameterResultCode_DIAMETER_INVALID_HDR_BITS = 3008,
+    UMDiameterResultCode_DIAMETER_INVALID_AVP_BITS = 3009,
+    UMDiameterResultCode_DIAMETER_UNKNOWN_PEER = 3010,
+    UMDiameterResultCode_DIAMETER_AUTHENTICATION_REJECTED = 4001,
+    UMDiameterResultCode_DIAMETER_OUT_OF_SPACE = 4002,
+    UMDiameterResultCode_ELECTION_LOST = 4003,
+    UMDiameterResultCode_DIAMETER_AVP_UNSUPPORTED = 5001,
+    UMDiameterResultCode_DIAMETER_UNKNOWN_SESSION_ID = 5002,
+    UMDiameterResultCode_DIAMETER_AUTHORIZATION_REJECTED = 5003,
+    UMDiameterResultCode_DIAMETER_INVALID_AVP_VALUE = 5004,
+    UMDiameterResultCode_DIAMETER_MISSING_AVP = 5005,
+    UMDiameterResultCode_DIAMETER_RESOURCES_EXCEEDED = 5006,
+    UMDiameterResultCode_DIAMETER_CONTRADICTING_AVPS = 5007,
+    UMDiameterResultCode_DIAMETER_AVP_NOT_ALLOWED = 5008,
+    UMDiameterResultCode_DIAMETER_AVP_OCCURS_TOO_MANY_TIMES = 5009,
+    UMDiameterResultCode_DIAMETER_NO_COMMON_APPLICATION = 5010,
+    UMDiameterResultCode_DIAMETER_UNSUPPORTED_VERSION = 5011,
+    UMDiameterResultCode_DIAMETER_UNABLE_TO_COMPLY = 5012,
+    UMDiameterResultCode_DIAMETER_INVALID_BIT_IN_HEADER = 5013,
+    UMDiameterResultCode_DIAMETER_INVALID_AVP_LENGTH = 5014,
+    UMDiameterResultCode_DIAMETER_INVALID_MESSAGE_LENGTH = 5015,
+    UMDiameterResultCode_DIAMETER_INVALID_AVP_BIT_COMBO = 5016,
+    UMDiameterResultCode_DIAMETER_NO_COMMON_SECURITY = 5017,
+} UMDiameterResultCode;
+
+
