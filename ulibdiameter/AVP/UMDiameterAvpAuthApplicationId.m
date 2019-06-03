@@ -16,5 +16,4 @@
     return UMDiameterAvpCode_AuthApplicationId;
 }
 
-
 @end
