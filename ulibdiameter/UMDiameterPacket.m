@@ -154,8 +154,6 @@
         NSData *avpData = avp.packetData;
         [data appendData:avpData];
         dlen+=avpData.length;
-        
-        NSLog(@"i=%lu: %lu  %lu",(unsigned long)i,(unsigned long)avpData.length,(unsigned long)dlen);
     }
 
     if((dlen % 4) !=0)
