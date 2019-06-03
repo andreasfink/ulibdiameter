@@ -49,6 +49,7 @@
 @property(readonly,copy,atomic)     NSArray<NSDictionary *> *vendorSpecificIds;
 @property(readonly,copy,atomic)     NSArray<NSNumber *> *inbandSecurityIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
+@property(readwrite,strong,atomic)  id<UMDiameterLocalUserProtocol> localUser;
 
 - (uint32_t)nextEndToEndIdentifier;
 
