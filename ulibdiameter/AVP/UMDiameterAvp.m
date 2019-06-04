@@ -16,7 +16,8 @@
 
 - (NSString *)avpType
 {
-    return @"undefined";
+    NSString *s = umdiameter_avp_code_string(_avpCode);
+    return s;
 }
 
 - (NSString *)avpName
@@ -478,11 +479,7 @@
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
     _avpCode = self.avpCode;
     dict[@"avp-code"] = @(_avpCode);
-    NSString *s = umdiameter_avp_code_string(_avpCode);
-    if(s)
-    {
-        dict[@"avp-code-description"] = s;
-    }
+    dict[@"avp-code-description"] = self.avpType;
     NSMutableArray *flags = [[NSMutableArray alloc]init];
     if(self.flagMandatory)
     {
