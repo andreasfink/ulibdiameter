@@ -120,7 +120,7 @@
     for(NSUInteger i = 0;i<n;i++)
     {
         UMDiameterAvp *avp = _avps[i];
-        NSData *d = [avp packetData]; /* forces the packetLength to be updated */
+        [avp packetData]; /* forces the packetLength to be updated */
         _messageLength += avp.packetLength;
     }
 
