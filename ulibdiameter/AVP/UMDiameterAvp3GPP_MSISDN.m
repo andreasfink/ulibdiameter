@@ -58,7 +58,7 @@
         }
         else
         {
-            [out appendFormat:@"%c",a-10+'A')];
+            [out appendFormat:@"%c",(a-10+'A')];
         }
 
         if(b<10)
