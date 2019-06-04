@@ -73,5 +73,6 @@
 #import "UMDiameterAvpDiameterIdentity.h"
 #import "UMDiameterAvpDiameterURI.h"
 #import "UMDiameterAvpTime.h"
+#import "UMDiameterAvpMSISDN.h"
 
 

@@ -59,6 +59,7 @@ typedef enum UMDiameterAvpCode
     UMDiameterAvpCode_UserName = 1,
     UMDiameterAvpCode_VendorId = 266,
     UMDiameterAvpCode_VendorSpecificApplicationId = 260,
+    UMDiameterAvpCode_MSISDN = 701,
 } UMDiameterAvpCode;
 
 NSString *umdiameter_avp_code_string (UMDiameterAvpCode code);
