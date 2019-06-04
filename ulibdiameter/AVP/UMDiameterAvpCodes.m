@@ -161,6 +161,108 @@ NSString *umdiameter_avp_code_string (UMDiameterAvpCode code)
         case UMDiameterAvpCode_VendorSpecificApplicationId:
             return @"Vendor-Specific-Application-Id";
             break;
+        case UMDiameterAvpCode_3GPP_User_Identity:
+            return @"3GPP-User-Identity";
+            break;
+        case UMDiameterAvpCode_3GPP_MSISDN:
+            return @"3GPP-MSISDN";
+            break;
+        case UMDiameterAvpCode_3GPP_User_Data:
+            return @"3GPP-User-Data";
+            break;
+        case UMDiameterAvpCode_3GPP_Data_Reference:
+            return @"3GPP-Data-Reference";
+            break;
+        case UMDiameterAvpCode_3GPP_Service_Indication:
+            return @"3GPP-Service-Indication";
+            break;
+        case UMDiameterAvpCode_3GPP_Subs_Req_Type:
+            return @"3GPP-Subs-Req-Type";
+            break;
+        case UMDiameterAvpCode_3GPP_Requested_Domain:
+            return @"3GPP-Requested-Domain";
+            break;
+        case UMDiameterAvpCode_3GPP_Current_Location:
+            return @"3GPP-Current-Location";
+            break;
+        case UMDiameterAvpCode_3GPP_Identity_Set:
+            return @"3GPP-Identity-Set";
+            break;
+        case UMDiameterAvpCode_3GPP_Expiry_Time:
+            return @"3GPP-Expiry-Time";
+            break;
+        case UMDiameterAvpCode_3GPP_Send_Data_Indication:
+            return @"3GPP-Send-Data-Indication";
+            break;
+        case UMDiameterAvpCode_3GPP_Server_Name:
+            return @"3GPP-Server-Name";
+            break;
+        case UMDiameterAvpCode_3GPP_Supported_Features:
+            return @"3GPP-Supported-Features";
+            break;
+        case UMDiameterAvpCode_3GPP_Feature_List_ID:
+            return @"3GPP-Feature-List-ID";
+            break;
+        case UMDiameterAvpCode_3GPP_Feature_List:
+            return @"3GPP-Feature-List";
+            break;
+        case UMDiameterAvpCode_3GPP_Supported_Applications:
+            return @"3GPP-Supported-Applications";
+            break;
+        case UMDiameterAvpCode_3GPP_Public_Identity:
+            return @"3GPP-Public-Identity";
+            break;
+        case UMDiameterAvpCode_3GPP_DSAI_Tag:
+            return @"3GPP-DSAI-Tag";
+            break;
+        case UMDiameterAvpCode_3GPP_Wildcarded_Public_Identity:
+            return @"3GPP-Wildcarded-Public-Identity";
+            break;
+        case UMDiameterAvpCode_3GPP_Wildcarded_IMPU:
+            return @"3GPP-Wildcarded-IMPU";
+            break;
+        case UMDiameterAvpCode_3GPP_Session_Priority:
+            return @"3GPP-Session-Priority";
+            break;
+        case UMDiameterAvpCode_3GPP_One_Time_Notification:
+            return @"3GPP-One-Time-Notification";
+            break;
+        case UMDiameterAvpCode_3GPP_Requested_Nodes:
+            return @"3GPP-Requested-Nodes";
+            break;
+        case UMDiameterAvpCode_3GPP_Serving_Node_Indication:
+            return @"3GPP-Serving-Node-Indication";
+            break;
+        case UMDiameterAvpCode_3GPP_Repository_Data_ID:
+            return @"3GPP-Repository-Data-ID";
+            break;
+        case UMDiameterAvpCode_3GPP_Sequence_Number:
+            return @"3GPP-Sequence-Number";
+            break;
+        case UMDiameterAvpCode_3GPP_Pre_paging_Supported:
+            return @"3GPP-Pre-paging-Supported";
+            break;
+        case UMDiameterAvpCode_3GPP_Local_Time_Zone_Indication:
+            return @"3GPP-Local-Time-Zone-Indication";
+            break;
+        case UMDiameterAvpCode_3GPP_UDR_Flags:
+            return @"3GPP-UDR-Flags";
+            break;
+        case UMDiameterAvpCode_3GPP_Call_Reference_Info:
+            return @"3GPP-Call-Reference-Info";
+            break;
+        case UMDiameterAvpCode_3GPP_Call_Reference_Number:
+            return @"3GPP-Call-Reference-Number";
+            break;
+        case UMDiameterAvpCode_3GPP_AS_Number:
+            return @"3GPP-AS-Number";
+            break;
+        case UMDiameterAvpCode_3GPP_OC_Supported_Features:
+            return @"3GPP-OC-Supported-Features";
+            break;
+        case UMDiameterAvpCode_3GPP_DRMP:
+            return @"3GPP-DRMP";
+            break;
         default:
             return [NSString stringWithFormat:@"unknown(%d)",code ];
             break;
