@@ -6,9 +6,9 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpMSISDN.h"
+#import "UMDiameterAvp3GPP_MSISDN.h"
 
-@implementation UMDiameterAvpMSISDN
+@implementation UMDiameterAvp3GPP_MSISDN
 
 - (NSString *)avpType
 {
@@ -17,7 +17,7 @@
 
 - (uint32_t)avpCode
 {
-    return UMDiameterAvpCode_MSISDN;
+    return UMDiameterAvpCode_3GPP_MSISDN;
 }
 
 

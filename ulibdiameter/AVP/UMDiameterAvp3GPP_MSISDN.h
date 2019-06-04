@@ -6,9 +6,9 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/ulibdiameter.h>
+#import "UMDiameterAvpOctetString.h"
 
-@interface UMDiameterAvpMSISDN : UMDiameterAvpOctetString
+@interface UMDiameterAvp3GPP_MSISDN : UMDiameterAvpOctetString
 
 - (NSString *)value;
 - (void)setValue:(NSString *)msisdn;
