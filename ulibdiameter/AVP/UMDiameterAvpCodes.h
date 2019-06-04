@@ -72,7 +72,7 @@ typedef enum UMDiameterAvpCode
     UMDiameterAvpCode_3GPP_Requested_Domain = 706,
     UMDiameterAvpCode_3GPP_Current_Location = 707,
     UMDiameterAvpCode_3GPP_Identity_Set = 708,
-    UMDiameterAvpCode_3GPP_Expiry_Time = 704,
+    UMDiameterAvpCode_3GPP_Expiry_Time = 709,
     UMDiameterAvpCode_3GPP_Send_Data_Indication = 710,
     UMDiameterAvpCode_3GPP_Server_Name = 602,
     UMDiameterAvpCode_3GPP_Supported_Features = 628,
