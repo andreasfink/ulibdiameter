@@ -308,11 +308,11 @@
     uint8_t header[12];
     uint32_t headerlen;
 	[self calculateAvpLenField];
-    uint32_t code = self.avpCode;
-    header[0] = (code & 0xFF000000) >> 24;
-    header[1] = (code & 0x00FF0000) >> 16;
-    header[2] = (code & 0x0000FF00) >> 8;
-    header[3] = (code & 0x000000FF) >> 0;
+    _avpCode = self.avpCode;
+    header[0] = (_avpCode & 0xFF000000) >> 24;
+    header[1] = (_avpCode & 0x00FF0000) >> 16;
+    header[2] = (_avpCode & 0x0000FF00) >> 8;
+    header[3] = (_avpCode & 0x000000FF) >> 0;
 
     uint8_t flags = self.avpFlags;
 
@@ -476,8 +476,13 @@
 - (UMSynchronizedSortedDictionary *)objectValue
 {
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
-
+    _avpCode = self.avpCode;
     dict[@"avp-code"] = @(_avpCode);
+    NSString *s = umdiameter_avp_code_string(_avpCode);
+    if(s)
+    {
+        dict[@"avp-code-description"] = s;
+    }
     NSMutableArray *flags = [[NSMutableArray alloc]init];
     if(self.flagMandatory)
     {
