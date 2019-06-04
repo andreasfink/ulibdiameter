@@ -32,7 +32,7 @@
         unichar c2;
         if((i+1)<n)
         {
-             c2 = [digits characterAtIndex:i];
+             c2 = [digits characterAtIndex:i+1];
         }
         else
         {
@@ -58,7 +58,7 @@
         }
         else
         {
-            [out appendFormat:@"%c",(a-10+'A')];
+            [out appendFormat:@"%c",a-10+'A')];
         }
 
         if(b<10)
