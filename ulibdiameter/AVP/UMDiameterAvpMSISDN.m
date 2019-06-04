@@ -8,11 +8,6 @@
 
 #import "UMDiameterAvpMSISDN.h"
 
-#import <ulibgsmmap/ulibgsmmap.h>
-
-
-
-
 @implementation UMDiameterAvpMSISDN
 
 - (NSString *)avpType
@@ -28,16 +23,57 @@
 
 - (void)setValue:(NSString *)digits
 {
-   UMGSMMAP_AddressString *a =  [[UMGSMMAP_AddressString alloc]initWithString:digits];
-    [a processBeforeEncode];
-    NSData *d = [a value];
-    _avpData = d;
+    digits = [digits onlyHex];
+    NSInteger n = digits.length;
+    NSMutableString *o = [[NSMutableString alloc]init];
+    for(NSInteger i=0;i<n;i+=2)
+    {
+        unichar c1 = [digits characterAtIndex:i];
+        unichar c2;
+        if((i+1)<n)
+        {
+             c2 = [digits characterAtIndex:i];
+        }
+        else
+        {
+            c2 = 'F';
+        }
+        [o appendFormat:@"%c%c",c2,c1];
+    }
+    _avpData = [o unhexedData];
 }
 
 - (NSString *)value
 {
-    UMGSMMAP_AddressString *a =  [[UMGSMMAP_AddressString alloc]initWithValue:_avpData];
-    return [a stringValue];
+    NSMutableString *out = [[NSMutableString alloc]init];
+    NSInteger n = _avpData.length;
+    const uint8_t *bytes = [_avpData bytes];
+    for(NSInteger i=0;i<n;i++)
+    {
+        unsigned char a = bytes[i] & 0xF;
+        unsigned char b = (bytes[i]>>4) & 0xF;
+        if(a<10)
+        {
+            [out appendFormat:@"%c",(a+'0')];
+        }
+        else
+        {
+            [out appendFormat:@"%c",(a-10+'A')];
+        }
+
+        if(b<10)
+        {
+            [out appendFormat:@"%c",(b+'0')];
+        }
+        else
+        {
+            if((b !=15) && (i != (n-1))) /* not filler */
+            {
+                [out appendFormat:@"%c",(b-10+'A')];
+            }
+        }
+    }
+    return out;
 }
 
 
