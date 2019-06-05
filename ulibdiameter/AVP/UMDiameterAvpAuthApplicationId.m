@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpAuthApplicationId
 
 
+- (NSString *)avpType
+{
+    return @"AuthApplicationId";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AuthApplicationId;

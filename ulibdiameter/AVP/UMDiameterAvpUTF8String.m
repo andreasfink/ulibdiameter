@@ -25,4 +25,12 @@
     _avpData = [v dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+
+
+- (UMSynchronizedSortedDictionary *)objectValue
+{
+    UMSynchronizedSortedDictionary *dict = [super objectValue];
+    dict[@"utf8-string"] = [self value];
+    return dict;
+}
 @end

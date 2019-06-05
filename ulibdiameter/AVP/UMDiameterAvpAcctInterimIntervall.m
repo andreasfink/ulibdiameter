@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpAcctInterimIntervall
 
+
+- (NSString *)avpType
+{
+    return @"AcctInterimInterval";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AcctInterimInterval;

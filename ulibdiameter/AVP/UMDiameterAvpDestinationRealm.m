@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpDestinationRealm
 
 
+- (NSString *)avpType
+{
+    return @"DestinationRealm";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_DestinationRealm;

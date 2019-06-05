@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpDestinationHost
 
+
+- (NSString *)avpType
+{
+    return @"DestinationHost";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_DestinationHost;

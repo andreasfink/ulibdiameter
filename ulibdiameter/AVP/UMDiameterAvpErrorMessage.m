@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpErrorMessage
 
 
+- (NSString *)avpType
+{
+    return @"ErrorMessage";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_ErrorMessage;

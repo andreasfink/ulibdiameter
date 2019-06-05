@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpAuthGracePeriod
 
+
+- (NSString *)avpType
+{
+    return @"AuthGracePeriod";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AuthGracePeriod;

@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpAuthRequestType
 
+
+- (NSString *)avpType
+{
+    return @"AuthRequestType";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AuthRequestType;

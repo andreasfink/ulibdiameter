@@ -10,6 +10,11 @@
 
 @implementation UMDiameterAvpAcctRealtimeRequired
 
+- (NSString *)avpType
+{
+    return @"AcctRealtimeRequired";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AcctRealtimeRequired;

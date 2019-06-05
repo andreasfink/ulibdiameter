@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpAuthSessionState
 
+
+- (NSString *)avpType
+{
+    return @"AuhtSessionState";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AuthSessionState;

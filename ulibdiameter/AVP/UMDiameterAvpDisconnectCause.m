@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpDisconnectCause
 
 
+- (NSString *)avpType
+{
+    return @"DissconectCause";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_DisconnectCause;

@@ -10,6 +10,10 @@
 
 @implementation UMDiameterAvpOriginStateId
 
+- (NSString *)avpType
+{
+    return @"OriginStateId";
+}
 
 - (uint32_t)avpCode
 {

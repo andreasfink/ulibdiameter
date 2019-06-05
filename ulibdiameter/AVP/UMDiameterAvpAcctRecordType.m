@@ -10,6 +10,13 @@
 
 @implementation UMDiameterAvpAcctRecordType
 
+
+
+- (NSString *)avpType
+{
+    return @"AcctRecordType";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AcctRecordType;

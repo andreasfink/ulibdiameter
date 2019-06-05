@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpRouteRecord
 
 
+- (NSString *)avpType
+{
+    return @"RouteRecord";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_RouteRecord;

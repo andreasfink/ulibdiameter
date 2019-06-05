@@ -10,6 +10,10 @@
 
 @implementation UMDiameterAvpFirmwareRevision
 
+- (NSString *)avpType
+{
+    return @"FirmwareRevision";
+}
 
 - (uint32_t)avpCode
 {

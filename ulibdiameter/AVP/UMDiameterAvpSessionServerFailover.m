@@ -10,6 +10,10 @@
 
 @implementation UMDiameterAvpSessionServerFailover
 
+- (NSString *)avpType
+{
+    return @"SessionServerFailover";
+}
 
 - (uint32_t)avpCode
 {

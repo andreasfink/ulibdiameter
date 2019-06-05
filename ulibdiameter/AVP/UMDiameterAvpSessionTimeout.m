@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpSessionTimeout
 
 
+- (NSString *)avpType
+{
+    return @"SessionTimeout";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_SessionTimeout;

@@ -10,4 +10,11 @@
 
 @implementation UMDiameterAvpIPFilterRule
 
+
+- (NSString *)avpType
+{
+    return @"IPFilterRule";
+}
+
+
 @end

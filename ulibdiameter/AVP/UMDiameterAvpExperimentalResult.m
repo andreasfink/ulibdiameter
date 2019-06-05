@@ -10,6 +10,10 @@
 
 @implementation UMDiameterAvpExperimentalResult
 
+- (NSString *)avpType
+{
+    return @"ExperimentalResult";
+}
 
 - (uint32_t)avpCode
 {

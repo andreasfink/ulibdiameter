@@ -76,5 +76,11 @@
     return out;
 }
 
+- (UMSynchronizedSortedDictionary *)objectValue
+{
+    UMSynchronizedSortedDictionary *dict = [super objectValue];
+    dict[@"msisdn"] = [self value];
+    return dict;
+}
 
 @end

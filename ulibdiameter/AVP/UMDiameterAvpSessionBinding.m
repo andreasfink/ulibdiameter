@@ -11,6 +11,12 @@
 @implementation UMDiameterAvpSessionBinding
 
 
+
+- (NSString *)avpType
+{
+    return @"SessionBinding";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_SessionBinding;

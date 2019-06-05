@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpSessionId
 
 
+- (NSString *)avpType
+{
+    return @"SessionId";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_SessionId;

@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpResultCode
 
 
+- (NSString *)avpType
+{
+    return @"ResultCode";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_ResultCode;

@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpAuthorizationLifetime
 
+
+- (NSString *)avpType
+{
+    return @"AuthorizationLifetime";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_AuthorizationLifetime;

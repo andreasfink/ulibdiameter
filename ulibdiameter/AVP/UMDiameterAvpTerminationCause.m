@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpTerminationCause
 
 
+- (NSString *)avpType
+{
+    return @"TerminationCause";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_TerminationCause;

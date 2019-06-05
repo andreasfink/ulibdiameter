@@ -10,6 +10,10 @@
 
 @implementation UMDiameterAvpOriginRealm
 
+- (NSString *)avpType
+{
+    return @"OriginRealm";
+}
 
 - (uint32_t)avpCode
 {

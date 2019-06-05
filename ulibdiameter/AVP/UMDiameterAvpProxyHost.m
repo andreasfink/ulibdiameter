@@ -11,6 +11,13 @@
 @implementation UMDiameterAvpProxyHost
 
 
+
+- (NSString *)avpType
+{
+    return @"ProxyHost";
+}
+
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_ProxyHost;

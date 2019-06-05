@@ -11,6 +11,13 @@
 @implementation UMDiameterAvpMultiRoundTimeout
 
 
+- (NSString *)avpType
+{
+    return @"MultiRoundTimeout";
+}
+
+
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_MultiRoundTimeout;

@@ -11,9 +11,21 @@
 @implementation UMDiameterAvpDiameterIdentity
 
 
+
 - (NSString *)avpType
 {
     return @"DiameterIdentity";
 }
 
+
+- (UMSynchronizedSortedDictionary *)objectValue
+{
+    UMSynchronizedSortedDictionary *dict = [super objectValue];
+    NSString *s = [[NSString alloc]initWithData:_avpData encoding:NSUTF8StringEncoding];
+    if(s)
+    {
+        dict[@"octet-string"] = s;
+    }
+    return dict;
+}
 @end

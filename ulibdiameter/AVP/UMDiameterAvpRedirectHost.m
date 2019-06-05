@@ -11,6 +11,12 @@
 @implementation UMDiameterAvpRedirectHost
 
 
+
+- (NSString *)avpType
+{
+    return @"RedirectHost";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_RedirectHost;

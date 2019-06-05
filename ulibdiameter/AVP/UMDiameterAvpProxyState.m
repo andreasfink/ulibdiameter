@@ -11,6 +11,12 @@
 @implementation UMDiameterAvpProxyState
 
 
+
+- (NSString *)avpType
+{
+    return @"ProxyState";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_ProxyState;

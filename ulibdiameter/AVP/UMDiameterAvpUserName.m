@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpUserName
 
 
+- (NSString *)avpType
+{
+    return @"UserName";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_UserName;

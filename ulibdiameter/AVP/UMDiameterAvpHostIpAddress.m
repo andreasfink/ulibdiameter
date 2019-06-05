@@ -11,6 +11,12 @@
 @implementation UMDiameterAvpHostIpAddress
 
 
+- (NSString *)avpType
+{
+    return @"HostIpAddress";
+}
+
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_HostIpAddress;

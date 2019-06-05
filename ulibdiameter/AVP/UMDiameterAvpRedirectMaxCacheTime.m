@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpRedirectMaxCacheTime
 
 
+- (NSString *)avpType
+{
+    return @"RedirectMaxCacheTime";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_RedirectMaxCacheTime;

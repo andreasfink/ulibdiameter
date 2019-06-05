@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpVendorSpecificApplicationId
 
 
+- (NSString *)avpType
+{
+    return @"VendorSpecificApplicationId";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_VendorSpecificApplicationId;

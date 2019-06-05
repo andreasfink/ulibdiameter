@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpClass
 
 
+- (NSString *)avpType
+{
+    return @"Class";
+}
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_Class;

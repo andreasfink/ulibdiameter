@@ -10,6 +10,10 @@
 
 @implementation UMDiameterAvpEventTimestamp
 
+- (NSString *)avpType
+{
+    return @"EventTimestamp";
+}
 
 - (uint32_t)avpCode
 {

@@ -11,6 +11,12 @@
 @implementation UMDiameterAvpInbandSecurityId
 
 
+- (NSString *)avpType
+{
+    return @"SecurityId";
+}
+
+
 - (uint32_t)avpCode
 {
     return UMDiameterAvpCode_InbandSecurityId;

@@ -10,4 +10,9 @@
 
 @implementation UMDiameterAvpEnumerated
 
+- (NSString *)avpType
+{
+    return @"Enumerated";
+}
+
 @end
