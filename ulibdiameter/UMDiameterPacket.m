@@ -18,8 +18,7 @@
     self = [super init];
     if(self)
     {
-        _avps = [[UMSynchronizedArray alloc]init];
-        _version = 1;
+        [self genericInitialisation];
     }
     return self;
 }
@@ -32,10 +31,19 @@
 - (void)genericInitialisation
 {
 	_avps = [[UMSynchronizedArray alloc]init];
+    _version = 1;
 }
 
 
 #define PADDING_TO_4(a)  (((a + 3) / 4) * 4)
+
+- (void)afterDecode
+{
+}
+
+- (void)beforeEncode
+{
+}
 
 
 - (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr
@@ -111,6 +119,7 @@
 
 - (NSData *)packedData
 {
+    [self beforeEncode];
 
     uint8_t header[20];
 

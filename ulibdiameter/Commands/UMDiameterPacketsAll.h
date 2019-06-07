@@ -1,0 +1,9 @@
+//
+//  UMDiameterPacketsAll.h
+//  ulibdiameter
+//
+//  Created by Andreas Fink on 05.06.19.
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+#import "UMDiameterPacket3GPP_AIR.h"

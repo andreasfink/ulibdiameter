@@ -76,3 +76,5 @@
 #import "UMDiameterAvp3GPP_MSISDN.h"
 
 
+#import "UMDiameterAvp3GPP_Visited_PLMN_ID.h"
+#import "UMDiameterAvp3GPP_AIR_Flags.h"

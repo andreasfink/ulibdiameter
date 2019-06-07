@@ -8,6 +8,14 @@
 
 #import "UMDiameterAvpUserName.h"
 
+
+/* 8.14.  User-Name AVP
+
+ The User-Name AVP (AVP Code 1) [RFC2865] is of type UTF8String, which
+ contains the User-Name, in a format consistent with the NAI
+ specification [RFC4282].
+
+ */
 @implementation UMDiameterAvpUserName
 
 

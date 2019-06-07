@@ -40,6 +40,7 @@
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;
 - (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr;
+- (void)genericInitialisation;
 
 - (NSData *)packedData;
 - (BOOL)flagRequest;
@@ -54,5 +55,7 @@
 
 - (NSString *)getSessionIdentifier;
 - (UMSynchronizedSortedDictionary *)objectValue;
+- (void)afterDecode;
+- (void)beforeEncode;
 
 @end
