@@ -1,14 +1,14 @@
 //
-//  UMDiameterAvp3GPP_Serving_node.m
+//  UMDiameterAvp3GPP_Serving_Node.m
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 11.06.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp3GPP_Serving_node.h"
+#import "UMDiameterAvp3GPP_Serving_Node.h"
 
-@implementation UMDiameterAvp3GPP_Serving_node
+@implementation UMDiameterAvp3GPP_Serving_Node
 
 
 - (NSString *)avpType
@@ -20,4 +20,15 @@
 {
     return UMDiameterAvpCode_3GPP_Serving_Node;
 }
+
+
+- (NSString *)stringValue
+{
+    return NULL;
+}
+
+-(void)setStringValue:(NSString *)str
+{
+}
+
 @end

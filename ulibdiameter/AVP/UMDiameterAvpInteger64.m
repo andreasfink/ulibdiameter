@@ -54,7 +54,7 @@
 }
 - (NSString *)stringValue
 {
-    return [NSString stringWithFormat:@"%lld",(long)self.value];
+    return [NSString stringWithFormat:@"%lld",(long long)self.value];
 }
 
 @end

@@ -166,14 +166,14 @@
 
     if(_serving_node.length > 0)
     {
-        UMDiameterAvp3GPP_SMSMI_Correlation_ID *avp = [[UMDiameterAvp3GPP_Serving_Node alloc]init];
+        UMDiameterAvp3GPP_Serving_Node *avp = [[UMDiameterAvp3GPP_Serving_Node alloc]init];
         [avp setFlagMandatory:YES];
-        avp.stringValue = _smsmi_correlation_id;
+        avp.stringValue = _serving_node;
         [self appendAvp:avp];
     }
     if(_supported_features.count > 0)
     {
-        UMDiameterAvpCode3GPP_Supported_Features *avp = [[UMDiameterAvpCode3GPP_Supported_Features alloc]init];
+        UMDiameterAvp3GPP_Supported_Features *avp = [[UMDiameterAvp3GPP_Supported_Features alloc]init];
         [avp setFlagMandatory:YES];
         /*
          avp.value = _supported_features;
@@ -181,30 +181,40 @@
         [self appendAvp:avp];
 
     }
-    if(_sc_address.length > 0)
+
+    if(_serving_node)
     {
     }
-    // [ SC-Address ]
-    // [ SM-RP-MTI ]
-    // [ SM-RP-SMEA ]
-    // [ SRR-Flags ]
-    // [ SM-Delivery-Not-Intended ]
-    // *[ AVP ]
-    // *[ Proxy-Info ]
-    // *[ Route-Record ]
-    /*
-     NSString *_smsmi_correlation_id;
-     NSArray  *_supported_features;
-     NSString *_sc_address;
-     NSString *_sm_rp_mti;
-     NSString *_sm_rp_smea;
-     NSString *_srr_flags;
-     NSString *_sm_delivery_not_indended;
-     NSArray  *_custom_avps;
-     NSString *_proxy_info;
-     NSArray  *_route_record;
-     */
-
+    if(_additional_serving_node)
+    {
+    }
+    if(_lmsi)
+    {
+    }
+    if(_user_identifier)
+    {
+    }
+    if(_mwd_status)
+    {
+    }
+    if (_mme_absent_user_diagnostic_sm)
+    {
+    }
+    if(_msc_absent_user_diagnostic_sm)
+    {
+    }
+    if(_sgsn_absent_user_diagnostic_sm)
+    {
+    }
+    if(_failed_avp)
+    {
+    }
+    if(_proxy_info)
+    {
+    }
+    if(_route_record)
+    {
+    }
 }
 
 @end

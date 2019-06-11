@@ -91,3 +91,4 @@
 #import "UMDiameterAvp3GPP_Feature_List_ID.h"
 #import "UMDiameterAvp3GPP_Supported_Features.h"
 #import "UMDiameterAvp3GPP_SC_Address.h"
+#import "UMDiameterAvp3GPP_Serving_Node.h"
