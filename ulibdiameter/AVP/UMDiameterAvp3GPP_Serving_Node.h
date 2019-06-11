@@ -1,5 +1,5 @@
 //
-//  UMDiameterAvp3GPP_Serving_node.h
+//  UMDiameterAvp3GPP_Serving_Node.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 11.06.19.
@@ -9,7 +9,7 @@
 #import "UMDiameterAvpGrouped.h"
 
 
-@interface UMDiameterAvp3GPP_Serving_node : UMDiameterAvpGrouped
+@interface UMDiameterAvp3GPP_Serving_Node : UMDiameterAvpGrouped
 
 /*
  Serving-Node ::=<AVP header: 2401 10415>
@@ -52,5 +52,7 @@
 @property(readwrite,strong,atomic)  NSString *ip_sm_gw_realm;
 @property(readwrite,strong,atomic)  NSArray *custom_avp;
 
+- (NSString *)stringValue;
+-(void)setStringValue:(NSString *)str;
 @end
 
