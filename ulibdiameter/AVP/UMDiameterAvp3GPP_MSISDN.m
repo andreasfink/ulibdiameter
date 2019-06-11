@@ -10,6 +10,8 @@
 
 @implementation UMDiameterAvp3GPP_MSISDN
 
+
+
 - (NSString *)avpType
 {
     return @"MSISDN";
@@ -19,6 +21,13 @@
 {
     return UMDiameterAvpCode_3GPP_MSISDN;
 }
+
+-(void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
+}
+
 
 
 - (void)setValue:(NSString *)digits

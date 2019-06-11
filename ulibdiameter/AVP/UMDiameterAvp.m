@@ -25,6 +25,20 @@
     return umdiameter_avp_code_string (self.avpCode);
 }
 
+-(void)genericInitialisation
+{
+    /* can be overrided by subclass */
+}
+
+- (UMDiameterAvp *)init
+{
+    self = [super init];
+    if(self)
+    {
+        [self genericInitialisation];
+    }
+    return self;
+}
 
 - (UMDiameterAvp *)initWithData:(NSData *)data avpCode:(uint32_t)avpCode
 {

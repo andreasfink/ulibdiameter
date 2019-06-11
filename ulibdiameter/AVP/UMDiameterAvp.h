@@ -8,6 +8,7 @@
 
 #import <ulib/ulib.h>
 #import "UMDiameterAvpCodes.h"
+#import "UMDiameterAvpFlags.h"
 
 @interface UMDiameterAvp : UMObject
 {
@@ -19,6 +20,9 @@
 }
 
 - (NSString *)avpType;
+
+- (void)genericInitialisation;
+- (UMDiameterAvp *)init;
 - (UMDiameterAvp *)initWithData:(NSData *)data;
 - (UMDiameterAvp *)initWithData:(NSData *)data avpCode:(uint32_t)avpCode;
 
