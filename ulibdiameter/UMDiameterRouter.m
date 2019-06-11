@@ -63,7 +63,13 @@
                                         @"application": @(UMDiameterApplicationId_3GPP_SLh)
                                         }];
 
-        /*
+        /* AF to HSS */
+        [_vendorSpecificIds addObject:@{
+                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"application": @(UMDiameterApplicationId_3GPP_Sh)
+                                        }];
+
+        /* CSCF - HSS */
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Cx)
@@ -311,7 +317,6 @@
                                       @"vendor":@(UMDiameterApplicationId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Zpn)
                                       }];
-         */
     }
     return self;
 }
