@@ -12,6 +12,8 @@
 #import "UMDiameterPacket.h"
 #import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
+#import "UMDiameterVendorId.h"
+
 @implementation UMDiameterRouter
 
 

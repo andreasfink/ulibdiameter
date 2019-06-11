@@ -6,15 +6,6 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-typedef enum UMDiameterVendorId
-{
-    UMDiameterApplicationId_3GPPP2 = 5535,
-    UMDiameterApplicationId_3GPP = 10415,
-    UMDiameterApplicationId_ETIS = 13019,
-    UMDiameterApplicationId_FinkTelecomServices = 54013,
-} UMDiameterVendorId;
-
-
 /* see also https://www.iana.org/assignments/aaa-parameters/aaa-parameters.xml */
 
 typedef enum UMDiameterApplicationId
