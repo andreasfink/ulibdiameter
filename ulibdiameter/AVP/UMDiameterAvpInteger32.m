@@ -48,4 +48,14 @@
     return 4;
 }
 
+- (void)setStringValue:(NSString *)string
+{
+    self.value = (int32_t)atoll(string.UTF8String);
+}
+- (NSString *)stringValue
+{
+    return [NSString stringWithFormat:@"%ld",(long)self.value];
+}
+
+
 @end

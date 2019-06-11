@@ -18,5 +18,7 @@
 - (NSNumber *)number;
 - (void)setNumber:(NSNumber *)n;
 
+- (void)setStringValue:(NSString *)string;
+- (NSString *)stringValue;
 
 @end

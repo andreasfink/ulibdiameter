@@ -8,6 +8,8 @@
 
 #import "UMDiameterPacket3GPP_SRR.h"
 
+#import "UMDiameterAvpAll.h"
+
 @implementation UMDiameterPacket3GPP_SRR
 
 /*
@@ -44,63 +46,122 @@ Message Format:
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST | DIAMETER_COMMAND_FLAG_PROXIABLE;
 }
 
-
 - (void)beforeEncode
 {
     [super beforeEncode];
-    // Release 15 Page 40 3GPP TS 29.272 V15.2.0 (2017-12)
-    // Table 5.2.3.1.1/1: Authentication Information Request
 
-    // [ User-Name ] = imsi
-    // This information element shall contain the user IMSI, formatted according to 3GPP TS 23.003 [3], clause 2.2.
+    if(_session_id)
+    {
+        UMDiameterAvpSessionId *avp = [[UMDiameterAvpSessionId alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.value = _session_id;
+        [self appendAvp:avp];
+    }
+    if(_origin_host.length > 0)
+    {
+        // { Origin-Host }
+        UMDiameterAvpOriginHost *avp = [[UMDiameterAvpOriginHost alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.stringValue = _origin_host;
+        [self appendAvp:avp];
+    }
+    if(_origin_realm.length > 0)
+    {
+        UMDiameterAvpOriginRealm *avp = [[UMDiameterAvpOriginRealm alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.stringValue = _origin_realm;
+        [self appendAvp:avp];
+    }
 
-    if(_.length > 0)
+
+    if(_destination_host.length > 0)
+    {
+        // { Destination-Host }
+        UMDiameterAvpDestinationHost *avp = [[UMDiameterAvpDestinationHost alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.stringValue = _destination_host;
+        [self appendAvp:avp];
+    }
+    // { Restination-Realm }
+    if(_destination_realm.length > 0)
+    {
+        UMDiameterAvpDestinationRealm *avp = [[UMDiameterAvpDestinationRealm alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.stringValue = _destination_realm;
+        [self appendAvp:avp];
+    }
+
+
+    if(_drmp.length > 0)
+    {
+        UMDiameterAvpDRMP *avp = [[UMDiameterAvpDRMP alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.stringValue = _drmp;
+        [self appendAvp:avp];
+    }
+
+
+    if(_msisdn.length > 0)
+    {
+        UMDiameterAvp3GPP_MSISDN *avp = [[UMDiameterAvp3GPP_MSISDN alloc]init];
+        [avp setFlagMandatory:YES];
+        avp.stringValue = _msisdn;
+        [self appendAvp:avp];
+    }
+
+    if(_user_name.length > 0)
     {
         UMDiameterAvpUserName *avp = [[UMDiameterAvpUserName alloc]init];
         [avp setFlagMandatory:YES];
-        avp.value = _imsi;
+        avp.value = _user_name;
         [self appendAvp:avp];
     }
 
-
-    // Supported Features (See 3GPP TS 29.229 [9])
-    // If present, this information element shall contain the list of features supported by the origin host.
-
-    if(_supported_features.length > 0)
+    if(_smsmi_correlation_id.length > 0)
     {
-    }
-
-    // Requested E- UTRAN Authentication Info
-    // (See 7.3.11)
-    // This information element shall contain the information related to authentication requests for E-UTRAN.
-    if(_requested_eutran_authentication_info.length > 0)
-    {
-        //* CREATE AVP HERE AND ADD IT */
-    }
-    // Requested UTRAN/GERAN Authentication Info
-    // (See 7.3.12)
-    // Requested- UTRAN- GERAN Authentication- Info
-    if(_requested_utran_geran_authentication_info.length > 0)
-    {
-        //* CREATE AVP HERE AND ADD IT */
-    }
-
-
-    if(_visited_plmn_id.length > 0)
-    {
-        UMDiameterAvp3GPP_Visited_PLMN_ID *avp = [[UMDiameterAvp3GPP_Visited_PLMN_ID alloc]init];
+        UMDiameterAvpUserName *avp = [[UMDiameterAvpUserName alloc]init];
         [avp setFlagMandatory:YES];
-        avp.value = _visited_plmn_id;
+        avp.value = _smsmi_correlation_id;
         [self appendAvp:avp];
     }
-
-    if(_air_flags.length > 0)
+    if(_supported_features.count > 0)
     {
-        UMDiameterAvp3GPP_AIR_Flags *avp = [[UMDiameterAvp3GPP_AIR_Flags alloc]init];
+        UMDiameterAvp3GPP_Supported_Features *avp = [[UMDiameterAvp3GPP_Supported_Features alloc]init];
         [avp setFlagMandatory:YES];
-        avp.value = _air_flags;
+        /*
+        avp.value = _supported_features;
+         */
+        [self appendAvp:avp];
+
+    }
+    if(_sc_address.length > 0)
+    {
+        UMDiameterAvp3GPP_SC_Address *avp = [[UMDiameterAvp3GPP_SC_Address alloc]init];
+        [avp setFlagMandatory:YES];
+         avp.stringValue = _sc_address;
         [self appendAvp:avp];
     }
+    // [ SC-Address ]
+    // [ SM-RP-MTI ]
+    // [ SM-RP-SMEA ]
+    // [ SRR-Flags ]
+    // [ SM-Delivery-Not-Intended ]
+    // *[ AVP ]
+    // *[ Proxy-Info ]
+    // *[ Route-Record ]
+/*
+    NSString *_smsmi_correlation_id;
+    NSArray  *_supported_features;
+    NSString *_sc_address;
+    NSString *_sm_rp_mti;
+    NSString *_sm_rp_smea;
+    NSString *_srr_flags;
+    NSString *_sm_delivery_not_indended;
+    NSArray  *_custom_avps;
+    NSString *_proxy_info;
+    NSArray  *_route_record;
+*/
+
 }
 
 @end

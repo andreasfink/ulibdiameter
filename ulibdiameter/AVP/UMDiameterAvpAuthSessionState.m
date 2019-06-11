@@ -20,6 +20,14 @@
 {
     return UMDiameterAvpCode_AuthSessionState;
 }
+- (void)setStringValue:(NSString *)string
+{
+}
+
+- (NSString *)stringValue
+{
+    return @"not-implemented";
+}
 
 
 @end

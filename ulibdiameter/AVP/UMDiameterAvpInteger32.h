@@ -15,4 +15,8 @@
 
 @property(readwrite,assign,atomic) int32_t value;
 
+
+- (void)setStringValue:(NSString *)string;
+- (NSString *)stringValue;
+
 @end

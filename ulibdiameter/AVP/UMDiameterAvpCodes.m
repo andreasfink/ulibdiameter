@@ -260,9 +260,44 @@ NSString *umdiameter_avp_code_string (UMDiameterAvpCode code)
         case UMDiameterAvpCode_3GPP_OC_Supported_Features:
             return @"3GPP-OC-Supported-Features";
             break;
-        case UMDiameterAvpCode_3GPP_DRMP:
-            return @"3GPP-DRMP";
+        case UMDiameterAvpCode_DRMP:
+            return @"DRMP";
             break;
+        case UMDiameterAvpCode_3GPP_SC_Address:
+            return @"SC-Address";
+
+        case UMDiameterAvpCode_SM_RP_UI:
+            return @"SM-RP-UI";
+
+        case   UMDiameterAvpCode_TFR_Flags:
+            return @"TFR-Flags";
+        case   UMDiameterAvpCode_SM_Delivery_Failure_Cause:
+            return @"SM-Delivery-Failure-Cause";
+        case   UMDiameterAvpCode_SM_Enumerated_Delivery_Failure_Cause:
+            return @"SM-Enumerated-Delivery-Failure-Cause";
+        case   UMDiameterAvpCode_SM_Diagnostic_Info:
+            return @"SM-Diagnostic-Info";
+        case   UMDiameterAvpCode_SM_Delivery_Timer:
+            return @"SM-Deliver-Timer";
+        case   UMDiameterAvpCode_SM_Delivery_Start_Time:
+            return @"SM-Delivery-Start-Time";
+        case   UMDiameterAvpCode_SMSMI_Correlation_ID:
+            return @"SMSMI-Correlation-ID";
+        case   UMDiameterAvpCode_HSS_ID:
+            return @"HSS-ID";
+        case   UMDiameterAvpCode_Originating_SIP_URI:
+            return @"Originating-SIP-URI";
+        case   UMDiameterAvpCode_Destination_SIP_URI:
+            return @"Destination-SIP-URI";
+        case   UMDiameterAvpCode_OFR_Flags:
+            return @"OFR-Flags";
+        case   UMDiameterAvpCode_Maximum_Retransmission_Time:
+            return @"Maximum-Retransmission-Time";
+        case   UMDiameterAvpCode_Requested_Retransmission_Time:
+            return @"Requested-Retransmission-Time";
+        case   UMDiameterAvpCode_SMS_GMSC_Address:
+            return @"SMS-GMSC-Address";
+
         default:
             return [NSString stringWithFormat:@"unknown(%d)",code ];
             break;

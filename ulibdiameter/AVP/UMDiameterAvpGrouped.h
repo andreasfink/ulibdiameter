@@ -15,5 +15,7 @@
 
 - (NSArray *)array;
 - (void)setArray:(NSArray *)array;
+- (void)appendAvp:(UMDiameterAvp *)avp;
+- (void)appendAvps:(NSArray <UMDiameterAvp *>*)avps;
 
 @end

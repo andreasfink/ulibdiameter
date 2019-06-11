@@ -48,4 +48,13 @@
     return 4;
 }
 
+- (void)setStringValue:(NSString *)string
+{
+    self.value = (uint32_t)atoll(string.UTF8String);
+}
+- (NSString *)stringValue
+{
+    return [NSString stringWithFormat:@"%u",self.value];
+}
+
 @end

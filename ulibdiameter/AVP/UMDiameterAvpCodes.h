@@ -59,7 +59,7 @@ typedef enum UMDiameterAvpCode
     UMDiameterAvpCode_UserName = 1,
     UMDiameterAvpCode_VendorId = 266,
     UMDiameterAvpCode_VendorSpecificApplicationId = 260,
-
+    
     /* From 3GPP TS 29.329 version 15.1.0 Release 15 15 ETSI TS 129 329 V15.1.0 (2018-07)
      Section 6.3
      */
@@ -96,7 +96,30 @@ typedef enum UMDiameterAvpCode
     UMDiameterAvpCode_3GPP_Call_Reference_Number = 721,
     UMDiameterAvpCode_3GPP_AS_Number = 722,
     UMDiameterAvpCode_3GPP_OC_Supported_Features = 621,
-    UMDiameterAvpCode_3GPP_DRMP = 301,
+    UMDiameterAvpCode_DRMP = 301,
+
+    /* THS 29.338 page 43 */
+    UMDiameterAvpCode_3GPP_SC_Address = 3300,
+    UMDiameterAvpCode_SM_RP_UI = 3301,
+    UMDiameterAvpCode_TFR_Flags = 3302,
+    UMDiameterAvpCode_SM_Delivery_Failure_Cause = 3303,
+    UMDiameterAvpCode_SM_Enumerated_Delivery_Failure_Cause = 3304,
+    UMDiameterAvpCode_SM_Diagnostic_Info = 3305,
+    UMDiameterAvpCode_SM_Delivery_Timer = 3306,
+    UMDiameterAvpCode_SM_Delivery_Start_Time = 3307,
+    UMDiameterAvpCode_SMSMI_Correlation_ID = 3324,
+    UMDiameterAvpCode_HSS_ID = 3325,
+    UMDiameterAvpCode_Originating_SIP_URI = 3326,
+    UMDiameterAvpCode_Destination_SIP_URI = 3327,
+    UMDiameterAvpCode_OFR_Flags = 3328,
+    UMDiameterAvpCode_Maximum_Retransmission_Time = 3330,
+    UMDiameterAvpCode_Requested_Retransmission_Time = 3331,
+    UMDiameterAvpCode_SMS_GMSC_Address = 3332,
+
+    UMDiameterAvpCode_AIR_Flags = 0xFFFF, /* unknown yet */
+    UMDiameterAvpCode_3GPP_Serving_Node = 2401, /* to be verified */
+    UMDiameterAvpCode_3GPP_Additional_Serving_Node = 2406, /* to be verified */
+
 } UMDiameterAvpCode;
 
 NSString *umdiameter_avp_code_string (UMDiameterAvpCode code);

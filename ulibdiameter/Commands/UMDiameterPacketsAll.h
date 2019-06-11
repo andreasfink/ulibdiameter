@@ -7,3 +7,6 @@
 //
 
 #import "UMDiameterPacket3GPP_AIR.h"
+
+#import "UMDiameterPacket3GPP_SRR.h"
+#import "UMDiameterPacket3GPP_SRA.h"

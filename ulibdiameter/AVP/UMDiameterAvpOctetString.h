@@ -10,4 +10,9 @@
 
 @interface UMDiameterAvpOctetString : UMDiameterAvp
 
+
+- (void)setStringValue:(NSString *)string;
+- (NSString *)stringValue;
+
+
 @end

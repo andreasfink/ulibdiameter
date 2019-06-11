@@ -15,4 +15,15 @@
     return @"OctetString";
 }
 
+- (void)setStringValue:(NSString *)string
+{
+    _avpData =[string  dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)stringValue
+{
+    NSString *s = [[NSString alloc]initWithData:_avpData encoding:NSUTF8StringEncoding];
+    return s;
+}
+
 @end

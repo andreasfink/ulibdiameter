@@ -68,4 +68,22 @@
         [_avps addObject:item];
     }
 }
+
+- (void)appendAvp:(UMDiameterAvp *)avp
+{
+    if(_avps==NULL)
+    {
+        _avps = [[UMSynchronizedArray alloc]init];
+    }
+    [_avps addObject:avp];
+}
+
+- (void)appendAvps:(NSArray <UMDiameterAvp *>*)avps;
+{
+    for(UMDiameterAvp *avp in avps)
+    {
+        [self appendAvp:avp];
+    }
+}
+
 @end

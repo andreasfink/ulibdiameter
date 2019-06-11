@@ -10,4 +10,7 @@
 
 @interface UMDiameterAvpAuthSessionState : UMDiameterAvpEnumerated
 
+- (void)setStringValue:(NSString *)string;
+- (NSString *)stringValue;
+
 @end

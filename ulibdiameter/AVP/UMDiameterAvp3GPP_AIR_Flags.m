@@ -11,6 +11,16 @@
 @implementation UMDiameterAvp3GPP_AIR_Flags
 
 
+- (NSString *)avpType
+{
+    return @"AIR-Flags";
+}
+
+- (uint32_t)avpCode
+{
+    return UMDiameterAvpCode_AIR_Flags;
+}
+
 - (NSString *)value
 {
     return NULL;

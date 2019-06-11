@@ -49,6 +49,17 @@
     return 8;
 }
 
+
+
+- (void)setStringValue:(NSString *)string
+{
+    self.value = (uint64_t)atoll(string.UTF8String);
+}
+- (NSString *)stringValue
+{
+    return [NSString stringWithFormat:@"%llu",self.value];
+}
+
 @end
 
 
