@@ -80,6 +80,9 @@ typedef enum UMDiameterCommandCode
     UMDiameterCommandCode_3GPP_TS_29_338_SR = 8388647,
     UMDiameterCommandCode_3GPP_TS_29_338_AL = 8388648,
     UMDiameterCommandCode_3GPP_TS_29_338_RD = 8388649,
+
+    UMDiameterCommandCode_3GPP_Location_Request = -1, /* TO BE DEFINED */
+
 } UMDiameterCommandCode;
 
 extern NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL request);
