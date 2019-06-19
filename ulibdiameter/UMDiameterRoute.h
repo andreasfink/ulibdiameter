@@ -10,11 +10,26 @@
 
 @interface UMDiameterRoute : UMObject
 {
+    NSString *_identifier;
     NSString *_hostname;
     NSString *_realm;
     NSNumber *_applicationId;
     NSString *_sessionId;
     BOOL     _oneTimeRoute;
+    NSNumber *_weight;
+    NSNumber *_priority;
 }
+
+@property(readwrite,strong,atomic)     NSString *identifier;
+@property(readwrite,strong,atomic)     NSString *hostname;
+@property(readwrite,strong,atomic)     NSString *realm;
+@property(readwrite,strong,atomic)     NSNumber *applicationId;
+@property(readwrite,strong,atomic)     NSString *sessionId;
+@property(readwrite,assign,atomic)     BOOL     oneTimeRoute;
+@property(readwrite,strong,atomic)     NSNumber   *weight;
+@property(readwrite,strong,atomic)     NSNumber   *priority;
+
+- (UMDiameterRoute *)initWithConfig:(NSDictionary *)conf;
+
 
 @end

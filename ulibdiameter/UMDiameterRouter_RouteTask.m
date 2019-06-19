@@ -39,7 +39,9 @@
     UMDiameterRouterSession *session = [_router findSessionForPacket:_packet];
     if(session)
     {
+        /* if we have a session, we use the same route back */
         [session touch];
+        
     }
 
 }

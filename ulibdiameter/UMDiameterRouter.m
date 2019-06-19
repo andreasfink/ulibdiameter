@@ -13,6 +13,7 @@
 #import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterVendorId.h"
+#import "UMDiameterRoute.h"
 
 @implementation UMDiameterRouter
 
@@ -28,7 +29,8 @@
     if(self)
     {
 		_peers = [[UMSynchronizedDictionary alloc]init];
-		_sessions = [[UMSynchronizedDictionary alloc]init];
+        _sessions = [[UMSynchronizedDictionary alloc]init];
+        _routes = [[UMSynchronizedDictionary alloc]init];
         _defaultSessionTimeout = 90;
         _inboundThroughputPackets   = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
@@ -538,6 +540,15 @@
 }
 
 
+- (void)addRoute:(UMDiameterRoute *)route
+{
+    _routes[route.identifier] = route;
+}
+- (void)addRouteFromConfig:(NSDictionary *)config
+{
+    UMDiameterRoute *route = [[UMDiameterRoute alloc]initWithConfig:config];
+    [self addRoute:route];
+}
 
 
 @end

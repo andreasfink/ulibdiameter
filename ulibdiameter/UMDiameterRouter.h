@@ -12,6 +12,7 @@
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterTcpConnectionAuthorisationProtocol.h"
 #import "UMDiameterLocalUserProtocol.h"
+@class UMDiameterRoute;
 
 @protocol UMDiameterRouterAppDelegateProtocol
 @end
@@ -20,6 +21,7 @@
 {
 	UMSynchronizedDictionary *_peers;
     UMSynchronizedDictionary *_sessions;
+    UMSynchronizedDictionary *_routes;
     UMThroughputCounter *_inboundThroughputPackets;
     UMThroughputCounter *_outboundThroughputPackets;
     NSTimeInterval      _defaultSessionTimeout;
@@ -72,5 +74,8 @@
 
 - (BOOL)localSendPacket:(UMDiameterPacket *)p toPeer:(UMDiameterPeer *)peer; /* peer can be NULL if route has to be discovered */
 - (void)processIncomingPacket:(UMDiameterPacket *)packet fromPeer:(UMDiameterPeer *)peer;
+
+- (void)addRoute:(UMDiameterRoute *)route;
+- (void)addRouteFromConfig:(NSDictionary *)config;
 
 @end
