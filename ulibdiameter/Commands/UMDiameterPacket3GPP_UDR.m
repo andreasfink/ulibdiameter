@@ -15,9 +15,9 @@
 -(void)genericInitialisation
 {
     [super genericInitialisation];
-    self.commandCode =  UMDiameterCommandCode_3GPP_TS_29_272_UD;
-    self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST | DIAMETER_COMMAND_FLAG_PROXIABLE;
-    self.applicationId = UMDiameterApplicationId_3GPP_Sh;
+    self.commandCode    =  UMDiameterCommandCode_3GPP_TS_29_272_UD;
+    self.commandFlags   = DIAMETER_COMMAND_FLAG_REQUEST | DIAMETER_COMMAND_FLAG_PROXIABLE;
+    self.applicationId  = UMDiameterApplicationId_3GPP_Sh;
 }
 
 @end

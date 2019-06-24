@@ -8,31 +8,75 @@
 
 #import "UMDiameterPacket.h"
 
-/* USER DATA REQUEST */
+/* USER DATA REQUEST
+ 3GPP TS 29.329 section 6.1.1 */
 @interface UMDiameterPacket3GPP_UDR : UMDiameterPacket
 {
     NSString *_session_id;
+    NSString *_drmp;
+    NSString *_vendor_specific_application_id;
     NSString *_auth_session_state;
-    NSString *_venodr_specific_application_id;
     NSString *_origin_host;
     NSString *_origin_realm;
+    NSString *_destination_host;
     NSString *_destination_realm;
-    NSString *_supported_features;
+    NSArray *_supported_features;
     NSString *_user_identity;
+    NSString *_wildcarded_public_identity;
+    NSString *_wildcarded_impu;
+    NSString  *_server_name;
+    NSArray  *_service_indication;
+    NSArray  *_data_reference;
+    NSArray  *_identity_set;
+    NSString  *_requested_domain;
+    NSString  *_current_location;
+    NSArray *_dsai_tag;
+    NSString *_session_priority;
     NSString *_user_name;
-    NSArray  *_dataReference;
+    NSString *_requested_nodes;
+    NSString *_serving_node_indication;
+    NSString *_pre_paging_supported;
+    NSString *_local_time_zone_indication;
+    NSString *_udr_flags;
+    NSString *_call_reference_info;
+    NSString *_oc_supported_features;
+    NSArray *_additional_avp;
+    NSArray *_proxy_info;
+    NSArray *_route_record;
 }
 
+@property(readwrite,strong,atomic)  NSString *drmp;
 @property(readwrite,strong,atomic)  NSString *session_id;
+@property(readwrite,strong,atomic)  NSString *vendor_specific_application_id;
 @property(readwrite,strong,atomic)  NSString *auth_session_state;
-@property(readwrite,strong,atomic)  NSString *venodr_specific_application_id;
 @property(readwrite,strong,atomic)  NSString *origin_host;
 @property(readwrite,strong,atomic)  NSString *origin_realm;
+@property(readwrite,strong,atomic)  NSString *destination_host;
 @property(readwrite,strong,atomic)  NSString *destination_realm;
-@property(readwrite,strong,atomic)  NSString *supported_features;
+@property(readwrite,strong,atomic)  NSArray *supported_features;
 @property(readwrite,strong,atomic)  NSString *user_identity;
+@property(readwrite,strong,atomic) NSString *wildcarded_public_identity;
+@property(readwrite,strong,atomic) NSString *wildcarded_impu;
+@property(readwrite,strong,atomic) NSString  *server_name;
+@property(readwrite,strong,atomic) NSArray  *service_indication;
+@property(readwrite,strong,atomic) NSArray  *data_reference;
+@property(readwrite,strong,atomic) NSArray  *identity_set;
+@property(readwrite,strong,atomic) NSString  *requested_domain;
+@property(readwrite,strong,atomic) NSString  *current_location;
+@property(readwrite,strong,atomic)  NSArray *dsai_tag;
+@property(readwrite,strong,atomic)  NSString *session_priority;
 @property(readwrite,strong,atomic)  NSString *user_name;
-@property(readwrite,strong,atomic)  NSArray  *dataReference;
+@property(readwrite,strong,atomic)  NSString *requested_nodes;
+@property(readwrite,strong,atomic)  NSString *serving_node_indication;
+@property(readwrite,strong,atomic)  NSString *pre_paging_supported;
+@property(readwrite,strong,atomic)  NSString *local_time_zone_indication;
+@property(readwrite,strong,atomic)  NSString *udr_flags;
+@property(readwrite,strong,atomic)  NSString *call_reference_info;
+@property(readwrite,strong,atomic)  NSString *oc_supported_features;
+@property(readwrite,strong,atomic)  NSArray *additional_avp;
+@property(readwrite,strong,atomic)  NSArray *proxy_info;
+@property(readwrite,strong,atomic)  NSArray *route_record;
+
 
 @end
 
