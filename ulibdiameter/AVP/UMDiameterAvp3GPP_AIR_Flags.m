@@ -21,6 +21,13 @@
     return UMDiameterAvpCode_AIR_Flags;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 - (NSString *)value
 {
     return NULL;

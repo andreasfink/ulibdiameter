@@ -1,24 +1,23 @@
 //
-//  UMDiameterAvp3GPP_Destination_SIP_URI.m
+//  UMDiameterAvp3GPP_Public_Identity.m
 //  ulibdiameter
 //
-//  Created by Andreas Fink on 11.06.19.
+//  Created by Andreas Fink on 25.06.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp3GPP_Destination_SIP_URI.h"
+#import "UMDiameterAvp3GPP_Public_Identity.h"
 
-@implementation UMDiameterAvp3GPP_Destination_SIP_URI
-
+@implementation UMDiameterAvp3GPP_Public_Identity
 
 - (NSString *)avpType
 {
-    return @"Destination-SIP-URI";
+    return @"Public-Identity";
 }
 
 - (uint32_t)avpCode
 {
-    return UMDiameterAvpCode_Destination_SIP_URI;
+    return UMDiameterAvpCode_3GPP_Public_Identity;
 }
 
 - (void)genericInitialisation

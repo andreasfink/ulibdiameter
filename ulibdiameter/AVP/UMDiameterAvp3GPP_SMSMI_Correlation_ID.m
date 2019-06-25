@@ -24,6 +24,12 @@
     return UMDiameterAvpCode_SMSMI_Correlation_ID;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
 
 - (void)beforeEncode
 {

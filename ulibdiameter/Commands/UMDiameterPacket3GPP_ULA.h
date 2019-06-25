@@ -6,12 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/ulibdiameter.h>
+#import "UMDiameterPacket.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface UMDiameterPacket3GPP_ULA : UMDiameterPacket
 
 @end
 
-NS_ASSUME_NONNULL_END

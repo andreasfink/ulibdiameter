@@ -16,7 +16,7 @@
     uint32_t    _avpCode;
     uint8_t     _avpFlags;
     uint32_t    _avpVendorId;
-	uint32_t	_avpLength;
+    uint32_t    _avpLength;
     NSData      *_avpData;
 }
 

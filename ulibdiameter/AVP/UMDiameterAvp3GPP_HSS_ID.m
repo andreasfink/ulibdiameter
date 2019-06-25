@@ -20,4 +20,11 @@
     return UMDiameterAvpCode_3GPP_MSISDN;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 @end

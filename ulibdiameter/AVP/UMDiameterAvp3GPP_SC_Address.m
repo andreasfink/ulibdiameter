@@ -21,4 +21,11 @@
     return UMDiameterAvpCode_3GPP_SC_Address;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor; 
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 @end

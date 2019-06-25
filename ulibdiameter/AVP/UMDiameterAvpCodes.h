@@ -120,6 +120,20 @@ typedef enum UMDiameterAvpCode
     UMDiameterAvpCode_3GPP_Serving_Node = 2401, /* to be verified */
     UMDiameterAvpCode_3GPP_Additional_Serving_Node = 2406, /* to be verified */
 
+    /* 3GPP 29.336 */
+    UMDiameterAvpCode_3GPP_IP_SM_GW_Number = 3100,
+    UMDiameterAvpCode_3GPP_IP_SM_GW_Name = 3101,
+    UMDiameterAvpCode_3GPP_User_Identifier = 3102,
+    UMDiameterAvpCode_3GPP_Service_ID = 3103,
+    UMDiameterAvpCode_3GPP_SCS_Identity = 3104,
+    UMDiameterAvpCode_3GPP_Service_Parameters = 3105,
+    UMDiameterAvpCode_3GPP_T4_Parameters = 3106,
+    UMDiameterAvpCode_3GPP_Service_Data = 3107,
+    UMDiameterAvpCode_3GPP_T4_Data = 3108,
+    UMDiameterAvpCode_3GPP_HSS_Cause =3109,
+    UMDiameterAvpCode_3GPP_SIR_Flags = 3110,
+    UMDiameterAvpCode_3GPP_External_Identifier = 3111,
+    UMDiameterAvpCode_3GPP_IP_SM_GW_Realm = 3112,
 } UMDiameterAvpCode;
 
 NSString *umdiameter_avp_code_string (UMDiameterAvpCode code);

@@ -13,6 +13,6 @@
 
 - (NSString *)stringValue;
 - (void)setStringValue:(NSString *)str;
-
+- (UMDiameterAvpDRMP *)initWithString:(NSString *)str;
 @end
 

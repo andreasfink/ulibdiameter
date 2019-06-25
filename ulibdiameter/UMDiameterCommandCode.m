@@ -5,8 +5,8 @@
 //  Created by Andreas Fink on 19.02.18.
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
-#include <ulib/ulib.h>
-#include "UMDiameterCommandCode.h"
+#import <ulib/ulib.h>
+#import "UMDiameterCommandCode.h"
 
 NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL request)
 {

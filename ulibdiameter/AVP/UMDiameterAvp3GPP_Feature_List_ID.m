@@ -20,4 +20,11 @@
     return UMDiameterAvpCode_3GPP_Feature_List_ID;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor; /* can not be mandatory */
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 @end

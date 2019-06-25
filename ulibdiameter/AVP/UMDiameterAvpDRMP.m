@@ -20,6 +20,16 @@
     return UMDiameterAvpCode_DRMP;
 }
 
+- (UMDiameterAvpDRMP *)initWithString:(NSString *)str
+{
+    self = [super init];
+    if(self)
+    {
+        [self setStringValue:str];
+    }
+    return self;
+}
+
 - (NSString *)stringValue
 {
     if((_value >=0) && (_value <16))

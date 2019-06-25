@@ -20,4 +20,11 @@
 {
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 @end

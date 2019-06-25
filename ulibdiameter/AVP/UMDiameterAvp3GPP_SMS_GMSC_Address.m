@@ -21,4 +21,11 @@
     return UMDiameterAvpCode_SMS_GMSC_Address;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 @end

@@ -21,6 +21,12 @@
     return UMDiameterAvpCode_3GPP_Serving_Node;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
 
 - (NSString *)stringValue
 {

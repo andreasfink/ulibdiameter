@@ -79,6 +79,14 @@
 		A6798A0522BB6F3A0019806C /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6798A0322BB6F3A0019806C /* ulibpcap.framework */; };
 		A6798A0622BB6F3A0019806C /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6798A0322BB6F3A0019806C /* ulibpcap.framework */; };
 		A6798A0722BB6F3A0019806C /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6798A0322BB6F3A0019806C /* ulibpcap.framework */; };
+		A684F77522C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = A684F77322C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.h */; };
+		A684F77622C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F77422C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.m */; };
+		A684F77922C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.h in Headers */ = {isa = PBXBuildFile; fileRef = A684F77722C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A684F77A22C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F77822C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.m */; };
+		A684F77D22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.h in Headers */ = {isa = PBXBuildFile; fileRef = A684F77B22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A684F77E22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F77C22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.m */; };
+		A684F78622C1FED9004F77C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F78522C1FED9004F77C0 /* main.m */; };
+		A684F78A22C20540004F77C0 /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
 		A68CFD3722A8242300F94967 /* UMDiameterPacket3GPP_AIR.h in Headers */ = {isa = PBXBuildFile; fileRef = A68CFD3522A8242300F94967 /* UMDiameterPacket3GPP_AIR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68CFD3822A8242300F94967 /* UMDiameterPacket3GPP_AIR.m in Sources */ = {isa = PBXBuildFile; fileRef = A68CFD3622A8242300F94967 /* UMDiameterPacket3GPP_AIR.m */; };
 		A68CFD3B22A8499C00F94967 /* UMDiameterPacket3GPP.h in Headers */ = {isa = PBXBuildFile; fileRef = A68CFD3922A8499C00F94967 /* UMDiameterPacket3GPP.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -283,7 +291,6 @@
 		A6D6E23022AFD39800D78CDC /* UMDiameterPacket3GPP_AIA.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D6E22E22AFD39800D78CDC /* UMDiameterPacket3GPP_AIA.m */; };
 		A6DE5FEF2045453A00F08DCD /* UMDiameterAVP_Options.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DE5FED2045453A00F08DCD /* UMDiameterAVP_Options.h */; };
 		A6DE5FF82045781400F08DCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE5FF72045781400F08DCD /* main.m */; };
-		A6DE600020457B3900F08DCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE5FF72045781400F08DCD /* main.m */; };
 		A6DE600120457B6900F08DCD /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
 		A6F2C900203B80CF00DA49BF /* UMDiameterCommandCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F2C8FF203B80CF00DA49BF /* UMDiameterCommandCode.m */; };
 		A6F2C903203B845F00DA49BF /* UMDiameterAvpInteger32.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F2C901203B845F00DA49BF /* UMDiameterAvpInteger32.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -312,6 +319,15 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A6260C54228C004F00C94036 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A684F78122C1FED9004F77C0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -400,6 +416,14 @@
 		A67989F322BB6D960019806C /* ulib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulib.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulib.framework"; sourceTree = "<absolute>"; };
 		A67989F722BB6D9E0019806C /* ulibsctp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibsctp.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulibsctp.framework"; sourceTree = "<absolute>"; };
 		A6798A0322BB6F3A0019806C /* ulibpcap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibpcap.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulibpcap.framework"; sourceTree = "<absolute>"; };
+		A684F77322C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp3GPP_UserIdentity.h; sourceTree = "<group>"; };
+		A684F77422C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvp3GPP_UserIdentity.m; sourceTree = "<group>"; };
+		A684F77722C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp3GPP_Public_Identity.h; sourceTree = "<group>"; };
+		A684F77822C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvp3GPP_Public_Identity.m; sourceTree = "<group>"; };
+		A684F77B22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp3GPP_External_Identifier.h; sourceTree = "<group>"; };
+		A684F77C22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvp3GPP_External_Identifier.m; sourceTree = "<group>"; };
+		A684F78322C1FED9004F77C0 /* avp-src-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "avp-src-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A684F78522C1FED9004F77C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A68CFD3522A8242300F94967 /* UMDiameterPacket3GPP_AIR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacket3GPP_AIR.h; sourceTree = "<group>"; };
 		A68CFD3622A8242300F94967 /* UMDiameterPacket3GPP_AIR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacket3GPP_AIR.m; sourceTree = "<group>"; };
 		A68CFD3922A8499C00F94967 /* UMDiameterPacket3GPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacket3GPP.h; sourceTree = "<group>"; };
@@ -652,6 +676,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A684F78022C1FED9004F77C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A684F78A22C20540004F77C0 /* ulib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6DE5FF22045781400F08DCD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -682,6 +714,7 @@
 				A6609EB6203A66A600C25C7B /* ulibdiameterTests */,
 				A6DE5FF62045781400F08DCD /* client-test */,
 				A6260C57228C004F00C94036 /* decode-diameter-pdu */,
+				A684F78422C1FED9004F77C0 /* avp-src-gen */,
 				A6609EAA203A66A600C25C7B /* Products */,
 				A6A58BA2203A678600D0C2BE /* Frameworks */,
 			);
@@ -694,6 +727,7 @@
 				A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */,
 				A6DE5FF52045781400F08DCD /* client-test */,
 				A6260C56228C004F00C94036 /* decode-diameter-pdu */,
+				A684F78322C1FED9004F77C0 /* avp-src-gen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -793,6 +827,14 @@
 			path = ulibdiameterTests;
 			sourceTree = "<group>";
 		};
+		A684F78422C1FED9004F77C0 /* avp-src-gen */ = {
+			isa = PBXGroup;
+			children = (
+				A684F78522C1FED9004F77C0 /* main.m */,
+			);
+			path = "avp-src-gen";
+			sourceTree = "<group>";
+		};
 		A68CFD3422A823FD00F94967 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +926,12 @@
 				A6BB8C2322AF264B00728CDC /* UMDiameterAvp3GPP_SC_Address.m */,
 				A6BB8C2622AF29A100728CDC /* UMDiameterAvp3GPP_Serving_Node.h */,
 				A6BB8C2722AF29A100728CDC /* UMDiameterAvp3GPP_Serving_Mode.m */,
+				A684F77322C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.h */,
+				A684F77422C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.m */,
+				A684F77722C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.h */,
+				A684F77822C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.m */,
+				A684F77B22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.h */,
+				A684F77C22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.m */,
 				A6A58BE9203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.h */,
 				A6A58BEA203C9D2800D0C2BE /* UMDiameterAvpAcctRealtimeRequired.m */,
 				A6A58BFD203C9DAE00D0C2BE /* UMDiameterAvpAcctApplicationId.h */,
@@ -1052,9 +1100,11 @@
 				A6A58BE3203C677000D0C2BE /* UMDiameterAvpIPFilterRule.h in Headers */,
 				A6A58C4F203C9FDB00D0C2BE /* UMDiameterAvpOriginHost.h in Headers */,
 				A6A58BF3203C9D6500D0C2BE /* UMDiameterAvpAcctRecordType.h in Headers */,
+				A684F77D22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.h in Headers */,
 				A6BF318E229C906D0000578B /* UMDiameterPeerState_Open.h in Headers */,
 				A6506EB72211B32B006665A9 /* UMDiameterPeer.h in Headers */,
 				A6BF31AA229C91420000578B /* UMDiameterPeerState_Closing.h in Headers */,
+				A684F77922C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.h in Headers */,
 				A6BB8C2822AF29A100728CDC /* UMDiameterAvp3GPP_Serving_Node.h in Headers */,
 				A6F2C907203B876500DA49BF /* UMDiameterAvpInteger64.h in Headers */,
 				A6A58BE7203C9D1200D0C2BE /* UMDiameterAvpAcctInterimIntervall.h in Headers */,
@@ -1149,6 +1199,7 @@
 				A6BB8C2022AF21A400728CDC /* UMDiameterPacket3GPP_SRA.h in Headers */,
 				A6075AFC2213002C00750CCD /* UMDiameterRouter_RouteTask.h in Headers */,
 				A61BFEC2203CF52400072EB4 /* UMDiameterAvpDiameterURI.h in Headers */,
+				A684F77522C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.h in Headers */,
 				A6A58CAD203CAE9700D0C2BE /* UMDiameterError.h in Headers */,
 				A61BFEA3203CEB2A00072EB4 /* UMDiameterAuthorisationServerState.h in Headers */,
 				A6D6E22F22AFD39800D78CDC /* UMDiameterPacket3GPP_AIA.h in Headers */,
@@ -1231,6 +1282,23 @@
 			productReference = A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A684F78222C1FED9004F77C0 /* avp-src-gen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A684F78722C1FED9004F77C0 /* Build configuration list for PBXNativeTarget "avp-src-gen" */;
+			buildPhases = (
+				A684F77F22C1FED9004F77C0 /* Sources */,
+				A684F78022C1FED9004F77C0 /* Frameworks */,
+				A684F78122C1FED9004F77C0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "avp-src-gen";
+			productName = "avp-src-gen";
+			productReference = A684F78322C1FED9004F77C0 /* avp-src-gen */;
+			productType = "com.apple.product-type.tool";
+		};
 		A6DE5FF42045781400F08DCD /* client-test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6DE5FF92045781400F08DCD /* Build configuration list for PBXNativeTarget "client-test" */;
@@ -1269,6 +1337,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					A684F78222C1FED9004F77C0 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					A6DE5FF42045781400F08DCD = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1292,6 +1364,7 @@
 				A6609EB1203A66A600C25C7B /* ulibdiameterTests */,
 				A6DE5FF42045781400F08DCD /* client-test */,
 				A6260C55228C004F00C94036 /* decode-diameter-pdu */,
+				A684F78222C1FED9004F77C0 /* avp-src-gen */,
 			);
 		};
 /* End PBXProject section */
@@ -1360,6 +1433,7 @@
 				A6A58BDC203C672D00D0C2BE /* UMDiameterAvpDiameterURI.m in Sources */,
 				A6A58CA6203CA1FB00D0C2BE /* UMDiameterAvpCodes.m in Sources */,
 				A61BFECA203CF5E200072EB4 /* UMDiameterAccountingServerStateIdle.m in Sources */,
+				A684F77E22C1FC32004F77C0 /* UMDiameterAvp3GPP_External_Identifier.m in Sources */,
 				A6506EC42211B8B7006665A9 /* UMDiameterPeerState_Closed.m in Sources */,
 				A6A58C4C203C9FCC00D0C2BE /* UMDiameterAvpMultiRoundTimeout.m in Sources */,
 				A6BB8C0922AF1D3B00728CDC /* UMDiameterAvp3GPP_SM_Delivery_Start_Time.m in Sources */,
@@ -1371,7 +1445,6 @@
 				A61BFEC6203CF58B00072EB4 /* UMDiameterAccountingServerState.m in Sources */,
 				A64FE8E922A65392009C551B /* UMDiameterAvp3GPP_MSISDN.m in Sources */,
 				A6075AFD2213002C00750CCD /* UMDiameterRouter_RouteTask.m in Sources */,
-				A6DE600020457B3900F08DCD /* main.m in Sources */,
 				A6075B01221304EC00750CCD /* UMDiameterRouterSession.m in Sources */,
 				A6A58BF0203C9D4E00D0C2BE /* UMDiameterAvpAcctMultiSessionId.m in Sources */,
 				A6A58BCC203C645100D0C2BE /* UMDiameterAvpAddress.m in Sources */,
@@ -1396,11 +1469,13 @@
 				A6A58C60203CA02300D0C2BE /* UMDiameterAvpProxyHost.m in Sources */,
 				A6A58C30203C9F2200D0C2BE /* UMDiameterAvpEventTimestamp.m in Sources */,
 				A6A58C80203CA10A00D0C2BE /* UMDiameterAvpRouteRecord.m in Sources */,
+				A684F77622C1F9D1004F77C0 /* UMDiameterAvp3GPP_UserIdentity.m in Sources */,
 				A6F2C918203B8A3000DA49BF /* UMDiameterAvpFloat64.m in Sources */,
 				A6A53FCE22AA74FF00D62CA0 /* UMDiameterAvp3GPP_HSS_ID.m in Sources */,
 				A6506ED02211B8DA006665A9 /* UMDiameterPeerState_forced_out_of_service.m in Sources */,
 				A6BB8C0122AF1B4800728CDC /* UMDiameterAvp3GPP_SMS_GMSC_Address.m in Sources */,
 				A6A58C38203C9F4E00D0C2BE /* UMDiameterAvpExperimentalResultCode.m in Sources */,
+				A684F77A22C1FB2F004F77C0 /* UMDiameterAvp3GPP_Public_Identity.m in Sources */,
 				A6A58C98203CA17A00D0C2BE /* UMDiameterAvpUserName.m in Sources */,
 				A6BB8C2122AF21A400728CDC /* UMDiameterPacket3GPP_SRA.m in Sources */,
 				A6BB8C1D22AF1FB400728CDC /* UMDiameterAvp3GPP_Supported_Applications.m in Sources */,
@@ -1465,6 +1540,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A684F77F22C1FED9004F77C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A684F78622C1FED9004F77C0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1741,6 +1824,41 @@
 			};
 			name = Release;
 		};
+		A684F78822C1FED9004F77C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A684F78922C1FED9004F77C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A6DE5FFA2045781400F08DCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1812,6 +1930,15 @@
 			buildConfigurations = (
 				A6609EC1203A66A600C25C7B /* Debug */,
 				A6609EC2203A66A600C25C7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A684F78722C1FED9004F77C0 /* Build configuration list for PBXNativeTarget "avp-src-gen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A684F78822C1FED9004F77C0 /* Debug */,
+				A684F78922C1FED9004F77C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

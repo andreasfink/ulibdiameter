@@ -20,4 +20,11 @@
     return UMDiameterAvpCode_SM_Delivery_Timer;
 }
 
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = UMDiameterApplicationId_3GPP;
+}
+
 @end
