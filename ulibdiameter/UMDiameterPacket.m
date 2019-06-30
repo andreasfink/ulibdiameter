@@ -23,6 +23,23 @@
     return self;
 }
 
+- (UMDiameterPacket *)initWithJsonString:(NSString *)str
+{
+    self = [super init];
+    if(self)
+    {
+        [self genericInitialisation];
+        NSError *e=NULL;
+        [self parseJsonString:str error:&e];
+        if(e)
+        {
+            NSLog@(@"Error Parsing Json String: %@\nJson=%@",e,str);
+            return NULL;
+        }
+    }
+    return self;
+}
+
 - (UMDiameterPacket *)initWithData:(NSData *)packet
 {
     return [self initWithData:packet atPosition:NULL];
@@ -30,7 +47,7 @@
 
 - (void)genericInitialisation
 {
-	_avps = [[UMSynchronizedArray alloc]init];
+	_packet_avps = [[UMSynchronizedArray alloc]init];
     _version = 1;
 }
 
@@ -102,7 +119,7 @@
 			UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata avpCode:avpCode];
             if(avp)
             {
-                [_avps addObject:avp];
+                [_packet_avps addObject:avp];
             }
 			NSInteger avplen_padded = PADDING_TO_4(avplen);
 			pos  = pos + avplen_padded;
@@ -125,10 +142,10 @@
 
     _messageLength = sizeof(header);
 
-    NSUInteger n = _avps.count;
+    NSUInteger n = _packet_avps.count;
     for(NSUInteger i = 0;i<n;i++)
     {
-        UMDiameterAvp *avp = _avps[i];
+        UMDiameterAvp *avp = _packet_avps[i];
         [avp packetData]; /* forces the packetLength to be updated */
         _messageLength += avp.packetLength;
     }
@@ -159,7 +176,7 @@
     int dlen=20;
     for(NSUInteger i = 0;i<n;i++)
     {
-        UMDiameterAvp *avp = _avps[i];
+        UMDiameterAvp *avp = _packet_avps[i];
         NSData *avpData = avp.packetData;
         [data appendData:avpData];
         dlen+=avpData.length;
@@ -260,7 +277,7 @@
 
 - (void)appendAvp:(UMDiameterAvp *)avp
 {
-    [_avps addObject:avp];
+    [_packet_avps addObject:avp];
 }
 
 
@@ -306,7 +323,7 @@
 	[s appendFormat:@"End-to-End Identifier: 0x%08X\n",_endToEndIdentifier];
 	[s appendString:@"    ------------------------------------\n"];
 
-	for(UMDiameterAvp *avp in _avps)
+	for(UMDiameterAvp *avp in _packet_avps)
 	{
 		NSString *m =[avp description];
 		NSArray *lines = [m componentsSeparatedByString:@"\n"];
@@ -370,7 +387,7 @@
     dict[@"hopByHopIdentifier"] = @(_hopByHopIdentifier);
     dict[@"endToEndIdentifier"] = @(_endToEndIdentifier);
     NSMutableArray *a = [[NSMutableArray alloc]init];
-    for(UMDiameterAvp *avp in _avps)
+    for(UMDiameterAvp *avp in _packet_avps)
     {
         [a addObject:[avp objectValue]];
     }
@@ -379,6 +396,27 @@
         dict[@"avp"] = a;
     }
     return dict;
+}
+
+- (void)setAvps:(NSArray<UMDiameterAvp *> *)avps
+{
+    
+    _packet_avps = [[UMSynchronizedArray alloc]init];
+    for(UMDiameterAvp *avp in avps)
+    {
+        [_packet_avps addObject:avp];
+    }
+}
+
+- (void)parseJsonString:(NSString *)s error:(NSError **)eptr
+{
+    UMJsonParser *parser = [[UMJsonParser alloc]init];
+    NSError *e = NULL;
+    NSDictionary *result = [parser objectWithString:s error:&eptr];
+    if([result isKindOf:[NSDictionary class]])
+    {
+        [self parseDict:result error:eptr)];
+    }
 }
 
 @end

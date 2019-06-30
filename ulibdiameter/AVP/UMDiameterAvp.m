@@ -40,7 +40,31 @@
     return self;
 }
 
-- (UMDiameterAvp *)initWithData:(NSData *)data avpCode:(uint32_t)avpCode
+
+- (UMDiameterAvp *)initWithJsonString:(NSString *)json
+{
+    self = [super init];
+    if(self)
+    {
+        [self genericInitialisation];
+        NSError *e = NULL;
+        [self parseJsonString:json error:&e];
+        if(e)
+        {
+            NSLog(@"Failed parsing JSON error=%@ string=%@",e,json);
+        }
+    }
+}
+
+- (void)parseJsonString:(NSString *)string
+                  error:(NSError *)err
+{
+    /* this has to be overrittten by the subclass */
+    *err = [NSError errorWithDomain:@"PARSING" code:100 userInfo:@{@"reason" : @"parseJsonString: not implemented"}];
+}
+
+- (UMDiameterAvp *)initWithData:(NSData *)data
+                        avpCode:(uint32_t)avpCode
 {
 	switch(avpCode)
 	{
@@ -270,6 +294,20 @@
         {
             _avpData = [NSData dataWithBytes:&header[8]  length:(_avpLength-8)];
         }
+        [self afterDecode];
+    }
+    return self;
+}
+
+- (UMDiameterAvp *)initWithAvp:(UMDiameterAvp *)avp
+{
+    self = [super init];
+    if(self)
+    {
+        _avpCode = avp.avpCode;
+        _avpFlags = avp.avpFlags;
+        _avpVendorId = avp.avpVendorId;
+        _avpData = avp.avpData;
         [self afterDecode];
     }
     return self;
@@ -516,5 +554,7 @@
     dict[@"avp-data"] = _avpData;
     return dict;
 }
+
+
 @end
 

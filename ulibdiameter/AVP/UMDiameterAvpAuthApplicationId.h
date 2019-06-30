@@ -10,4 +10,10 @@
 
 @interface UMDiameterAvpAuthApplicationId : UMDiameterAvpUnsigned32
 
++ (uint32_t)avpCode;
+- (uint32_t)avpCode;
+
+- (UMDiameterAvpAuthApplicationId *)initWithString:(NSString *)str;
+- (NSString *)string;
+- (void)setString:(NSString *)s;
 @end

@@ -28,7 +28,7 @@
 {
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Vendor;
-    _avpVendorId = UMDiameterApplicationId_3GPP;
+    _avpVendorId = UMDiameterVendorId_3GPP;
 }
 
 - (void)beforeEncode

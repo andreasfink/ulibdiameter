@@ -9,8 +9,8 @@
 
 typedef enum UMDiameterVendorId
 {
-    UMDiameterApplicationId_3GPPP2 = 5535,
-    UMDiameterApplicationId_3GPP = 10415,
-    UMDiameterApplicationId_ETIS = 13019,
-    UMDiameterApplicationId_FinkTelecomServices = 54013,
+    UMDiameterVendorId_3GPPP2 = 5535,
+    UMDiameterVendorId_3GPP = 10415,
+    UMDiameterVendorId_ETSI = 13019,
+    UMDiameterVendorId_FinkTelecomServices = 54013,
 } UMDiameterVendorId;

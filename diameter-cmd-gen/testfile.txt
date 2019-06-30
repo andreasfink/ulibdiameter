@@ -1,0 +1,25 @@
+<AA-Mobile-Node-Request> ::= < Diameter Header: 260, REQ, PXY >
+      < Session-ID >
+      { Auth-Application-Id }
+      { User-Name }
+      { Destination-Realm }
+      { Origin-Host }
+      { Origin-Realm }
+      { MIP-Reg-Request }
+      { MIP-MN-AAA-Auth }
+      [ Acct-Multi-Session-Id ]
+      [ Destination-Host ]
+      [ Origin-State-Id ]
+      [ MIP-Mobile-Node-Address ]
+      [ MIP-Home-Agent-Address ]
+      [ MIP-Feature-Vector ]
+      [ MIP-Originating-Foreign-AAA ]
+      [ Authorization-Lifetime ]
+      [ Auth-Session-State ]
+      [ MIP-FA-Challenge ]
+      [ MIP-Candidate-Home-Agent-Host ]
+      [ MIP-Home-Agent-Host ]
+      [ MIP-HA-to-FA-SPI ]
+    * [ Proxy-Info ]
+    * [ Route-Record ]
+    * [ AVP ]

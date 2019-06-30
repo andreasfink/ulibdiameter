@@ -25,7 +25,7 @@
 {
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
-    _avpVendorId = UMDiameterApplicationId_3GPP;
+    _avpVendorId = UMDiameterVendorId_3GPP;
 }
 
 @end

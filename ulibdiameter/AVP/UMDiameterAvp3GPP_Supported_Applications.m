@@ -36,7 +36,7 @@
 {
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Vendor; /* can not be mandatory */
-    _avpVendorId = UMDiameterApplicationId_3GPP;
+    _avpVendorId = UMDiameterVendorId_3GPP;
 }
 
 @end

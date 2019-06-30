@@ -17,6 +17,27 @@
     return @"Grouped";
 }
 
+- (UMDiameterAvp *)initWithAvp:(UMDiameterAvp *)avp
+{
+    self = [super init];
+    if(self)
+    {
+        _avpCode = avp.avpCode;
+        _avpFlags = avp.avpFlags;
+        _avpVendorId = avp.avpVendorId;
+        _avpData = avp.avpData;
+        if([avp isKindOfClass:[UMDiameterAvpGrouped class]])
+        {
+            
+            UMDiameterAvpGrouped *avpg = (UMDiameterAvpGrouped *)avp;
+            NSArray *a = [avpg array];
+            _avps = [[UMSynchronizedArray alloc]initWithArray:a];
+        }
+        [self afterDecode];
+    }
+    return self;
+}
+
 - (void)afterDecode
 {
     _avps = [[UMSynchronizedArray alloc]init];

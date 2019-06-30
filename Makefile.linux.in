@@ -18,12 +18,12 @@ SLIB=lib@PROJECT_NAME@.a
 
 PKGCONFIGFILE=@PROJECT_NAME@.pc
 
-MFILES = $(wildcard Classes/*.m) $(wildcard Classes/*/*.m) $(wildcard @PROJECT_NAME@/*.m) $(wildcard @PROJECT_NAME@/*/*.m)
-HFILES = version.h $(wildcard Classes/*.h) $(wildcard Classes/*/*.h) $(wildcard @PROJECT_NAME@/*.h) $(wildcard @PROJECT_NAME@/*/*.h)
+MFILES = $(wildcard Classes/*.m) $(wildcard Classes/*/*.m) $(wildcard @PROJECT_NAME@/*.m) $(wildcard @PROJECT_NAME@/*/*.m) $(wildcard @PROJECT_NAME@/*/*/*.m)
+HFILES = version.h $(wildcard Classes/*.h) $(wildcard Classes/*/*.h) $(wildcard @PROJECT_NAME@/*.h) $(wildcard @PROJECT_NAME@/*/*.h @PROJECT_NAME@/*/*/*.h)
 MOFILES  = $(MFILES:.m=.m.o)
 OFILES = $(MOFILES)
 
-INCLUDEDIRS = -I Classes -I @PROJECT_NAME@ -I @PROJECT_NAME@/AVP  -I @PROJECT_NAME@/Commands
+INCLUDEDIRS = -I Classes -I @PROJECT_NAME@ -I @PROJECT_NAME@/AVP @PROJECT_NAME@/AVP/3GPP  -I @PROJECT_NAME@/Commands
 
 DEBUG_RELEASE = -DCONFIGURATION_${CONFIGURATION}=1 -DCONFIGURATION=${CONFIGURATION}
 

@@ -35,8 +35,8 @@
 {
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Vendor; /* optionally mandatory */
-    _avpVendorId = UMDiameterApplicationId_3GPP;
-    _vendor_id = UMDiameterApplicationId_3GPP;
+    _avpVendorId = UMDiameterVendorId_3GPP;
+    _vendor_id = UMDiameterVendorId_3GPP;
 }
 
 - (UMDiameterAvp3GPP_Supported_Features *)initWithString:(NSString *)str

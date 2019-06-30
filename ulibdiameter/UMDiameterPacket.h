@@ -26,7 +26,7 @@
     uint32_t    _hopByHopIdentifier;
     uint32_t    _endToEndIdentifier;
 	uint32_t	_messageLength; /* calculated  */
-    UMSynchronizedArray *_avps;
+    UMSynchronizedArray *_packet_avps;
 }
 
 
@@ -40,6 +40,8 @@
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;
 - (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr;
+- (UMDiameterPacket *)initWithJsonString:(NSString *)str;
+
 - (void)genericInitialisation;
 
 - (NSData *)packedData;
@@ -52,10 +54,14 @@
 - (void)setFlagError:(BOOL)flag;
 - (void)setFlagTransmit:(BOOL)flag;
 - (void)appendAvp:(UMDiameterAvp *)avp;
+- (void)setAvps:(NSArray<UMDiameterAvp *> *)avp;
 
 - (NSString *)getSessionIdentifier;
 - (UMSynchronizedSortedDictionary *)objectValue;
 - (void)afterDecode;
 - (void)beforeEncode;
+
+- (void)parseJsonString:(NSString *)s error:(NSError **)eptr;
+- (void)parseDict:(NSString *)s error:(NSError **)eptr;
 
 @end

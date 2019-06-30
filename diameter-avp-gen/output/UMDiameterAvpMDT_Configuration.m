@@ -1,0 +1,36 @@
+//
+//  UMDiameterAvpMDT_Configuration.m
+//  ulibdiameter
+//
+//  Created by afink on 2019-06-30 23:24:58.634000
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpGrouped.h"
+
+@implementation UMDiameterAvpMDT_Configuration
+
+
+- (NSString *)avpType
+{
+    return @"MDT-Configuration";
+}
+
+- (uint32_t)avpCode
+{
+    return 1622;
+}
+
++ (uint32_t)avpCode
+{
+    return 1622;
+}
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = 10415;
+}
+

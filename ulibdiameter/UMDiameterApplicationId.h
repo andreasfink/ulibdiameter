@@ -160,6 +160,5 @@ typedef enum UMDiameterApplicationId
     UMDiameterApplicationId_OMN_Adapt_Application           = 16777357,
     UMDiameterApplicationId_3GPP_Nta                        = 16777358,
     UMDiameterApplicationId_Ericsson_Charging_SBI_Policy    = 16777359,
-
 } UMDiameterApplicationId;
 

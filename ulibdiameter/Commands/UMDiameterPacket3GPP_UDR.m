@@ -10,6 +10,7 @@
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterCommandCode.h"
 #import "UMDiameterAvpAll.h"
+#import "UMDiameterAvpVendorSpecificApplicationId.h"
 
 @implementation UMDiameterPacket3GPP_UDR
 
@@ -31,7 +32,8 @@
     < User-Data -Request> ::=
     < Diameter Header: 306, REQ, PXY, 16777217 > < Session-Id >
     [ DRMP ]
-    { Vendor-Specific-Application-Id } { Auth-Session-State }
+    { Vendor-Specific-Application-Id }
+    { Auth-Session-State }
     { Origin-Host }
     { Origin-Realm }
     [ Destination-Host ]
@@ -69,6 +71,8 @@
 
     if(_vendor_specific_application_id.length > 0)
     {
+        UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]initWithString:_vendor_specific_application_id];
+        [self appendAvp:avp];
     }
 
     if(_origin_host.length > 0)
@@ -180,6 +184,5 @@
     {
     }
 }
-
 
 @end

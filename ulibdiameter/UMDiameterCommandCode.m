@@ -200,5 +200,3 @@ NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL req
     }
     return s;
 }
-
-

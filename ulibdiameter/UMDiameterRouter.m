@@ -53,270 +53,270 @@
 
         _vendorSpecificIds = [[NSMutableArray alloc]init];
         [_vendorSpecificIds addObject:@{
-                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"vendor":@(UMDiameterVendorId_3GPP) ,
                                         @"application": @(UMDiameterApplicationId_3GPP_S6a_S6d)
                                         }];
         [_vendorSpecificIds addObject:@{
-                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"vendor":@(UMDiameterVendorId_3GPP) ,
                                         @"application": @(UMDiameterApplicationId_3GPP_S9)
                                         }];
         [_vendorSpecificIds addObject:@{
-                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"vendor":@(UMDiameterVendorId_3GPP) ,
                                         @"application": @(UMDiameterApplicationId_3GPP_SLh)
                                         }];
 
         /* AF to HSS */
         [_vendorSpecificIds addObject:@{
-                                        @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                        @"vendor":@(UMDiameterVendorId_3GPP) ,
                                         @"application": @(UMDiameterApplicationId_3GPP_Sh)
                                         }];
 
         /* CSCF - HSS */
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Cx)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Diameter_Data_Management)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Gmb)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Gq)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Gx)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Gx_over_Gy)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Gx2)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Gxx)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_MB2_C)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_MM10)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Np)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Ns)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Nt)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Nta)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_PC2)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_PC2_2)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_PC4a)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_PC6_PC7)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Pr)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Re)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Rx)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Rx2)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S13)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S15)
                                       }];
 
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6b)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6c)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6m)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6t)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S7a)
                                       }];
 
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S9a)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S9a_2)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Sd)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_SGd)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_SGmb)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Sh)
                                       }];
 
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_St)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Sta)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_SWm)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_SWx)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Sy)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_T4)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_T6a_T6b)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Tsp)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_V4)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_V6)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Wx)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Zh)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Zn)
                                       }];
 
         [_vendorSpecificIds addObject:@{
-                                      @"vendor":@(UMDiameterApplicationId_3GPP) ,
+                                      @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Zpn)
                                       }];
     }
