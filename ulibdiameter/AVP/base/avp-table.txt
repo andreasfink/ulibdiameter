@@ -1,0 +1,52 @@
+85	Acct-Interim-Interval	9.8.2	Unsigned32	M
+483	Accouting-Realtime-Required	9.8.7	Enumerated	M
+50	Acct-Multi-Session-Id	9.8.5	UTF8String	M
+485	Accounting-Record-Number	9.8.3	Unsigned32	M
+480	AccountingRecord-Type	9.8.1	Enumerated	M
+44	Acct-Session-Id	9.8.4	OctetString	M
+287	Accounting-Sub-Session-Id	9.8.6	Unsigned64	M
+259	Acct-Application-Id	6.9	Unsigned32	M
+258	Auth-Application-Id	6.8	Unsigned32	M
+274	Auth-Request-Type	8.7	Enumerated	M
+291	Authorization-Lifetime	8.9	Unsigned32	M
+276	Auth-Grace-Period	8.10	Unsigned32	M
+277	Auth-Session-State	8.11	Enumerated	M
+285	Re-Auth-Request-Type	8.12	Enumerated	M
+25	Class	8.20	OctetString	M
+293	Destination-Host	6.5	DiameterIdentity	M
+283	Destination-Realm	6.6	DiameterIdentity	M
+273	Disconnect-Cause	5.4.3	Enumerated	M
+281	Error-Message	7.3	UTF8String	
+294	Error-Reporting-Host	7.4	DiameterIdentity	
+55	Event-Timestamp	8.21	Time	M
+297	Experimental-Result	7.6	Grouped	M
+298	Experimental-Result-Code	7.7	Unsigned32	M
+279	Failed-AVP	7.5	Grouped	M
+267	Firmware-Revision	5.3.4	Unsigned32	
+257	Host-IP-Address	5.3.5	Address	M
+299	Inband-Security-Id	6.10	Unsigned32	M
+272	Multi-Round-Time-Out		8.19	Unsigned32	M
+264	Origin-Host	6.3	DiameterIdentity	M
+296	Origin-Realm	6.4	DiameterIdentity	M
+278	Origin-State-Id	8.16	Unsigned32	M
+269	Product-Name	5.3.7	UTF8String	
+280	Proxy-Host	6.7.3	DiameterIdentity	M
+284	Proxy-Info	6.7.2	Grouped	M
+33	Proxy-State	6.7.4	OctetString	M
+292	Redirect-Host	6.12	DiamURI	M
+261	Redirect-Host-Usage	6.13	Enumerated 	M
+262	Redirect-Max-Cache-Time	6.14	Unsigned32 	M
+268	Result-Code	7.1	Unsigned32 	M
+282	Route-Record	6.7.1	DiameterIdentity	M
+263	Session-Id	8.8	UTF8String 	M
+27	Session-Timeout	8.13	Unsigned32 	M
+270	Session-Binding	8.17	Unsigned32 	M
+271	Session-Server-Failover	8.18	Enumerated 	M
+265	Supported-Vendor-Id	5.3.6	Unsigned32 	M
+295	Termination-Cause	8.15	Enumerated 	M
+1	User-Name	8.14	UTF8String 	M
+266	Vendor-Id	5.3.3	Unsigned32 	M
+260	Vendor-Specific-Application-Id	6.11	Grouped	M
+301	DRMP	9.1	Enumerated	
+
+

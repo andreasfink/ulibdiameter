@@ -1,0 +1,4 @@
+Local-Time-Zone ::= <AVP header: 1649 10415>
+{ Time-Zone }
+{ Daylight-Saving-Time } 
+* [ AVP ]

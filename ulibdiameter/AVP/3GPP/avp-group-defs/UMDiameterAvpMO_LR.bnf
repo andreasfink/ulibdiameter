@@ -1,0 +1,4 @@
+MO-LR ::= <AVP header: 1485 10415>
+{ SS-Code }
+{ SS-Status }
+*[AVP]

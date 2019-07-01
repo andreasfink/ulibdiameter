@@ -1,0 +1,5 @@
+<DWR>  ::= < Diameter Header: 280, REQ >
+                    { Origin-Host }
+                    { Origin-Realm }
+                    [ Origin-State-Id ]
+                  * [ AVP ]

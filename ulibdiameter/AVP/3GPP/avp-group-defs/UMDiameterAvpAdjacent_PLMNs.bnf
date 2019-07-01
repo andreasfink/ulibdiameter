@@ -1,0 +1,3 @@
+Adjacent-PLMNs ::= <AVP header: 1672 10415>
+1*{ Visited-PLMN-Id }
+*[AVP]

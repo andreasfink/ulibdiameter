@@ -1,0 +1,8 @@
+<DWA>  ::= < Diameter Header: 280 >
+                    { Result-Code }
+                    { Origin-Host }
+                    { Origin-Realm }
+                    [ Error-Message ]
+                    [ Failed-AVP ]
+                    [ Origin-State-Id ]
+                  * [ AVP ]

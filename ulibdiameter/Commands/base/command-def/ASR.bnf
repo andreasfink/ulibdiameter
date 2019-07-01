@@ -1,0 +1,12 @@
+ <ASR>  ::= < Diameter Header: 274, REQ, PXY >
+                    < Session-Id >
+                    { Origin-Host }
+                    { Origin-Realm }
+                    { Destination-Realm }
+                    { Destination-Host }
+                    { Auth-Application-Id }
+                    [ User-Name ]
+                    [ Origin-State-Id ]
+                  * [ Proxy-Info ]
+                  * [ Route-Record ]
+                  * [ AVP ]

@@ -33,6 +33,7 @@
     if(a.count < 4)
     {
         *eptr = [NSError errorWithDomain:@"PARSING" code:101 userInfo:@{@"reason":@"Line does not consist of 4 or 5 parts"}];
+        NSLog(@"Line:%@",str);
         return;
     }
 
@@ -202,7 +203,7 @@
     [s appendString:@"//\n"];
     [s appendString:@"\n"];
     [s appendString:@"#import \"UMDiameterAvp.h\"\n"];
-    [s appendFormat:@"#import \"%@.h\"\n",objectType];
+    [s appendFormat:@"#import \"%@.h\"\n",objectName];
     [s appendString:@"\n"];
     [s appendFormat:@"@implementation %@\n",objectName];
     [s appendString:@"\n"];

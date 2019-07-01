@@ -1,0 +1,6 @@
+AESE-Communication-Pattern ::= <AVP header: 3113 10415>
+[ SCEF-Reference-ID ]
+{ SCEF-ID }
+*[ SCEF-Reference-ID-for-Deletion ]
+*[ Communication-Pattern-Set ]
+*[AVP]

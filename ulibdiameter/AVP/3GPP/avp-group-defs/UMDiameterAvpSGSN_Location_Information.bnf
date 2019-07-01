@@ -1,0 +1,11 @@
+SGSN-Location-Information ::= <AVP header: 1601 10415>
+[Cell-Global-Identity] 
+[Location-Area-Identity] 
+[Service-Area-Identity] 
+[Routing-Area-Identity] 
+[Geographical-Information] 
+[Geodetic-Information] 
+[Current-Location-Retrieved] 
+[Age-Of-Location-Information] 
+[ User-CSG-Information]
+*[AVP]

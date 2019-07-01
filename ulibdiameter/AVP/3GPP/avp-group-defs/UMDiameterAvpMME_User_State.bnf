@@ -1,0 +1,4 @@
+EPS-Location-Information ::= <AVP header: 1496 10415>
+[MME-Location-Information]
+[SGSN-Location-Information]
+*[AVP]

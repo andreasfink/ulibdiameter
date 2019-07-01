@@ -1,0 +1,4 @@
+EPS-Subscribed-QoS-Profile ::= <AVP header: 1431 10415>
+{ QoS-Class-Identifier }
+{ Allocation-Retention-Priority }
+*[AVP]

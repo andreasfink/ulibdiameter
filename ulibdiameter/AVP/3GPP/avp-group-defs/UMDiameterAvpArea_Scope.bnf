@@ -1,0 +1,7 @@
+Area-Scope ::= <AVP header: 1623 10415> 
+*[ Cell-Global-Identity ]
+*[ E-UTRAN-Cell-Global-Identity ]
+*[ Routing-Area-Identity ]
+*[ Location-Area-Identity ]
+*[ Tracking-Area-Identity ]
+*[ AVP ]

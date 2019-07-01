@@ -1,0 +1,19 @@
+PDP-Context ::= <AVP header: 1469 10415>
+{ Context-Identifier }
+{ PDP-Type }
+[ PDP-Address ]
+{ QoS-Subscribed }
+[ VPLMN-Dynamic-Address-Allowed ]
+{ Service-Selection }
+[3GPP-Charging-Characteristics]
+[ Ext-PDP-Type ]
+[ Ext-PDP-Address ]
+[ AMBR ]
+[ APN-OI-Replacement ]
+[ SIPTO-Permission ]
+[ LIPA-Permission ]
+[ Restoration-Priority ]
+[ SIPTO-Local-Network-Permission ]
+[ Non-IP-Data-Delivery-Mechanism ] 
+[ SCEF-ID ]
+*[AVP]

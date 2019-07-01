@@ -1,0 +1,6 @@
+CSG-Subscription-Data ::= <AVP header: 1436 10415>
+{ CSG-Id }
+[ Expiration-Date ]
+*[ Service-Selection ]
+[ Visited-PLMN-Id ]
+*[A VP]

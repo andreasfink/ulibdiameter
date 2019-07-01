@@ -1,0 +1,8 @@
+LCS-PrivacyException ::= <AVP header: 1475 10415>
+{ SS-Code }
+{ SS-Status }
+[ Notification-To-UE-User ] 
+*[ External-Client ]
+*[ PLMN-Client ]
+*[ Service-Type ]
+*[ AVP ]

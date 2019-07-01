@@ -1,0 +1,9 @@
+APN-Configuration ::= <AVP header: 1430 10415>
+{ Context-Identifier }
+* 2 [ Served-Party-IP-Address ]
+{ PDN-Type }
+{ Service-Selection}
+[ EPS-Subscribed-QoS-Profile ]
+[ VPLMN-Dynamic-Address-Allowed ]
+[MIP6-Agent-Info ]
+[ Visited-Network-Identifier ]

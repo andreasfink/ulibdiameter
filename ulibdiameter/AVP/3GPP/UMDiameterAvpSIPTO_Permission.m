@@ -2,12 +2,12 @@
 //  UMDiameterAvpSIPTO_Permission.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 13:53:46.309000
+//  Created by afink on 2019-07-01 15:55:42.559000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpEnumerated.h"
+#import "UMDiameterAvpSIPTO_Permission.h"
 
 @implementation UMDiameterAvpSIPTO_Permission
 

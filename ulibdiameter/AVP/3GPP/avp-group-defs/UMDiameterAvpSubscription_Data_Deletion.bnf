@@ -1,0 +1,8 @@
+Subscription-Data-Deletion ::= <AVP header: 1685 10415>
+{ DSR-Flags }
+[ SCEF-ID ]
+*[ Context-Identifier ]
+[ Trace-Reference ]
+*[ TS-Code ]
+*[ SS-Code ]
+*[ AVP ]

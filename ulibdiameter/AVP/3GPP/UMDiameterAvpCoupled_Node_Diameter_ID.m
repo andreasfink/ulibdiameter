@@ -2,12 +2,12 @@
 //  UMDiameterAvpCoupled_Node_Diameter_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 13:53:46.309000
+//  Created by afink on 2019-07-01 15:55:42.559000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpDiameterIdentity.h"
+#import "UMDiameterAvpCoupled_Node_Diameter_ID.h"
 
 @implementation UMDiameterAvpCoupled_Node_Diameter_ID
 

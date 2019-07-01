@@ -1,0 +1,8 @@
+Monitoring Event Report::= <AVP header: 3123 10415>
+{ SCEF-Reference-ID }
+[ SCEF-ID ]
+[ Reachability-Information ]
+[ EPS-Location-Information ]
+[ Monitoring-Type ]
+[ Loss-Of-Connectivity-Reason ]
+*[ AVP ]

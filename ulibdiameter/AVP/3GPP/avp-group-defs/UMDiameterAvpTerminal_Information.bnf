@@ -1,0 +1,5 @@
+Terminal-Information ::= <AVP header: 1401 10415>
+[ IMEI ]
+[ 3GPP2-MEID ]
+[ Software-Version ]
+*[ AVP ]

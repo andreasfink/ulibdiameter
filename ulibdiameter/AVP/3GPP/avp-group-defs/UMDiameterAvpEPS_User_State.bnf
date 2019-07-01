@@ -1,0 +1,4 @@
+EPS-User-State ::= <AVP header:1495 10415>
+[MME-User-State]
+[SGSN-User-State]
+*[AVP]

@@ -1,0 +1,17 @@
+         <CEA> ::= < Diameter Header: 257 >
+                   { Result-Code }
+                   { Origin-Host }
+                   { Origin-Realm }
+                1* { Host-IP-Address }
+                   { Vendor-Id }
+                   { Product-Name }
+                   [ Origin-State-Id ]
+                   [ Error-Message ]
+                   [ Failed-AVP ]
+                 * [ Supported-Vendor-Id ]
+                 * [ Auth-Application-Id ]
+                 * [ Inband-Security-Id ]
+                 * [ Acct-Application-Id ]
+                 * [ Vendor-Specific-Application-Id ]
+                   [ Firmware-Revision ]
+                 * [ AVP ]

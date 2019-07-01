@@ -1,0 +1,7 @@
+<DPA>  ::= < Diameter Header: 282 >
+                    { Result-Code }
+                    { Origin-Host }
+                    { Origin-Realm }
+                    [ Error-Message ]
+                    [ Failed-AVP ]
+                  * [ AVP ]

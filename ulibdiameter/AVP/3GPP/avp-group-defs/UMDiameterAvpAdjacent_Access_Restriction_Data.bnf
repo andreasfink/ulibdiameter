@@ -1,0 +1,4 @@
+Adjacent-Access-Restriction-Data ::= <AVP header: 1673 10415>
+{ Visited-PLMN-Id }
+{ Access-Restriction-Data }
+*[AVP]

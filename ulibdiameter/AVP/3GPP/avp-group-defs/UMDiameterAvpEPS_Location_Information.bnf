@@ -1,0 +1,3 @@
+MME-User-State ::= <AVP header: 1497 10415>
+[User-State]
+*[AVP]

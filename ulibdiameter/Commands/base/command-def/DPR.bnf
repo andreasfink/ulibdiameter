@@ -1,0 +1,5 @@
+ <DPR>  ::= < Diameter Header: 282, REQ >
+                    { Origin-Host }
+                    { Origin-Realm }
+                    { Disconnect-Cause }
+                  * [ AVP ]

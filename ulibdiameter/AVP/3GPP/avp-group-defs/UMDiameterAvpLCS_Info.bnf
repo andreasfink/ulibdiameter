@@ -1,0 +1,5 @@
+LCS-Info ::= <AVP header: 1473 10415>
+*[ GMLC-Number]
+*[ LCS-PrivacyException ]
+*[ MO-LR ]
+*[AVP]

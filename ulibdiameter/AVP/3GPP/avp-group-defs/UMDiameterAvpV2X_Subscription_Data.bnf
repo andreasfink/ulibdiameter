@@ -1,0 +1,4 @@
+V2X-Subscription-Data ::= <AVP header: 1688 10415>
+[ V2X-Permission ]
+[UE-PC5-AMBR ]
+*[AVP]

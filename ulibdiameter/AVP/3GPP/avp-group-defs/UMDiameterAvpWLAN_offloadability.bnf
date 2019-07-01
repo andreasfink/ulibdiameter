@@ -1,0 +1,4 @@
+WLAN-offloadability ::= <AVP header: 1667>
+[ WLAN-offloadability-EUTRAN ]
+[ WLAN-offloadability-UTRAN ]
+*[ AVP ]
