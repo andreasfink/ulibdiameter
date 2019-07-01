@@ -8,6 +8,7 @@
 
 #import <ulib/ulib.h>
 
+@class UMDiameterAvpGroupDef;
 
 @interface UMDiameterAvpDef : UMObject
 {
@@ -21,6 +22,8 @@
     
     NSString *_objectName;
     NSString *_objectType;
+    UMDiameterAvpGroupDef	*_groupDef;
+    BOOL	_isGroup;
 }
 
 @property(readwrite,assign,atomic)  NSInteger avpCode;
@@ -30,10 +33,15 @@
 @property(readwrite,assign,atomic)  BOOL    mandatoryFlag;
 @property(readwrite,assign,atomic)  BOOL    vendorFlag;
 @property(readwrite,assign,atomic)  NSInteger   vendorCode;
+@property(readwrite,strong,atomic)  UMDiameterAvpGroupDef	*groupDef;
+@property(readwrite,assign,atomic)  BOOL		isGroup;
+
 
 
 - (UMDiameterAvpDef *)initWithString:(NSString *)str;
 - (void)parseString:(NSString *)str error:(NSError **)eptr;
+- (void)parseGroupDef:(NSString *)filecontent error:(NSError **)eptr;
+
 - (NSString *)objectNameWithPrefix:(NSString *)prefix;
 - (NSString *)objectTypeWithPrefix:(NSString *)prefix;
 

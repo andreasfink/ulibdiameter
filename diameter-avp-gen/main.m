@@ -43,7 +43,7 @@ int main(int argc, const char * argv[])
     @autoreleasepool
     {
         NSMutableArray *avpDefs = [[NSMutableArray alloc]init];
-
+		NSString *groupdefsDir = NULL;
         NSDictionary *appDefinition = @
         {
             @"version" : @(VERSION),
@@ -77,6 +77,13 @@ int main(int argc, const char * argv[])
                                                @"long"  : @"--definitions",
                                                @"argument" : @"filename",
                                                @"help"  : @"reads the avp definition from a file",
+                                               },
+										  @{
+                                               @"name"  : @"group-definitions",
+                                               @"short" : @"-g",
+                                               @"long"  : @"--group-definitions",
+                                               @"argument" : @"directory",
+                                               @"help"  : @"reads the avp group definition from files in that directory",
                                                },
                                            @{
                                                @"name"  : @"write-avp-headers",
@@ -152,7 +159,16 @@ int main(int argc, const char * argv[])
         {
             verbose = YES;
         }
-        
+
+		s = getFirst(params[@"group-definitions"]);
+		if(s)
+		{
+			groupdefsDir = s;
+		}
+		else
+		{
+			groupdefsDir=@"./";
+		}
         s = getFirst(params[@"definitions"]);
         if(s)
         {
@@ -168,14 +184,37 @@ int main(int argc, const char * argv[])
             for(NSString *line in lines)
             {
                 NSError *e = NULL;
+
                 UMDiameterAvpDef *avpdef = [[UMDiameterAvpDef alloc]init];
                 [avpdef parseString:line error:&e];
+
                 if(e)
                 {
                     NSLog(@"%@",e);
                 }
                 else
                 {
+                	if([avpdef.typeDefinition isEqualToString:@"Grouped"])
+                	{
+
+						NSString *objectName = [avpdef objectNameWithPrefix:prefix];
+                		NSString *groupdefFilename = [NSString stringWithFormat:@"%@/%@.bnf",groupdefsDir,objectName];
+						NSString *s = [NSString stringWithContentsOfFile:groupdefFilename
+																encoding:NSUTF8StringEncoding
+																   error:&e];
+						if(e)
+                		{
+                    		NSLog(@"%@",e);
+                		}
+                		else
+                		{
+							[avpdef parseGroupDef:s error:&e];
+							if(e)
+							{
+								NSLog(@"%@",e);
+							}
+						}
+					}
                     [avpDefs addObject:avpdef];
                 }
             }

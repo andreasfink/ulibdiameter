@@ -1,28 +1,29 @@
 //
-//  UMDiameterGeneratorCMD.m
-//  avp-src-gen
+//  UMDiameterAvpGroupDef.m
+//  diameter-avp-gen
 //
-//  Created by Andreas Fink on 29.06.19.
+//  Created by Andreas Fink on 01.07.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterGeneratorCMD.h"
+#import "UMDiameterAvpGroupDef.h"
 #import "UMDiameterGeneratorAVP.h"
 
-@implementation UMDiameterGeneratorCMD
+@implementation UMDiameterAvpGroupDef
 
-- (UMDiameterGeneratorCMD *)initWithString:(NSString *)s
+
+- (UMDiameterAvpGroupDef *)initWithString:(NSString *)s
 {
     NSError *e = NULL;
-    UMDiameterGeneratorCMD *cmd = [self initWithString:s error:&e];
+    UMDiameterAvpGroupDef *def = [self initWithString:s error:&e];
     if(e)
     {
         NSLog(@"%@",e);
     }
-    return cmd;
+    return def;
 }
 
-- (UMDiameterGeneratorCMD *)initWithString:(NSString *)s error:(NSError **)eptr
+- (UMDiameterAvpGroupDef *)initWithString:(NSString *)s error:(NSError **)eptr
 {
     self = [super init];
     if(self)
@@ -63,13 +64,13 @@
 
 - (void)convertNames
 {
-    _commandName = [_commandName trim];
-    NSInteger count = [_commandName length];
+    _avpGroupName = [_avpGroupName trim];
+    NSInteger count = [_avpGroupName length];
     NSMutableString *wname = [[NSMutableString alloc]init];
     NSMutableString *oname = [[NSMutableString alloc]init];
     for(NSInteger idx=0;idx<count;idx++)
     {
-        unichar c = [_commandName characterAtIndex:idx];
+        unichar c = [_avpGroupName characterAtIndex:idx];
         unichar lowerC;
         if((c>='A') && (c<='Z'))
         {
@@ -97,7 +98,7 @@
 - (BOOL)parseFirstLine:(NSString *)s error:(NSError **)eptr /* returns YES on success */
 {
     s = [s trim];
-    
+
     NSArray *a = [s componentsSeparatedByString:@"::="];
     if(a.count !=2)
     {
@@ -106,28 +107,28 @@
                                userInfo:@{@"reason":@" ::== is no separating two parts in the first line" }];
         return NO;
     }
-    NSString *commandName = [a[0] trim];
-    if(commandName.length <2)
+    NSString *avpGroupName = [a[0] trim];
+    if(avpGroupName.length <2)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:2
-                                userInfo:@{@"reason":@"command name is shorter than 2 characters" }];
+                                userInfo:@{@"reason":@"avpGroupName name is shorter than 2 characters" }];
         return NO;
     }
-    
-    
-    if( ([commandName characterAtIndex:0] != '<') ||
-        ([commandName characterAtIndex:([commandName length] - 1)] != '>'))
+
+
+    if( ([avpGroupName characterAtIndex:0] != '<') ||
+        ([avpGroupName characterAtIndex:([avpGroupName length] - 1)] != '>'))
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:3
-                                userInfo:@{@"reason":@"no < or > in command name" }];
+                                userInfo:@{@"reason":@"no < or > in avpGroupName name" }];
         return NO;
     }
-    _commandName = [commandName substringWithRange:NSMakeRange(1,[commandName length] -2)];
-       
-    
-    
+    _avpGroupName = [avpGroupName substringWithRange:NSMakeRange(1,[avpGroupName length] -2)];
+
+
+
     NSString *header = [a[1] trim];
     NSString *comment;
     a = [header componentsSeparatedByString:@";"];
@@ -146,7 +147,7 @@
             [comment stringByAppendingString:a[i]];
         }
     }
-    
+
 
     if( ([header characterAtIndex:0] != '<') ||
        ([header characterAtIndex:([header length] - 1)] != '>'))
@@ -157,8 +158,8 @@
         return NO;
     }
     header = [header substringWithRange:NSMakeRange(1,[header length] -2)];
-    
-    /* header is now something like "Diameter Header: 316, REQ, PXY, 16777251" */
+
+    /* header is now something like "AVP Header: 316, REQ, PXY, 16777251" */
     NSArray *b = [header componentsSeparatedByString:@":"];
     if(b.count !=2)
     {
@@ -169,58 +170,35 @@
     }
     NSString *s1 = b[0];
     s1 = [s1 trim];
-    if(! (([s1 isEqualToString:@"Diameter Header"]) ||  /* this is used in most standards */
-        ([s1 isEqualToString:@"Diameter-Header"])))   /* this is used in the BNF definition */
+    if(! (([s1 isEqualToString:@"AVP Header"]) || /* this is used in most standards */
+        ([s1 isEqualToString:@"AVP-Header"])))    /* this is used in the BNF definition in RFC 6733 */
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:7
-                                userInfo:@{@"reason" : @"no keyword Diameter-Header or Diameter-Header found" }];
+                                userInfo:@{@"reason" : @"no keyword AVP Header or AVP-Header found" }];
         return NO;
     }
-       
+
     NSString *s2 = b[1];
-    NSArray *c = [s2 componentsSeparatedByString:@","];
+    NSArray *c = [s2 componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if(c.count<1)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:7
-                                userInfo:@{@"reason" : @"list of items after Diameter-Header separated by , is 0" }];
+                                userInfo:@{@"reason" : @"list of items after AVP-Header separated by whitespace is 0" }];
         return NO;
     }
-    NSString *commandNumberString = c[0];
-    _commandNumber = [commandNumberString integerValue];
-    for(NSInteger i=1;i<c.count;i++)
+    NSString *avpCodeString = c[0];
+    _avpCode = [avpCodeString integerValue];
+    if(c.count>1)
     {
-        NSString *flag = c[i];
-        flag = [flag trim];
-        if([flag isEqualToString:@"REQ"])
-        {
-            _rbit=YES;
-        }
-        else if([flag isEqualToString:@"PXY"])
-        {
-            _pbit=YES;
-        }
-        else if([flag isEqualToString:@"ERR"])
-        {
-            _ebit=YES;
-        }
-        else
-        {
-            NSInteger app = [flag integerValue];
-            if(app > 0)
-            {
-                _applicationId = app;
-            }
-            else
-            {
-                *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                            code:8
-                                        userInfo:@{@"reason" : @"unknown header option" }];
-                return NO;
-            }
-        }
-    }
+    	NSString *avpVendor = c[1];
+    	_vendor = [avpVendor integerValue];
+	}
+	else
+	{
+		_vendor = 0;
+	}
     return YES;
 }
 
@@ -228,27 +206,13 @@
 - (NSString *)description
 {
     NSMutableString *s = [[NSMutableString alloc]init];
-    [s appendFormat:@"< %@ > ::= < Diameter-Header: %d",
-     _commandName,(int)_commandNumber];
-    if(_rbit)
+    [s appendFormat:@"< %@ > ::= < AVP-Header: %ld",_avpGroupName,(long)_avpCode];
+    if(_vendor)
     {
-        [s appendString:@", REQ"];
-    }
-    if(_pbit)
-    {
-        [s appendString:@", PXY"];
-    }
-    if(_ebit)
-    {
-        [s appendString:@", ERR"];
-    }
-    if(_applicationId > 0)
-    {
-        [s appendFormat:@", %ld",(long)_applicationId];
-
+        [s appendFormat:@", %ld",(long)_vendor];
     }
     [s appendString:@" >\n"];
-    
+
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
         [s appendString:avp.description];
@@ -261,11 +225,94 @@
 
 - (void)writeCommandParser
 {
-    
+
 
 }
 
-- (NSString *)headerFileWithPrefix:(NSString *)prefix
+
+- (NSString *)includesForHeaderWithPrefix:(NSString *)avpPrefix
+{
+    NSMutableString *s = [[NSMutableString alloc]init];
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        [s appendFormat:@"@class %@%@;\n",avpPrefix,avp.objectName];
+    }
+    return s;
+}
+
+- (NSString *)includesForMethodsWithPrefix:(NSString *)avpPrefix
+{
+    NSMutableString *s = [[NSMutableString alloc]init];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        [s appendFormat:@"#import "%@%@";\n",avpPrefix,avp.objectName];
+    }
+    return s;
+}
+
+- (NSString *)propertiesForHeaderWithPrefix:(NSString *)avpPrefix
+{
+    NSMutableString *s = [[NSMutableString alloc]init];
+    if(avp.multiple)
+    {
+        [s appendFormat:@"\tNSArray<%@%@ *>\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
+    }
+    else
+    {
+        [s appendFormat:@"\t%@%@\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
+    }
+    return s;
+}
+
+- (NSString *)propertyLinesForHeaderWithPrefix:(NSString *)avpPrefix
+{
+    NSMutableString *s = [[NSMutableString alloc]init];
+    if(avp.multiple)
+    {
+        [s appendFormat:@"\tNSArray<%@%@ *>\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
+    }
+    else
+    {
+        [s appendFormat:@"\t%@%@\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
+    }
+    return s;
+}
+
+    [s appendFormat:@"@interface %@%@ : UMDiameterPacket\n",prefix,_objectName];
+    [s appendString:@"{\n"];
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if(avp.multiple)
+        {
+            [s appendFormat:@"\tNSArray<%@%@ *>\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
+        }
+        else
+        {
+            [s appendFormat:@"\t%@%@\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
+        }
+    }
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if(avp.multiple)
+        {
+            [s appendFormat:@"@property(readwrite,strong,atomic)\tNSArray<%@%@ *>\t*%@;\n",avpPrefix,avp.objectName,avp.propertyName];
+        }
+        else
+        {
+            [s appendFormat:@"@property(readwrite,strong,atomic)\t%@%@\t*%@;\n",avpPrefix,avp.objectName,avp.propertyName];
+        }
+    }
+    [s appendString:@"\n"];
+    [s appendString:@"@end\n"];
+    [s appendString:@"\n"];
+    return s;
+
+}
+- (NSString *)groupHeaderFileWithPrefix:(NSString *)prefix
                          avpPrefix:(NSString *)avpPrefix
                               user:(NSString *)user
                               date:(NSString *)date
@@ -294,11 +341,11 @@
     {
         if(avp.multiple)
         {
-            [s appendFormat:@"\tNSArray<%@%@ *>\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
+            [s appendFormat:@"\tNSArray<%@%@ *>\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
         }
         else
         {
-            [s appendFormat:@"\t%@%@\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
+            [s appendFormat:@"\t%@%@\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
         }
     }
     [s appendString:@"}\n"];
@@ -362,38 +409,10 @@
     [s appendString:@"- (void)genericInitialisation\n"];
     [s appendString:@"{\n"];
     [s appendString:@"    [super genericInitialisation];\n"];
-    [s appendFormat:@"    self.commandCode = %ld;\n",(long)_commandNumber];
-    
+    [s appendFormat:@"    self.avpCode = %ld;\n",(long)_avpCode];
+    [s appendFormat:@"    self.avpVendorId = %ld;\n",(long)_vendor];
+
     BOOL first=YES;
-    if(_rbit)
-    {
-        [s appendString:@"    self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST"];
-        first=NO;
-    }
-    if(_pbit)
-    {
-        if(first)
-        {
-            [s appendString:@"    self.commandFlags = DIAMETER_COMMAND_FLAG_PROXIABLE"];
-            first=NO;
-        }
-        else
-        {
-            [s appendString:@" | DIAMETER_COMMAND_FLAG_PROXIABLE"];
-        }
-    }
-    if(_ebit)
-    {
-        if(first)
-        {
-            [s appendString:@"    self.commandFlags = DIAMETER_COMMAND_FLAG_ERROR"];
-            first=NO;
-        }
-        else
-        {
-            [s appendString:@" | DIAMETER_COMMAND_FLAG_ERROR"];
-        }
-    }
     if(first)
     {
         [s appendString:@"    self.commandFlags = 0;\n"];
@@ -405,14 +424,14 @@
     [s appendString:@"}\n"];
 
     [s appendString:@"\n"];
-    
-    
+
+
     /* before encode */
-    
+
     [s appendString:@"- (void)beforeEncode\n"];
     [s appendString:@"{\n"];
     [s appendString:@"    [super beforeEncode];\n"];
-    
+
     [s appendFormat:@"    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];\n"];
 
     for(UMDiameterGeneratorAVP *avp in _avps)

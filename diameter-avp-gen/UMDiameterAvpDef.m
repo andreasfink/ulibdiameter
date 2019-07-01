@@ -7,6 +7,7 @@
 //
 
 #import "UMDiameterAvpDef.h"
+#import "UMDiameterAvpGroupDef.h"
 
 @implementation UMDiameterAvpDef
 
@@ -70,6 +71,18 @@
     }
 }
 
+- (void)parseGroupDef:(NSString *)filecontent
+ 				error:(NSError **)eptr
+{
+	NSAssert(eptr!=NULL,@"error pointer can not be NULL");
+	_groupDef = [[UMDiameterAvpGroupDef alloc]init];
+	[_groupDef parseString:filecontent error:eptr];
+	if(*eptr==NULL)
+	{
+		_isGroup=YES;
+	}
+}
+
 - (NSString *)headerFileNameWithPrefix:(NSString *)prefix
                              directory:(NSString *)dir
                                 exists:(BOOL *)exists
@@ -85,9 +98,8 @@
 {
     if(_objectName == NULL)
     {
-    _objectName = [NSString stringWithFormat:@"%@%@",
-                   prefix,
-                   [_standardsName stringByReplacingOccurrencesOfString:@"-" withString:@"_"]];
+        _objectName = [NSString stringWithFormat:@"%@%@",prefix,
+                       [_standardsName stringByReplacingOccurrencesOfString:@"-" withString:@"_"]];
     }
     return _objectName;
 }
