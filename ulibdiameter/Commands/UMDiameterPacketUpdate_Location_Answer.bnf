@@ -1,0 +1,21 @@
+< Update-Location-Answer> ::= < Diameter Header: 316, PXY, 16777251 > ; TS 29.272 Section 7.2.4
+< Session-Id >
+[ DRMP ]
+[ Vendor-Specific-Application-Id ]
+[ Result-Code ]
+[ Experimental-Result ]
+[ Error-Diagnostic ]
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+[ OC-Supported-Features ]
+[ OC-OLR ]
+*[ Load ]
+*[ Supported-Features ]
+[ ULA-Flags ]
+[ Subscription-Data ]
+*[ Reset-ID ]
+*[ AVP ]
+[ Failed-AVP ]
+ *[ Proxy-Info ]
+*[ Route-Record ]

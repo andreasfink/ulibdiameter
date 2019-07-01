@@ -1,0 +1,17 @@
+< Update-VCSG-Location-Request> ::= < Diameter Header: 8388638, REQ, PXY,  > 
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+[ Destination-Host ] 
+{ Destination-Realm } 
+{ User-Name } 
+[ MSISDN ] 
+[ SGSN-Number ] 
+*[ Supported-Features ] 
+{ UVR-Flags } 
+*[ AVP ] 
+ *[ Proxy-Info ] 
+*[ Route-Record ] 
