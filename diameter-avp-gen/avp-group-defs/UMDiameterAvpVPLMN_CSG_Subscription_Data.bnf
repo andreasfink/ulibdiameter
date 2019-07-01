@@ -1,0 +1,4 @@
+VPLMN-CSG-Subscription-Data ::= <AVP-Header: 1641 10415>
+	{ CSG-Id }
+	[ Expiration-Date ]
+	*[AVP]
