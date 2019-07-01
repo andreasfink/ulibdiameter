@@ -10,7 +10,7 @@
 
 @interface UMDiameterAvpGrouped: UMDiameterAvp
 {
-    UMSynchronizedArray *_avps;
+    UMSynchronizedArray *_grouped_avps;
 }
 
 - (NSArray *)array;

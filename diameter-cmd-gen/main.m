@@ -279,8 +279,11 @@ int main(int argc, const char * argv[])
                                                          user:user
                                                          date:date];
                 NSError *e = NULL;
-                fprintf(stderr,"writing header to %s\n",headerFileName.UTF8String);
-                fflush(stderr);
+                if(verbose)
+                {
+                    fprintf(stderr,"writing header to %s\n",headerFileName.UTF8String);
+                    fflush(stderr);
+                }
                 [content writeToFile:headerFileName atomically:YES encoding:NSUTF8StringEncoding error:&e];
                 if(e)
                 {
@@ -300,8 +303,11 @@ int main(int argc, const char * argv[])
                                                          user:user
                                                          date:date];
                 NSError *e = NULL;
-                fprintf(stderr,"writing methods to %s\n",methodFileName.UTF8String);
-                fflush(stderr);
+                if(verbose)
+                {
+                    fprintf(stdout,"writing methods to %s\n",methodFileName.UTF8String);
+                    fflush(stdout);
+                }
                 [content writeToFile:methodFileName atomically:YES encoding:NSUTF8StringEncoding error:&e];
                 if(e)
                 {

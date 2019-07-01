@@ -2,7 +2,7 @@
 //  UMDiameterAvpeDRX_Cycle_Length.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-06-30 23:29:55.405000
+//  Created by afink on 2019-07-01 13:53:46.309000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -33,4 +33,66 @@
     _avpFlags = UMDiameterAvpFlag_Vendor;
     _avpVendorId = 10415;
 }
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_rat_type)
+    {
+        [arr addObject:_rat_type]
+    }
+    if(_edrx_cycle_length_value)
+    {
+        [arr addObject:_edrx_cycle_length_value]
+    }
+    if(_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _avp)
+        {
+            [arr addObject:o]
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAVP *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpRAT_Type  avpCode])
+        {
+            avp = [[UMDiameterAvpRAT_Type alloc]initWithAvp:avp];
+            _rat_type = avp;
+            [knownAVPs addObject:avp];
+        }
+        else if(avp.avpCode == [UMDiameterAvpeDRX_Cycle_Length_Value avpCode])
+        {
+            avp = [[UMDiameterAvpeDRX_Cycle_Length_Value alloc]initWithAvp:avp];
+            _edrx_cycle_length_value = avp;
+            [knownAVPs addObject:avp];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    _avp = unknownAVPs;
+    [knownAVPs addObject:[_avp copy]];
+    [self setArray:knownAVPs];
+}
+
+
+@end
 

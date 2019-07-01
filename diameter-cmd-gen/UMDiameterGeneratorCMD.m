@@ -294,11 +294,11 @@
     {
         if(avp.multiple)
         {
-            [s appendFormat:@"\tNSArray<%@%@ *>\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
+            [s appendFormat:@"\tNSArray<%@%@ *>\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
         }
         else
         {
-            [s appendFormat:@"\t%@%@\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
+            [s appendFormat:@"\t%@%@\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
         }
     }
     [s appendString:@"}\n"];

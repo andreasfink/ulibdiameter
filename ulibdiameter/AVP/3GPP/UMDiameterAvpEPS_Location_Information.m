@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-06-30 23:29:55.405000
+//  Created by afink on 2019-07-01 13:53:46.309000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -33,4 +33,56 @@
     _avpFlags = UMDiameterAvpFlag_Vendor;
     _avpVendorId = 10415;
 }
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_user_state)
+    {
+        [arr addObject:_user_state]
+    }
+    if(_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _avp)
+        {
+            [arr addObject:o]
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAVP *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpUser_State  avpCode])
+        {
+            avp = [[UMDiameterAvpUser_State alloc]initWithAvp:avp];
+            _user_state = avp;
+            [knownAVPs addObject:avp];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    _avp = unknownAVPs;
+    [knownAVPs addObject:[_avp copy]];
+    [self setArray:knownAVPs];
+}
+
+
+@end
 

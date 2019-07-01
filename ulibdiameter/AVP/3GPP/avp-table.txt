@@ -1,7 +1,7 @@
 1400	Subscription-Data	7.3.2	Grouped	M,V
 1401	Terminal-Information	7.3.3	Grouped	M,V
 1402	IMEI	7.3.4	UTF8String	M,V
-1403	Software-Version	UTF8String	M,V
+1403	Software-Version	7.3.5	UTF8String	M,V
 1404	QoS-Subscribed	7.3.77	OctetString	M,V
 1405	ULR-Flags	7.3.7	Unsigned32	M,V
 1406	ULA-Flags	7.3.8	Unsigned32	M,V
@@ -11,23 +11,23 @@
 1410	Number-Of-Requested-Vectors	7.3.14	Unsigned32	M,V
 1411	Re-Synchronization-Info	7.3.15	OctetString	M,V
 1412	Immediate-Response-Preferred	7.3.6	Unsigned32	M,V
-1413	Authentication-Info	7.3.7	Grouped	M,V
-1414	E-UTRAN-Vector	7.3.8	Grouped	M,V
-1415	UTRAN-Vector	7.3.9	Grouped	M,V
-1416	GERAN-Vector	7.3.0	Grouped	M,V
-1417	Network-Access-Mode	7.3.1	Enumerated	M,V
-1418	HPLMN-ODB	7.3.2	Unsigned32	M,V
-1419	Item-Number	7.3.3	Unsigned32	M,V
-1420	Cancellation-Type	7.3.4	Enumerated	M,V
-1421	DSR-Flags	7.3.5	Unsigned32	M,V
-1422	DSA-Flags	7.3.6	Unsigned32	M,V
-1423	Context-Identifier	7.3.7	Unsigned32	M,V
-1424	Subscriber-Status	7.3.9	Enumerated	M,V
-1425	Operator-Determined-Barring	7.3.0	Unsigned32	M,V
-1426	Access-Restriction-Data	7.3.1	Unsigned32	M,V
+1413	Authentication-Info	7.3.17	Grouped	M,V
+1414	E-UTRAN-Vector	7.3.18	Grouped	M,V
+1415	UTRAN-Vector	7.3.19	Grouped	M,V
+1416	GERAN-Vector	7.3.20	Grouped	M,V
+1417	Network-Access-Mode	7.3.21	Enumerated	M,V
+1418	HPLMN-ODB	7.3.22	Unsigned32	M,V
+1419	Item-Number	7.3.23	Unsigned32	M,V
+1420	Cancellation-Type	7.3.24	Enumerated	M,V
+1421	DSR-Flags	7.3.25	Unsigned32	M,V
+1422	DSA-Flags	7.3.26	Unsigned32	M,V
+1423	Context-Identifier	7.3.27	Unsigned32	M,V
+1424	Subscriber-Status	7.3.29	Enumerated	M,V
+1425	Operator-Determined-Barring	7.3.30	Unsigned32	M,V
+1426	Access-Restriction-Data	7.3.31	Unsigned32	M,V
 1427	APN-OI-Replacement	7.3.32	UTF8String	M,V
-1428	All-APN-Configurations-Included-Indicator	7.3.3	Enumerated	M,V
-1429	APN-Configuration-Profile	7.3.4	Grouped	M,V
+1428	All-APN-Configurations-Included-Indicator	7.3.33	Enumerated	M,V
+1429	APN-Configuration-Profile	7.3.34	Grouped	M,V
 1430	APN-Configuration	7.3.5	Grouped	M,V
 1431	EPS-Subscribed-QoS-Profile	7.3.7	Grouped	M,V
 1432	VPLMN-Dynamic-Address-Allowed	7.3.8	Enumerated	M,V
@@ -93,7 +93,7 @@
 1496	EPS-Location-Information	7.3.1	Grouped	V
 1497	MME-User-State	7.3.2	Grouped	V
 1498	SGSN-User-State	7.3.3	Grouped	V
-1499	User-State	7.3.114	Grouped	V
+1499	User-State	7.3.114	Enumerated	V
 1600	MME-Location-Information	7.3.115	Grouped	V
 1601	SGSN-Location-Information	7.3.6	Grouped	V
 1602	E-UTRAN-Cell-Global-Identity	7.3.7	OctetString	V
@@ -149,7 +149,7 @@
 1658	Collection-Period-RRM-UMTS	7.3.9	Enumerated	V
 1659	Positioning-Method	7.3.0	OctetString	V
 1660	Measurement-Quantity	7.3.1	OctetString	V
-1661	Event-Threshold-Event-1F7.3.172	Integer32	V
+1661	Event-Threshold-Event-1F	7.3.172	Integer32	V
 1662	Event-Threshold-Event-1I	7.3.173	Integer32	V
 1663	Restoration-Priority	7.3.4	Unsigned32	V
 1664	SGs-MME-Identity	7.3.175	UTF8String	V
@@ -174,7 +174,7 @@
 1683	Additional-Context-ID	7.3.6	Unsigned32	V
 1684	SCEF-Realm	7.3.207	DiameterIdentity	V
 1685	Subscription-Data-Deletion	7.3.8	Grouped	V
-1686	Preferred-Data-Mode	7.3.9	Grouped	V
+1686	Preferred-Data-Mode	7.3.9	Unsigned32	V
 1687	Emergency-Info	7.3.0	Grouped	V
 1688	V2X-Subscription-Data	7.3.2	Grouped	V
 1689	V2X-Permission	7.3.3	Unsigned32	V

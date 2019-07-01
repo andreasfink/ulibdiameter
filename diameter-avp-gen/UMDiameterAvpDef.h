@@ -59,10 +59,12 @@
                                date:(NSString *)date
                           directory:(NSString *)dir;
 
+
 - (NSString *) methodsFileWithPrefix:(NSString *)prefix
                                 user:(NSString *)user
                                 date:(NSString *)date
                            directory:(NSString *)dir;
+
 
 @end
 

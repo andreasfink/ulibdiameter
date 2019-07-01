@@ -86,6 +86,11 @@ int main(int argc, const char * argv[])
                                                @"help"  : @"reads the avp group definition from files in that directory",
                                                },
                                            @{
+                                               @"name"  : @"group-only",
+                                               @"long"  : @"--group-only",
+                                               @"help"  : @"skip all objects which are not of type Grouped",
+                                               },
+                                           @{
                                                @"name"  : @"write-avp-headers",
                                                @"long"  : @"--write-avp-headers",
                                                @"help"  : @"writes avp headers",
@@ -131,6 +136,7 @@ int main(int argc, const char * argv[])
         BOOL doOverwrite = NO;
         NSString *prefix = @"UMDiameterAvp";
         BOOL verbose = NO;
+        BOOL groupOnly = NO;
         NSString *definitionsFilename;
         NSString *definitionsString;
         NSString *dir;
@@ -159,7 +165,11 @@ int main(int argc, const char * argv[])
         {
             verbose = YES;
         }
-
+        s = getFirst(params[@"group-only"]);
+        if(s.length > 0)
+        {
+            groupOnly = YES;
+        }
 		s = getFirst(params[@"group-definitions"]);
 		if(s)
 		{
@@ -181,8 +191,13 @@ int main(int argc, const char * argv[])
                 exit(-1);
             }
             NSArray *lines = [definitionsString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-            for(NSString *line in lines)
+            for(NSString *line1 in lines)
             {
+                NSString *line = [line1 trim];
+                if(line.length == 0)
+                {
+                    continue;
+                }
                 NSError *e = NULL;
 
                 UMDiameterAvpDef *avpdef = [[UMDiameterAvpDef alloc]init];
@@ -233,20 +248,26 @@ int main(int argc, const char * argv[])
                                                      exists:&exists];
                 if((exists==NO) || (doOverwrite==YES))
                 {
-                    NSString *content = [avpdef headerFileWithPrefix:prefix
-                                                                user:user
-                                                                date:date
-                                                           directory:dir];
-                    NSError *e = NULL;
-                    fprintf(stderr,"writing header to %s\n",filename.UTF8String);
-                    fflush(stderr);
-                    [content writeToFile:filename
-                              atomically:YES
-                                encoding:NSUTF8StringEncoding
-                                   error:&e];
-                    if(e)
+                    if((avpdef.isGroup) || (groupOnly==NO))
                     {
-                        NSLog(@"Error: %@",e);
+                        NSString *content = [avpdef headerFileWithPrefix:prefix
+                                                                    user:user
+                                                                    date:date
+                                                               directory:dir];
+                        NSError *e = NULL;
+                        if(verbose)
+                        {
+                            fprintf(stdout,"writing header to %s\n",filename.UTF8String);
+                            fflush(stdout);
+                        }
+                        [content writeToFile:filename
+                                  atomically:YES
+                                    encoding:NSUTF8StringEncoding
+                                       error:&e];
+                        if(e)
+                        {
+                            NSLog(@"Error: %@",e);
+                        }
                     }
                 }
             }
@@ -266,20 +287,26 @@ int main(int argc, const char * argv[])
 
                 if((exists==NO) || (doOverwrite==YES))
                 {
-                    NSString *content = [avpdef methodsFileWithPrefix:prefix
-                                                                 user:user
-                                                                 date:date
-                                                            directory:dir];
-                    NSError *e = NULL;
-                    fprintf(stderr,"writing methods to %s\n",filename.UTF8String);
-                    fflush(stderr);
-                    [content writeToFile:filename
-                              atomically:YES
-                                encoding:NSUTF8StringEncoding
-                                   error:&e];
-                    if(e)
+                    if((avpdef.isGroup) || (groupOnly==NO))
                     {
-                        NSLog(@"Error: %@",e);
+                        NSString *content = [avpdef methodsFileWithPrefix:prefix
+                                                                     user:user
+                                                                     date:date
+                                                                directory:dir];
+                        NSError *e = NULL;
+                        if(verbose)
+                        {
+                            fprintf(stdout,"writing methods to %s\n",filename.UTF8String);
+                            fflush(stdout);
+                        }
+                        [content writeToFile:filename
+                                  atomically:YES
+                                    encoding:NSUTF8StringEncoding
+                                       error:&e];
+                        if(e)
+                        {
+                            NSLog(@"Error: %@",e);
+                        }
                     }
                 }
             }

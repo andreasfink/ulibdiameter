@@ -116,19 +116,6 @@
         return NO;
     }
 
-
-    if( ([avpGroupName characterAtIndex:0] != '<') ||
-        ([avpGroupName characterAtIndex:([avpGroupName length] - 1)] != '>'))
-    {
-        *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:3
-                                userInfo:@{@"reason":@"no < or > in avpGroupName name" }];
-        return NO;
-    }
-    _avpGroupName = [avpGroupName substringWithRange:NSMakeRange(1,[avpGroupName length] -2)];
-
-
-
     NSString *header = [a[1] trim];
     NSString *comment;
     a = [header componentsSeparatedByString:@";"];
@@ -170,8 +157,10 @@
     }
     NSString *s1 = b[0];
     s1 = [s1 trim];
-    if(! (([s1 isEqualToString:@"AVP Header"]) || /* this is used in most standards */
-        ([s1 isEqualToString:@"AVP-Header"])))    /* this is used in the BNF definition in RFC 6733 */
+    if(! (([s1 isEqualToString:@"AVP-Header"]) ||   /* this is the official writing in the BNF definition in RFC 6733 */
+          ([s1 isEqualToString:@"AVP Header"]) ||   /* alternative writings seen in 3GPP Specs */
+          ([s1 isEqualToString:@"AVP header"]) ))
+
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:7
@@ -229,7 +218,6 @@
 
 }
 
-
 - (NSString *)includesForHeaderWithPrefix:(NSString *)avpPrefix
 {
     NSMutableString *s = [[NSMutableString alloc]init];
@@ -243,44 +231,16 @@
 - (NSString *)includesForMethodsWithPrefix:(NSString *)avpPrefix
 {
     NSMutableString *s = [[NSMutableString alloc]init];
-
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
-        [s appendFormat:@"#import "%@%@";\n",avpPrefix,avp.objectName];
+        [s appendFormat:@"#import \"%@%@.h\";\n",avpPrefix,avp.objectName];
     }
     return s;
 }
 
-- (NSString *)propertiesForHeaderWithPrefix:(NSString *)avpPrefix
+- (NSString *)variablesForHeaderWithPrefix:(NSString *)avpPrefix
 {
     NSMutableString *s = [[NSMutableString alloc]init];
-    if(avp.multiple)
-    {
-        [s appendFormat:@"\tNSArray<%@%@ *>\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
-    }
-    else
-    {
-        [s appendFormat:@"\t%@%@\t*_%@;\n",avpPrefix,avp.objectName, avp.variableName];
-    }
-    return s;
-}
-
-- (NSString *)propertyLinesForHeaderWithPrefix:(NSString *)avpPrefix
-{
-    NSMutableString *s = [[NSMutableString alloc]init];
-    if(avp.multiple)
-    {
-        [s appendFormat:@"\tNSArray<%@%@ *>\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
-    }
-    else
-    {
-        [s appendFormat:@"\t%@%@\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
-    }
-    return s;
-}
-
-    [s appendFormat:@"@interface %@%@ : UMDiameterPacket\n",prefix,_objectName];
-    [s appendString:@"{\n"];
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
         if(avp.multiple)
@@ -292,9 +252,12 @@
             [s appendFormat:@"\t%@%@\t*%@;\n",avpPrefix,avp.objectName, avp.variableName];
         }
     }
-    [s appendString:@"}\n"];
-    [s appendString:@"\n"];
+    return s;
+}
 
+- (NSString *)propertiesForHeaderWithPrefix:(NSString *)avpPrefix
+{
+    NSMutableString *s = [[NSMutableString alloc]init];
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
         if(avp.multiple)
@@ -306,12 +269,9 @@
             [s appendFormat:@"@property(readwrite,strong,atomic)\t%@%@\t*%@;\n",avpPrefix,avp.objectName,avp.propertyName];
         }
     }
-    [s appendString:@"\n"];
-    [s appendString:@"@end\n"];
-    [s appendString:@"\n"];
     return s;
-
 }
+
 - (NSString *)groupHeaderFileWithPrefix:(NSString *)prefix
                          avpPrefix:(NSString *)avpPrefix
                               user:(NSString *)user
@@ -368,69 +328,19 @@
     return s;
 }
 
-- (NSString *)methodFileWithPrefix:(NSString *)prefix
-                         avpPrefix:(NSString *)avpPrefix
-                              user:(NSString *)user
-                              date:(NSString *)date
+
+- (NSString *) methodsWithPrefix:(NSString *)avpPrefix
+                            user:(NSString *)user
+                            date:(NSString *)date
+                       directory:(NSString *)dir
 {
-    NSMutableString *s = [[NSMutableString alloc]init];
-    [s appendString:@"//\n"];
-    [s appendFormat:@"//  %@%@.m\n",prefix,_objectName];
-    [s appendString:@"//  ulibdiameter\n"];
-    [s appendString:@"//\n"];
-    [s appendFormat:@"//  Created by %@ on %@\n",user,[date stringValue]];
-    [s appendString:@"//  Copyright © 2019 Andreas Fink. All rights reserved.\n"];
-    [s appendString:@"//\n"];
-    [s appendString:@"\n"];
-    [s appendString:@"\n"];
-    [s appendFormat:@"#import \"%@%@.h\"\n",prefix,_objectName];
-    for(UMDiameterGeneratorAVP *avp in _avps)
-    {
-        [s appendFormat:@"#import \"%@%@.h\"\n",avpPrefix,avp.objectName];
-    }
-
-    [s appendString:@"\n"];
-    [s appendFormat:@"@implementation %@%@\n",prefix,_objectName];
-    [s appendString:@"\n"];
-    [s appendFormat:@"- (%@%@ *)initWithString:(NSString *)s\n",prefix,_objectName];
-    [s appendString:@"{\n"];
-    [s appendString:@"    self = [super init];\n"];
-    [s appendString:@"    if(self)\n"];
-    [s appendString:@"    {\n"];
-    [s appendString:@"        if([self parseString:s]==NO)\n"];
-    [s appendString:@"        {\n"];
-    [s appendString:@"            return NULL;\n"];
-    [s appendString:@"        }\n"];
-    [s appendString:@"    }\n"];
-    [s appendString:@"    return self;\n"];
-    [s appendString:@"}\n"];
-
-    [s appendString:@"\n"];
-    [s appendString:@"- (void)genericInitialisation\n"];
-    [s appendString:@"{\n"];
-    [s appendString:@"    [super genericInitialisation];\n"];
-    [s appendFormat:@"    self.avpCode = %ld;\n",(long)_avpCode];
-    [s appendFormat:@"    self.avpVendorId = %ld;\n",(long)_vendor];
-
-    BOOL first=YES;
-    if(first)
-    {
-        [s appendString:@"    self.commandFlags = 0;\n"];
-    }
-    else
-    {
-        [s appendString:@";\n"];
-    }
-    [s appendString:@"}\n"];
-
-    [s appendString:@"\n"];
-
 
     /* before encode */
-
+    NSMutableString *s = [[NSMutableString alloc]init];
     [s appendString:@"- (void)beforeEncode\n"];
     [s appendString:@"{\n"];
     [s appendString:@"    [super beforeEncode];\n"];
+    [s appendString:@"\n"];
 
     [s appendFormat:@"    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];\n"];
 
@@ -456,13 +366,86 @@
     }
     [s appendString:@"    [self setAvps:arr];\n"];
     [s appendString:@"}\n"];
-
     [s appendString:@"\n"];
     [s appendString:@"\n"];
 
-    /* after decode */
-    [s appendString:@"@end\n"];
+    [s appendString:@"- (void)afterDecode\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"    NSArray *avps = [self array];\n"];
     [s appendString:@"\n"];
+    [s appendString:@"    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];\n"];
+    [s appendString:@"    NSMutableArray *unknownAVPs;\n"];
+    [s appendString:@"\n"];
+    [s appendString:@"    for(UMDiameterAVP *avp in avps)\n"];
+    [s appendString:@"    {\n"];
+
+    BOOL first=YES;
+    UMDiameterGeneratorAVP *placeholderAVP;
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if([avp.objectName isEqualToString:@"AVP"])
+        {
+            /* placeholder for all unspecified AVPs */
+            placeholderAVP = avp;
+            continue;
+        }
+        if(first)
+        {
+            [s appendFormat:@"        if(avp.avpCode == [%@%@  avpCode])\n",avpPrefix,avp.objectName];
+            first = NO;
+        }
+        else
+        {
+            [s appendFormat:@"        else if(avp.avpCode == [%@%@ avpCode])\n",avpPrefix,avp.objectName];
+        }
+        if(avp.multiple==NO)
+        {
+            [s appendString:@"        {\n"];
+            [s appendFormat:@"            avp = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName];
+            [s appendFormat:@"            %@ = avp;\n",avp.variableName];
+            [s appendString:@"            [knownAVPs addObject:avp];\n"];
+            [s appendString:@"        }\n"];
+        }
+        else
+        {
+            [s appendString:@"        {\n"];
+            [s appendFormat:@"            avp = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName];
+            [s appendFormat:@"            %@ = avp;\n",avp.variableName];
+            [s appendString:@"            [knownAVPs addObject:avp];\n"];
+            [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
+            [s appendString:@"            {\n"];
+            [s appendFormat:@"                %@ = @[avp];\n",avp.variableName];
+            [s appendString:@"            }\n"];
+            [s appendString:@"            else\n"];
+            [s appendString:@"            {\n"];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp]\n",avp.variableName,avp.variableName];
+            [s appendString:@"            }\n"];
+            [s appendString:@"        }\n"];
+        }
+    }
+    if(first==NO)
+    {
+        [s appendString:@"        else\n"];
+        [s appendString:@"        {\n"];
+        [s appendString:@"             if(unknownAVPs==NULL)\n"];
+        [s appendString:@"             {\n"];
+        [s appendString:@"                 unknownAVPs = [[NSMutableArray alloc]init];\n"];
+        [s appendString:@"             }\n"];
+        [s appendString:@"             [unknownAVPs addObject:avp];\n"];
+        [s appendString:@"        }\n"];
+    }
+    [s appendString:@"    }\n"];
+    if(placeholderAVP)
+    {
+        [s appendFormat:@"    %@ = unknownAVPs;\n",placeholderAVP.variableName];
+        [s appendFormat:@"    [knownAVPs addObject:[%@ copy]];\n",placeholderAVP.variableName];
+    }
+    [s appendString:@"    [self setArray:knownAVPs];\n"];
+
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
     return s;
 }
 

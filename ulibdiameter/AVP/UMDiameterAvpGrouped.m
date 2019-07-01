@@ -31,7 +31,7 @@
             
             UMDiameterAvpGrouped *avpg = (UMDiameterAvpGrouped *)avp;
             NSArray *a = [avpg array];
-            _avps = [[UMSynchronizedArray alloc]initWithArray:a];
+            _grouped_avps = [[UMSynchronizedArray alloc]initWithArray:a];
         }
         [self afterDecode];
     }
@@ -78,7 +78,7 @@
 
 - (NSArray *)array
 {
-    return [_avps arrayCopy];
+    return [_grouped_avps arrayCopy];
 }
 
 - (void)setArray:(NSArray *)array

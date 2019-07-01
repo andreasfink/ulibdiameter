@@ -30,9 +30,9 @@
 - (void)parseString:(NSString *)str error:(NSError **)eptr
 {
     NSArray *a = [str componentsSeparatedByString:@"\t"];
-    if(a.count < 5)
+    if(a.count < 4)
     {
-        *eptr = [NSError errorWithDomain:@"PARSING" code:101 userInfo:@{@"reason":@"Line does not consist of 5 parts"}];
+        *eptr = [NSError errorWithDomain:@"PARSING" code:101 userInfo:@{@"reason":@"Line does not consist of 4 or 5 parts"}];
         return;
     }
 
@@ -47,20 +47,23 @@
     _standardsName = a[1];
     _definitionReference = a[2];
     _typeDefinition = a[3];
-    NSString *flags = a[4];
-    
-    NSArray *b = [flags componentsSeparatedByString:@","];
-    for(NSString *flag in b)
+    if(a.count >4)
     {
-        if([flag isEqualToString:@"M"])
+        NSString *flags = a[4];
+        NSArray *b = [flags componentsSeparatedByString:@","];
+        for(NSString *flag in b)
         {
-            _mandatoryFlag = YES;
-        }
-        else if([flag isEqualToString:@"V"])
-        {
-            _vendorFlag = YES;
+            if([flag isEqualToString:@"M"])
+            {
+                _mandatoryFlag = YES;
+            }
+            else if([flag isEqualToString:@"V"])
+            {
+                _vendorFlag = YES;
+            }
         }
     }
+
     if(a.count > 5)
     {
         _vendorCode = [a[5] integerValue];
@@ -129,6 +132,59 @@
 }
 
 
+
+- (NSString *) headerFileWithPrefix:(NSString *)prefix
+                               user:(NSString *)user
+                               date:(NSString *)date
+                          directory:(NSString *)dir
+{
+    NSString *objectName = [self objectNameWithPrefix:prefix];
+    NSString *objectType = [self objectTypeWithPrefix:prefix];
+
+    NSMutableString *s = [[NSMutableString alloc]init];
+    
+    [s appendString:@"//\n"];
+    [s appendFormat:@"//  %@.h\n",objectName];
+    [s appendString:@"//  ulibdiameter\n"];
+    [s appendString:@"//\n"];
+    [s appendFormat:@"//  Created by %@ on %@\n",user,date];
+    [s appendString:@"//  Copyright © 2019 Andreas Fink. All rights reserved.\n"];
+    [s appendString:@"//\n"];
+    [s appendString:@"\n"];
+    [s appendFormat:@"#import \"%@.h\"\n",objectType];
+    [s appendString:@"\n"];
+    if((_groupDef) && (_isGroup))
+    {
+        [s appendString:[_groupDef includesForHeaderWithPrefix:prefix]];
+    }
+    [s appendString:@"\n"];
+    [s appendString:@"\n"];
+    [s appendFormat:@"@interface %@ : %@\n",objectName,objectType];
+    [s appendString:@"{\n"];
+    if((_groupDef) && (_isGroup))
+    {
+        [s appendString:[_groupDef variablesForHeaderWithPrefix:prefix]];
+    }
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+    if((_groupDef) && (_isGroup))
+    {
+        [s appendString:[_groupDef propertiesForHeaderWithPrefix:prefix]];
+    }
+    [s appendString:@"\n"];
+
+    [s appendString:@"- (NSString *)avpType;\n"];
+    [s appendString:@"- (uint32_t)avpCode;\n"];
+    [s appendString:@"+ (uint32_t)avpCode;\n"];
+
+    [s appendString:@"\n"];
+
+    [s appendString:@"@end\n"];
+    [s appendString:@"\n"];
+    return s;
+}
+
+
 - (NSString *) methodsFileWithPrefix:(NSString *)prefix
                                 user:(NSString *)user
                                 date:(NSString *)date
@@ -187,38 +243,18 @@
         [s appendFormat:@"    _avpVendorId = %ld;\n",(long)_vendorCode];
     }
     [s appendString:@"}\n"];
-    [s appendString:@"\n"];
-    return s;
-}
 
-- (NSString *) headerFileWithPrefix:(NSString *)prefix
-                               user:(NSString *)user
-                               date:(NSString *)date
-                          directory:(NSString *)dir
-{
-    NSString *objectName = [self objectNameWithPrefix:prefix];
-    NSString *objectType = [self objectTypeWithPrefix:prefix];
 
-    NSMutableString *s = [[NSMutableString alloc]init];
-    
-    [s appendString:@"//\n"];
-    [s appendFormat:@"//  %@.h\n",objectName];
-    [s appendString:@"//  ulibdiameter\n"];
-    [s appendString:@"//\n"];
-    [s appendFormat:@"//  Created by %@ on %@\n",user,date];
-    [s appendString:@"//  Copyright © 2019 Andreas Fink. All rights reserved.\n"];
-    [s appendString:@"//\n"];
-    [s appendString:@"\n"];
-    [s appendFormat:@"#import \"%@.h\"\n",objectType];
-    [s appendString:@"\n"];
-    [s appendString:@"\n"];
-    [s appendFormat:@"@interface %@ : %@\n",objectName,objectType];
     [s appendString:@"\n"];
 
-    [s appendString:@"- (NSString *)avpType;\n"];
-    [s appendString:@"- (uint32_t)avpCode;\n"];
-    [s appendString:@"+ (uint32_t)avpCode;\n"];
-
+    if((_groupDef) && (_isGroup))
+    {
+        [s appendString:[_groupDef methodsWithPrefix:prefix
+                                                user:user
+                                                date:date
+                                           directory:dir]];
+    }
+    [s appendString:@"\n"];
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
     return s;

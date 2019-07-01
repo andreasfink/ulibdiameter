@@ -2,17 +2,22 @@
 //  UMDiameterAvpDaylight_Saving_Time.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-06-30 23:29:55.405000
+//  Created by afink on 2019-07-01 13:53:46.309000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvpEnumerated.h"
 
 
+
 @interface UMDiameterAvpDaylight_Saving_Time : UMDiameterAvpEnumerated
+{
+}
+
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;
 + (uint32_t)avpCode;
+
 @end
 

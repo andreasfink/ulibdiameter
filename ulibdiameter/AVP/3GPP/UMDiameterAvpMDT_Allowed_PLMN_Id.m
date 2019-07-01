@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Allowed_PLMN_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-06-30 23:29:55.405000
+//  Created by afink on 2019-07-01 13:53:46.309000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -33,4 +33,7 @@
     _avpFlags = UMDiameterAvpFlag_Vendor;
     _avpVendorId = 10415;
 }
+
+
+@end
 
