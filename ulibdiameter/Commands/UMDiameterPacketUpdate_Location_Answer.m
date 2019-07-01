@@ -1,0 +1,161 @@
+//
+//  UMDiameterPacketUpdate_Location_Answer.m
+//  ulibdiameter
+//
+//  Created by afink on 2019-06-30 15:30:04.275000
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketUpdate_Location_Answer.h"
+#import "UMDiameterAvpSession_Id.h"
+#import "UMDiameterAvpDRMP.h"
+#import "UMDiameterAvpVendor_Specific_Application_Id.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpExperimental_Result.h"
+#import "UMDiameterAvpError_Diagnostic.h"
+#import "UMDiameterAvpAuth_Session_State.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpOC_Supported_Features.h"
+#import "UMDiameterAvpOC_OLR.h"
+#import "UMDiameterAvpLoad.h"
+#import "UMDiameterAvpSupported_Features.h"
+#import "UMDiameterAvpULA_Flags.h"
+#import "UMDiameterAvpSubscription_Data.h"
+#import "UMDiameterAvpReset_ID.h"
+#import "UMDiameterAvpAVP.h"
+#import "UMDiameterAvpFailed_AVP.h"
+#import "UMDiameterAvpProxy_Info.h"
+#import "UMDiameterAvpRoute_Record.h"
+
+@implementation UMDiameterPacketUpdate_Location_Answer
+
+- (UMDiameterPacketUpdate_Location_Answer *)initWithString:(NSString *)s
+{
+    self = [super init];
+    if(self)
+    {
+        if([self parseString:s]==NO)
+        {
+            return NULL;
+        }
+    }
+    return self;
+}
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 316;
+    self.commandFlags = DIAMETER_COMMAND_FLAG_PROXIABLE;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_session_id)
+    {
+        [arr addObject:_session_id]
+    }
+    if(_drmp)
+    {
+        [arr addObject:_drmp]
+    }
+    if(_vendor_specific_application_id)
+    {
+        [arr addObject:_vendor_specific_application_id]
+    }
+    if(_result_code)
+    {
+        [arr addObject:_result_code]
+    }
+    if(_experimental_result)
+    {
+        [arr addObject:_experimental_result]
+    }
+    if(_error_diagnostic)
+    {
+        [arr addObject:_error_diagnostic]
+    }
+    if(_auth_session_state)
+    {
+        [arr addObject:_auth_session_state]
+    }
+    if(_origin_host)
+    {
+        [arr addObject:_origin_host]
+    }
+    if(_origin_realm)
+    {
+        [arr addObject:_origin_realm]
+    }
+    if(_oc_supported_features)
+    {
+        [arr addObject:_oc_supported_features]
+    }
+    if(_oc_olr)
+    {
+        [arr addObject:_oc_olr]
+    }
+    if(_load.count > 0)
+    {
+        for(UMDiameterAvpLoad *o in _load)
+        {
+            [arr addObject:o]
+        }
+    }
+    if(_supported_features.count > 0)
+    {
+        for(UMDiameterAvpSupported_Features *o in _supported_features)
+        {
+            [arr addObject:o]
+        }
+    }
+    if(_ula_flags)
+    {
+        [arr addObject:_ula_flags]
+    }
+    if(_subscription_data)
+    {
+        [arr addObject:_subscription_data]
+    }
+    if(_reset_id.count > 0)
+    {
+        for(UMDiameterAvpReset_ID *o in _reset_id)
+        {
+            [arr addObject:o]
+        }
+    }
+    if(_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _avp)
+        {
+            [arr addObject:o]
+        }
+    }
+    if(_failed_avp)
+    {
+        [arr addObject:_failed_avp]
+    }
+    if(_proxy_info.count > 0)
+    {
+        for(UMDiameterAvpProxy_Info *o in _proxy_info)
+        {
+            [arr addObject:o]
+        }
+    }
+    if(_route_record.count > 0)
+    {
+        for(UMDiameterAvpRoute_Record *o in _route_record)
+        {
+            [arr addObject:o]
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+@end
+

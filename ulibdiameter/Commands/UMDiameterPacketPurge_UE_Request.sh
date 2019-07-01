@@ -1,0 +1,1 @@
+     <Purge-UE-Request> ::= < Diameter Header: 321, REQ, PXY > ; 7.2.13

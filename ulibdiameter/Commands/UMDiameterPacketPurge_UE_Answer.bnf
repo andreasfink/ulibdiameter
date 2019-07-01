@@ -1,0 +1,18 @@
+< Purge-UE-Answer> ::= < Diameter Header: 321, PXY, 16777251 > ; TS 29.272 7.2.14
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+*[ Supported-Features ] 
+[ Result-Code ] 
+[ Experimental-Result ]  
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+[ OC-Supported-Features ] 
+[ OC-OLR ] 
+*[ Load ] 
+[ PUA-Flags ] 
+*[ AVP ] 
+[ Failed-AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

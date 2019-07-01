@@ -1,0 +1,16 @@
+< Cancel-Location-Request> ::= < Diameter Header: 317, REQ, PXY, 16777251 > ; TS 29.272 Section 7.2.8
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+{ Destination-Host } 
+{ Destination-Realm } 
+{ User-Name } 
+*[Supported-Features ] 
+{ Cancellation-Type } 
+[ CLR-Flags ] 
+*[ AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

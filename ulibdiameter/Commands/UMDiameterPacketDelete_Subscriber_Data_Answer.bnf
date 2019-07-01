@@ -1,0 +1,15 @@
+<Delete-Subscriber-Data-Answer> ::= < Diameter Header: 320,  PXY,16777251 > ; TS 29.272 7.2.12 app also 16777308
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+*[ Supported-Features ] 
+[ Result-Code ] 
+[ Experimental-Result ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+[ DSA-Flags ] 
+*[ AVP ] 
+[ Failed-AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 
