@@ -1,0 +1,14 @@
+< Cancel-VCSG-Location-Answer> ::= < Diameter Header: 8388642, PXY,  > 
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+*[ Supported-Features ] 
+[ Result-Code ] 
+[ Experimental-Result ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+*[ AVP ] 
+[ Failed-AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

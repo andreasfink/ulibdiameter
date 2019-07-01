@@ -1,0 +1,20 @@
+< Authentication-Information-Answer> ::= < Diameter Header: 318, PXY, 16777251 > 
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+[ Result-Code ] 
+[ Experimental-Result ]  
+[ Error-Diagnostic ]  
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+[ OC-Supported-Features ] 
+[ OC-OLR ] 
+*[ Load ] 
+*[Supported-Features] 
+[ Authentication-Info ] 
+[ UE-Usage-Type ] 
+*[ AVP ] 
+[ Failed-AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

@@ -1,1 +1,16 @@
-CER
+UMDiameterPacketCER
+UMDiameterPacketCEA
+UMDiameterPacketDWR
+UMDiameterPacketDWA
+UMDiameterPacketSTR
+UMDiameterPacketSTA
+UMDiameterPacketRAR
+UMDiameterPacketRAA
+UMDiameterPacketACR
+UMDiameterPacketACA
+UMDiameterPacketDPR
+UMDiameterPacketDPA
+UMDiameterPacketASA
+UMDiameterPacketASR
+
+
