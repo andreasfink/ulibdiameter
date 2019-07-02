@@ -1,0 +1,4 @@
+ETH-Proto-Type ::= < AVP Header: 549 >
+                    * [ ETH-Ether-Type ]
+                    * [ ETH-SAP ]
+                    * [ AVP ]

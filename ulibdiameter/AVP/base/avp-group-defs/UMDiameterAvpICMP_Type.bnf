@@ -1,0 +1,5 @@
+ICMP-Type ::= < AVP Header: 545 >
+                 { ICMP-Type-Number }
+               * [ ICMP-Code ]
+                 [ Negated ]
+               * [ AVP ]

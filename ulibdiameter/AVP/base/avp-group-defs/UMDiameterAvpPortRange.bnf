@@ -1,0 +1,4 @@
+Port-Range ::= < AVP Header: 531 >
+                  [ Port-Start ]
+                  [ Port-End ]
+                * [ AVP ]

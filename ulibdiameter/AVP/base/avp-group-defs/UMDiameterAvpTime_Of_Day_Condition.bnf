@@ -1,0 +1,10 @@
+ Time-Of-Day-Condition ::= < AVP Header: 560 >
+                             [ Time-Of-Day-Start ]
+                             [ Time-Of-Day-End ]
+                             [ Day-Of-Week-Mask ]
+                             [ Day-Of-Month-Mask ]
+                             [ Month-Of-Year-Mask ]
+                             [ Absolute-Start-Time ]
+                             [ Absolute-End-Time ]
+                             [ Timezone-Flag ]
+                           * [ AVP ]

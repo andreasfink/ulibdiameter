@@ -1,0 +1,5 @@
+TCP-Option ::= < AVP Header: 540 >
+                  { TCP-Option-Type }
+                * [ TCP-Option-Value ]
+                  [ Negated ]
+                * [ AVP ]

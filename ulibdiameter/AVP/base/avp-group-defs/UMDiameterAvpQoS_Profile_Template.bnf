@@ -1,0 +1,4 @@
+QoS-Profile-Template ::= < AVP Header: 574 >
+                            { Vendor-Id }
+                            { QoS-Profile-Id }
+                          * [ AVP ]

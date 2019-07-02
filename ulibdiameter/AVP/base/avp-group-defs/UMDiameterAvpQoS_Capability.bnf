@@ -1,0 +1,3 @@
+   QoS-Capability ::= < AVP Header: 578 >
+                    1*{ QoS-Profile-Template }
+                    * [ AVP ]

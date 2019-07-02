@@ -1,0 +1,7 @@
+   MIP-MN-HA-MSA ::= < AVP Header: 492 >
+                     { MIP-Session-Key }
+                     { MIP-MSA-Lifetime }
+                     [ MIP-MN-HA-SPI ]
+                     [ MIP-Algorithm-Type ]
+                     [ MIP-Replay-Mode ]
+                   * [ AVP ]

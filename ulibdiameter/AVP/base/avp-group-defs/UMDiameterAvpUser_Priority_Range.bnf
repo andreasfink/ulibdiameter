@@ -1,0 +1,4 @@
+User-Priority-Range ::= < AVP Header: 557 >
+                         * [ Low-User-Priority ]
+                         * [ High-User-Priority ]
+                         * [ AVP ]
