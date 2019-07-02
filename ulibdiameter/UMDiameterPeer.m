@@ -428,7 +428,7 @@
         NSNumber *vendor = vid[@"vendor"];
         NSNumber *application = vid[@"application"];
 
-        UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
+       UMDiameterAvpVendor_Specific_Application_Id *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
 
         NSMutableArray *entries = [[NSMutableArray alloc]init];
 
@@ -718,7 +718,7 @@
         NSNumber *vendor = vid[@"vendor"];
         NSNumber *application = vid[@"application"];
 
-        UMDiameterAvpVendorSpecificApplicationId *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
+       UMDiameterAvpVendor_Specific_Application_Id *avp = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
 
         NSMutableArray *entries = [[NSMutableArray alloc]init];
 
