@@ -11,7 +11,7 @@ MDT-Configuration ::= <AVP header: 1622 10415>
 [ Logging-Duration ]
 [ Measurement-Period-LTE ]
 [ Measurement-Period-UMTS ]
-[ Collection-Period-RMM-LTE ]
+[ Collection-Period-RRM-LTE ]
 [ Collection-Period-RRM-UMTS ] 
 [ Positioning-Method ]
 [ Measurement-Quantity]

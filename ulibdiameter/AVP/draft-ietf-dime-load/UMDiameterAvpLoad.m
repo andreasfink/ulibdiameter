@@ -2,7 +2,7 @@
 //  UMDiameterAvpLoad.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:09.678000
+//  Created by afink on 2019-07-02 13:48:29.482000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -75,21 +75,18 @@
     {
         if(avp.avpCode == [UMDiameterAvpLoad_Type  avpCode])
         {
-            avp = [[UMDiameterAvpLoad_Type alloc]initWithAvp:avp];
-            _var_load_type = avp;
-            [knownAVPs addObject:avp];
+            _var_load_type = [[UMDiameterAvpLoad_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_load_type];
         }
         else if(avp.avpCode == [UMDiameterAvpLoad_Value avpCode])
         {
-            avp = [[UMDiameterAvpLoad_Value alloc]initWithAvp:avp];
-            _var_load_value = avp;
-            [knownAVPs addObject:avp];
+            _var_load_value = [[UMDiameterAvpLoad_Value alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_load_value];
         }
         else if(avp.avpCode == [UMDiameterAvpSourceID avpCode])
         {
-            avp = [[UMDiameterAvpSourceID alloc]initWithAvp:avp];
-            _var_sourceid = avp;
-            [knownAVPs addObject:avp];
+            _var_sourceid = [[UMDiameterAvpSourceID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_sourceid];
         }
         else
         {

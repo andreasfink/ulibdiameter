@@ -2,15 +2,15 @@
 //  UMDiameterAvpMulti_Round_Time_Out.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:12.639000
+//  Created by afink on 2019-07-02 14:31:41.274000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp8.19.h"
+#import "UMDiameterAvpUnsigned32.h"
 
 
 
-@interface UMDiameterAvpMulti_Round_Time_Out : UMDiameterAvp8.19
+@interface UMDiameterAvpMulti_Round_Time_Out : UMDiameterAvpUnsigned32
 {
 }
 

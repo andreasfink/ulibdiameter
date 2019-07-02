@@ -2,7 +2,7 @@
 //  UMDiameterAvpMulti_Round_Time_Out.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:12.639000
+//  Created by afink on 2019-07-02 14:31:41.274000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,6 +30,7 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Mandatory;
 }
 
 

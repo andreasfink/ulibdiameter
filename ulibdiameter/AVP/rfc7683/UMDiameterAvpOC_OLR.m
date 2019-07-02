@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_OLR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:16.191000
+//  Created by afink on 2019-07-02 14:32:02.729000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -73,34 +73,30 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpOC_Sequence_Number  avpCode])
         {
-            avp = [[UMDiameterAvpOC_Sequence_Number alloc]initWithAvp:avp];
-            _var_oc_sequence_number = avp;
-            [knownAVPs addObject:avp];
+            _var_oc_sequence_number = [[UMDiameterAvpOC_Sequence_Number alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_oc_sequence_number];
         }
         else if(avp.avpCode == [UMDiameterAvpOC_Report_Type avpCode])
         {
-            avp = [[UMDiameterAvpOC_Report_Type alloc]initWithAvp:avp];
-            _var_oc_report_type = avp;
-            [knownAVPs addObject:avp];
+            _var_oc_report_type = [[UMDiameterAvpOC_Report_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_oc_report_type];
         }
         else if(avp.avpCode == [UMDiameterAvpOC_Reduction_Percentage avpCode])
         {
-            avp = [[UMDiameterAvpOC_Reduction_Percentage alloc]initWithAvp:avp];
-            _var_oc_reduction_percentage = avp;
-            [knownAVPs addObject:avp];
+            _var_oc_reduction_percentage = [[UMDiameterAvpOC_Reduction_Percentage alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_oc_reduction_percentage];
         }
         else if(avp.avpCode == [UMDiameterAvpOC_Validity_Duration avpCode])
         {
-            avp = [[UMDiameterAvpOC_Validity_Duration alloc]initWithAvp:avp];
-            _var_oc_validity_duration = avp;
-            [knownAVPs addObject:avp];
+            _var_oc_validity_duration = [[UMDiameterAvpOC_Validity_Duration alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_oc_validity_duration];
         }
         else
         {

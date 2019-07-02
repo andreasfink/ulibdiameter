@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -94,22 +94,20 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpDSR_Flags  avpCode])
         {
-            avp = [[UMDiameterAvpDSR_Flags alloc]initWithAvp:avp];
-            _var_dsr_flags = avp;
-            [knownAVPs addObject:avp];
+            _var_dsr_flags = [[UMDiameterAvpDSR_Flags alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_dsr_flags];
         }
         else if(avp.avpCode == [UMDiameterAvpSCEF_ID avpCode])
         {
-            avp = [[UMDiameterAvpSCEF_ID alloc]initWithAvp:avp];
-            _var_scef_id = avp;
-            [knownAVPs addObject:avp];
+            _var_scef_id = [[UMDiameterAvpSCEF_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_scef_id];
         }
         else if(avp.avpCode == [UMDiameterAvpContext_Identifier avpCode])
         {
@@ -127,9 +125,8 @@
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Reference avpCode])
         {
-            avp = [[UMDiameterAvpTrace_Reference alloc]initWithAvp:avp];
-            _var_trace_reference = avp;
-            [knownAVPs addObject:avp];
+            _var_trace_reference = [[UMDiameterAvpTrace_Reference alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_trace_reference];
         }
         else if(avp.avpCode == [UMDiameterAvpTS_Code avpCode])
         {

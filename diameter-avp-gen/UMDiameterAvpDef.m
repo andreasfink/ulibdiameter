@@ -194,7 +194,7 @@
                            directory:(NSString *)dir
 {
     NSString *objectName = [self objectNameWithPrefix:prefix];
-    NSString *objectType = [self objectTypeWithPrefix:prefix];
+    //NSString *objectType = [self objectTypeWithPrefix:prefix];
     NSMutableString *s = [[NSMutableString alloc]init];
     [s appendString:@"//\n"];
     [s appendFormat:@"//  %@.m\n",objectName];

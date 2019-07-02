@@ -237,3 +237,8 @@
 647	Associated-Registered-Identities	6.3.50	Grouped	V
 648	Multiple-Registration-Indication	6.3.51	Enumerated	V
 649	Restoration-Info	6.3.52	Grouped	V
+1028	QoS-Class-Identifier	5.3.17	Enumerated	M,V
+2319	User-CSG-Information	7.2.240	Grouped	M,V
+2318	CSG-Membership-Indication	x	Enumerated	M,V
+1032	RAT-Type	x	Enumerated	V
+2317	CSG-Access-Mode	Enumerated	M,V

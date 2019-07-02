@@ -2,7 +2,7 @@
 //  UMDiameterAvpMO_LR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -65,22 +65,20 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpSS_Code  avpCode])
         {
-            avp = [[UMDiameterAvpSS_Code alloc]initWithAvp:avp];
-            _var_ss_code = avp;
-            [knownAVPs addObject:avp];
+            _var_ss_code = [[UMDiameterAvpSS_Code alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_ss_code];
         }
         else if(avp.avpCode == [UMDiameterAvpSS_Status avpCode])
         {
-            avp = [[UMDiameterAvpSS_Status alloc]initWithAvp:avp];
-            _var_ss_status = avp;
-            [knownAVPs addObject:avp];
+            _var_ss_status = [[UMDiameterAvpSS_Status alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_ss_status];
         }
         else
         {

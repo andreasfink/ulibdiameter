@@ -2,7 +2,7 @@
 //  UMDiameterAvpProxy_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:12.639000
+//  Created by afink on 2019-07-02 14:31:41.274000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -64,22 +64,20 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpProxy_Host  avpCode])
         {
-            avp = [[UMDiameterAvpProxy_Host alloc]initWithAvp:avp];
-            _var_proxy_host = avp;
-            [knownAVPs addObject:avp];
+            _var_proxy_host = [[UMDiameterAvpProxy_Host alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_proxy_host];
         }
         else if(avp.avpCode == [UMDiameterAvpProxy_State avpCode])
         {
-            avp = [[UMDiameterAvpProxy_State alloc]initWithAvp:avp];
-            _var_proxy_state = avp;
-            [knownAVPs addObject:avp];
+            _var_proxy_state = [[UMDiameterAvpProxy_State alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_proxy_state];
         }
         else
         {

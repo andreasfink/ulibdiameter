@@ -2,7 +2,7 @@
 //  UMDiameterAvpActive_APN.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -83,34 +83,30 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpContext_Identifier  avpCode])
         {
-            avp = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
-            _var_context_identifier = avp;
-            [knownAVPs addObject:avp];
+            _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_context_identifier];
         }
         else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
         {
-            avp = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            _var_service_selection = avp;
-            [knownAVPs addObject:avp];
+            _var_service_selection = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_service_selection];
         }
         else if(avp.avpCode == [UMDiameterAvpMIP6_Agent_Info avpCode])
         {
-            avp = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
-            _var_mip6_agent_info = avp;
-            [knownAVPs addObject:avp];
+            _var_mip6_agent_info = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mip6_agent_info];
         }
         else if(avp.avpCode == [UMDiameterAvpVisited_Network_Identifier avpCode])
         {
-            avp = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
-            _var_visited_network_identifier = avp;
-            [knownAVPs addObject:avp];
+            _var_visited_network_identifier = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_visited_network_identifier];
         }
         else if(avp.avpCode == [UMDiameterAvpSpecific_APN_Info avpCode])
         {

@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -85,46 +85,40 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpItem_Number  avpCode])
         {
-            avp = [[UMDiameterAvpItem_Number alloc]initWithAvp:avp];
-            _var_item_number = avp;
-            [knownAVPs addObject:avp];
+            _var_item_number = [[UMDiameterAvpItem_Number alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_item_number];
         }
         else if(avp.avpCode == [UMDiameterAvpRAND avpCode])
         {
-            avp = [[UMDiameterAvpRAND alloc]initWithAvp:avp];
-            _var_rand = avp;
-            [knownAVPs addObject:avp];
+            _var_rand = [[UMDiameterAvpRAND alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_rand];
         }
         else if(avp.avpCode == [UMDiameterAvpXRES avpCode])
         {
-            avp = [[UMDiameterAvpXRES alloc]initWithAvp:avp];
-            _var_xres = avp;
-            [knownAVPs addObject:avp];
+            _var_xres = [[UMDiameterAvpXRES alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_xres];
         }
         else if(avp.avpCode == [UMDiameterAvpAUTN avpCode])
         {
-            avp = [[UMDiameterAvpAUTN alloc]initWithAvp:avp];
-            _var_autn = avp;
-            [knownAVPs addObject:avp];
+            _var_autn = [[UMDiameterAvpAUTN alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_autn];
         }
         else if(avp.avpCode == [UMDiameterAvpConfidentiality_Key avpCode])
         {
-            avp = [[UMDiameterAvpConfidentiality_Key alloc]initWithAvp:avp];
-            _var_confidentiality_key = avp;
-            [knownAVPs addObject:avp];
+            _var_confidentiality_key = [[UMDiameterAvpConfidentiality_Key alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_confidentiality_key];
         }
         else if(avp.avpCode == [UMDiameterAvpIntegrity_Key avpCode])
         {
-            avp = [[UMDiameterAvpIntegrity_Key alloc]initWithAvp:avp];
-            _var_integrity_key = avp;
-            [knownAVPs addObject:avp];
+            _var_integrity_key = [[UMDiameterAvpIntegrity_Key alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_integrity_key];
         }
         else
         {

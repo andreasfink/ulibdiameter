@@ -2,7 +2,7 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -100,64 +100,55 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpCell_Global_Identity  avpCode])
         {
-            avp = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
-            _var_cell_global_identity = avp;
-            [knownAVPs addObject:avp];
+            _var_cell_global_identity = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_cell_global_identity];
         }
         else if(avp.avpCode == [UMDiameterAvpLocation_Area_Identity avpCode])
         {
-            avp = [[UMDiameterAvpLocation_Area_Identity alloc]initWithAvp:avp];
-            _var_location_area_identity = avp;
-            [knownAVPs addObject:avp];
+            _var_location_area_identity = [[UMDiameterAvpLocation_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_location_area_identity];
         }
         else if(avp.avpCode == [UMDiameterAvpService_Area_Identity avpCode])
         {
-            avp = [[UMDiameterAvpService_Area_Identity alloc]initWithAvp:avp];
-            _var_service_area_identity = avp;
-            [knownAVPs addObject:avp];
+            _var_service_area_identity = [[UMDiameterAvpService_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_service_area_identity];
         }
         else if(avp.avpCode == [UMDiameterAvpRouting_Area_Identity avpCode])
         {
-            avp = [[UMDiameterAvpRouting_Area_Identity alloc]initWithAvp:avp];
-            _var_routing_area_identity = avp;
-            [knownAVPs addObject:avp];
+            _var_routing_area_identity = [[UMDiameterAvpRouting_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_routing_area_identity];
         }
         else if(avp.avpCode == [UMDiameterAvpGeographical_Information avpCode])
         {
-            avp = [[UMDiameterAvpGeographical_Information alloc]initWithAvp:avp];
-            _var_geographical_information = avp;
-            [knownAVPs addObject:avp];
+            _var_geographical_information = [[UMDiameterAvpGeographical_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_geographical_information];
         }
         else if(avp.avpCode == [UMDiameterAvpGeodetic_Information avpCode])
         {
-            avp = [[UMDiameterAvpGeodetic_Information alloc]initWithAvp:avp];
-            _var_geodetic_information = avp;
-            [knownAVPs addObject:avp];
+            _var_geodetic_information = [[UMDiameterAvpGeodetic_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_geodetic_information];
         }
         else if(avp.avpCode == [UMDiameterAvpCurrent_Location_Retrieved avpCode])
         {
-            avp = [[UMDiameterAvpCurrent_Location_Retrieved alloc]initWithAvp:avp];
-            _var_current_location_retrieved = avp;
-            [knownAVPs addObject:avp];
+            _var_current_location_retrieved = [[UMDiameterAvpCurrent_Location_Retrieved alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_current_location_retrieved];
         }
         else if(avp.avpCode == [UMDiameterAvpAge_Of_Location_Information avpCode])
         {
-            avp = [[UMDiameterAvpAge_Of_Location_Information alloc]initWithAvp:avp];
-            _var_age_of_location_information = avp;
-            [knownAVPs addObject:avp];
+            _var_age_of_location_information = [[UMDiameterAvpAge_Of_Location_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_age_of_location_information];
         }
         else if(avp.avpCode == [UMDiameterAvpUser_CSG_Information avpCode])
         {
-            avp = [[UMDiameterAvpUser_CSG_Information alloc]initWithAvp:avp];
-            _var_user_csg_information = avp;
-            [knownAVPs addObject:avp];
+            _var_user_csg_information = [[UMDiameterAvpUser_CSG_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_user_csg_information];
         }
         else
         {

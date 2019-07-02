@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 #import "UMDiameterAvpLogging_Duration.h"
 #import "UMDiameterAvpMeasurement_Period_LTE.h"
 #import "UMDiameterAvpMeasurement_Period_UMTS.h"
-#import "UMDiameterAvpCollection_Period_RMM_LTE.h"
+#import "UMDiameterAvpCollection_Period_RRM_LTE.h"
 #import "UMDiameterAvpCollection_Period_RRM_UMTS.h"
 #import "UMDiameterAvpPositioning_Method.h"
 #import "UMDiameterAvpMeasurement_Quantity.h"
@@ -108,9 +108,9 @@
     {
         [arr addObject:_var_measurement_period_umts];
     }
-    if(_var_collection_period_rmm_lte)
+    if(_var_collection_period_rrm_lte)
     {
-        [arr addObject:_var_collection_period_rmm_lte];
+        [arr addObject:_var_collection_period_rrm_lte];
     }
     if(_var_collection_period_rrm_umts)
     {
@@ -161,118 +161,100 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpJob_Type  avpCode])
         {
-            avp = [[UMDiameterAvpJob_Type alloc]initWithAvp:avp];
-            _var_job_type = avp;
-            [knownAVPs addObject:avp];
+            _var_job_type = [[UMDiameterAvpJob_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_job_type];
         }
         else if(avp.avpCode == [UMDiameterAvpArea_Scope avpCode])
         {
-            avp = [[UMDiameterAvpArea_Scope alloc]initWithAvp:avp];
-            _var_area_scope = avp;
-            [knownAVPs addObject:avp];
+            _var_area_scope = [[UMDiameterAvpArea_Scope alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_area_scope];
         }
         else if(avp.avpCode == [UMDiameterAvpList_Of_Measurements avpCode])
         {
-            avp = [[UMDiameterAvpList_Of_Measurements alloc]initWithAvp:avp];
-            _var_list_of_measurements = avp;
-            [knownAVPs addObject:avp];
+            _var_list_of_measurements = [[UMDiameterAvpList_Of_Measurements alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_list_of_measurements];
         }
         else if(avp.avpCode == [UMDiameterAvpReporting_Trigger avpCode])
         {
-            avp = [[UMDiameterAvpReporting_Trigger alloc]initWithAvp:avp];
-            _var_reporting_trigger = avp;
-            [knownAVPs addObject:avp];
+            _var_reporting_trigger = [[UMDiameterAvpReporting_Trigger alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_reporting_trigger];
         }
         else if(avp.avpCode == [UMDiameterAvpReport_Interval avpCode])
         {
-            avp = [[UMDiameterAvpReport_Interval alloc]initWithAvp:avp];
-            _var_report_interval = avp;
-            [knownAVPs addObject:avp];
+            _var_report_interval = [[UMDiameterAvpReport_Interval alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_report_interval];
         }
         else if(avp.avpCode == [UMDiameterAvpReport_Amount avpCode])
         {
-            avp = [[UMDiameterAvpReport_Amount alloc]initWithAvp:avp];
-            _var_report_amount = avp;
-            [knownAVPs addObject:avp];
+            _var_report_amount = [[UMDiameterAvpReport_Amount alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_report_amount];
         }
         else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_RSRP avpCode])
         {
-            avp = [[UMDiameterAvpEvent_Threshold_RSRP alloc]initWithAvp:avp];
-            _var_event_threshold_rsrp = avp;
-            [knownAVPs addObject:avp];
+            _var_event_threshold_rsrp = [[UMDiameterAvpEvent_Threshold_RSRP alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_rsrp];
         }
         else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_RSRQ avpCode])
         {
-            avp = [[UMDiameterAvpEvent_Threshold_RSRQ alloc]initWithAvp:avp];
-            _var_event_threshold_rsrq = avp;
-            [knownAVPs addObject:avp];
+            _var_event_threshold_rsrq = [[UMDiameterAvpEvent_Threshold_RSRQ alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_rsrq];
         }
         else if(avp.avpCode == [UMDiameterAvpLogging_Interval avpCode])
         {
-            avp = [[UMDiameterAvpLogging_Interval alloc]initWithAvp:avp];
-            _var_logging_interval = avp;
-            [knownAVPs addObject:avp];
+            _var_logging_interval = [[UMDiameterAvpLogging_Interval alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_logging_interval];
         }
         else if(avp.avpCode == [UMDiameterAvpLogging_Duration avpCode])
         {
-            avp = [[UMDiameterAvpLogging_Duration alloc]initWithAvp:avp];
-            _var_logging_duration = avp;
-            [knownAVPs addObject:avp];
+            _var_logging_duration = [[UMDiameterAvpLogging_Duration alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_logging_duration];
         }
         else if(avp.avpCode == [UMDiameterAvpMeasurement_Period_LTE avpCode])
         {
-            avp = [[UMDiameterAvpMeasurement_Period_LTE alloc]initWithAvp:avp];
-            _var_measurement_period_lte = avp;
-            [knownAVPs addObject:avp];
+            _var_measurement_period_lte = [[UMDiameterAvpMeasurement_Period_LTE alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_measurement_period_lte];
         }
         else if(avp.avpCode == [UMDiameterAvpMeasurement_Period_UMTS avpCode])
         {
-            avp = [[UMDiameterAvpMeasurement_Period_UMTS alloc]initWithAvp:avp];
-            _var_measurement_period_umts = avp;
-            [knownAVPs addObject:avp];
+            _var_measurement_period_umts = [[UMDiameterAvpMeasurement_Period_UMTS alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_measurement_period_umts];
         }
-        else if(avp.avpCode == [UMDiameterAvpCollection_Period_RMM_LTE avpCode])
+        else if(avp.avpCode == [UMDiameterAvpCollection_Period_RRM_LTE avpCode])
         {
-            avp = [[UMDiameterAvpCollection_Period_RMM_LTE alloc]initWithAvp:avp];
-            _var_collection_period_rmm_lte = avp;
-            [knownAVPs addObject:avp];
+            _var_collection_period_rrm_lte = [[UMDiameterAvpCollection_Period_RRM_LTE alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_collection_period_rrm_lte];
         }
         else if(avp.avpCode == [UMDiameterAvpCollection_Period_RRM_UMTS avpCode])
         {
-            avp = [[UMDiameterAvpCollection_Period_RRM_UMTS alloc]initWithAvp:avp];
-            _var_collection_period_rrm_umts = avp;
-            [knownAVPs addObject:avp];
+            _var_collection_period_rrm_umts = [[UMDiameterAvpCollection_Period_RRM_UMTS alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_collection_period_rrm_umts];
         }
         else if(avp.avpCode == [UMDiameterAvpPositioning_Method avpCode])
         {
-            avp = [[UMDiameterAvpPositioning_Method alloc]initWithAvp:avp];
-            _var_positioning_method = avp;
-            [knownAVPs addObject:avp];
+            _var_positioning_method = [[UMDiameterAvpPositioning_Method alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_positioning_method];
         }
         else if(avp.avpCode == [UMDiameterAvpMeasurement_Quantity avpCode])
         {
-            avp = [[UMDiameterAvpMeasurement_Quantity alloc]initWithAvp:avp];
-            _var_measurement_quantity = avp;
-            [knownAVPs addObject:avp];
+            _var_measurement_quantity = [[UMDiameterAvpMeasurement_Quantity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_measurement_quantity];
         }
         else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_Event_1F avpCode])
         {
-            avp = [[UMDiameterAvpEvent_Threshold_Event_1F alloc]initWithAvp:avp];
-            _var_event_threshold_event_1f = avp;
-            [knownAVPs addObject:avp];
+            _var_event_threshold_event_1f = [[UMDiameterAvpEvent_Threshold_Event_1F alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_event_1f];
         }
         else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_Event_1I avpCode])
         {
-            avp = [[UMDiameterAvpEvent_Threshold_Event_1I alloc]initWithAvp:avp];
-            _var_event_threshold_event_1i = avp;
-            [knownAVPs addObject:avp];
+            _var_event_threshold_event_1i = [[UMDiameterAvpEvent_Threshold_Event_1I alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_event_1i];
         }
         else if(avp.avpCode == [UMDiameterAvpMDT_Allowed_PLMN_Id avpCode])
         {

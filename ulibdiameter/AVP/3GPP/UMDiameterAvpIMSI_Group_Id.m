@@ -2,7 +2,7 @@
 //  UMDiameterAvpIMSI_Group_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,28 +70,25 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpGroup_Service_Id  avpCode])
         {
-            avp = [[UMDiameterAvpGroup_Service_Id alloc]initWithAvp:avp];
-            _var_group_service_id = avp;
-            [knownAVPs addObject:avp];
+            _var_group_service_id = [[UMDiameterAvpGroup_Service_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_group_service_id];
         }
         else if(avp.avpCode == [UMDiameterAvpGroup_PLMN_Id avpCode])
         {
-            avp = [[UMDiameterAvpGroup_PLMN_Id alloc]initWithAvp:avp];
-            _var_group_plmn_id = avp;
-            [knownAVPs addObject:avp];
+            _var_group_plmn_id = [[UMDiameterAvpGroup_PLMN_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_group_plmn_id];
         }
         else if(avp.avpCode == [UMDiameterAvpLocal_Group_Id avpCode])
         {
-            avp = [[UMDiameterAvpLocal_Group_Id alloc]initWithAvp:avp];
-            _var_local_group_id = avp;
-            [knownAVPs addObject:avp];
+            _var_local_group_id = [[UMDiameterAvpLocal_Group_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_local_group_id];
         }
         else
         {

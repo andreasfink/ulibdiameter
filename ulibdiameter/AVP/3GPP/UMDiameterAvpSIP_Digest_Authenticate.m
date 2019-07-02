@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Digest_Authenticate.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -75,34 +75,30 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpDigest_Realm  avpCode])
         {
-            avp = [[UMDiameterAvpDigest_Realm alloc]initWithAvp:avp];
-            _var_digest_realm = avp;
-            [knownAVPs addObject:avp];
+            _var_digest_realm = [[UMDiameterAvpDigest_Realm alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_digest_realm];
         }
         else if(avp.avpCode == [UMDiameterAvpDigest_Algorithm avpCode])
         {
-            avp = [[UMDiameterAvpDigest_Algorithm alloc]initWithAvp:avp];
-            _var_digest_algorithm = avp;
-            [knownAVPs addObject:avp];
+            _var_digest_algorithm = [[UMDiameterAvpDigest_Algorithm alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_digest_algorithm];
         }
         else if(avp.avpCode == [UMDiameterAvpDigest_QoP avpCode])
         {
-            avp = [[UMDiameterAvpDigest_QoP alloc]initWithAvp:avp];
-            _var_digest_qop = avp;
-            [knownAVPs addObject:avp];
+            _var_digest_qop = [[UMDiameterAvpDigest_QoP alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_digest_qop];
         }
         else if(avp.avpCode == [UMDiameterAvpDigest_HA1 avpCode])
         {
-            avp = [[UMDiameterAvpDigest_HA1 alloc]initWithAvp:avp];
-            _var_digest_ha1 = avp;
-            [knownAVPs addObject:avp];
+            _var_digest_ha1 = [[UMDiameterAvpDigest_HA1 alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_digest_ha1];
         }
         else
         {

@@ -318,9 +318,9 @@
 #import "UMDiameterAvpXRES.h"
 #import "UMDiameterAvpeDRX_Cycle_Length.h"
 #import "UMDiameterAvpeDRX_Cycle_Length_Value.h"
-
+#import "UMDiameterAvpQoS-Class-Identifier.h"
 /* from rfc7683 */
-#import "UMDiameterAvpOC_Feature_Vector AVP.h"
+#import "UMDiameterAvpOC_Feature_VectorP.h"
 #import "UMDiameterAvpOC_Reduction_Percentage.h"
 #import "UMDiameterAvpOC_Sequence_Number.h"
 #import "UMDiameterAvpOC_Validity_Duration.h"

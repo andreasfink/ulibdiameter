@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdjacent_Access_Restriction_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -65,22 +65,20 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpVisited_PLMN_Id  avpCode])
         {
-            avp = [[UMDiameterAvpVisited_PLMN_Id alloc]initWithAvp:avp];
-            _var_visited_plmn_id = avp;
-            [knownAVPs addObject:avp];
+            _var_visited_plmn_id = [[UMDiameterAvpVisited_PLMN_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_visited_plmn_id];
         }
         else if(avp.avpCode == [UMDiameterAvpAccess_Restriction_Data avpCode])
         {
-            avp = [[UMDiameterAvpAccess_Restriction_Data alloc]initWithAvp:avp];
-            _var_access_restriction_data = avp;
-            [knownAVPs addObject:avp];
+            _var_access_restriction_data = [[UMDiameterAvpAccess_Restriction_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_access_restriction_data];
         }
         else
         {

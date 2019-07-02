@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -90,16 +90,15 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpContext_Identifier  avpCode])
         {
-            avp = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
-            _var_context_identifier = avp;
-            [knownAVPs addObject:avp];
+            _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_context_identifier];
         }
         else if(avp.avpCode == [UMDiameterAvpServed_Party_IP_Address avpCode])
         {
@@ -117,39 +116,33 @@
         }
         else if(avp.avpCode == [UMDiameterAvpPDN_Type avpCode])
         {
-            avp = [[UMDiameterAvpPDN_Type alloc]initWithAvp:avp];
-            _var_pdn_type = avp;
-            [knownAVPs addObject:avp];
+            _var_pdn_type = [[UMDiameterAvpPDN_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_pdn_type];
         }
         else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
         {
-            avp = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            _var_service_selection = avp;
-            [knownAVPs addObject:avp];
+            _var_service_selection = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_service_selection];
         }
         else if(avp.avpCode == [UMDiameterAvpEPS_Subscribed_QoS_Profile avpCode])
         {
-            avp = [[UMDiameterAvpEPS_Subscribed_QoS_Profile alloc]initWithAvp:avp];
-            _var_eps_subscribed_qos_profile = avp;
-            [knownAVPs addObject:avp];
+            _var_eps_subscribed_qos_profile = [[UMDiameterAvpEPS_Subscribed_QoS_Profile alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_eps_subscribed_qos_profile];
         }
         else if(avp.avpCode == [UMDiameterAvpVPLMN_Dynamic_Address_Allowed avpCode])
         {
-            avp = [[UMDiameterAvpVPLMN_Dynamic_Address_Allowed alloc]initWithAvp:avp];
-            _var_vplmn_dynamic_address_allowed = avp;
-            [knownAVPs addObject:avp];
+            _var_vplmn_dynamic_address_allowed = [[UMDiameterAvpVPLMN_Dynamic_Address_Allowed alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_vplmn_dynamic_address_allowed];
         }
         else if(avp.avpCode == [UMDiameterAvpMIP6_Agent_Info avpCode])
         {
-            avp = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
-            _var_mip6_agent_info = avp;
-            [knownAVPs addObject:avp];
+            _var_mip6_agent_info = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mip6_agent_info];
         }
         else if(avp.avpCode == [UMDiameterAvpVisited_Network_Identifier avpCode])
         {
-            avp = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
-            _var_visited_network_identifier = avp;
-            [knownAVPs addObject:avp];
+            _var_visited_network_identifier = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_visited_network_identifier];
         }
         else
         {

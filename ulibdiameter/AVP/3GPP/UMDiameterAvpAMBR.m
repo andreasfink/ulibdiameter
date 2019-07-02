@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -75,34 +75,30 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpMax_Requested_Bandwidth_UL  avpCode])
         {
-            avp = [[UMDiameterAvpMax_Requested_Bandwidth_UL alloc]initWithAvp:avp];
-            _var_max_requested_bandwidth_ul = avp;
-            [knownAVPs addObject:avp];
+            _var_max_requested_bandwidth_ul = [[UMDiameterAvpMax_Requested_Bandwidth_UL alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_max_requested_bandwidth_ul];
         }
         else if(avp.avpCode == [UMDiameterAvpMax_Requested_Bandwidth_DL avpCode])
         {
-            avp = [[UMDiameterAvpMax_Requested_Bandwidth_DL alloc]initWithAvp:avp];
-            _var_max_requested_bandwidth_dl = avp;
-            [knownAVPs addObject:avp];
+            _var_max_requested_bandwidth_dl = [[UMDiameterAvpMax_Requested_Bandwidth_DL alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_max_requested_bandwidth_dl];
         }
         else if(avp.avpCode == [UMDiameterAvpExtended_Max_Requested_BW_UL avpCode])
         {
-            avp = [[UMDiameterAvpExtended_Max_Requested_BW_UL alloc]initWithAvp:avp];
-            _var_extended_max_requested_bw_ul = avp;
-            [knownAVPs addObject:avp];
+            _var_extended_max_requested_bw_ul = [[UMDiameterAvpExtended_Max_Requested_BW_UL alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_extended_max_requested_bw_ul];
         }
         else if(avp.avpCode == [UMDiameterAvpExtended_Max_Requested_BW_DL avpCode])
         {
-            avp = [[UMDiameterAvpExtended_Max_Requested_BW_DL alloc]initWithAvp:avp];
-            _var_extended_max_requested_bw_dl = avp;
-            [knownAVPs addObject:avp];
+            _var_extended_max_requested_bw_dl = [[UMDiameterAvpExtended_Max_Requested_BW_DL alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_extended_max_requested_bw_dl];
         }
         else
         {

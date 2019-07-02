@@ -2,7 +2,7 @@
 //  UMDiameterAvpSCSCF_Restoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -73,16 +73,15 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpUser_Name  avpCode])
         {
-            avp = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
-            _var_user_name = avp;
-            [knownAVPs addObject:avp];
+            _var_user_name = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_user_name];
         }
         else if(avp.avpCode == [UMDiameterAvpRestoration_Info avpCode])
         {
@@ -100,9 +99,8 @@
         }
         else if(avp.avpCode == [UMDiameterAvpSIP_Authentication_Scheme avpCode])
         {
-            avp = [[UMDiameterAvpSIP_Authentication_Scheme alloc]initWithAvp:avp];
-            _var_sip_authentication_scheme = avp;
-            [knownAVPs addObject:avp];
+            _var_sip_authentication_scheme = [[UMDiameterAvpSIP_Authentication_Scheme alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_sip_authentication_scheme];
         }
         else
         {

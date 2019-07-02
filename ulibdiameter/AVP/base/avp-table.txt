@@ -25,7 +25,7 @@
 267	Firmware-Revision	5.3.4	Unsigned32	
 257	Host-IP-Address	5.3.5	Address	M
 299	Inband-Security-Id	6.10	Unsigned32	M
-272	Multi-Round-Time-Out		8.19	Unsigned32	M
+272	Multi-Round-Time-Out	8.19	Unsigned32	M
 264	Origin-Host	6.3	DiameterIdentity	M
 296	Origin-Realm	6.4	DiameterIdentity	M
 278	Origin-State-Id	8.16	Unsigned32	M
@@ -33,7 +33,7 @@
 280	Proxy-Host	6.7.3	DiameterIdentity	M
 284	Proxy-Info	6.7.2	Grouped	M
 33	Proxy-State	6.7.4	OctetString	M
-292	Redirect-Host	6.12	DiamURI	M
+292	Redirect-Host	6.12	DiameterURI	M
 261	Redirect-Host-Usage	6.13	Enumerated 	M
 262	Redirect-Max-Cache-Time	6.14	Unsigned32 	M
 268	Result-Code	7.1	Unsigned32 	M
@@ -48,5 +48,23 @@
 266	Vendor-Id	5.3.3	Unsigned32 	M
 260	Vendor-Specific-Application-Id	6.11	Grouped	M
 301	DRMP	9.1	Enumerated	
-
+333	MIP-Mobile-Node-Address	RFC4004	Address
+486	MIP6-Agent-Info	RFC5447	Grouped	M
+493	Service-Selection	6.2	UTF8String	M
+578	QoS-Capability	RFC5777	Grouped	M
+508	QoS-Resources	RFC5777	Grouped	M
+492	MIP-MN-HA-MSA	6.12	Grouped	M
+89	Chargeable-User-Identity	6.19	OctetString	M
+124	MIP6-Feature-Vector	RFC5447	Unsigned64	M
+341	MIP-MN-AAA-SPI	RFC4004	Unsigned32	M
+491	MIP-MN-HA-SPI	6.4	Unsigned32	M
+333	MIP-Mobile-Node-Address	RFC4004	Address	M
+487	MIP-Careof-Address	6.7	Address	M
+488	MIP-Authenticator	6.8	OctetString	M
+489	MIP-MAC-Mobility-Data	6.9	OctetString	M
+343	MIP-Session-Key	6.10	OctetString	M
+367	MIP-MSA-Lifetime	RFC4004  Unsigned32	M
+346	MIP-Replay-Mode	6.14	Enumerated	M
+490	MIP-Timestamp	6.16	OctetString	M
+494	MIP6-Auth-Mode	6.20	Enumerated	M
 

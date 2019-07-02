@@ -2,7 +2,7 @@
 //  UMDiameterAvpWLAN_offloadability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -65,22 +65,20 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpWLAN_offloadability_EUTRAN  avpCode])
         {
-            avp = [[UMDiameterAvpWLAN_offloadability_EUTRAN alloc]initWithAvp:avp];
-            _var_wlan_offloadability_eutran = avp;
-            [knownAVPs addObject:avp];
+            _var_wlan_offloadability_eutran = [[UMDiameterAvpWLAN_offloadability_EUTRAN alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_wlan_offloadability_eutran];
         }
         else if(avp.avpCode == [UMDiameterAvpWLAN_offloadability_UTRAN avpCode])
         {
-            avp = [[UMDiameterAvpWLAN_offloadability_UTRAN alloc]initWithAvp:avp];
-            _var_wlan_offloadability_utran = avp;
-            [knownAVPs addObject:avp];
+            _var_wlan_offloadability_utran = [[UMDiameterAvpWLAN_offloadability_UTRAN alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_wlan_offloadability_utran];
         }
         else
         {

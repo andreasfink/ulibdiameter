@@ -2,7 +2,7 @@
 //  UMDiameterAvpMBSFN_Area.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -65,22 +65,20 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpMBSFN_Area_ID  avpCode])
         {
-            avp = [[UMDiameterAvpMBSFN_Area_ID alloc]initWithAvp:avp];
-            _var_mbsfn_area_id = avp;
-            [knownAVPs addObject:avp];
+            _var_mbsfn_area_id = [[UMDiameterAvpMBSFN_Area_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mbsfn_area_id];
         }
         else if(avp.avpCode == [UMDiameterAvpCarrier_Frequency avpCode])
         {
-            avp = [[UMDiameterAvpCarrier_Frequency alloc]initWithAvp:avp];
-            _var_carrier_frequency = avp;
-            [knownAVPs addObject:avp];
+            _var_carrier_frequency = [[UMDiameterAvpCarrier_Frequency alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_carrier_frequency];
         }
         else
         {

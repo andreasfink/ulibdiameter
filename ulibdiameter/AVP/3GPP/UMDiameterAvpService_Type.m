@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Type.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,28 +70,25 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpServiceTypeIdentity  avpCode])
         {
-            avp = [[UMDiameterAvpServiceTypeIdentity alloc]initWithAvp:avp];
-            _var_servicetypeidentity = avp;
-            [knownAVPs addObject:avp];
+            _var_servicetypeidentity = [[UMDiameterAvpServiceTypeIdentity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_servicetypeidentity];
         }
         else if(avp.avpCode == [UMDiameterAvpGMLC_Restriction avpCode])
         {
-            avp = [[UMDiameterAvpGMLC_Restriction alloc]initWithAvp:avp];
-            _var_gmlc_restriction = avp;
-            [knownAVPs addObject:avp];
+            _var_gmlc_restriction = [[UMDiameterAvpGMLC_Restriction alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_gmlc_restriction];
         }
         else if(avp.avpCode == [UMDiameterAvpNotification_To_UE_User avpCode])
         {
-            avp = [[UMDiameterAvpNotification_To_UE_User alloc]initWithAvp:avp];
-            _var_notification_to_ue_user = avp;
-            [knownAVPs addObject:avp];
+            _var_notification_to_ue_user = [[UMDiameterAvpNotification_To_UE_User alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_notification_to_ue_user];
         }
         else
         {

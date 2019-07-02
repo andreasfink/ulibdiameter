@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_Supported_Features.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:16.191000
+//  Created by afink on 2019-07-02 14:32:02.729000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -58,16 +58,15 @@
 {
     NSArray *avps = [self array];
 
-    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
     for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpOC_Feature_Vector  avpCode])
         {
-            avp = [[UMDiameterAvpOC_Feature_Vector alloc]initWithAvp:avp];
-            _var_oc_feature_vector = avp;
-            [knownAVPs addObject:avp];
+            _var_oc_feature_vector = [[UMDiameterAvpOC_Feature_Vector alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_oc_feature_vector];
         }
         else
         {

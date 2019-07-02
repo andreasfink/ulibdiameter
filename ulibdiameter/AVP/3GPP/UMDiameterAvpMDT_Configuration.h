@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 13:33:20.551000
+//  Created by afink on 2019-07-02 14:54:47.208000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 @class UMDiameterAvpLogging_Duration;
 @class UMDiameterAvpMeasurement_Period_LTE;
 @class UMDiameterAvpMeasurement_Period_UMTS;
-@class UMDiameterAvpCollection_Period_RMM_LTE;
+@class UMDiameterAvpCollection_Period_RRM_LTE;
 @class UMDiameterAvpCollection_Period_RRM_UMTS;
 @class UMDiameterAvpPositioning_Method;
 @class UMDiameterAvpMeasurement_Quantity;
@@ -45,7 +45,7 @@
 	UMDiameterAvpLogging_Duration	*_var_logging_duration;
 	UMDiameterAvpMeasurement_Period_LTE	*_var_measurement_period_lte;
 	UMDiameterAvpMeasurement_Period_UMTS	*_var_measurement_period_umts;
-	UMDiameterAvpCollection_Period_RMM_LTE	*_var_collection_period_rmm_lte;
+	UMDiameterAvpCollection_Period_RRM_LTE	*_var_collection_period_rrm_lte;
 	UMDiameterAvpCollection_Period_RRM_UMTS	*_var_collection_period_rrm_umts;
 	UMDiameterAvpPositioning_Method	*_var_positioning_method;
 	UMDiameterAvpMeasurement_Quantity	*_var_measurement_quantity;
@@ -68,7 +68,7 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpLogging_Duration	*var_logging_duration;
 @property(readwrite,strong,atomic)	UMDiameterAvpMeasurement_Period_LTE	*var_measurement_period_lte;
 @property(readwrite,strong,atomic)	UMDiameterAvpMeasurement_Period_UMTS	*var_measurement_period_umts;
-@property(readwrite,strong,atomic)	UMDiameterAvpCollection_Period_RMM_LTE	*var_collection_period_rmm_lte;
+@property(readwrite,strong,atomic)	UMDiameterAvpCollection_Period_RRM_LTE	*var_collection_period_rrm_lte;
 @property(readwrite,strong,atomic)	UMDiameterAvpCollection_Period_RRM_UMTS	*var_collection_period_rrm_umts;
 @property(readwrite,strong,atomic)	UMDiameterAvpPositioning_Method	*var_positioning_method;
 @property(readwrite,strong,atomic)	UMDiameterAvpMeasurement_Quantity	*var_measurement_quantity;

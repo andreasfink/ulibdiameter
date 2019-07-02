@@ -30,26 +30,22 @@
 - (BOOL)parseString:(NSString *)s error:(NSError **)eptr;
 - (BOOL)parseFirstLine:(NSString *)s error:(NSError **)eptr; /* returns YES on success */
 
-- (NSString *)headerFileWithPrefix:(NSString *)prefix
-                         avpPrefix:(NSString *)avpPrefix
-                              user:(NSString *)user
-                              date:(NSString *)date;
 
-- (NSString *)methodFileWithPrefix:(NSString *)prefix
-                         avpPrefix:(NSString *)avpPrefix
-                              user:(NSString *)user
-                              date:(NSString *)date;
+- (NSString *) methodsWithPrefix:(NSString *)avpPrefix
+                            user:(NSString *)user
+                            date:(NSString *)date
+                       directory:(NSString *)dir;
+
+- (NSString *)groupHeaderFileWithPrefix:(NSString *)prefix
+                              avpPrefix:(NSString *)avpPrefix
+                                   user:(NSString *)user
+                                   date:(NSString *)date;
 
 
 - (NSString *)includesForHeaderWithPrefix:(NSString *)avpPrefix;
 - (NSString *)includesForMethodsWithPrefix:(NSString *)avpPrefix;
 - (NSString *)variablesForHeaderWithPrefix:(NSString *)avpPrefix;
 - (NSString *)propertiesForHeaderWithPrefix:(NSString *)avpPrefix;
-
-- (NSString *) methodsWithPrefix:(NSString *)prefix
-                            user:(NSString *)user
-                            date:(NSString *)date
-                       directory:(NSString *)dir;
 
 
 @end
