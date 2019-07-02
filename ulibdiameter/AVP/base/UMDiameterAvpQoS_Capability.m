@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Capability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:31:41.274000
+//  Created by afink on 2019-07-02 17:32:28.185000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -69,16 +69,15 @@
     {
         if(avp.avpCode == [UMDiameterAvpQoS_Profile_Template  avpCode])
         {
-            avp = [[UMDiameterAvpQoS_Profile_Template alloc]initWithAvp:avp];
-            _var_qos_profile_template = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpQoS_Profile_Template *avp2 = [[UMDiameterAvpQoS_Profile_Template alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_qos_profile_template == NULL)
             {
                 _var_qos_profile_template = @[avp];
             }
             else
             {
-                _var_qos_profile_template = [_var_qos_profile_template arrayByAddingObject:avp]
+                _var_qos_profile_template = [_var_qos_profile_template arrayByAddingObject:avp];
             }
         }
         else

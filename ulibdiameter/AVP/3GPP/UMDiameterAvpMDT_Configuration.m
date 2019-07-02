@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -258,30 +258,28 @@
         }
         else if(avp.avpCode == [UMDiameterAvpMDT_Allowed_PLMN_Id avpCode])
         {
-            avp = [[UMDiameterAvpMDT_Allowed_PLMN_Id alloc]initWithAvp:avp];
-            _var_mdt_allowed_plmn_id = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpMDT_Allowed_PLMN_Id *avp2 = [[UMDiameterAvpMDT_Allowed_PLMN_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_mdt_allowed_plmn_id == NULL)
             {
                 _var_mdt_allowed_plmn_id = @[avp];
             }
             else
             {
-                _var_mdt_allowed_plmn_id = [_var_mdt_allowed_plmn_id arrayByAddingObject:avp]
+                _var_mdt_allowed_plmn_id = [_var_mdt_allowed_plmn_id arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpMBSFN_Area avpCode])
         {
-            avp = [[UMDiameterAvpMBSFN_Area alloc]initWithAvp:avp];
-            _var_mbsfn_area = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpMBSFN_Area *avp2 = [[UMDiameterAvpMBSFN_Area alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_mbsfn_area == NULL)
             {
                 _var_mbsfn_area = @[avp];
             }
             else
             {
-                _var_mbsfn_area = [_var_mbsfn_area arrayByAddingObject:avp]
+                _var_mbsfn_area = [_var_mbsfn_area arrayByAddingObject:avp];
             }
         }
         else

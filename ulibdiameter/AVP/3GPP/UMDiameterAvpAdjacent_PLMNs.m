@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdjacent_PLMNs.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,16 +70,15 @@
     {
         if(avp.avpCode == [UMDiameterAvpVisited_PLMN_Id  avpCode])
         {
-            avp = [[UMDiameterAvpVisited_PLMN_Id alloc]initWithAvp:avp];
-            _var_visited_plmn_id = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpVisited_PLMN_Id *avp2 = [[UMDiameterAvpVisited_PLMN_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_visited_plmn_id == NULL)
             {
                 _var_visited_plmn_id = @[avp];
             }
             else
             {
-                _var_visited_plmn_id = [_var_visited_plmn_id arrayByAddingObject:avp]
+                _var_visited_plmn_id = [_var_visited_plmn_id arrayByAddingObject:avp];
             }
         }
         else

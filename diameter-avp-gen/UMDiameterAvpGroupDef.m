@@ -409,15 +409,15 @@
         else
         {
             [s appendString:@"        {\n"];
-            [s appendFormat:@"            %@ = [[%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
-            [s appendFormat:@"            [knownAVPs addObject:%@];\n",avp.variableName];
+            [s appendFormat:@"            %@%@ *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
+            [s appendFormat:@"            [knownAVPs addObject:avp2];\n"];
             [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
             [s appendString:@"            {\n"];
             [s appendFormat:@"                %@ = @[avp];\n",avp.variableName];
             [s appendString:@"            }\n"];
             [s appendString:@"            else\n"];
             [s appendString:@"            {\n"];
-            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp]\n",avp.variableName,avp.variableName];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp];\n",avp.variableName,avp.variableName];
             [s appendString:@"            }\n"];
             [s appendString:@"        }\n"];
         }

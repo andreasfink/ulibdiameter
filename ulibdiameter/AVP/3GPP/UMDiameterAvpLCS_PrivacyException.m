@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -116,44 +116,41 @@
         }
         else if(avp.avpCode == [UMDiameterAvpExternal_Client avpCode])
         {
-            avp = [[UMDiameterAvpExternal_Client alloc]initWithAvp:avp];
-            _var_external_client = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpExternal_Client *avp2 = [[UMDiameterAvpExternal_Client alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_external_client == NULL)
             {
                 _var_external_client = @[avp];
             }
             else
             {
-                _var_external_client = [_var_external_client arrayByAddingObject:avp]
+                _var_external_client = [_var_external_client arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpPLMN_Client avpCode])
         {
-            avp = [[UMDiameterAvpPLMN_Client alloc]initWithAvp:avp];
-            _var_plmn_client = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpPLMN_Client *avp2 = [[UMDiameterAvpPLMN_Client alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_plmn_client == NULL)
             {
                 _var_plmn_client = @[avp];
             }
             else
             {
-                _var_plmn_client = [_var_plmn_client arrayByAddingObject:avp]
+                _var_plmn_client = [_var_plmn_client arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpService_Type avpCode])
         {
-            avp = [[UMDiameterAvpService_Type alloc]initWithAvp:avp];
-            _var_service_type = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpService_Type *avp2 = [[UMDiameterAvpService_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_service_type == NULL)
             {
                 _var_service_type = @[avp];
             }
             else
             {
-                _var_service_type = [_var_service_type arrayByAddingObject:avp]
+                _var_service_type = [_var_service_type arrayByAddingObject:avp];
             }
         }
         else

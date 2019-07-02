@@ -2,7 +2,7 @@
 //  UMDiameterAvpServer_Capabilities.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -78,30 +78,28 @@
     {
         if(avp.avpCode == [UMDiameterAvpMandatory_Capability  avpCode])
         {
-            avp = [[UMDiameterAvpMandatory_Capability alloc]initWithAvp:avp];
-            _var_mandatory_capability = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpMandatory_Capability *avp2 = [[UMDiameterAvpMandatory_Capability alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_mandatory_capability == NULL)
             {
                 _var_mandatory_capability = @[avp];
             }
             else
             {
-                _var_mandatory_capability = [_var_mandatory_capability arrayByAddingObject:avp]
+                _var_mandatory_capability = [_var_mandatory_capability arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpOptional_Capability avpCode])
         {
-            avp = [[UMDiameterAvpOptional_Capability alloc]initWithAvp:avp];
-            _var_optional_capability = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpOptional_Capability *avp2 = [[UMDiameterAvpOptional_Capability alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_optional_capability == NULL)
             {
                 _var_optional_capability = @[avp];
             }
             else
             {
-                _var_optional_capability = [_var_optional_capability arrayByAddingObject:avp]
+                _var_optional_capability = [_var_optional_capability arrayByAddingObject:avp];
             }
         }
         else

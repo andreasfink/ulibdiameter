@@ -1,8 +1,8 @@
 85	Acct-Interim-Interval	9.8.2	Unsigned32	M
-483	Accouting-Realtime-Required	9.8.7	Enumerated	M
+483	Accounting-Realtime-Required	9.8.7	Enumerated	M
 50	Acct-Multi-Session-Id	9.8.5	UTF8String	M
 485	Accounting-Record-Number	9.8.3	Unsigned32	M
-480	AccountingRecord-Type	9.8.1	Enumerated	M
+480	Accounting-Record-Type	9.8.1	Enumerated	M
 44	Acct-Session-Id	9.8.4	OctetString	M
 287	Accounting-Sub-Session-Id	9.8.6	Unsigned64	M
 259	Acct-Application-Id	6.9	Unsigned32	M

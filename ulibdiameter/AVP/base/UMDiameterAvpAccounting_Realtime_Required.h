@@ -1,8 +1,8 @@
 //
-//  UMDiameterAvpAccountingRecord_Type.h
+//  UMDiameterAvpAccounting_Realtime_Required.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:31:41.274000
+//  Created by afink on 2019-07-02 17:32:28.185000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 
 
-@interface UMDiameterAvpAccountingRecord_Type : UMDiameterAvpEnumerated
+@interface UMDiameterAvpAccounting_Realtime_Required : UMDiameterAvpEnumerated
 {
 }
 

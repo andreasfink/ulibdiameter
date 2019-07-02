@@ -1,0 +1,5 @@
+Monitoring-Event-Config-Status::= <AVP header: 3142 10415>
+[ Service-Report ]
+[ SCEF-Reference-ID ]
+[ SCEF-ID ]
+*[AVP]

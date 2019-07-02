@@ -1,20 +1,20 @@
 //
-//  UMDiameterAvpAccountingRecord_Type.m
+//  UMDiameterAvpAccounting_Record_Type.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:31:41.274000
+//  Created by afink on 2019-07-02 17:32:28.185000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpAccountingRecord_Type.h"
+#import "UMDiameterAvpAccounting_Record_Type.h"
 
-@implementation UMDiameterAvpAccountingRecord_Type
+@implementation UMDiameterAvpAccounting_Record_Type
 
 
 - (NSString *)avpType
 {
-    return @"AccountingRecord-Type";
+    return @"Accounting-Record-Type";
 }
 
 - (uint32_t)avpCode

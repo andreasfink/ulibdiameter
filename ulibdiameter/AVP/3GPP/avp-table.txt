@@ -242,3 +242,17 @@
 2318	CSG-Membership-Indication	x	Enumerated	M,V
 1032	RAT-Type	x	Enumerated	V
 2317	CSG-Access-Mode	Enumerated	M,V
+515	Max-Requested-Bandwidth-DL	5.3.14	Unsigned32	M,V
+516	Max-Requested-Bandwidth-UL	5.3.15	Unsigned32	M,V
+543	Max-Supported-Bandwidth-DL	5.3.41	Unsigned32	V
+544	Max-Supported-Bandwidth-UL	5.3.52	Unsigned32	V
+1034	Allocation-Retention-Priority	5.3.32	Grouped	
+2405	GMLC-Address	6.4.7	Address	M,V
+3143	Supported-Services	-	Grouped	M,V
+3329	Maximum-UE-Availability-Time	-	Time	M,V
+3142	Monitoring_Event_Config_Status	-	Grouped	V
+3125	SCEF-ID	-	DiameterIdentity	M,V
+1538	Emergency-Services	-	Unsigned32	V
+3123	Monitoring-Event-Report	-	Grouped	M,V
+1227	PDP-Address	-	Address	M,V
+

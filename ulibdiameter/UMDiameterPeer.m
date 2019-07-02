@@ -11,7 +11,7 @@
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
-#import "UMDiameterAvpVendorSpecificApplicationId.h"
+#import "UMDiameterAvpVendor_Specific_Application_Id.h"
 #import "UMDiameterResultCode.h"
 
 #import "UMDiameterAvpAll.h"
@@ -332,7 +332,7 @@
     // { Origin-Host }
     if(1)
     {
-        UMDiameterAvpOriginHost *avp = [[UMDiameterAvpOriginHost alloc]init];
+        UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -340,7 +340,7 @@
     // { Origin-Realm }
     if(1)
     {
-        UMDiameterAvpOriginRealm *avp = [[UMDiameterAvpOriginRealm alloc]init];
+        UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -352,7 +352,7 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
-            UMDiameterAvpHostIpAddress *avp =  [[UMDiameterAvpHostIpAddress alloc]init];
+            UMDiameterAvpHost_Ip_Address *avp =  [[UMDiameterAvpHost_Ip_Address alloc]init];
             [avp setFlagMandatory:YES];
             [avp setHostIPAddress:addr];
             [packet appendAvp:avp];

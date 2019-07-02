@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -111,16 +111,15 @@
         }
         else if(avp.avpCode == [UMDiameterAvpContext_Identifier avpCode])
         {
-            avp = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
-            _var_context_identifier = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpContext_Identifier *avp2 = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_context_identifier == NULL)
             {
                 _var_context_identifier = @[avp];
             }
             else
             {
-                _var_context_identifier = [_var_context_identifier arrayByAddingObject:avp]
+                _var_context_identifier = [_var_context_identifier arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Reference avpCode])
@@ -130,30 +129,28 @@
         }
         else if(avp.avpCode == [UMDiameterAvpTS_Code avpCode])
         {
-            avp = [[UMDiameterAvpTS_Code alloc]initWithAvp:avp];
-            _var_ts_code = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpTS_Code *avp2 = [[UMDiameterAvpTS_Code alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_ts_code == NULL)
             {
                 _var_ts_code = @[avp];
             }
             else
             {
-                _var_ts_code = [_var_ts_code arrayByAddingObject:avp]
+                _var_ts_code = [_var_ts_code arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpSS_Code avpCode])
         {
-            avp = [[UMDiameterAvpSS_Code alloc]initWithAvp:avp];
-            _var_ss_code = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpSS_Code *avp2 = [[UMDiameterAvpSS_Code alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_ss_code == NULL)
             {
                 _var_ss_code = @[avp];
             }
             else
             {
-                _var_ss_code = [_var_ss_code arrayByAddingObject:avp]
+                _var_ss_code = [_var_ss_code arrayByAddingObject:avp];
             }
         }
         else

@@ -26,10 +26,10 @@
 
 
 /* from base */
-#import "UMDiameterAvpAccountingRecord_Type.h"
+#import "UMDiameterAvpAccounting_Record_Type.h"
 #import "UMDiameterAvpAccounting_Record_Number.h"
 #import "UMDiameterAvpAccounting_Sub_Session_Id.h"
-#import "UMDiameterAvpAccouting_Realtime_Required.h"
+#import "UMDiameterAvpAccounting_Realtime_Required.h"
 #import "UMDiameterAvpAcct_Application_Id.h"
 #import "UMDiameterAvpAcct_Interim_Interval.h"
 #import "UMDiameterAvpAcct_Multi_Session_Id.h"
@@ -318,9 +318,9 @@
 #import "UMDiameterAvpXRES.h"
 #import "UMDiameterAvpeDRX_Cycle_Length.h"
 #import "UMDiameterAvpeDRX_Cycle_Length_Value.h"
-#import "UMDiameterAvpQoS-Class-Identifier.h"
+#import "UMDiameterAvpQoS_Class_Identifier.h"
 /* from rfc7683 */
-#import "UMDiameterAvpOC_Feature_VectorP.h"
+#import "UMDiameterAvpOC_Feature_Vector.h"
 #import "UMDiameterAvpOC_Reduction_Percentage.h"
 #import "UMDiameterAvpOC_Sequence_Number.h"
 #import "UMDiameterAvpOC_Validity_Duration.h"

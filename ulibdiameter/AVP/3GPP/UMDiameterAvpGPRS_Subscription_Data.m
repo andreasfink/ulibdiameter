@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -80,16 +80,15 @@
         }
         else if(avp.avpCode == [UMDiameterAvpPDP_Context avpCode])
         {
-            avp = [[UMDiameterAvpPDP_Context alloc]initWithAvp:avp];
-            _var_pdp_context = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpPDP_Context *avp2 = [[UMDiameterAvpPDP_Context alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_pdp_context == NULL)
             {
                 _var_pdp_context = @[avp];
             }
             else
             {
-                _var_pdp_context = [_var_pdp_context arrayByAddingObject:avp]
+                _var_pdp_context = [_var_pdp_context arrayByAddingObject:avp];
             }
         }
         else

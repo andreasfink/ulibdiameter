@@ -225,7 +225,7 @@
 		break;
 
 		case UMDiameterAvpCode_SessionId:
-		return [[UMDiameterAvpSessionId alloc]initWithData:data];
+		return [[UMDiameterAvpSession_Id alloc]initWithData:data];
 		break;
 
 		case UMDiameterAvpCode_SessionTimeout:

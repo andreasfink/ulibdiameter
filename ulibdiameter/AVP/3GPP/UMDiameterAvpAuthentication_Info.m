@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuthentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,44 +86,41 @@
     {
         if(avp.avpCode == [UMDiameterAvpE_UTRAN_Vector  avpCode])
         {
-            avp = [[UMDiameterAvpE_UTRAN_Vector alloc]initWithAvp:avp];
-            _var_e_utran_vector = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpE_UTRAN_Vector *avp2 = [[UMDiameterAvpE_UTRAN_Vector alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_e_utran_vector == NULL)
             {
                 _var_e_utran_vector = @[avp];
             }
             else
             {
-                _var_e_utran_vector = [_var_e_utran_vector arrayByAddingObject:avp]
+                _var_e_utran_vector = [_var_e_utran_vector arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpUTRAN_Vector avpCode])
         {
-            avp = [[UMDiameterAvpUTRAN_Vector alloc]initWithAvp:avp];
-            _var_utran_vector = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpUTRAN_Vector *avp2 = [[UMDiameterAvpUTRAN_Vector alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_utran_vector == NULL)
             {
                 _var_utran_vector = @[avp];
             }
             else
             {
-                _var_utran_vector = [_var_utran_vector arrayByAddingObject:avp]
+                _var_utran_vector = [_var_utran_vector arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpGERAN_Vector avpCode])
         {
-            avp = [[UMDiameterAvpGERAN_Vector alloc]initWithAvp:avp];
-            _var_geran_vector = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpGERAN_Vector *avp2 = [[UMDiameterAvpGERAN_Vector alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_geran_vector == NULL)
             {
                 _var_geran_vector = @[avp];
             }
             else
             {
-                _var_geran_vector = [_var_geran_vector arrayByAddingObject:avp]
+                _var_geran_vector = [_var_geran_vector arrayByAddingObject:avp];
             }
         }
         else

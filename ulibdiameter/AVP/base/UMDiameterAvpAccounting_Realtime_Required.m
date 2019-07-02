@@ -1,20 +1,20 @@
 //
-//  UMDiameterAvpAccouting_Realtime_Required.m
+//  UMDiameterAvpAccounting_Realtime_Required.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:31:41.274000
+//  Created by afink on 2019-07-02 17:32:28.185000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpAccouting_Realtime_Required.h"
+#import "UMDiameterAvpAccounting_Realtime_Required.h"
 
-@implementation UMDiameterAvpAccouting_Realtime_Required
+@implementation UMDiameterAvpAccounting_Realtime_Required
 
 
 - (NSString *)avpType
 {
-    return @"Accouting-Realtime-Required";
+    return @"Accounting-Realtime-Required";
 }
 
 - (uint32_t)avpCode

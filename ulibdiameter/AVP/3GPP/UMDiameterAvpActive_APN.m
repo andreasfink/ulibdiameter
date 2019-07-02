@@ -2,7 +2,7 @@
 //  UMDiameterAvpActive_APN.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -110,16 +110,15 @@
         }
         else if(avp.avpCode == [UMDiameterAvpSpecific_APN_Info avpCode])
         {
-            avp = [[UMDiameterAvpSpecific_APN_Info alloc]initWithAvp:avp];
-            _var_specific_apn_info = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpSpecific_APN_Info *avp2 = [[UMDiameterAvpSpecific_APN_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_specific_apn_info == NULL)
             {
                 _var_specific_apn_info = @[avp];
             }
             else
             {
-                _var_specific_apn_info = [_var_specific_apn_info arrayByAddingObject:avp]
+                _var_specific_apn_info = [_var_specific_apn_info arrayByAddingObject:avp];
             }
         }
         else

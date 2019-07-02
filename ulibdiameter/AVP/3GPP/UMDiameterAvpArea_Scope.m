@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -102,72 +102,67 @@
     {
         if(avp.avpCode == [UMDiameterAvpCell_Global_Identity  avpCode])
         {
-            avp = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
-            _var_cell_global_identity = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpCell_Global_Identity *avp2 = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_cell_global_identity == NULL)
             {
                 _var_cell_global_identity = @[avp];
             }
             else
             {
-                _var_cell_global_identity = [_var_cell_global_identity arrayByAddingObject:avp]
+                _var_cell_global_identity = [_var_cell_global_identity arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpE_UTRAN_Cell_Global_Identity avpCode])
         {
-            avp = [[UMDiameterAvpE_UTRAN_Cell_Global_Identity alloc]initWithAvp:avp];
-            _var_e_utran_cell_global_identity = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpE_UTRAN_Cell_Global_Identity *avp2 = [[UMDiameterAvpE_UTRAN_Cell_Global_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_e_utran_cell_global_identity == NULL)
             {
                 _var_e_utran_cell_global_identity = @[avp];
             }
             else
             {
-                _var_e_utran_cell_global_identity = [_var_e_utran_cell_global_identity arrayByAddingObject:avp]
+                _var_e_utran_cell_global_identity = [_var_e_utran_cell_global_identity arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpRouting_Area_Identity avpCode])
         {
-            avp = [[UMDiameterAvpRouting_Area_Identity alloc]initWithAvp:avp];
-            _var_routing_area_identity = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpRouting_Area_Identity *avp2 = [[UMDiameterAvpRouting_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_routing_area_identity == NULL)
             {
                 _var_routing_area_identity = @[avp];
             }
             else
             {
-                _var_routing_area_identity = [_var_routing_area_identity arrayByAddingObject:avp]
+                _var_routing_area_identity = [_var_routing_area_identity arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpLocation_Area_Identity avpCode])
         {
-            avp = [[UMDiameterAvpLocation_Area_Identity alloc]initWithAvp:avp];
-            _var_location_area_identity = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpLocation_Area_Identity *avp2 = [[UMDiameterAvpLocation_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_location_area_identity == NULL)
             {
                 _var_location_area_identity = @[avp];
             }
             else
             {
-                _var_location_area_identity = [_var_location_area_identity arrayByAddingObject:avp]
+                _var_location_area_identity = [_var_location_area_identity arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpTracking_Area_Identity avpCode])
         {
-            avp = [[UMDiameterAvpTracking_Area_Identity alloc]initWithAvp:avp];
-            _var_tracking_area_identity = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpTracking_Area_Identity *avp2 = [[UMDiameterAvpTracking_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_tracking_area_identity == NULL)
             {
                 _var_tracking_area_identity = @[avp];
             }
             else
             {
-                _var_tracking_area_identity = [_var_tracking_area_identity arrayByAddingObject:avp]
+                _var_tracking_area_identity = [_var_tracking_area_identity arrayByAddingObject:avp];
             }
         }
         else

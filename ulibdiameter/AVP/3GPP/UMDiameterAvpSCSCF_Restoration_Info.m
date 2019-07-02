@@ -2,7 +2,7 @@
 //  UMDiameterAvpSCSCF_Restoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -85,16 +85,15 @@
         }
         else if(avp.avpCode == [UMDiameterAvpRestoration_Info avpCode])
         {
-            avp = [[UMDiameterAvpRestoration_Info alloc]initWithAvp:avp];
-            _var_restoration_info = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpRestoration_Info *avp2 = [[UMDiameterAvpRestoration_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_restoration_info == NULL)
             {
                 _var_restoration_info = @[avp];
             }
             else
             {
-                _var_restoration_info = [_var_restoration_info arrayByAddingObject:avp]
+                _var_restoration_info = [_var_restoration_info arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpSIP_Authentication_Scheme avpCode])

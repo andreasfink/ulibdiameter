@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Applications.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,44 +86,41 @@
     {
         if(avp.avpCode == [UMDiameterAvpAuth_Application_Id  avpCode])
         {
-            avp = [[UMDiameterAvpAuth_Application_Id alloc]initWithAvp:avp];
-            _var_auth_application_id = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpAuth_Application_Id *avp2 = [[UMDiameterAvpAuth_Application_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_auth_application_id == NULL)
             {
                 _var_auth_application_id = @[avp];
             }
             else
             {
-                _var_auth_application_id = [_var_auth_application_id arrayByAddingObject:avp]
+                _var_auth_application_id = [_var_auth_application_id arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpAcct_Application_Id avpCode])
         {
-            avp = [[UMDiameterAvpAcct_Application_Id alloc]initWithAvp:avp];
-            _var_acct_application_id = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpAcct_Application_Id *avp2 = [[UMDiameterAvpAcct_Application_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_acct_application_id == NULL)
             {
                 _var_acct_application_id = @[avp];
             }
             else
             {
-                _var_acct_application_id = [_var_acct_application_id arrayByAddingObject:avp]
+                _var_acct_application_id = [_var_acct_application_id arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
         {
-            avp = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
-            _var_vendor_specific_application_id = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpVendor_Specific_Application_Id *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_vendor_specific_application_id == NULL)
             {
                 _var_vendor_specific_application_id = @[avp];
             }
             else
             {
-                _var_vendor_specific_application_id = [_var_vendor_specific_application_id arrayByAddingObject:avp]
+                _var_vendor_specific_application_id = [_var_vendor_specific_application_id arrayByAddingObject:avp];
             }
         }
         else

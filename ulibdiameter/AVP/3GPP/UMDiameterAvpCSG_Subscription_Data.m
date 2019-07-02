@@ -2,7 +2,7 @@
 //  UMDiameterAvpCSG_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,16 +93,15 @@
         }
         else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
         {
-            avp = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            _var_service_selection = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpService_Selection *avp2 = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_service_selection == NULL)
             {
                 _var_service_selection = @[avp];
             }
             else
             {
-                _var_service_selection = [_var_service_selection arrayByAddingObject:avp]
+                _var_service_selection = [_var_service_selection arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpVisited_PLMN_Id avpCode])

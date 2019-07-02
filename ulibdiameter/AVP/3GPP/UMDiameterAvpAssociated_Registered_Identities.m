@@ -2,7 +2,7 @@
 //  UMDiameterAvpAssociated_Registered_Identities.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,16 +70,15 @@
     {
         if(avp.avpCode == [UMDiameterAvpUser_Name  avpCode])
         {
-            avp = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
-            _var_user_name = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpUser_Name *avp2 = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_user_name == NULL)
             {
                 _var_user_name = @[avp];
             }
             else
             {
-                _var_user_name = [_var_user_name arrayByAddingObject:avp]
+                _var_user_name = [_var_user_name arrayByAddingObject:avp];
             }
         }
         else

@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,44 +86,41 @@
     {
         if(avp.avpCode == [UMDiameterAvpGMLC_Number  avpCode])
         {
-            avp = [[UMDiameterAvpGMLC_Number alloc]initWithAvp:avp];
-            _var_gmlc_number = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpGMLC_Number *avp2 = [[UMDiameterAvpGMLC_Number alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_gmlc_number == NULL)
             {
                 _var_gmlc_number = @[avp];
             }
             else
             {
-                _var_gmlc_number = [_var_gmlc_number arrayByAddingObject:avp]
+                _var_gmlc_number = [_var_gmlc_number arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpLCS_PrivacyException avpCode])
         {
-            avp = [[UMDiameterAvpLCS_PrivacyException alloc]initWithAvp:avp];
-            _var_lcs_privacyexception = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpLCS_PrivacyException *avp2 = [[UMDiameterAvpLCS_PrivacyException alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_lcs_privacyexception == NULL)
             {
                 _var_lcs_privacyexception = @[avp];
             }
             else
             {
-                _var_lcs_privacyexception = [_var_lcs_privacyexception arrayByAddingObject:avp]
+                _var_lcs_privacyexception = [_var_lcs_privacyexception arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpMO_LR avpCode])
         {
-            avp = [[UMDiameterAvpMO_LR alloc]initWithAvp:avp];
-            _var_mo_lr = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpMO_LR *avp2 = [[UMDiameterAvpMO_LR alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_mo_lr == NULL)
             {
                 _var_mo_lr = @[avp];
             }
             else
             {
-                _var_mo_lr = [_var_mo_lr arrayByAddingObject:avp]
+                _var_mo_lr = [_var_mo_lr arrayByAddingObject:avp];
             }
         }
         else

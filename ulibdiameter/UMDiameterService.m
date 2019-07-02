@@ -99,7 +99,7 @@
     packet.endToEndIdentifier = self.endToEndIdentifier;
 
     /* FIXED PART */
-    UMDiameterAvpSessionId *avp_session = [[UMDiameterAvpSessionId alloc]init];
+    UMDiameterAvpSession_Id *avp_session = [[UMDiameterAvpSession_Id alloc]init];
     avp_session.value = _sessionId;
 
     /* REQUIRED PART */

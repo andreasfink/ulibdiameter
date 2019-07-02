@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 14:54:47.208000
+//  Created by afink on 2019-07-02 17:34:59.588000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -102,16 +102,15 @@
         }
         else if(avp.avpCode == [UMDiameterAvpServed_Party_IP_Address avpCode])
         {
-            avp = [[UMDiameterAvpServed_Party_IP_Address alloc]initWithAvp:avp];
-            _var_served_party_ip_address = avp;
-            [knownAVPs addObject:avp];
+            UMDiameterAvpServed_Party_IP_Address *avp2 = [[UMDiameterAvpServed_Party_IP_Address alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
             if(_var_served_party_ip_address == NULL)
             {
                 _var_served_party_ip_address = @[avp];
             }
             else
             {
-                _var_served_party_ip_address = [_var_served_party_ip_address arrayByAddingObject:avp]
+                _var_served_party_ip_address = [_var_served_party_ip_address arrayByAddingObject:avp];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpPDN_Type avpCode])

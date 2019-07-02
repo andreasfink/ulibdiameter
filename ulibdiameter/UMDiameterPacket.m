@@ -33,7 +33,7 @@
         [self parseJsonString:str error:&e];
         if(e)
         {
-            NSLog@(@"Error Parsing Json String: %@\nJson=%@",e,str);
+            NSLog(@"Error Parsing Json String: %@\nJson=%@",e,str);
             return NULL;
         }
     }
@@ -413,10 +413,7 @@
     UMJsonParser *parser = [[UMJsonParser alloc]init];
     NSError *e = NULL;
     NSDictionary *result = [parser objectWithString:s error:&eptr];
-    if([result isKindOf:[NSDictionary class]])
-    {
-        [self parseDict:result error:eptr)];
-    }
+    [self parseDict:result error:eptr];
 }
 
 @end
