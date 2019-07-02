@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Capability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 21:59:20.338000
+//  Created by afink on 2019-07-03 00:00:34.245000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -73,7 +73,7 @@
             [knownAVPs addObject:avp2];
             if(_var_qos_profile_template == NULL)
             {
-                _var_qos_profile_template = @[avp];
+                _var_qos_profile_template = @[avp2];
             }
             else
             {

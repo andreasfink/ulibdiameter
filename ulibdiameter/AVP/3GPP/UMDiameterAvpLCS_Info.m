@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 22:48:02.389000
+//  Created by afink on 2019-07-03 00:06:47.188000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -90,7 +90,7 @@
             [knownAVPs addObject:avp2];
             if(_var_gmlc_number == NULL)
             {
-                _var_gmlc_number = @[avp];
+                _var_gmlc_number = @[avp2];
             }
             else
             {
@@ -103,7 +103,7 @@
             [knownAVPs addObject:avp2];
             if(_var_lcs_privacyexception == NULL)
             {
-                _var_lcs_privacyexception = @[avp];
+                _var_lcs_privacyexception = @[avp2];
             }
             else
             {
@@ -116,7 +116,7 @@
             [knownAVPs addObject:avp2];
             if(_var_mo_lr == NULL)
             {
-                _var_mo_lr = @[avp];
+                _var_mo_lr = @[avp2];
             }
             else
             {

@@ -262,5 +262,8 @@
 3702	ProSe-Permission	-	Unsigned32	M,V
 3113	AESE-Communication-Pattern	-	Grouped	M,V
 3122	Monitoring-Event-Configuration	-	Grouped	M,V
-
+3111	External-Identifier	-	UTF8String	M,V
+4324	Active-Time	-	Time	V
+654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
+3124	SCEF-Reference-ID	-	Unsigned32	M,V
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Auth_Data_Item.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 22:48:02.389000
+//  Created by afink on 2019-07-03 00:06:47.188000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -164,7 +164,7 @@
             [knownAVPs addObject:avp2];
             if(_var_line_identifier == NULL)
             {
-                _var_line_identifier = @[avp];
+                _var_line_identifier = @[avp2];
             }
             else
             {

@@ -2,7 +2,7 @@
 //  UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 22:48:02.389000
+//  Created by afink on 2019-07-03 00:06:47.188000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.h"
 #import "UMDiameterAvpNumber_Of_Requested_Vectors.h"
 #import "UMDiameterAvpImmediate_Response_Preferred.h"
-#import "UMDiameterAvpRe_synchronization_Info.h"
+#import "UMDiameterAvpRe_Synchronization_Info.h"
 #import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info
@@ -85,9 +85,9 @@
             _var_immediate_response_preferred = [[UMDiameterAvpImmediate_Response_Preferred alloc]initWithAvp:avp];
             [knownAVPs addObject:_var_immediate_response_preferred];
         }
-        else if(avp.avpCode == [UMDiameterAvpRe_synchronization_Info avpCode])
+        else if(avp.avpCode == [UMDiameterAvpRe_Synchronization_Info avpCode])
         {
-            _var_re_synchronization_info = [[UMDiameterAvpRe_synchronization_Info alloc]initWithAvp:avp];
+            _var_re_synchronization_info = [[UMDiameterAvpRe_Synchronization_Info alloc]initWithAvp:avp];
             [knownAVPs addObject:_var_re_synchronization_info];
         }
         else

@@ -1,5 +1,5 @@
 Requested-UTRAN-GERAN-Authentication-Info ::= <AVP header: 1409 10415>
 [ Number-Of-Requested-Vectors ] 
 [ Immediate-Response-Preferred ]
-[ Re-synchronization-Info ]
-*[A VP]
+[ Re-Synchronization-Info ]
+*[AVP]

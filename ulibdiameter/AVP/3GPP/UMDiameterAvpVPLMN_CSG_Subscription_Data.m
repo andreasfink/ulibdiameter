@@ -2,13 +2,13 @@
 //  UMDiameterAvpVPLMN_CSG_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 22:48:02.389000
+//  Created by afink on 2019-07-03 00:06:47.188000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpVPLMN_CSG_Subscription_Data.h"
-#import "UMDiameterAvpCSG_Id.h"
+#import "UMDiameterAvpCSG_ID.h"
 #import "UMDiameterAvpExpiration_Date.h"
 #import "UMDiameterAvpAVP.h"
 
@@ -70,9 +70,9 @@
 
     for(UMDiameterAvp *avp in avps)
     {
-        if(avp.avpCode == [UMDiameterAvpCSG_Id  avpCode])
+        if(avp.avpCode == [UMDiameterAvpCSG_ID  avpCode])
         {
-            _var_csg_id = [[UMDiameterAvpCSG_Id alloc]initWithAvp:avp];
+            _var_csg_id = [[UMDiameterAvpCSG_ID alloc]initWithAvp:avp];
             [knownAVPs addObject:_var_csg_id];
         }
         else if(avp.avpCode == [UMDiameterAvpExpiration_Date avpCode])

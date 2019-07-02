@@ -63,8 +63,15 @@
 488	MIP-Authenticator	6.8	OctetString	M
 489	MIP-MAC-Mobility-Data	6.9	OctetString	M
 343	MIP-Session-Key	6.10	OctetString	M
-367	MIP-MSA-Lifetime	RFC4004  Unsigned32	M
+367	MIP-MSA-Lifetime	RFC4004	Unsigned32	M
 346	MIP-Replay-Mode	6.14	Enumerated	M
 490	MIP-Timestamp	6.16	OctetString	M
 494	MIP6-Auth-Mode	6.20	Enumerated	M
+8	Framed-IP-Address	-	OctetString	M
+97	Framed-IPv6-Prefix	-	OctetString	M
+96	Framed-Interface-Id	-	OctetString	M
+500	Line-Identifier	-	OctetString	M,V	13019
+574	QoS-Profile-Template	-	Grouped	
+573	QoS-Profile-Id	-	Unsigned32	
+
 

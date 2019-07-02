@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 22:48:02.389000
+//  Created by afink on 2019-07-03 00:06:47.188000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -335,7 +335,7 @@
             [knownAVPs addObject:avp2];
             if(_var_regional_subscription_zone_code == NULL)
             {
-                _var_regional_subscription_zone_code = @[avp];
+                _var_regional_subscription_zone_code = @[avp2];
             }
             else
             {
@@ -368,7 +368,7 @@
             [knownAVPs addObject:avp2];
             if(_var_call_barring_info == NULL)
             {
-                _var_call_barring_info = @[avp];
+                _var_call_barring_info = @[avp2];
             }
             else
             {
@@ -411,7 +411,7 @@
             [knownAVPs addObject:avp2];
             if(_var_csg_subscription_data == NULL)
             {
-                _var_csg_subscription_data = @[avp];
+                _var_csg_subscription_data = @[avp2];
             }
             else
             {
@@ -469,7 +469,7 @@
             [knownAVPs addObject:avp2];
             if(_var_adjacent_access_restriction_data == NULL)
             {
-                _var_adjacent_access_restriction_data = @[avp];
+                _var_adjacent_access_restriction_data = @[avp2];
             }
             else
             {
@@ -487,7 +487,7 @@
             [knownAVPs addObject:avp2];
             if(_var_imsi_group_id == NULL)
             {
-                _var_imsi_group_id = @[avp];
+                _var_imsi_group_id = @[avp2];
             }
             else
             {
@@ -505,7 +505,7 @@
             [knownAVPs addObject:avp2];
             if(_var_aese_communication_pattern == NULL)
             {
-                _var_aese_communication_pattern = @[avp];
+                _var_aese_communication_pattern = @[avp2];
             }
             else
             {
@@ -518,7 +518,7 @@
             [knownAVPs addObject:avp2];
             if(_var_monitoring_event_configuration == NULL)
             {
-                _var_monitoring_event_configuration = @[avp];
+                _var_monitoring_event_configuration = @[avp2];
             }
             else
             {
@@ -541,7 +541,7 @@
             [knownAVPs addObject:avp2];
             if(_var_edrx_cycle_length == NULL)
             {
-                _var_edrx_cycle_length = @[avp];
+                _var_edrx_cycle_length = @[avp2];
             }
             else
             {

@@ -415,7 +415,7 @@
             [s appendFormat:@"            [knownAVPs addObject:avp2];\n"];
             [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
             [s appendString:@"            {\n"];
-            [s appendFormat:@"                %@ = @[avp];\n",avp.variableName];
+            [s appendFormat:@"                %@ = @[avp2];\n",avp.variableName];
             [s appendString:@"            }\n"];
             [s appendString:@"            else\n"];
             [s appendString:@"            {\n"];

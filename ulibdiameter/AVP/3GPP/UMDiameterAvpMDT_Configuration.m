@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 22:48:02.389000
+//  Created by afink on 2019-07-03 00:06:47.188000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -262,7 +262,7 @@
             [knownAVPs addObject:avp2];
             if(_var_mdt_allowed_plmn_id == NULL)
             {
-                _var_mdt_allowed_plmn_id = @[avp];
+                _var_mdt_allowed_plmn_id = @[avp2];
             }
             else
             {
@@ -275,7 +275,7 @@
             [knownAVPs addObject:avp2];
             if(_var_mbsfn_area == NULL)
             {
-                _var_mbsfn_area = @[avp];
+                _var_mbsfn_area = @[avp2];
             }
             else
             {
