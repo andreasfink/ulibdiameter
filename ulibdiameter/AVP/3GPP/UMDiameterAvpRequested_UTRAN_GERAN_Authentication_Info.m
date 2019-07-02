@@ -2,12 +2,16 @@
 //  UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.h"
+#import "UMDiameterAvpNumber_Of_Requested_Vectors.h";
+#import "UMDiameterAvpImmediate_Response_Preferred.h";
+#import "UMDiameterAvpRe_synchronization_Info.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info
 

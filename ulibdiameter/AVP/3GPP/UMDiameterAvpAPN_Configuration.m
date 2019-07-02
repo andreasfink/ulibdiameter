@@ -2,12 +2,20 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpAPN_Configuration.h"
+#import "UMDiameterAvpContext_Identifier.h";
+#import "UMDiameterAvpServed_Party_IP_Address.h";
+#import "UMDiameterAvpPDN_Type.h";
+#import "UMDiameterAvpService_Selection.h";
+#import "UMDiameterAvpEPS_Subscribed_QoS_Profile.h";
+#import "UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h";
+#import "UMDiameterAvpMIP6_Agent_Info.h";
+#import "UMDiameterAvpVisited_Network_Identifier.h";
 
 @implementation UMDiameterAvpAPN_Configuration
 

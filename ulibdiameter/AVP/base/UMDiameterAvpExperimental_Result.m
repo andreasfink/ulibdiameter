@@ -2,12 +2,14 @@
 //  UMDiameterAvpExperimental_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:14:01.984000
+//  Created by afink on 2019-07-02 12:46:26.522000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpExperimental_Result.h"
+#import "UMDiameterAvpVendor_Id.h";
+#import "UMDiameterAvpExperimental_Result_Code.h";
 
 @implementation UMDiameterAvpExperimental_Result
 

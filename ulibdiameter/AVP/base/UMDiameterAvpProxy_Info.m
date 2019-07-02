@@ -2,12 +2,15 @@
 //  UMDiameterAvpProxy_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:14:01.984000
+//  Created by afink on 2019-07-02 12:46:26.522000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpProxy_Info.h"
+#import "UMDiameterAvpProxy_Host.h";
+#import "UMDiameterAvpProxy_State.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpProxy_Info
 

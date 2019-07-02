@@ -103,7 +103,8 @@
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                    code:1
-                               userInfo:@{@"reason":@" ::== is no separating two parts in the first line" }];
+                                userInfo:@{@"reason":@" ::== is no separating two parts in the first line" ,
+                                           @"line":s }];
         return NO;
     }
     NSString *commandName = [a[0] trim];

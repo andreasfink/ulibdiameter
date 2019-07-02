@@ -2,12 +2,22 @@
 //  UMDiameterAvpMME_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpMME_Location_Information.h"
+#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h";
+#import "UMDiameterAvpTracking_Area_Identity.h";
+#import "UMDiameterAvpGeographical_Information.h";
+#import "UMDiameterAvpGeodetic_Information.h";
+#import "UMDiameterAvpCurrent_Location_Retrieved.h";
+#import "UMDiameterAvpAge_Of_Location_Information.h";
+#import "UMDiameterAvpUser_CSG_Information.h";
+#import "UMDiameterAvpeNodeB_ID.h";
+#import "UMDiameterAvpExtended_eNodeB_ID.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpMME_Location_Information
 

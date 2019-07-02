@@ -2,12 +2,22 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpSGSN_Location_Information.h"
+#import "UMDiameterAvpCell_Global_Identity.h";
+#import "UMDiameterAvpLocation_Area_Identity.h";
+#import "UMDiameterAvpService_Area_Identity.h";
+#import "UMDiameterAvpRouting_Area_Identity.h";
+#import "UMDiameterAvpGeographical_Information.h";
+#import "UMDiameterAvpGeodetic_Information.h";
+#import "UMDiameterAvpCurrent_Location_Retrieved.h";
+#import "UMDiameterAvpAge_Of_Location_Information.h";
+#import "UMDiameterAvpUser_CSG_Information.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpSGSN_Location_Information
 

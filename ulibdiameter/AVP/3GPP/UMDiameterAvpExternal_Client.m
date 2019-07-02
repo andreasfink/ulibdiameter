@@ -2,12 +2,16 @@
 //  UMDiameterAvpExternal_Client.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpExternal_Client.h"
+#import "UMDiameterAvpClient_Identity.h";
+#import "UMDiameterAvpGMLC_Restriction.h";
+#import "UMDiameterAvpNotification_To_UE_User.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpExternal_Client
 

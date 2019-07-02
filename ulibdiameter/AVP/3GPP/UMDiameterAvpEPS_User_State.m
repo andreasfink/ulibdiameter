@@ -2,12 +2,15 @@
 //  UMDiameterAvpEPS_User_State.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpEPS_User_State.h"
+#import "UMDiameterAvpMME_User_State.h";
+#import "UMDiameterAvpSGSN_User_State.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpEPS_User_State
 

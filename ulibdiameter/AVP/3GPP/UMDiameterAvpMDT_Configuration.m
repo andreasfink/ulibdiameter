@@ -2,12 +2,33 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpMDT_Configuration.h"
+#import "UMDiameterAvpJob_Type.h";
+#import "UMDiameterAvpArea_Scope.h";
+#import "UMDiameterAvpList_Of_Measurements.h";
+#import "UMDiameterAvpReporting_Trigger.h";
+#import "UMDiameterAvpReport_Interval.h";
+#import "UMDiameterAvpReport_Amount.h";
+#import "UMDiameterAvpEvent_Threshold_RSRP.h";
+#import "UMDiameterAvpEvent_Threshold_RSRQ.h";
+#import "UMDiameterAvpLogging_Interval.h";
+#import "UMDiameterAvpLogging_Duration.h";
+#import "UMDiameterAvpMeasurement_Period_LTE.h";
+#import "UMDiameterAvpMeasurement_Period_UMTS.h";
+#import "UMDiameterAvpCollection_Period_RMM_LTE.h";
+#import "UMDiameterAvpCollection_Period_RRM_UMTS.h";
+#import "UMDiameterAvpPositioning_Method.h";
+#import "UMDiameterAvpMeasurement_Quantity.h";
+#import "UMDiameterAvpEvent_Threshold_Event_1F.h";
+#import "UMDiameterAvpEvent_Threshold_Event_1I.h";
+#import "UMDiameterAvpMDT_Allowed_PLMN_Id.h";
+#import "UMDiameterAvpMBSFN_Area.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpMDT_Configuration
 

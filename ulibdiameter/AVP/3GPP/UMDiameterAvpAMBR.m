@@ -2,12 +2,17 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpAMBR.h"
+#import "UMDiameterAvpMax_Requested_Bandwidth_UL.h";
+#import "UMDiameterAvpMax_Requested_Bandwidth_DL.h";
+#import "UMDiameterAvpExtended_Max_Requested_BW_UL.h";
+#import "UMDiameterAvpExtended_Max_Requested_BW_DL.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpAMBR
 

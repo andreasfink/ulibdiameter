@@ -206,6 +206,11 @@
     [s appendString:@"\n"];
     [s appendString:@"#import \"UMDiameterAvp.h\"\n"];
     [s appendFormat:@"#import \"%@.h\"\n",objectName];
+
+    if((_groupDef) && (_isGroup))
+    {
+        [s appendString:[_groupDef includesForMethodsWithPrefix:prefix]];
+    }
     [s appendString:@"\n"];
     [s appendFormat:@"@implementation %@\n",objectName];
     [s appendString:@"\n"];

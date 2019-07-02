@@ -2,12 +2,21 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpTrace_Data.h"
+#import "UMDiameterAvpTrace_Reference.h";
+#import "UMDiameterAvpTrace_Depth.h";
+#import "UMDiameterAvpTrace_NE_Type_List.h";
+#import "UMDiameterAvpTrace_Interface_List.h";
+#import "UMDiameterAvpTrace_Event_List.h";
+#import "UMDiameterAvpOMC_Id.h";
+#import "UMDiameterAvpTrace_Collection_Entity.h";
+#import "UMDiameterAvpMDT_Configuration.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpTrace_Data
 

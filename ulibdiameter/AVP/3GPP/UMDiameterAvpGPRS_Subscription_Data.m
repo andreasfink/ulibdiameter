@@ -2,12 +2,15 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpGPRS_Subscription_Data.h"
+#import "UMDiameterAvpComplete_Data_List_Included_Indicator.h";
+#import "UMDiameterAvpPDP_Context.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpGPRS_Subscription_Data
 

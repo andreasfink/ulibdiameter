@@ -2,12 +2,15 @@
 //  UMDiameterAvpeDRX_Cycle_Length.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 11:13:54.490000
+//  Created by afink on 2019-07-02 12:46:31.997000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpeDRX_Cycle_Length.h"
+#import "UMDiameterAvpRAT_Type.h";
+#import "UMDiameterAvpeDRX_Cycle_Length_Value.h";
+#import "UMDiameterAvpAVP.h";
 
 @implementation UMDiameterAvpeDRX_Cycle_Length
 
