@@ -1,0 +1,12 @@
+SIP-Auth-Data-Item :: = < AVP Header : 612 10415 >
+[ SIP-Item-Number ]
+[ SIP-Authentication-Scheme ] [ SIP-Authenticate ]
+[ SIP-Authorization ]
+[ SIP-Authentication-Context ] [ Confidentiality-Key ]
+[ Integrity-Key ]
+[ SIP-Digest-Authenticate ]
+[ Framed-IP-Address ]
+[ Framed-IPv6-Prefix ]
+[ Framed-Interface-Id ]
+* [ Line-Identifier ]
+* [AVP]

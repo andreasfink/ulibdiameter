@@ -1,0 +1,5 @@
+    Load ::= < AVP Header: TBD1 >
+             [ Load-Type ]
+             [ Load-Value ]
+             [ SourceID ]
+           * [ AVP ]

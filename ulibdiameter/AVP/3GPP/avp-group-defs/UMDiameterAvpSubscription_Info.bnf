@@ -1,0 +1,5 @@
+Subscription-Info ::= < AVP Header: 642, 10415>
+{ Call-ID-SIP-Header } { From-SIP-Header }
+{ To-SIP-Header }
+{ Record-Route } {Contact}
+*[ AVP ]

@@ -1,0 +1,4 @@
+Deregistration-Reason :: = < AVP Header : 615 10415 >
+{ Reason-Code }
+[ Reason-Info ]
+* [AVP]

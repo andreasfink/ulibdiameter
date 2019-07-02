@@ -1,0 +1,6 @@
+Restoration-Info ::= < AVP Header: 649, 10415>
+{ Path }
+{ Contact }
+[ Initial-CSeq-Sequence-Number ] [ Call-ID-SIP-Header ]
+[ Subscription-Info ]
+*[ AVP ]

@@ -1,0 +1,7 @@
+621	OC-Supported-Features	7.1	Grouped	
+622	OC-Feature-Vector AVP	7.2	Unsigned64	
+623	OC-OLR	7.3	Grouped	
+624	OC-Sequence-Number	7.4	Unsigned64	
+625	OC-Validity-Duration	7.5	Unsigned32	
+626	OC-Report-Type	7.6	Enumerated	
+627	OC-Reduction-Percentage	U7.7	Unsigned32	
