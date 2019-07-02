@@ -2,15 +2,15 @@
 //  UMDiameterAvpVendor_Specific_Application_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:26.522000
+//  Created by afink on 2019-07-02 13:33:12.639000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpVendor_Id.h";
-#import "UMDiameterAvpAuth_Application_Id.h";
-#import "UMDiameterAvpAcct_Application_Id.h";
+#import "UMDiameterAvpVendor_Id.h"
+#import "UMDiameterAvpAuth_Application_Id.h"
+#import "UMDiameterAvpAcct_Application_Id.h"
 
 @implementation UMDiameterAvpVendor_Specific_Application_Id
 

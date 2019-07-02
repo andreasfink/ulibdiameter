@@ -2,17 +2,17 @@
 //  UMDiameterAvpGERAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpGERAN_Vector.h"
-#import "UMDiameterAvpItem_Number.h";
-#import "UMDiameterAvpRAND.h";
-#import "UMDiameterAvpSRES.h";
-#import "UMDiameterAvpKc.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpItem_Number.h"
+#import "UMDiameterAvpRAND.h"
+#import "UMDiameterAvpSRES.h"
+#import "UMDiameterAvpKc.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpGERAN_Vector
 

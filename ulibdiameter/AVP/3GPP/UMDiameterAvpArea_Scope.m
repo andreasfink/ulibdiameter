@@ -2,18 +2,18 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpArea_Scope.h"
-#import "UMDiameterAvpCell_Global_Identity.h";
-#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h";
-#import "UMDiameterAvpRouting_Area_Identity.h";
-#import "UMDiameterAvpLocation_Area_Identity.h";
-#import "UMDiameterAvpTracking_Area_Identity.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpCell_Global_Identity.h"
+#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h"
+#import "UMDiameterAvpRouting_Area_Identity.h"
+#import "UMDiameterAvpLocation_Area_Identity.h"
+#import "UMDiameterAvpTracking_Area_Identity.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpArea_Scope
 

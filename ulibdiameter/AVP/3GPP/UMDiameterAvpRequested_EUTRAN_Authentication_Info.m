@@ -2,16 +2,16 @@
 //  UMDiameterAvpRequested_EUTRAN_Authentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpRequested_EUTRAN_Authentication_Info.h"
-#import "UMDiameterAvpNumber_Of_Requested_Vectors.h";
-#import "UMDiameterAvpImmediate_Response_Preferred.h";
-#import "UMDiameterAvpRe_synchronization_Info.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpNumber_Of_Requested_Vectors.h"
+#import "UMDiameterAvpImmediate_Response_Preferred.h"
+#import "UMDiameterAvpRe_synchronization_Info.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpRequested_EUTRAN_Authentication_Info
 

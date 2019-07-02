@@ -2,16 +2,16 @@
 //  UMDiameterAvpTerminal_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpTerminal_Information.h"
-#import "UMDiameterAvpIMEI.h";
-#import "UMDiameterAvp3GPP2_MEID.h";
-#import "UMDiameterAvpSoftware_Version.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpIMEI.h"
+#import "UMDiameterAvp3GPP2_MEID.h"
+#import "UMDiameterAvpSoftware_Version.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpTerminal_Information
 

@@ -2,19 +2,19 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpSubscription_Data_Deletion.h"
-#import "UMDiameterAvpDSR_Flags.h";
-#import "UMDiameterAvpSCEF_ID.h";
-#import "UMDiameterAvpContext_Identifier.h";
-#import "UMDiameterAvpTrace_Reference.h";
-#import "UMDiameterAvpTS_Code.h";
-#import "UMDiameterAvpSS_Code.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpDSR_Flags.h"
+#import "UMDiameterAvpSCEF_ID.h"
+#import "UMDiameterAvpContext_Identifier.h"
+#import "UMDiameterAvpTrace_Reference.h"
+#import "UMDiameterAvpTS_Code.h"
+#import "UMDiameterAvpSS_Code.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpSubscription_Data_Deletion
 

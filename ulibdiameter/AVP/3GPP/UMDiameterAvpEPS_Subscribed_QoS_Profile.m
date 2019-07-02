@@ -2,15 +2,15 @@
 //  UMDiameterAvpEPS_Subscribed_QoS_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpEPS_Subscribed_QoS_Profile.h"
-#import "UMDiameterAvpQoS_Class_Identifier.h";
-#import "UMDiameterAvpAllocation_Retention_Priority.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpQoS_Class_Identifier.h"
+#import "UMDiameterAvpAllocation_Retention_Priority.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpEPS_Subscribed_QoS_Profile
 

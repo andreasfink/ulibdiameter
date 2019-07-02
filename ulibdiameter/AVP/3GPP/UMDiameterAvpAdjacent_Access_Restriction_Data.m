@@ -2,15 +2,15 @@
 //  UMDiameterAvpAdjacent_Access_Restriction_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpAdjacent_Access_Restriction_Data.h"
-#import "UMDiameterAvpVisited_PLMN_Id.h";
-#import "UMDiameterAvpAccess_Restriction_Data.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpVisited_PLMN_Id.h"
+#import "UMDiameterAvpAccess_Restriction_Data.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpAdjacent_Access_Restriction_Data
 

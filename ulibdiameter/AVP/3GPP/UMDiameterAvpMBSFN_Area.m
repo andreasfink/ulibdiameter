@@ -2,15 +2,15 @@
 //  UMDiameterAvpMBSFN_Area.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpMBSFN_Area.h"
-#import "UMDiameterAvpMBSFN_Area_ID.h";
-#import "UMDiameterAvpCarrier_Frequency.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpMBSFN_Area_ID.h"
+#import "UMDiameterAvpCarrier_Frequency.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpMBSFN_Area
 

@@ -2,19 +2,19 @@
 //  UMDiameterAvpUTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpUTRAN_Vector.h"
-#import "UMDiameterAvpItem_Number.h";
-#import "UMDiameterAvpRAND.h";
-#import "UMDiameterAvpXRES.h";
-#import "UMDiameterAvpAUTN.h";
-#import "UMDiameterAvpConfidentiality_Key.h";
-#import "UMDiameterAvpIntegrity_Key.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpItem_Number.h"
+#import "UMDiameterAvpRAND.h"
+#import "UMDiameterAvpXRES.h"
+#import "UMDiameterAvpAUTN.h"
+#import "UMDiameterAvpConfidentiality_Key.h"
+#import "UMDiameterAvpIntegrity_Key.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpUTRAN_Vector
 

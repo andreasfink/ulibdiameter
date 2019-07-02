@@ -2,16 +2,16 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpLCS_Info.h"
-#import "UMDiameterAvpGMLC_Number.h";
-#import "UMDiameterAvpLCS_PrivacyException.h";
-#import "UMDiameterAvpMO_LR.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpGMLC_Number.h"
+#import "UMDiameterAvpLCS_PrivacyException.h"
+#import "UMDiameterAvpMO_LR.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpLCS_Info
 

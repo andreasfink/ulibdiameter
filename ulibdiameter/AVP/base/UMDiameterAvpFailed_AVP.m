@@ -2,13 +2,13 @@
 //  UMDiameterAvpFailed_AVP.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:26.522000
+//  Created by afink on 2019-07-02 13:33:12.639000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpFailed_AVP.h"
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpFailed_AVP
 

@@ -233,7 +233,7 @@
     NSMutableString *s = [[NSMutableString alloc]init];
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
-        [s appendFormat:@"#import \"%@%@.h\";\n",avpPrefix,avp.objectName];
+        [s appendFormat:@"#import \"%@%@.h\"\n",avpPrefix,avp.objectName];
     }
     return s;
 }

@@ -2,17 +2,17 @@
 //  UMDiameterAvpAPN_Configuration_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpAPN_Configuration_Profile.h"
-#import "UMDiameterAvpContext_Identifier.h";
-#import "UMDiameterAvpAdditional_Context_Identifier.h";
-#import "UMDiameterAvpAll_APN_Configurations_Included_Indicator.h";
-#import "UMDiameterAvpAPN_Configuration.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpContext_Identifier.h"
+#import "UMDiameterAvpAdditional_Context_Identifier.h"
+#import "UMDiameterAvpAll_APN_Configurations_Included_Indicator.h"
+#import "UMDiameterAvpAPN_Configuration.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpAPN_Configuration_Profile
 

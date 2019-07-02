@@ -2,16 +2,16 @@
 //  UMDiameterAvpSupported_Features.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 12:46:31.997000
+//  Created by afink on 2019-07-02 13:33:20.551000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpVendor_Id.h";
-#import "UMDiameterAvpFeature_List_ID.h";
-#import "UMDiameterAvpFeature_List.h";
-#import "UMDiameterAvpAVP.h";
+#import "UMDiameterAvpVendor_Id.h"
+#import "UMDiameterAvpFeature_List_ID.h"
+#import "UMDiameterAvpFeature_List.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpSupported_Features
 
