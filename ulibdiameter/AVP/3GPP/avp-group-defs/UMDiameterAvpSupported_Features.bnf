@@ -1,0 +1,5 @@
+Supported-Features ::= < AVP header: 628 10415 >
+{ Vendor-Id }
+{ Feature-List-ID }
+{ Feature-List }
+*[AVP]
