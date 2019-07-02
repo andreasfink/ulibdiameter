@@ -2,7 +2,7 @@
 //  UMDiameterAvpVPLMN_CSG_Subscription_Data.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpVPLMN_CSG_Subscription_Data : UMDiameterAvpGrouped
 {
-	UMDiameterAvpCSG_Id	*_csg_id;
-	UMDiameterAvpExpiration_Date	*_expiration_date;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpCSG_Id	*_var_csg_id;
+	UMDiameterAvpExpiration_Date	*_var_expiration_date;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpCSG_Id	*csg_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpExpiration_Date	*expiration_date;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpCSG_Id	*var_csg_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpExpiration_Date	*var_expiration_date;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

@@ -2,7 +2,7 @@
 //  UMDiameterAvpTeleservice_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,18 +39,18 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_ts_code.count > 0)
+    if(_var_ts_code.count > 0)
     {
-        for(UMDiameterAvpTS_Code *o in _ts_code)
+        for(UMDiameterAvpTS_Code *o in _var_ts_code)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_avp)
+    if(_var_avp)
     {
-        [arr addObject:_avp]
+        [arr addObject:_var_avp];
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -61,20 +61,20 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpTS_Code  avpCode])
         {
             avp = [[UMDiameterAvpTS_Code alloc]initWithAvp:avp];
-            _ts_code = avp;
+            _var_ts_code = avp;
             [knownAVPs addObject:avp];
-            if(_ts_code == NULL)
+            if(_var_ts_code == NULL)
             {
-                _ts_code = @[avp];
+                _var_ts_code = @[avp];
             }
             else
             {
-                _ts_code = [_ts_code arrayByAddingObject:avp]
+                _var_ts_code = [_var_ts_code arrayByAddingObject:avp]
             }
         }
         else
@@ -86,8 +86,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

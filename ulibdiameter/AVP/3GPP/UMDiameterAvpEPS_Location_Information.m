@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,18 +39,18 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_user_state)
+    if(_var_user_state)
     {
-        [arr addObject:_user_state]
+        [arr addObject:_var_user_state];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -61,12 +61,12 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpUser_State  avpCode])
         {
             avp = [[UMDiameterAvpUser_State alloc]initWithAvp:avp];
-            _user_state = avp;
+            _var_user_state = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -78,8 +78,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

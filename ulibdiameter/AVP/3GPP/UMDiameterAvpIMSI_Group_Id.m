@@ -2,7 +2,7 @@
 //  UMDiameterAvpIMSI_Group_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,26 +39,26 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_group_service_id)
+    if(_var_group_service_id)
     {
-        [arr addObject:_group_service_id]
+        [arr addObject:_var_group_service_id];
     }
-    if(_group_plmn_id)
+    if(_var_group_plmn_id)
     {
-        [arr addObject:_group_plmn_id]
+        [arr addObject:_var_group_plmn_id];
     }
-    if(_local_group_id)
+    if(_var_local_group_id)
     {
-        [arr addObject:_local_group_id]
+        [arr addObject:_var_local_group_id];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -69,24 +69,24 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpGroup_Service_Id  avpCode])
         {
             avp = [[UMDiameterAvpGroup_Service_Id alloc]initWithAvp:avp];
-            _group_service_id = avp;
+            _var_group_service_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpGroup_PLMN_Id avpCode])
         {
             avp = [[UMDiameterAvpGroup_PLMN_Id alloc]initWithAvp:avp];
-            _group_plmn_id = avp;
+            _var_group_plmn_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpLocal_Group_Id avpCode])
         {
             avp = [[UMDiameterAvpLocal_Group_Id alloc]initWithAvp:avp];
-            _local_group_id = avp;
+            _var_local_group_id = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -98,8 +98,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

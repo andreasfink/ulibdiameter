@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration_Profile.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -17,18 +17,18 @@
 
 @interface UMDiameterAvpAPN_Configuration_Profile : UMDiameterAvpGrouped
 {
-	UMDiameterAvpContext_Identifier	*_context_identifier;
-	UMDiameterAvpAdditional_Context_Identifier	*_additional_context_identifier;
-	UMDiameterAvpAll_APN_Configurations_Included_Indicator	*_all_apn_configurations_included_indicator;
-	NSArray<UMDiameterAvpAPN_Configuration *>	*_apn_configuration;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpContext_Identifier	*_var_context_identifier;
+	UMDiameterAvpAdditional_Context_Identifier	*_var_additional_context_identifier;
+	UMDiameterAvpAll_APN_Configurations_Included_Indicator	*_var_all_apn_configurations_included_indicator;
+	NSArray<UMDiameterAvpAPN_Configuration *>	*_var_apn_configuration;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpContext_Identifier	*context_identifier;
-@property(readwrite,strong,atomic)	UMDiameterAvpAdditional_Context_Identifier	*additional_context_identifier;
-@property(readwrite,strong,atomic)	UMDiameterAvpAll_APN_Configurations_Included_Indicator	*all_apn_configurations_included_indicator;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAPN_Configuration *>	*apn_configuration;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpContext_Identifier	*var_context_identifier;
+@property(readwrite,strong,atomic)	UMDiameterAvpAdditional_Context_Identifier	*var_additional_context_identifier;
+@property(readwrite,strong,atomic)	UMDiameterAvpAll_APN_Configurations_Included_Indicator	*var_all_apn_configurations_included_indicator;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAPN_Configuration *>	*var_apn_configuration;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

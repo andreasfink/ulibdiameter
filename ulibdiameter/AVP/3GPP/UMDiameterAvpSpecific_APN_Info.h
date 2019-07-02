@@ -2,7 +2,7 @@
 //  UMDiameterAvpSpecific_APN_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,16 +16,16 @@
 
 @interface UMDiameterAvpSpecific_APN_Info : UMDiameterAvpGrouped
 {
-	UMDiameterAvpService_Selection	*_service_selection;
-	UMDiameterAvpMIP6_Agent_Info	*_mip6_agent_info;
-	UMDiameterAvpVisited_Network_Identifier	*_visited_network_identifier;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpService_Selection	*_var_service_selection;
+	UMDiameterAvpMIP6_Agent_Info	*_var_mip6_agent_info;
+	UMDiameterAvpVisited_Network_Identifier	*_var_visited_network_identifier;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*service_selection;
-@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*mip6_agent_info;
-@property(readwrite,strong,atomic)	UMDiameterAvpVisited_Network_Identifier	*visited_network_identifier;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*var_service_selection;
+@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*var_mip6_agent_info;
+@property(readwrite,strong,atomic)	UMDiameterAvpVisited_Network_Identifier	*var_visited_network_identifier;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

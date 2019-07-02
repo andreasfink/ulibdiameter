@@ -2,7 +2,7 @@
 //  UMDiameterAvpSpecific_APN_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,26 +39,26 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_service_selection)
+    if(_var_service_selection)
     {
-        [arr addObject:_service_selection]
+        [arr addObject:_var_service_selection];
     }
-    if(_mip6_agent_info)
+    if(_var_mip6_agent_info)
     {
-        [arr addObject:_mip6_agent_info]
+        [arr addObject:_var_mip6_agent_info];
     }
-    if(_visited_network_identifier)
+    if(_var_visited_network_identifier)
     {
-        [arr addObject:_visited_network_identifier]
+        [arr addObject:_var_visited_network_identifier];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -69,24 +69,24 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpService_Selection  avpCode])
         {
             avp = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            _service_selection = avp;
+            _var_service_selection = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpMIP6_Agent_Info avpCode])
         {
             avp = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
-            _mip6_agent_info = avp;
+            _var_mip6_agent_info = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpVisited_Network_Identifier avpCode])
         {
             avp = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
-            _visited_network_identifier = avp;
+            _var_visited_network_identifier = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -98,8 +98,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

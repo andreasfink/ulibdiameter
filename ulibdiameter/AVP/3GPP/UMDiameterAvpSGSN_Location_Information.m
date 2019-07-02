@@ -2,7 +2,7 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,50 +39,50 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_cell_global_identity)
+    if(_var_cell_global_identity)
     {
-        [arr addObject:_cell_global_identity]
+        [arr addObject:_var_cell_global_identity];
     }
-    if(_location_area_identity)
+    if(_var_location_area_identity)
     {
-        [arr addObject:_location_area_identity]
+        [arr addObject:_var_location_area_identity];
     }
-    if(_service_area_identity)
+    if(_var_service_area_identity)
     {
-        [arr addObject:_service_area_identity]
+        [arr addObject:_var_service_area_identity];
     }
-    if(_routing_area_identity)
+    if(_var_routing_area_identity)
     {
-        [arr addObject:_routing_area_identity]
+        [arr addObject:_var_routing_area_identity];
     }
-    if(_geographical_information)
+    if(_var_geographical_information)
     {
-        [arr addObject:_geographical_information]
+        [arr addObject:_var_geographical_information];
     }
-    if(_geodetic_information)
+    if(_var_geodetic_information)
     {
-        [arr addObject:_geodetic_information]
+        [arr addObject:_var_geodetic_information];
     }
-    if(_current_location_retrieved)
+    if(_var_current_location_retrieved)
     {
-        [arr addObject:_current_location_retrieved]
+        [arr addObject:_var_current_location_retrieved];
     }
-    if(_age_of_location_information)
+    if(_var_age_of_location_information)
     {
-        [arr addObject:_age_of_location_information]
+        [arr addObject:_var_age_of_location_information];
     }
-    if(_user_csg_information)
+    if(_var_user_csg_information)
     {
-        [arr addObject:_user_csg_information]
+        [arr addObject:_var_user_csg_information];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -93,60 +93,60 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpCell_Global_Identity  avpCode])
         {
             avp = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
-            _cell_global_identity = avp;
+            _var_cell_global_identity = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpLocation_Area_Identity avpCode])
         {
             avp = [[UMDiameterAvpLocation_Area_Identity alloc]initWithAvp:avp];
-            _location_area_identity = avp;
+            _var_location_area_identity = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpService_Area_Identity avpCode])
         {
             avp = [[UMDiameterAvpService_Area_Identity alloc]initWithAvp:avp];
-            _service_area_identity = avp;
+            _var_service_area_identity = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpRouting_Area_Identity avpCode])
         {
             avp = [[UMDiameterAvpRouting_Area_Identity alloc]initWithAvp:avp];
-            _routing_area_identity = avp;
+            _var_routing_area_identity = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpGeographical_Information avpCode])
         {
             avp = [[UMDiameterAvpGeographical_Information alloc]initWithAvp:avp];
-            _geographical_information = avp;
+            _var_geographical_information = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpGeodetic_Information avpCode])
         {
             avp = [[UMDiameterAvpGeodetic_Information alloc]initWithAvp:avp];
-            _geodetic_information = avp;
+            _var_geodetic_information = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpCurrent_Location_Retrieved avpCode])
         {
             avp = [[UMDiameterAvpCurrent_Location_Retrieved alloc]initWithAvp:avp];
-            _current_location_retrieved = avp;
+            _var_current_location_retrieved = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAge_Of_Location_Information avpCode])
         {
             avp = [[UMDiameterAvpAge_Of_Location_Information alloc]initWithAvp:avp];
-            _age_of_location_information = avp;
+            _var_age_of_location_information = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpUser_CSG_Information avpCode])
         {
             avp = [[UMDiameterAvpUser_CSG_Information alloc]initWithAvp:avp];
-            _user_csg_information = avp;
+            _var_user_csg_information = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -158,8 +158,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

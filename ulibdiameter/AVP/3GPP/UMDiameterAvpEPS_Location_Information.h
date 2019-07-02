@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_Location_Information.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @interface UMDiameterAvpEPS_Location_Information : UMDiameterAvpGrouped
 {
-	UMDiameterAvpUser_State	*_user_state;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpUser_State	*_var_user_state;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpUser_State	*user_state;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpUser_State	*var_user_state;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

@@ -2,15 +2,15 @@
 //  UMDiameterAvpVendor_Id.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpUnsigned32 .h"
+#import "UMDiameterAvpUnsigned32.h"
 
 
 
-@interface UMDiameterAvpVendor_Id : UMDiameterAvpUnsigned32 
+@interface UMDiameterAvpVendor_Id : UMDiameterAvpUnsigned32
 {
 }
 

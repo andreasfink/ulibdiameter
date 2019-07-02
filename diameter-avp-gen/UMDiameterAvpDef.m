@@ -104,6 +104,7 @@
     {
         _objectName = [NSString stringWithFormat:@"%@%@",prefix,
                        [_standardsName stringByReplacingOccurrencesOfString:@"-" withString:@"_"]];
+        _objectName =[_objectName trim];
     }
     return _objectName;
 }
@@ -115,6 +116,7 @@
         _objectType = [NSString stringWithFormat:@"%@%@",
                        prefix,
                        [_typeDefinition stringByReplacingOccurrencesOfString:@"-" withString:@"_"]];
+        _objectType = [_objectType trim];
     }
     return _objectType;
 }

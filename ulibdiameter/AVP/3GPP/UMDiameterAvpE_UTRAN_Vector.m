@@ -2,7 +2,7 @@
 //  UMDiameterAvpE_UTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,34 +39,34 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_item_number)
+    if(_var_item_number)
     {
-        [arr addObject:_item_number]
+        [arr addObject:_var_item_number];
     }
-    if(_rand)
+    if(_var_rand)
     {
-        [arr addObject:_rand]
+        [arr addObject:_var_rand];
     }
-    if(_xres)
+    if(_var_xres)
     {
-        [arr addObject:_xres]
+        [arr addObject:_var_xres];
     }
-    if(_autn)
+    if(_var_autn)
     {
-        [arr addObject:_autn]
+        [arr addObject:_var_autn];
     }
-    if(_kasme)
+    if(_var_kasme)
     {
-        [arr addObject:_kasme]
+        [arr addObject:_var_kasme];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -77,36 +77,36 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpItem_Number  avpCode])
         {
             avp = [[UMDiameterAvpItem_Number alloc]initWithAvp:avp];
-            _item_number = avp;
+            _var_item_number = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpRAND avpCode])
         {
             avp = [[UMDiameterAvpRAND alloc]initWithAvp:avp];
-            _rand = avp;
+            _var_rand = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpXRES avpCode])
         {
             avp = [[UMDiameterAvpXRES alloc]initWithAvp:avp];
-            _xres = avp;
+            _var_xres = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAUTN avpCode])
         {
             avp = [[UMDiameterAvpAUTN alloc]initWithAvp:avp];
-            _autn = avp;
+            _var_autn = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpKASME avpCode])
         {
             avp = [[UMDiameterAvpKASME alloc]initWithAvp:avp];
-            _kasme = avp;
+            _var_kasme = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -118,8 +118,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

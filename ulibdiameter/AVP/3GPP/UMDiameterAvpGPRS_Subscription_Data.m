@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,25 +39,25 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_complete_data_list_included_indicator)
+    if(_var_complete_data_list_included_indicator)
     {
-        [arr addObject:_complete_data_list_included_indicator]
+        [arr addObject:_var_complete_data_list_included_indicator];
     }
-    if(_pdp_context.count > 0)
+    if(_var_pdp_context.count > 0)
     {
-        for(UMDiameterAvpPDP_Context *o in _pdp_context)
+        for(UMDiameterAvpPDP_Context *o in _var_pdp_context)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -68,26 +68,26 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpComplete_Data_List_Included_Indicator  avpCode])
         {
             avp = [[UMDiameterAvpComplete_Data_List_Included_Indicator alloc]initWithAvp:avp];
-            _complete_data_list_included_indicator = avp;
+            _var_complete_data_list_included_indicator = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpPDP_Context avpCode])
         {
             avp = [[UMDiameterAvpPDP_Context alloc]initWithAvp:avp];
-            _pdp_context = avp;
+            _var_pdp_context = avp;
             [knownAVPs addObject:avp];
-            if(_pdp_context == NULL)
+            if(_var_pdp_context == NULL)
             {
-                _pdp_context = @[avp];
+                _var_pdp_context = @[avp];
             }
             else
             {
-                _pdp_context = [_pdp_context arrayByAddingObject:avp]
+                _var_pdp_context = [_var_pdp_context arrayByAddingObject:avp]
             }
         }
         else
@@ -99,8 +99,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

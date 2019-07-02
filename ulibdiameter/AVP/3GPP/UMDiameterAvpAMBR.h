@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -17,18 +17,18 @@
 
 @interface UMDiameterAvpAMBR : UMDiameterAvpGrouped
 {
-	UMDiameterAvpMax_Requested_Bandwidth_UL	*_max_requested_bandwidth_ul;
-	UMDiameterAvpMax_Requested_Bandwidth_DL	*_max_requested_bandwidth_dl;
-	UMDiameterAvpExtended_Max_Requested_BW_UL	*_extended_max_requested_bw_ul;
-	UMDiameterAvpExtended_Max_Requested_BW_DL	*_extended_max_requested_bw_dl;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpMax_Requested_Bandwidth_UL	*_var_max_requested_bandwidth_ul;
+	UMDiameterAvpMax_Requested_Bandwidth_DL	*_var_max_requested_bandwidth_dl;
+	UMDiameterAvpExtended_Max_Requested_BW_UL	*_var_extended_max_requested_bw_ul;
+	UMDiameterAvpExtended_Max_Requested_BW_DL	*_var_extended_max_requested_bw_dl;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpMax_Requested_Bandwidth_UL	*max_requested_bandwidth_ul;
-@property(readwrite,strong,atomic)	UMDiameterAvpMax_Requested_Bandwidth_DL	*max_requested_bandwidth_dl;
-@property(readwrite,strong,atomic)	UMDiameterAvpExtended_Max_Requested_BW_UL	*extended_max_requested_bw_ul;
-@property(readwrite,strong,atomic)	UMDiameterAvpExtended_Max_Requested_BW_DL	*extended_max_requested_bw_dl;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpMax_Requested_Bandwidth_UL	*var_max_requested_bandwidth_ul;
+@property(readwrite,strong,atomic)	UMDiameterAvpMax_Requested_Bandwidth_DL	*var_max_requested_bandwidth_dl;
+@property(readwrite,strong,atomic)	UMDiameterAvpExtended_Max_Requested_BW_UL	*var_extended_max_requested_bw_ul;
+@property(readwrite,strong,atomic)	UMDiameterAvpExtended_Max_Requested_BW_DL	*var_extended_max_requested_bw_dl;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

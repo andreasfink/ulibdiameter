@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_Vector.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -19,22 +19,22 @@
 
 @interface UMDiameterAvpUTRAN_Vector : UMDiameterAvpGrouped
 {
-	UMDiameterAvpItem_Number	*_item_number;
-	UMDiameterAvpRAND	*_rand;
-	UMDiameterAvpXRES	*_xres;
-	UMDiameterAvpAUTN	*_autn;
-	UMDiameterAvpConfidentiality_Key	*_confidentiality_key;
-	UMDiameterAvpIntegrity_Key	*_integrity_key;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpItem_Number	*_var_item_number;
+	UMDiameterAvpRAND	*_var_rand;
+	UMDiameterAvpXRES	*_var_xres;
+	UMDiameterAvpAUTN	*_var_autn;
+	UMDiameterAvpConfidentiality_Key	*_var_confidentiality_key;
+	UMDiameterAvpIntegrity_Key	*_var_integrity_key;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpItem_Number	*item_number;
-@property(readwrite,strong,atomic)	UMDiameterAvpRAND	*rand;
-@property(readwrite,strong,atomic)	UMDiameterAvpXRES	*xres;
-@property(readwrite,strong,atomic)	UMDiameterAvpAUTN	*autn;
-@property(readwrite,strong,atomic)	UMDiameterAvpConfidentiality_Key	*confidentiality_key;
-@property(readwrite,strong,atomic)	UMDiameterAvpIntegrity_Key	*integrity_key;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpItem_Number	*var_item_number;
+@property(readwrite,strong,atomic)	UMDiameterAvpRAND	*var_rand;
+@property(readwrite,strong,atomic)	UMDiameterAvpXRES	*var_xres;
+@property(readwrite,strong,atomic)	UMDiameterAvpAUTN	*var_autn;
+@property(readwrite,strong,atomic)	UMDiameterAvpConfidentiality_Key	*var_confidentiality_key;
+@property(readwrite,strong,atomic)	UMDiameterAvpIntegrity_Key	*var_integrity_key;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

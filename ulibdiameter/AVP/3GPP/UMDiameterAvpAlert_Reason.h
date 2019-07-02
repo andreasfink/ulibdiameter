@@ -2,15 +2,15 @@
 //  UMDiameterAvpAlert_Reason.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpEnumerate.h"
+#import "UMDiameterAvpEnumerated.h"
 
 
 
-@interface UMDiameterAvpAlert_Reason : UMDiameterAvpEnumerate
+@interface UMDiameterAvpAlert_Reason : UMDiameterAvpEnumerated
 {
 }
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpFailed_AVP.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @interface UMDiameterAvpFailed_AVP : UMDiameterAvpGrouped
 {
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

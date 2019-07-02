@@ -1,0 +1,18 @@
+< Insert-Subscriber-Data-Request> ::=  < Diameter Header: 319, REQ, PXY, 16777251 > ; S7a 16777308 as well
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+{ Destination-Host } 
+{ Destination-Realm } 
+{ User-Name } 
+*[ Supported-Features]
+*{ VPLMN-CSG-Subscription-Data } 
+{ Subscription-Data} 
+[ IDR- Flags ] 
+*[ Reset-ID ] 
+*[ AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

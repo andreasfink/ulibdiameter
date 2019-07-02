@@ -2,7 +2,7 @@
 //  UMDiameterAvpE_UTRAN_Vector.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -18,20 +18,20 @@
 
 @interface UMDiameterAvpE_UTRAN_Vector : UMDiameterAvpGrouped
 {
-	UMDiameterAvpItem_Number	*_item_number;
-	UMDiameterAvpRAND	*_rand;
-	UMDiameterAvpXRES	*_xres;
-	UMDiameterAvpAUTN	*_autn;
-	UMDiameterAvpKASME	*_kasme;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpItem_Number	*_var_item_number;
+	UMDiameterAvpRAND	*_var_rand;
+	UMDiameterAvpXRES	*_var_xres;
+	UMDiameterAvpAUTN	*_var_autn;
+	UMDiameterAvpKASME	*_var_kasme;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpItem_Number	*item_number;
-@property(readwrite,strong,atomic)	UMDiameterAvpRAND	*rand;
-@property(readwrite,strong,atomic)	UMDiameterAvpXRES	*xres;
-@property(readwrite,strong,atomic)	UMDiameterAvpAUTN	*autn;
-@property(readwrite,strong,atomic)	UMDiameterAvpKASME	*kasme;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpItem_Number	*var_item_number;
+@property(readwrite,strong,atomic)	UMDiameterAvpRAND	*var_rand;
+@property(readwrite,strong,atomic)	UMDiameterAvpXRES	*var_xres;
+@property(readwrite,strong,atomic)	UMDiameterAvpAUTN	*var_autn;
+@property(readwrite,strong,atomic)	UMDiameterAvpKASME	*var_kasme;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

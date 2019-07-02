@@ -2,7 +2,7 @@
 //  UMDiameterAvpV2X_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,22 +39,22 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_v2x_permission)
+    if(_var_v2x_permission)
     {
-        [arr addObject:_v2x_permission]
+        [arr addObject:_var_v2x_permission];
     }
-    if(_ue_pc5_ambr)
+    if(_var_ue_pc5_ambr)
     {
-        [arr addObject:_ue_pc5_ambr]
+        [arr addObject:_var_ue_pc5_ambr];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -65,18 +65,18 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpV2X_Permission  avpCode])
         {
             avp = [[UMDiameterAvpV2X_Permission alloc]initWithAvp:avp];
-            _v2x_permission = avp;
+            _var_v2x_permission = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpUE_PC5_AMBR avpCode])
         {
             avp = [[UMDiameterAvpUE_PC5_AMBR alloc]initWithAvp:avp];
-            _ue_pc5_ambr = avp;
+            _var_ue_pc5_ambr = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -88,8 +88,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

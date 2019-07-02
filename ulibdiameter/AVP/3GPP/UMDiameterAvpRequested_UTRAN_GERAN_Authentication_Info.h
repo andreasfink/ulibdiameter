@@ -2,7 +2,7 @@
 //  UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,16 +16,16 @@
 
 @interface UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info : UMDiameterAvpGrouped
 {
-	UMDiameterAvpNumber_Of_Requested_Vectors	*_number_of_requested_vectors;
-	UMDiameterAvpImmediate_Response_Preferred	*_immediate_response_preferred;
-	UMDiameterAvpRe_synchronization_Info	*_re_synchronization_info;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpNumber_Of_Requested_Vectors	*_var_number_of_requested_vectors;
+	UMDiameterAvpImmediate_Response_Preferred	*_var_immediate_response_preferred;
+	UMDiameterAvpRe_synchronization_Info	*_var_re_synchronization_info;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpNumber_Of_Requested_Vectors	*number_of_requested_vectors;
-@property(readwrite,strong,atomic)	UMDiameterAvpImmediate_Response_Preferred	*immediate_response_preferred;
-@property(readwrite,strong,atomic)	UMDiameterAvpRe_synchronization_Info	*re_synchronization_info;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpNumber_Of_Requested_Vectors	*var_number_of_requested_vectors;
+@property(readwrite,strong,atomic)	UMDiameterAvpImmediate_Response_Preferred	*var_immediate_response_preferred;
+@property(readwrite,strong,atomic)	UMDiameterAvpRe_synchronization_Info	*var_re_synchronization_info;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

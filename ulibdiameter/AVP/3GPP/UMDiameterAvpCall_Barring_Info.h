@@ -2,7 +2,7 @@
 //  UMDiameterAvpCall_Barring_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpCall_Barring_Info : UMDiameterAvpGrouped
 {
-	UMDiameterAvpSS_Code	*_ss_code;
-	UMDiameterAvpSS_Status	*_ss_status;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpSS_Code	*_var_ss_code;
+	UMDiameterAvpSS_Status	*_var_ss_status;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpSS_Code	*ss_code;
-@property(readwrite,strong,atomic)	UMDiameterAvpSS_Status	*ss_status;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpSS_Code	*var_ss_code;
+@property(readwrite,strong,atomic)	UMDiameterAvpSS_Status	*var_ss_status;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

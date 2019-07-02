@@ -2,7 +2,7 @@
 //  UMDiameterAvpV2X_Subscription_Data.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpV2X_Subscription_Data : UMDiameterAvpGrouped
 {
-	UMDiameterAvpV2X_Permission	*_v2x_permission;
-	UMDiameterAvpUE_PC5_AMBR	*_ue_pc5_ambr;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpV2X_Permission	*_var_v2x_permission;
+	UMDiameterAvpUE_PC5_AMBR	*_var_ue_pc5_ambr;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpV2X_Permission	*v2x_permission;
-@property(readwrite,strong,atomic)	UMDiameterAvpUE_PC5_AMBR	*ue_pc5_ambr;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpV2X_Permission	*var_v2x_permission;
+@property(readwrite,strong,atomic)	UMDiameterAvpUE_PC5_AMBR	*var_ue_pc5_ambr;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

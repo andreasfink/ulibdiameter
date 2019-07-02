@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -19,22 +19,22 @@
 
 @interface UMDiameterAvpLCS_PrivacyException : UMDiameterAvpGrouped
 {
-	UMDiameterAvpSS_Code	*_ss_code;
-	UMDiameterAvpSS_Status	*_ss_status;
-	UMDiameterAvpNotification_To_UE_User	*_notification_to_ue_user;
-	NSArray<UMDiameterAvpExternal_Client *>	*_external_client;
-	NSArray<UMDiameterAvpPLMN_Client *>	*_plmn_client;
-	NSArray<UMDiameterAvpService_Type *>	*_service_type;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpSS_Code	*_var_ss_code;
+	UMDiameterAvpSS_Status	*_var_ss_status;
+	UMDiameterAvpNotification_To_UE_User	*_var_notification_to_ue_user;
+	NSArray<UMDiameterAvpExternal_Client *>	*_var_external_client;
+	NSArray<UMDiameterAvpPLMN_Client *>	*_var_plmn_client;
+	NSArray<UMDiameterAvpService_Type *>	*_var_service_type;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpSS_Code	*ss_code;
-@property(readwrite,strong,atomic)	UMDiameterAvpSS_Status	*ss_status;
-@property(readwrite,strong,atomic)	UMDiameterAvpNotification_To_UE_User	*notification_to_ue_user;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpExternal_Client *>	*external_client;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpPLMN_Client *>	*plmn_client;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpService_Type *>	*service_type;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpSS_Code	*var_ss_code;
+@property(readwrite,strong,atomic)	UMDiameterAvpSS_Status	*var_ss_status;
+@property(readwrite,strong,atomic)	UMDiameterAvpNotification_To_UE_User	*var_notification_to_ue_user;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpExternal_Client *>	*var_external_client;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpPLMN_Client *>	*var_plmn_client;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpService_Type *>	*var_service_type;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

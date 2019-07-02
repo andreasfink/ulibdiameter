@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocal_Time_Zone.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,22 +39,22 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_time_zone)
+    if(_var_time_zone)
     {
-        [arr addObject:_time_zone]
+        [arr addObject:_var_time_zone];
     }
-    if(_daylight_saving_time)
+    if(_var_daylight_saving_time)
     {
-        [arr addObject:_daylight_saving_time]
+        [arr addObject:_var_daylight_saving_time];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -65,18 +65,18 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpTime_Zone  avpCode])
         {
             avp = [[UMDiameterAvpTime_Zone alloc]initWithAvp:avp];
-            _time_zone = avp;
+            _var_time_zone = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpDaylight_Saving_Time avpCode])
         {
             avp = [[UMDiameterAvpDaylight_Saving_Time alloc]initWithAvp:avp];
-            _daylight_saving_time = avp;
+            _var_daylight_saving_time = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -88,8 +88,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

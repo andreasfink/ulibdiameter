@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,35 +39,35 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_gmlc_number.count > 0)
+    if(_var_gmlc_number.count > 0)
     {
-        for(UMDiameterAvpGMLC_Number *o in _gmlc_number)
+        for(UMDiameterAvpGMLC_Number *o in _var_gmlc_number)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_lcs_privacyexception.count > 0)
+    if(_var_lcs_privacyexception.count > 0)
     {
-        for(UMDiameterAvpLCS_PrivacyException *o in _lcs_privacyexception)
+        for(UMDiameterAvpLCS_PrivacyException *o in _var_lcs_privacyexception)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_mo_lr.count > 0)
+    if(_var_mo_lr.count > 0)
     {
-        for(UMDiameterAvpMO_LR *o in _mo_lr)
+        for(UMDiameterAvpMO_LR *o in _var_mo_lr)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -78,48 +78,48 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpGMLC_Number  avpCode])
         {
             avp = [[UMDiameterAvpGMLC_Number alloc]initWithAvp:avp];
-            _gmlc_number = avp;
+            _var_gmlc_number = avp;
             [knownAVPs addObject:avp];
-            if(_gmlc_number == NULL)
+            if(_var_gmlc_number == NULL)
             {
-                _gmlc_number = @[avp];
+                _var_gmlc_number = @[avp];
             }
             else
             {
-                _gmlc_number = [_gmlc_number arrayByAddingObject:avp]
+                _var_gmlc_number = [_var_gmlc_number arrayByAddingObject:avp]
             }
         }
         else if(avp.avpCode == [UMDiameterAvpLCS_PrivacyException avpCode])
         {
             avp = [[UMDiameterAvpLCS_PrivacyException alloc]initWithAvp:avp];
-            _lcs_privacyexception = avp;
+            _var_lcs_privacyexception = avp;
             [knownAVPs addObject:avp];
-            if(_lcs_privacyexception == NULL)
+            if(_var_lcs_privacyexception == NULL)
             {
-                _lcs_privacyexception = @[avp];
+                _var_lcs_privacyexception = @[avp];
             }
             else
             {
-                _lcs_privacyexception = [_lcs_privacyexception arrayByAddingObject:avp]
+                _var_lcs_privacyexception = [_var_lcs_privacyexception arrayByAddingObject:avp]
             }
         }
         else if(avp.avpCode == [UMDiameterAvpMO_LR avpCode])
         {
             avp = [[UMDiameterAvpMO_LR alloc]initWithAvp:avp];
-            _mo_lr = avp;
+            _var_mo_lr = avp;
             [knownAVPs addObject:avp];
-            if(_mo_lr == NULL)
+            if(_var_mo_lr == NULL)
             {
-                _mo_lr = @[avp];
+                _var_mo_lr = @[avp];
             }
             else
             {
-                _mo_lr = [_mo_lr arrayByAddingObject:avp]
+                _var_mo_lr = [_var_mo_lr arrayByAddingObject:avp]
             }
         }
         else
@@ -131,8 +131,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

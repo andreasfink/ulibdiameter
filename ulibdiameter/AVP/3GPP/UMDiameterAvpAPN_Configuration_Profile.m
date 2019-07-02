@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,33 +39,33 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_context_identifier)
+    if(_var_context_identifier)
     {
-        [arr addObject:_context_identifier]
+        [arr addObject:_var_context_identifier];
     }
-    if(_additional_context_identifier)
+    if(_var_additional_context_identifier)
     {
-        [arr addObject:_additional_context_identifier]
+        [arr addObject:_var_additional_context_identifier];
     }
-    if(_all_apn_configurations_included_indicator)
+    if(_var_all_apn_configurations_included_indicator)
     {
-        [arr addObject:_all_apn_configurations_included_indicator]
+        [arr addObject:_var_all_apn_configurations_included_indicator];
     }
-    if(_apn_configuration.count > 0)
+    if(_var_apn_configuration.count > 0)
     {
-        for(UMDiameterAvpAPN_Configuration *o in _apn_configuration)
+        for(UMDiameterAvpAPN_Configuration *o in _var_apn_configuration)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -76,38 +76,38 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpContext_Identifier  avpCode])
         {
             avp = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
-            _context_identifier = avp;
+            _var_context_identifier = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAdditional_Context_Identifier avpCode])
         {
             avp = [[UMDiameterAvpAdditional_Context_Identifier alloc]initWithAvp:avp];
-            _additional_context_identifier = avp;
+            _var_additional_context_identifier = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAll_APN_Configurations_Included_Indicator avpCode])
         {
             avp = [[UMDiameterAvpAll_APN_Configurations_Included_Indicator alloc]initWithAvp:avp];
-            _all_apn_configurations_included_indicator = avp;
+            _var_all_apn_configurations_included_indicator = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAPN_Configuration avpCode])
         {
             avp = [[UMDiameterAvpAPN_Configuration alloc]initWithAvp:avp];
-            _apn_configuration = avp;
+            _var_apn_configuration = avp;
             [knownAVPs addObject:avp];
-            if(_apn_configuration == NULL)
+            if(_var_apn_configuration == NULL)
             {
-                _apn_configuration = @[avp];
+                _var_apn_configuration = @[avp];
             }
             else
             {
-                _apn_configuration = [_apn_configuration arrayByAddingObject:avp]
+                _var_apn_configuration = [_var_apn_configuration arrayByAddingObject:avp]
             }
         }
         else
@@ -119,8 +119,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

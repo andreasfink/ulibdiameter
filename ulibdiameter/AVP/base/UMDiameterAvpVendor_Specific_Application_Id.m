@@ -2,7 +2,7 @@
 //  UMDiameterAvpVendor_Specific_Application_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -38,19 +38,19 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_vendor_id)
+    if(_var_vendor_id)
     {
-        [arr addObject:_vendor_id]
+        [arr addObject:_var_vendor_id];
     }
-    if(_auth_application_id)
+    if(_var_auth_application_id)
     {
-        [arr addObject:_auth_application_id]
+        [arr addObject:_var_auth_application_id];
     }
-    if(_acct_application_id)
+    if(_var_acct_application_id)
     {
-        [arr addObject:_acct_application_id]
+        [arr addObject:_var_acct_application_id];
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -61,24 +61,24 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpVendor_Id  avpCode])
         {
             avp = [[UMDiameterAvpVendor_Id alloc]initWithAvp:avp];
-            _vendor_id = avp;
+            _var_vendor_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAuth_Application_Id avpCode])
         {
             avp = [[UMDiameterAvpAuth_Application_Id alloc]initWithAvp:avp];
-            _auth_application_id = avp;
+            _var_auth_application_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAcct_Application_Id avpCode])
         {
             avp = [[UMDiameterAvpAcct_Application_Id alloc]initWithAvp:avp];
-            _acct_application_id = avp;
+            _var_acct_application_id = avp;
             [knownAVPs addObject:avp];
         }
         else

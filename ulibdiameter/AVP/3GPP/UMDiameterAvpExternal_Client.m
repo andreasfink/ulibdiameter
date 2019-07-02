@@ -2,7 +2,7 @@
 //  UMDiameterAvpExternal_Client.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,26 +39,26 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_client_identity)
+    if(_var_client_identity)
     {
-        [arr addObject:_client_identity]
+        [arr addObject:_var_client_identity];
     }
-    if(_gmlc_restriction)
+    if(_var_gmlc_restriction)
     {
-        [arr addObject:_gmlc_restriction]
+        [arr addObject:_var_gmlc_restriction];
     }
-    if(_notification_to_ue_user)
+    if(_var_notification_to_ue_user)
     {
-        [arr addObject:_notification_to_ue_user]
+        [arr addObject:_var_notification_to_ue_user];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -69,24 +69,24 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpClient_Identity  avpCode])
         {
             avp = [[UMDiameterAvpClient_Identity alloc]initWithAvp:avp];
-            _client_identity = avp;
+            _var_client_identity = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpGMLC_Restriction avpCode])
         {
             avp = [[UMDiameterAvpGMLC_Restriction alloc]initWithAvp:avp];
-            _gmlc_restriction = avp;
+            _var_gmlc_restriction = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpNotification_To_UE_User avpCode])
         {
             avp = [[UMDiameterAvpNotification_To_UE_User alloc]initWithAvp:avp];
-            _notification_to_ue_user = avp;
+            _var_notification_to_ue_user = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -98,8 +98,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

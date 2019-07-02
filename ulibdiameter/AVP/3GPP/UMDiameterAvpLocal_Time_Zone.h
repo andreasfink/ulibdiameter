@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocal_Time_Zone.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpLocal_Time_Zone : UMDiameterAvpGrouped
 {
-	UMDiameterAvpTime_Zone	*_time_zone;
-	UMDiameterAvpDaylight_Saving_Time	*_daylight_saving_time;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpTime_Zone	*_var_time_zone;
+	UMDiameterAvpDaylight_Saving_Time	*_var_daylight_saving_time;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpTime_Zone	*time_zone;
-@property(readwrite,strong,atomic)	UMDiameterAvpDaylight_Saving_Time	*daylight_saving_time;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpTime_Zone	*var_time_zone;
+@property(readwrite,strong,atomic)	UMDiameterAvpDaylight_Saving_Time	*var_daylight_saving_time;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

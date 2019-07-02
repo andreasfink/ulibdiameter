@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuthentication_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,16 +16,16 @@
 
 @interface UMDiameterAvpAuthentication_Info : UMDiameterAvpGrouped
 {
-	NSArray<UMDiameterAvpE_UTRAN_Vector *>	*_e_utran_vector;
-	NSArray<UMDiameterAvpUTRAN_Vector *>	*_utran_vector;
-	NSArray<UMDiameterAvpGERAN_Vector *>	*_geran_vector;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	NSArray<UMDiameterAvpE_UTRAN_Vector *>	*_var_e_utran_vector;
+	NSArray<UMDiameterAvpUTRAN_Vector *>	*_var_utran_vector;
+	NSArray<UMDiameterAvpGERAN_Vector *>	*_var_geran_vector;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpE_UTRAN_Vector *>	*e_utran_vector;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpUTRAN_Vector *>	*utran_vector;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpGERAN_Vector *>	*geran_vector;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpE_UTRAN_Vector *>	*var_e_utran_vector;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpUTRAN_Vector *>	*var_utran_vector;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpGERAN_Vector *>	*var_geran_vector;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

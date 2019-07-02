@@ -32,7 +32,7 @@
 1431	EPS-Subscribed-QoS-Profile	7.3.7	Grouped	M,V
 1432	VPLMN-Dynamic-Address-Allowed	7.3.8	Enumerated	M,V
 1433	STN-SR	7.3.9	OctetString	M,V
-1434	Alert-Reason	7.3.83	Enumerate	M,V
+1434	Alert-Reason	7.3.83	Enumerated	M,V
 1435	AMBR	7.3.1	Grouped	M,V
 1436	CSG-Subscription-Data	7.3.8	Grouped	M.V
 1437	CSG-Id	7.3.9	Unsigned32	M,V
@@ -185,3 +185,4 @@
 1694	MBSFN-Area	7.3.9	Grouped	V
 1695	MBSFN-Area-ID	7.3.0	Unsigned32	V
 1696	Carrier-Frequency	7.3.1	Unsigned32	V
+628	Supported-Features	6.3.29	Grouped	V

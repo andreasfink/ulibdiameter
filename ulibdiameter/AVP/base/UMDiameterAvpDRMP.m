@@ -2,13 +2,15 @@
 //  UMDiameterAvpDRMP.m
 //  ulibdiameter
 //
-//  Created by Andreas Fink on 07.06.19.
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
+#import "UMDiameterAvp.h"
 #import "UMDiameterAvpDRMP.h"
 
 @implementation UMDiameterAvpDRMP
+
 
 - (NSString *)avpType
 {
@@ -17,35 +19,19 @@
 
 - (uint32_t)avpCode
 {
-    return UMDiameterAvpCode_DRMP;
+    return 301;
 }
 
-- (UMDiameterAvpDRMP *)initWithString:(NSString *)str
++ (uint32_t)avpCode
 {
-    self = [super init];
-    if(self)
-    {
-        [self setStringValue:str];
-    }
-    return self;
+    return 301;
 }
 
-- (NSString *)stringValue
+- (void)genericInitialisation
 {
-    if((_value >=0) && (_value <16))
-    {
-        return [NSString stringWithFormat:@"PRIORITY_%d",(int)_value];
-    }
-    return [NSString stringWithFormat:@"undefined(%d)",(int)_value];
+    [super genericInitialisation];
 }
 
-- (void)setStringValue:(NSString *)str
-{
-    if([str hasCaseInsensitivePrefix:@"PRIORITY_"])
-    {
-        str = [str substringFromIndex:9];
-    }
-    _value = atoi(str.UTF8String);
-}
 
 @end
+

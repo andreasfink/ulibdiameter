@@ -2,7 +2,7 @@
 //  UMDiameterAvpTeleservice_List.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @interface UMDiameterAvpTeleservice_List : UMDiameterAvpGrouped
 {
-	NSArray<UMDiameterAvpTS_Code *>	*_ts_code;
-	UMDiameterAvpAVP	*_avp;
+	NSArray<UMDiameterAvpTS_Code *>	*_var_ts_code;
+	UMDiameterAvpAVP	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpTS_Code *>	*ts_code;
-@property(readwrite,strong,atomic)	UMDiameterAvpAVP	*avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpTS_Code *>	*var_ts_code;
+@property(readwrite,strong,atomic)	UMDiameterAvpAVP	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

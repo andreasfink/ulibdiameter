@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,30 +39,30 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_max_requested_bandwidth_ul)
+    if(_var_max_requested_bandwidth_ul)
     {
-        [arr addObject:_max_requested_bandwidth_ul]
+        [arr addObject:_var_max_requested_bandwidth_ul];
     }
-    if(_max_requested_bandwidth_dl)
+    if(_var_max_requested_bandwidth_dl)
     {
-        [arr addObject:_max_requested_bandwidth_dl]
+        [arr addObject:_var_max_requested_bandwidth_dl];
     }
-    if(_extended_max_requested_bw_ul)
+    if(_var_extended_max_requested_bw_ul)
     {
-        [arr addObject:_extended_max_requested_bw_ul]
+        [arr addObject:_var_extended_max_requested_bw_ul];
     }
-    if(_extended_max_requested_bw_dl)
+    if(_var_extended_max_requested_bw_dl)
     {
-        [arr addObject:_extended_max_requested_bw_dl]
+        [arr addObject:_var_extended_max_requested_bw_dl];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -73,30 +73,30 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpMax_Requested_Bandwidth_UL  avpCode])
         {
             avp = [[UMDiameterAvpMax_Requested_Bandwidth_UL alloc]initWithAvp:avp];
-            _max_requested_bandwidth_ul = avp;
+            _var_max_requested_bandwidth_ul = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpMax_Requested_Bandwidth_DL avpCode])
         {
             avp = [[UMDiameterAvpMax_Requested_Bandwidth_DL alloc]initWithAvp:avp];
-            _max_requested_bandwidth_dl = avp;
+            _var_max_requested_bandwidth_dl = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpExtended_Max_Requested_BW_UL avpCode])
         {
             avp = [[UMDiameterAvpExtended_Max_Requested_BW_UL alloc]initWithAvp:avp];
-            _extended_max_requested_bw_ul = avp;
+            _var_extended_max_requested_bw_ul = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpExtended_Max_Requested_BW_DL avpCode])
         {
             avp = [[UMDiameterAvpExtended_Max_Requested_BW_DL alloc]initWithAvp:avp];
-            _extended_max_requested_bw_dl = avp;
+            _var_extended_max_requested_bw_dl = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -108,8 +108,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

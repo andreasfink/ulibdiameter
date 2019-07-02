@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdjacent_Access_Restriction_Data.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpAdjacent_Access_Restriction_Data : UMDiameterAvpGrouped
 {
-	UMDiameterAvpVisited_PLMN_Id	*_visited_plmn_id;
-	UMDiameterAvpAccess_Restriction_Data	*_access_restriction_data;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpVisited_PLMN_Id	*_var_visited_plmn_id;
+	UMDiameterAvpAccess_Restriction_Data	*_var_access_restriction_data;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpVisited_PLMN_Id	*visited_plmn_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpAccess_Restriction_Data	*access_restriction_data;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpVisited_PLMN_Id	*var_visited_plmn_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpAccess_Restriction_Data	*var_access_restriction_data;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

@@ -2,7 +2,7 @@
 //  UMDiameterAvpProxy_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -38,22 +38,22 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_proxy_host)
+    if(_var_proxy_host)
     {
-        [arr addObject:_proxy_host]
+        [arr addObject:_var_proxy_host];
     }
-    if(_proxy_state)
+    if(_var_proxy_state)
     {
-        [arr addObject:_proxy_state]
+        [arr addObject:_var_proxy_state];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -64,18 +64,18 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpProxy_Host  avpCode])
         {
             avp = [[UMDiameterAvpProxy_Host alloc]initWithAvp:avp];
-            _proxy_host = avp;
+            _var_proxy_host = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpProxy_State avpCode])
         {
             avp = [[UMDiameterAvpProxy_State alloc]initWithAvp:avp];
-            _proxy_state = avp;
+            _var_proxy_state = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -87,8 +87,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

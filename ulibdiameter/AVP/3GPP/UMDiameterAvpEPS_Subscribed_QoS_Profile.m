@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_Subscribed_QoS_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,22 +39,22 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_qos_class_identifier)
+    if(_var_qos_class_identifier)
     {
-        [arr addObject:_qos_class_identifier]
+        [arr addObject:_var_qos_class_identifier];
     }
-    if(_allocation_retention_priority)
+    if(_var_allocation_retention_priority)
     {
-        [arr addObject:_allocation_retention_priority]
+        [arr addObject:_var_allocation_retention_priority];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -65,18 +65,18 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpQoS_Class_Identifier  avpCode])
         {
             avp = [[UMDiameterAvpQoS_Class_Identifier alloc]initWithAvp:avp];
-            _qos_class_identifier = avp;
+            _var_qos_class_identifier = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpAllocation_Retention_Priority avpCode])
         {
             avp = [[UMDiameterAvpAllocation_Retention_Priority alloc]initWithAvp:avp];
-            _allocation_retention_priority = avp;
+            _var_allocation_retention_priority = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -88,8 +88,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

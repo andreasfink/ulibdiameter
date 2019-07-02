@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,47 +39,47 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_ss_code)
+    if(_var_ss_code)
     {
-        [arr addObject:_ss_code]
+        [arr addObject:_var_ss_code];
     }
-    if(_ss_status)
+    if(_var_ss_status)
     {
-        [arr addObject:_ss_status]
+        [arr addObject:_var_ss_status];
     }
-    if(_notification_to_ue_user)
+    if(_var_notification_to_ue_user)
     {
-        [arr addObject:_notification_to_ue_user]
+        [arr addObject:_var_notification_to_ue_user];
     }
-    if(_external_client.count > 0)
+    if(_var_external_client.count > 0)
     {
-        for(UMDiameterAvpExternal_Client *o in _external_client)
+        for(UMDiameterAvpExternal_Client *o in _var_external_client)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_plmn_client.count > 0)
+    if(_var_plmn_client.count > 0)
     {
-        for(UMDiameterAvpPLMN_Client *o in _plmn_client)
+        for(UMDiameterAvpPLMN_Client *o in _var_plmn_client)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_service_type.count > 0)
+    if(_var_service_type.count > 0)
     {
-        for(UMDiameterAvpService_Type *o in _service_type)
+        for(UMDiameterAvpService_Type *o in _var_service_type)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -90,66 +90,66 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpSS_Code  avpCode])
         {
             avp = [[UMDiameterAvpSS_Code alloc]initWithAvp:avp];
-            _ss_code = avp;
+            _var_ss_code = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpSS_Status avpCode])
         {
             avp = [[UMDiameterAvpSS_Status alloc]initWithAvp:avp];
-            _ss_status = avp;
+            _var_ss_status = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpNotification_To_UE_User avpCode])
         {
             avp = [[UMDiameterAvpNotification_To_UE_User alloc]initWithAvp:avp];
-            _notification_to_ue_user = avp;
+            _var_notification_to_ue_user = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpExternal_Client avpCode])
         {
             avp = [[UMDiameterAvpExternal_Client alloc]initWithAvp:avp];
-            _external_client = avp;
+            _var_external_client = avp;
             [knownAVPs addObject:avp];
-            if(_external_client == NULL)
+            if(_var_external_client == NULL)
             {
-                _external_client = @[avp];
+                _var_external_client = @[avp];
             }
             else
             {
-                _external_client = [_external_client arrayByAddingObject:avp]
+                _var_external_client = [_var_external_client arrayByAddingObject:avp]
             }
         }
         else if(avp.avpCode == [UMDiameterAvpPLMN_Client avpCode])
         {
             avp = [[UMDiameterAvpPLMN_Client alloc]initWithAvp:avp];
-            _plmn_client = avp;
+            _var_plmn_client = avp;
             [knownAVPs addObject:avp];
-            if(_plmn_client == NULL)
+            if(_var_plmn_client == NULL)
             {
-                _plmn_client = @[avp];
+                _var_plmn_client = @[avp];
             }
             else
             {
-                _plmn_client = [_plmn_client arrayByAddingObject:avp]
+                _var_plmn_client = [_var_plmn_client arrayByAddingObject:avp]
             }
         }
         else if(avp.avpCode == [UMDiameterAvpService_Type avpCode])
         {
             avp = [[UMDiameterAvpService_Type alloc]initWithAvp:avp];
-            _service_type = avp;
+            _var_service_type = avp;
             [knownAVPs addObject:avp];
-            if(_service_type == NULL)
+            if(_var_service_type == NULL)
             {
-                _service_type = @[avp];
+                _var_service_type = @[avp];
             }
             else
             {
-                _service_type = [_service_type arrayByAddingObject:avp]
+                _var_service_type = [_var_service_type arrayByAddingObject:avp]
             }
         }
         else
@@ -161,8 +161,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

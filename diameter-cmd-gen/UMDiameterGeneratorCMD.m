@@ -341,10 +341,11 @@
     {
         [s appendFormat:@"#import \"%@%@.h\"\n",avpPrefix,avp.objectName];
     }
-
     [s appendString:@"\n"];
     [s appendFormat:@"@implementation %@%@\n",prefix,_objectName];
     [s appendString:@"\n"];
+
+#if 0
     [s appendFormat:@"- (%@%@ *)initWithString:(NSString *)s\n",prefix,_objectName];
     [s appendString:@"{\n"];
     [s appendString:@"    self = [super init];\n"];
@@ -357,6 +358,7 @@
     [s appendString:@"    }\n"];
     [s appendString:@"    return self;\n"];
     [s appendString:@"}\n"];
+#endif
 
     [s appendString:@"\n"];
     [s appendString:@"- (void)genericInitialisation\n"];

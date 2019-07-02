@@ -2,7 +2,7 @@
 //  UMDiameterAvpTerminal_Information.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,16 +16,16 @@
 
 @interface UMDiameterAvpTerminal_Information : UMDiameterAvpGrouped
 {
-	UMDiameterAvpIMEI	*_imei;
-	UMDiameterAvp3GPP2_MEID	*_3gpp2_meid;
-	UMDiameterAvpSoftware_Version	*_software_version;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpIMEI	*_var_imei;
+	UMDiameterAvp3GPP2_MEID	*_var_3gpp2_meid;
+	UMDiameterAvpSoftware_Version	*_var_software_version;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpIMEI	*imei;
-@property(readwrite,strong,atomic)	UMDiameterAvp3GPP2_MEID	*3gpp2_meid;
-@property(readwrite,strong,atomic)	UMDiameterAvpSoftware_Version	*software_version;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpIMEI	*var_imei;
+@property(readwrite,strong,atomic)	UMDiameterAvp3GPP2_MEID	*var_3gpp2_meid;
+@property(readwrite,strong,atomic)	UMDiameterAvpSoftware_Version	*var_software_version;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

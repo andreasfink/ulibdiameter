@@ -2,7 +2,7 @@
 //  UMDiameterAvpActive_APN.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -18,20 +18,20 @@
 
 @interface UMDiameterAvpActive_APN : UMDiameterAvpGrouped
 {
-	UMDiameterAvpContext_Identifier	*_context_identifier;
-	UMDiameterAvpService_Selection	*_service_selection;
-	UMDiameterAvpMIP6_Agent_Info	*_mip6_agent_info;
-	UMDiameterAvpVisited_Network_Identifier	*_visited_network_identifier;
-	NSArray<UMDiameterAvpSpecific_APN_Info *>	*_specific_apn_info;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpContext_Identifier	*_var_context_identifier;
+	UMDiameterAvpService_Selection	*_var_service_selection;
+	UMDiameterAvpMIP6_Agent_Info	*_var_mip6_agent_info;
+	UMDiameterAvpVisited_Network_Identifier	*_var_visited_network_identifier;
+	NSArray<UMDiameterAvpSpecific_APN_Info *>	*_var_specific_apn_info;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpContext_Identifier	*context_identifier;
-@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*service_selection;
-@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*mip6_agent_info;
-@property(readwrite,strong,atomic)	UMDiameterAvpVisited_Network_Identifier	*visited_network_identifier;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSpecific_APN_Info *>	*specific_apn_info;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpContext_Identifier	*var_context_identifier;
+@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*var_service_selection;
+@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*var_mip6_agent_info;
+@property(readwrite,strong,atomic)	UMDiameterAvpVisited_Network_Identifier	*var_visited_network_identifier;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSpecific_APN_Info *>	*var_specific_apn_info;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

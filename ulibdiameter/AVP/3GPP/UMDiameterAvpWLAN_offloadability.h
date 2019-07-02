@@ -2,7 +2,7 @@
 //  UMDiameterAvpWLAN_offloadability.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpWLAN_offloadability : UMDiameterAvpGrouped
 {
-	UMDiameterAvpWLAN_offloadability_EUTRAN	*_wlan_offloadability_eutran;
-	UMDiameterAvpWLAN_offloadability_UTRAN	*_wlan_offloadability_utran;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpWLAN_offloadability_EUTRAN	*_var_wlan_offloadability_eutran;
+	UMDiameterAvpWLAN_offloadability_UTRAN	*_var_wlan_offloadability_utran;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpWLAN_offloadability_EUTRAN	*wlan_offloadability_eutran;
-@property(readwrite,strong,atomic)	UMDiameterAvpWLAN_offloadability_UTRAN	*wlan_offloadability_utran;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpWLAN_offloadability_EUTRAN	*var_wlan_offloadability_eutran;
+@property(readwrite,strong,atomic)	UMDiameterAvpWLAN_offloadability_UTRAN	*var_wlan_offloadability_utran;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

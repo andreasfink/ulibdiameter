@@ -1,0 +1,27 @@
+< Notify-Request> ::= < Diameter Header: 323, REQ, PXY, 16777251 > 
+< Session-Id > 
+[ Vendor-Specific-Application-Id ] 
+[ DRMP ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+[ Destination-Host ] 
+{ Destination-Realm } 
+{ User-Name } 
+[ OC-Supported-Features ] 
+* [ Supported-Features ] 
+[ Terminal-Information ] 
+[ MIP6-Agent-Info ]  
+[ Visited-Network-Identifier ] 
+[ Context-Identifier ] 
+[Service-Selection] 
+[ Alert-Reason ] 
+[ UE-SRVCC-Capability ] 
+[ NOR-Flags ] 
+[ Homogeneous-Support-of-IMS-Voice-Over-PS-Sessions ] 
+[ Maximum-UE-Availability-Time ] 
+*[ Monitoring-Event-Config-Status ] 
+[ Emergency-Services ] 
+*[ AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

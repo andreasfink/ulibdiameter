@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -18,20 +18,20 @@
 
 @interface UMDiameterAvpArea_Scope : UMDiameterAvpGrouped
 {
-	NSArray<UMDiameterAvpCell_Global_Identity *>	*_cell_global_identity;
-	NSArray<UMDiameterAvpE_UTRAN_Cell_Global_Identity *>	*_e_utran_cell_global_identity;
-	NSArray<UMDiameterAvpRouting_Area_Identity *>	*_routing_area_identity;
-	NSArray<UMDiameterAvpLocation_Area_Identity *>	*_location_area_identity;
-	NSArray<UMDiameterAvpTracking_Area_Identity *>	*_tracking_area_identity;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	NSArray<UMDiameterAvpCell_Global_Identity *>	*_var_cell_global_identity;
+	NSArray<UMDiameterAvpE_UTRAN_Cell_Global_Identity *>	*_var_e_utran_cell_global_identity;
+	NSArray<UMDiameterAvpRouting_Area_Identity *>	*_var_routing_area_identity;
+	NSArray<UMDiameterAvpLocation_Area_Identity *>	*_var_location_area_identity;
+	NSArray<UMDiameterAvpTracking_Area_Identity *>	*_var_tracking_area_identity;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpCell_Global_Identity *>	*cell_global_identity;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpE_UTRAN_Cell_Global_Identity *>	*e_utran_cell_global_identity;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRouting_Area_Identity *>	*routing_area_identity;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpLocation_Area_Identity *>	*location_area_identity;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpTracking_Area_Identity *>	*tracking_area_identity;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpCell_Global_Identity *>	*var_cell_global_identity;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpE_UTRAN_Cell_Global_Identity *>	*var_e_utran_cell_global_identity;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRouting_Area_Identity *>	*var_routing_area_identity;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpLocation_Area_Identity *>	*var_location_area_identity;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpTracking_Area_Identity *>	*var_tracking_area_identity;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

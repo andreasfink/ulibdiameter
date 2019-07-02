@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_User_State.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpEPS_User_State : UMDiameterAvpGrouped
 {
-	UMDiameterAvpMME_User_State	*_mme_user_state;
-	UMDiameterAvpSGSN_User_State	*_sgsn_user_state;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpMME_User_State	*_var_mme_user_state;
+	UMDiameterAvpSGSN_User_State	*_var_sgsn_user_state;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpMME_User_State	*mme_user_state;
-@property(readwrite,strong,atomic)	UMDiameterAvpSGSN_User_State	*sgsn_user_state;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpMME_User_State	*var_mme_user_state;
+@property(readwrite,strong,atomic)	UMDiameterAvpSGSN_User_State	*var_sgsn_user_state;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -20,24 +20,24 @@
 
 @interface UMDiameterAvpAPN_Configuration : UMDiameterAvpGrouped
 {
-	UMDiameterAvpContext_Identifier	*_context_identifier;
-	NSArray<UMDiameterAvpServed_Party_IP_Address *>	*_served_party_ip_address;
-	UMDiameterAvpPDN_Type	*_pdn_type;
-	UMDiameterAvpService_Selection	*_service_selection;
-	UMDiameterAvpEPS_Subscribed_QoS_Profile	*_eps_subscribed_qos_profile;
-	UMDiameterAvpVPLMN_Dynamic_Address_Allowed	*_vplmn_dynamic_address_allowed;
-	UMDiameterAvpMIP6_Agent_Info	*_mip6_agent_info;
-	UMDiameterAvpVisited_Network_Identifier	*_visited_network_identifier;
+	UMDiameterAvpContext_Identifier	*_var_context_identifier;
+	NSArray<UMDiameterAvpServed_Party_IP_Address *>	*_var_served_party_ip_address;
+	UMDiameterAvpPDN_Type	*_var_pdn_type;
+	UMDiameterAvpService_Selection	*_var_service_selection;
+	UMDiameterAvpEPS_Subscribed_QoS_Profile	*_var_eps_subscribed_qos_profile;
+	UMDiameterAvpVPLMN_Dynamic_Address_Allowed	*_var_vplmn_dynamic_address_allowed;
+	UMDiameterAvpMIP6_Agent_Info	*_var_mip6_agent_info;
+	UMDiameterAvpVisited_Network_Identifier	*_var_visited_network_identifier;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpContext_Identifier	*context_identifier;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpServed_Party_IP_Address *>	*served_party_ip_address;
-@property(readwrite,strong,atomic)	UMDiameterAvpPDN_Type	*pdn_type;
-@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*service_selection;
-@property(readwrite,strong,atomic)	UMDiameterAvpEPS_Subscribed_QoS_Profile	*eps_subscribed_qos_profile;
-@property(readwrite,strong,atomic)	UMDiameterAvpVPLMN_Dynamic_Address_Allowed	*vplmn_dynamic_address_allowed;
-@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*mip6_agent_info;
-@property(readwrite,strong,atomic)	UMDiameterAvpVisited_Network_Identifier	*visited_network_identifier;
+@property(readwrite,strong,atomic)	UMDiameterAvpContext_Identifier	*var_context_identifier;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpServed_Party_IP_Address *>	*var_served_party_ip_address;
+@property(readwrite,strong,atomic)	UMDiameterAvpPDN_Type	*var_pdn_type;
+@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*var_service_selection;
+@property(readwrite,strong,atomic)	UMDiameterAvpEPS_Subscribed_QoS_Profile	*var_eps_subscribed_qos_profile;
+@property(readwrite,strong,atomic)	UMDiameterAvpVPLMN_Dynamic_Address_Allowed	*var_vplmn_dynamic_address_allowed;
+@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*var_mip6_agent_info;
+@property(readwrite,strong,atomic)	UMDiameterAvpVisited_Network_Identifier	*var_visited_network_identifier;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

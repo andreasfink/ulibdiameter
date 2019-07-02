@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Type.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,16 +16,16 @@
 
 @interface UMDiameterAvpService_Type : UMDiameterAvpGrouped
 {
-	UMDiameterAvpServiceTypeIdentity	*_servicetypeidentity;
-	UMDiameterAvpGMLC_Restriction	*_gmlc_restriction;
-	UMDiameterAvpNotification_To_UE_User	*_notification_to_ue_user;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpServiceTypeIdentity	*_var_servicetypeidentity;
+	UMDiameterAvpGMLC_Restriction	*_var_gmlc_restriction;
+	UMDiameterAvpNotification_To_UE_User	*_var_notification_to_ue_user;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpServiceTypeIdentity	*servicetypeidentity;
-@property(readwrite,strong,atomic)	UMDiameterAvpGMLC_Restriction	*gmlc_restriction;
-@property(readwrite,strong,atomic)	UMDiameterAvpNotification_To_UE_User	*notification_to_ue_user;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpServiceTypeIdentity	*var_servicetypeidentity;
+@property(readwrite,strong,atomic)	UMDiameterAvpGMLC_Restriction	*var_gmlc_restriction;
+@property(readwrite,strong,atomic)	UMDiameterAvpNotification_To_UE_User	*var_notification_to_ue_user;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

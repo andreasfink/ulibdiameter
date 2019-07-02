@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,16 +16,16 @@
 
 @interface UMDiameterAvpLCS_Info : UMDiameterAvpGrouped
 {
-	NSArray<UMDiameterAvpGMLC_Number *>	*_gmlc_number;
-	NSArray<UMDiameterAvpLCS_PrivacyException *>	*_lcs_privacyexception;
-	NSArray<UMDiameterAvpMO_LR *>	*_mo_lr;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	NSArray<UMDiameterAvpGMLC_Number *>	*_var_gmlc_number;
+	NSArray<UMDiameterAvpLCS_PrivacyException *>	*_var_lcs_privacyexception;
+	NSArray<UMDiameterAvpMO_LR *>	*_var_mo_lr;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpGMLC_Number *>	*gmlc_number;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpLCS_PrivacyException *>	*lcs_privacyexception;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpMO_LR *>	*mo_lr;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpGMLC_Number *>	*var_gmlc_number;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpLCS_PrivacyException *>	*var_lcs_privacyexception;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpMO_LR *>	*var_mo_lr;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

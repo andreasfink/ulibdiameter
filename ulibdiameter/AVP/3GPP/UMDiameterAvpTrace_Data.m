@@ -2,7 +2,7 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,46 +39,46 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_trace_reference)
+    if(_var_trace_reference)
     {
-        [arr addObject:_trace_reference]
+        [arr addObject:_var_trace_reference];
     }
-    if(_trace_depth)
+    if(_var_trace_depth)
     {
-        [arr addObject:_trace_depth]
+        [arr addObject:_var_trace_depth];
     }
-    if(_trace_ne_type_list)
+    if(_var_trace_ne_type_list)
     {
-        [arr addObject:_trace_ne_type_list]
+        [arr addObject:_var_trace_ne_type_list];
     }
-    if(_trace_interface_list)
+    if(_var_trace_interface_list)
     {
-        [arr addObject:_trace_interface_list]
+        [arr addObject:_var_trace_interface_list];
     }
-    if(_trace_event_list)
+    if(_var_trace_event_list)
     {
-        [arr addObject:_trace_event_list]
+        [arr addObject:_var_trace_event_list];
     }
-    if(_omc_id)
+    if(_var_omc_id)
     {
-        [arr addObject:_omc_id]
+        [arr addObject:_var_omc_id];
     }
-    if(_trace_collection_entity)
+    if(_var_trace_collection_entity)
     {
-        [arr addObject:_trace_collection_entity]
+        [arr addObject:_var_trace_collection_entity];
     }
-    if(_mdt_configuration)
+    if(_var_mdt_configuration)
     {
-        [arr addObject:_mdt_configuration]
+        [arr addObject:_var_mdt_configuration];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -89,54 +89,54 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpTrace_Reference  avpCode])
         {
             avp = [[UMDiameterAvpTrace_Reference alloc]initWithAvp:avp];
-            _trace_reference = avp;
+            _var_trace_reference = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Depth avpCode])
         {
             avp = [[UMDiameterAvpTrace_Depth alloc]initWithAvp:avp];
-            _trace_depth = avp;
+            _var_trace_depth = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_NE_Type_List avpCode])
         {
             avp = [[UMDiameterAvpTrace_NE_Type_List alloc]initWithAvp:avp];
-            _trace_ne_type_list = avp;
+            _var_trace_ne_type_list = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Interface_List avpCode])
         {
             avp = [[UMDiameterAvpTrace_Interface_List alloc]initWithAvp:avp];
-            _trace_interface_list = avp;
+            _var_trace_interface_list = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Event_List avpCode])
         {
             avp = [[UMDiameterAvpTrace_Event_List alloc]initWithAvp:avp];
-            _trace_event_list = avp;
+            _var_trace_event_list = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpOMC_Id avpCode])
         {
             avp = [[UMDiameterAvpOMC_Id alloc]initWithAvp:avp];
-            _omc_id = avp;
+            _var_omc_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Collection_Entity avpCode])
         {
             avp = [[UMDiameterAvpTrace_Collection_Entity alloc]initWithAvp:avp];
-            _trace_collection_entity = avp;
+            _var_trace_collection_entity = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpMDT_Configuration avpCode])
         {
             avp = [[UMDiameterAvpMDT_Configuration alloc]initWithAvp:avp];
-            _mdt_configuration = avp;
+            _var_mdt_configuration = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -148,8 +148,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

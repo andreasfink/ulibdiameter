@@ -2,7 +2,7 @@
 //  UMDiameterAvpEmergency_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @interface UMDiameterAvpEmergency_Info : UMDiameterAvpGrouped
 {
-	UMDiameterAvpMIP6_Agent_Info	*_mip6_agent_info;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpMIP6_Agent_Info	*_var_mip6_agent_info;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*mip6_agent_info;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpMIP6_Agent_Info	*var_mip6_agent_info;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

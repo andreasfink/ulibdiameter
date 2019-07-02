@@ -2,7 +2,7 @@
 //  UMDiameterAvpExperimental_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -38,15 +38,15 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_vendor_id)
+    if(_var_vendor_id)
     {
-        [arr addObject:_vendor_id]
+        [arr addObject:_var_vendor_id];
     }
-    if(_experimental_result_code)
+    if(_var_experimental_result_code)
     {
-        [arr addObject:_experimental_result_code]
+        [arr addObject:_var_experimental_result_code];
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -57,18 +57,18 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpVendor_Id  avpCode])
         {
             avp = [[UMDiameterAvpVendor_Id alloc]initWithAvp:avp];
-            _vendor_id = avp;
+            _var_vendor_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpExperimental_Result_Code avpCode])
         {
             avp = [[UMDiameterAvpExperimental_Result_Code alloc]initWithAvp:avp];
-            _experimental_result_code = avp;
+            _var_experimental_result_code = avp;
             [knownAVPs addObject:avp];
         }
         else

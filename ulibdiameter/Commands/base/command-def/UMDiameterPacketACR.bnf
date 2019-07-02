@@ -1,0 +1,21 @@
+<ACR> ::= < Diameter Header: 271, REQ, PXY >
+< Session-Id >
+{ Origin-Host }
+{ Origin-Realm }
+{ Destination-Realm }
+{ Accounting-Record-Type }
+{ Accounting-Record-Number }
+[ Acct-Application-Id ]
+[ Vendor-Specific-Application-Id ]
+[ User-Name ]
+[ Destination-Host ]
+[ Accounting-Sub-Session-Id ]
+[ Acct-Session-Id ]
+[ Acct-Multi-Session-Id ]
+[ Acct-Interim-Interval ]
+[ Accounting-Realtime-Required ]
+[ Origin-State-Id ]
+[ Event-Timestamp ]
+* [ Proxy-Info ]
+* [ Route-Record ]
+* [ AVP ]

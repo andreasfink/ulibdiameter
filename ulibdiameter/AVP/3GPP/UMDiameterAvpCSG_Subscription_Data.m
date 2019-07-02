@@ -2,7 +2,7 @@
 //  UMDiameterAvpCSG_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -37,33 +37,33 @@
     [super beforeEncode];
 
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_csg_id)
+    if(_var_csg_id)
     {
-        [arr addObject:_csg_id]
+        [arr addObject:_var_csg_id];
     }
-    if(_expiration_date)
+    if(_var_expiration_date)
     {
-        [arr addObject:_expiration_date]
+        [arr addObject:_var_expiration_date];
     }
-    if(_service_selection.count > 0)
+    if(_var_service_selection.count > 0)
     {
-        for(UMDiameterAvpService_Selection *o in _service_selection)
+        for(UMDiameterAvpService_Selection *o in _var_service_selection)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    if(_visited_plmn_id)
+    if(_var_visited_plmn_id)
     {
-        [arr addObject:_visited_plmn_id]
+        [arr addObject:_var_visited_plmn_id];
     }
-    if(_avp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _avp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
-            [arr addObject:o]
+            [arr addObject:o];
         }
     }
-    [self setAvps:arr];
+    [self setArray:arr];
 }
 
 
@@ -74,38 +74,38 @@
     NSArray        *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
 
-    for(UMDiameterAVP *avp in avps)
+    for(UMDiameterAvp *avp in avps)
     {
         if(avp.avpCode == [UMDiameterAvpCSG_Id  avpCode])
         {
             avp = [[UMDiameterAvpCSG_Id alloc]initWithAvp:avp];
-            _csg_id = avp;
+            _var_csg_id = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpExpiration_Date avpCode])
         {
             avp = [[UMDiameterAvpExpiration_Date alloc]initWithAvp:avp];
-            _expiration_date = avp;
+            _var_expiration_date = avp;
             [knownAVPs addObject:avp];
         }
         else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
         {
             avp = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            _service_selection = avp;
+            _var_service_selection = avp;
             [knownAVPs addObject:avp];
-            if(_service_selection == NULL)
+            if(_var_service_selection == NULL)
             {
-                _service_selection = @[avp];
+                _var_service_selection = @[avp];
             }
             else
             {
-                _service_selection = [_service_selection arrayByAddingObject:avp]
+                _var_service_selection = [_var_service_selection arrayByAddingObject:avp]
             }
         }
         else if(avp.avpCode == [UMDiameterAvpVisited_PLMN_Id avpCode])
         {
             avp = [[UMDiameterAvpVisited_PLMN_Id alloc]initWithAvp:avp];
-            _visited_plmn_id = avp;
+            _var_visited_plmn_id = avp;
             [knownAVPs addObject:avp];
         }
         else
@@ -117,8 +117,8 @@
              [unknownAVPs addObject:avp];
         }
     }
-    _avp = unknownAVPs;
-    [knownAVPs addObject:[_avp copy]];
+    _var_avp = unknownAVPs;
+    [knownAVPs addObject:[_var_avp copy]];
     [self setArray:knownAVPs];
 }
 

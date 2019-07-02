@@ -2,7 +2,7 @@
 //  UMDiameterAvpExperimental_Result.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @interface UMDiameterAvpExperimental_Result : UMDiameterAvpGrouped
 {
-	UMDiameterAvpVendor_Id	*_vendor_id;
-	UMDiameterAvpExperimental_Result_Code	*_experimental_result_code;
+	UMDiameterAvpVendor_Id	*_var_vendor_id;
+	UMDiameterAvpExperimental_Result_Code	*_var_experimental_result_code;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpVendor_Id	*vendor_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpExperimental_Result_Code	*experimental_result_code;
+@property(readwrite,strong,atomic)	UMDiameterAvpVendor_Id	*var_vendor_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpExperimental_Result_Code	*var_experimental_result_code;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

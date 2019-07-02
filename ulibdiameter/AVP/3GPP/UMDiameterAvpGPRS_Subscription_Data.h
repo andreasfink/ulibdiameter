@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:42.559000
+//  Created by afink on 2019-07-02 11:13:54.490000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpGPRS_Subscription_Data : UMDiameterAvpGrouped
 {
-	UMDiameterAvpComplete_Data_List_Included_Indicator	*_complete_data_list_included_indicator;
-	NSArray<UMDiameterAvpPDP_Context *>	*_pdp_context;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpComplete_Data_List_Included_Indicator	*_var_complete_data_list_included_indicator;
+	NSArray<UMDiameterAvpPDP_Context *>	*_var_pdp_context;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpComplete_Data_List_Included_Indicator	*complete_data_list_included_indicator;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpPDP_Context *>	*pdp_context;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpComplete_Data_List_Included_Indicator	*var_complete_data_list_included_indicator;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpPDP_Context *>	*var_pdp_context;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;

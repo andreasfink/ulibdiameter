@@ -352,7 +352,7 @@
             [s appendString:@"    {\n"];
             [s appendFormat:@"        for(%@%@ *o in %@)\n",avpPrefix,avp.objectName,avp.variableName];
             [s appendString:@"        {\n"];
-            [s appendString:@"            [arr addObject:o]\n"];
+            [s appendString:@"            [arr addObject:o];\n"];
             [s appendString:@"        }\n"];
             [s appendString:@"    }\n"];
         }
@@ -360,11 +360,11 @@
         {
             [s appendFormat:@"    if(%@)\n",avp.variableName];
             [s appendString:@"    {\n"];
-            [s appendFormat:@"        [arr addObject:%@]\n",avp.variableName];
+            [s appendFormat:@"        [arr addObject:%@];\n",avp.variableName];
             [s appendString:@"    }\n"];
         }
     }
-    [s appendString:@"    [self setAvps:arr];\n"];
+    [s appendString:@"    [self setArray:arr];\n"];
     [s appendString:@"}\n"];
     [s appendString:@"\n"];
     [s appendString:@"\n"];
@@ -376,7 +376,7 @@
     [s appendString:@"    NSArray        *knownAVPs  = [[NSMutableArray alloc]init];\n"];
     [s appendString:@"    NSMutableArray *unknownAVPs;\n"];
     [s appendString:@"\n"];
-    [s appendString:@"    for(UMDiameterAVP *avp in avps)\n"];
+    [s appendString:@"    for(UMDiameterAvp *avp in avps)\n"];
     [s appendString:@"    {\n"];
 
     BOOL first=YES;

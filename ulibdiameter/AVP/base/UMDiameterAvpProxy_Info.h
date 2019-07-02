@@ -2,7 +2,7 @@
 //  UMDiameterAvpProxy_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-01 15:55:36.720000
+//  Created by afink on 2019-07-02 11:14:01.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,14 +15,14 @@
 
 @interface UMDiameterAvpProxy_Info : UMDiameterAvpGrouped
 {
-	UMDiameterAvpProxy_Host	*_proxy_host;
-	UMDiameterAvpProxy_State	*_proxy_state;
-	NSArray<UMDiameterAvpAVP *>	*_avp;
+	UMDiameterAvpProxy_Host	*_var_proxy_host;
+	UMDiameterAvpProxy_State	*_var_proxy_state;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpProxy_Host	*proxy_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpProxy_State	*proxy_state;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpProxy_Host	*var_proxy_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpProxy_State	*var_proxy_state;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 - (NSString *)avpType;
 - (uint32_t)avpCode;
