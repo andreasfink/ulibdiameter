@@ -266,4 +266,4 @@
 4324	Active-Time	-	Time	V
 654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
 3124	SCEF-Reference-ID	-	Unsigned32	M,V
-
+3140	Reachability-Information	-	Unsigned32	M,V
