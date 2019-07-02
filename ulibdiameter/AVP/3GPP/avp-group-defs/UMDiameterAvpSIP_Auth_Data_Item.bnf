@@ -1,4 +1,4 @@
-SIP-Auth-Data-Item :: = < AVP Header : 612 10415 >
+SIP-Auth-Data-Item ::= < AVP Header : 612 10415 >
 [ SIP-Item-Number ]
 [ SIP-Authentication-Scheme ] [ SIP-Authenticate ]
 [ SIP-Authorization ]

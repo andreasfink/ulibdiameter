@@ -1,4 +1,4 @@
-Charging-Information :: = < AVP Header : 618 10415 >
+Charging-Information ::= < AVP Header : 618 10415 >
 [ Primary-Event-Charging-Function-Name ]
 [ Secondary-Event-Charging-Function-Name ]
 [ Primary-Charging-Collection-Function-Name ]

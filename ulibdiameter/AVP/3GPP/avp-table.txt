@@ -35,7 +35,7 @@
 1434	Alert-Reason	7.3.83	Enumerated	M,V
 1435	AMBR	7.3.1	Grouped	M,V
 1436	CSG-Subscription-Data	7.3.8	Grouped	M.V
-1437	CSG-Id	7.3.9	Unsigned32	M,V
+1437	CSG-ID	7.3.9	Unsigned32	M,V
 1438	PDN-GW-Allocation-Type	7.3.4	Enumerated	M,V
 1439	Expiration-Date	7.3.80	Time	M,V
 1440	RAT-Frequency-Selection-Priority-ID	7.3.6	Unsigned32	M,V
@@ -241,7 +241,7 @@
 2319	User-CSG-Information	7.2.240	Grouped	M,V
 2318	CSG-Membership-Indication	x	Enumerated	M,V
 1032	RAT-Type	x	Enumerated	V
-2317	CSG-Access-Mode	Enumerated	M,V
+2317	CSG-Access-Mode	-	Enumerated	M,V
 515	Max-Requested-Bandwidth-DL	5.3.14	Unsigned32	M,V
 516	Max-Requested-Bandwidth-UL	5.3.15	Unsigned32	M,V
 543	Max-Supported-Bandwidth-DL	5.3.41	Unsigned32	V
@@ -250,9 +250,17 @@
 2405	GMLC-Address	6.4.7	Address	M,V
 3143	Supported-Services	-	Grouped	M,V
 3329	Maximum-UE-Availability-Time	-	Time	M,V
-3142	Monitoring_Event_Config_Status	-	Grouped	V
+3142	Monitoring-Event-Config_Status	-	Grouped	V
 3125	SCEF-ID	-	DiameterIdentity	M,V
 1538	Emergency-Services	-	Unsigned32	V
 3123	Monitoring-Event-Report	-	Grouped	M,V
 1227	PDP-Address	-	Address	M,V
+3144	Supported-Monitoring-Events	-	Unsigned64	M,V
+701	MSISDN	.	OctetString	M,V
+13	3GPP-Charging-Characteristics	-	UTF8String	V
+3701	ProSe-Subscription-Data	-	Grouped	V
+3702	ProSe-Permission	-	Unsigned32	M,V
+3113	AESE-Communication-Pattern	-	Grouped	M,V
+3122	Monitoring-Event-Configuration	-	Grouped	M,V
+
 

@@ -1,30 +1,30 @@
 //
-//  UMDiameterAvpCSG_Id.m
+//  UMDiameterAvpSupported_Monitoring_Events.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 17:34:59.588000
+//  Created by afink on 2019-07-02 22:48:02.389000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpCSG_Id.h"
+#import "UMDiameterAvpSupported_Monitoring_Events.h"
 
-@implementation UMDiameterAvpCSG_Id
+@implementation UMDiameterAvpSupported_Monitoring_Events
 
 
 - (NSString *)avpType
 {
-    return @"CSG-Id";
+    return @"Supported-Monitoring-Events";
 }
 
 - (uint32_t)avpCode
 {
-    return 1437;
+    return 3144;
 }
 
 + (uint32_t)avpCode
 {
-    return 1437;
+    return 3144;
 }
 
 - (void)genericInitialisation

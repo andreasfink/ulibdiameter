@@ -352,16 +352,17 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
-            UMDiameterAvpHost_Ip_Address *avp =  [[UMDiameterAvpHost_Ip_Address alloc]init];
+            UMDiameterAvpHost_IP_Address *avp =  [[UMDiameterAvpHost_IP_Address alloc]init];
             [avp setFlagMandatory:YES];
-            [avp setHostIPAddress:addr];
+ /* FIXME */
+            //[avp setHostIPAddress:addr];
             [packet appendAvp:avp];
         }
     }
     // { Vendor-Id }
     if(1)
     {
-        UMDiameterAvpVendorId *avp = [[UMDiameterAvpVendorId alloc]init];
+        UMDiameterAvpVendor_Id *avp = [[UMDiameterAvpVendor_Id alloc]init];
         [avp setFlagMandatory:YES];
         [avp setNumber:@(_router.vendorId)];
         [packet appendAvp:avp];
@@ -369,7 +370,7 @@
     // { Product-Name }
     if(1)
     {
-        UMDiameterAvpProductName *avp = [[UMDiameterAvpProductName alloc]init];
+        UMDiameterAvpProduct_Name *avp = [[UMDiameterAvpProduct_Name alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.productName  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -378,7 +379,7 @@
     // [ Origin-State-Id ]
     if(_originStateId)
     {
-        UMDiameterAvpOriginStateId *avp =  [[UMDiameterAvpOriginStateId alloc]init];
+        UMDiameterAvpOrigin_State_Id *avp =  [[UMDiameterAvpOrigin_State_Id alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumber:_originStateId];
         [packet appendAvp:avp];
@@ -390,7 +391,7 @@
         NSArray *a = _router.supportedVendorIds;
         for(NSNumber *n in a)
         {
-            UMDiameterAvpSupportedVendorId *avp =  [[UMDiameterAvpSupportedVendorId alloc]init];
+            UMDiameterAvpSupported_Vendor_Id *avp =  [[UMDiameterAvpSupported_Vendor_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumber:n];
             [packet appendAvp:avp];
@@ -402,20 +403,20 @@
         NSArray *a = _router.authApplicationIds;
         for(NSNumber *n in a)
         {
-            UMDiameterAvpAuthApplicationId *avp =  [[UMDiameterAvpAuthApplicationId alloc]init];
+            UMDiameterAvpAuth_Application_Id *avp =  [[UMDiameterAvpAuth_Application_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumber:n];
             [packet appendAvp:avp];
         }
     }
 
-    // * [ Inband-Security-Id ]
+    /* [ Inband-Security-Id ] */
     if([_router.inbandSecurityIds count] > 0)
     {
         NSArray *a = _router.inbandSecurityIds;
         for(NSNumber *n in a)
         {
-            UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
+            UMDiameterAvpInband_Security_Id *avp =  [[UMDiameterAvpInband_Security_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumber:n]; /* NO_INBAND_SECURITY */
             [packet appendAvp:avp];
@@ -428,15 +429,15 @@
         NSNumber *vendor = vid[@"vendor"];
         NSNumber *application = vid[@"application"];
 
-       UMDiameterAvpVendor_Specific_Application_Id *avp = [[UMDiameterAvpVendorSpecificApplicationId alloc]init];
+        UMDiameterAvpVendor_Specific_Application_Id *avp = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
 
         NSMutableArray *entries = [[NSMutableArray alloc]init];
 
-        UMDiameterAvpVendorId *avp_vendor = [[UMDiameterAvpVendorId alloc]init];
+        UMDiameterAvpVendor_Id *avp_vendor = [[UMDiameterAvpVendor_Id alloc]init];
         avp_vendor.number = vendor;
         [entries addObject:avp_vendor];
 
-        UMDiameterAvpAuthApplicationId *avp_app = [[UMDiameterAvpAuthApplicationId alloc]init];
+        UMDiameterAvpAuth_Application_Id *avp_app = [[UMDiameterAvpAuth_Application_Id alloc]init];
         avp_app.number = application;
         [entries addObject:avp_app];
 
@@ -448,7 +449,7 @@
     // [ Firmware-Revision ]
     if(_router.firmwareRevision)
     {
-        UMDiameterAvpFirmwareRevision *avp =  [[UMDiameterAvpFirmwareRevision alloc]init];
+        UMDiameterAvpFirmware_Revision *avp =  [[UMDiameterAvpFirmware_Revision alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumber:_router.firmwareRevision];
         [packet appendAvp:avp];
@@ -506,7 +507,7 @@
     // { Origin-Host }
     if(1)
     {
-        UMDiameterAvpOriginHost *avp = [[UMDiameterAvpOriginHost alloc]init];
+        UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData = [_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -514,7 +515,7 @@
     // { Origin-Realm }
     if(1)
     {
-        UMDiameterAvpOriginRealm *avp = [[UMDiameterAvpOriginRealm alloc]init];
+        UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -524,7 +525,7 @@
     //     [ Error-Message ]
     if(errorMessage.length > 0)
     {
-        UMDiameterAvpErrorMessage *avp =  [[UMDiameterAvpErrorMessage alloc]init];
+        UMDiameterAvpError_Message *avp =  [[UMDiameterAvpError_Message alloc]init];
         [avp setFlagMandatory:NO];
         [avp setValue:errorMessage];
         [packet appendAvp:avp];
@@ -532,7 +533,7 @@
     // [ Failed-AVP ]
     if(failedAvp)
     {
-        UMDiameterAvpFailedAvp *avp =  [[UMDiameterAvpFailedAvp alloc]init];
+        UMDiameterAvpFailed_AVP *avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [avp setFlagMandatory:NO];
         [avp setArray:failedAvp];
         [packet appendAvp:avp];
@@ -595,7 +596,7 @@
     // { Origin-Host }
     if(1)
     {
-        UMDiameterAvpOriginHost *avp = [[UMDiameterAvpOriginHost alloc]init];
+        UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData = [_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -603,7 +604,7 @@
     // { Origin-Realm }
     if(1)
     {
-        UMDiameterAvpOriginRealm *avp = [[UMDiameterAvpOriginRealm alloc]init];
+        UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -612,7 +613,7 @@
     // { Result-Code }
     if(1)
     {
-        UMDiameterAvpResultCode *avp = [[UMDiameterAvpResultCode alloc]init];
+        UMDiameterAvpResult_Code *avp = [[UMDiameterAvpResult_Code alloc]init];
         [avp setFlagMandatory:YES];
         [avp setNumber:@(resultCode)];
         [packet appendAvp:avp];
@@ -629,9 +630,9 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
-            UMDiameterAvpHostIpAddress *avp =  [[UMDiameterAvpHostIpAddress alloc]init];
+            UMDiameterAvpHost_IP_Address *avp =  [[UMDiameterAvpHost_IP_Address alloc]init];
             [avp setFlagMandatory:YES];
-            [avp setHostIPAddress:addr];
+    //        [avp setHostIPAddress:addr]
             [packet appendAvp:avp];
         }
     }
@@ -639,7 +640,7 @@
     // { Vendor-Id }
     if(1)
     {
-        UMDiameterAvpVendorId *avp = [[UMDiameterAvpVendorId alloc]init];
+        UMDiameterAvpVendor_Id *avp = [[UMDiameterAvpVendor_Id alloc]init];
         [avp setFlagMandatory:YES];
         [avp setNumber:@(_router.vendorId)];
         [packet appendAvp:avp];
@@ -647,7 +648,7 @@
     // { Product-Name }
     if(1)
     {
-        UMDiameterAvpProductName *avp = [[UMDiameterAvpProductName alloc]init];
+        UMDiameterAvpProduct_Name *avp = [[UMDiameterAvpProduct_Name alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.productName  dataUsingEncoding:NSUTF8StringEncoding];
         [packet appendAvp:avp];
@@ -656,7 +657,7 @@
     // [ Origin-State-Id ]
     if(_originStateId)
     {
-        UMDiameterAvpOriginStateId *avp =  [[UMDiameterAvpOriginStateId alloc]init];
+        UMDiameterAvpOrigin_State_Id *avp =  [[UMDiameterAvpOrigin_State_Id alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumber:_originStateId];
         [packet appendAvp:avp];
@@ -665,7 +666,7 @@
     //     [ Error-Message ]
     if(errorMessage.length > 0)
     {
-        UMDiameterAvpErrorMessage *avp =  [[UMDiameterAvpErrorMessage alloc]init];
+        UMDiameterAvpError_Message *avp =  [[UMDiameterAvpError_Message alloc]init];
         [avp setFlagMandatory:NO];
         [avp setValue:errorMessage];
         [packet appendAvp:avp];
@@ -674,7 +675,7 @@
     // [ Failed-AVP ]
     if(failedAvp)
     {
-        UMDiameterAvpFailedAvp *avp =  [[UMDiameterAvpFailedAvp alloc]init];
+        UMDiameterAvpFailed_AVP *avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [avp setFlagMandatory:NO];
         [avp setArray:failedAvp];
         [packet appendAvp:avp];
@@ -685,7 +686,7 @@
         NSArray *a = [_router supportedVendorIds];
         for(NSNumber *n in a)
         {
-            UMDiameterAvpSupportedVendorId *avp =  [[UMDiameterAvpSupportedVendorId alloc]init];
+            UMDiameterAvpSupported_Vendor_Id *avp =  [[UMDiameterAvpSupported_Vendor_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumber:n];
             [packet appendAvp:avp];
@@ -697,7 +698,7 @@
         NSArray *a = _router.inbandSecurityIds;
         for(NSNumber *n in a)
         {
-            UMDiameterAvpInbandSecurityId *avp =  [[UMDiameterAvpInbandSecurityId alloc]init];
+            UMDiameterAvpInband_Security_Id *avp =  [[UMDiameterAvpInband_Security_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumber:n]; /* NO_INBAND_SECURITY */
             [packet appendAvp:avp];
@@ -706,7 +707,7 @@
     // [ Firmware-Revision ]
     if(_router.firmwareRevision)
     {
-        UMDiameterAvpFirmwareRevision *avp =  [[UMDiameterAvpFirmwareRevision alloc]init];
+        UMDiameterAvpFirmware_Revision *avp =  [[UMDiameterAvpFirmware_Revision alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumber:_router.firmwareRevision];
         [packet appendAvp:avp];
@@ -722,11 +723,11 @@
 
         NSMutableArray *entries = [[NSMutableArray alloc]init];
 
-        UMDiameterAvpVendorId *avp_vendor = [[UMDiameterAvpVendorId alloc]init];
+        UMDiameterAvpVendor_Id *avp_vendor = [[UMDiameterAvpVendor_Id alloc]init];
         avp_vendor.number = vendor;
         [entries addObject:avp_vendor];
 
-        UMDiameterAvpAuthApplicationId *avp_app = [[UMDiameterAvpAuthApplicationId alloc]init];
+        UMDiameterAvpAuth_Application_Id *avp_app = [[UMDiameterAvpAuth_Application_Id alloc]init];
         avp_app.number = application;
         [entries addObject:avp_app];
 
@@ -739,7 +740,7 @@
         NSArray *a = _router.authApplicationIds;
         for(NSNumber *n in a)
         {
-            UMDiameterAvpAuthApplicationId *avp =  [[UMDiameterAvpAuthApplicationId alloc]init];
+            UMDiameterAvpAuth_Application_Id *avp =  [[UMDiameterAvpAuth_Application_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumber:n];
             [packet appendAvp:avp];

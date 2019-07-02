@@ -103,8 +103,9 @@
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                    code:1
-                                userInfo:@{@"reason":@" ::== is no separating two parts in the first line" ,
-                                           @"line":s }];
+                                userInfo:@{@"reason":
+                                               [NSString stringWithFormat:
+                                                @" ::= is no separating two parts in the first line\nline=%@",s] }];
         return NO;
     }
     NSString *commandName = [a[0] trim];
@@ -112,7 +113,7 @@
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:2
-                                userInfo:@{@"reason":@"command name is shorter than 2 characters" }];
+                                userInfo:@{@"reason":[NSString stringWithFormat:@"command name is shorter than 2 characters\nline=%@",s"]}];
         return NO;
     }
     
@@ -153,7 +154,7 @@
        ([header characterAtIndex:([header length] - 1)] != '>'))
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:5
+                                    code:4
                                 userInfo:@{@"reason" : @"no < or > in header" }];
         return NO;
     }
@@ -164,7 +165,7 @@
     if(b.count !=2)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:6
+                                    code:5
                                 userInfo:@{@"reason" : @"header does not have two components before and after : " }];
         return NO;
     }
@@ -174,7 +175,7 @@
         ([s1 isEqualToString:@"Diameter-Header"])))   /* this is used in the BNF definition */
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:7
+                                    code:6
                                 userInfo:@{@"reason" : @"no keyword Diameter-Header or Diameter-Header found" }];
         return NO;
     }

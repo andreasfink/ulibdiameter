@@ -411,7 +411,6 @@
 - (void)parseJsonString:(NSString *)s error:(NSError **)eptr
 {
     UMJsonParser *parser = [[UMJsonParser alloc]init];
-    NSError *e = NULL;
     NSDictionary *result = [parser objectWithString:s error:&eptr];
     [self parseDict:result error:eptr];
 }

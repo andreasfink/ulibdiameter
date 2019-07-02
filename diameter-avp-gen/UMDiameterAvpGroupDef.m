@@ -103,15 +103,17 @@
     if(a.count !=2)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                   code:1
-                               userInfo:@{@"reason":@" ::== is no separating two parts in the first line" }];
+                                   code:101
+                                userInfo:@{@"reason":
+                                               [NSString stringWithFormat:
+                                                @" ::= is no separating two parts in the first line\nline=%@",s]}];
         return NO;
     }
     NSString *avpGroupName = [a[0] trim];
     if(avpGroupName.length <2)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:2
+                                    code:102
                                 userInfo:@{@"reason":@"avpGroupName name is shorter than 2 characters" }];
         return NO;
     }
@@ -140,7 +142,7 @@
        ([header characterAtIndex:([header length] - 1)] != '>'))
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:5
+                                    code:103
                                 userInfo:@{@"reason" : @"no < or > in header" }];
         return NO;
     }
@@ -151,7 +153,7 @@
     if(b.count !=2)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:6
+                                    code:104
                                 userInfo:@{@"reason" : @"header does not have two components before and after : " }];
         return NO;
     }
@@ -163,7 +165,7 @@
 
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:7
+                                    code:105
                                 userInfo:@{@"reason" : @"no keyword AVP Header or AVP-Header found" }];
         return NO;
     }
@@ -173,7 +175,7 @@
     if(c.count<1)
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
-                                    code:7
+                                    code:106
                                 userInfo:@{@"reason" : @"list of items after AVP-Header separated by whitespace is 0" }];
         return NO;
     }

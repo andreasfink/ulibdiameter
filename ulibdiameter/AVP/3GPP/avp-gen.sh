@@ -6,4 +6,4 @@ diameter-avp-gen \
 	--write-avp-headers \
 	--write-avp-methods \
 	--overwrite \
-	--directory .  -v
+	--directory .  

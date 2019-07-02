@@ -1,8 +1,8 @@
 //
-//  UMDiameterAvpCSG_Id.h
+//  UMDiameterAvpProSe_Permission.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 17:34:59.588000
+//  Created by afink on 2019-07-02 22:48:02.389000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 
 
-@interface UMDiameterAvpCSG_Id : UMDiameterAvpUnsigned32
+@interface UMDiameterAvpProSe_Permission : UMDiameterAvpUnsigned32
 {
 }
 
