@@ -117,6 +117,7 @@
 		A651AB9322CA290C00F2A479 /* UMDiameterAvpAcct_Application_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = A651AB6B22CA290C00F2A479 /* UMDiameterAvpAcct_Application_Id.m */; };
 		A651AB9622CA396A00F2A479 /* UMDiameterAvpDRMP.m in Sources */ = {isa = PBXBuildFile; fileRef = A651AB9422CA396900F2A479 /* UMDiameterAvpDRMP.m */; };
 		A651AB9722CA396A00F2A479 /* UMDiameterAvpDRMP.h in Headers */ = {isa = PBXBuildFile; fileRef = A651AB9522CA396900F2A479 /* UMDiameterAvpDRMP.h */; };
+		A651AB9922CA48E300F2A479 /* notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = A651AB9822CA48E300F2A479 /* notes.txt */; };
 		A656154822C953B20087B5BE /* UMDiameterAvpLIPA_Permission.m in Sources */ = {isa = PBXBuildFile; fileRef = A65613D622C9536B0087B5BE /* UMDiameterAvpLIPA_Permission.m */; };
 		A656154922C953B20087B5BE /* UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = A65613D722C9536B0087B5BE /* UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.m */; };
 		A656154A22C953B20087B5BE /* UMDiameterAvpTrace_Interface_List.m in Sources */ = {isa = PBXBuildFile; fileRef = A65613D822C9536B0087B5BE /* UMDiameterAvpTrace_Interface_List.m */; };
@@ -824,6 +825,7 @@
 		A651AB6B22CA290C00F2A479 /* UMDiameterAvpAcct_Application_Id.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAcct_Application_Id.m; sourceTree = "<group>"; };
 		A651AB9422CA396900F2A479 /* UMDiameterAvpDRMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMDiameterAvpDRMP.m; path = ulibdiameter/AVP/base/UMDiameterAvpDRMP.m; sourceTree = SOURCE_ROOT; };
 		A651AB9522CA396900F2A479 /* UMDiameterAvpDRMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMDiameterAvpDRMP.h; path = ulibdiameter/AVP/base/UMDiameterAvpDRMP.h; sourceTree = SOURCE_ROOT; };
+		A651AB9822CA48E300F2A479 /* notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
 		A65613D622C9536B0087B5BE /* UMDiameterAvpLIPA_Permission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpLIPA_Permission.m; sourceTree = "<group>"; };
 		A65613D722C9536B0087B5BE /* UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.m; sourceTree = "<group>"; };
 		A65613D822C9536B0087B5BE /* UMDiameterAvpTrace_Interface_List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpTrace_Interface_List.m; sourceTree = "<group>"; };
@@ -2022,6 +2024,7 @@
 				A63B0393228A8A5F00D0AE8B /* UMDiameterTcpListener.m */,
 				A6260C3C228AA56C00C94036 /* UMDiameterTcpConnection.h */,
 				A6260C3D228AA56C00C94036 /* UMDiameterTcpConnection.m */,
+				A651AB9822CA48E300F2A479 /* notes.txt */,
 			);
 			path = ulibdiameter;
 			sourceTree = "<group>";
@@ -2625,6 +2628,7 @@
 				A61E1AE522C8CFB900025026 /* UMDiameterPacketUpdate_Location_Request.bnf in Resources */,
 				A651AB2922CA288000F2A479 /* avp-table.txt in Resources */,
 				A61E1AE922C8CFB900025026 /* UMDiameterPacketUpdate_Location_Answer.bnf in Resources */,
+				A651AB9922CA48E300F2A479 /* notes.txt in Resources */,
 				A61E1AE622C8CFB900025026 /* generate-commands.sh in Resources */,
 				A651AB2D22CA288000F2A479 /* UMDiameterAvpExperimental_Result.bnf in Resources */,
 				A651AB3F22CA288000F2A479 /* avp-gen.sh in Resources */,

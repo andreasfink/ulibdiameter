@@ -1,0 +1,12 @@
+
+manual checks:
+
+what is xxx ? defined in 3GPP TS 29.344
+
+ProSe-Subscription-Data ::= <AVP header: xxx 10415>
+{ ProSe-Permission } *[AVP]
+
+
+Supported-Services::= <AVP header: zzzz 10415>
+[ Supported-Monitoring-Events ]
+*[AVP]
