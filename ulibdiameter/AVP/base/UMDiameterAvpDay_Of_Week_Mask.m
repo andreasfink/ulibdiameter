@@ -2,7 +2,7 @@
 //  UMDiameterAvpDay_Of_Week_Mask.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 13:49:36.549000
+//  Created by afink on 2019-07-03 14:58:07.234000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

@@ -25,7 +25,10 @@
 - (void)genericInitialisation;
 - (UMDiameterAvp *)init;
 - (UMDiameterAvp *)initWithData:(NSData *)data;
-- (UMDiameterAvp *)initWithData:(NSData *)data avpCode:(uint32_t)avpCode;
+- (UMDiameterAvp *)initWithData:(NSData *)data
+                        avpCode:(uint32_t)avpCode
+                      avpVendor:(uint32_t)avpVendor;
+
 - (UMDiameterAvp *)initWithAvp:(UMDiameterAvp *)avp;
 - (UMDiameterAvp *)initWithJsonString:(NSString *)json;
 - (void)parseJsonString:(NSString *)string error:(NSError **)err;

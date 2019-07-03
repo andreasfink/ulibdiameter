@@ -58,7 +58,6 @@
 124	MIP6-Feature-Vector	RFC5447	Unsigned64	M	0
 341	MIP-MN-AAA-SPI	RFC4004	Unsigned32	M	0
 491	MIP-MN-HA-SPI	6.4	Unsigned32	M	0
-333	MIP-Mobile-Node-Address	RFC4004	Address	M	0
 487	MIP-Careof-Address	6.7	Address	M	0
 488	MIP-Authenticator	6.8	OctetString	M	0
 489	MIP-MAC-Mobility-Data	6.9	OctetString	M	0

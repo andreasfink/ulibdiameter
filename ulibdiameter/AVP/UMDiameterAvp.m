@@ -66,23 +66,42 @@
 
 - (UMDiameterAvp *)initWithData:(NSData *)data
                         avpCode:(uint32_t)avpCode
+                      avpVendor:(uint32_t)avpVendor
 {
-	switch(avpCode)
-	{
-#define AVP_OBJECT(objectName,objectType,objectCode,standardString,mandatoryFlag,vendorFlag,vendorId,isGroup) \
-        case objectCode:  \
-            return [[objectName alloc]initWithData:data]; \
+
+#define AVP_OBJECT(objectName,objectType,objectCode,standardString,standardType,mandatoryFlag,vendorFlag,vendorId,isGroup) \
+case objectCode:  \
+return [[objectName alloc]initWithData:data]; \
+break;
+
+    switch(avpVendor)
+    {
+        case 10415: /* 3GPP */
+        {
+            switch(avpCode)
+            {
+#import "3GPP/UMDiameterAvp_3GPP_object_list.inc"
+            }
             break;
+        }
+        case 0: /* base */
+        {
+            switch(avpCode)
+            {
+#import "base/UMDiameterAvp_base_object_list.inc"
+#import "rfc7683/UMDiameterAvp_rfc7683_object_list.inc"
+#import "draft-ietf-dime-load/UMDiameterAvp_draft_ietf_dime_load_object_list.inc"
+            }
+            break;
+        }
 
-#import "UMDiameterAvp_3GPP_object_list.inc"
-#import "UMDiameterAvp_base_object_list.inc"
-#import "UMDiameterAvp_rfc7683_object_list.inc"
-#import "UMDiameterAvp_draft_ietf_dime_load_object_list.inc"
-
-#undef AVP_OBJECT
 	}
 	return [self initWithData:data];
+
+#undef AVP_OBJECT
+
 }
+
 
 - (UMDiameterAvp *)initWithData:(NSData *)data
 {

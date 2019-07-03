@@ -115,8 +115,10 @@
 											 userInfo:NULL]);
             }
             NSData *avpdata = [NSData dataWithBytes:&packet.bytes[pos] length:avplen];
-
-			UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata avpCode:avpCode];
+/*FIXME. read out vendor here */
+            int avpVendor = 0;
+            
+            UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata avpCode:avpCode avpVendor:avpVendor];
             if(avp)
             {
                 [_packet_avps addObject:avp];

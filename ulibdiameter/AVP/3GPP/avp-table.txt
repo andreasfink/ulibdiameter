@@ -171,7 +171,7 @@
 1680	UE-Usage-Type	7.3.2	Unsigned32	V
 1681	Non-IP-PDN-Type-Indicator	7.3.4	Enumerated	V
 1682	Non-IP-Data-Delivery-Mechanism	7.3.5	Unsigned32	V
-1683	Additional-Context-ID	7.3.6	Unsigned32	V
+1683	Additional-Context-Identifier	-	Unsigned32	V
 1684	SCEF-Realm	7.3.207	DiameterIdentity	V
 1685	Subscription-Data-Deletion	7.3.8	Grouped	V
 1686	Preferred-Data-Mode	7.3.9	Unsigned32	V
@@ -271,9 +271,8 @@
 3127	Monitoring-Type	-	Unsigned32	M,V
 3146	Service-Result	-	Grouped	M,V
 3153	Node-Type	-	Unsigned32	M,V
-3153	Service-Result-Code	-	Unsigned32	M,V
+3147	Service-Result-Code	-	Unsigned32	M,V
 3162	Loss-Of-Connectivity-Reason	-	Unsigned32	M,V
-1600	MME-Location-Information	-	Grouped	V
 4008	eNodeB-ID	-	OctetString	V
 4013	Extended-eNodeB-ID	-	OctetString	V
 3126	SCEF-Reference-ID-for-Deletion	-	Unsigned32	V
@@ -290,7 +289,7 @@
 555	Extended-Max-Requested-BW-UL	-	Unsigned32	V
 554	Extended-Max-Requested-BW-DL	-	Unsigned32	V
 1048	Pre-emption-Vulnerability	-	Enumerated	V
-1683	Additional-Context-Identifier	-	Unsigned32	V
+
 3128	Maximum-Number-of-Reports	-	Unsigned32	M,V
 3130	Monitoring-Duration	-	Time	M,V
 857	Charged-Party	-	UTF8String	M,V
