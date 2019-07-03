@@ -38,7 +38,7 @@
 #import "UMDiameterAvpAlert_Reason.h"
 #import "UMDiameterAvpAMBR.h"
 #import "UMDiameterAvpCSG_Subscription_Data.h"
-#import "UMDiameterAvpCSG_Id.h"
+#import "UMDiameterAvpCSG_ID.h"
 #import "UMDiameterAvpPDN_GW_Allocation_Type.h"
 #import "UMDiameterAvpExpiration_Date.h"
 #import "UMDiameterAvpRAT_Frequency_Selection_Priority_ID.h"

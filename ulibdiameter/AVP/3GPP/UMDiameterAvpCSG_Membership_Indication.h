@@ -2,7 +2,7 @@
 //  UMDiameterAvpCSG_Membership_Indication.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 15:00:31.981000
+//  Created by afink on 2019-07-03 20:46:38.515000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

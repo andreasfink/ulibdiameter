@@ -533,7 +533,7 @@
 		A6AB19CD22CBE5C7007F880D /* UMDiameterAvpEPS_Location_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17C122CBE5A8007F880D /* UMDiameterAvpEPS_Location_Information.m */; };
 		A6AB19CE22CBE5C7007F880D /* UMDiameterAvpAdjacent_PLMNs.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB17C222CBE5A8007F880D /* UMDiameterAvpAdjacent_PLMNs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6AB19CF22CBE5C7007F880D /* UMDiameterAvp3GPP_Charging_Characteristics.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17C322CBE5A8007F880D /* UMDiameterAvp3GPP_Charging_Characteristics.m */; };
-		A6AB19D022CBE5C7007F880D /* UMDiameterAvpCSG_Id.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB17C422CBE5A8007F880D /* UMDiameterAvpCSG_Id.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6AB19D022CBE5C7007F880D /* UMDiameterAvpCSG_ID.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB17C422CBE5A8007F880D /* UMDiameterAvpCSG_ID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6AB19D122CBE5C7007F880D /* UMDiameterAvpReport_Interval.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB17C522CBE5A8007F880D /* UMDiameterAvpReport_Interval.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6AB19D222CBE5C7007F880D /* UMDiameterAvpLoose_Route_Indication.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17C622CBE5A8007F880D /* UMDiameterAvpLoose_Route_Indication.m */; };
 		A6AB19D322CBE5C7007F880D /* UMDiameterAvpComplete_Data_List_Included_Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17C722CBE5A9007F880D /* UMDiameterAvpComplete_Data_List_Included_Indicator.m */; };
@@ -551,7 +551,7 @@
 		A6AB19DF22CBE5C7007F880D /* UMDiameterAvpMDT_Allowed_PLMN_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D322CBE5AA007F880D /* UMDiameterAvpMDT_Allowed_PLMN_Id.m */; };
 		A6AB19E022CBE5C7007F880D /* UMDiameterAvpSIPTO_Local_Network_Permission.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D422CBE5AA007F880D /* UMDiameterAvpSIPTO_Local_Network_Permission.m */; };
 		A6AB19E122CBE5C7007F880D /* UMDiameterAvpUE_SRVCC_Capability.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D522CBE5AA007F880D /* UMDiameterAvpUE_SRVCC_Capability.m */; };
-		A6AB19E222CBE5C7007F880D /* UMDiameterAvpCSG_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D622CBE5AB007F880D /* UMDiameterAvpCSG_Id.m */; };
+		A6AB19E222CBE5C7007F880D /* UMDiameterAvpCSG_ID.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D622CBE5AB007F880D /* UMDiameterAvpCSG_ID.m */; };
 		A6AB19E322CBE5C7007F880D /* UMDiameterAvpPUA_Flags.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB17D722CBE5AB007F880D /* UMDiameterAvpPUA_Flags.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6AB19E422CBE5C7007F880D /* UMDiameterAvpGroup_PLMN_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D822CBE5AB007F880D /* UMDiameterAvpGroup_PLMN_Id.m */; };
 		A6AB19E522CBE5C7007F880D /* UMDiameterAvpMPS_Priority.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB17D922CBE5AB007F880D /* UMDiameterAvpMPS_Priority.m */; };
@@ -1622,7 +1622,7 @@
 		A6AB17C122CBE5A8007F880D /* UMDiameterAvpEPS_Location_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpEPS_Location_Information.m; sourceTree = "<group>"; };
 		A6AB17C222CBE5A8007F880D /* UMDiameterAvpAdjacent_PLMNs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAdjacent_PLMNs.h; sourceTree = "<group>"; };
 		A6AB17C322CBE5A8007F880D /* UMDiameterAvp3GPP_Charging_Characteristics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvp3GPP_Charging_Characteristics.m; sourceTree = "<group>"; };
-		A6AB17C422CBE5A8007F880D /* UMDiameterAvpCSG_Id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpCSG_Id.h; sourceTree = "<group>"; };
+		A6AB17C422CBE5A8007F880D /* UMDiameterAvpCSG_ID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpCSG_ID.h; sourceTree = "<group>"; };
 		A6AB17C522CBE5A8007F880D /* UMDiameterAvpReport_Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpReport_Interval.h; sourceTree = "<group>"; };
 		A6AB17C622CBE5A8007F880D /* UMDiameterAvpLoose_Route_Indication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpLoose_Route_Indication.m; sourceTree = "<group>"; };
 		A6AB17C722CBE5A9007F880D /* UMDiameterAvpComplete_Data_List_Included_Indicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpComplete_Data_List_Included_Indicator.m; sourceTree = "<group>"; };
@@ -1640,7 +1640,7 @@
 		A6AB17D322CBE5AA007F880D /* UMDiameterAvpMDT_Allowed_PLMN_Id.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpMDT_Allowed_PLMN_Id.m; sourceTree = "<group>"; };
 		A6AB17D422CBE5AA007F880D /* UMDiameterAvpSIPTO_Local_Network_Permission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpSIPTO_Local_Network_Permission.m; sourceTree = "<group>"; };
 		A6AB17D522CBE5AA007F880D /* UMDiameterAvpUE_SRVCC_Capability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpUE_SRVCC_Capability.m; sourceTree = "<group>"; };
-		A6AB17D622CBE5AB007F880D /* UMDiameterAvpCSG_Id.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpCSG_Id.m; sourceTree = "<group>"; };
+		A6AB17D622CBE5AB007F880D /* UMDiameterAvpCSG_ID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpCSG_ID.m; sourceTree = "<group>"; };
 		A6AB17D722CBE5AB007F880D /* UMDiameterAvpPUA_Flags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpPUA_Flags.h; sourceTree = "<group>"; };
 		A6AB17D822CBE5AB007F880D /* UMDiameterAvpGroup_PLMN_Id.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpGroup_PLMN_Id.m; sourceTree = "<group>"; };
 		A6AB17D922CBE5AB007F880D /* UMDiameterAvpMPS_Priority.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpMPS_Priority.m; sourceTree = "<group>"; };
@@ -2328,8 +2328,8 @@
 				A6AB187E22CBE5C3007F880D /* UMDiameterAvpCoupled_Node_Diameter_ID.m */,
 				A6AB182D22CBE5B7007F880D /* UMDiameterAvpCSG_Access_Mode.h */,
 				A6AB16D622CBE589007F880D /* UMDiameterAvpCSG_Access_Mode.m */,
-				A6AB17C422CBE5A8007F880D /* UMDiameterAvpCSG_Id.h */,
-				A6AB17D622CBE5AB007F880D /* UMDiameterAvpCSG_Id.m */,
+				A6AB17C422CBE5A8007F880D /* UMDiameterAvpCSG_ID.h */,
+				A6AB17D622CBE5AB007F880D /* UMDiameterAvpCSG_ID.m */,
 				A6AB173622CBE595007F880D /* UMDiameterAvpCSG_Membership_Indication.h */,
 				A6AB179922CBE5A2007F880D /* UMDiameterAvpCSG_Membership_Indication.m */,
 				A6AB16DA22CBE58A007F880D /* UMDiameterAvpCSG_Subscription_Data.h */,
@@ -3923,7 +3923,7 @@
 				A6C9F2B322CB670B00778583 /* UMDiameterAvpOC_Report_Type.h in Headers */,
 				A6D8F10622CBF53700CB9399 /* UMDiameterAvpLine_Identifier.h in Headers */,
 				A6835B0E22CC835C00FC7F0C /* UMDiameterAvpService_Report.h in Headers */,
-				A6AB19D022CBE5C7007F880D /* UMDiameterAvpCSG_Id.h in Headers */,
+				A6AB19D022CBE5C7007F880D /* UMDiameterAvpCSG_ID.h in Headers */,
 				A6AB1A6422CBE5C8007F880D /* UMDiameterAvpGeodetic_Information.h in Headers */,
 				A6C9EE8022CB625300778583 /* UMDiameterAvpSession_Server_Failover.h in Headers */,
 				A6A58CAD203CAE9700D0C2BE /* UMDiameterError.h in Headers */,
@@ -4658,7 +4658,7 @@
 				A6075AF92212FF5C00750CCD /* UMDiameterMessage.m in Sources */,
 				A6AB19AD22CBE5C7007F880D /* UMDiameterAvpReason_Code.m in Sources */,
 				A6C9EE9322CB625300778583 /* UMDiameterAvpEvent_Timestamp.m in Sources */,
-				A6AB19E222CBE5C7007F880D /* UMDiameterAvpCSG_Id.m in Sources */,
+				A6AB19E222CBE5C7007F880D /* UMDiameterAvpCSG_ID.m in Sources */,
 				A6AB1A7722CBE5C8007F880D /* UMDiameterAvpSCEF_ID.m in Sources */,
 				A6AB1A3D22CBE5C7007F880D /* UMDiameterAvpTo_SIP_Header.m in Sources */,
 				A6C9EECB22CB625300778583 /* UMDiameterAvpError_Reporting_Host.m in Sources */,
