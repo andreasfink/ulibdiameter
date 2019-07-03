@@ -181,6 +181,10 @@
 		A6835BA622CC9AE100FC7F0C /* UMDiameterAvpLocation_Information_Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = A6835BA422CC9AE100FC7F0C /* UMDiameterAvpLocation_Information_Configuration.m */; };
 		A6835BA722CC9AE100FC7F0C /* UMDiameterAvpLocation_Information_Configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = A6835BA522CC9AE100FC7F0C /* UMDiameterAvpLocation_Information_Configuration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6835BA822CC9DBB00FC7F0C /* UMDiameterAvpMIP_MN_HA_MSA.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F30522CB7EA000778583 /* UMDiameterAvpMIP_MN_HA_MSA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6835BAB22CCBD1200FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6835BA922CCBD1100FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_includes.h */; };
+		A6835BB022CCBDD100FC7F0C /* UMDiameterAvp_base_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6835BAE22CCBDD100FC7F0C /* UMDiameterAvp_base_includes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6835BB422CCBE1C00FC7F0C /* UMDiameterAvp_3GPP_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6835BB222CCBE1B00FC7F0C /* UMDiameterAvp_3GPP_includes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6835BB822CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6835BB622CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A684F78622C1FED9004F77C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F78522C1FED9004F77C0 /* main.m */; };
 		A684F78A22C20540004F77C0 /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
 		A68CFD4722A854C100F94967 /* UMDiameterPacketsAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A68CFD4522A854C100F94967 /* UMDiameterPacketsAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -898,14 +902,14 @@
 		A6C9F2A922CB670B00778583 /* UMDiameterAvpOC_Supported_Features.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F29422CB670B00778583 /* UMDiameterAvpOC_Supported_Features.m */; };
 		A6C9F2AA22CB670B00778583 /* UMDiameterAvpOC_Report_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F29522CB670B00778583 /* UMDiameterAvpOC_Report_Type.m */; };
 		A6C9F2AB22CB670B00778583 /* UMDiameterAvpOC_Sequence_Number.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F29622CB670B00778583 /* UMDiameterAvpOC_Sequence_Number.m */; };
-		A6C9F2AC22CB670B00778583 /* UMDiameterAvpOC_Validity_Duration.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29722CB670B00778583 /* UMDiameterAvpOC_Validity_Duration.h */; };
-		A6C9F2AD22CB670B00778583 /* UMDiameterAvpOC_OLR.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29822CB670B00778583 /* UMDiameterAvpOC_OLR.h */; };
-		A6C9F2AF22CB670B00778583 /* UMDiameterAvpOC_Reduction_Percentage.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29A22CB670B00778583 /* UMDiameterAvpOC_Reduction_Percentage.h */; };
-		A6C9F2B322CB670B00778583 /* UMDiameterAvpOC_Report_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29F22CB670B00778583 /* UMDiameterAvpOC_Report_Type.h */; };
-		A6C9F2B422CB670B00778583 /* UMDiameterAvpOC_Supported_Features.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2A022CB670B00778583 /* UMDiameterAvpOC_Supported_Features.h */; };
+		A6C9F2AC22CB670B00778583 /* UMDiameterAvpOC_Validity_Duration.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29722CB670B00778583 /* UMDiameterAvpOC_Validity_Duration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6C9F2AD22CB670B00778583 /* UMDiameterAvpOC_OLR.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29822CB670B00778583 /* UMDiameterAvpOC_OLR.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6C9F2AF22CB670B00778583 /* UMDiameterAvpOC_Reduction_Percentage.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29A22CB670B00778583 /* UMDiameterAvpOC_Reduction_Percentage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6C9F2B322CB670B00778583 /* UMDiameterAvpOC_Report_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F29F22CB670B00778583 /* UMDiameterAvpOC_Report_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6C9F2B422CB670B00778583 /* UMDiameterAvpOC_Supported_Features.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2A022CB670B00778583 /* UMDiameterAvpOC_Supported_Features.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2B522CB670B00778583 /* UMDiameterAvpOC_OLR.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F2A122CB670B00778583 /* UMDiameterAvpOC_OLR.m */; };
 		A6C9F2B622CB670B00778583 /* UMDiameterAvpOC_Validity_Duration.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F2A222CB670B00778583 /* UMDiameterAvpOC_Validity_Duration.m */; };
-		A6C9F2B722CB670B00778583 /* UMDiameterAvpOC_Sequence_Number.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2A322CB670B00778583 /* UMDiameterAvpOC_Sequence_Number.h */; };
+		A6C9F2B722CB670B00778583 /* UMDiameterAvpOC_Sequence_Number.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2A322CB670B00778583 /* UMDiameterAvpOC_Sequence_Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2C722CB69C800778583 /* UMDiameterAvpSourceID.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F2BB22CB69C800778583 /* UMDiameterAvpSourceID.m */; };
 		A6C9F2C822CB69C800778583 /* UMDiameterAvpLoad_Value.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2BC22CB69C800778583 /* UMDiameterAvpLoad_Value.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2C922CB69C800778583 /* UMDiameterAvpLoad_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F2BD22CB69C800778583 /* UMDiameterAvpLoad_Type.m */; };
@@ -915,7 +919,7 @@
 		A6C9F2CE22CB69C800778583 /* UMDiameterAvpLoad.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2C322CB69C800778583 /* UMDiameterAvpLoad.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2CF22CB69C800778583 /* UMDiameterAvpLoad_Type.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2C422CB69C800778583 /* UMDiameterAvpLoad_Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2D522CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F2D322CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.m */; };
-		A6C9F2D622CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2D422CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.h */; };
+		A6C9F2D622CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2D422CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2D922CB78A100778583 /* UMDiameterAvpService_Selection.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2D722CB78A100778583 /* UMDiameterAvpService_Selection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9F2DA22CB78A100778583 /* UMDiameterAvpService_Selection.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9F2D822CB78A100778583 /* UMDiameterAvpService_Selection.m */; };
 		A6C9F2F122CB7E7E00778583 /* UMDiameterAvpChargeable_User_Identity.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9F2EF22CB7E7E00778583 /* UMDiameterAvpChargeable_User_Identity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1262,6 +1266,14 @@
 		A6835BA122CC9ACA00FC7F0C /* UMDiameterAvpMONTE_Location_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMDiameterAvpMONTE_Location_Type.m; path = ulibdiameter/AVP/3GPP/UMDiameterAvpMONTE_Location_Type.m; sourceTree = SOURCE_ROOT; };
 		A6835BA422CC9AE100FC7F0C /* UMDiameterAvpLocation_Information_Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMDiameterAvpLocation_Information_Configuration.m; path = ulibdiameter/AVP/3GPP/UMDiameterAvpLocation_Information_Configuration.m; sourceTree = SOURCE_ROOT; };
 		A6835BA522CC9AE100FC7F0C /* UMDiameterAvpLocation_Information_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMDiameterAvpLocation_Information_Configuration.h; path = ulibdiameter/AVP/3GPP/UMDiameterAvpLocation_Information_Configuration.h; sourceTree = SOURCE_ROOT; };
+		A6835BA922CCBD1100FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp_draft_ietf_dime_load_includes.h; sourceTree = "<group>"; };
+		A6835BAA22CCBD1200FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_object_list.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = UMDiameterAvp_draft_ietf_dime_load_object_list.inc; sourceTree = "<group>"; };
+		A6835BAD22CCBDD100FC7F0C /* UMDiameterAvp_base_object_list.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = UMDiameterAvp_base_object_list.inc; sourceTree = "<group>"; };
+		A6835BAE22CCBDD100FC7F0C /* UMDiameterAvp_base_includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp_base_includes.h; sourceTree = "<group>"; };
+		A6835BB122CCBE1B00FC7F0C /* UMDiameterAvp_3GPP_object_list.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = UMDiameterAvp_3GPP_object_list.inc; sourceTree = "<group>"; };
+		A6835BB222CCBE1B00FC7F0C /* UMDiameterAvp_3GPP_includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp_3GPP_includes.h; sourceTree = "<group>"; };
+		A6835BB522CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_object_list.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = UMDiameterAvp_rfc7683_object_list.inc; sourceTree = "<group>"; };
+		A6835BB622CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp_rfc7683_includes.h; sourceTree = "<group>"; };
 		A684F78322C1FED9004F77C0 /* diameter-cmd-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "diameter-cmd-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A684F78522C1FED9004F77C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A68CFD4522A854C100F94967 /* UMDiameterPacketsAll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketsAll.h; sourceTree = "<group>"; };
@@ -2233,6 +2245,8 @@
 				A6C9F2D222CB6BA600778583 /* avp-gen.sh */,
 				A628E77022C9DCFE00D5BD91 /* avp-group-defs */,
 				A61E1AEF22C8F8D200025026 /* avp-table.txt */,
+				A6835BB222CCBE1B00FC7F0C /* UMDiameterAvp_3GPP_includes.h */,
+				A6835BB122CCBE1B00FC7F0C /* UMDiameterAvp_3GPP_object_list.inc */,
 				A6AB179422CBE5A2007F880D /* UMDiameterAvp3GPP_Charging_Characteristics.h */,
 				A6AB17C322CBE5A8007F880D /* UMDiameterAvp3GPP_Charging_Characteristics.m */,
 				A6AB189522CBE5C6007F880D /* UMDiameterAvp3GPP2_MEID.h */,
@@ -2884,6 +2898,8 @@
 				A651AB0D22CA287F00F2A479 /* avp-gen.sh */,
 				A651AAF722CA287F00F2A479 /* avp-group-defs */,
 				A651AAF622CA287F00F2A479 /* avp-table.txt */,
+				A6835BAE22CCBDD100FC7F0C /* UMDiameterAvp_base_includes.h */,
+				A6835BAD22CCBDD100FC7F0C /* UMDiameterAvp_base_object_list.inc */,
 				A6C9F36822CBA2B200778583 /* UMDiameterAvpAccounting_Realtime_Required.h */,
 				A6C9F36722CBA2B200778583 /* UMDiameterAvpAccounting_Realtime_Required.m */,
 				A6C9EE3422CB625000778583 /* UMDiameterAvpAccounting_Record_Number.h */,
@@ -3435,6 +3451,8 @@
 				A6C9F2A422CB670B00778583 /* avp-gen.sh */,
 				A6C9F29C22CB670B00778583 /* avp-group-defs */,
 				A6C9F29B22CB670B00778583 /* avp-table.txt */,
+				A6835BB622CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h */,
+				A6835BB522CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_object_list.inc */,
 				A6C9F2D422CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.h */,
 				A6C9F2D322CB786C00778583 /* UMDiameterAvpOC_Feature_Vector.m */,
 				A6C9F29822CB670B00778583 /* UMDiameterAvpOC_OLR.h */,
@@ -3476,6 +3494,8 @@
 				A6C9F2C622CB69C800778583 /* avp-gen.sh */,
 				A6C9F2BF22CB69C800778583 /* avp-group-defs */,
 				A6C9F2C522CB69C800778583 /* avp-table.txt */,
+				A6835BA922CCBD1100FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_includes.h */,
+				A6835BAA22CCBD1200FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_object_list.inc */,
 				A6C9F2C422CB69C800778583 /* UMDiameterAvpLoad_Type.h */,
 				A6C9F2BD22CB69C800778583 /* UMDiameterAvpLoad_Type.m */,
 				A6C9F2BC22CB69C800778583 /* UMDiameterAvpLoad_Value.h */,
@@ -3541,6 +3561,7 @@
 				A6835B2622CC873600FC7F0C /* UMDiameterAvpeNodeB_ID.h in Headers */,
 				A6AB18EB22CBE5C7007F880D /* UMDiameterAvpEPS_User_State.h in Headers */,
 				A6AB1A7D22CBE5C8007F880D /* UMDiameterAvpSCEF_Realm.h in Headers */,
+				A6835BB822CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h in Headers */,
 				A6C9F32F22CB7EB400778583 /* UMDiameterAvpQoS_Capability.h in Headers */,
 				A6AB197D22CBE5C7007F880D /* UMDiameterAvpAIR_Flags.h in Headers */,
 				A6AB190422CBE5C7007F880D /* UMDiameterAvpAll_APN_Configurations_Included_Indicator.h in Headers */,
@@ -3642,6 +3663,7 @@
 				A6AB18F722CBE5C7007F880D /* UMDiameterAvpMandatory_Capability.h in Headers */,
 				A6C9EEBD22CB625300778583 /* UMDiameterAvpHost_IP_Address.h in Headers */,
 				A6AB19F322CBE5C7007F880D /* UMDiameterAvpCLR_Flags.h in Headers */,
+				A6835BB022CCBDD100FC7F0C /* UMDiameterAvp_base_includes.h in Headers */,
 				A6506EC32211B8B7006665A9 /* UMDiameterPeerState_Closed.h in Headers */,
 				A6C9EE9722CB625300778583 /* UMDiameterAvpAcct_Application_Id.h in Headers */,
 				A6AB1A9222CBE5C8007F880D /* UMDiameterAvpUE_SRVCC_Capability.h in Headers */,
@@ -3704,6 +3726,7 @@
 				A6AB1AA522CBE726007F880D /* UMDiameterAvpAESE_Communication_Pattern.h in Headers */,
 				A6A58BAF203A6D9700D0C2BE /* UMDiameterPacket.h in Headers */,
 				A67FCA9E22CA80B1007A28AB /* UMDiameterPacketSTR.h in Headers */,
+				A6835BAB22CCBD1200FC7F0C /* UMDiameterAvp_draft_ietf_dime_load_includes.h in Headers */,
 				A6D8F10E22CBF9BB00CB9399 /* UMDiameterAvpQoS_Profile_Template.h in Headers */,
 				A6AB19F822CBE5C7007F880D /* UMDiameterAvpPDN_Type.h in Headers */,
 				A6AB1A6222CBE5C8007F880D /* UMDiameterAvpExternal_Client.h in Headers */,
@@ -3957,6 +3980,7 @@
 				A6AB18F022CBE5C7007F880D /* UMDiameterAvpServiceTypeIdentity.h in Headers */,
 				A6AB192B22CBE5C7007F880D /* UMDiameterAvpMonitoring_Event_Config_Status.h in Headers */,
 				A61BFEC5203CF58B00072EB4 /* UMDiameterAccountingServerState.h in Headers */,
+				A6835BB422CCBE1C00FC7F0C /* UMDiameterAvp_3GPP_includes.h in Headers */,
 				A6AB195E22CBE5C7007F880D /* UMDiameterAvpRestoration_Info.h in Headers */,
 				A6C9EEC222CB625300778583 /* UMDiameterAvpExperimental_Result_Code.h in Headers */,
 				A6C9EDB522CB466900778583 /* UMDiameterPacketPurge_UE_Request.h in Headers */,

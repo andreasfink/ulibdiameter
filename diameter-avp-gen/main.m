@@ -100,7 +100,18 @@ int main(int argc, const char * argv[])
                                                @"long"  : @"--write-avp-methods",
                                                @"help"  : @"writes avp methods",
                                                },
-                                        
+                                           @{
+                                               @"name"  : @"write-object-list",
+                                               @"long"  : @"--write-object-list",
+                                               @"argument" : @"filename",
+                                               @"help"  : @"writes object list",
+                                               },
+                                           @{
+                                               @"name"  : @"write-includes",
+                                               @"long"  : @"--write-includes",
+                                               @"argument" : @"filename",
+                                               @"help"  : @"writes includes",
+                                               },
                                            @{
                                                @"name"  : @"prefix",
                                                @"short" : @"-p",
@@ -151,15 +162,13 @@ int main(int argc, const char * argv[])
         {
             doOverwrite = YES;
         }
-        
 
-        
         s = getFirst(params[@"dir"]);
         if(s)
         {
             dir = s;
         }
-        
+
         s = getFirst(params[@"verbose"]);
         if(s)
         {
@@ -310,6 +319,66 @@ int main(int argc, const char * argv[])
                     }
                 }
             }
+        }
+
+        s = getFirst(params[@"write-includes"]);
+        if(s.length>0)
+        {
+            NSMutableString *inc =  [[NSMutableString alloc]init];
+            [inc appendFormat:@"//\n"];
+            [inc appendFormat:@"// automatically generated incldues from diametr-avp-gen\n"];
+            [inc appendFormat:@"//\n"];
+
+            for(UMDiameterAvpDef *avpdef in avpDefs)
+            {
+                NSString *objectName = [avpdef objectNameWithPrefix:prefix];
+                [inc appendFormat:@"#import \"%@.h\"\n",objectName];
+            }
+            [inc appendString:@"\n"];
+
+            NSError *e=NULL;
+            [inc writeToFile:s
+                      atomically:YES
+                        encoding:NSUTF8StringEncoding
+                           error:&e];
+            if(e)
+            {
+                NSLog(@"Error: %@",e);
+            }
+        }
+        s = getFirst(params[@"write-object-list"]);
+        if(s.length>0)
+        {
+            NSMutableString *inc =  [[NSMutableString alloc]init];
+            for(UMDiameterAvpDef *avpdef in avpDefs)
+            {
+                NSString *objectname = [avpdef objectNameWithPrefix:prefix];
+                NSString *typename = [avpdef objectTypeWithPrefix:prefix];
+                NSString *code = [NSString stringWithFormat:@"%d",(int)avpdef.avpCode];
+                NSString *standardsName = avpdef.standardsName;
+                NSString *typeDefinition = avpdef.typeDefinition;
+                NSString *mandatoryFlag = avpdef.mandatoryFlag ? @"YES" : @"NO";
+                NSString *vendorFlag = avpdef.vendorFlag ? @"YES" : @"NO";
+                NSString *vendorCode = [NSString stringWithFormat:@"%d",(int)avpdef.vendorCode];
+                NSString *isGroup = avpdef.isGroup ? @"YES" : @"NO";
+
+                [inc appendFormat:@"AVP_OBJECT(%@,%@,%@,@\"%@\",%@,%@,%@,%@,%@)\n",
+                 objectname,typename,code,standardsName,typeDefinition,mandatoryFlag,vendorFlag,vendorCode,isGroup];
+
+            }
+            [inc appendString:@"\n"];
+
+            NSError *e=NULL;
+            [inc writeToFile:s
+                  atomically:YES
+                    encoding:NSUTF8StringEncoding
+                       error:&e];
+            if(e)
+            {
+                NSLog(@"Error: %@",e);
+            }
+
+
         }
     }
     return 0;
