@@ -1,0 +1,6 @@
+Scheduled-Communication-Time ::= <AVP header: 3118 10415>
+*[Day-Of-Week-Mask]
+[Time-Of-Day-Start]
+[Time-Of-Day-End]
+*[AVP]
+

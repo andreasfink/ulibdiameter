@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -266,7 +266,7 @@
             }
             else
             {
-                _var_mdt_allowed_plmn_id = [_var_mdt_allowed_plmn_id arrayByAddingObject:avp];
+                _var_mdt_allowed_plmn_id = [_var_mdt_allowed_plmn_id arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpMBSFN_Area avpCode])
@@ -279,7 +279,7 @@
             }
             else
             {
-                _var_mbsfn_area = [_var_mbsfn_area arrayByAddingObject:avp];
+                _var_mbsfn_area = [_var_mbsfn_area arrayByAddingObject:avp2];
             }
         }
         else

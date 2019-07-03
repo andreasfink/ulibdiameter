@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -110,7 +110,7 @@
             }
             else
             {
-                _var_cell_global_identity = [_var_cell_global_identity arrayByAddingObject:avp];
+                _var_cell_global_identity = [_var_cell_global_identity arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpE_UTRAN_Cell_Global_Identity avpCode])
@@ -123,7 +123,7 @@
             }
             else
             {
-                _var_e_utran_cell_global_identity = [_var_e_utran_cell_global_identity arrayByAddingObject:avp];
+                _var_e_utran_cell_global_identity = [_var_e_utran_cell_global_identity arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpRouting_Area_Identity avpCode])
@@ -136,7 +136,7 @@
             }
             else
             {
-                _var_routing_area_identity = [_var_routing_area_identity arrayByAddingObject:avp];
+                _var_routing_area_identity = [_var_routing_area_identity arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpLocation_Area_Identity avpCode])
@@ -149,7 +149,7 @@
             }
             else
             {
-                _var_location_area_identity = [_var_location_area_identity arrayByAddingObject:avp];
+                _var_location_area_identity = [_var_location_area_identity arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpTracking_Area_Identity avpCode])
@@ -162,7 +162,7 @@
             }
             else
             {
-                _var_tracking_area_identity = [_var_tracking_area_identity arrayByAddingObject:avp];
+                _var_tracking_area_identity = [_var_tracking_area_identity arrayByAddingObject:avp2];
             }
         }
         else

@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -110,7 +110,7 @@
             }
             else
             {
-                _var_served_party_ip_address = [_var_served_party_ip_address arrayByAddingObject:avp];
+                _var_served_party_ip_address = [_var_served_party_ip_address arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpPDN_Type avpCode])

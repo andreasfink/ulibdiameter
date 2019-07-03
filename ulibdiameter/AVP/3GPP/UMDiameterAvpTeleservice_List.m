@@ -2,7 +2,7 @@
 //  UMDiameterAvpTeleservice_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,9 +48,12 @@
             [arr addObject:o];
         }
     }
-    if(_var_avp)
+    if(_var_avp.count > 0)
     {
-        [arr addObject:_var_avp];
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [arr addObject:o];
+        }
     }
     [self setArray:arr];
 }
@@ -75,7 +78,7 @@
             }
             else
             {
-                _var_ts_code = [_var_ts_code arrayByAddingObject:avp];
+                _var_ts_code = [_var_ts_code arrayByAddingObject:avp2];
             }
         }
         else

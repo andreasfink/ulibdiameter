@@ -73,6 +73,6 @@
 500	Line-Identifier	-	OctetString	M,V	13019
 574	QoS-Profile-Template	-	Grouped	
 573	QoS-Profile-Id	-	Unsigned32	
-
-
-
+563	Day-Of-Week-Mask	-	Unsigned32	
+561	Time-Of-Day-Start	-	Unsigned32	
+562	Time-Of-Day-End	-	Unsigned32	

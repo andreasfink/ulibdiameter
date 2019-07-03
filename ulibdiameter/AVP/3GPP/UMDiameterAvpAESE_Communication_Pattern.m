@@ -2,7 +2,7 @@
 //  UMDiameterAvpAESE_Communication_Pattern.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,7 +106,7 @@
             }
             else
             {
-                _var_scef_reference_id_for_deletion = [_var_scef_reference_id_for_deletion arrayByAddingObject:avp];
+                _var_scef_reference_id_for_deletion = [_var_scef_reference_id_for_deletion arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpCommunication_Pattern_Set avpCode])
@@ -119,7 +119,7 @@
             }
             else
             {
-                _var_communication_pattern_set = [_var_communication_pattern_set arrayByAddingObject:avp];
+                _var_communication_pattern_set = [_var_communication_pattern_set arrayByAddingObject:avp2];
             }
         }
         else

@@ -2,7 +2,7 @@
 //  UMDiameterAvpServer_Capabilities.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,7 +86,7 @@
             }
             else
             {
-                _var_mandatory_capability = [_var_mandatory_capability arrayByAddingObject:avp];
+                _var_mandatory_capability = [_var_mandatory_capability arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpOptional_Capability avpCode])
@@ -99,7 +99,7 @@
             }
             else
             {
-                _var_optional_capability = [_var_optional_capability arrayByAddingObject:avp];
+                _var_optional_capability = [_var_optional_capability arrayByAddingObject:avp2];
             }
         }
         else

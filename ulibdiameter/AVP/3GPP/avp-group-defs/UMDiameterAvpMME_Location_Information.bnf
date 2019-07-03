@@ -1,4 +1,5 @@
 MME-Location-Information ::= <AVP header: 1600 10415>
+
 [E-UTRAN-Cell-Global-Identity]
 [Tracking-Area-Identity]
 [Geographical-Information]
@@ -7,5 +8,5 @@ MME-Location-Information ::= <AVP header: 1600 10415>
 [Age-Of-Location-Information]
 [User-CSG-Information]
 [ eNodeB-ID ]
-[ Extended-eNodeB-ID ]
+[Extended-eNodeB-ID]
 *[AVP]

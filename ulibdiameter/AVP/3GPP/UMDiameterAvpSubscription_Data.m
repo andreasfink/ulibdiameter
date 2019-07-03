@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -339,7 +339,7 @@
             }
             else
             {
-                _var_regional_subscription_zone_code = [_var_regional_subscription_zone_code arrayByAddingObject:avp];
+                _var_regional_subscription_zone_code = [_var_regional_subscription_zone_code arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpAccess_Restriction_Data avpCode])
@@ -372,7 +372,7 @@
             }
             else
             {
-                _var_call_barring_info = [_var_call_barring_info arrayByAddingObject:avp];
+                _var_call_barring_info = [_var_call_barring_info arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvp3GPP_Charging_Characteristics avpCode])
@@ -415,7 +415,7 @@
             }
             else
             {
-                _var_csg_subscription_data = [_var_csg_subscription_data arrayByAddingObject:avp];
+                _var_csg_subscription_data = [_var_csg_subscription_data arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature avpCode])
@@ -473,7 +473,7 @@
             }
             else
             {
-                _var_adjacent_access_restriction_data = [_var_adjacent_access_restriction_data arrayByAddingObject:avp];
+                _var_adjacent_access_restriction_data = [_var_adjacent_access_restriction_data arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpDL_Buffering_Suggested_Packet_Count avpCode])
@@ -491,7 +491,7 @@
             }
             else
             {
-                _var_imsi_group_id = [_var_imsi_group_id arrayByAddingObject:avp];
+                _var_imsi_group_id = [_var_imsi_group_id arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpUE_Usage_Type avpCode])
@@ -509,7 +509,7 @@
             }
             else
             {
-                _var_aese_communication_pattern = [_var_aese_communication_pattern arrayByAddingObject:avp];
+                _var_aese_communication_pattern = [_var_aese_communication_pattern arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpMonitoring_Event_Configuration avpCode])
@@ -522,7 +522,7 @@
             }
             else
             {
-                _var_monitoring_event_configuration = [_var_monitoring_event_configuration arrayByAddingObject:avp];
+                _var_monitoring_event_configuration = [_var_monitoring_event_configuration arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpEmergency_Info avpCode])
@@ -545,7 +545,7 @@
             }
             else
             {
-                _var_edrx_cycle_length = [_var_edrx_cycle_length arrayByAddingObject:avp];
+                _var_edrx_cycle_length = [_var_edrx_cycle_length arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpExternal_Identifier avpCode])

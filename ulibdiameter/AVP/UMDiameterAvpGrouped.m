@@ -40,7 +40,7 @@
 
 - (void)afterDecode
 {
-    _avps = [[UMSynchronizedArray alloc]init];
+    _grouped_avps = [[UMSynchronizedArray alloc]init];
     NSInteger pos = 0;
     while(_avpData.length >= (pos+8))
     {
@@ -56,7 +56,7 @@
         UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:subavpdata];
         if(avp)
         {
-            [_avps addObject:avp];
+            [_grouped_avps addObject:avp];
         }
         pos += avplen;
     }
@@ -66,10 +66,10 @@
 {
     NSMutableData *d = [[NSMutableData alloc]init];
 
-    NSInteger n = _avps.count;
+    NSInteger n = _grouped_avps.count;
     for(NSInteger i=0;i<n;i++)
     {
-        UMDiameterAvp *entry = _avps[i];
+        UMDiameterAvp *entry = _grouped_avps[i];
         NSData *d2 = [entry packetData];
         [d appendData:d2];
     }
@@ -83,20 +83,20 @@
 
 - (void)setArray:(NSArray *)array
 {
-    _avps = [[UMSynchronizedArray alloc]init];
+    _grouped_avps = [[UMSynchronizedArray alloc]init];
     for(id item in array)
     {
-        [_avps addObject:item];
+        [_grouped_avps addObject:item];
     }
 }
 
 - (void)appendAvp:(UMDiameterAvp *)avp
 {
-    if(_avps==NULL)
+    if(_grouped_avps==NULL)
     {
-        _avps = [[UMSynchronizedArray alloc]init];
+        _grouped_avps = [[UMSynchronizedArray alloc]init];
     }
-    [_avps addObject:avp];
+    [_grouped_avps addObject:avp];
 }
 
 - (void)appendAvps:(NSArray <UMDiameterAvp *>*)avps;

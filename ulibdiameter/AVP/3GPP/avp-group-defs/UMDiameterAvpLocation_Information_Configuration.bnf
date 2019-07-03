@@ -1,0 +1,4 @@
+Location-Information-Configuration ::= <AVP header: 3135 10415>
+[MONTE-Location-Type]
+[Accuracy]
+*[AVP]

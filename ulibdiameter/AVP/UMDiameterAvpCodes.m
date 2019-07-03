@@ -12,6 +12,7 @@
 
 NSString *umdiameter_avp_code_string (UMDiameterAvpCode code)
 {
+#if 0
     switch(code)
     {
         case UMDiameterAvpCode_AcctInterimInterval:
@@ -303,5 +304,7 @@ NSString *umdiameter_avp_code_string (UMDiameterAvpCode code)
             break;
 
     }
+#endif
+    return [NSString stringWithFormat:@"%d",code ];
 }
 

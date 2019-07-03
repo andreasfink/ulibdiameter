@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -138,7 +138,7 @@
             }
             else
             {
-                _var_scef_reference_id_for_deletion = [_var_scef_reference_id_for_deletion arrayByAddingObject:avp];
+                _var_scef_reference_id_for_deletion = [_var_scef_reference_id_for_deletion arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpMaximum_Number_of_Reports avpCode])

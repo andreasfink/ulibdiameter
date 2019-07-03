@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -88,7 +88,7 @@
             }
             else
             {
-                _var_pdp_context = [_var_pdp_context arrayByAddingObject:avp];
+                _var_pdp_context = [_var_pdp_context arrayByAddingObject:avp2];
             }
         }
         else

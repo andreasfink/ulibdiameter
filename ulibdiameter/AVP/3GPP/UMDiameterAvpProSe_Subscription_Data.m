@@ -2,7 +2,7 @@
 //  UMDiameterAvpProSe_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -78,7 +78,7 @@
             }
             else
             {
-                _var_prose_permission = [_var_prose_permission arrayByAddingObject:avp];
+                _var_prose_permission = [_var_prose_permission arrayByAddingObject:avp2];
             }
         }
         else

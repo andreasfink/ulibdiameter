@@ -54,10 +54,11 @@
             NSLog(@"Failed parsing JSON error=%@ string=%@",e,json);
         }
     }
+    return self;
 }
 
 - (void)parseJsonString:(NSString *)string
-                  error:(NSError *)err
+                  error:(NSError **)err
 {
     /* this has to be overrittten by the subclass */
     *err = [NSError errorWithDomain:@"PARSING" code:100 userInfo:@{@"reason" : @"parseJsonString: not implemented"}];
@@ -68,6 +69,7 @@
 {
 	switch(avpCode)
 	{
+#if 0
 		case UMDiameterAvpCode_AcctRealtimeRequired:
 		return [[UMDiameterAvpAcctRealtimeRequired alloc]initWithData:data];
 		break;
@@ -259,6 +261,7 @@
 		case UMDiameterAvpCode_VendorSpecificApplicationId:
 		return [[UMDiameterAvpVendorSpecificApplicationId alloc]initWithData:data];
 		break;
+#endif
 	}
 	return [self initWithData:data];
 }

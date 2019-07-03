@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -124,7 +124,7 @@
             }
             else
             {
-                _var_external_client = [_var_external_client arrayByAddingObject:avp];
+                _var_external_client = [_var_external_client arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpPLMN_Client avpCode])
@@ -137,7 +137,7 @@
             }
             else
             {
-                _var_plmn_client = [_var_plmn_client arrayByAddingObject:avp];
+                _var_plmn_client = [_var_plmn_client arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpService_Type avpCode])
@@ -150,7 +150,7 @@
             }
             else
             {
-                _var_service_type = [_var_service_type arrayByAddingObject:avp];
+                _var_service_type = [_var_service_type arrayByAddingObject:avp2];
             }
         }
         else

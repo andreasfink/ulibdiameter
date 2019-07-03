@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -108,7 +108,7 @@
             }
             else
             {
-                _var_apn_configuration = [_var_apn_configuration arrayByAddingObject:avp];
+                _var_apn_configuration = [_var_apn_configuration arrayByAddingObject:avp2];
             }
         }
         else

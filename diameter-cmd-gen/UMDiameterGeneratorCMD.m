@@ -113,7 +113,7 @@
     {
         *eptr = [NSError errorWithDomain:@"SYNTAX"
                                     code:2
-                                userInfo:@{@"reason":[NSString stringWithFormat:@"command name is shorter than 2 characters\nline=%@",s"]}];
+                                userInfo:@{@"reason":[NSString stringWithFormat:@"command name is shorter than 2 characters\nline=%@",s]}];
         return NO;
     }
     

@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuthentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -94,7 +94,7 @@
             }
             else
             {
-                _var_e_utran_vector = [_var_e_utran_vector arrayByAddingObject:avp];
+                _var_e_utran_vector = [_var_e_utran_vector arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpUTRAN_Vector avpCode])
@@ -107,7 +107,7 @@
             }
             else
             {
-                _var_utran_vector = [_var_utran_vector arrayByAddingObject:avp];
+                _var_utran_vector = [_var_utran_vector arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpGERAN_Vector avpCode])
@@ -120,7 +120,7 @@
             }
             else
             {
-                _var_geran_vector = [_var_geran_vector arrayByAddingObject:avp];
+                _var_geran_vector = [_var_geran_vector arrayByAddingObject:avp2];
             }
         }
         else

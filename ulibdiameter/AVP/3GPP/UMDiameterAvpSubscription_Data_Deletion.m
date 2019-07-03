@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 00:13:25.004000
+//  Created by afink on 2019-07-03 11:11:14.126000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -119,7 +119,7 @@
             }
             else
             {
-                _var_context_identifier = [_var_context_identifier arrayByAddingObject:avp];
+                _var_context_identifier = [_var_context_identifier arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpTrace_Reference avpCode])
@@ -137,7 +137,7 @@
             }
             else
             {
-                _var_ts_code = [_var_ts_code arrayByAddingObject:avp];
+                _var_ts_code = [_var_ts_code arrayByAddingObject:avp2];
             }
         }
         else if(avp.avpCode == [UMDiameterAvpSS_Code avpCode])
@@ -150,7 +150,7 @@
             }
             else
             {
-                _var_ss_code = [_var_ss_code arrayByAddingObject:avp];
+                _var_ss_code = [_var_ss_code arrayByAddingObject:avp2];
             }
         }
         else

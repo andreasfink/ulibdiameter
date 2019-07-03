@@ -390,6 +390,10 @@
         {
             /* placeholder for all unspecified AVPs */
             placeholderAVP = avp;
+            if(avp.multiple == NO)
+            {
+                NSLog(@"why is it [AVP] and not *[AVP]?");
+            }
             continue;
         }
         if(first)
@@ -419,7 +423,7 @@
             [s appendString:@"            }\n"];
             [s appendString:@"            else\n"];
             [s appendString:@"            {\n"];
-            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp];\n",avp.variableName,avp.variableName];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n",avp.variableName,avp.variableName];
             [s appendString:@"            }\n"];
             [s appendString:@"        }\n"];
         }

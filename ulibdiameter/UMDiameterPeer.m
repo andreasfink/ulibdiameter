@@ -352,6 +352,7 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
+#pragma unused(addr)
             UMDiameterAvpHost_IP_Address *avp =  [[UMDiameterAvpHost_IP_Address alloc]init];
             [avp setFlagMandatory:YES];
  /* FIXME */
@@ -630,6 +631,8 @@
         NSArray *addrs = _sctp.configured_local_addresses;
         for (NSString *addr in addrs)
         {
+#pragma unused(addr)
+
             UMDiameterAvpHost_IP_Address *avp =  [[UMDiameterAvpHost_IP_Address alloc]init];
             [avp setFlagMandatory:YES];
     //        [avp setHostIPAddress:addr]
