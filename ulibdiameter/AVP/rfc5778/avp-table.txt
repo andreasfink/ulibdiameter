@@ -1,3 +1,0 @@
-493	Service-Selection	6.2	UTF8String	M
-492	MIP-MN-HA-MSA	6.12	Grouped	M
-89	Chargeable-User-Identity	6.19	OctetString	M
