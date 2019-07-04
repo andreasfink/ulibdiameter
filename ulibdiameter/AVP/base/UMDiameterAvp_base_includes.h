@@ -56,6 +56,7 @@
 #import "UMDiameterAvpService_Selection.h"
 #import "UMDiameterAvpQoS_Capability.h"
 #import "UMDiameterAvpQoS_Resources.h"
+#import "UMDiameterAvpMIP_MN_HA_MSA.h"
 #import "UMDiameterAvpChargeable_User_Identity.h"
 #import "UMDiameterAvpMIP6_Feature_Vector.h"
 #import "UMDiameterAvpMIP_MN_AAA_SPI.h"

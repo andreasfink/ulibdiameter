@@ -2,7 +2,7 @@
 //  UMDiameterAvpVendor_Specific_Application_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 14:58:07.234000
+//  Created by afink on 2019-07-04 10:39:39.689000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -57,41 +57,8 @@
 }
 
 
-- (void)afterDecode
-{
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpVendor_Id  avpCode])
-        {
-            _var_vendor_id = [[UMDiameterAvpVendor_Id alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_vendor_id];
-        }
-        else if(avp.avpCode == [UMDiameterAvpAuth_Application_Id avpCode])
-        {
-            _var_auth_application_id = [[UMDiameterAvpAuth_Application_Id alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_auth_application_id];
-        }
-        else if(avp.avpCode == [UMDiameterAvpAcct_Application_Id avpCode])
-        {
-            _var_acct_application_id = [[UMDiameterAvpAcct_Application_Id alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_acct_application_id];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
-    }
-    [self setArray:knownAVPs];
-}
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
 
 
 @end

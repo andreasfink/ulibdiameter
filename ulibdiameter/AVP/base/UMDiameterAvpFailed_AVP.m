@@ -2,7 +2,7 @@
 //  UMDiameterAvpFailed_AVP.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 14:58:07.234000
+//  Created by afink on 2019-07-04 10:39:39.689000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -50,20 +50,8 @@
 }
 
 
-- (void)afterDecode
-{
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-    }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
-}
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
 
 
 @end

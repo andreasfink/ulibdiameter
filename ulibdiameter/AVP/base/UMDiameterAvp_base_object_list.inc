@@ -53,6 +53,7 @@ AVP_OBJECT(UMDiameterAvpMIP6_Agent_Info,UMDiameterAvpGrouped,486,@"MIP6-Agent-In
 AVP_OBJECT(UMDiameterAvpService_Selection,UMDiameterAvpUTF8String,493,@"Service-Selection",UTF8String,YES,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpQoS_Capability,UMDiameterAvpGrouped,578,@"QoS-Capability",Grouped,YES,NO,0,YES)
 AVP_OBJECT(UMDiameterAvpQoS_Resources,UMDiameterAvpGrouped,508,@"QoS-Resources",Grouped,YES,NO,0,NO)
+AVP_OBJECT(UMDiameterAvpMIP_MN_HA_MSA,UMDiameterAvpGrouped,492,@"MIP-MN-HA-MSA",Grouped,YES,NO,0,YES)
 AVP_OBJECT(UMDiameterAvpChargeable_User_Identity,UMDiameterAvpOctetString,89,@"Chargeable-User-Identity",OctetString,YES,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpMIP6_Feature_Vector,UMDiameterAvpUnsigned64,124,@"MIP6-Feature-Vector",Unsigned64,YES,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpMIP_MN_AAA_SPI,UMDiameterAvpUnsigned32,341,@"MIP-MN-AAA-SPI",Unsigned32,YES,NO,0,NO)

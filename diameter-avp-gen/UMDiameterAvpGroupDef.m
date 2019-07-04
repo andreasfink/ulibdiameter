@@ -371,85 +371,93 @@
     [s appendString:@"\n"];
     [s appendString:@"\n"];
 
-    [s appendString:@"- (void)afterDecode\n"];
-    [s appendString:@"{\n"];
-    [s appendString:@"    NSArray *avps = [self array];\n"];
-    [s appendString:@"\n"];
-    [s appendString:@"    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];\n"];
-    [s appendString:@"    NSMutableArray *unknownAVPs;\n"];
-    [s appendString:@"\n"];
-    [s appendString:@"    for(UMDiameterAvp *avp in avps)\n"];
-    [s appendString:@"    {\n"];
-
-    BOOL first=YES;
-    UMDiameterGeneratorAVP *placeholderAVP;
-
-    for(UMDiameterGeneratorAVP *avp in _avps)
+    if(_avps.count> 0)
     {
-        if([avp.objectName isEqualToString:@"AVP"])
+        [s appendString:@"//- (void)afterDecode\n"];
+        [s appendString:@"/* skipped as there's no properties to decode */\n"];
+    }
+    else
+    {
+
+        [s appendString:@"- (void)afterDecode\n"];
+        [s appendString:@"{\n"];
+        [s appendString:@"    NSArray *avps = [self array];\n"];
+        [s appendString:@"\n"];
+        [s appendString:@"    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];\n"];
+        [s appendString:@"    NSMutableArray *unknownAVPs;\n"];
+        [s appendString:@"\n"];
+
+        BOOL first=YES;
+        UMDiameterGeneratorAVP *placeholderAVP;
+
+        for(UMDiameterGeneratorAVP *avp in _avps)
         {
-            /* placeholder for all unspecified AVPs */
-            placeholderAVP = avp;
-            if(avp.multiple == NO)
+
+            if([avp.objectName isEqualToString:@"AVP"])
             {
-                NSLog(@"why is it [AVP] and not *[AVP]?");
+                /* placeholder for all unspecified AVPs */
+                placeholderAVP = avp;
+                if(avp.multiple == NO)
+                {
+                    NSLog(@"why is it [AVP] and not *[AVP]?");
+                }
+                continue;
             }
-            continue;
+            if(first)
+            {
+                [s appendString:@"    for(UMDiameterAvp *avp in avps)\n"];
+                [s appendString:@"    {\n"];
+                [s appendFormat:@"        if(avp.avpCode == [%@%@  avpCode])\n",avpPrefix,avp.objectName];
+                first = NO;
+            }
+            else
+            {
+                [s appendFormat:@"        else if(avp.avpCode == [%@%@ avpCode])\n",avpPrefix,avp.objectName];
+            }
+            if(avp.multiple==NO)
+            {
+                [s appendString:@"        {\n"];
+                [s appendFormat:@"            %@ = [[%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
+                [s appendFormat:@"            [knownAVPs addObject:%@];\n",avp.variableName];
+                [s appendString:@"        }\n"];
+            }
+            else
+            {
+                [s appendString:@"        {\n"];
+                [s appendFormat:@"            %@%@ *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
+                [s appendFormat:@"            [knownAVPs addObject:avp2];\n"];
+                [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
+                [s appendString:@"            {\n"];
+                [s appendFormat:@"                %@ = @[avp2];\n",avp.variableName];
+                [s appendString:@"            }\n"];
+                [s appendString:@"            else\n"];
+                [s appendString:@"            {\n"];
+                [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n",avp.variableName,avp.variableName];
+                [s appendString:@"            }\n"];
+                [s appendString:@"        }\n"];
+            }
         }
-        if(first)
+        if(first==NO)
         {
-            [s appendFormat:@"        if(avp.avpCode == [%@%@  avpCode])\n",avpPrefix,avp.objectName];
-            first = NO;
-        }
-        else
-        {
-            [s appendFormat:@"        else if(avp.avpCode == [%@%@ avpCode])\n",avpPrefix,avp.objectName];
-        }
-        if(avp.multiple==NO)
-        {
+            [s appendString:@"        else\n"];
             [s appendString:@"        {\n"];
-            [s appendFormat:@"            %@ = [[%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
-            [s appendFormat:@"            [knownAVPs addObject:%@];\n",avp.variableName];
+            [s appendString:@"             if(unknownAVPs==NULL)\n"];
+            [s appendString:@"             {\n"];
+            [s appendString:@"                 unknownAVPs = [[NSMutableArray alloc]init];\n"];
+            [s appendString:@"             }\n"];
+            [s appendString:@"             [unknownAVPs addObject:avp];\n"];
             [s appendString:@"        }\n"];
+            [s appendString:@"    }\n"];
         }
-        else
+        if(placeholderAVP)
         {
-            [s appendString:@"        {\n"];
-            [s appendFormat:@"            %@%@ *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
-            [s appendFormat:@"            [knownAVPs addObject:avp2];\n"];
-            [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
-            [s appendString:@"            {\n"];
-            [s appendFormat:@"                %@ = @[avp2];\n",avp.variableName];
-            [s appendString:@"            }\n"];
-            [s appendString:@"            else\n"];
-            [s appendString:@"            {\n"];
-            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n",avp.variableName,avp.variableName];
-            [s appendString:@"            }\n"];
-            [s appendString:@"        }\n"];
+            [s appendFormat:@"    %@ = unknownAVPs;\n",placeholderAVP.variableName];
+            [s appendFormat:@"    [knownAVPs addObject:[%@ copy]];\n",placeholderAVP.variableName];
         }
+        [s appendString:@"    [self setArray:knownAVPs];\n"];
+        [s appendString:@"}\n"];
     }
-    if(first==NO)
-    {
-        [s appendString:@"        else\n"];
-        [s appendString:@"        {\n"];
-        [s appendString:@"             if(unknownAVPs==NULL)\n"];
-        [s appendString:@"             {\n"];
-        [s appendString:@"                 unknownAVPs = [[NSMutableArray alloc]init];\n"];
-        [s appendString:@"             }\n"];
-        [s appendString:@"             [unknownAVPs addObject:avp];\n"];
-        [s appendString:@"        }\n"];
-    }
-    [s appendString:@"    }\n"];
-    if(placeholderAVP)
-    {
-        [s appendFormat:@"    %@ = unknownAVPs;\n",placeholderAVP.variableName];
-        [s appendFormat:@"    [knownAVPs addObject:[%@ copy]];\n",placeholderAVP.variableName];
-    }
-    [s appendString:@"    [self setArray:knownAVPs];\n"];
-
-    [s appendString:@"}\n"];
     [s appendString:@"\n"];
-
     return s;
 }
 
