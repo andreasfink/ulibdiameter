@@ -53,7 +53,6 @@
 493	Service-Selection	6.2	UTF8String	M	0
 578	QoS-Capability	RFC5777	Grouped	M	0
 508	QoS-Resources	RFC5777	Grouped	M	0
-492	MIP-MN-HA-MSA	6.12	Grouped	M	0
 89	Chargeable-User-Identity	6.19	OctetString	M	0
 124	MIP6-Feature-Vector	RFC5447	Unsigned64	M	0
 341	MIP-MN-AAA-SPI	RFC4004	Unsigned32	M	0
