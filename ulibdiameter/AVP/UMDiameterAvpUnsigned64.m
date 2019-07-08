@@ -57,7 +57,7 @@
 }
 - (NSString *)stringValue
 {
-    return [NSString stringWithFormat:@"%llu",self.value];
+    return [NSString stringWithFormat:@"%llu",(unsigned long long)self.value];
 }
 
 @end
