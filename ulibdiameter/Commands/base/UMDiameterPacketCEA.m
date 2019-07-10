@@ -2,7 +2,7 @@
 //  UMDiameterPacketCEA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 10:56:33.309000
+//  Created by afink on 2019-07-10 00:07:37.075000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -35,91 +35,101 @@
     self.commandFlags = 0;
 }
 
++ (uint32_t)commandCode
+{
+    return 257;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
 - (void)beforeEncode
 {
     [super beforeEncode];
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_varresult_code)
+    if(_var_result_code)
     {
-        [arr addObject:_varresult_code];
+        [arr addObject:_var_result_code];
     }
-    if(_varorigin_host)
+    if(_var_origin_host)
     {
-        [arr addObject:_varorigin_host];
+        [arr addObject:_var_origin_host];
     }
-    if(_varorigin_realm)
+    if(_var_origin_realm)
     {
-        [arr addObject:_varorigin_realm];
+        [arr addObject:_var_origin_realm];
     }
-    if(_varhost_ip_address.count > 0)
+    if(_var_host_ip_address.count > 0)
     {
-        for(UMDiameterAvpHost_IP_Address *o in _varhost_ip_address)
+        for(UMDiameterAvpHost_IP_Address *o in _var_host_ip_address)
         {
             [arr addObject:o];
         }
     }
-    if(_varvendor_id)
+    if(_var_vendor_id)
     {
-        [arr addObject:_varvendor_id];
+        [arr addObject:_var_vendor_id];
     }
-    if(_varproduct_name)
+    if(_var_product_name)
     {
-        [arr addObject:_varproduct_name];
+        [arr addObject:_var_product_name];
     }
-    if(_varorigin_state_id)
+    if(_var_origin_state_id)
     {
-        [arr addObject:_varorigin_state_id];
+        [arr addObject:_var_origin_state_id];
     }
-    if(_varerror_message)
+    if(_var_error_message)
     {
-        [arr addObject:_varerror_message];
+        [arr addObject:_var_error_message];
     }
-    if(_varfailed_avp)
+    if(_var_failed_avp)
     {
-        [arr addObject:_varfailed_avp];
+        [arr addObject:_var_failed_avp];
     }
-    if(_varsupported_vendor_id.count > 0)
+    if(_var_supported_vendor_id.count > 0)
     {
-        for(UMDiameterAvpSupported_Vendor_Id *o in _varsupported_vendor_id)
+        for(UMDiameterAvpSupported_Vendor_Id *o in _var_supported_vendor_id)
         {
             [arr addObject:o];
         }
     }
-    if(_varauth_application_id.count > 0)
+    if(_var_auth_application_id.count > 0)
     {
-        for(UMDiameterAvpAuth_Application_Id *o in _varauth_application_id)
+        for(UMDiameterAvpAuth_Application_Id *o in _var_auth_application_id)
         {
             [arr addObject:o];
         }
     }
-    if(_varinband_security_id.count > 0)
+    if(_var_inband_security_id.count > 0)
     {
-        for(UMDiameterAvpInband_Security_Id *o in _varinband_security_id)
+        for(UMDiameterAvpInband_Security_Id *o in _var_inband_security_id)
         {
             [arr addObject:o];
         }
     }
-    if(_varacct_application_id.count > 0)
+    if(_var_acct_application_id.count > 0)
     {
-        for(UMDiameterAvpAcct_Application_Id *o in _varacct_application_id)
+        for(UMDiameterAvpAcct_Application_Id *o in _var_acct_application_id)
         {
             [arr addObject:o];
         }
     }
-    if(_varvendor_specific_application_id.count > 0)
+    if(_var_vendor_specific_application_id.count > 0)
     {
-        for(UMDiameterAvpVendor_Specific_Application_Id *o in _varvendor_specific_application_id)
+        for(UMDiameterAvpVendor_Specific_Application_Id *o in _var_vendor_specific_application_id)
         {
             [arr addObject:o];
         }
     }
-    if(_varfirmware_revision)
+    if(_var_firmware_revision)
     {
-        [arr addObject:_varfirmware_revision];
+        [arr addObject:_var_firmware_revision];
     }
-    if(_varavp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _varavp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
             [arr addObject:o];
         }
@@ -127,6 +137,417 @@
     [self setAvps:arr];
 }
 
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"host-ip-address"])
+    {
+        id obj = dict[@"host-ip-address"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpHost_IP_Address *o = [[UMDiameterAvpHost_IP_Address alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_host_ip_address = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpHost_IP_Address *o = [[UMDiameterAvpHost_IP_Address alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_host_ip_address = arr;
+        }
+    }
+    if(dict[@"vendor-id"])
+    {
+        _var_vendor_id = [[UMDiameterAvpVendor_Id alloc]init];
+        _var_vendor_id.objectValue = dict[@"vendor-id"];
+    }
+
+    if(dict[@"product-name"])
+    {
+        _var_product_name = [[UMDiameterAvpProduct_Name alloc]init];
+        _var_product_name.objectValue = dict[@"product-name"];
+    }
+
+    if(dict[@"origin-state-id"])
+    {
+        _var_origin_state_id = [[UMDiameterAvpOrigin_State_Id alloc]init];
+        _var_origin_state_id.objectValue = dict[@"origin-state-id"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"failed-avp"])
+    {
+        _var_failed_avp = [[UMDiameterAvpFailed_AVP alloc]init];
+        _var_failed_avp.objectValue = dict[@"failed-avp"];
+    }
+
+    if(dict[@"supported-vendor-id"])
+    {
+        id obj = dict[@"supported-vendor-id"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpSupported_Vendor_Id *o = [[UMDiameterAvpSupported_Vendor_Id alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_supported_vendor_id = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpSupported_Vendor_Id *o = [[UMDiameterAvpSupported_Vendor_Id alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_supported_vendor_id = arr;
+        }
+    }
+    if(dict[@"auth-application-id"])
+    {
+        id obj = dict[@"auth-application-id"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAuth_Application_Id *o = [[UMDiameterAvpAuth_Application_Id alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_auth_application_id = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAuth_Application_Id *o = [[UMDiameterAvpAuth_Application_Id alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_auth_application_id = arr;
+        }
+    }
+    if(dict[@"inband-security-id"])
+    {
+        id obj = dict[@"inband-security-id"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpInband_Security_Id *o = [[UMDiameterAvpInband_Security_Id alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_inband_security_id = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpInband_Security_Id *o = [[UMDiameterAvpInband_Security_Id alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_inband_security_id = arr;
+        }
+    }
+    if(dict[@"acct-application-id"])
+    {
+        id obj = dict[@"acct-application-id"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAcct_Application_Id *o = [[UMDiameterAvpAcct_Application_Id alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_acct_application_id = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAcct_Application_Id *o = [[UMDiameterAvpAcct_Application_Id alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_acct_application_id = arr;
+        }
+    }
+    if(dict[@"vendor-specific-application-id"])
+    {
+        id obj = dict[@"vendor-specific-application-id"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpVendor_Specific_Application_Id *o = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_vendor_specific_application_id = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpVendor_Specific_Application_Id *o = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_vendor_specific_application_id = arr;
+        }
+    }
+    if(dict[@"firmware-revision"])
+    {
+        _var_firmware_revision = [[UMDiameterAvpFirmware_Revision alloc]init];
+        _var_firmware_revision.objectValue = dict[@"firmware-revision"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_host_ip_address)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_host_ip_address)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"host-ip-address"] = arr;
+    }
+    if(_var_vendor_id)
+    {
+        dict[@"vendor-id"] = _var_vendor_id.objectValue;
+    }
+    if(_var_product_name)
+    {
+        dict[@"product-name"] = _var_product_name.objectValue;
+    }
+    if(_var_origin_state_id)
+    {
+        dict[@"origin-state-id"] = _var_origin_state_id.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_failed_avp)
+    {
+        dict[@"failed-avp"] = _var_failed_avp.objectValue;
+    }
+    if(_var_supported_vendor_id)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_supported_vendor_id)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"supported-vendor-id"] = arr;
+    }
+    if(_var_auth_application_id)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_auth_application_id)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"auth-application-id"] = arr;
+    }
+    if(_var_inband_security_id)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_inband_security_id)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"inband-security-id"] = arr;
+    }
+    if(_var_acct_application_id)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_acct_application_id)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"acct-application-id"] = arr;
+    }
+    if(_var_vendor_specific_application_id)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_vendor_specific_application_id)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"vendor-specific-application-id"] = arr;
+    }
+    if(_var_firmware_revision)
+    {
+        dict[@"firmware-revision"] = _var_firmware_revision.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>result-code</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"result-code\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>host-ip-address</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"host-ip-address\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>vendor-id</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"vendor-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>product-name</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"product-name\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>origin-state-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"origin-state-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>error-message</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"error-message\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>failed-avp</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"failed-avp\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>supported-vendor-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"supported-vendor-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>auth-application-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"auth-application-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>inband-security-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"inband-security-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>acct-application-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"acct-application-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>vendor-specific-application-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"vendor-specific-application-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>firmware-revision</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"firmware-revision\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>avp</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+}
 
 @end
 

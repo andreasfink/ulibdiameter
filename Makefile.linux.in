@@ -23,6 +23,12 @@ HFILES = version.h $(wildcard Classes/*.h) $(wildcard Classes/*/*.h) $(wildcard 
 MOFILES  = $(MFILES:.m=.m.o)
 OFILES = $(MOFILES)
 
+DIAMETER_CMD_GEN_M_FILES=$(wildcard diameter-cmd-gen/*.m) 
+DIAMETER_CMD_GEN_O_FILES=$(DIAMETER_CMD_GEN_M_FILES:.m=.m.o)
+
+DIAMETER_AVP_GEN_M_FILES=$(wildcard diameter-avp-gen/*.m) 
+DIAMETER_AVP_GEN_O_FILES=$(DIAMETER_CMD_GEN_M_FILES:.m=.m.o)
+
 INCLUDEDIRS = -I Classes -I @PROJECT_NAME@ -I @PROJECT_NAME@/AVP @PROJECT_NAME@/AVP/3GPP  -I @PROJECT_NAME@/Commands
 
 DEBUG_RELEASE = -DCONFIGURATION_${CONFIGURATION}=1 -DCONFIGURATION=${CONFIGURATION}
@@ -35,7 +41,7 @@ ${SLIB}: ${OFILES}
 	ar rcs ${SLIB} ${OFILES}
 	ranlib ${SLIB}
 
-install: ${LIB} ${SLIB}
+install: ${LIB} ${SLIB} build/diameter-cmd-gen build/diameter-avp-gen
 	-mkdir -p ${DESTDIR}/usr/local/lib/pkgconfig
 	rm -f "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}.${MINORVER}.${REVISION}"
 	rm -f "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}.${MINORVER}"
@@ -47,9 +53,20 @@ install: ${LIB} ${SLIB}
 	ln -s "${LIB}.${MAJORVER}.${MINORVER}"             "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}"
 	ln -s "${LIB}.${MAJORVER}"                         "${DESTDIR}/usr/local/lib/${LIB}"
 	-install -b -g root -o root -m 644 ${PKGCONFIGFILE} ${DESTDIR}/usr/local/lib/pkgconfig/
+	-install -b -g root -o root -m 755 build/diameter-cmd-gen ${DESTDIR}/usr/local/bin/diameter-cmd-gen
+	-install -b -g root -o root -m 755 build/diameter-avp-gen ${DESTDIR}/usr/local/bin/diameter-avp-gen
 	-mkdir -p ${DESTDIR}/usr/local/include/ulibdiameter
 	cp $(HFILES) ${DESTDIR}/usr/local/include/ulibdiameter
 	ldconfig
+
+
+build/diameter-cmd-gen: $(DIAMETER_CMD_GEN_O_FILES) lib@PROJECT_NAME@.so
+	mkdir -p build
+	${CC} -o build/decode-sms  -L. -l@PROJECT_NAME@ ${LDFLAGS} $(DIAMETER_CMD_GEN_O_FILES)
+
+build/diameter-avp-gen: $(DIAMETER_AVP_GEN_O_FILES) lib@PROJECT_NAME@.so
+	mkdir -p build
+	${CC} -o build/decode-sms  -L. -l@PROJECT_NAME@ ${LDFLAGS} $(DIAMETER_AVP_GEN_O_FILES)
 
 clean:
 	rm -f $(LIB) $(OFILES) $(SLIB)

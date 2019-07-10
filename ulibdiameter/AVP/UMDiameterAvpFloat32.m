@@ -32,5 +32,41 @@
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
+- (NSNumber *)numberValue
+{
+    return @(_value);
+}
+
+- (void)setNumberValue:(NSNumber *)n
+{
+    self.value = n.floatValue;
+}
+
+
+- (void)setDataValue:(NSData *)data
+{
+    if(data.length == 4)
+    {
+        _value = (float)ntohl( *(uint32_t *)data.bytes);
+    }
+}
+
+- (void)setStringValue:(NSString *)string
+{
+    _value = [string floatValue];
+}
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+}
+
+- (id)objectValue
+{
+    return @(self.value);
+}
 
 @end

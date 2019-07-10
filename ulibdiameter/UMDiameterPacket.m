@@ -413,14 +413,34 @@
 - (void)parseJsonString:(NSString *)s error:(NSError **)eptr
 {
     UMJsonParser *parser = [[UMJsonParser alloc]init];
-    NSDictionary *result = [parser objectWithString:s error:eptr];
-    [self parseDict:result error:eptr];
+    id r = [parser objectWithString:s error:eptr];
+    if([r isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *result = (NSDictionary *)r;
+        [self setDictionaryValue:result];
+    }
+    else
+    {
+        if(eptr)
+        {
+            *eptr = [[NSError alloc]initWithDomain:@"PARSING_ERROR" code:105 userInfo:@{@"reason":@"json decode does not return a dictionary"}];
+        }
+    }
 }
 
 
-- (void)parseDict:(NSDictionary *)s error:(NSError **)eptr
+
+- (void)setDictionaryValue:(NSDictionary *)dict
 {
-    /* FIXME */
+    /* overload me */
 }
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    /* overload me */
+    return [[UMSynchronizedSortedDictionary alloc]init];
+}
+
+
 
 @end

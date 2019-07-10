@@ -2,7 +2,7 @@
 //  UMDiameterPacketRAR.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 10:56:33.374000
+//  Created by afink on 2019-07-10 00:07:37.135000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -23,18 +23,18 @@
 @class UMDiameterAvpAVP;
 @interface UMDiameterPacketRAR : UMDiameterPacket
 {
-	UMDiameterAvpSession_Id	*_varsession_id;
-	UMDiameterAvpOrigin_Host	*_varorigin_host;
-	UMDiameterAvpOrigin_Realm	*_varorigin_realm;
-	UMDiameterAvpDestination_Realm	*_vardestination_realm;
-	UMDiameterAvpDestination_Host	*_vardestination_host;
-	UMDiameterAvpAuth_Application_Id	*_varauth_application_id;
-	UMDiameterAvpRe_Auth_Request_Type	*_varre_auth_request_type;
-	UMDiameterAvpUser_Name	*_varuser_name;
-	UMDiameterAvpOrigin_State_Id	*_varorigin_state_id;
-	NSArray<UMDiameterAvpProxy_Info *>	*_varproxy_info;
-	NSArray<UMDiameterAvpRoute_Record *>	*_varroute_record;
-	NSArray<UMDiameterAvpAVP *>	*_varavp;
+	UMDiameterAvpSession_Id	*_var_session_id;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	UMDiameterAvpDestination_Realm	*_var_destination_realm;
+	UMDiameterAvpDestination_Host	*_var_destination_host;
+	UMDiameterAvpAuth_Application_Id	*_var_auth_application_id;
+	UMDiameterAvpRe_Auth_Request_Type	*_var_re_auth_request_type;
+	UMDiameterAvpUser_Name	*_var_user_name;
+	UMDiameterAvpOrigin_State_Id	*_var_origin_state_id;
+	NSArray<UMDiameterAvpProxy_Info *>	*_var_proxy_info;
+	NSArray<UMDiameterAvpRoute_Record *>	*_var_route_record;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*session_id;
@@ -50,5 +50,8 @@
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*route_record;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
 
-@end
++ (uint32_t)commandCode;
++ (uint32_t)defaultApplicationId;
++ (void)webDiameterParameters:(NSMutableString *)s
+;@end
 

@@ -1,6 +1,6 @@
 //
 //  UMDiameterGeneratorAVP.m
-//  avp-src-gen
+//  diameter-cmd-gen
 //
 //  Created by Andreas Fink on 29.06.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
@@ -212,7 +212,7 @@
     NSMutableString *vname = [[NSMutableString alloc]init];
     NSMutableString *pname = [[NSMutableString alloc]init];
     NSMutableString *oname = [[NSMutableString alloc]init];
-    [vname appendString:@"_var"];
+    [vname appendString:@"_var_"];
     
     for(NSInteger idx=0;idx<count;idx++)
     {

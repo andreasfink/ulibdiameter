@@ -33,15 +33,32 @@
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
-- (NSNumber *)number
+- (NSNumber *)numberValue
 {
     return [[NSNumber alloc]initWithInt:self.value];
 }
 
-- (void)setNumber:(NSNumber *)n
+- (void)setNumberValue:(NSNumber *)n
 {
     self.value = n.intValue;
 }
+
+
+- (void)setDataValue:(NSData *)data
+{
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+}
+
+
+
 
 - (uint32_t)dataLength
 {
@@ -55,6 +72,11 @@
 - (NSString *)stringValue
 {
     return [NSString stringWithFormat:@"%ld",(long)self.value];
+}
+
+- (id)objectValue
+{
+    return @(self.value);
 }
 
 

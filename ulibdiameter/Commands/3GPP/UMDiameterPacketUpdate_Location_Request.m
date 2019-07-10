@@ -2,7 +2,7 @@
 //  UMDiameterPacketUpdate_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-05 15:51:01.841000
+//  Created by afink on 2019-07-10 00:07:33.031000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -49,141 +49,151 @@
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST | DIAMETER_COMMAND_FLAG_PROXIABLE;
 }
 
++ (uint32_t)commandCode
+{
+    return 316;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 16777251;
+}
+
 - (void)beforeEncode
 {
     [super beforeEncode];
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
-    if(_varsession_id)
+    if(_var_session_id)
     {
-        [arr addObject:_varsession_id];
+        [arr addObject:_var_session_id];
     }
-    if(_vardrmp)
+    if(_var_drmp)
     {
-        [arr addObject:_vardrmp];
+        [arr addObject:_var_drmp];
     }
-    if(_varvendor_specific_application_id)
+    if(_var_vendor_specific_application_id)
     {
-        [arr addObject:_varvendor_specific_application_id];
+        [arr addObject:_var_vendor_specific_application_id];
     }
-    if(_varauth_session_state)
+    if(_var_auth_session_state)
     {
-        [arr addObject:_varauth_session_state];
+        [arr addObject:_var_auth_session_state];
     }
-    if(_varorigin_host)
+    if(_var_origin_host)
     {
-        [arr addObject:_varorigin_host];
+        [arr addObject:_var_origin_host];
     }
-    if(_varorigin_realm)
+    if(_var_origin_realm)
     {
-        [arr addObject:_varorigin_realm];
+        [arr addObject:_var_origin_realm];
     }
-    if(_vardestination_host)
+    if(_var_destination_host)
     {
-        [arr addObject:_vardestination_host];
+        [arr addObject:_var_destination_host];
     }
-    if(_vardestination_realm)
+    if(_var_destination_realm)
     {
-        [arr addObject:_vardestination_realm];
+        [arr addObject:_var_destination_realm];
     }
-    if(_varuser_name)
+    if(_var_user_name)
     {
-        [arr addObject:_varuser_name];
+        [arr addObject:_var_user_name];
     }
-    if(_varoc_supported_features)
+    if(_var_oc_supported_features)
     {
-        [arr addObject:_varoc_supported_features];
+        [arr addObject:_var_oc_supported_features];
     }
-    if(_varsupported_features.count > 0)
+    if(_var_supported_features.count > 0)
     {
-        for(UMDiameterAvpSupported_Features *o in _varsupported_features)
+        for(UMDiameterAvpSupported_Features *o in _var_supported_features)
         {
             [arr addObject:o];
         }
     }
-    if(_varterminal_information)
+    if(_var_terminal_information)
     {
-        [arr addObject:_varterminal_information];
+        [arr addObject:_var_terminal_information];
     }
-    if(_varrat_type)
+    if(_var_rat_type)
     {
-        [arr addObject:_varrat_type];
+        [arr addObject:_var_rat_type];
     }
-    if(_varulr_flags)
+    if(_var_ulr_flags)
     {
-        [arr addObject:_varulr_flags];
+        [arr addObject:_var_ulr_flags];
     }
-    if(_varue_srvcc_capability)
+    if(_var_ue_srvcc_capability)
     {
-        [arr addObject:_varue_srvcc_capability];
+        [arr addObject:_var_ue_srvcc_capability];
     }
-    if(_varvisited_plmn_id)
+    if(_var_visited_plmn_id)
     {
-        [arr addObject:_varvisited_plmn_id];
+        [arr addObject:_var_visited_plmn_id];
     }
-    if(_varsgsn_number)
+    if(_var_sgsn_number)
     {
-        [arr addObject:_varsgsn_number];
+        [arr addObject:_var_sgsn_number];
     }
-    if(_varhomogeneous_support_of_ims_voice_over_ps_sessions)
+    if(_var_homogeneous_support_of_ims_voice_over_ps_sessions)
     {
-        [arr addObject:_varhomogeneous_support_of_ims_voice_over_ps_sessions];
+        [arr addObject:_var_homogeneous_support_of_ims_voice_over_ps_sessions];
     }
-    if(_vargmlc_address)
+    if(_var_gmlc_address)
     {
-        [arr addObject:_vargmlc_address];
+        [arr addObject:_var_gmlc_address];
     }
-    if(_varactive_apn.count > 0)
+    if(_var_active_apn.count > 0)
     {
-        for(UMDiameterAvpActive_APN *o in _varactive_apn)
+        for(UMDiameterAvpActive_APN *o in _var_active_apn)
         {
             [arr addObject:o];
         }
     }
-    if(_varequivalent_plmn_list)
+    if(_var_equivalent_plmn_list)
     {
-        [arr addObject:_varequivalent_plmn_list];
+        [arr addObject:_var_equivalent_plmn_list];
     }
-    if(_varmme_number_for_mt_sms)
+    if(_var_mme_number_for_mt_sms)
     {
-        [arr addObject:_varmme_number_for_mt_sms];
+        [arr addObject:_var_mme_number_for_mt_sms];
     }
-    if(_varsms_register_request)
+    if(_var_sms_register_request)
     {
-        [arr addObject:_varsms_register_request];
+        [arr addObject:_var_sms_register_request];
     }
-    if(_varsgs_mme_identity)
+    if(_var_sgs_mme_identity)
     {
-        [arr addObject:_varsgs_mme_identity];
+        [arr addObject:_var_sgs_mme_identity];
     }
-    if(_varcoupled_node_diameter_id)
+    if(_var_coupled_node_diameter_id)
     {
-        [arr addObject:_varcoupled_node_diameter_id];
+        [arr addObject:_var_coupled_node_diameter_id];
     }
-    if(_varadjacent_plmns)
+    if(_var_adjacent_plmns)
     {
-        [arr addObject:_varadjacent_plmns];
+        [arr addObject:_var_adjacent_plmns];
     }
-    if(_varsupported_services)
+    if(_var_supported_services)
     {
-        [arr addObject:_varsupported_services];
+        [arr addObject:_var_supported_services];
     }
-    if(_varavp.count > 0)
+    if(_var_avp.count > 0)
     {
-        for(UMDiameterAvpAVP *o in _varavp)
+        for(UMDiameterAvpAVP *o in _var_avp)
         {
             [arr addObject:o];
         }
     }
-    if(_varproxy_info.count > 0)
+    if(_var_proxy_info.count > 0)
     {
-        for(UMDiameterAvpProxy_Info *o in _varproxy_info)
+        for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
             [arr addObject:o];
         }
     }
-    if(_varroute_record.count > 0)
+    if(_var_route_record.count > 0)
     {
-        for(UMDiameterAvpRoute_Record *o in _varroute_record)
+        for(UMDiameterAvpRoute_Record *o in _var_route_record)
         {
             [arr addObject:o];
         }
@@ -191,6 +201,583 @@
     [self setAvps:arr];
 }
 
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"session-id"])
+    {
+        _var_session_id = [[UMDiameterAvpSession_Id alloc]init];
+        _var_session_id.objectValue = dict[@"session-id"];
+    }
+
+    if(dict[@"drmp"])
+    {
+        _var_drmp = [[UMDiameterAvpDRMP alloc]init];
+        _var_drmp.objectValue = dict[@"drmp"];
+    }
+
+    if(dict[@"vendor-specific-application-id"])
+    {
+        _var_vendor_specific_application_id = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
+        _var_vendor_specific_application_id.objectValue = dict[@"vendor-specific-application-id"];
+    }
+
+    if(dict[@"auth-session-state"])
+    {
+        _var_auth_session_state = [[UMDiameterAvpAuth_Session_State alloc]init];
+        _var_auth_session_state.objectValue = dict[@"auth-session-state"];
+    }
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"destination-host"])
+    {
+        _var_destination_host = [[UMDiameterAvpDestination_Host alloc]init];
+        _var_destination_host.objectValue = dict[@"destination-host"];
+    }
+
+    if(dict[@"destination-realm"])
+    {
+        _var_destination_realm = [[UMDiameterAvpDestination_Realm alloc]init];
+        _var_destination_realm.objectValue = dict[@"destination-realm"];
+    }
+
+    if(dict[@"user-name"])
+    {
+        _var_user_name = [[UMDiameterAvpUser_Name alloc]init];
+        _var_user_name.objectValue = dict[@"user-name"];
+    }
+
+    if(dict[@"oc-supported-features"])
+    {
+        _var_oc_supported_features = [[UMDiameterAvpOC_Supported_Features alloc]init];
+        _var_oc_supported_features.objectValue = dict[@"oc-supported-features"];
+    }
+
+    if(dict[@"supported-features"])
+    {
+        id obj = dict[@"supported-features"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpSupported_Features *o = [[UMDiameterAvpSupported_Features alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_supported_features = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpSupported_Features *o = [[UMDiameterAvpSupported_Features alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_supported_features = arr;
+        }
+    }
+    if(dict[@"terminal-information"])
+    {
+        _var_terminal_information = [[UMDiameterAvpTerminal_Information alloc]init];
+        _var_terminal_information.objectValue = dict[@"terminal-information"];
+    }
+
+    if(dict[@"rat-type"])
+    {
+        _var_rat_type = [[UMDiameterAvpRAT_Type alloc]init];
+        _var_rat_type.objectValue = dict[@"rat-type"];
+    }
+
+    if(dict[@"ulr-flags"])
+    {
+        _var_ulr_flags = [[UMDiameterAvpULR_Flags alloc]init];
+        _var_ulr_flags.objectValue = dict[@"ulr-flags"];
+    }
+
+    if(dict[@"ue-srvcc-capability"])
+    {
+        _var_ue_srvcc_capability = [[UMDiameterAvpUE_SRVCC_Capability alloc]init];
+        _var_ue_srvcc_capability.objectValue = dict[@"ue-srvcc-capability"];
+    }
+
+    if(dict[@"visited-plmn-id"])
+    {
+        _var_visited_plmn_id = [[UMDiameterAvpVisited_PLMN_Id alloc]init];
+        _var_visited_plmn_id.objectValue = dict[@"visited-plmn-id"];
+    }
+
+    if(dict[@"sgsn-number"])
+    {
+        _var_sgsn_number = [[UMDiameterAvpSGSN_Number alloc]init];
+        _var_sgsn_number.objectValue = dict[@"sgsn-number"];
+    }
+
+    if(dict[@"homogeneous-support-of-ims-voice-over-ps-sessions"])
+    {
+        _var_homogeneous_support_of_ims_voice_over_ps_sessions = [[UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions alloc]init];
+        _var_homogeneous_support_of_ims_voice_over_ps_sessions.objectValue = dict[@"homogeneous-support-of-ims-voice-over-ps-sessions"];
+    }
+
+    if(dict[@"gmlc-address"])
+    {
+        _var_gmlc_address = [[UMDiameterAvpGMLC_Address alloc]init];
+        _var_gmlc_address.objectValue = dict[@"gmlc-address"];
+    }
+
+    if(dict[@"active-apn"])
+    {
+        id obj = dict[@"active-apn"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpActive_APN *o = [[UMDiameterAvpActive_APN alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_active_apn = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpActive_APN *o = [[UMDiameterAvpActive_APN alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_active_apn = arr;
+        }
+    }
+    if(dict[@"equivalent-plmn-list"])
+    {
+        _var_equivalent_plmn_list = [[UMDiameterAvpEquivalent_PLMN_List alloc]init];
+        _var_equivalent_plmn_list.objectValue = dict[@"equivalent-plmn-list"];
+    }
+
+    if(dict[@"mme-number-for-mt-sms"])
+    {
+        _var_mme_number_for_mt_sms = [[UMDiameterAvpMME_Number_for_MT_SMS alloc]init];
+        _var_mme_number_for_mt_sms.objectValue = dict[@"mme-number-for-mt-sms"];
+    }
+
+    if(dict[@"sms-register-request"])
+    {
+        _var_sms_register_request = [[UMDiameterAvpSMS_Register_Request alloc]init];
+        _var_sms_register_request.objectValue = dict[@"sms-register-request"];
+    }
+
+    if(dict[@"sgs-mme-identity"])
+    {
+        _var_sgs_mme_identity = [[UMDiameterAvpSGs_MME_Identity alloc]init];
+        _var_sgs_mme_identity.objectValue = dict[@"sgs-mme-identity"];
+    }
+
+    if(dict[@"coupled-node-diameter-id"])
+    {
+        _var_coupled_node_diameter_id = [[UMDiameterAvpCoupled_Node_Diameter_ID alloc]init];
+        _var_coupled_node_diameter_id.objectValue = dict[@"coupled-node-diameter-id"];
+    }
+
+    if(dict[@"adjacent-plmns"])
+    {
+        _var_adjacent_plmns = [[UMDiameterAvpAdjacent_PLMNs alloc]init];
+        _var_adjacent_plmns.objectValue = dict[@"adjacent-plmns"];
+    }
+
+    if(dict[@"supported-services"])
+    {
+        _var_supported_services = [[UMDiameterAvpSupported_Services alloc]init];
+        _var_supported_services.objectValue = dict[@"supported-services"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+    if(dict[@"proxy-info"])
+    {
+        id obj = dict[@"proxy-info"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpProxy_Info *o = [[UMDiameterAvpProxy_Info alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_proxy_info = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpProxy_Info *o = [[UMDiameterAvpProxy_Info alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_proxy_info = arr;
+        }
+    }
+    if(dict[@"route-record"])
+    {
+        id obj = dict[@"route-record"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpRoute_Record *o = [[UMDiameterAvpRoute_Record alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_route_record = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpRoute_Record *o = [[UMDiameterAvpRoute_Record alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_route_record = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_session_id)
+    {
+        dict[@"session-id"] = _var_session_id.objectValue;
+    }
+    if(_var_drmp)
+    {
+        dict[@"drmp"] = _var_drmp.objectValue;
+    }
+    if(_var_vendor_specific_application_id)
+    {
+        dict[@"vendor-specific-application-id"] = _var_vendor_specific_application_id.objectValue;
+    }
+    if(_var_auth_session_state)
+    {
+        dict[@"auth-session-state"] = _var_auth_session_state.objectValue;
+    }
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_destination_host)
+    {
+        dict[@"destination-host"] = _var_destination_host.objectValue;
+    }
+    if(_var_destination_realm)
+    {
+        dict[@"destination-realm"] = _var_destination_realm.objectValue;
+    }
+    if(_var_user_name)
+    {
+        dict[@"user-name"] = _var_user_name.objectValue;
+    }
+    if(_var_oc_supported_features)
+    {
+        dict[@"oc-supported-features"] = _var_oc_supported_features.objectValue;
+    }
+    if(_var_supported_features)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_supported_features)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"supported-features"] = arr;
+    }
+    if(_var_terminal_information)
+    {
+        dict[@"terminal-information"] = _var_terminal_information.objectValue;
+    }
+    if(_var_rat_type)
+    {
+        dict[@"rat-type"] = _var_rat_type.objectValue;
+    }
+    if(_var_ulr_flags)
+    {
+        dict[@"ulr-flags"] = _var_ulr_flags.objectValue;
+    }
+    if(_var_ue_srvcc_capability)
+    {
+        dict[@"ue-srvcc-capability"] = _var_ue_srvcc_capability.objectValue;
+    }
+    if(_var_visited_plmn_id)
+    {
+        dict[@"visited-plmn-id"] = _var_visited_plmn_id.objectValue;
+    }
+    if(_var_sgsn_number)
+    {
+        dict[@"sgsn-number"] = _var_sgsn_number.objectValue;
+    }
+    if(_var_homogeneous_support_of_ims_voice_over_ps_sessions)
+    {
+        dict[@"homogeneous-support-of-ims-voice-over-ps-sessions"] = _var_homogeneous_support_of_ims_voice_over_ps_sessions.objectValue;
+    }
+    if(_var_gmlc_address)
+    {
+        dict[@"gmlc-address"] = _var_gmlc_address.objectValue;
+    }
+    if(_var_active_apn)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_active_apn)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"active-apn"] = arr;
+    }
+    if(_var_equivalent_plmn_list)
+    {
+        dict[@"equivalent-plmn-list"] = _var_equivalent_plmn_list.objectValue;
+    }
+    if(_var_mme_number_for_mt_sms)
+    {
+        dict[@"mme-number-for-mt-sms"] = _var_mme_number_for_mt_sms.objectValue;
+    }
+    if(_var_sms_register_request)
+    {
+        dict[@"sms-register-request"] = _var_sms_register_request.objectValue;
+    }
+    if(_var_sgs_mme_identity)
+    {
+        dict[@"sgs-mme-identity"] = _var_sgs_mme_identity.objectValue;
+    }
+    if(_var_coupled_node_diameter_id)
+    {
+        dict[@"coupled-node-diameter-id"] = _var_coupled_node_diameter_id.objectValue;
+    }
+    if(_var_adjacent_plmns)
+    {
+        dict[@"adjacent-plmns"] = _var_adjacent_plmns.objectValue;
+    }
+    if(_var_supported_services)
+    {
+        dict[@"supported-services"] = _var_supported_services.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    if(_var_proxy_info)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_proxy_info)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"proxy-info"] = arr;
+    }
+    if(_var_route_record)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_route_record)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"route-record"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>session-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"session-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>drmp</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"drmp\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>vendor-specific-application-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"vendor-specific-application-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>auth-session-state</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"auth-session-state\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>destination-host</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"destination-host\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>destination-realm</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"destination-realm\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>user-name</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"user-name\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>oc-supported-features</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"oc-supported-features\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>supported-features</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"supported-features\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>terminal-information</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"terminal-information\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>rat-type</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"rat-type\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>ulr-flags</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"ulr-flags\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>ue-srvcc-capability</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"ue-srvcc-capability\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=mandatory>visited-plmn-id</td>\n"];
+    [s appendString:@"    <td class=mandatory><input name=\"visited-plmn-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>sgsn-number</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"sgsn-number\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>homogeneous-support-of-ims-voice-over-ps-sessions</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"homogeneous-support-of-ims-voice-over-ps-sessions\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>gmlc-address</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"gmlc-address\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>active-apn</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"active-apn\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>equivalent-plmn-list</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"equivalent-plmn-list\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>mme-number-for-mt-sms</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"mme-number-for-mt-sms\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>sms-register-request</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"sms-register-request\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>sgs-mme-identity</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"sgs-mme-identity\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>coupled-node-diameter-id</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"coupled-node-diameter-id\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>adjacent-plmns</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"adjacent-plmns\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>supported-services</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"supported-services\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>avp</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>proxy-info</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"proxy-info\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"    <td class=optional>route-record</td>\n"];
+    [s appendString:@"    <td class=optional><input name=\"route-record\" type=text> </td>\n"];
+    [s appendString:@"</tr>\n"];
+
+}
 
 @end
 

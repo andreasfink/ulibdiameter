@@ -33,12 +33,12 @@
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
-- (NSNumber *)number
+- (NSNumber *)numberValue
 {
     return [[NSNumber alloc]initWithUnsignedInt:self.value];
 }
 
-- (void)setNumber:(NSNumber *)n
+- (void)setNumberValue:(NSNumber *)n
 {
     self.value = n.unsignedIntValue;
 }
@@ -56,5 +56,26 @@
 {
     return [NSString stringWithFormat:@"%u",self.value];
 }
+
+
+- (void)setDataValue:(NSData *)data
+{
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+}
+
+- (id)objectValue
+{
+    return @(self.value);
+}
+
+
 
 @end

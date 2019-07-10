@@ -17,8 +17,8 @@
 @property(readwrite,assign,atomic) uint64_t value;
 
 
-- (NSNumber *)number;
-- (void)setNumber:(NSNumber *)n;
+- (NSNumber *)numberValue;
+- (void)setNumberValue:(NSNumber *)n;
 
 - (void)setStringValue:(NSString *)string;
 - (NSString *)stringValue;

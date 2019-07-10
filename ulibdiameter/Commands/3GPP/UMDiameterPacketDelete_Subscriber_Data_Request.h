@@ -2,7 +2,7 @@
 //  UMDiameterPacketDelete_Subscriber_Data_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-05 15:51:01.901000
+//  Created by afink on 2019-07-10 00:07:33.079000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,25 +30,25 @@
 @class UMDiameterAvpRoute_Record;
 @interface UMDiameterPacketDelete_Subscriber_Data_Request : UMDiameterPacket
 {
-	UMDiameterAvpSession_Id	*_varsession_id;
-	UMDiameterAvpDRMP	*_vardrmp;
-	UMDiameterAvpVendor_Specific_Application_Id	*_varvendor_specific_application_id;
-	UMDiameterAvpAuth_Session_State	*_varauth_session_state;
-	UMDiameterAvpOrigin_Host	*_varorigin_host;
-	UMDiameterAvpOrigin_Realm	*_varorigin_realm;
-	UMDiameterAvpDestination_Host	*_vardestination_host;
-	UMDiameterAvpDestination_Realm	*_vardestination_realm;
-	UMDiameterAvpUser_Name	*_varuser_name;
-	NSArray<UMDiameterAvpSupported_Features *>	*_varsupported_features;
-	UMDiameterAvpDSR_Flags	*_vardsr_flags;
-	UMDiameterAvpSCEF_ID	*_varscef_id;
-	NSArray<UMDiameterAvpContext_Identifier *>	*_varcontext_identifier;
-	UMDiameterAvpTrace_Reference	*_vartrace_reference;
-	NSArray<UMDiameterAvpTS_Code *>	*_varts_code;
-	NSArray<UMDiameterAvpSS_Code *>	*_varss_code;
-	NSArray<UMDiameterAvpAVP *>	*_varavp;
-	NSArray<UMDiameterAvpProxy_Info *>	*_varproxy_info;
-	NSArray<UMDiameterAvpRoute_Record *>	*_varroute_record;
+	UMDiameterAvpSession_Id	*_var_session_id;
+	UMDiameterAvpDRMP	*_var_drmp;
+	UMDiameterAvpVendor_Specific_Application_Id	*_var_vendor_specific_application_id;
+	UMDiameterAvpAuth_Session_State	*_var_auth_session_state;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	UMDiameterAvpDestination_Host	*_var_destination_host;
+	UMDiameterAvpDestination_Realm	*_var_destination_realm;
+	UMDiameterAvpUser_Name	*_var_user_name;
+	NSArray<UMDiameterAvpSupported_Features *>	*_var_supported_features;
+	UMDiameterAvpDSR_Flags	*_var_dsr_flags;
+	UMDiameterAvpSCEF_ID	*_var_scef_id;
+	NSArray<UMDiameterAvpContext_Identifier *>	*_var_context_identifier;
+	UMDiameterAvpTrace_Reference	*_var_trace_reference;
+	NSArray<UMDiameterAvpTS_Code *>	*_var_ts_code;
+	NSArray<UMDiameterAvpSS_Code *>	*_var_ss_code;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
+	NSArray<UMDiameterAvpProxy_Info *>	*_var_proxy_info;
+	NSArray<UMDiameterAvpRoute_Record *>	*_var_route_record;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*session_id;
@@ -71,5 +71,8 @@
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*proxy_info;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*route_record;
 
-@end
++ (uint32_t)commandCode;
++ (uint32_t)defaultApplicationId;
++ (void)webDiameterParameters:(NSMutableString *)s
+;@end
 

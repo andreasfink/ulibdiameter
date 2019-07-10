@@ -7,13 +7,14 @@
 //
 
 /* see also https://www.iana.org/assignments/aaa-parameters/aaa-parameters.xml */
+#import <Foundation/Foundation.h>
+
+NSString *umdiameter_application_id_string(uint32_t ai);
 
 typedef enum UMDiameterApplicationId
 {
     UMDiameterApplicationId_Diameter_Common_Messages = 0,
     UMDiameterApplicationId_Diameter_Base_Accounting = 3,
-
-
     UMDiameterApplicationId_3GPP_Cx = 16777216,
     UMDiameterApplicationId_3GPP_Sh = 16777217,
     UMDiameterApplicationId_3GPP_Re = 16777218,
@@ -24,14 +25,12 @@ typedef enum UMDiameterApplicationId
     UMDiameterApplicationId_3GPP_Gmb = 16777223,
     UMDiameterApplicationId_3GPP_Gx = 16777224,
     UMDiameterApplicationId_3GPP_Gx2 = 16777238,
-
     UMDiameterApplicationId_3GPP_Gx_over_Gy = 16777225,
     UMDiameterApplicationId_3GPP_MM10 = 16777226,
     UMDiameterApplicationId_Ericsson_MSI = 16777227,
     UMDiameterApplicationId_Ericsson_Zx = 16777228,
     UMDiameterApplicationId_3GPP_Rx = 16777229,
     UMDiameterApplicationId_3GPP_Rx2 = 16777236,
-
     UMDiameterApplicationId_3GPP_Pr = 16777230,
     UMDiameterApplicationId_ETSI_e4 = 16777231,
     UMDiameterApplicationId_Ericsson_Charging_CIP = 16777232,

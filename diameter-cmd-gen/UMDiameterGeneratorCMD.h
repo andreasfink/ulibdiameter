@@ -1,6 +1,6 @@
 //
 //  UMDiameterGeneratorCMD.h
-//  avp-src-gen
+//  diameter-cmd-gen
 //
 //  Created by Andreas Fink on 29.06.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.

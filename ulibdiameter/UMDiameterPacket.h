@@ -62,6 +62,9 @@
 - (void)beforeEncode;
 
 - (void)parseJsonString:(NSString *)s error:(NSError **)eptr;
-- (void)parseDict:(NSDictionary *)s error:(NSError **)eptr;
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict;
+- (UMSynchronizedSortedDictionary *)dictionaryValue;
 
 @end

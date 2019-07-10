@@ -783,6 +783,7 @@
 		A6BF31AB229C91420000578B /* UMDiameterPeerState_Closing.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31A9229C91420000578B /* UMDiameterPeerState_Closing.m */; };
 		A6BF31AE229C9B330000578B /* UMDiameterPeerState_Connected.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31AC229C9B330000578B /* UMDiameterPeerState_Connected.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6BF31AF229C9B330000578B /* UMDiameterPeerState_Connected.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31AD229C9B330000578B /* UMDiameterPeerState_Connected.m */; };
+		A6C4789922D5648F007F395C /* UMDiameterApplicationId.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C4789822D5648F007F395C /* UMDiameterApplicationId.m */; };
 		A6C9EE7022CB625300778583 /* UMDiameterAvpAcct_Application_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9EE0C22CB624E00778583 /* UMDiameterAvpAcct_Application_Id.m */; };
 		A6C9EE7122CB625300778583 /* UMDiameterAvpOrigin_Realm.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C9EE0D22CB624E00778583 /* UMDiameterAvpOrigin_Realm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6C9EE7222CB625300778583 /* UMDiameterAvpError_Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C9EE0E22CB624E00778583 /* UMDiameterAvpError_Message.m */; };
@@ -1856,6 +1857,7 @@
 		A6BF31A9229C91420000578B /* UMDiameterPeerState_Closing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Closing.m; sourceTree = "<group>"; };
 		A6BF31AC229C9B330000578B /* UMDiameterPeerState_Connected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_Connected.h; sourceTree = "<group>"; };
 		A6BF31AD229C9B330000578B /* UMDiameterPeerState_Connected.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Connected.m; sourceTree = "<group>"; };
+		A6C4789822D5648F007F395C /* UMDiameterApplicationId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterApplicationId.m; sourceTree = "<group>"; };
 		A6C9EDD022CB480300778583 /* UMDiameterAvpMDT_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpMDT_Configuration.bnf; sourceTree = "<group>"; };
 		A6C9EDD122CB480300778583 /* UMDiameterAvpMO_LR.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpMO_LR.bnf; sourceTree = "<group>"; };
 		A6C9EDD222CB480300778583 /* UMDiameterAvpEPS_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpEPS_User_State.bnf; sourceTree = "<group>"; };
@@ -3106,6 +3108,7 @@
 				A661A52A22A1728B00CCEE02 /* UMDiameterNetworkOrder.m */,
 				A6A58BB9203AEA8200D0C2BE /* UMDiameterCommandFlags.h */,
 				A6BF3188229C3AD80000578B /* UMDiameterApplicationId.h */,
+				A6C4789822D5648F007F395C /* UMDiameterApplicationId.m */,
 				A6BB8C2A22AFA35000728CDC /* UMDiameterVendorId.h */,
 				A6A58BB5203AE65B00D0C2BE /* UMDiameterCommandCode.h */,
 				A6F2C8FF203B80CF00DA49BF /* UMDiameterCommandCode.m */,
@@ -4631,6 +4634,7 @@
 				A6C9F36922CBA2B200778583 /* UMDiameterAvpAccounting_Realtime_Required.m in Sources */,
 				A6C9EEB522CB625300778583 /* UMDiameterAvpRedirect_Host_Usage.m in Sources */,
 				A6AB192022CBE5C7007F880D /* UMDiameterAvpDigest_Realm.m in Sources */,
+				A6C4789922D5648F007F395C /* UMDiameterApplicationId.m in Sources */,
 				A638465022CF8D5C00D62749 /* UMDiameterPacketReset_Request.m in Sources */,
 				A6AB1A0422CBE5C7007F880D /* UMDiameterAvpRegional_Subscription_Zone_Code.m in Sources */,
 				A6AB190022CBE5C7007F880D /* UMDiameterAvpTrace_Collection_Entity.m in Sources */,
@@ -4915,7 +4919,6 @@
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -4945,7 +4948,6 @@
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",

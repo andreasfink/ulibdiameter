@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 10:56:33.336000
+//  Created by afink on 2019-07-10 00:07:37.101000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -18,13 +18,13 @@
 @class UMDiameterAvpAVP;
 @interface UMDiameterPacketDWA : UMDiameterPacket
 {
-	UMDiameterAvpResult_Code	*_varresult_code;
-	UMDiameterAvpOrigin_Host	*_varorigin_host;
-	UMDiameterAvpOrigin_Realm	*_varorigin_realm;
-	UMDiameterAvpError_Message	*_varerror_message;
-	UMDiameterAvpFailed_AVP	*_varfailed_avp;
-	UMDiameterAvpOrigin_State_Id	*_varorigin_state_id;
-	NSArray<UMDiameterAvpAVP *>	*_varavp;
+	UMDiameterAvpResult_Code	*_var_result_code;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	UMDiameterAvpError_Message	*_var_error_message;
+	UMDiameterAvpFailed_AVP	*_var_failed_avp;
+	UMDiameterAvpOrigin_State_Id	*_var_origin_state_id;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpResult_Code	*result_code;
@@ -35,5 +35,8 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpOrigin_State_Id	*origin_state_id;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
 
-@end
++ (uint32_t)commandCode;
++ (uint32_t)defaultApplicationId;
++ (void)webDiameterParameters:(NSMutableString *)s
+;@end
 

@@ -366,7 +366,65 @@ break;
 }
 
 
-- (UMSynchronizedSortedDictionary *)objectValue
+- (void)setStringValue:(NSString *)string
+{
+    UMAssert(0,@"please implement setStringValue:");
+}
+
+- (void)setDataValue:(NSData *)data
+{
+    UMAssert(0,@"please implement setDataValue:");
+}
+
+- (void)setNumberValue:(NSNumber *)number
+{
+    UMAssert(0,@"please implement setNumberValue:");
+}
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+    UMAssert(0,@"please implement setDictionaryValue:");
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+    UMAssert(0,@"please implement setDateValue:");
+}
+
+- (void)setObjectValue:(id)obj
+{
+    if([obj isKindOfClass:[NSString class]])
+    {
+        [self setStringValue:(NSString *)obj];
+    }
+    else if([obj isKindOfClass:[NSData class]])
+    {
+        [self setDataValue:(NSData *)obj];
+    }
+    else if([obj isKindOfClass:[NSNumber class]])
+    {
+        [self setNumberValue:(NSNumber *)obj];
+    }
+    else if([obj isKindOfClass:[NSDictionary class]])
+    {
+        [self setDictionaryValue:(NSDictionary *)obj];
+    }
+    else if([obj isKindOfClass:[UMSynchronizedDictionary class]])
+    {
+        [self setDictionaryValue:[(UMSynchronizedDictionary *)obj dictionaryCopy]];
+    }
+    else
+    {
+        UMAssert(0,@"I have no clue what kind of object you are passing here");
+    }
+}
+
+- (id)objectValue
+{
+    return [NSNull null];
+}
+
+- (UMSynchronizedSortedDictionary *)objectDescription
 {
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
     _avpCode = self.avpCode;
@@ -394,6 +452,8 @@ break;
     dict[@"avp-data"] = _avpData;
     return dict;
 }
+
+
 
 
 @end

@@ -2,7 +2,7 @@
 //  UMDiameterPacketCEA.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 10:56:33.309000
+//  Created by afink on 2019-07-10 00:07:37.075000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -27,22 +27,22 @@
 @class UMDiameterAvpAVP;
 @interface UMDiameterPacketCEA : UMDiameterPacket
 {
-	UMDiameterAvpResult_Code	*_varresult_code;
-	UMDiameterAvpOrigin_Host	*_varorigin_host;
-	UMDiameterAvpOrigin_Realm	*_varorigin_realm;
-	NSArray<UMDiameterAvpHost_IP_Address *>	*_varhost_ip_address;
-	UMDiameterAvpVendor_Id	*_varvendor_id;
-	UMDiameterAvpProduct_Name	*_varproduct_name;
-	UMDiameterAvpOrigin_State_Id	*_varorigin_state_id;
-	UMDiameterAvpError_Message	*_varerror_message;
-	UMDiameterAvpFailed_AVP	*_varfailed_avp;
-	NSArray<UMDiameterAvpSupported_Vendor_Id *>	*_varsupported_vendor_id;
-	NSArray<UMDiameterAvpAuth_Application_Id *>	*_varauth_application_id;
-	NSArray<UMDiameterAvpInband_Security_Id *>	*_varinband_security_id;
-	NSArray<UMDiameterAvpAcct_Application_Id *>	*_varacct_application_id;
-	NSArray<UMDiameterAvpVendor_Specific_Application_Id *>	*_varvendor_specific_application_id;
-	UMDiameterAvpFirmware_Revision	*_varfirmware_revision;
-	NSArray<UMDiameterAvpAVP *>	*_varavp;
+	UMDiameterAvpResult_Code	*_var_result_code;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	NSArray<UMDiameterAvpHost_IP_Address *>	*_var_host_ip_address;
+	UMDiameterAvpVendor_Id	*_var_vendor_id;
+	UMDiameterAvpProduct_Name	*_var_product_name;
+	UMDiameterAvpOrigin_State_Id	*_var_origin_state_id;
+	UMDiameterAvpError_Message	*_var_error_message;
+	UMDiameterAvpFailed_AVP	*_var_failed_avp;
+	NSArray<UMDiameterAvpSupported_Vendor_Id *>	*_var_supported_vendor_id;
+	NSArray<UMDiameterAvpAuth_Application_Id *>	*_var_auth_application_id;
+	NSArray<UMDiameterAvpInband_Security_Id *>	*_var_inband_security_id;
+	NSArray<UMDiameterAvpAcct_Application_Id *>	*_var_acct_application_id;
+	NSArray<UMDiameterAvpVendor_Specific_Application_Id *>	*_var_vendor_specific_application_id;
+	UMDiameterAvpFirmware_Revision	*_var_firmware_revision;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpResult_Code	*result_code;
@@ -62,5 +62,8 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpFirmware_Revision	*firmware_revision;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
 
-@end
++ (uint32_t)commandCode;
++ (uint32_t)defaultApplicationId;
++ (void)webDiameterParameters:(NSMutableString *)s
+;@end
 

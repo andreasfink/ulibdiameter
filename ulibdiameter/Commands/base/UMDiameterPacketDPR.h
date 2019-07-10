@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-02 10:56:33.429000
+//  Created by afink on 2019-07-10 00:07:37.182000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,10 +15,10 @@
 @class UMDiameterAvpAVP;
 @interface UMDiameterPacketDPR : UMDiameterPacket
 {
-	UMDiameterAvpOrigin_Host	*_varorigin_host;
-	UMDiameterAvpOrigin_Realm	*_varorigin_realm;
-	UMDiameterAvpDisconnect_Cause	*_vardisconnect_cause;
-	NSArray<UMDiameterAvpAVP *>	*_varavp;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	UMDiameterAvpDisconnect_Cause	*_var_disconnect_cause;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*origin_host;
@@ -26,5 +26,8 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpDisconnect_Cause	*disconnect_cause;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
 
-@end
++ (uint32_t)commandCode;
++ (uint32_t)defaultApplicationId;
++ (void)webDiameterParameters:(NSMutableString *)s
+;@end
 

@@ -18,14 +18,32 @@
 }
 
 
-- (UMSynchronizedSortedDictionary *)objectValue
+- (void)setStringValue:(NSString *)string
 {
-    UMSynchronizedSortedDictionary *dict = [super objectValue];
-    NSString *s = [[NSString alloc]initWithData:_avpData encoding:NSUTF8StringEncoding];
-    if(s)
-    {
-        dict[@"octet-string"] = s;
-    }
-    return dict;
+    _avpData = [string dataUsingEncoding:NSUTF8StringEncoding];
 }
+
+- (void)setDataValue:(NSData *)data
+{
+    _avpData = data;
+}
+
+- (void)setNumberValue:(NSNumber *)number
+{
+    NSString *string = [number stringValue];
+    [self setStringValue:string];
+}
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+    NSString *string = [dict jsonString];
+    [self setStringValue:string];
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+    NSString *string = [date stringValue];
+    [self setStringValue:string];
+}
+
 @end

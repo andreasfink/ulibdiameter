@@ -2,7 +2,7 @@
 //  UMDiameterPacketUpdate_Location_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-05 15:51:01.841000
+//  Created by afink on 2019-07-10 00:07:33.031000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -41,36 +41,36 @@
 @class UMDiameterAvpRoute_Record;
 @interface UMDiameterPacketUpdate_Location_Request : UMDiameterPacket
 {
-	UMDiameterAvpSession_Id	*_varsession_id;
-	UMDiameterAvpDRMP	*_vardrmp;
-	UMDiameterAvpVendor_Specific_Application_Id	*_varvendor_specific_application_id;
-	UMDiameterAvpAuth_Session_State	*_varauth_session_state;
-	UMDiameterAvpOrigin_Host	*_varorigin_host;
-	UMDiameterAvpOrigin_Realm	*_varorigin_realm;
-	UMDiameterAvpDestination_Host	*_vardestination_host;
-	UMDiameterAvpDestination_Realm	*_vardestination_realm;
-	UMDiameterAvpUser_Name	*_varuser_name;
-	UMDiameterAvpOC_Supported_Features	*_varoc_supported_features;
-	NSArray<UMDiameterAvpSupported_Features *>	*_varsupported_features;
-	UMDiameterAvpTerminal_Information	*_varterminal_information;
-	UMDiameterAvpRAT_Type	*_varrat_type;
-	UMDiameterAvpULR_Flags	*_varulr_flags;
-	UMDiameterAvpUE_SRVCC_Capability	*_varue_srvcc_capability;
-	UMDiameterAvpVisited_PLMN_Id	*_varvisited_plmn_id;
-	UMDiameterAvpSGSN_Number	*_varsgsn_number;
-	UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions	*_varhomogeneous_support_of_ims_voice_over_ps_sessions;
-	UMDiameterAvpGMLC_Address	*_vargmlc_address;
-	NSArray<UMDiameterAvpActive_APN *>	*_varactive_apn;
-	UMDiameterAvpEquivalent_PLMN_List	*_varequivalent_plmn_list;
-	UMDiameterAvpMME_Number_for_MT_SMS	*_varmme_number_for_mt_sms;
-	UMDiameterAvpSMS_Register_Request	*_varsms_register_request;
-	UMDiameterAvpSGs_MME_Identity	*_varsgs_mme_identity;
-	UMDiameterAvpCoupled_Node_Diameter_ID	*_varcoupled_node_diameter_id;
-	UMDiameterAvpAdjacent_PLMNs	*_varadjacent_plmns;
-	UMDiameterAvpSupported_Services	*_varsupported_services;
-	NSArray<UMDiameterAvpAVP *>	*_varavp;
-	NSArray<UMDiameterAvpProxy_Info *>	*_varproxy_info;
-	NSArray<UMDiameterAvpRoute_Record *>	*_varroute_record;
+	UMDiameterAvpSession_Id	*_var_session_id;
+	UMDiameterAvpDRMP	*_var_drmp;
+	UMDiameterAvpVendor_Specific_Application_Id	*_var_vendor_specific_application_id;
+	UMDiameterAvpAuth_Session_State	*_var_auth_session_state;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	UMDiameterAvpDestination_Host	*_var_destination_host;
+	UMDiameterAvpDestination_Realm	*_var_destination_realm;
+	UMDiameterAvpUser_Name	*_var_user_name;
+	UMDiameterAvpOC_Supported_Features	*_var_oc_supported_features;
+	NSArray<UMDiameterAvpSupported_Features *>	*_var_supported_features;
+	UMDiameterAvpTerminal_Information	*_var_terminal_information;
+	UMDiameterAvpRAT_Type	*_var_rat_type;
+	UMDiameterAvpULR_Flags	*_var_ulr_flags;
+	UMDiameterAvpUE_SRVCC_Capability	*_var_ue_srvcc_capability;
+	UMDiameterAvpVisited_PLMN_Id	*_var_visited_plmn_id;
+	UMDiameterAvpSGSN_Number	*_var_sgsn_number;
+	UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions	*_var_homogeneous_support_of_ims_voice_over_ps_sessions;
+	UMDiameterAvpGMLC_Address	*_var_gmlc_address;
+	NSArray<UMDiameterAvpActive_APN *>	*_var_active_apn;
+	UMDiameterAvpEquivalent_PLMN_List	*_var_equivalent_plmn_list;
+	UMDiameterAvpMME_Number_for_MT_SMS	*_var_mme_number_for_mt_sms;
+	UMDiameterAvpSMS_Register_Request	*_var_sms_register_request;
+	UMDiameterAvpSGs_MME_Identity	*_var_sgs_mme_identity;
+	UMDiameterAvpCoupled_Node_Diameter_ID	*_var_coupled_node_diameter_id;
+	UMDiameterAvpAdjacent_PLMNs	*_var_adjacent_plmns;
+	UMDiameterAvpSupported_Services	*_var_supported_services;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
+	NSArray<UMDiameterAvpProxy_Info *>	*_var_proxy_info;
+	NSArray<UMDiameterAvpRoute_Record *>	*_var_route_record;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*session_id;
@@ -104,5 +104,8 @@
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*proxy_info;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*route_record;
 
-@end
++ (uint32_t)commandCode;
++ (uint32_t)defaultApplicationId;
++ (void)webDiameterParameters:(NSMutableString *)s
+;@end
 

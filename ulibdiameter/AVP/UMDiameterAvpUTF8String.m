@@ -26,11 +26,40 @@
 }
 
 
-
-- (UMSynchronizedSortedDictionary *)objectValue
+- (NSNumber *)numberValue
 {
-    UMSynchronizedSortedDictionary *dict = [super objectValue];
-    dict[@"utf8-string"] = [self value];
-    return dict;
+    return @([self.value doubleValue]);
 }
+
+- (void)setNumberValue:(NSNumber *)n
+{
+    self.value = n.stringValue;
+}
+
+
+- (void)setDataValue:(NSData *)data
+{
+    _avpData = data;
+}
+
+- (void)setStringValue:(NSString *)string
+{
+    self.value = string;
+}
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+    self.value = [dict jsonString];
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+    self.value = [date stringValue];
+}
+
+- (id)objectValue
+{
+    return self.value;
+}
+
 @end

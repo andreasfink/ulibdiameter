@@ -38,7 +38,15 @@
 
 - (uint32_t)dataLength;     /* length exclusive padding exclusive header length */
 
-- (UMSynchronizedSortedDictionary *)objectValue;
+/* to set an object from Json */
+- (void)setObjectValue:(id)obj;
+- (id)objectValue;
+
+- (void)setStringValue:(NSString *)string;
+- (void)setDataValue:(NSData *)data;
+- (void)setNumberValue:(NSNumber *)number;
+- (void)setDictionaryValue:(NSDictionary *)dict;
+- (void)setDateValue:(NSDate *)date;
 
 @property(readwrite,assign,atomic)  uint32_t    avpCode;
 @property(readwrite,assign,atomic)  uint8_t     avpFlags;
@@ -55,5 +63,6 @@
 
 - (void)afterDecode;
 - (void)beforeEncode;
+
 
 @end

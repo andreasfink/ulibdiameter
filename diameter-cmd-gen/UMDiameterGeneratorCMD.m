@@ -1,6 +1,6 @@
 //
 //  UMDiameterGeneratorCMD.m
-//  avp-src-gen
+//  diameter-cmd-gen
 //
 //  Created by Andreas Fink on 29.06.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
@@ -318,8 +318,12 @@
         }
     }
     [s appendString:@"\n"];
+    [s appendString:@"+ (uint32_t)commandCode;\n"];
+    [s appendString:@"+ (uint32_t)defaultApplicationId;\n"];
+    [s appendString:@"+ (void)webDiameterParameters:(NSMutableString *)s\n;"];
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
+
     return s;
 }
 
@@ -409,8 +413,21 @@
     [s appendString:@"}\n"];
 
     [s appendString:@"\n"];
-    
-    
+
+
+    [s appendString:@"+ (uint32_t)commandCode\n"];
+    [s appendString:@"{\n"];
+    [s appendFormat:@"    return %ld;\n",(long)_commandNumber];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+    [s appendString:@"+ (uint32_t)defaultApplicationId\n"];
+    [s appendString:@"{\n"];
+    [s appendFormat:@"    return %ld;\n",(long)_applicationId];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+
     /* before encode */
     
     [s appendString:@"- (void)beforeEncode\n"];
@@ -446,6 +463,109 @@
     [s appendString:@"\n"];
 
     /* after decode */
+
+    [s appendString:@"- (void)setDictionaryValue:(NSDictionary *)dict\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"\n"];
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if(avp.multiple)
+        {
+            [s appendFormat:@"    if(dict[@\"%@\"])\n",avp.webName];
+            [s appendString:@"    {\n"];
+            [s appendFormat:@"        id obj = dict[@\"%@\"];\n",avp.webName];
+            [s appendString:@"        if([obj isKindOfClass:[NSArray class]])\n"];
+            [s appendString:@"        {\n"];
+            [s appendString:@"            NSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
+            [s appendString:@"            for(id entry in (NSArray *)obj)\n"];
+            [s appendString:@"            {\n"];
+            [s appendFormat:@"                %@%@ *o = [[%@%@ alloc]init];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
+            [s appendString:@"                o.objectValue = entry;\n"];
+            [s appendString:@"                [arr addObject:o];\n"];
+            [s appendString:@"            }\n"];
+            [s appendFormat:@"            %@ = arr;\n",avp.variableName];
+            [s appendString:@"        }\n"];
+            [s appendString:@"        else\n"];
+            [s appendString:@"        {\n"];
+            [s appendString:@"            NSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
+            [s appendFormat:@"            %@%@ *o = [[%@%@ alloc]init];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
+            [s appendString:@"            o.objectValue = obj;\n"];
+            [s appendString:@"            [arr addObject:o];\n"];
+            [s appendFormat:@"            %@ = arr;\n",avp.variableName];
+            [s appendString:@"        }\n"];
+            [s appendString:@"    }\n"];
+
+        }
+        else
+        {
+            [s appendFormat:@"    if(dict[@\"%@\"])\n",avp.webName];
+            [s appendString:@"    {\n"];
+            [s appendFormat:@"        %@ = [[%@%@ alloc]init];\n",avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"        %@.objectValue = dict[@\"%@\"];\n",avp.variableName,avp.webName];
+            [s appendString:@"    }\n"];
+            [s appendString:@"\n"];
+        }
+    }
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+
+    [s appendString:@"- (UMSynchronizedSortedDictionary *)dictionaryValue\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];\n"];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if(avp.multiple)
+        {
+            [s appendFormat:@"    if(%@)\n",avp.variableName];
+            [s appendString:@"    {\n"];
+            [s appendString:@"        NSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
+            [s appendFormat:@"        for(id entry in %@)\n",avp.variableName];
+            [s appendString:@"        {\n"];
+            [s appendString:@"            [arr addObject:[entry objectValue]];\n"];
+            [s appendString:@"        }\n"];
+            [s appendFormat:@"        dict[@\"%@\"] = arr;\n",avp.webName];
+            [s appendString:@"    }\n"];
+        }
+        else
+        {
+            [s appendFormat:@"    if(%@)\n",avp.variableName];
+            [s appendString:@"    {\n"];
+            [s appendFormat:@"        dict[@\"%@\"] = %@.objectValue;\n",avp.webName,avp.variableName];
+            [s appendString:@"    }\n"];
+        }
+    }
+    [s appendString:@"    return dict;\n"];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+
+    [s appendString:@"+ (void)webDiameterParameters:(NSMutableString *)s\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"\n"];
+    [s appendString:@"\n"];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        NSString *mstr;
+        if(avp.mandatory)
+        {
+            mstr = @"mandatory";
+        }
+        else
+        {
+            mstr = @"optional";
+        }
+        [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
+        [s appendFormat:@"    [s appendString:@\"    <td class=%@>%@</td>\\n\"];\n",mstr,avp.webName];
+        [s appendFormat:@"    [s appendString:@\"    <td class=%@><input name=\\\"%@\\\" type=text> %@</td>\\n\"];\n",mstr,avp.webName,avp.comment ? avp.comment : @""];
+        [s appendString:@"    [s appendString:@\"</tr>\\n\"];\n"];
+        [s appendString:@"\n"];
+    }
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
     return s;

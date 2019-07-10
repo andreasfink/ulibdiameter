@@ -47,7 +47,7 @@ int main(int argc, const char * argv[])
         NSDictionary *appDefinition = @
         {
             @"version" : @(VERSION),
-            @"executable" : @"avp-src-gen",
+            @"executable" : @"diameter-avp-gen",
             @"run-as" : @(argv[0]),
             @"copyright" : @"© 2019 Andreas Fink",
         };

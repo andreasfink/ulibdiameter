@@ -43,4 +43,46 @@
     _avpData = [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 
+
+
+- (NSNumber *)numberValue
+{
+    return @(_value);
+}
+
+- (void)setNumberValue:(NSNumber *)n
+{
+    self.value = n.doubleValue;
+}
+
+
+- (void)setDataValue:(NSData *)data
+{
+    if(data.length == 8)
+    {
+        uint64_t u = bytes_to_uint64(data.bytes);
+        _value = (double)u;
+    }
+}
+
+
+- (void)setStringValue:(NSString *)string
+{
+    _value = [string doubleValue];
+}
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+}
+
+- (void)setDateValue:(NSDate *)date
+{
+}
+
+- (id)objectValue
+{
+    return @(self.value);
+}
+
+
 @end

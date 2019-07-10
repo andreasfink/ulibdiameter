@@ -10,4 +10,8 @@
 
 @implementation UMDiameterAvpAVP
 
+- (void)setStringValue:(NSString *)str
+{
+}
+
 @end

@@ -136,5 +136,61 @@
 }
 
 
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"context-identifier"])
+    {
+        _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]init];
+        _var_context_identifier.objectValue = dict[@"context-identifier"];
+    }
+
+    if(dict[@"specific-apn-info"])
+    {
+        id obj = dict[@"specific-apn-info"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpSpecific_APN_Info *o = [[UMDiameterAvpSpecific_APN_Info alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_specific_apn_info = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpSpecific_APN_Info *o = [[UMDiameterAvpSpecific_APN_Info alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_specific_apn_info = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_context_identifier)
+    {
+        dict[@"context-identifier"] = _var_context_identifier.objectValue;
+    }
+    if(_var_specific_apn_info)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_specific_apn_info)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"specific-apn-info"] = arr;
+    }
+    return dict;
+}
+
+
 @end
 

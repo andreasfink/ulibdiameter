@@ -11,9 +11,10 @@
 @implementation UMDiameterAvpTime
 
 
-- (NSString *)avpType
+
+- (id)objectValue
 {
-    return @"Time";
+    return @"time value not implemented";
 }
 
 @end

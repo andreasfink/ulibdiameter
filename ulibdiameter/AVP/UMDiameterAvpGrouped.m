@@ -107,4 +107,33 @@
     }
 }
 
+- (void)setDataValue:(NSData *)data
+{
+    _avpData = data;
+}
+
+- (void)setStringValue:(NSString *)string
+{
+    UMJsonParser *parser = [[UMJsonParser alloc]init];
+    id obj =  [parser objectWithString:string];
+    if ([obj isKindOfClass:[NSDictionary class]])
+    {
+        [self setDictionaryValue:(NSDictionary *)obj];
+    }
+}
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+    UMAssert(0,@"please overload setDictionaryValue:");
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    return [[UMSynchronizedSortedDictionary alloc]init];
+}
+
+-(id)objectValue
+{
+    return [self dictionaryValue];
+}
 @end
