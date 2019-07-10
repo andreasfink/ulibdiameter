@@ -29,7 +29,17 @@ DIAMETER_CMD_GEN_O_FILES=$(DIAMETER_CMD_GEN_M_FILES:.m=.m.o)
 DIAMETER_AVP_GEN_M_FILES=$(wildcard diameter-avp-gen/*.m) 
 DIAMETER_AVP_GEN_O_FILES=$(DIAMETER_CMD_GEN_M_FILES:.m=.m.o)
 
-INCLUDEDIRS = -I Classes -I @PROJECT_NAME@ -I @PROJECT_NAME@/AVP @PROJECT_NAME@/AVP/3GPP  -I @PROJECT_NAME@/Commands
+INCLUDEDIRS = -I Classes \
+	-I @PROJECT_NAME@ \
+	-I @PROJECT_NAME@/AVP \
+	-I @PROJECT_NAME@/AVP/3GPP  \
+	-I @PROJECT_NAME@/AVP/base \
+	-I @PROJECT_NAME@/AVP/rfc7683 \
+	-I @PROJECT_NAME@/AVP/draft-ietf-dime-load \
+	-I @PROJECT_NAME@/Commands \
+	-I @PROJECT_NAME@/Commands/3GPP \
+	-I @PROJECT_NAME@/Commands/base 
+	
 
 DEBUG_RELEASE = -DCONFIGURATION_${CONFIGURATION}=1 -DCONFIGURATION=${CONFIGURATION}
 
@@ -74,7 +84,7 @@ clean:
 .SUFFIXES: .m.o .o .m .c
 
 %.m.o:	%.m
-	${CC} -c ${CFLAGS} ${DEBUG_RELEASE} -x objective-c -fobjc-arc $<  ${DEBUG_RELEASE} ${INCLUDEDIRS} -o $@
+	${CC} -c ${CFLAGS} ${INCLUDEDIRS} ${DEBUG_RELEASE} -x objective-c -fobjc-arc $<  -o $@
 
 
 
