@@ -378,7 +378,7 @@
     }
 
     // [ Origin-State-Id ]
-    if(_originStateId)
+    if(_originStateId!=NULL)
     {
         UMDiameterAvpOrigin_State_Id *avp =  [[UMDiameterAvpOrigin_State_Id alloc]init];
         [avp setFlagMandatory:NO];
@@ -448,7 +448,7 @@
 
 
     // [ Firmware-Revision ]
-    if(_router.firmwareRevision)
+    if(_router.firmwareRevision!=NULL)
     {
         UMDiameterAvpFirmware_Revision *avp =  [[UMDiameterAvpFirmware_Revision alloc]init];
         [avp setFlagMandatory:NO];
@@ -658,7 +658,7 @@
     }
 
     // [ Origin-State-Id ]
-    if(_originStateId)
+    if(_originStateId!=NULL)
     {
         UMDiameterAvpOrigin_State_Id *avp =  [[UMDiameterAvpOrigin_State_Id alloc]init];
         [avp setFlagMandatory:NO];

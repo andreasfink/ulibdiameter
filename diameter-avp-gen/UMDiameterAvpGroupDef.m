@@ -451,8 +451,12 @@
         }
         if(placeholderAVP)
         {
-            [s appendFormat:@"    %@ = unknownAVPs;\n",placeholderAVP.variableName];
-            [s appendFormat:@"    [knownAVPs addObject:[%@ copy]];\n",placeholderAVP.variableName];
+            
+            [s appendString:@"    if(unknownAVPs.count>0)\n"];
+            [s appendString:@"    {\n"];
+            [s appendFormat:@"        %@ = unknownAVPs;\n",placeholderAVP.variableName];
+            [s appendFormat:@"        [knownAVPs addObject:[%@ copy]];\n",placeholderAVP.variableName];
+            [s appendString:@"    }\n"];
         }
         [s appendString:@"    [self setArray:knownAVPs];\n"];
         [s appendString:@"}\n"];

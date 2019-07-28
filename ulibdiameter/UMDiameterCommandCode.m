@@ -45,7 +45,7 @@ NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL req
             break;
         case UMDiameterCommandCode_CC:
             s = @"CC";
-
+            break;
         case UMDiameterCommandCode_SIP_UA:
             s = @"SIP-UA";
             break;
