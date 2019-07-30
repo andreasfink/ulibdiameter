@@ -63,6 +63,6 @@
 
 - (void)afterDecode;
 - (void)beforeEncode;
-
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass;
 
 @end

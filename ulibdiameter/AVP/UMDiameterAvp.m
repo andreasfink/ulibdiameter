@@ -453,8 +453,16 @@ break;
     return dict;
 }
 
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
+{
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"    <td class=%@>%@</td>\n",cssClass,webName];
+    [s appendFormat:@"    <td class=%@><input name=\"%@\" type=text> %@</td>\n",cssClass,webName,webComment ? webComment : @""];
+    [s appendString:@"</tr>\n"];
+}
 
 
 
 @end
+
 

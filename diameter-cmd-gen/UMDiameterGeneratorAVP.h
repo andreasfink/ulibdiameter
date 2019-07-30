@@ -38,5 +38,6 @@
 
 - (UMDiameterGeneratorAVP *)initWithString:(NSString *)s;
 - (BOOL)parseString:(NSString *)s; /* returns yes on success */
+- (void)appendWebDiameterParameters:(NSMutableString *)s;
 
 @end

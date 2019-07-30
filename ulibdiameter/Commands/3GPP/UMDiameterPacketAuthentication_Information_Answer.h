@@ -2,7 +2,7 @@
 //  UMDiameterPacketAuthentication_Information_Answer.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:32.994000
+//  Created by afink on 2019-07-30 16:47:41.726000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
