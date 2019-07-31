@@ -558,14 +558,14 @@
             mstr = @"optional";
         }
 
-        [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
 #if 1
         [s appendFormat:@"    [%@%@ appendWebDiameterParameters:s webName:@\"%@\"  comment:@\"%@\" css:@\"%@\"];\n",avpPrefix,avp.objectName,avp.webName,(avp.comment ? avp.comment : @"" ),mstr];
 #else
+        [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
         [s appendFormat:@"    [s appendString:@\"    <td class=%@>%@</td>\\n\"];\n",mstr,avp.webName];
         [s appendFormat:@"    [s appendString:@\"    <td class=%@><input name=\\\"%@\\\" type=text> %@</td>\\n\"];\n",mstr,avp.webName,avp.comment ? avp.comment : @""];
-#endif
         [s appendString:@"    [s appendString:@\"</tr>\\n\"];\n"];
+#endif
         [s appendString:@"\n"];
     }
     [s appendString:@"}\n"];

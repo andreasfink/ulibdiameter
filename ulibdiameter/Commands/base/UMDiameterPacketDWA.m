@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:14:09.171000
+//  Created by afink on 2019-07-31 06:37:43.886000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -182,33 +182,19 @@
 {
 
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
-    [s appendString:@"</tr>\n"];
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
-    [s appendString:@"</tr>\n"];
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
-    [s appendString:@"</tr>\n"];
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
-    [s appendString:@"</tr>\n"];
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
-    [s appendString:@"</tr>\n"];
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
-    [s appendString:@"</tr>\n"];
 
-    [s appendString:@"<tr>\n"];
     [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
-    [s appendString:@"</tr>\n"];
 
 }
 

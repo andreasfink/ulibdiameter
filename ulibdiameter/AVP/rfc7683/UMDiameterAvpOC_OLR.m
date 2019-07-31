@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_OLR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:18:11.960000
+//  Created by afink on 2019-07-31 06:46:38.100000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -75,10 +75,10 @@
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
     [s appendString:@"<tr>\n"];
-    [s appendString:@"<table class=\"avp-grouped\">\n"];
     [s appendFormat:@"<td>%@\n",webName];
     [s appendString:@"</td>\n"];
     [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@.oc-sequence-number",webName];
         [s appendString:@"    <tr>\n"];

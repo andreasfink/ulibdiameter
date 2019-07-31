@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuth_Request_Type.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:18:11.217000
+//  Created by afink on 2019-07-31 06:46:37.283000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

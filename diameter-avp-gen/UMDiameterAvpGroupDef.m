@@ -468,10 +468,10 @@
     [s appendString:@"{\n"];
     
     [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
-    [s appendString:@"    [s appendString:@\"<table class=\\\"avp-grouped\\\">\\n\"];\n"];
     [s appendString:@"    [s appendFormat:@\"<td>%@\\n\",webName];\n"];
     [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"<td>\\n\"];\n"];
+    [s appendString:@"    [s appendString:@\"<table class=\\\"avp-grouped\\\">\\n\"];\n"];
 
     for(UMDiameterGeneratorAVP *avp in _avps)
     {

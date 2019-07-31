@@ -2,7 +2,7 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:18:11.400000
+//  Created by afink on 2019-07-31 06:46:37.459000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -102,10 +102,10 @@
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
     [s appendString:@"<tr>\n"];
-    [s appendString:@"<table class=\"avp-grouped\">\n"];
     [s appendFormat:@"<td>%@\n",webName];
     [s appendString:@"</td>\n"];
     [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@.cell-global-identity",webName];
         [s appendString:@"    <tr>\n"];
