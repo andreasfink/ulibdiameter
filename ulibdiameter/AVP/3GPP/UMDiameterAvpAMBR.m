@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -71,49 +71,60 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpMax_Requested_Bandwidth_UL  avpCode])
-        {
-            _var_max_requested_bandwidth_ul = [[UMDiameterAvpMax_Requested_Bandwidth_UL alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_max_requested_bandwidth_ul];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMax_Requested_Bandwidth_DL avpCode])
-        {
-            _var_max_requested_bandwidth_dl = [[UMDiameterAvpMax_Requested_Bandwidth_DL alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_max_requested_bandwidth_dl];
-        }
-        else if(avp.avpCode == [UMDiameterAvpExtended_Max_Requested_BW_UL avpCode])
-        {
-            _var_extended_max_requested_bw_ul = [[UMDiameterAvpExtended_Max_Requested_BW_UL alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_extended_max_requested_bw_ul];
-        }
-        else if(avp.avpCode == [UMDiameterAvpExtended_Max_Requested_BW_DL avpCode])
-        {
-            _var_extended_max_requested_bw_dl = [[UMDiameterAvpExtended_Max_Requested_BW_DL alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_extended_max_requested_bw_dl];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.max-requested-bandwidth-ul",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMax_Requested_Bandwidth_UL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.max-requested-bandwidth-dl",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMax_Requested_Bandwidth_DL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.extended-max-requested-bw-ul",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpExtended_Max_Requested_BW_UL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.extended-max-requested-bw-dl",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpExtended_Max_Requested_BW_DL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

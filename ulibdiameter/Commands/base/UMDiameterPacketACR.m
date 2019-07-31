@@ -2,7 +2,7 @@
 //  UMDiameterPacketACR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:37.157000
+//  Created by afink on 2019-07-31 06:14:09.272000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -428,103 +428,83 @@
 
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>session-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"session-id\" type=text> </td>\n"];
+    [UMDiameterAvpSession_Id appendWebDiameterParameters:s webName:@"session-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>destination-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"destination-realm\" type=text> </td>\n"];
+    [UMDiameterAvpDestination_Realm appendWebDiameterParameters:s webName:@"destination-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>accounting-record-type</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"accounting-record-type\" type=text> </td>\n"];
+    [UMDiameterAvpAccounting_Record_Type appendWebDiameterParameters:s webName:@"accounting-record-type"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>accounting-record-number</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"accounting-record-number\" type=text> </td>\n"];
+    [UMDiameterAvpAccounting_Record_Number appendWebDiameterParameters:s webName:@"accounting-record-number"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>acct-application-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"acct-application-id\" type=text> </td>\n"];
+    [UMDiameterAvpAcct_Application_Id appendWebDiameterParameters:s webName:@"acct-application-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>vendor-specific-application-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"vendor-specific-application-id\" type=text> </td>\n"];
+    [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>user-name</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"user-name\" type=text> </td>\n"];
+    [UMDiameterAvpUser_Name appendWebDiameterParameters:s webName:@"user-name"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>destination-host</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"destination-host\" type=text> </td>\n"];
+    [UMDiameterAvpDestination_Host appendWebDiameterParameters:s webName:@"destination-host"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>accounting-sub-session-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"accounting-sub-session-id\" type=text> </td>\n"];
+    [UMDiameterAvpAccounting_Sub_Session_Id appendWebDiameterParameters:s webName:@"accounting-sub-session-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>acct-session-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"acct-session-id\" type=text> </td>\n"];
+    [UMDiameterAvpAcct_Session_Id appendWebDiameterParameters:s webName:@"acct-session-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>acct-multi-session-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"acct-multi-session-id\" type=text> </td>\n"];
+    [UMDiameterAvpAcct_Multi_Session_Id appendWebDiameterParameters:s webName:@"acct-multi-session-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>acct-interim-interval</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"acct-interim-interval\" type=text> </td>\n"];
+    [UMDiameterAvpAcct_Interim_Interval appendWebDiameterParameters:s webName:@"acct-interim-interval"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>accounting-realtime-required</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"accounting-realtime-required\" type=text> </td>\n"];
+    [UMDiameterAvpAccounting_Realtime_Required appendWebDiameterParameters:s webName:@"accounting-realtime-required"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>origin-state-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"origin-state-id\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>event-timestamp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"event-timestamp\" type=text> </td>\n"];
+    [UMDiameterAvpEvent_Timestamp appendWebDiameterParameters:s webName:@"event-timestamp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>proxy-info</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"proxy-info\" type=text> </td>\n"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>route-record</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"route-record\" type=text> </td>\n"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
 }

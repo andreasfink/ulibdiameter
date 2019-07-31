@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Report.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -81,59 +81,76 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpSCEF_Reference_ID  avpCode])
-        {
-            _var_scef_reference_id = [[UMDiameterAvpSCEF_Reference_ID alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_scef_reference_id];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSCEF_ID avpCode])
-        {
-            _var_scef_id = [[UMDiameterAvpSCEF_ID alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_scef_id];
-        }
-        else if(avp.avpCode == [UMDiameterAvpReachability_Information avpCode])
-        {
-            _var_reachability_information = [[UMDiameterAvpReachability_Information alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_reachability_information];
-        }
-        else if(avp.avpCode == [UMDiameterAvpEPS_Location_Information avpCode])
-        {
-            _var_eps_location_information = [[UMDiameterAvpEPS_Location_Information alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_eps_location_information];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMonitoring_Type avpCode])
-        {
-            _var_monitoring_type = [[UMDiameterAvpMonitoring_Type alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_monitoring_type];
-        }
-        else if(avp.avpCode == [UMDiameterAvpLoss_Of_Connectivity_Reason avpCode])
-        {
-            _var_loss_of_connectivity_reason = [[UMDiameterAvpLoss_Of_Connectivity_Reason alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_loss_of_connectivity_reason];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.scef-reference-id",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSCEF_Reference_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.scef-id",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSCEF_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.reachability-information",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpReachability_Information appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.eps-location-information",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpEPS_Location_Information appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.monitoring-type",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMonitoring_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.loss-of-connectivity-reason",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLoss_Of_Connectivity_Reason appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpeDRX_Cycle_Length.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -61,39 +61,44 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpRAT_Type  avpCode])
-        {
-            _var_rat_type = [[UMDiameterAvpRAT_Type alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_rat_type];
-        }
-        else if(avp.avpCode == [UMDiameterAvpeDRX_Cycle_Length_Value avpCode])
-        {
-            _var_edrx_cycle_length_value = [[UMDiameterAvpeDRX_Cycle_Length_Value alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_edrx_cycle_length_value];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.rat-type",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpRAT_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.edrx-cycle-length-value",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpeDRX_Cycle_Length_Value appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

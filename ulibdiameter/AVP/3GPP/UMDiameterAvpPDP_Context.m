@@ -2,7 +2,7 @@
 //  UMDiameterAvpPDP_Context.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -136,114 +136,164 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpContext_Identifier  avpCode])
-        {
-            _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_context_identifier];
-        }
-        else if(avp.avpCode == [UMDiameterAvpPDP_Type avpCode])
-        {
-            _var_pdp_type = [[UMDiameterAvpPDP_Type alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_pdp_type];
-        }
-        else if(avp.avpCode == [UMDiameterAvpPDP_Address avpCode])
-        {
-            _var_pdp_address = [[UMDiameterAvpPDP_Address alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_pdp_address];
-        }
-        else if(avp.avpCode == [UMDiameterAvpQoS_Subscribed avpCode])
-        {
-            _var_qos_subscribed = [[UMDiameterAvpQoS_Subscribed alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_qos_subscribed];
-        }
-        else if(avp.avpCode == [UMDiameterAvpVPLMN_Dynamic_Address_Allowed avpCode])
-        {
-            _var_vplmn_dynamic_address_allowed = [[UMDiameterAvpVPLMN_Dynamic_Address_Allowed alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_vplmn_dynamic_address_allowed];
-        }
-        else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
-        {
-            _var_service_selection = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_service_selection];
-        }
-        else if(avp.avpCode == [UMDiameterAvp3GPP_Charging_Characteristics avpCode])
-        {
-            _var_3gpp_charging_characteristics = [[UMDiameterAvp3GPP_Charging_Characteristics alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_3gpp_charging_characteristics];
-        }
-        else if(avp.avpCode == [UMDiameterAvpExt_PDP_Type avpCode])
-        {
-            _var_ext_pdp_type = [[UMDiameterAvpExt_PDP_Type alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_ext_pdp_type];
-        }
-        else if(avp.avpCode == [UMDiameterAvpExt_PDP_Address avpCode])
-        {
-            _var_ext_pdp_address = [[UMDiameterAvpExt_PDP_Address alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_ext_pdp_address];
-        }
-        else if(avp.avpCode == [UMDiameterAvpAMBR avpCode])
-        {
-            _var_ambr = [[UMDiameterAvpAMBR alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_ambr];
-        }
-        else if(avp.avpCode == [UMDiameterAvpAPN_OI_Replacement avpCode])
-        {
-            _var_apn_oi_replacement = [[UMDiameterAvpAPN_OI_Replacement alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_apn_oi_replacement];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSIPTO_Permission avpCode])
-        {
-            _var_sipto_permission = [[UMDiameterAvpSIPTO_Permission alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sipto_permission];
-        }
-        else if(avp.avpCode == [UMDiameterAvpLIPA_Permission avpCode])
-        {
-            _var_lipa_permission = [[UMDiameterAvpLIPA_Permission alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_lipa_permission];
-        }
-        else if(avp.avpCode == [UMDiameterAvpRestoration_Priority avpCode])
-        {
-            _var_restoration_priority = [[UMDiameterAvpRestoration_Priority alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_restoration_priority];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSIPTO_Local_Network_Permission avpCode])
-        {
-            _var_sipto_local_network_permission = [[UMDiameterAvpSIPTO_Local_Network_Permission alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sipto_local_network_permission];
-        }
-        else if(avp.avpCode == [UMDiameterAvpNon_IP_Data_Delivery_Mechanism avpCode])
-        {
-            _var_non_ip_data_delivery_mechanism = [[UMDiameterAvpNon_IP_Data_Delivery_Mechanism alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_non_ip_data_delivery_mechanism];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSCEF_ID avpCode])
-        {
-            _var_scef_id = [[UMDiameterAvpSCEF_ID alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_scef_id];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.context-identifier",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.pdp-type",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpPDP_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.pdp-address",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpPDP_Address appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.qos-subscribed",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpQoS_Subscribed appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.vplmn-dynamic-address-allowed",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpVPLMN_Dynamic_Address_Allowed appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.service-selection",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpService_Selection appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.3gpp-charging-characteristics",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvp3GPP_Charging_Characteristics appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.ext-pdp-type",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpExt_PDP_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.ext-pdp-address",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpExt_PDP_Address appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.ambr",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAMBR appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.apn-oi-replacement",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAPN_OI_Replacement appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sipto-permission",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIPTO_Permission appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.lipa-permission",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLIPA_Permission appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.restoration-priority",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpRestoration_Priority appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sipto-local-network-permission",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIPTO_Local_Network_Permission appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.non-ip-data-delivery-mechanism",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpNon_IP_Data_Delivery_Mechanism appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.scef-id",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSCEF_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

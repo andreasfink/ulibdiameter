@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:37.194000
+//  Created by afink on 2019-07-31 06:14:09.338000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -168,33 +168,27 @@
 
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>result-code</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"result-code\" type=text> </td>\n"];
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>error-message</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"error-message\" type=text> </td>\n"];
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>failed-avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"failed-avp\" type=text> </td>\n"];
+    [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
 }

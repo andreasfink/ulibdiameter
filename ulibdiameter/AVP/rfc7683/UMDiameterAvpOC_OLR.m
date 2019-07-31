@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_OLR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 14:58:28.649000
+//  Created by afink on 2019-07-31 06:18:11.960000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -69,49 +69,60 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpOC_Sequence_Number  avpCode])
-        {
-            _var_oc_sequence_number = [[UMDiameterAvpOC_Sequence_Number alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_oc_sequence_number];
-        }
-        else if(avp.avpCode == [UMDiameterAvpOC_Report_Type avpCode])
-        {
-            _var_oc_report_type = [[UMDiameterAvpOC_Report_Type alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_oc_report_type];
-        }
-        else if(avp.avpCode == [UMDiameterAvpOC_Reduction_Percentage avpCode])
-        {
-            _var_oc_reduction_percentage = [[UMDiameterAvpOC_Reduction_Percentage alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_oc_reduction_percentage];
-        }
-        else if(avp.avpCode == [UMDiameterAvpOC_Validity_Duration avpCode])
-        {
-            _var_oc_validity_duration = [[UMDiameterAvpOC_Validity_Duration alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_oc_validity_duration];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.oc-sequence-number",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpOC_Sequence_Number appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.oc-report-type",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpOC_Report_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.oc-reduction-percentage",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpOC_Reduction_Percentage appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.oc-validity-duration",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpOC_Validity_Duration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:37.089000
+//  Created by afink on 2019-07-31 06:14:09.153000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -138,23 +138,19 @@
 
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>origin-state-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"origin-state-id\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
 }

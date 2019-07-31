@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:37.182000
+//  Created by afink on 2019-07-31 06:14:09.317000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -138,23 +138,19 @@
 
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>disconnect-cause</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"disconnect-cause\" type=text> </td>\n"];
+    [UMDiameterAvpDisconnect_Cause appendWebDiameterParameters:s webName:@"disconnect-cause"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
 }

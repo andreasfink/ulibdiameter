@@ -2,7 +2,7 @@
 //  UMDiameterAvpCharging_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -71,49 +71,60 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpPrimary_Event_Charging_Function_Name  avpCode])
-        {
-            _var_primary_event_charging_function_name = [[UMDiameterAvpPrimary_Event_Charging_Function_Name alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_primary_event_charging_function_name];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSecondary_Event_Charging_Function_Name avpCode])
-        {
-            _var_secondary_event_charging_function_name = [[UMDiameterAvpSecondary_Event_Charging_Function_Name alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_secondary_event_charging_function_name];
-        }
-        else if(avp.avpCode == [UMDiameterAvpPrimary_Charging_Collection_Function_Name avpCode])
-        {
-            _var_primary_charging_collection_function_name = [[UMDiameterAvpPrimary_Charging_Collection_Function_Name alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_primary_charging_collection_function_name];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSecondary_Charging_Collection_Function_Name avpCode])
-        {
-            _var_secondary_charging_collection_function_name = [[UMDiameterAvpSecondary_Charging_Collection_Function_Name alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_secondary_charging_collection_function_name];
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.primary-event-charging-function-name",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpPrimary_Event_Charging_Function_Name appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.secondary-event-charging-function-name",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSecondary_Event_Charging_Function_Name appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.primary-charging-collection-function-name",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpPrimary_Charging_Collection_Function_Name appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.secondary-charging-collection-function-name",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSecondary_Charging_Collection_Function_Name appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

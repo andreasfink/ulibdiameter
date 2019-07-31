@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -91,94 +91,68 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpCell_Global_Identity  avpCode])
-        {
-            UMDiameterAvpCell_Global_Identity *avp2 = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_cell_global_identity == NULL)
-            {
-                _var_cell_global_identity = @[avp2];
-            }
-            else
-            {
-                _var_cell_global_identity = [_var_cell_global_identity arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpE_UTRAN_Cell_Global_Identity avpCode])
-        {
-            UMDiameterAvpE_UTRAN_Cell_Global_Identity *avp2 = [[UMDiameterAvpE_UTRAN_Cell_Global_Identity alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_e_utran_cell_global_identity == NULL)
-            {
-                _var_e_utran_cell_global_identity = @[avp2];
-            }
-            else
-            {
-                _var_e_utran_cell_global_identity = [_var_e_utran_cell_global_identity arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpRouting_Area_Identity avpCode])
-        {
-            UMDiameterAvpRouting_Area_Identity *avp2 = [[UMDiameterAvpRouting_Area_Identity alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_routing_area_identity == NULL)
-            {
-                _var_routing_area_identity = @[avp2];
-            }
-            else
-            {
-                _var_routing_area_identity = [_var_routing_area_identity arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpLocation_Area_Identity avpCode])
-        {
-            UMDiameterAvpLocation_Area_Identity *avp2 = [[UMDiameterAvpLocation_Area_Identity alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_location_area_identity == NULL)
-            {
-                _var_location_area_identity = @[avp2];
-            }
-            else
-            {
-                _var_location_area_identity = [_var_location_area_identity arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpTracking_Area_Identity avpCode])
-        {
-            UMDiameterAvpTracking_Area_Identity *avp2 = [[UMDiameterAvpTracking_Area_Identity alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_tracking_area_identity == NULL)
-            {
-                _var_tracking_area_identity = @[avp2];
-            }
-            else
-            {
-                _var_tracking_area_identity = [_var_tracking_area_identity arrayByAddingObject:avp2];
-            }
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].cell-global-identity",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpCell_Global_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].e-utran-cell-global-identity",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpE_UTRAN_Cell_Global_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].routing-area-identity",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpRouting_Area_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].location-area-identity",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLocation_Area_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].tracking-area-identity",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpTracking_Area_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

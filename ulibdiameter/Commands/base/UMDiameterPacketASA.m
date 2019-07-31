@@ -2,7 +2,7 @@
 //  UMDiameterPacketASA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:37.206000
+//  Created by afink on 2019-07-31 06:14:09.357000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -338,73 +338,59 @@
 
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>session-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"session-id\" type=text> </td>\n"];
+    [UMDiameterAvpSession_Id appendWebDiameterParameters:s webName:@"session-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>result-code</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"result-code\" type=text> </td>\n"];
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>user-name</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"user-name\" type=text> </td>\n"];
+    [UMDiameterAvpUser_Name appendWebDiameterParameters:s webName:@"user-name"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>origin-state-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"origin-state-id\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>error-message</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"error-message\" type=text> </td>\n"];
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>error-reporting-host</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"error-reporting-host\" type=text> </td>\n"];
+    [UMDiameterAvpError_Reporting_Host appendWebDiameterParameters:s webName:@"error-reporting-host"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>failed-avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"failed-avp\" type=text> </td>\n"];
+    [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>redirect-host</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"redirect-host\" type=text> </td>\n"];
+    [UMDiameterAvpRedirect_Host appendWebDiameterParameters:s webName:@"redirect-host"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>redirect-host-usage</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"redirect-host-usage\" type=text> </td>\n"];
+    [UMDiameterAvpRedirect_Host_Usage appendWebDiameterParameters:s webName:@"redirect-host-usage"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>redirect-max-cache-time</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"redirect-max-cache-time\" type=text> </td>\n"];
+    [UMDiameterAvpRedirect_Max_Cache_Time appendWebDiameterParameters:s webName:@"redirect-max-cache-time"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>proxy-info</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"proxy-info\" type=text> </td>\n"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
 }

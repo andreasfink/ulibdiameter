@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Auth_Data_Item.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,87 +104,108 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpSIP_Item_Number  avpCode])
-        {
-            _var_sip_item_number = [[UMDiameterAvpSIP_Item_Number alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sip_item_number];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSIP_Authentication_Scheme avpCode])
-        {
-            _var_sip_authentication_scheme = [[UMDiameterAvpSIP_Authentication_Scheme alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sip_authentication_scheme];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSIP_Authorization avpCode])
-        {
-            _var_sip_authorization = [[UMDiameterAvpSIP_Authorization alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sip_authorization];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSIP_Authentication_Context avpCode])
-        {
-            _var_sip_authentication_context = [[UMDiameterAvpSIP_Authentication_Context alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sip_authentication_context];
-        }
-        else if(avp.avpCode == [UMDiameterAvpIntegrity_Key avpCode])
-        {
-            _var_integrity_key = [[UMDiameterAvpIntegrity_Key alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_integrity_key];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSIP_Digest_Authenticate avpCode])
-        {
-            _var_sip_digest_authenticate = [[UMDiameterAvpSIP_Digest_Authenticate alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_sip_digest_authenticate];
-        }
-        else if(avp.avpCode == [UMDiameterAvpFramed_IP_Address avpCode])
-        {
-            _var_framed_ip_address = [[UMDiameterAvpFramed_IP_Address alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_framed_ip_address];
-        }
-        else if(avp.avpCode == [UMDiameterAvpFramed_IPv6_Prefix avpCode])
-        {
-            _var_framed_ipv6_prefix = [[UMDiameterAvpFramed_IPv6_Prefix alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_framed_ipv6_prefix];
-        }
-        else if(avp.avpCode == [UMDiameterAvpFramed_Interface_Id avpCode])
-        {
-            _var_framed_interface_id = [[UMDiameterAvpFramed_Interface_Id alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_framed_interface_id];
-        }
-        else if(avp.avpCode == [UMDiameterAvpLine_Identifier avpCode])
-        {
-            UMDiameterAvpLine_Identifier *avp2 = [[UMDiameterAvpLine_Identifier alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_line_identifier == NULL)
-            {
-                _var_line_identifier = @[avp2];
-            }
-            else
-            {
-                _var_line_identifier = [_var_line_identifier arrayByAddingObject:avp2];
-            }
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sip-item-number",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIP_Item_Number appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sip-authentication-scheme",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIP_Authentication_Scheme appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sip-authorization",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIP_Authorization appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sip-authentication-context",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIP_Authentication_Context appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.integrity-key",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpIntegrity_Key appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.sip-digest-authenticate",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSIP_Digest_Authenticate appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.framed-ip-address",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpFramed_IP_Address appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.framed-ipv6-prefix",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpFramed_IPv6_Prefix appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.framed-interface-id",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpFramed_Interface_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].line-identifier",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLine_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

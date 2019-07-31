@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -157,145 +157,188 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpJob_Type  avpCode])
-        {
-            _var_job_type = [[UMDiameterAvpJob_Type alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_job_type];
-        }
-        else if(avp.avpCode == [UMDiameterAvpArea_Scope avpCode])
-        {
-            _var_area_scope = [[UMDiameterAvpArea_Scope alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_area_scope];
-        }
-        else if(avp.avpCode == [UMDiameterAvpList_Of_Measurements avpCode])
-        {
-            _var_list_of_measurements = [[UMDiameterAvpList_Of_Measurements alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_list_of_measurements];
-        }
-        else if(avp.avpCode == [UMDiameterAvpReporting_Trigger avpCode])
-        {
-            _var_reporting_trigger = [[UMDiameterAvpReporting_Trigger alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_reporting_trigger];
-        }
-        else if(avp.avpCode == [UMDiameterAvpReport_Interval avpCode])
-        {
-            _var_report_interval = [[UMDiameterAvpReport_Interval alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_report_interval];
-        }
-        else if(avp.avpCode == [UMDiameterAvpReport_Amount avpCode])
-        {
-            _var_report_amount = [[UMDiameterAvpReport_Amount alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_report_amount];
-        }
-        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_RSRP avpCode])
-        {
-            _var_event_threshold_rsrp = [[UMDiameterAvpEvent_Threshold_RSRP alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_event_threshold_rsrp];
-        }
-        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_RSRQ avpCode])
-        {
-            _var_event_threshold_rsrq = [[UMDiameterAvpEvent_Threshold_RSRQ alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_event_threshold_rsrq];
-        }
-        else if(avp.avpCode == [UMDiameterAvpLogging_Interval avpCode])
-        {
-            _var_logging_interval = [[UMDiameterAvpLogging_Interval alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_logging_interval];
-        }
-        else if(avp.avpCode == [UMDiameterAvpLogging_Duration avpCode])
-        {
-            _var_logging_duration = [[UMDiameterAvpLogging_Duration alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_logging_duration];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMeasurement_Period_LTE avpCode])
-        {
-            _var_measurement_period_lte = [[UMDiameterAvpMeasurement_Period_LTE alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_measurement_period_lte];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMeasurement_Period_UMTS avpCode])
-        {
-            _var_measurement_period_umts = [[UMDiameterAvpMeasurement_Period_UMTS alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_measurement_period_umts];
-        }
-        else if(avp.avpCode == [UMDiameterAvpCollection_Period_RRM_LTE avpCode])
-        {
-            _var_collection_period_rrm_lte = [[UMDiameterAvpCollection_Period_RRM_LTE alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_collection_period_rrm_lte];
-        }
-        else if(avp.avpCode == [UMDiameterAvpCollection_Period_RRM_UMTS avpCode])
-        {
-            _var_collection_period_rrm_umts = [[UMDiameterAvpCollection_Period_RRM_UMTS alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_collection_period_rrm_umts];
-        }
-        else if(avp.avpCode == [UMDiameterAvpPositioning_Method avpCode])
-        {
-            _var_positioning_method = [[UMDiameterAvpPositioning_Method alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_positioning_method];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMeasurement_Quantity avpCode])
-        {
-            _var_measurement_quantity = [[UMDiameterAvpMeasurement_Quantity alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_measurement_quantity];
-        }
-        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_Event_1F avpCode])
-        {
-            _var_event_threshold_event_1f = [[UMDiameterAvpEvent_Threshold_Event_1F alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_event_threshold_event_1f];
-        }
-        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_Event_1I avpCode])
-        {
-            _var_event_threshold_event_1i = [[UMDiameterAvpEvent_Threshold_Event_1I alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_event_threshold_event_1i];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMDT_Allowed_PLMN_Id avpCode])
-        {
-            UMDiameterAvpMDT_Allowed_PLMN_Id *avp2 = [[UMDiameterAvpMDT_Allowed_PLMN_Id alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_mdt_allowed_plmn_id == NULL)
-            {
-                _var_mdt_allowed_plmn_id = @[avp2];
-            }
-            else
-            {
-                _var_mdt_allowed_plmn_id = [_var_mdt_allowed_plmn_id arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpMBSFN_Area avpCode])
-        {
-            UMDiameterAvpMBSFN_Area *avp2 = [[UMDiameterAvpMBSFN_Area alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_mbsfn_area == NULL)
-            {
-                _var_mbsfn_area = @[avp2];
-            }
-            else
-            {
-                _var_mbsfn_area = [_var_mbsfn_area arrayByAddingObject:avp2];
-            }
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.job-type",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpJob_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.area-scope",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpArea_Scope appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.list-of-measurements",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpList_Of_Measurements appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.reporting-trigger",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpReporting_Trigger appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.report-interval",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpReport_Interval appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.report-amount",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpReport_Amount appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.event-threshold-rsrp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpEvent_Threshold_RSRP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.event-threshold-rsrq",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpEvent_Threshold_RSRQ appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.logging-interval",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLogging_Interval appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.logging-duration",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLogging_Duration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.measurement-period-lte",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMeasurement_Period_LTE appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.measurement-period-umts",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMeasurement_Period_UMTS appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.collection-period-rrm-lte",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpCollection_Period_RRM_LTE appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.collection-period-rrm-umts",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpCollection_Period_RRM_UMTS appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.positioning-method",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpPositioning_Method appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.measurement-quantity",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMeasurement_Quantity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.event-threshold-event-1f",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpEvent_Threshold_Event_1F appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.event-threshold-event-1i",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpEvent_Threshold_Event_1I appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].mdt-allowed-plmn-id",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMDT_Allowed_PLMN_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].mbsfn-area",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMBSFN_Area appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

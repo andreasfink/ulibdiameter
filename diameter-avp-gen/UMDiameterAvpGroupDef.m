@@ -462,6 +462,50 @@
         [s appendString:@"}\n"];
     }
     [s appendString:@"\n"];
+    
+    
+    [s appendString:@"+ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass\n"];
+    [s appendString:@"{\n"];
+    
+    [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
+    [s appendString:@"    [s appendString:@\"<table class=\\\"avp-grouped\\\">\\n\"];\n"];
+    [s appendString:@"    [s appendFormat:@\"<td>%@\\n\",webName];\n"];
+    [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
+    [s appendString:@"    [s appendString:@\"<td>\\n\"];\n"];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        NSString *mptr  = @"optional";
+        if(avp.mandatory)
+        {
+            mptr = @"mandatory";
+        }
+        [s appendString:@"\t{\n"];
+        NSString *objcName = [NSString stringWithFormat:@"%@%@",avpPrefix,avp.objectName];
+        if(avp.multiple)
+        {
+            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[].%@\",webName];\n",avp.webName];
+        }
+        else
+        {
+            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@.%@\",webName];\n",avp.webName];
+        }
+        [s appendString:@"        [s appendString:@\"    <tr>\\n\"];\n"];
+        [s appendString:@"        [s appendString:@\"        <td>\\n\"];\n"];
+        [s appendFormat:@"        [%@ appendWebDiameterParameters:s webName:webName2 comment:NULL css:@\"%@\"];\n",objcName,mptr];
+        [s appendString:@"        [s appendString:@\"        </td>\\n\"];\n"];
+        [s appendString:@"        [s appendString:@\"    </tr>\\n\"];\n"];
+        [s appendString:@"    }\n"];
+
+
+    }
+    [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
+    [s appendString:@"    [s appendString:@\"</table>\\n\"];\n"];
+    [s appendString:@"    [s appendString:@\"</tr>\\n\"];\n"];
+    
+    [s appendString:@"}\n"];
+    
+
     return s;
 }
 

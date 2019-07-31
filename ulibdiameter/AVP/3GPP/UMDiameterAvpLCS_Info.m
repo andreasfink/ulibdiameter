@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -75,68 +75,52 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpGMLC_Number  avpCode])
-        {
-            UMDiameterAvpGMLC_Number *avp2 = [[UMDiameterAvpGMLC_Number alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_gmlc_number == NULL)
-            {
-                _var_gmlc_number = @[avp2];
-            }
-            else
-            {
-                _var_gmlc_number = [_var_gmlc_number arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpLCS_PrivacyException avpCode])
-        {
-            UMDiameterAvpLCS_PrivacyException *avp2 = [[UMDiameterAvpLCS_PrivacyException alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_lcs_privacyexception == NULL)
-            {
-                _var_lcs_privacyexception = @[avp2];
-            }
-            else
-            {
-                _var_lcs_privacyexception = [_var_lcs_privacyexception arrayByAddingObject:avp2];
-            }
-        }
-        else if(avp.avpCode == [UMDiameterAvpMO_LR avpCode])
-        {
-            UMDiameterAvpMO_LR *avp2 = [[UMDiameterAvpMO_LR alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_mo_lr == NULL)
-            {
-                _var_mo_lr = @[avp2];
-            }
-            else
-            {
-                _var_mo_lr = [_var_mo_lr arrayByAddingObject:avp2];
-            }
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].gmlc-number",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpGMLC_Number appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].lcs-privacyexception",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpLCS_PrivacyException appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].mo-lr",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMO_LR appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpPrimary_Charging_Collection_Function_Name.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

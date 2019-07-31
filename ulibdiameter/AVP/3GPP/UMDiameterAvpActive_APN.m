@@ -2,7 +2,7 @@
 //  UMDiameterAvpActive_APN.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-04 10:29:38.359000
+//  Created by afink on 2019-07-31 06:18:11.400000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -79,119 +79,68 @@
 }
 
 
-- (void)afterDecode
+//- (void)afterDecode
+/* skipped as there's no properties to decode */
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
-    NSArray *avps = [self array];
-
-    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
-    NSMutableArray *unknownAVPs;
-
-    for(UMDiameterAvp *avp in avps)
-    {
-        if(avp.avpCode == [UMDiameterAvpContext_Identifier  avpCode])
-        {
-            _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_context_identifier];
-        }
-        else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
-        {
-            _var_service_selection = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_service_selection];
-        }
-        else if(avp.avpCode == [UMDiameterAvpMIP6_Agent_Info avpCode])
-        {
-            _var_mip6_agent_info = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_mip6_agent_info];
-        }
-        else if(avp.avpCode == [UMDiameterAvpVisited_Network_Identifier avpCode])
-        {
-            _var_visited_network_identifier = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
-            [knownAVPs addObject:_var_visited_network_identifier];
-        }
-        else if(avp.avpCode == [UMDiameterAvpSpecific_APN_Info avpCode])
-        {
-            UMDiameterAvpSpecific_APN_Info *avp2 = [[UMDiameterAvpSpecific_APN_Info alloc]initWithAvp:avp];
-            [knownAVPs addObject:avp2];
-            if(_var_specific_apn_info == NULL)
-            {
-                _var_specific_apn_info = @[avp2];
-            }
-            else
-            {
-                _var_specific_apn_info = [_var_specific_apn_info arrayByAddingObject:avp2];
-            }
-        }
-        else
-        {
-             if(unknownAVPs==NULL)
-             {
-                 unknownAVPs = [[NSMutableArray alloc]init];
-             }
-             [unknownAVPs addObject:avp];
-        }
+    [s appendString:@"<tr>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+    [s appendFormat:@"<td>%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.context-identifier",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
     }
-    _var_avp = unknownAVPs;
-    [knownAVPs addObject:[_var_avp copy]];
-    [self setArray:knownAVPs];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.service-selection",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpService_Selection appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.mip6-agent-info",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpMIP6_Agent_Info appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@.visited-network-identifier",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpVisited_Network_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].specific-apn-info",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpSpecific_APN_Info appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        [s appendString:@"    <tr>\n"];
+        [s appendString:@"        <td>\n"];
+        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+        [s appendString:@"        </td>\n"];
+        [s appendString:@"    </tr>\n"];
+    }
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</tr>\n"];
 }
-
-
-
-
-- (void)setDictionaryValue:(NSDictionary *)dict
-{
-
-    if(dict[@"context-identifier"])
-    {
-        _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]init];
-        _var_context_identifier.objectValue = dict[@"context-identifier"];
-    }
-
-    if(dict[@"specific-apn-info"])
-    {
-        id obj = dict[@"specific-apn-info"];
-        if([obj isKindOfClass:[NSArray class]])
-        {
-            NSMutableArray *arr = [[NSMutableArray alloc]init];
-            for(id entry in (NSArray *)obj)
-            {
-                UMDiameterAvpSpecific_APN_Info *o = [[UMDiameterAvpSpecific_APN_Info alloc]init];
-                o.objectValue = entry;
-                [arr addObject:o];
-            }
-            _var_specific_apn_info = arr;
-        }
-        else
-        {
-            NSMutableArray *arr = [[NSMutableArray alloc]init];
-            UMDiameterAvpSpecific_APN_Info *o = [[UMDiameterAvpSpecific_APN_Info alloc]init];
-            o.objectValue = obj;
-            [arr addObject:o];
-            _var_specific_apn_info = arr;
-        }
-    }
-}
-
-- (UMSynchronizedSortedDictionary *)dictionaryValue
-{
-    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
-    if(_var_context_identifier)
-    {
-        dict[@"context-identifier"] = _var_context_identifier.objectValue;
-    }
-    if(_var_specific_apn_info)
-    {
-        NSMutableArray *arr = [[NSMutableArray alloc]init];
-        for(id entry in _var_specific_apn_info)
-        {
-            [arr addObject:[entry objectValue]];
-        }
-        dict[@"specific-apn-info"] = arr;
-    }
-    return dict;
-}
-
-
 
 @end
 

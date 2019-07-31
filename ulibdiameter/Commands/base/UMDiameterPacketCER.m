@@ -2,7 +2,7 @@
 //  UMDiameterPacketCER.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-10 00:07:37.062000
+//  Created by afink on 2019-07-31 06:14:09.104000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -423,68 +423,55 @@
 
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-host</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-host\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>origin-realm</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"origin-realm\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>host-ip-address</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"host-ip-address\" type=text> </td>\n"];
+    [UMDiameterAvpHost_IP_Address appendWebDiameterParameters:s webName:@"host-ip-address"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>vendor-id</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"vendor-id\" type=text> </td>\n"];
+    [UMDiameterAvpVendor_Id appendWebDiameterParameters:s webName:@"vendor-id"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=mandatory>product-name</td>\n"];
-    [s appendString:@"    <td class=mandatory><input name=\"product-name\" type=text> </td>\n"];
+    [UMDiameterAvpProduct_Name appendWebDiameterParameters:s webName:@"product-name"  comment:@"" css:@"mandatory"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>origin-state-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"origin-state-id\" type=text> </td>\n"];
+    [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>supported-vendor-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"supported-vendor-id\" type=text> </td>\n"];
+    [UMDiameterAvpSupported_Vendor_Id appendWebDiameterParameters:s webName:@"supported-vendor-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>auth-application-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"auth-application-id\" type=text> </td>\n"];
+    [UMDiameterAvpAuth_Application_Id appendWebDiameterParameters:s webName:@"auth-application-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>inband-security-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"inband-security-id\" type=text> </td>\n"];
+    [UMDiameterAvpInband_Security_Id appendWebDiameterParameters:s webName:@"inband-security-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>acct-application-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"acct-application-id\" type=text> </td>\n"];
+    [UMDiameterAvpAcct_Application_Id appendWebDiameterParameters:s webName:@"acct-application-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>vendor-specific-application-id</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"vendor-specific-application-id\" type=text> </td>\n"];
+    [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>firmware-revision</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"firmware-revision\" type=text> </td>\n"];
+    [UMDiameterAvpFirmware_Revision appendWebDiameterParameters:s webName:@"firmware-revision"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
     [s appendString:@"<tr>\n"];
-    [s appendString:@"    <td class=optional>avp</td>\n"];
-    [s appendString:@"    <td class=optional><input name=\"avp\" type=text> </td>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
     [s appendString:@"</tr>\n"];
 
 }
