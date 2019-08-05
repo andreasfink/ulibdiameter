@@ -482,11 +482,16 @@
 
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
+        if([avp.webName isEqualToString:@"avp"])
+        {
+            continue;
+        }
         NSString *mptr  = @"optional";
         if(avp.mandatory)
         {
             mptr = @"mandatory";
         }
+        
         [s appendString:@"\t{\n"];
         NSString *objcName = [NSString stringWithFormat:@"%@%@",avpPrefix,avp.objectName];
         if(avp.multiple)

@@ -2,7 +2,7 @@
 //  UMDiameterAvpScheduled_Communication_Time.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:03:45.350000
+//  Created by afink on 2019-08-05 22:10:14.998000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -90,10 +90,6 @@
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[time-of-day-end]",webName];
         [UMDiameterAvpTime_Of_Day_End appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-    }
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];

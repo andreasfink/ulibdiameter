@@ -455,6 +455,10 @@ break;
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
+    if([webName isEqualToString:@"avp"])
+    {
+        return;
+    }
     [s appendString:@"<tr>\n"];
     [s appendFormat:@"    <td class=%@>%@</td>\n",cssClass,webName];
     [s appendFormat:@"    <td class=%@><input name=\"%@\" type=text> %@</td>\n",cssClass,webName,webComment ? webComment : @""];

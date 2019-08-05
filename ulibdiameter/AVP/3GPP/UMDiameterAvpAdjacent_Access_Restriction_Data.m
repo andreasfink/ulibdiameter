@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdjacent_Access_Restriction_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:03:45.350000
+//  Created by afink on 2019-08-05 22:10:14.998000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -78,10 +78,6 @@
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[access-restriction-data]",webName];
         [UMDiameterAvpAccess_Restriction_Data appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-    }
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];

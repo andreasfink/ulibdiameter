@@ -2,7 +2,7 @@
 //  UMDiameterAvpFailed_AVP.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:03:45.174000
+//  Created by afink on 2019-08-05 22:10:14.821000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -60,10 +60,6 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-    }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];

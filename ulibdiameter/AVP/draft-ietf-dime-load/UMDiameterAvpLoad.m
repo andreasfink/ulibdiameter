@@ -2,7 +2,7 @@
 //  UMDiameterAvpLoad.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:03:46.030000
+//  Created by afink on 2019-08-05 22:10:15.606000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -85,10 +85,6 @@
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[sourceid]",webName];
         [UMDiameterAvpSourceID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-    }
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];
