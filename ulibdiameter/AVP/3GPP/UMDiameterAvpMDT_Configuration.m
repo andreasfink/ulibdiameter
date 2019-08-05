@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:34.608000
+//  Created by afink on 2019-08-05 22:03:45.350000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -169,171 +169,87 @@
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[job-type]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpJob_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[area-scope]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpArea_Scope appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[list-of-measurements]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpList_Of_Measurements appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[reporting-trigger]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpReporting_Trigger appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[report-interval]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpReport_Interval appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[report-amount]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpReport_Amount appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[event-threshold-rsrp]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpEvent_Threshold_RSRP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[event-threshold-rsrq]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpEvent_Threshold_RSRQ appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[logging-interval]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpLogging_Interval appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[logging-duration]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpLogging_Duration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[measurement-period-lte]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMeasurement_Period_LTE appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[measurement-period-umts]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMeasurement_Period_UMTS appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[collection-period-rrm-lte]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpCollection_Period_RRM_LTE appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[collection-period-rrm-umts]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpCollection_Period_RRM_UMTS appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[positioning-method]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpPositioning_Method appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[measurement-quantity]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMeasurement_Quantity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[event-threshold-event-1f]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpEvent_Threshold_Event_1F appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[event-threshold-event-1i]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpEvent_Threshold_Event_1I appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[][mdt-allowed-plmn-id]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMDT_Allowed_PLMN_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[][mbsfn-area]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMBSFN_Area appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];

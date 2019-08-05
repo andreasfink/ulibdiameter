@@ -2,7 +2,7 @@
 //  UMDiameterAvpTerminal_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:34.608000
+//  Created by afink on 2019-08-05 22:03:45.350000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -78,35 +78,19 @@
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[imei]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpIMEI appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[3gpp2-meid]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvp3GPP2_MEID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[software-version]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpSoftware_Version appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];

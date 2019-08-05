@@ -497,11 +497,7 @@
         {
             [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[%@]\",webName];\n",avp.webName];
         }
-        [s appendString:@"        [s appendString:@\"    <tr>\\n\"];\n"];
-        [s appendString:@"        [s appendString:@\"        <td>\\n\"];\n"];
         [s appendFormat:@"        [%@ appendWebDiameterParameters:s webName:webName2 comment:NULL css:@\"%@\"];\n",objcName,mptr];
-        [s appendString:@"        [s appendString:@\"        </td>\\n\"];\n"];
-        [s appendString:@"        [s appendString:@\"    </tr>\\n\"];\n"];
         [s appendString:@"    }\n"];
 
     }

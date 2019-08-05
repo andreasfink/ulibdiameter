@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:34.608000
+//  Created by afink on 2019-08-05 22:03:45.350000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -116,91 +116,47 @@
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[scef-reference-id]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpSCEF_Reference_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[scef-id]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpSCEF_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[monitoring-type]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMonitoring_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[][scef-reference-id-for-deletion]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpSCEF_Reference_ID_for_Deletion appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[maximum-number-of-reports]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMaximum_Number_of_Reports appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[monitoring-duration]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpMonitoring_Duration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[charged-party]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpCharged_Party appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[ue-reachability-configuration]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpUE_Reachability_Configuration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[location-information-configuration]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpLocation_Information_Configuration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[scef-realm]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpSCEF_Realm appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
 	{
         NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
-        [s appendString:@"    <tr>\n"];
-        [s appendString:@"        <td>\n"];
         [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-        [s appendString:@"        </td>\n"];
-        [s appendString:@"    </tr>\n"];
     }
     [s appendString:@"</table>\n"];
     [s appendString:@"</td>\n"];

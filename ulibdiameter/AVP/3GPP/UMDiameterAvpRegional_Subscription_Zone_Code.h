@@ -2,7 +2,7 @@
 //  UMDiameterAvpRegional_Subscription_Zone_Code.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:34.608000
+//  Created by afink on 2019-08-05 22:03:45.350000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
