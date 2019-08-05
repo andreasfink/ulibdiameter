@@ -2,7 +2,7 @@
 //  UMDiameterAvpExperimental_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:46:37.283000
+//  Created by afink on 2019-08-05 21:43:34.427000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -58,12 +58,12 @@
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
     [s appendString:@"<tr>\n"];
-    [s appendFormat:@"<td>%@\n",webName];
+    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
     [s appendString:@"</td>\n"];
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.vendor-id",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[vendor-id]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpVendor_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -71,15 +71,15 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.experimental-result-code",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[experimental-result-code]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpExperimental_Result_Code appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
         [s appendString:@"        </td>\n"];
         [s appendString:@"    </tr>\n"];
     }
-    [s appendString:@"</td>\n"];
     [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
 

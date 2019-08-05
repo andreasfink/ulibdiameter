@@ -260,7 +260,8 @@
         [s appendString:[_groupDef methodsWithPrefix:prefix
                                                 user:user
                                                 date:date
-                                           directory:dir]];
+                                           directory:dir
+                                           mandatory:_mandatoryFlag]];
     }
     [s appendString:@"\n"];
     [s appendString:@"@end\n"];

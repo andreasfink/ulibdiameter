@@ -275,9 +275,9 @@
 }
 
 - (NSString *)groupHeaderFileWithPrefix:(NSString *)prefix
-                         avpPrefix:(NSString *)avpPrefix
-                              user:(NSString *)user
-                              date:(NSString *)date
+                              avpPrefix:(NSString *)avpPrefix
+                                   user:(NSString *)user
+                                   date:(NSString *)date
 {
     NSMutableString *s = [[NSMutableString alloc]init];
     [s appendString:@"//\n"];
@@ -335,6 +335,7 @@
                             user:(NSString *)user
                             date:(NSString *)date
                        directory:(NSString *)dir
+                       mandatory:(BOOL)mandatory
 {
 
     /* before encode */
@@ -467,8 +468,14 @@
     [s appendString:@"+ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass\n"];
     [s appendString:@"{\n"];
     
+    NSString *mptr  = @"optional";
+    if(mandatory)
+    {
+        mptr = @"mandatory";
+    }
+
     [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
-    [s appendString:@"    [s appendFormat:@\"<td>%@\\n\",webName];\n"];
+    [s appendFormat:@"    [s appendFormat:@\"<td class=\\\"%@\\\">%%@\\n\",webName];\n",mptr];
     [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"<td>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"<table class=\\\"avp-grouped\\\">\\n\"];\n"];
@@ -484,11 +491,11 @@
         NSString *objcName = [NSString stringWithFormat:@"%@%@",avpPrefix,avp.objectName];
         if(avp.multiple)
         {
-            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[].%@\",webName];\n",avp.webName];
+            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[][%@]\",webName];\n",avp.webName];
         }
         else
         {
-            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@.%@\",webName];\n",avp.webName];
+            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[%@]\",webName];\n",avp.webName];
         }
         [s appendString:@"        [s appendString:@\"    <tr>\\n\"];\n"];
         [s appendString:@"        [s appendString:@\"        <td>\\n\"];\n"];
@@ -497,15 +504,11 @@
         [s appendString:@"        [s appendString:@\"    </tr>\\n\"];\n"];
         [s appendString:@"    }\n"];
 
-
     }
-    [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"</table>\\n\"];\n"];
+    [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"</tr>\\n\"];\n"];
-    
     [s appendString:@"}\n"];
-    
-
     return s;
 }
 

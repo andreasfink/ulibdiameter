@@ -34,7 +34,8 @@
 - (NSString *) methodsWithPrefix:(NSString *)avpPrefix
                             user:(NSString *)user
                             date:(NSString *)date
-                       directory:(NSString *)dir;
+                       directory:(NSString *)dir
+                       mandatory:(BOOL)mandatory;
 
 - (NSString *)groupHeaderFileWithPrefix:(NSString *)prefix
                               avpPrefix:(NSString *)avpPrefix

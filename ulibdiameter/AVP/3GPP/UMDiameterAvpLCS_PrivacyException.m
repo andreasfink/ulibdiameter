@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:46:37.459000
+//  Created by afink on 2019-08-05 21:43:34.608000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -96,12 +96,12 @@
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
     [s appendString:@"<tr>\n"];
-    [s appendFormat:@"<td>%@\n",webName];
+    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
     [s appendString:@"</td>\n"];
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.ss-code",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[ss-code]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpSS_Code appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -109,7 +109,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.ss-status",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[ss-status]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpSS_Status appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -117,7 +117,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.notification-to-ue-user",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[notification-to-ue-user]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpNotification_To_UE_User appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
@@ -125,7 +125,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[].external-client",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[][external-client]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpExternal_Client appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
@@ -133,7 +133,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[].plmn-client",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[][plmn-client]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpPLMN_Client appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
@@ -141,7 +141,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[].service-type",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[][service-type]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpService_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
@@ -149,15 +149,15 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
         [s appendString:@"        </td>\n"];
         [s appendString:@"    </tr>\n"];
     }
-    [s appendString:@"</td>\n"];
     [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
 

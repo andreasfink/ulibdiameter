@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-31 06:46:37.459000
+//  Created by afink on 2019-08-05 21:43:34.608000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -87,12 +87,12 @@
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {
     [s appendString:@"<tr>\n"];
-    [s appendFormat:@"<td>%@\n",webName];
+    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
     [s appendString:@"</td>\n"];
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.item-number",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[item-number]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpItem_Number appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
@@ -100,7 +100,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.rand",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[rand]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpRAND appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -108,7 +108,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.xres",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[xres]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpXRES appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -116,7 +116,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.autn",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[autn]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpAUTN appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -124,7 +124,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.confidentiality-key",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[confidentiality-key]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpConfidentiality_Key appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -132,7 +132,7 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@.integrity-key",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[integrity-key]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpIntegrity_Key appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
@@ -140,15 +140,15 @@
         [s appendString:@"    </tr>\n"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[].avp",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[][avp]",webName];
         [s appendString:@"    <tr>\n"];
         [s appendString:@"        <td>\n"];
         [UMDiameterAvpAVP appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
         [s appendString:@"        </td>\n"];
         [s appendString:@"    </tr>\n"];
     }
-    [s appendString:@"</td>\n"];
     [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
 
