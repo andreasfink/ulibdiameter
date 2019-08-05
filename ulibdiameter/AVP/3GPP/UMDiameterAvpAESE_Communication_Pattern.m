@@ -2,7 +2,7 @@
 //  UMDiameterAvpAESE_Communication_Pattern.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -96,11 +96,11 @@
         [UMDiameterAvpSCEF_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][scef-reference-id-for-deletion]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[scef-reference-id-for-deletion][]",webName];
         [UMDiameterAvpSCEF_Reference_ID_for_Deletion appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][communication-pattern-set]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[communication-pattern-set][]",webName];
         [UMDiameterAvpCommunication_Pattern_Set appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];

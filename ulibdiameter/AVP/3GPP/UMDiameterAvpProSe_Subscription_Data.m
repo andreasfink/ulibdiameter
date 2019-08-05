@@ -2,7 +2,7 @@
 //  UMDiameterAvpProSe_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,7 +70,7 @@
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][prose-permission]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[prose-permission][]",webName];
         [UMDiameterAvpProSe_Permission appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];

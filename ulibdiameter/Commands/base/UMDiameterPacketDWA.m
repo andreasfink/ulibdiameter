@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.589000
+//  Created by afink on 2019-08-05 22:45:25.299000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -193,8 +193,6 @@
     [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
 
 }
 

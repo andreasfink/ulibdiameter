@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -79,7 +79,7 @@
         [UMDiameterAvpComplete_Data_List_Included_Indicator appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][pdp-context]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[pdp-context][]",webName];
         [UMDiameterAvpPDP_Context appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
     }
     [s appendString:@"</table>\n"];

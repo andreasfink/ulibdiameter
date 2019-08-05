@@ -2,7 +2,7 @@
 //  UMDiameterPacketACR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.686000
+//  Created by afink on 2019-08-05 22:45:25.395000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -461,11 +461,9 @@
 
     [UMDiameterAvpEvent_Timestamp appendWebDiameterParameters:s webName:@"event-timestamp"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 

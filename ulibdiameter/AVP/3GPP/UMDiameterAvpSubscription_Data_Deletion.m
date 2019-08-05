@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -109,7 +109,7 @@
         [UMDiameterAvpSCEF_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][context-identifier]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[context-identifier][]",webName];
         [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -117,11 +117,11 @@
         [UMDiameterAvpTrace_Reference appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][ts-code]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[ts-code][]",webName];
         [UMDiameterAvpTS_Code appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][ss-code]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[ss-code][]",webName];
         [UMDiameterAvpSS_Code appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];

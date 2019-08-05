@@ -2,7 +2,7 @@
 //  UMDiameterPacketNotify_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:41.083000
+//  Created by afink on 2019-08-05 22:45:25.791000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -587,7 +587,7 @@
 
     [UMDiameterAvpOC_Supported_Features appendWebDiameterParameters:s webName:@"oc-supported-features"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpTerminal_Information appendWebDiameterParameters:s webName:@"terminal-information"  comment:@"" css:@"optional"];
 
@@ -609,15 +609,13 @@
 
     [UMDiameterAvpMaximum_UE_Availability_Time appendWebDiameterParameters:s webName:@"maximum-ue-availability-time"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpMonitoring_Event_Config_Status appendWebDiameterParameters:s webName:@"monitoring-event-config-status"  comment:@"" css:@"optional"];
+    [UMDiameterAvpMonitoring_Event_Config_Status appendWebDiameterParameters:s webName:@"monitoring-event-config-status[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpEmergency_Services appendWebDiameterParameters:s webName:@"emergency-services"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 

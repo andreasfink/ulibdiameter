@@ -2,7 +2,7 @@
 //  UMDiameterPacketASA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.763000
+//  Created by afink on 2019-08-05 22:45:25.471000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -355,15 +355,13 @@
 
     [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpRedirect_Host appendWebDiameterParameters:s webName:@"redirect-host"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRedirect_Host appendWebDiameterParameters:s webName:@"redirect-host[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpRedirect_Host_Usage appendWebDiameterParameters:s webName:@"redirect-host-usage"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpRedirect_Max_Cache_Time appendWebDiameterParameters:s webName:@"redirect-max-cache-time"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
 }
 

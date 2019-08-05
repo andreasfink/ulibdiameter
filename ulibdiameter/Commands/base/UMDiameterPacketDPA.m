@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.743000
+//  Created by afink on 2019-08-05 22:45:25.452000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -176,8 +176,6 @@
     [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
 
 }
 

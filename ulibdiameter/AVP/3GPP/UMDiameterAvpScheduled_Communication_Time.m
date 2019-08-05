@@ -2,7 +2,7 @@
 //  UMDiameterAvpScheduled_Communication_Time.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -80,7 +80,7 @@
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][day-of-week-mask]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[day-of-week-mask][]",webName];
         [UMDiameterAvpDay_Of_Week_Mask appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{

@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Capability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.821000
+//  Created by afink on 2019-08-05 22:45:19.957000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -69,7 +69,7 @@
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][qos-profile-template]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[qos-profile-template][]",webName];
         [UMDiameterAvpQoS_Profile_Template appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
     }
     [s appendString:@"</table>\n"];

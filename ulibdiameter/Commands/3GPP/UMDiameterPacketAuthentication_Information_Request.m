@@ -2,7 +2,7 @@
 //  UMDiameterPacketAuthentication_Information_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.836000
+//  Created by afink on 2019-08-05 22:45:25.546000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -442,7 +442,7 @@
 
     [UMDiameterAvpOC_Supported_Features appendWebDiameterParameters:s webName:@"oc-supported-features"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpRequested_EUTRAN_Authentication_Info appendWebDiameterParameters:s webName:@"requested-eutran-authentication-info"  comment:@"" css:@"optional"];
 
@@ -452,11 +452,9 @@
 
     [UMDiameterAvpAIR_Flags appendWebDiameterParameters:s webName:@"air-flags"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 

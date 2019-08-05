@@ -2,7 +2,7 @@
 //  UMDiameterPacketCER.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.529000
+//  Created by afink on 2019-08-05 22:45:25.244000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -426,7 +426,7 @@
 
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
 
-    [UMDiameterAvpHost_IP_Address appendWebDiameterParameters:s webName:@"host-ip-address"  comment:@"" css:@"mandatory"];
+    [UMDiameterAvpHost_IP_Address appendWebDiameterParameters:s webName:@"host-ip-address[]"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpVendor_Id appendWebDiameterParameters:s webName:@"vendor-id"  comment:@"" css:@"mandatory"];
 
@@ -434,19 +434,17 @@
 
     [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSupported_Vendor_Id appendWebDiameterParameters:s webName:@"supported-vendor-id"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Vendor_Id appendWebDiameterParameters:s webName:@"supported-vendor-id[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAuth_Application_Id appendWebDiameterParameters:s webName:@"auth-application-id"  comment:@"" css:@"optional"];
+    [UMDiameterAvpAuth_Application_Id appendWebDiameterParameters:s webName:@"auth-application-id[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpInband_Security_Id appendWebDiameterParameters:s webName:@"inband-security-id"  comment:@"" css:@"optional"];
+    [UMDiameterAvpInband_Security_Id appendWebDiameterParameters:s webName:@"inband-security-id[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAcct_Application_Id appendWebDiameterParameters:s webName:@"acct-application-id"  comment:@"" css:@"optional"];
+    [UMDiameterAvpAcct_Application_Id appendWebDiameterParameters:s webName:@"acct-application-id[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id"  comment:@"" css:@"optional"];
+    [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpFirmware_Revision appendWebDiameterParameters:s webName:@"firmware-revision"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
 
 }
 

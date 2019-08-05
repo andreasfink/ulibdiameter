@@ -2,7 +2,7 @@
 //  UMDiameterPacketDelete_Subscriber_Data_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.955000
+//  Created by afink on 2019-08-05 22:45:25.664000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -530,25 +530,23 @@
 
     [UMDiameterAvpUser_Name appendWebDiameterParameters:s webName:@"user-name"  comment:@"" css:@"mandatory"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpDSR_Flags appendWebDiameterParameters:s webName:@"dsr-flags"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpSCEF_ID appendWebDiameterParameters:s webName:@"scef-id"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:@"context-identifier"  comment:@"" css:@"optional"];
+    [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:@"context-identifier[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpTrace_Reference appendWebDiameterParameters:s webName:@"trace-reference"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpTS_Code appendWebDiameterParameters:s webName:@"ts-code"  comment:@"" css:@"optional"];
+    [UMDiameterAvpTS_Code appendWebDiameterParameters:s webName:@"ts-code[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSS_Code appendWebDiameterParameters:s webName:@"ss-code"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSS_Code appendWebDiameterParameters:s webName:@"ss-code[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 

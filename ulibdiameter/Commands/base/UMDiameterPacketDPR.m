@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.724000
+//  Created by afink on 2019-08-05 22:45:25.435000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -142,8 +142,6 @@
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpDisconnect_Cause appendWebDiameterParameters:s webName:@"disconnect-cause"  comment:@"" css:@"mandatory"];
-
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
 
 }
 

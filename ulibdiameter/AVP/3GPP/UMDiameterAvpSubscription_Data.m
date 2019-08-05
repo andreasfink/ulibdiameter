@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -323,7 +323,7 @@
         [UMDiameterAvpHPLMN_ODB appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][regional-subscription-zone-code]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[regional-subscription-zone-code][]",webName];
         [UMDiameterAvpRegional_Subscription_Zone_Code appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -343,7 +343,7 @@
         [UMDiameterAvpTeleservice_List appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][call-barring-info]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[call-barring-info][]",webName];
         [UMDiameterAvpCall_Barring_Info appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -371,7 +371,7 @@
         [UMDiameterAvpGPRS_Subscription_Data appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][csg-subscription-data]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[csg-subscription-data][]",webName];
         [UMDiameterAvpCSG_Subscription_Data appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -411,7 +411,7 @@
         [UMDiameterAvpSubscription_Data_Flags appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][adjacent-access-restriction-data]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[adjacent-access-restriction-data][]",webName];
         [UMDiameterAvpAdjacent_Access_Restriction_Data appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -419,7 +419,7 @@
         [UMDiameterAvpDL_Buffering_Suggested_Packet_Count appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][imsi-group-id]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[imsi-group-id][]",webName];
         [UMDiameterAvpIMSI_Group_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -427,11 +427,11 @@
         [UMDiameterAvpUE_Usage_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][aese-communication-pattern]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[aese-communication-pattern][]",webName];
         [UMDiameterAvpAESE_Communication_Pattern appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][monitoring-event-configuration]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[monitoring-event-configuration][]",webName];
         [UMDiameterAvpMonitoring_Event_Configuration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
@@ -443,7 +443,7 @@
         [UMDiameterAvpV2X_Subscription_Data appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][edrx-cycle-length]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[edrx-cycle-length][]",webName];
         [UMDiameterAvpeDRX_Cycle_Length appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Applications.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,15 +86,15 @@
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][auth-application-id]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[auth-application-id][]",webName];
         [UMDiameterAvpAuth_Application_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][acct-application-id]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[acct-application-id][]",webName];
         [UMDiameterAvpAcct_Application_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][vendor-specific-application-id]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[vendor-specific-application-id][]",webName];
         [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];

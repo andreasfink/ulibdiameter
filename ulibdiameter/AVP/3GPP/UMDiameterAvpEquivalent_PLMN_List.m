@@ -2,7 +2,7 @@
 //  UMDiameterAvpEquivalent_PLMN_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,7 +70,7 @@
     [s appendString:@"<td>\n"];
     [s appendString:@"<table class=\"avp-grouped\">\n"];
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][visited-plmn-id]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[visited-plmn-id][]",webName];
         [UMDiameterAvpVisited_PLMN_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
     }
     [s appendString:@"</table>\n"];

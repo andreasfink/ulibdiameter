@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.916000
+//  Created by afink on 2019-08-05 22:45:25.626000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -475,21 +475,19 @@
 
     [UMDiameterAvpUser_Name appendWebDiameterParameters:s webName:@"user-name"  comment:@"" css:@"mandatory"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpVPLMN_CSG_Subscription_Data appendWebDiameterParameters:s webName:@"vplmn-csg-subscription-data"  comment:@"" css:@"mandatory"];
+    [UMDiameterAvpVPLMN_CSG_Subscription_Data appendWebDiameterParameters:s webName:@"vplmn-csg-subscription-data[]"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpSubscription_Data appendWebDiameterParameters:s webName:@"subscription-data"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpIDR_Flags appendWebDiameterParameters:s webName:@"idr-flags"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpReset_ID appendWebDiameterParameters:s webName:@"reset-id"  comment:@"" css:@"optional"];
+    [UMDiameterAvpReset_ID appendWebDiameterParameters:s webName:@"reset-id[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 

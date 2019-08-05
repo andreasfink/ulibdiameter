@@ -2,7 +2,7 @@
 //  UMDiameterPacketPurge_UE_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:41.121000
+//  Created by afink on 2019-08-05 22:45:25.831000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -414,15 +414,13 @@
 
     [UMDiameterAvpPUR_Flags appendWebDiameterParameters:s webName:@"pur-flags"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpEPS_Location_Information appendWebDiameterParameters:s webName:@"eps-location-information"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 

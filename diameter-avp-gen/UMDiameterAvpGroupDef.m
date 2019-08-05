@@ -486,6 +486,10 @@
         {
             continue;
         }
+        if([avp.webName isEqualToString:@"avp[]"])
+        {
+            continue;
+        }
         NSString *mptr  = @"optional";
         if(avp.mandatory)
         {
@@ -496,7 +500,7 @@
         NSString *objcName = [NSString stringWithFormat:@"%@%@",avpPrefix,avp.objectName];
         if(avp.multiple)
         {
-            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[][%@]\",webName];\n",avp.webName];
+            [s appendFormat:@"        NSString *webName2 = [NSString stringWithFormat:@\"%%@[%@][]\",webName];\n",avp.webName];
         }
         else
         {

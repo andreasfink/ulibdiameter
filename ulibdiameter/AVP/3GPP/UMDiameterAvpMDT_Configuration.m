@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -240,11 +240,11 @@
         [UMDiameterAvpEvent_Threshold_Event_1I appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][mdt-allowed-plmn-id]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[mdt-allowed-plmn-id][]",webName];
         [UMDiameterAvpMDT_Allowed_PLMN_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][mbsfn-area]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[mbsfn-area][]",webName];
         [UMDiameterAvpMBSFN_Area appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];

@@ -2,7 +2,7 @@
 //  UMDiameterAvpCSG_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -91,7 +91,7 @@
         [UMDiameterAvpExpiration_Date appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][service-selection]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[service-selection][]",webName];
         [UMDiameterAvpService_Selection appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{

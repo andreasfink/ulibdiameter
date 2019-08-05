@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -113,15 +113,15 @@
         [UMDiameterAvpNotification_To_UE_User appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][external-client]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[external-client][]",webName];
         [UMDiameterAvpExternal_Client appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][plmn-client]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[plmn-client][]",webName];
         [UMDiameterAvpPLMN_Client appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][service-type]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[service-type][]",webName];
         [UMDiameterAvpService_Type appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
     [s appendString:@"</table>\n"];

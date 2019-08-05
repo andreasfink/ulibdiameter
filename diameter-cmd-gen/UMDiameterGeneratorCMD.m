@@ -548,6 +548,10 @@
 
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
+        if([avp.webName isEqualToString:@"avp"])
+        {
+            continue;
+        }
         NSString *mstr;
         if(avp.mandatory)
         {
@@ -557,15 +561,17 @@
         {
             mstr = @"optional";
         }
+        NSString *webName;
+        if(avp.multiple)
+        {
+            webName = [NSString stringWithFormat:@"%@[]", avp.webName];
+        }
+        else
+        {
+            webName = avp.webName;
+        }
 
-#if 1
-        [s appendFormat:@"    [%@%@ appendWebDiameterParameters:s webName:@\"%@\"  comment:@\"%@\" css:@\"%@\"];\n",avpPrefix,avp.objectName,avp.webName,(avp.comment ? avp.comment : @"" ),mstr];
-#else
-        [s appendString:@"    [s appendString:@\"<tr>\\n\"];\n"];
-        [s appendFormat:@"    [s appendString:@\"    <td class=%@>%@</td>\\n\"];\n",mstr,avp.webName];
-        [s appendFormat:@"    [s appendString:@\"    <td class=%@><input name=\\\"%@\\\" type=text> %@</td>\\n\"];\n",mstr,avp.webName,avp.comment ? avp.comment : @""];
-        [s appendString:@"    [s appendString:@\"</tr>\\n\"];\n"];
-#endif
+        [s appendFormat:@"    [%@%@ appendWebDiameterParameters:s webName:@\"%@\"  comment:@\"%@\" css:@\"%@\"];\n",avpPrefix,avp.objectName,webName,(avp.comment ? avp.comment : @"" ),mstr];
         [s appendString:@"\n"];
     }
     [s appendString:@"}\n"];

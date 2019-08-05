@@ -2,7 +2,7 @@
 //  UMDiameterAvpCommunication_Pattern_Set.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -107,7 +107,7 @@
         [UMDiameterAvpPeriodic_Time appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][scheduled-communication-time]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[scheduled-communication-time][]",webName];
         [UMDiameterAvpScheduled_Communication_Time appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{

@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:10:14.998000
+//  Created by afink on 2019-08-05 22:45:20.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -101,7 +101,7 @@
         [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
     }
 	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[][served-party-ip-address]",webName];
+        NSString *webName2 = [NSString stringWithFormat:@"%@[served-party-ip-address][]",webName];
         [UMDiameterAvpServed_Party_IP_Address appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
     }
 	{

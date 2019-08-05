@@ -2,7 +2,7 @@
 //  UMDiameterPacketUpdate_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 21:43:40.874000
+//  Created by afink on 2019-08-05 22:45:25.586000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -647,7 +647,7 @@
 
     [UMDiameterAvpOC_Supported_Features appendWebDiameterParameters:s webName:@"oc-supported-features"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpTerminal_Information appendWebDiameterParameters:s webName:@"terminal-information"  comment:@"" css:@"optional"];
 
@@ -665,7 +665,7 @@
 
     [UMDiameterAvpGMLC_Address appendWebDiameterParameters:s webName:@"gmlc-address"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpActive_APN appendWebDiameterParameters:s webName:@"active-apn"  comment:@"" css:@"optional"];
+    [UMDiameterAvpActive_APN appendWebDiameterParameters:s webName:@"active-apn[]"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpEquivalent_PLMN_List appendWebDiameterParameters:s webName:@"equivalent-plmn-list"  comment:@"" css:@"optional"];
 
@@ -681,11 +681,9 @@
 
     [UMDiameterAvpSupported_Services appendWebDiameterParameters:s webName:@"supported-services"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
 }
 
