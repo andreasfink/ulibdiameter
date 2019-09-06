@@ -308,4 +308,10 @@
     }
     return s;
 }
+
+- (UMSynchronizedSortedDictionary *)definition
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+}
+
 @end

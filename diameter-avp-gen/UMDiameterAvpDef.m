@@ -269,4 +269,27 @@
     return s;
 }
 
+
+- (UMSynchronizedSortedDictionary *)definition
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    dict[@"avp-code"]                    = @(_avpCode);
+    dict[@"avp-type"]                    = _typeDefinition;
+    dict[@"avp-name"]                    = _standardsName;
+    dict[@"object-name"]                 = _objectName;
+    dict[@"object-type"]                 = _objectType;
+    dict[@"mandatory-flag"]              = @(_mandatoryFlag);
+    dict[@"vendor-flag"]                 = @(_vendorFlag);
+    if(_vendorFlag)
+    {
+        dict[@"vendor-code"]                 = @(_vendorCode);
+    }
+    dict[@"is-group"] = @(_isGroup);
+    if(_isGroup)
+    {
+        dict[@"group"] = [_groupDef entriesDefinitions];
+    }
+    return dict;
+}
+
 @end

@@ -48,6 +48,6 @@
 - (NSString *)variablesForHeaderWithPrefix:(NSString *)avpPrefix;
 - (NSString *)propertiesForHeaderWithPrefix:(NSString *)avpPrefix;
 
-
+- (UMSynchronizedArray *)entriesDefinitions;
 @end
 

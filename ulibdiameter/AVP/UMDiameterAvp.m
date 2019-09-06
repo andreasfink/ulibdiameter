@@ -466,6 +466,20 @@ break;
 }
 
 
+- (UMSynchronizedSortedDictionary *)definition
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    dict[@"code"] = @(_avpCode);
+    dict[@"mandatory"] = @(self.flagMandatory);
+    dict[@"protected"] = @(self.flagProtected);
+    dict[@"vendor"] = @(self.flagVendor);
+    if(self.flagVendor)
+    {
+        dict[@"vendor-id"] = @(_avpVendorId);
+    }
+    dict[@"type"] = [self avpType];
+    return dict;
+}
 
 @end
 

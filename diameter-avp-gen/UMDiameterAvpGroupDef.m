@@ -517,6 +517,33 @@
     return s;
 }
 
+- (UMSynchronizedSortedDictionary *)definition
+{
+    NSString *_avpGroupName;
+    NSString *_objectName;
+    NSString *_webName;
+    NSInteger _avpCode;
+    NSInteger _vendor;
+    NSArray<UMDiameterGeneratorAVP *> *_avps;
+
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    dict[@"group-name"]                     = @(_avpGroupName);
+    dict[@"object-name"]                    = _objectName;
+    dict[@"web-name"]                       = _webName;
+    dict[@"avp-code"]                       = _avpCode;
+    dict[@"vendor"]                         = @(_vendor);
+    return dict;
+}
+
+- (UMSynchronizedArray *)entriesDefinitions
+{
+    UMSynchronizedArray *entries = [[UMSynchronizedArray alloc]init];
+    for(UMDiameterGeneratorAVP *avpdef in _grouped_avps)
+    {
+        [entries addObject:[avp definition]];
+    }
+    return entries;
+}
 
 @end
 

@@ -11,6 +11,11 @@
 @implementation UMDiameterAvpTime
 
 
+- (NSString *)avpType
+{
+    return @"Time";
+}
+
 
 - (id)objectValue
 {

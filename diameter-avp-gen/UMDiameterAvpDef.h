@@ -26,6 +26,7 @@
     BOOL	_isGroup;
 }
 
+
 @property(readwrite,assign,atomic)  NSInteger avpCode;
 @property(readwrite,strong,atomic)  NSString *standardsName;
 @property(readwrite,strong,atomic)  NSString *definitionReference;
@@ -65,6 +66,8 @@
                                 date:(NSString *)date
                            directory:(NSString *)dir;
 
+
+- (UMSynchronizedSortedDictionary *)definition;
 
 @end
 
