@@ -38,3 +38,5 @@
 #import "UMDiameterPacketPurge_UE_Answer.h"
 #import "UMDiameterPacketDelete_Subscriber_Data_Request.h"
 #import "UMDiameterPacketPurge_UE_Request.h"
+#import "UMDiameterPacketLCS_Routing_Info_Request.h"
+#import "UMDiameterPacketLCS_Routing_Info_Answer.h"

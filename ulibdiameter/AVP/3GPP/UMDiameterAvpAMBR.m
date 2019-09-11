@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:20.138000
+//  Created by afink on 2019-09-10 15:04:47.947000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -74,33 +74,6 @@
 //- (void)afterDecode
 /* skipped as there's no properties to decode */
 
-+ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
-{
-    [s appendString:@"<tr>\n"];
-    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
-    [s appendString:@"</td>\n"];
-    [s appendString:@"<td>\n"];
-    [s appendString:@"<table class=\"avp-grouped\">\n"];
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[max-requested-bandwidth-ul]",webName];
-        [UMDiameterAvpMax_Requested_Bandwidth_UL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-    }
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[max-requested-bandwidth-dl]",webName];
-        [UMDiameterAvpMax_Requested_Bandwidth_DL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
-    }
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[extended-max-requested-bw-ul]",webName];
-        [UMDiameterAvpExtended_Max_Requested_BW_UL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-    }
-	{
-        NSString *webName2 = [NSString stringWithFormat:@"%@[extended-max-requested-bw-dl]",webName];
-        [UMDiameterAvpExtended_Max_Requested_BW_DL appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
-    }
-    [s appendString:@"</table>\n"];
-    [s appendString:@"</td>\n"];
-    [s appendString:@"</tr>\n"];
-}
 
 @end
 

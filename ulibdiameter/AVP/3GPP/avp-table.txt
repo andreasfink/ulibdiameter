@@ -247,7 +247,6 @@
 543	Max-Supported-Bandwidth-DL	5.3.41	Unsigned32	V
 544	Max-Supported-Bandwidth-UL	5.3.52	Unsigned32	V
 1034	Allocation-Retention-Priority	5.3.32	Grouped	
-2405	GMLC-Address	6.4.7	Address	M,V
 3143	Supported-Services	-	Grouped	M,V
 3329	Maximum-UE-Availability-Time	-	Time	M,V
 3142	Monitoring-Event-Config_Status	-	Grouped	V
@@ -301,3 +300,17 @@
 3136	MONTE-Location-Type	-	Unsigned32	M,V
 3137	Accuracy	-	Unsigned32	M,V
 
+2400	LMSI	-	OctetString	M,V
+2401	Serving-Node	-	Grouped	M,V
+2402	MME-Name	-	DiameterIdentity	M,V
+2403	MSC-Number	-	OctetString	M,V
+2404	LCS-Capabilities-Sets	-	Unsigned32	M,V
+2405	GMLC-Address	-	Address	M,V
+2406	Additional-Serving-Node	-	Grouped	M,V
+2407	PPR-Address	-	Address	M,V
+2408	MME-Realm	-	DiameterIdentity	V
+2409	SGSN-Name	-	DiameterIdentity	V
+2410	SGSN-Realm	-	DiameterIdentity	V
+2411	RIA-Flags	-	Unsigned32	V
+
+318	3GPP-AAA-Server-Name	-	DiameterIdentity	M,V

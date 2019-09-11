@@ -2,7 +2,7 @@
 //  UMDiameterPacketReset_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:25.752000
+//  Created by afink on 2019-09-10 14:16:02.972000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -442,35 +442,69 @@
 {
 
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpSession_Id appendWebDiameterParameters:s webName:@"session-id"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpDRMP appendWebDiameterParameters:s webName:@"drmp"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpAuth_Session_State appendWebDiameterParameters:s webName:@"auth-session-state"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpDestination_Host appendWebDiameterParameters:s webName:@"destination-host"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpDestination_Realm appendWebDiameterParameters:s webName:@"destination-realm"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpUser_Id appendWebDiameterParameters:s webName:@"user-id[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpUser_Id appendWebDiameterParameters:s webName:@"user-id"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpReset_ID appendWebDiameterParameters:s webName:@"reset-id[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpReset_ID appendWebDiameterParameters:s webName:@"reset-id"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpSubscription_Data appendWebDiameterParameters:s webName:@"subscription-data"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpSubscription_Data_Deletion appendWebDiameterParameters:s webName:@"subscription-data-deletion"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
 }
 

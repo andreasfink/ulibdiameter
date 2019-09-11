@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:25.606000
+//  Created by afink on 2019-09-10 14:16:02.888000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -547,49 +547,97 @@
 {
 
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpSession_Id appendWebDiameterParameters:s webName:@"session-id"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpDRMP appendWebDiameterParameters:s webName:@"drmp"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpExperimental_Result appendWebDiameterParameters:s webName:@"experimental-result"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpAuth_Session_State appendWebDiameterParameters:s webName:@"auth-session-state"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported appendWebDiameterParameters:s webName:@"ims-voice-over-ps-sessions-supported"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpLast_UE_Activity_Time appendWebDiameterParameters:s webName:@"last-ue-activity-time"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpRAT_Type appendWebDiameterParameters:s webName:@"rat-type"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpIDA_Flags appendWebDiameterParameters:s webName:@"ida-flags"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpEPS_User_State appendWebDiameterParameters:s webName:@"eps-user-state"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpEPS_Location_Information appendWebDiameterParameters:s webName:@"eps-location-information"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpLocal_Time_Zone appendWebDiameterParameters:s webName:@"local-time-zone"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpSupported_Services appendWebDiameterParameters:s webName:@"supported-services"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpMonitoring_Event_Report appendWebDiameterParameters:s webName:@"monitoring-event-report[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpMonitoring_Event_Report appendWebDiameterParameters:s webName:@"monitoring-event-report"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpMonitoring_Event_Config_Status appendWebDiameterParameters:s webName:@"monitoring-event-config-status[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpMonitoring_Event_Config_Status appendWebDiameterParameters:s webName:@"monitoring-event-config-status"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpAVP appendWebDiameterParameters:s webName:@"avp"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
+
+    [s appendString:@"<tr>\n"];
     [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
-    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
+    [s appendString:@"<tr>\n"];
+    [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record"  comment:@"" css:@"optional"];
+    [s appendString:@"</tr>\n"];
 
 }
 
