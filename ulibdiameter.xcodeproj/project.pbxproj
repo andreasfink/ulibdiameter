@@ -225,7 +225,6 @@
 		A69A2D052327EA9000F12046 /* UMDiameterAvpLCS_Capabilities_Sets.h in Headers */ = {isa = PBXBuildFile; fileRef = A69A2D032327EA8F00F12046 /* UMDiameterAvpLCS_Capabilities_Sets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A69A2D062327EA9000F12046 /* UMDiameterAvpLCS_Capabilities_Sets.m in Sources */ = {isa = PBXBuildFile; fileRef = A69A2D042327EA8F00F12046 /* UMDiameterAvpLCS_Capabilities_Sets.m */; };
 		A69A2D092327EAA700F12046 /* UMDiameterAvpGMLC_Address.m in Sources */ = {isa = PBXBuildFile; fileRef = A69A2D072327EAA700F12046 /* UMDiameterAvpGMLC_Address.m */; };
-		A69A2D0A2327EAA700F12046 /* UMDiameterAvpGMLC_Address.h in Headers */ = {isa = PBXBuildFile; fileRef = A69A2D082327EAA700F12046 /* UMDiameterAvpGMLC_Address.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A69A2D0D2327EAB800F12046 /* UMDiameterAvpAdditional_Serving_Node.h in Headers */ = {isa = PBXBuildFile; fileRef = A69A2D0B2327EAB800F12046 /* UMDiameterAvpAdditional_Serving_Node.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A69A2D0E2327EAB800F12046 /* UMDiameterAvpAdditional_Serving_Node.m in Sources */ = {isa = PBXBuildFile; fileRef = A69A2D0C2327EAB800F12046 /* UMDiameterAvpAdditional_Serving_Node.m */; };
 		A69A2D112327EADD00F12046 /* UMDiameterAvpPPR_Address.h in Headers */ = {isa = PBXBuildFile; fileRef = A69A2D0F2327EADD00F12046 /* UMDiameterAvpPPR_Address.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -774,7 +773,6 @@
 		A6AB1A9122CBE5C8007F880D /* UMDiameterAvpPDP_Address.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB188522CBE5C4007F880D /* UMDiameterAvpPDP_Address.m */; };
 		A6AB1A9222CBE5C8007F880D /* UMDiameterAvpUE_SRVCC_Capability.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB188622CBE5C4007F880D /* UMDiameterAvpUE_SRVCC_Capability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6AB1A9322CBE5C8007F880D /* UMDiameterAvpUTRAN_Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB188722CBE5C4007F880D /* UMDiameterAvpUTRAN_Vector.m */; };
-		A6AB1A9422CBE5C8007F880D /* UMDiameterAvpGMLC_Address.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB188822CBE5C4007F880D /* UMDiameterAvpGMLC_Address.m */; };
 		A6AB1A9522CBE5C8007F880D /* UMDiameterAvpDigest_QoP.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB188922CBE5C5007F880D /* UMDiameterAvpDigest_QoP.m */; };
 		A6AB1A9622CBE5C8007F880D /* UMDiameterAvpWLAN_offloadability_EUTRAN.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AB188A22CBE5C5007F880D /* UMDiameterAvpWLAN_offloadability_EUTRAN.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6AB1A9722CBE5C8007F880D /* UMDiameterAvpMBSFN_Area.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB188B22CBE5C5007F880D /* UMDiameterAvpMBSFN_Area.m */; };
@@ -3909,7 +3907,6 @@
 				A6AB19F422CBE5C7007F880D /* UMDiameterAvpMDT_Allowed_PLMN_Id.h in Headers */,
 				A6AB198822CBE5C7007F880D /* UMDiameterAvpSTN_SR.h in Headers */,
 				A6AB1A6D22CBE5C8007F880D /* UMDiameterAvpE_UTRAN_Vector.h in Headers */,
-				A69A2D0A2327EAA700F12046 /* UMDiameterAvpGMLC_Address.h in Headers */,
 				A6C9EEA522CB625300778583 /* UMDiameterAvpRoute_Record.h in Headers */,
 				A6AB195F22CBE5C7007F880D /* UMDiameterAvpCoupled_Node_Diameter_ID.h in Headers */,
 				A6AB1A4422CBE5C7007F880D /* UMDiameterAvpIDA_Flags.h in Headers */,
@@ -4174,7 +4171,7 @@
 		A6609EA0203A66A600C25C7B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Andreas Fink";
 				TargetAttributes = {
 					A61E1AFF22C8F93E00025026 = {
@@ -4432,7 +4429,6 @@
 				A6BF31A7229C91140000578B /* UMDiameterPeerState_WaitReturns.m in Sources */,
 				A6835B2722CC873600FC7F0C /* UMDiameterAvpeNodeB_ID.m in Sources */,
 				A6AB1A9822CBE5C8007F880D /* UMDiameterAvpProSe_Subscription_Data.m in Sources */,
-				A6AB1A9422CBE5C8007F880D /* UMDiameterAvpGMLC_Address.m in Sources */,
 				A6AB1A1B22CBE5C7007F880D /* UMDiameterAvpAlert_Reason.m in Sources */,
 				A6AB1A4222CBE5C7007F880D /* UMDiameterAvpRouting_Area_Identity.m in Sources */,
 				A6AB194822CBE5C7007F880D /* UMDiameterAvpAssociated_Identities.m in Sources */,
@@ -4845,6 +4841,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4863,6 +4860,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4880,6 +4878,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4900,6 +4899,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5134,6 +5134,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5152,6 +5153,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5168,6 +5170,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5186,6 +5189,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
