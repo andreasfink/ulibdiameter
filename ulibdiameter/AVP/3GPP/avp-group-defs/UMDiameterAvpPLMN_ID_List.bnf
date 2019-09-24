@@ -1,0 +1,4 @@
+PLMN-ID-List ::= <AVP header: 2544 10415>
+	{ Visited-PLMN-Id }
+	[ Periodic-Location-Support-Indicator ]
+	*[ AVP ]

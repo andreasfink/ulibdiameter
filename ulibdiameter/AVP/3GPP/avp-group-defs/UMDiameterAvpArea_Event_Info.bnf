@@ -1,0 +1,9 @@
+Area-Event-Info ::= <AVP header: 2533 10415>
+	{ Area-Definition }
+	[ Occurrence-Info ]
+	[ Interval-Time ]
+	[ Maximum-Interval ]
+	[ Sampling-Interval ]
+	[ Reporting-Duration ]
+	[ Reporting-Location-Requirements ]
+	*[ AVP ]

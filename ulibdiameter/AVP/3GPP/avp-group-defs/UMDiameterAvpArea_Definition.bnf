@@ -1,0 +1,4 @@
+Area-Definition ::= <AVP header: 2534 10415>
+	1*10{ Area }
+	*240[ Additional-Area ]
+	*[ AVP ]

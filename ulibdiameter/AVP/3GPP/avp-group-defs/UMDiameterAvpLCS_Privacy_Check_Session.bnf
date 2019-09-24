@@ -1,0 +1,2 @@
+LCS-Privacy-Check-Session ::= <AVP header: 2522 10415>
+	{ LCS-Privacy-Check }

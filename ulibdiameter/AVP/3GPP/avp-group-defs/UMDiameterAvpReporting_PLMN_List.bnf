@@ -1,0 +1,4 @@
+Reporting-PLMN-List ::= <AVP header: 2543 10415>
+	1*20{ PLMN-ID-List }
+	[ Prioritized-List-Indicator ]
+	*[ AVP ]

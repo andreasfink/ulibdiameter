@@ -1,0 +1,39 @@
+//
+//  UMDiameterAvpCivic_Address.m
+//  ulibdiameter
+//
+//  Created by afink on 2019-09-24 15:11:56.541000
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpCivic_Address.h"
+
+@implementation UMDiameterAvpCivic_Address
+
+
+- (NSString *)avpType
+{
+    return @"Civic-Address";
+}
+
+- (uint32_t)avpCode
+{
+    return 2556;
+}
+
++ (uint32_t)avpCode
+{
+    return 2556;
+}
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = 10415;
+}
+
+
+@end
+

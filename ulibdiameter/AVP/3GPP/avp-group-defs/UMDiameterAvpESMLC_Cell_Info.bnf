@@ -1,0 +1,4 @@
+ESMLC-Cell-Info ::= <AVP header: 2552 10415>
+	[ ECGI ]
+	[ Cell-Portion-ID ]
+	*[ AVP ]

@@ -1,0 +1,9 @@
+Motion-Event-Info ::= <AVP header: 2559 10415>
+	{ Linear-Distance }
+	[ Occurrence-Info ]
+	[ Interval-Time ]
+	[ Maximum-Interval ]
+	[ Sampling-Interval ]
+	[ Reporting-Duration ]
+	[ Reporting-Location-Requirements ]
+	*[ AVP ]

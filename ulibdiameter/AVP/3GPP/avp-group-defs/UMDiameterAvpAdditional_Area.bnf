@@ -1,0 +1,4 @@
+Additional-Area ::= <AVP header: 2565 10415>
+	{ Area-Type }
+	{ Area-Identification }
+	*[ AVP ]
