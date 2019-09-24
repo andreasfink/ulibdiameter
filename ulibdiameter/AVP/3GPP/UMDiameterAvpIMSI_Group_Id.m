@@ -2,7 +2,7 @@
 //  UMDiameterAvpIMSI_Group_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-10 15:04:47.947000
+//  Created by afink on 2019-09-24 15:11:56.541000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -69,6 +69,29 @@
 //- (void)afterDecode
 /* skipped as there's no properties to decode */
 
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
+{
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"<td class=\"optional\">%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[group-service-id]",webName];
+        [UMDiameterAvpGroup_Service_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[group-plmn-id]",webName];
+        [UMDiameterAvpGroup_PLMN_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[local-group-id]",webName];
+        [UMDiameterAvpLocal_Group_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</tr>\n"];
+}
 
 @end
 

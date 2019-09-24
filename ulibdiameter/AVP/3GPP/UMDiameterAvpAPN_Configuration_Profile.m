@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-10 15:04:47.947000
+//  Created by afink on 2019-09-24 15:11:56.541000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -77,6 +77,33 @@
 //- (void)afterDecode
 /* skipped as there's no properties to decode */
 
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
+{
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[context-identifier]",webName];
+        [UMDiameterAvpContext_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[additional-context-identifier]",webName];
+        [UMDiameterAvpAdditional_Context_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[all-apn-configurations-included-indicator]",webName];
+        [UMDiameterAvpAll_APN_Configurations_Included_Indicator appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[apn-configuration][]",webName];
+        [UMDiameterAvpAPN_Configuration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</tr>\n"];
+}
 
 @end
 

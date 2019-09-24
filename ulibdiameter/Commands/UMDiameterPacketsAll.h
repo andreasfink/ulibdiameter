@@ -40,3 +40,9 @@
 #import "UMDiameterPacketPurge_UE_Request.h"
 #import "UMDiameterPacketLCS_Routing_Info_Request.h"
 #import "UMDiameterPacketLCS_Routing_Info_Answer.h"
+
+
+#import "UMDiameterPacketProvide_Location_Request.h"
+#import "UMDiameterPacketProvide_Location_Answer.h"
+#import "UMDiameterPacketLocation_Report_Request.h"
+#import "UMDiameterPacketLocation_Report_Answer.h"

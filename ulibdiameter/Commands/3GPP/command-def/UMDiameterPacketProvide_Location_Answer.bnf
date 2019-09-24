@@ -1,0 +1,28 @@
+< Provide-Location-Answer > ::=    < Diameter Header: 8388620, PXY, 16777255 >
+    < Session-Id >
+    [ Vendor-Specific-Application-Id ]
+    [ Result-Code ]
+    [ Experimental-Result ]
+    { Auth-Session-State }
+    { Origin-Host }
+    { Origin-Realm }
+    [ Location-Estimate ]
+    [ Accuracy-Fulfilment-Indicator ]
+    [ Age-Of-Location-Estimate]
+    [ Velocity-Estimate ]
+    [ EUTRAN-Positioning-Data]
+    [ ECGI ]
+    [ GERAN-Positioning-Info ]
+    [ Cell-Global-Identity ]
+    [ UTRAN-Positioning-Info ]
+    [ Service-Area-Identity ]
+    [ Serving-Node ]
+    [ PLA-Flags ]
+    [ ESMLC-Cell-Info ]
+    [ Civic-Address ]
+    [ Barometric-Pressure ]
+    *[ Supported-Features ]
+    *[ AVP ]
+    [ Failed-AVP ]
+    *[ Proxy-Info ]
+    *[ Route-Record ]

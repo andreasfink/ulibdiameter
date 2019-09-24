@@ -2,7 +2,7 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-10 15:04:47.947000
+//  Created by afink on 2019-09-24 15:11:56.541000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -94,6 +94,49 @@
 //- (void)afterDecode
 /* skipped as there's no properties to decode */
 
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
+{
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[trace-reference]",webName];
+        [UMDiameterAvpTrace_Reference appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[trace-depth]",webName];
+        [UMDiameterAvpTrace_Depth appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[trace-ne-type-list]",webName];
+        [UMDiameterAvpTrace_NE_Type_List appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[trace-interface-list]",webName];
+        [UMDiameterAvpTrace_Interface_List appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[trace-event-list]",webName];
+        [UMDiameterAvpTrace_Event_List appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[omc-id]",webName];
+        [UMDiameterAvpOMC_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[trace-collection-entity]",webName];
+        [UMDiameterAvpTrace_Collection_Entity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"mandatory"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[mdt-configuration]",webName];
+        [UMDiameterAvpMDT_Configuration appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</tr>\n"];
+}
 
 @end
 

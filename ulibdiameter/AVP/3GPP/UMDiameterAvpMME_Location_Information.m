@@ -2,7 +2,7 @@
 //  UMDiameterAvpMME_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-10 15:04:47.947000
+//  Created by afink on 2019-09-24 15:11:56.541000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -99,6 +99,53 @@
 //- (void)afterDecode
 /* skipped as there's no properties to decode */
 
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
+{
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"<td class=\"optional\">%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[e-utran-cell-global-identity]",webName];
+        [UMDiameterAvpE_UTRAN_Cell_Global_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[tracking-area-identity]",webName];
+        [UMDiameterAvpTracking_Area_Identity appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[geographical-information]",webName];
+        [UMDiameterAvpGeographical_Information appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[geodetic-information]",webName];
+        [UMDiameterAvpGeodetic_Information appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[current-location-retrieved]",webName];
+        [UMDiameterAvpCurrent_Location_Retrieved appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[age-of-location-information]",webName];
+        [UMDiameterAvpAge_Of_Location_Information appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[user-csg-information]",webName];
+        [UMDiameterAvpUser_CSG_Information appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[enodeb-id]",webName];
+        [UMDiameterAvpeNodeB_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[extended-enodeb-id]",webName];
+        [UMDiameterAvpExtended_eNodeB_ID appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</tr>\n"];
+}
 
 @end
 

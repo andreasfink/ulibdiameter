@@ -313,4 +313,78 @@
 2410	SGSN-Realm	-	DiameterIdentity	V
 2411	RIA-Flags	-	Unsigned32	V
 
+
+2500	SLg-Location-Type	07.04.02	Enumerated	M, V
+2501	LCS-EPS-Client-Name	07.04.03	Grouped	M, V
+2502	LCS-Requestor-Name	07.04.04	Grouped	M, V
+2503	LCS-Priority	07.04.05	Unsigned32	M, V
+2504	LCS-QoS	07.04.06	Grouped	M, V
+2505	Horizontal-Accuracy	07.04.07	Unsigned32	M, V
+2506	Vertical-Accuracy	07.04.08	Unsigned32	M, V
+2507	Vertical-Requested	07.04.09	Enumerated	M, V
+2508	Velocity-Requested	07.04.10	Enumerated	M, V
+2509	Response-Time	07.04.11	Enumerated	M, V
+2510	LCS-Supported-GAD-Shapes	07.04.12	Unsigned32	M, V	10415
+2511	LCS-Codeword	07.04.13	UTF8String	M, V
+2512	LCS-Privacy-Check	07.04.14	Enumerated	M, V
+2513	Accuracy-Fulfilment-Indicator	07.04.15	Enumerated	M, V
+2514	Age-Of-Location-Estimate	07.04.16	Unsigned32	M, V
+2515	Velocity-Estimate	07.04.17	OctetString	M, V
+2516	EUTRAN-Positioning-Data	07.04.18	OctetString	M, V
+2517	ECGI	07.04.19	OctetString	M, V
+2518	Location-Event	07.04.20	Enumerated	M, V
+2519	Pseudonym-Indicator	07.04.21	Enumerated	M, V
+2520	LCS-Service-Type-ID	07.04.22	Unsigned32	M, V
+2521	LCS-Privacy-Check-Non-Session  	07.04.23	Grouped	M, V
+2522	LCS-Privacy-Check-Session  	07.04.24	Grouped	M, V
+2523	LCS-QoS-Class	07.04.27	Enumerated	M, V
+2524	GERAN-Positioning-Info	07.04.29	Grouped	V
+2525	GERAN-Positioning-Data	07.04.30	OctetString	V
+2526	GERAN-GANSS-Positioning-Data	07.04.31	OctetString	V
+2527	UTRAN-Positioning-Info	07.04.32	Grouped	V
+2528	UTRAN-Positioning-Data	07.04.33	OctetString	V
+2529	UTRAN-GANSS-Positioning-Data	07.04.34	OctetString	V
+2530	LRR-Flags	07.04.35	Unsigned32	V
+2531	LCS-Reference-Number	07.04.37	OctetString	V
+2532	Deferred-Location-Type	07.04.36	Unsigned32	V
+2533	Area-Event-Info	07.04.38	Grouped	V
+2534	Area-Definition	07.04.39	Grouped	V
+2535	Area	07.04.40	Grouped	V
+2536	Area-Type	07.04.41	Unsigned32	V
+2537	Area-Identification	07.04.42	OctetString	V
+2538	Occurrence-Info	07.04.43	Enumerated	V
+2539	Interval-Time	07.04.44	Unsigned32	V
+2540	Periodic-LDR-Information	07.04.45	Grouped	V
+2541	Reporting-Amount	07.04.46	Unsigned32	V
+2542	Reporting-Interval	07.04.47	Unsigned32	V
+2543	Reporting-PLMN-List	07.04.48	Grouped	V
+2544	PLMN-ID-List	07.04.49	Grouped	V
+2545	PLR-Flags	07.04.52	Unsigned32	V
+2546	PLA-Flags	07.04.53	Unsigned32	V
+2547	Deferred-MT-LR-Data	07.04.54	Grouped	V
+2548	Termination-Cause	07.04.55	Unsigned32	V
+2549	LRA-Flags	07.04.56	Unsigned32	V
+2550	Periodic-Location-Support-Indicator	07.04.50	Enumerated	V
+2551	Prioritized-List-Indicator	07.04.51	Enumerated	V
+2552	ESMLC-Cell-Info	07.04.57	Grouped	V
+2553	Cell-Portion-ID	07.04.58	Unsigned32	V
+2554	1xRTT-RCID	07.04.59	OctetString	V
+2555	Delayed-Location-Reporting-Data	07.04.60	Grouped	V
+2556	Civic-Address	07.04.61	UTF8String	V
+2557	Barometric-Pressure	07.04.62	Unsigned32	V
+2558	UTRAN-Additional-Positioning-Data	07.04.63	OctetString	V
+2559	Motion-Event-Info	07.04.64	Grouped	V
+2560	Linear-Distance	07.04.65	Unsigned32	V
+2561	Maximum-Interval	07.04.66	Unsigned32	V
+2562	Sampling-Interval	07.04.67	Unsigned32	V
+2563	Reporting-Duration	07.04.68	Unsigned32	V
+2564	Reporting-Location-Requirements	07.04.69	Unsigned32	V
+2565	Additional-Area	07.04.70	Grouped	V
+1237	LCS-Format-Indicator	3GPP TS 32.299 [10]	Enumerated	M,V
+1238	LCS-Name-String	3GPP TS 32.299 [10]	UTF8String	M,V
+1241	LCS-Client-Type	3GPP TS 32.299 [10]	Enumerated	M,V
+1240	LCS-Requestor-Id-String	3GPP TS 32.299 [10]	UTF8String	M,V
+1242	Location-Estimate	3GPP TS 32.299 [10]	OctetString	M,V
+493	Service-Selection	3GPP TS 29.272 [11],	UTF8String	M,V
 318	3GPP-AAA-Server-Name	-	DiameterIdentity	M,V
+

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Auth_Data_Item.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-10 15:04:47.947000
+//  Created by afink on 2019-09-24 15:11:56.541000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -107,6 +107,57 @@
 //- (void)afterDecode
 /* skipped as there's no properties to decode */
 
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
+{
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"<td class=\"mandatory\">%@\n",webName];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"<td>\n"];
+    [s appendString:@"<table class=\"avp-grouped\">\n"];
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[sip-item-number]",webName];
+        [UMDiameterAvpSIP_Item_Number appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[sip-authentication-scheme]",webName];
+        [UMDiameterAvpSIP_Authentication_Scheme appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[sip-authorization]",webName];
+        [UMDiameterAvpSIP_Authorization appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[sip-authentication-context]",webName];
+        [UMDiameterAvpSIP_Authentication_Context appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[integrity-key]",webName];
+        [UMDiameterAvpIntegrity_Key appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[sip-digest-authenticate]",webName];
+        [UMDiameterAvpSIP_Digest_Authenticate appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[framed-ip-address]",webName];
+        [UMDiameterAvpFramed_IP_Address appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[framed-ipv6-prefix]",webName];
+        [UMDiameterAvpFramed_IPv6_Prefix appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[framed-interface-id]",webName];
+        [UMDiameterAvpFramed_Interface_Id appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+	{
+        NSString *webName2 = [NSString stringWithFormat:@"%@[line-identifier][]",webName];
+        [UMDiameterAvpLine_Identifier appendWebDiameterParameters:s webName:webName2 comment:NULL css:@"optional"];
+    }
+    [s appendString:@"</table>\n"];
+    [s appendString:@"</td>\n"];
+    [s appendString:@"</tr>\n"];
+}
 
 @end
 

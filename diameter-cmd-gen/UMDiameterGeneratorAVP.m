@@ -213,7 +213,8 @@
     NSMutableString *pname = [[NSMutableString alloc]init];
     NSMutableString *oname = [[NSMutableString alloc]init];
     [vname appendString:@"_var_"];
-    
+    [pname appendString:@"var_"];
+
     for(NSInteger idx=0;idx<count;idx++)
     {
         unichar c = [_standardsName characterAtIndex:idx];

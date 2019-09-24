@@ -312,6 +312,7 @@
 - (UMSynchronizedSortedDictionary *)definition
 {
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    return dict;
 }
 
 @end
