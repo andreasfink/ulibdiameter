@@ -1670,99 +1670,99 @@
 		A6DB9C12233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacketLocation_Report_Request.m; sourceTree = "<group>"; };
 		A6DB9C13233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketLocation_Report_Answer.h; sourceTree = "<group>"; };
 		A6DB9C14233A5CAE0022B63F /* UMDiameterPacketProvide_Location_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketProvide_Location_Answer.h; sourceTree = "<group>"; };
-		A6DB9C1D233A64180022B63F /* UMDiameterAvpAPN_Configuration_Profile.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAPN_Configuration_Profile.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAPN_Configuration_Profile.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C1E233A64190022B63F /* UMDiameterAvpSGSN_Location_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSGSN_Location_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSGSN_Location_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C1F233A64190022B63F /* UMDiameterAvpLCS_EPS_Client_Name.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_EPS_Client_Name.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_EPS_Client_Name.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C20233A64190022B63F /* UMDiameterAvpLocation_Information_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLocation_Information_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLocation_Information_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C21233A64190022B63F /* UMDiameterAvpIMSI_Group_Id.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpIMSI_Group_Id.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpIMSI_Group_Id.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C22233A64190022B63F /* UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C23233A64190022B63F /* UMDiameterAvpServer_Capabilities.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpServer_Capabilities.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpServer_Capabilities.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C24233A64190022B63F /* UMDiameterAvpAMBR.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAMBR.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAMBR.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C25233A64190022B63F /* UMDiameterAvpMDT_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMDT_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMDT_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C26233A64190022B63F /* UMDiameterAvpEPS_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpEPS_User_State.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEPS_User_State.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C27233A64190022B63F /* UMDiameterAvpExternal_Client.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpExternal_Client.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpExternal_Client.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C28233A64190022B63F /* UMDiameterAvpLCS_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C29233A641A0022B63F /* UMDiameterAvpUTRAN_Vector.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpUTRAN_Vector.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUTRAN_Vector.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C2A233A641A0022B63F /* UMDiameterAvpLCS_PrivacyException.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_PrivacyException.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_PrivacyException.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C2B233A641A0022B63F /* UMDiameterAvpCSG_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpCSG_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCSG_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C2C233A641A0022B63F /* UMDiameterAvpArea_Scope.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpArea_Scope.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea_Scope.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C2D233A641A0022B63F /* UMDiameterAvpLocal_Time_Zone.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLocal_Time_Zone.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLocal_Time_Zone.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C2E233A641A0022B63F /* UMDiameterAvpRestoration_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpRestoration_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpRestoration_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C2F233A641A0022B63F /* UMDiameterAvpGERAN_Vector.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpGERAN_Vector.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpGERAN_Vector.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C30233A641A0022B63F /* UMDiameterAvpLCS_Requestor_Name.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_Requestor_Name.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Requestor_Name.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C31233A641A0022B63F /* UMDiameterAvpGPRS_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpGPRS_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpGPRS_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C32233A641A0022B63F /* UMDiameterAvpAllocation_Retention_Priority.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAllocation_Retention_Priority.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAllocation_Retention_Priority.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C33233A641B0022B63F /* UMDiameterAvpEmergency_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpEmergency_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEmergency_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C34233A641B0022B63F /* UMDiameterAvpEPS_Subscribed_QoS_Profile.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpEPS_Subscribed_QoS_Profile.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEPS_Subscribed_QoS_Profile.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C35233A641B0022B63F /* UMDiameterAvpMIP6_Agent_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMIP6_Agent_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMIP6_Agent_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C36233A641B0022B63F /* UMDiameterAvpPeriodic_LDR_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpPeriodic_LDR_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpPeriodic_LDR_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C37233A641B0022B63F /* UMDiameterAvpProSe_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpProSe_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpProSe_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C38233A641B0022B63F /* UMDiameterAvpAdditional_Serving_Node.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAdditional_Serving_Node.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdditional_Serving_Node.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C39233A641B0022B63F /* UMDiameterAvpSCSCF_Restoration_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSCSCF_Restoration_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSCSCF_Restoration_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C3A233A641B0022B63F /* UMDiameterAvpeDRX_Cycle_Length.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpeDRX_Cycle_Length.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpeDRX_Cycle_Length.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C3B233A641B0022B63F /* UMDiameterAvpServing_Node.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpServing_Node.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpServing_Node.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C3C233A641B0022B63F /* UMDiameterAvpSIP_Auth_Data_Item.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSIP_Auth_Data_Item.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSIP_Auth_Data_Item.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C3D233A641C0022B63F /* UMDiameterAvpArea.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpArea.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C3E233A641C0022B63F /* UMDiameterAvpArea_Event_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpArea_Event_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea_Event_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C3F233A641C0022B63F /* UMDiameterAvpDeferred_MT_LR_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpDeferred_MT_LR_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpDeferred_MT_LR_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C40233A641C0022B63F /* UMDiameterAvpSupported_Applications.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSupported_Applications.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSupported_Applications.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C41233A641C0022B63F /* UMDiameterAvpTrace_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpTrace_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpTrace_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C42233A641C0022B63F /* UMDiameterAvpRequested_EUTRAN_Authentication_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpRequested_EUTRAN_Authentication_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpRequested_EUTRAN_Authentication_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C43233A641C0022B63F /* UMDiameterAvpAPN_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAPN_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAPN_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C44233A641C0022B63F /* UMDiameterAvpCharging_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpCharging_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCharging_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C45233A641D0022B63F /* UMDiameterAvpESMLC_Cell_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpESMLC_Cell_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpESMLC_Cell_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C46233A641D0022B63F /* UMDiameterAvpPLMN_ID_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpPLMN_ID_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpPLMN_ID_List.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C47233A641D0022B63F /* UMDiameterAvpTerminal_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpTerminal_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpTerminal_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C48233A641D0022B63F /* UMDiameterAvpSubscription_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSubscription_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSubscription_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C49233A641D0022B63F /* UMDiameterAvpCommunication_Pattern_Set.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpCommunication_Pattern_Set.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCommunication_Pattern_Set.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C4A233A641D0022B63F /* UMDiameterAvpLCS_Privacy_Check_Non_Session.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_Privacy_Check_Non_Session.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Privacy_Check_Non_Session.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C4B233A641D0022B63F /* UMDiameterAvpMonitoring-Event-Report.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UMDiameterAvpMonitoring-Event-Report.bnf"; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring-Event-Report.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C4C233A641D0022B63F /* UMDiameterAvpAssociated_Registered_Identities.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAssociated_Registered_Identities.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAssociated_Registered_Identities.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C4D233A641D0022B63F /* UMDiameterAvpDelayed_Location_Reporting_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpDelayed_Location_Reporting_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpDelayed_Location_Reporting_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C4E233A641E0022B63F /* UMDiameterAvpLCS_Privacy_Check_Session.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_Privacy_Check_Session.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Privacy_Check_Session.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C4F233A641E0022B63F /* UMDiameterAvpService_Type.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpService_Type.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpService_Type.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C50233A641E0022B63F /* UMDiameterAvpGERAN_Positioning_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpGERAN_Positioning_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpGERAN_Positioning_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C51233A641E0022B63F /* UMDiameterAvpAdditional_Area.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAdditional_Area.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdditional_Area.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C52233A641E0022B63F /* UMDiameterAvpSIP_Digest_Authenticate.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSIP_Digest_Authenticate.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSIP_Digest_Authenticate.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C53233A641E0022B63F /* UMDiameterAvpV2X_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpV2X_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpV2X_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C54233A641F0022B63F /* UMDiameterAvpMME_Location_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMME_Location_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMME_Location_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C55233A641F0022B63F /* UMDiameterAvpAssociated_Identities.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAssociated_Identities.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAssociated_Identities.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C56233A641F0022B63F /* UMDiameterAvpService_Report.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpService_Report.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpService_Report.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C57233A641F0022B63F /* UMDiameterAvpMonitoring_Event_Report.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMonitoring_Event_Report.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring_Event_Report.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C58233A641F0022B63F /* UMDiameterAvpSpecific_APN_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSpecific_APN_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSpecific_APN_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C59233A641F0022B63F /* UMDiameterAvpMME_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMME_User_State.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMME_User_State.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C5A233A641F0022B63F /* UMDiameterAvpAESE_Communication_Pattern.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAESE_Communication_Pattern.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAESE_Communication_Pattern.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C5B233A64200022B63F /* UMDiameterAvpAdjacent_PLMNs.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAdjacent_PLMNs.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdjacent_PLMNs.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C5C233A64200022B63F /* UMDiameterAvpE_UTRAN_Vector.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpE_UTRAN_Vector.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpE_UTRAN_Vector.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C5D233A64200022B63F /* UMDiameterAvpEquivalent_PLMN_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpEquivalent_PLMN_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEquivalent_PLMN_List.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C5E233A64200022B63F /* UMDiameterAvpDeregistration_Reason.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpDeregistration_Reason.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpDeregistration_Reason.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C5F233A64200022B63F /* UMDiameterAvpMonitoring_Event_Config_Status.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMonitoring_Event_Config_Status.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring_Event_Config_Status.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C60233A64200022B63F /* UMDiameterAvpAuthentication_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAuthentication_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAuthentication_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C61233A64200022B63F /* UMDiameterAvpPDP_Context.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpPDP_Context.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpPDP_Context.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C62233A64210022B63F /* UMDiameterAvpVPLMN_CSG_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpVPLMN_CSG_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpVPLMN_CSG_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C63233A64210022B63F /* UMDiameterAvpSupported_Services.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSupported_Services.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSupported_Services.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C64233A64210022B63F /* UMDiameterAvpSubscription_Data_Deletion.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSubscription_Data_Deletion.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSubscription_Data_Deletion.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C65233A64210022B63F /* UMDiameterAvpWLAN_offloadability.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpWLAN_offloadability.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpWLAN_offloadability.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C66233A64210022B63F /* UMDiameterAvpActive_APN.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpActive_APN.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpActive_APN.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C67233A64210022B63F /* UMDiameterAvpReporting_PLMN_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpReporting_PLMN_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpReporting_PLMN_List.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C68233A64210022B63F /* UMDiameterAvpLCS_QoS.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpLCS_QoS.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_QoS.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C69233A64220022B63F /* UMDiameterAvpAdjacent_Access_Restriction_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpAdjacent_Access_Restriction_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdjacent_Access_Restriction_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C6A233A64220022B63F /* UMDiameterAvpSGSN_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSGSN_User_State.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSGSN_User_State.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C6B233A64220022B63F /* UMDiameterAvpMonitoring_Event_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMonitoring_Event_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring_Event_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C6C233A64220022B63F /* UMDiameterAvpScheduled_Communication_Time.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpScheduled_Communication_Time.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpScheduled_Communication_Time.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C6D233A64220022B63F /* UMDiameterAvpEPS_Location_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpEPS_Location_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEPS_Location_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C6E233A64220022B63F /* UMDiameterAvpSupported_Features.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSupported_Features.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSupported_Features.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C6F233A64220022B63F /* UMDiameterAvpMotion_Event_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMotion_Event_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMotion_Event_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C70233A64230022B63F /* UMDiameterAvpTeleservice_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpTeleservice_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpTeleservice_List.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C71233A64230022B63F /* UMDiameterAvpArea_Definition.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpArea_Definition.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea_Definition.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C72233A64230022B63F /* UMDiameterAvpUE_Reachability_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpUE_Reachability_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUE_Reachability_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C73233A64230022B63F /* UMDiameterAvpSubscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpSubscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSubscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C74233A64230022B63F /* UMDiameterAvpMBSFN_Area.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMBSFN_Area.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMBSFN_Area.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C75233A64230022B63F /* UMDiameterAvpUTRAN_Positioning_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpUTRAN_Positioning_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUTRAN_Positioning_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C76233A64240022B63F /* UMDiameterAvpUser_CSG_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpUser_CSG_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUser_CSG_Information.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C77233A64240022B63F /* UMDiameterAvpCall_Barring_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpCall_Barring_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCall_Barring_Info.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C78233A64240022B63F /* UMDiameterAvpMO_LR.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpMO_LR.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMO_LR.bnf"; sourceTree = SOURCE_ROOT; };
-		A6DB9C79233A64240022B63F /* UMDiameterAvpService_Result.bnf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UMDiameterAvpService_Result.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpService_Result.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C1D233A64180022B63F /* UMDiameterAvpAPN_Configuration_Profile.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAPN_Configuration_Profile.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAPN_Configuration_Profile.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C1E233A64190022B63F /* UMDiameterAvpSGSN_Location_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSGSN_Location_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSGSN_Location_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C1F233A64190022B63F /* UMDiameterAvpLCS_EPS_Client_Name.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_EPS_Client_Name.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_EPS_Client_Name.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C20233A64190022B63F /* UMDiameterAvpLocation_Information_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLocation_Information_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLocation_Information_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C21233A64190022B63F /* UMDiameterAvpIMSI_Group_Id.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpIMSI_Group_Id.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpIMSI_Group_Id.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C22233A64190022B63F /* UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C23233A64190022B63F /* UMDiameterAvpServer_Capabilities.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpServer_Capabilities.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpServer_Capabilities.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C24233A64190022B63F /* UMDiameterAvpAMBR.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAMBR.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAMBR.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C25233A64190022B63F /* UMDiameterAvpMDT_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMDT_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMDT_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C26233A64190022B63F /* UMDiameterAvpEPS_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpEPS_User_State.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEPS_User_State.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C27233A64190022B63F /* UMDiameterAvpExternal_Client.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpExternal_Client.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpExternal_Client.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C28233A64190022B63F /* UMDiameterAvpLCS_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C29233A641A0022B63F /* UMDiameterAvpUTRAN_Vector.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpUTRAN_Vector.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUTRAN_Vector.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C2A233A641A0022B63F /* UMDiameterAvpLCS_PrivacyException.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_PrivacyException.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_PrivacyException.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C2B233A641A0022B63F /* UMDiameterAvpCSG_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpCSG_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCSG_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C2C233A641A0022B63F /* UMDiameterAvpArea_Scope.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpArea_Scope.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea_Scope.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C2D233A641A0022B63F /* UMDiameterAvpLocal_Time_Zone.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLocal_Time_Zone.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLocal_Time_Zone.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C2E233A641A0022B63F /* UMDiameterAvpRestoration_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpRestoration_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpRestoration_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C2F233A641A0022B63F /* UMDiameterAvpGERAN_Vector.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpGERAN_Vector.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpGERAN_Vector.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C30233A641A0022B63F /* UMDiameterAvpLCS_Requestor_Name.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_Requestor_Name.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Requestor_Name.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C31233A641A0022B63F /* UMDiameterAvpGPRS_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpGPRS_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpGPRS_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C32233A641A0022B63F /* UMDiameterAvpAllocation_Retention_Priority.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAllocation_Retention_Priority.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAllocation_Retention_Priority.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C33233A641B0022B63F /* UMDiameterAvpEmergency_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpEmergency_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEmergency_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C34233A641B0022B63F /* UMDiameterAvpEPS_Subscribed_QoS_Profile.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpEPS_Subscribed_QoS_Profile.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEPS_Subscribed_QoS_Profile.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C35233A641B0022B63F /* UMDiameterAvpMIP6_Agent_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMIP6_Agent_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMIP6_Agent_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C36233A641B0022B63F /* UMDiameterAvpPeriodic_LDR_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpPeriodic_LDR_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpPeriodic_LDR_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C37233A641B0022B63F /* UMDiameterAvpProSe_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpProSe_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpProSe_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C38233A641B0022B63F /* UMDiameterAvpAdditional_Serving_Node.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAdditional_Serving_Node.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdditional_Serving_Node.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C39233A641B0022B63F /* UMDiameterAvpSCSCF_Restoration_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSCSCF_Restoration_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSCSCF_Restoration_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C3A233A641B0022B63F /* UMDiameterAvpeDRX_Cycle_Length.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpeDRX_Cycle_Length.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpeDRX_Cycle_Length.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C3B233A641B0022B63F /* UMDiameterAvpServing_Node.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpServing_Node.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpServing_Node.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C3C233A641B0022B63F /* UMDiameterAvpSIP_Auth_Data_Item.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSIP_Auth_Data_Item.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSIP_Auth_Data_Item.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C3D233A641C0022B63F /* UMDiameterAvpArea.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpArea.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C3E233A641C0022B63F /* UMDiameterAvpArea_Event_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpArea_Event_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea_Event_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C3F233A641C0022B63F /* UMDiameterAvpDeferred_MT_LR_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpDeferred_MT_LR_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpDeferred_MT_LR_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C40233A641C0022B63F /* UMDiameterAvpSupported_Applications.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSupported_Applications.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSupported_Applications.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C41233A641C0022B63F /* UMDiameterAvpTrace_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpTrace_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpTrace_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C42233A641C0022B63F /* UMDiameterAvpRequested_EUTRAN_Authentication_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpRequested_EUTRAN_Authentication_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpRequested_EUTRAN_Authentication_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C43233A641C0022B63F /* UMDiameterAvpAPN_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAPN_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAPN_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C44233A641C0022B63F /* UMDiameterAvpCharging_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpCharging_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCharging_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C45233A641D0022B63F /* UMDiameterAvpESMLC_Cell_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpESMLC_Cell_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpESMLC_Cell_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C46233A641D0022B63F /* UMDiameterAvpPLMN_ID_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpPLMN_ID_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpPLMN_ID_List.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C47233A641D0022B63F /* UMDiameterAvpTerminal_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpTerminal_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpTerminal_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C48233A641D0022B63F /* UMDiameterAvpSubscription_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSubscription_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSubscription_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C49233A641D0022B63F /* UMDiameterAvpCommunication_Pattern_Set.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpCommunication_Pattern_Set.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCommunication_Pattern_Set.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C4A233A641D0022B63F /* UMDiameterAvpLCS_Privacy_Check_Non_Session.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_Privacy_Check_Non_Session.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Privacy_Check_Non_Session.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C4B233A641D0022B63F /* UMDiameterAvpMonitoring-Event-Report.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = "UMDiameterAvpMonitoring-Event-Report.bnf"; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring-Event-Report.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C4C233A641D0022B63F /* UMDiameterAvpAssociated_Registered_Identities.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAssociated_Registered_Identities.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAssociated_Registered_Identities.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C4D233A641D0022B63F /* UMDiameterAvpDelayed_Location_Reporting_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpDelayed_Location_Reporting_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpDelayed_Location_Reporting_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C4E233A641E0022B63F /* UMDiameterAvpLCS_Privacy_Check_Session.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_Privacy_Check_Session.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_Privacy_Check_Session.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C4F233A641E0022B63F /* UMDiameterAvpService_Type.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpService_Type.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpService_Type.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C50233A641E0022B63F /* UMDiameterAvpGERAN_Positioning_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpGERAN_Positioning_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpGERAN_Positioning_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C51233A641E0022B63F /* UMDiameterAvpAdditional_Area.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAdditional_Area.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdditional_Area.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C52233A641E0022B63F /* UMDiameterAvpSIP_Digest_Authenticate.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSIP_Digest_Authenticate.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSIP_Digest_Authenticate.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C53233A641E0022B63F /* UMDiameterAvpV2X_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpV2X_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpV2X_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C54233A641F0022B63F /* UMDiameterAvpMME_Location_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMME_Location_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMME_Location_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C55233A641F0022B63F /* UMDiameterAvpAssociated_Identities.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAssociated_Identities.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAssociated_Identities.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C56233A641F0022B63F /* UMDiameterAvpService_Report.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpService_Report.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpService_Report.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C57233A641F0022B63F /* UMDiameterAvpMonitoring_Event_Report.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMonitoring_Event_Report.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring_Event_Report.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C58233A641F0022B63F /* UMDiameterAvpSpecific_APN_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSpecific_APN_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSpecific_APN_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C59233A641F0022B63F /* UMDiameterAvpMME_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMME_User_State.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMME_User_State.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C5A233A641F0022B63F /* UMDiameterAvpAESE_Communication_Pattern.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAESE_Communication_Pattern.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAESE_Communication_Pattern.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C5B233A64200022B63F /* UMDiameterAvpAdjacent_PLMNs.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAdjacent_PLMNs.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdjacent_PLMNs.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C5C233A64200022B63F /* UMDiameterAvpE_UTRAN_Vector.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpE_UTRAN_Vector.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpE_UTRAN_Vector.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C5D233A64200022B63F /* UMDiameterAvpEquivalent_PLMN_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpEquivalent_PLMN_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEquivalent_PLMN_List.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C5E233A64200022B63F /* UMDiameterAvpDeregistration_Reason.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpDeregistration_Reason.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpDeregistration_Reason.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C5F233A64200022B63F /* UMDiameterAvpMonitoring_Event_Config_Status.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMonitoring_Event_Config_Status.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring_Event_Config_Status.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C60233A64200022B63F /* UMDiameterAvpAuthentication_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAuthentication_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAuthentication_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C61233A64200022B63F /* UMDiameterAvpPDP_Context.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpPDP_Context.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpPDP_Context.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C62233A64210022B63F /* UMDiameterAvpVPLMN_CSG_Subscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpVPLMN_CSG_Subscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpVPLMN_CSG_Subscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C63233A64210022B63F /* UMDiameterAvpSupported_Services.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSupported_Services.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSupported_Services.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C64233A64210022B63F /* UMDiameterAvpSubscription_Data_Deletion.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSubscription_Data_Deletion.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSubscription_Data_Deletion.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C65233A64210022B63F /* UMDiameterAvpWLAN_offloadability.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpWLAN_offloadability.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpWLAN_offloadability.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C66233A64210022B63F /* UMDiameterAvpActive_APN.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpActive_APN.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpActive_APN.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C67233A64210022B63F /* UMDiameterAvpReporting_PLMN_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpReporting_PLMN_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpReporting_PLMN_List.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C68233A64210022B63F /* UMDiameterAvpLCS_QoS.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpLCS_QoS.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpLCS_QoS.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C69233A64220022B63F /* UMDiameterAvpAdjacent_Access_Restriction_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpAdjacent_Access_Restriction_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpAdjacent_Access_Restriction_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C6A233A64220022B63F /* UMDiameterAvpSGSN_User_State.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSGSN_User_State.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSGSN_User_State.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C6B233A64220022B63F /* UMDiameterAvpMonitoring_Event_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMonitoring_Event_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMonitoring_Event_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C6C233A64220022B63F /* UMDiameterAvpScheduled_Communication_Time.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpScheduled_Communication_Time.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpScheduled_Communication_Time.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C6D233A64220022B63F /* UMDiameterAvpEPS_Location_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpEPS_Location_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpEPS_Location_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C6E233A64220022B63F /* UMDiameterAvpSupported_Features.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSupported_Features.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSupported_Features.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C6F233A64220022B63F /* UMDiameterAvpMotion_Event_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMotion_Event_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMotion_Event_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C70233A64230022B63F /* UMDiameterAvpTeleservice_List.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpTeleservice_List.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpTeleservice_List.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C71233A64230022B63F /* UMDiameterAvpArea_Definition.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpArea_Definition.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpArea_Definition.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C72233A64230022B63F /* UMDiameterAvpUE_Reachability_Configuration.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpUE_Reachability_Configuration.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUE_Reachability_Configuration.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C73233A64230022B63F /* UMDiameterAvpSubscription_Data.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpSubscription_Data.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpSubscription_Data.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C74233A64230022B63F /* UMDiameterAvpMBSFN_Area.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMBSFN_Area.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMBSFN_Area.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C75233A64230022B63F /* UMDiameterAvpUTRAN_Positioning_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpUTRAN_Positioning_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUTRAN_Positioning_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C76233A64240022B63F /* UMDiameterAvpUser_CSG_Information.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpUser_CSG_Information.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpUser_CSG_Information.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C77233A64240022B63F /* UMDiameterAvpCall_Barring_Info.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpCall_Barring_Info.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpCall_Barring_Info.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C78233A64240022B63F /* UMDiameterAvpMO_LR.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpMO_LR.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpMO_LR.bnf"; sourceTree = SOURCE_ROOT; };
+		A6DB9C79233A64240022B63F /* UMDiameterAvpService_Result.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = UMDiameterAvpService_Result.bnf; path = "ulibdiameter/AVP/3GPP/avp-group-defs/UMDiameterAvpService_Result.bnf"; sourceTree = SOURCE_ROOT; };
 		A6DB9C7A233A649B0022B63F /* UMDiameterAvpRAND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpRAND.m; sourceTree = "<group>"; };
 		A6DB9C7B233A649B0022B63F /* UMDiameterAvpPeriodic_LDR_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpPeriodic_LDR_Information.m; sourceTree = "<group>"; };
 		A6DB9C7C233A649B0022B63F /* UMDiameterAvpMeasurement_Period_LTE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpMeasurement_Period_LTE.m; sourceTree = "<group>"; };
@@ -5597,7 +5597,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5607,6 +5607,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.diameter-avp-gen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -5616,7 +5617,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5625,6 +5626,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.diameter-avp-gen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -5634,7 +5636,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5646,6 +5648,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.decode-diameter-pdu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -5655,7 +5658,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5666,6 +5669,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.decode-diameter-pdu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -5794,7 +5798,7 @@
 		A6609EBE203A66A600C25C7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -5823,7 +5827,7 @@
 		A6609EBF203A66A600C25C7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -5890,7 +5894,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5900,6 +5904,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.diameter-cmd-gen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -5909,7 +5914,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5918,6 +5923,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.diameter-cmd-gen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -5926,7 +5932,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5937,6 +5943,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.client-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -5945,7 +5952,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5956,6 +5963,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.fink.client-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
