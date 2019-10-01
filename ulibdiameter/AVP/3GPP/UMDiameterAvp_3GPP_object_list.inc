@@ -358,7 +358,6 @@ AVP_OBJECT(UMDiameterAvpPLMN_ID_List,UMDiameterAvpGrouped,2544,@"PLMN-ID-List",G
 AVP_OBJECT(UMDiameterAvpPLR_Flags,UMDiameterAvpUnsigned32,2545,@"PLR-Flags",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpPLA_Flags,UMDiameterAvpUnsigned32,2546,@"PLA-Flags",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpDeferred_MT_LR_Data,UMDiameterAvpGrouped,2547,@"Deferred-MT-LR-Data",Grouped,NO,YES,10415,YES)
-AVP_OBJECT(UMDiameterAvpTermination_Cause,UMDiameterAvpUnsigned32,2548,@"Termination-Cause",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpLRA_Flags,UMDiameterAvpUnsigned32,2549,@"LRA-Flags",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpPeriodic_Location_Support_Indicator,UMDiameterAvpEnumerated,2550,@"Periodic-Location-Support-Indicator",Enumerated,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpPrioritized_List_Indicator,UMDiameterAvpEnumerated,2551,@"Prioritized-List-Indicator",Enumerated,NO,YES,10415,NO)
@@ -381,6 +380,5 @@ AVP_OBJECT(UMDiameterAvpLCS_Name_String,UMDiameterAvpUTF8String,1238,@"LCS-Name-
 AVP_OBJECT(UMDiameterAvpLCS_Client_Type,UMDiameterAvpEnumerated,1241,@"LCS-Client-Type",Enumerated,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpLCS_Requestor_Id_String,UMDiameterAvpUTF8String,1240,@"LCS-Requestor-Id-String",UTF8String,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpLocation_Estimate,UMDiameterAvpOctetString,1242,@"Location-Estimate",OctetString,YES,YES,10415,NO)
-AVP_OBJECT(UMDiameterAvpService_Selection,UMDiameterAvpUTF8String,493,@"Service-Selection",UTF8String,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvp3GPP_AAA_Server_Name,UMDiameterAvpDiameterIdentity,318,@"3GPP-AAA-Server-Name",DiameterIdentity,YES,YES,10415,NO)
 

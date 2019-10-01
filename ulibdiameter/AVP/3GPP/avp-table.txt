@@ -362,7 +362,6 @@
 2545	PLR-Flags	07.04.52	Unsigned32	V
 2546	PLA-Flags	07.04.53	Unsigned32	V
 2547	Deferred-MT-LR-Data	07.04.54	Grouped	V
-2548	Termination-Cause	07.04.55	Unsigned32	V
 2549	LRA-Flags	07.04.56	Unsigned32	V
 2550	Periodic-Location-Support-Indicator	07.04.50	Enumerated	V
 2551	Prioritized-List-Indicator	07.04.51	Enumerated	V
@@ -385,6 +384,5 @@
 1241	LCS-Client-Type	3GPP TS 32.299 [10]	Enumerated	M,V
 1240	LCS-Requestor-Id-String	3GPP TS 32.299 [10]	UTF8String	M,V
 1242	Location-Estimate	3GPP TS 32.299 [10]	OctetString	M,V
-493	Service-Selection	3GPP TS 29.272 [11],	UTF8String	M,V
 318	3GPP-AAA-Server-Name	-	DiameterIdentity	M,V
 
