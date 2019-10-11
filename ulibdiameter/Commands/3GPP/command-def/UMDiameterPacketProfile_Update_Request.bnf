@@ -1,0 +1,18 @@
+< Profile-Update-Request > ::=< Diameter Header: 307, REQ, PXY, 16777217 >
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id }
+{ Auth-Session-State } { Origin-Host }
+{ Origin-Realm }
+[ Destination-Host ]
+{ Destination-Realm }
+*[ Supported-Features ]
+{ User-Identity }
+[ Wildcarded-Public-Identity ] 
+[ Wildcarded-IMPU ]
+[ User-Name ]
+*{ Data-Reference }
+{ User-Data }
+[ OC-Supported-Features ] *[ AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]

@@ -1,0 +1,18 @@
+< Push-Notification-Request > ::= < Diameter Header: 309, REQ, PXY, 16777217 >
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id }
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+{ Destination-Host }
+{ Destination-Realm }
+*[ Supported-Features ]
+{ User-Identity }
+[ Wildcarded-Public-Identity ]
+[ Wildcarded-IMPU ]
+[ User-Name ]
+{ User-Data }
+*[ AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]

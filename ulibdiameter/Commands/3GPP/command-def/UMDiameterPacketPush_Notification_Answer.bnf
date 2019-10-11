@@ -1,0 +1,14 @@
+< Push-Notification-Answer > ::=< Diameter Header: 309, PXY, 16777217 >
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id }
+[ Result-Code ]
+[ Experimental-Result ]
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+*[ Supported-Features ]
+*[ AVP ]
+[ Failed-AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]

@@ -1,0 +1,21 @@
+< Subscribe-Notifications-Answer > ::= < Diameter Header: 308, PXY, 16777217 >
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id }
+{ Auth-Session-State }
+[ Result-Code ]
+[ Experimental-Result ]
+{ Origin-Host }
+{ Origin-Realm }
+[ Wildcarded-Public-Identity ]
+[ Wildcarded-IMPU ]
+*[ Supported-Features ]
+[ User-Data ]
+[ Expiry-Time ]
+[ OC-Supported-Features ]
+[ OC-OLR ]
+*[ Load ]
+*[ AVP ]
+[ Failed-AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]
