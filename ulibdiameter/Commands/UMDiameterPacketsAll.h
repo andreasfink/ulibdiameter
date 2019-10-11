@@ -46,3 +46,13 @@
 #import "UMDiameterPacketProvide_Location_Answer.h"
 #import "UMDiameterPacketLocation_Report_Request.h"
 #import "UMDiameterPacketLocation_Report_Answer.h"
+#import "UMDiameterPacketUser_Data_Request.h"
+#import "UMDiameterPacketUser_Data_Answer.h"
+
+#import "UMDiameterPacketPush_Notification_Request.h"
+#import "UMDiameterPacketPush_Notification_Answer.h"
+#import "UMDiameterPacketSubscribe_Notifications_Request.h"
+#import "UMDiameterPacketSubscribe_Notifications_Answer.h"
+#import "UMDiameterPacketProfile_Update_Request.h"
+#import "UMDiameterPacketProfile_Update_Answer.h"
+

@@ -2,7 +2,7 @@
 //  UMDiameterPacketSTR.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:25.318000
+//  Created by afink on 2019-10-11 06:37:24.645000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,19 +39,19 @@
 	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*session_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*origin_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*origin_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*destination_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpAuth_Application_Id	*auth_application_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpTermination_Cause	*termination_cause;
-@property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*user_name;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*destination_host;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpClass *>	*class;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_State_Id	*origin_state_id;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*proxy_info;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*route_record;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*var_session_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*var_origin_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*var_origin_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*var_destination_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpAuth_Application_Id	*var_auth_application_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpTermination_Cause	*var_termination_cause;
+@property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*var_user_name;
+@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*var_destination_host;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpClass *>	*var_class;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_State_Id	*var_origin_state_id;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*var_proxy_info;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*var_route_record;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;

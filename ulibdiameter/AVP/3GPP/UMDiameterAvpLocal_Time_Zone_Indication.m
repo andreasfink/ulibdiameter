@@ -1,30 +1,30 @@
 //
-//  UMDiameterAvpAdditional_Context_ID.m
+//  UMDiameterAvpLocal_Time_Zone_Indication.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 14:58:14.482000
+//  Created by afink on 2019-10-11 07:01:24.403000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpAdditional_Context_ID.h"
+#import "UMDiameterAvpLocal_Time_Zone_Indication.h"
 
-@implementation UMDiameterAvpAdditional_Context_ID
+@implementation UMDiameterAvpLocal_Time_Zone_Indication
 
 
 - (NSString *)avpType
 {
-    return @"Additional-Context-ID";
+    return @"Local-Time-Zone-Indication ";
 }
 
 - (uint32_t)avpCode
 {
-    return 1683;
+    return 718;
 }
 
 + (uint32_t)avpCode
 {
-    return 1683;
+    return 718;
 }
 
 - (void)genericInitialisation

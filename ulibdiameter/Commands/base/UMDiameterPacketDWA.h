@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:25.299000
+//  Created by afink on 2019-10-11 06:37:24.556000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -27,13 +27,13 @@
 	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpResult_Code	*result_code;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*origin_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*origin_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpError_Message	*error_message;
-@property(readwrite,strong,atomic)	UMDiameterAvpFailed_AVP	*failed_avp;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_State_Id	*origin_state_id;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpResult_Code	*var_result_code;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*var_origin_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*var_origin_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpError_Message	*var_error_message;
+@property(readwrite,strong,atomic)	UMDiameterAvpFailed_AVP	*var_failed_avp;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_State_Id	*var_origin_state_id;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;
