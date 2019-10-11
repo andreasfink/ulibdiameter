@@ -1,3 +1,103 @@
+13	3GPP-Charging-Characteristics	-	UTF8String	V
+104	Digest-Realm	6.3.37	UTF8String	M
+110	Digest-QoP	6.3.40	UTF8String	M
+111	Digest-Algorithm	6.3.39	UTF8String	M
+121	Digest-HA1	6.3.41	UTF8String	M
+318	3GPP-AAA-Server-Name	-	DiameterIdentity	M,V
+515	Max-Requested-Bandwidth-DL	5.3.14	Unsigned32	M,V
+516	Max-Requested-Bandwidth-UL	5.3.15	Unsigned32	M,V
+543	Max-Supported-Bandwidth-DL	5.3.41	Unsigned32	V
+544	Max-Supported-Bandwidth-UL	5.3.52	Unsigned32	V
+554	Extended-Max-Requested-BW-DL	-	Unsigned32	V
+555	Extended-Max-Requested-BW-UL	-	Unsigned32	V
+600	Visited-Network-Identifier	6.3.1	OctetString	M,V
+601	Public-Identity	6.3.2	UTF8String	M,V
+602	Server-Name	6.3.3	UTF8String	M,V
+603	Server-Capabilities	6.3.4	Grouped	M,V
+604	Mandatory-Capability	6.3.5	Unsigned32	M,V
+605	Optional-Capability	6.3.6	Unsigned32	M,V
+606	User-Data	6.3.7	OctetString	M,V
+607	SIP-Number-Auth-Items	6.3.8	Unsigned32	M,V
+608	SIP-Authentication-Scheme	6.3.9	UTF8String	M,V
+609	SIP-Authenticate	6.3.10	OctetString	M,V
+610	SIP-Authorization	6.3.11	OctetString	M,V
+611	SIP-Authentication-Context	6.3.12	OctetString	M,V
+612	SIP-Auth-Data-Item	6.3.13	Grouped	M,V
+613	SIP-Item-Number	6.3.14	Unsigned32	M,V
+614	Server-Assignment-Type	6.3.15	Enumerated	M,V
+615	Deregistration-Reason	6.3.16	Grouped	M,V
+616	Reason-Code	6.3.17	Enumerated	M,V
+617	Reason-Info	6.3.18	UTF8String	M,V
+618	Charging-Information	6.3.19	Grouped	M,V
+619	Primary-Event-Charging-Function-Name	6.3.20	DiameterURI	M,V
+620	Secondary-Event-Charging-Function-Name	6.3.21	DiameterURI	M,V
+621	Primary-Charging-Collection-Function-Name	6.3.22	DiameterURI	M,V
+622	Secondary-Charging-Collection-Function-Name	6.3.23	DiameterURI	M,V
+623	User-Authorization-Type	6.3.24	Enumerated	M,V
+624	User-Data-Already-Available	6.3.26	Enumerated	M,V
+625	Confidentiality-Key	6.3.27	OctetString	M,V
+626	Integrity-Key	6.3.28	OctetString	M,V
+628	Supported-Features	6.3.29	Grouped	V
+629	Feature-List-ID	6.3.30	Unsigned32	V
+630	Feature-List	6.3.31	Unsigned32	V
+631	Supported-Applications	6.3.32	Grouped	V
+632	Associated-Identities	6.3.33	Grouped	V
+633	Originating-Request	6.3.34	Enumerated	M,V
+634	Wildcarded-Public-Identity	6.3.35	UTF8String	V
+635	SIP-Digest-Authenticate	6.3.36	Grouped	V
+636	Wildcarded-IMPU	06.03.20	UTF8String	V
+637	UAR-Flags	6.3.44	Unsigned32	V
+638	Loose-Route-Indication	6.3.45	Enumerated	V
+639	SCSCF-Restoration-Info	6.3.46	Grouped	V
+640	Path	6.3.47	OctetString	V
+641	Contact	6.3.48	OctetString	V
+642	Subscription-Info	6.3.49	Grouped	V
+643	Call-ID-SIP-Header	6.3.49.1	OctetString	V
+644	From-SIP-Header	6.3.49.2	OctetString	V
+645	To-SIP-Header	6.3.49.3	OctetString	V
+646	Record-Route	6.3.49.4	OctetString	V
+647	Associated-Registered-Identities	6.3.50	Grouped	V
+648	Multiple-Registration-Indication	6.3.51	Enumerated	V
+649	Restoration-Info	6.3.52	Grouped	V
+650	Session-Priority	06.03.21	Enumerated	V
+654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
+700	User-Identity	06.03.01	Grouped	M, V
+701	MSISDN	.	OctetString	M,V
+702	User-Data	06.03.03	OctetString	M, V
+703	Data-Reference	06.03.04	Enumerated	M, V
+704	Service-Indication	06.03.05	OctetString	M, V
+705	Subs-Req-Type	06.03.06	Enumerated	M, V
+706	Requested-Domain	06.03.07	Enumerated	M, V
+707	Current-Location	06.03.08	Enumerated	M, V
+708	Identity-Set	06.03.10	Enumerated	V
+709	Expiry-Time	06.03.16	Time	V
+710	Send-Data-Indication	06.03.17	Enumerated	V
+711	DSAI-Tag	06.03.18	OctetString	M, V
+712	One-Time-Notification	06.03.22	Enumerated	V
+713	Requested-Nodes	6.3.7A	Unsigned32	V
+714	Serving-Node-Indication	06.03.23	Enumerated	V
+715	Repository-Data-ID	06.03.24	Grouped	V
+716	Sequence-Number	06.03.25	Unsigned32	V
+717	Pre-paging-Supported	06.03.26	Enumerated	V
+718	Local-Time-Zone-Indication	06.03.27	Enumerated	V
+719	UDR-Flags	06.03.28	Unsigned32	V
+720	Call-Reference-Info	06.03.29	Grouped	V
+721	Call-Reference-Number	06.03.30	OctetString	V
+722	AS-Number	06.03.31	OctetString	V
+848	Served-Party-IP-Address	-	Address	M,V
+857	Charged-Party	-	UTF8String	M,V
+1028	QoS-Class-Identifier	5.3.17	Enumerated	M,V
+1032	RAT-Type	x	Enumerated	V
+1034	Allocation-Retention-Priority	5.3.32	Grouped	
+1046	Priority-Level	-	Unsigned32	V
+1047	Pre-emption-Capability	-	Enumerated	V
+1048	Pre-emption-Vulnerability	-	Enumerated	V
+1227	PDP-Address	-	Address	M,V
+1237	LCS-Format-Indicator	3GPP TS 32.299 [10]	Enumerated	M,V
+1238	LCS-Name-String	3GPP TS 32.299 [10]	UTF8String	M,V
+1240	LCS-Requestor-Id-String	3GPP TS 32.299 [10]	UTF8String	M,V
+1241	LCS-Client-Type	3GPP TS 32.299 [10]	Enumerated	M,V
+1242	Location-Estimate	3GPP TS 32.299 [10]	OctetString	M,V
 1400	Subscription-Data	7.3.2	Grouped	M,V
 1401	Terminal-Information	7.3.3	Grouped	M,V
 1402	IMEI	7.3.4	UTF8String	M,V
@@ -94,6 +194,7 @@
 1497	MME-User-State	7.3.2	Grouped	V
 1498	SGSN-User-State	7.3.3	Grouped	V
 1499	User-State	7.3.114	Enumerated	V
+1538	Emergency-Services	-	Unsigned32	V
 1600	MME-Location-Information	7.3.115	Grouped	V
 1601	SGSN-Location-Information	7.3.6	Grouped	V
 1602	E-UTRAN-Cell-Global-Identity	7.3.7	OctetString	V
@@ -107,15 +208,15 @@
 1610	Current-Location-Retrieved	7.3.5	Enumerated	V
 1611	Age-Of-Location-Information	7.3.6	Unsigned32	V
 1612	Active-APN	7.3.7	Grouped	V
+1613	SIPTO-Permission	7.3.5	Enumerated	V
 1614	Error-Diagnostic	7.3.8	Enumerated	V
-1621	Ext-PDP-Address	7.3.129	Address	V
 1615	UE-SRVCC-Capability	7.3.0	Enumerated	V
 1616	MPS-Priority	7.3.1	Unsigned32	V
 1617	VPLMN-LIPA-Allowed	7.3.2	Enumerated	V
 1618	LIPA-Permission	7.3.3	Enumerated	V
 1619	Subscribed-Periodic-RAU-TAU-Timer	7.3.4	Unsigned32	V
 1620	Ext-PDP-Type	7.3.75A	OctetString	V
-1613	SIPTO-Permission	7.3.5	Enumerated	V
+1621	Ext-PDP-Address	7.3.129	Address	V
 1622	MDT-Configuration	7.3.6	Grouped	V
 1623	Job-Type	7.3.7	Enumerated	V
 1624	Area-Scope	7.3.8	Grouped	V
@@ -185,121 +286,9 @@
 1694	MBSFN-Area	7.3.9	Grouped	V
 1695	MBSFN-Area-ID	7.3.0	Unsigned32	V
 1696	Carrier-Frequency	7.3.1	Unsigned32	V
-600	Visited-Network-Identifier	6.3.1	OctetString	M,V
-601	Public-Identity	6.3.2	UTF8String	M,V
-602	Server-Name	6.3.3	UTF8String	M,V
-603	Server-Capabilities	6.3.4	Grouped	M,V
-604	Mandatory-Capability	6.3.5	Unsigned32	M,V
-605	Optional-Capability	6.3.6	Unsigned32	M,V
-606	User-Data	6.3.7	OctetString	M,V
-607	SIP-Number-Auth-Items	6.3.8	Unsigned32	M,V
-608	SIP-Authentication-Scheme	6.3.9	UTF8String	M,V
-609	SIP-Authenticate	6.3.10	OctetString	M,V
-610	SIP-Authorization	6.3.11	OctetString	M,V
-611	SIP-Authentication-Context	6.3.12	OctetString	M,V
-612	SIP-Auth-Data-Item	6.3.13	Grouped	M,V
-613	SIP-Item-Number	6.3.14	Unsigned32	M,V
-614	Server-Assignment-Type	6.3.15	Enumerated	M,V
-615	Deregistration-Reason	6.3.16	Grouped	M,V
-616	Reason-Code	6.3.17	Enumerated	M,V
-617	Reason-Info	6.3.18	UTF8String	M,V
-618	Charging-Information	6.3.19	Grouped	M,V
-619	Primary-Event-Charging-Function-Name	6.3.20	DiameterURI	M,V
-620	Secondary-Event-Charging-Function-Name	6.3.21	DiameterURI	M,V
-621	Primary-Charging-Collection-Function-Name	6.3.22	DiameterURI	M,V
-622	Secondary-Charging-Collection-Function-Name	6.3.23	DiameterURI	M,V
-623	User-Authorization-Type	6.3.24	Enumerated	M,V
-624	User-Data-Already-Available	6.3.26	Enumerated	M,V
-625	Confidentiality-Key	6.3.27	OctetString	M,V
-626	Integrity-Key	6.3.28	OctetString	M,V
-628	Supported-Features	6.3.29	Grouped	V
-629	Feature-List-ID	6.3.30	Unsigned32	V
-630	Feature-List	6.3.31	Unsigned32	V
-631	Supported-Applications	6.3.32	Grouped	V
-632	Associated-Identities	6.3.33	Grouped	V
-633	Originating-Request	6.3.34	Enumerated	M,V
-634	Wildcarded-Public-Identity	6.3.35	UTF8String	V
-635	SIP-Digest-Authenticate	6.3.36	Grouped	V
-104	Digest-Realm	6.3.37	UTF8String	M
-111	Digest-Algorithm	6.3.39	UTF8String	M
-110	Digest-QoP	6.3.40	UTF8String	M
-121	Digest-HA1	6.3.41	UTF8String	M
-637	UAR-Flags	6.3.44	Unsigned32	V
-638	Loose-Route-Indication	6.3.45	Enumerated	V
-639	SCSCF-Restoration-Info	6.3.46	Grouped	V
-640	Path	6.3.47	OctetString	V
-641	Contact	6.3.48	OctetString	V
-642	Subscription-Info	6.3.49	Grouped	V
-643	Call-ID-SIP-Header	6.3.49.1	OctetString	V
-644	From-SIP-Header	6.3.49.2	OctetString	V
-645	To-SIP-Header	6.3.49.3	OctetString	V
-646	Record-Route	6.3.49.4	OctetString	V
-647	Associated-Registered-Identities	6.3.50	Grouped	V
-648	Multiple-Registration-Indication	6.3.51	Enumerated	V
-649	Restoration-Info	6.3.52	Grouped	V
-1028	QoS-Class-Identifier	5.3.17	Enumerated	M,V
-2319	User-CSG-Information	7.2.240	Grouped	M,V
-2318	CSG-Membership-Indication	x	Enumerated	M,V
-1032	RAT-Type	x	Enumerated	V
 2317	CSG-Access-Mode	-	Enumerated	M,V
-515	Max-Requested-Bandwidth-DL	5.3.14	Unsigned32	M,V
-516	Max-Requested-Bandwidth-UL	5.3.15	Unsigned32	M,V
-543	Max-Supported-Bandwidth-DL	5.3.41	Unsigned32	V
-544	Max-Supported-Bandwidth-UL	5.3.52	Unsigned32	V
-1034	Allocation-Retention-Priority	5.3.32	Grouped	
-3143	Supported-Services	-	Grouped	M,V
-3329	Maximum-UE-Availability-Time	-	Time	M,V
-3142	Monitoring-Event-Config_Status	-	Grouped	V
-3125	SCEF-ID	-	DiameterIdentity	M,V
-1538	Emergency-Services	-	Unsigned32	V
-3123	Monitoring-Event-Report	-	Grouped	M,V
-1227	PDP-Address	-	Address	M,V
-3144	Supported-Monitoring-Events	-	Unsigned64	M,V
-3152	Service-Report	-	Grouped	M,V
-701	MSISDN	.	OctetString	M,V
-13	3GPP-Charging-Characteristics	-	UTF8String	V
-3701	ProSe-Subscription-Data	-	Grouped	V
-3702	ProSe-Permission	-	Unsigned32	M,V
-3113	AESE-Communication-Pattern	-	Grouped	M,V
-3122	Monitoring-Event-Configuration	-	Grouped	M,V
-3111	External-Identifier	-	UTF8String	M,V
-4324	Active-Time	-	Time	V
-654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
-3124	SCEF-Reference-ID	-	Unsigned32	M,V
-3140	Reachability-Information	-	Unsigned32	M,V
-3127	Monitoring-Type	-	Unsigned32	M,V
-3146	Service-Result	-	Grouped	M,V
-3153	Node-Type	-	Unsigned32	M,V
-3147	Service-Result-Code	-	Unsigned32	M,V
-3162	Loss-Of-Connectivity-Reason	-	Unsigned32	M,V
-4008	eNodeB-ID	-	OctetString	V
-4013	Extended-eNodeB-ID	-	OctetString	V
-3126	SCEF-Reference-ID-for-Deletion	-	Unsigned32	V
-3114	Communication-Pattern-Set	-	Grouped	M,V
-848	Served-Party-IP-Address	-	Address	M,V
-3115	Periodic-Communication-Indicator	-	Unsigned32	M,V
-3116	Communication-Duration-Time	-	Time	M,V
-3117	Periodic-Time	-	Time	M,V
-3118	Scheduled-Communication-Time	-	Grouped	M,V
-3119	Stationary-Indication	-	Unsigned32	M,V
-3148	Reference-ID-Validity-Time	-	Time	M,V
-1046	Priority-Level	-	Unsigned32	V
-1047	Pre-emption-Capability	-	Enumerated	V
-555	Extended-Max-Requested-BW-UL	-	Unsigned32	V
-554	Extended-Max-Requested-BW-DL	-	Unsigned32	V
-1048	Pre-emption-Vulnerability	-	Enumerated	V
-
-3128	Maximum-Number-of-Reports	-	Unsigned32	M,V
-3130	Monitoring-Duration	-	Time	M,V
-857	Charged-Party	-	UTF8String	M,V
-3129	UE-Reachability-Configuration	-	Grouped	M,V
-3132	Reachability-Type	-	Unsigned32	M,V
-3133	Maximum-Latency	-	Unsigned32	M,V
-3134	Maximum-Response-Time	-	Unsigned32	M,V
-3135	Location-Information-Configuration	-	Grouped	M,V
-3136	MONTE-Location-Type	-	Unsigned32	M,V
-3137	Accuracy	-	Unsigned32	M,V
-
+2318	CSG-Membership-Indication	x	Enumerated	M,V
+2319	User-CSG-Information	7.2.240	Grouped	M,V
 2400	LMSI	-	OctetString	M,V
 2401	Serving-Node	-	Grouped	M,V
 2402	MME-Name	-	DiameterIdentity	M,V
@@ -312,8 +301,6 @@
 2409	SGSN-Name	-	DiameterIdentity	V
 2410	SGSN-Realm	-	DiameterIdentity	V
 2411	RIA-Flags	-	Unsigned32	V
-
-
 2500	SLg-Location-Type	07.04.02	Enumerated	M, V
 2501	LCS-EPS-Client-Name	07.04.03	Grouped	M, V
 2502	LCS-Requestor-Name	07.04.04	Grouped	M, V
@@ -335,8 +322,8 @@
 2518	Location-Event	07.04.20	Enumerated	M, V
 2519	Pseudonym-Indicator	07.04.21	Enumerated	M, V
 2520	LCS-Service-Type-ID	07.04.22	Unsigned32	M, V
-2521	LCS-Privacy-Check-Non-Session  	07.04.23	Grouped	M, V
-2522	LCS-Privacy-Check-Session  	07.04.24	Grouped	M, V
+2521	LCS-Privacy-Check-Non-Session 	07.04.23	Grouped	M, V
+2522	LCS-Privacy-Check-Session 	07.04.24	Grouped	M, V
 2523	LCS-QoS-Class	07.04.27	Enumerated	M, V
 2524	GERAN-Positioning-Info	07.04.29	Grouped	V
 2525	GERAN-Positioning-Data	07.04.30	OctetString	V
@@ -379,10 +366,42 @@
 2563	Reporting-Duration	07.04.68	Unsigned32	V
 2564	Reporting-Location-Requirements	07.04.69	Unsigned32	V
 2565	Additional-Area	07.04.70	Grouped	V
-1237	LCS-Format-Indicator	3GPP TS 32.299 [10]	Enumerated	M,V
-1238	LCS-Name-String	3GPP TS 32.299 [10]	UTF8String	M,V
-1241	LCS-Client-Type	3GPP TS 32.299 [10]	Enumerated	M,V
-1240	LCS-Requestor-Id-String	3GPP TS 32.299 [10]	UTF8String	M,V
-1242	Location-Estimate	3GPP TS 32.299 [10]	OctetString	M,V
-318	3GPP-AAA-Server-Name	-	DiameterIdentity	M,V
-
+3111	External-Identifier	-	UTF8String	M,V
+3113	AESE-Communication-Pattern	-	Grouped	M,V
+3114	Communication-Pattern-Set	-	Grouped	M,V
+3115	Periodic-Communication-Indicator	-	Unsigned32	M,V
+3116	Communication-Duration-Time	-	Time	M,V
+3117	Periodic-Time	-	Time	M,V
+3118	Scheduled-Communication-Time	-	Grouped	M,V
+3119	Stationary-Indication	-	Unsigned32	M,V
+3122	Monitoring-Event-Configuration	-	Grouped	M,V
+3123	Monitoring-Event-Report	-	Grouped	M,V
+3124	SCEF-Reference-ID	-	Unsigned32	M,V
+3125	SCEF-ID	-	DiameterIdentity	M,V
+3126	SCEF-Reference-ID-for-Deletion	-	Unsigned32	V
+3127	Monitoring-Type	-	Unsigned32	M,V
+3128	Maximum-Number-of-Reports	-	Unsigned32	M,V
+3129	UE-Reachability-Configuration	-	Grouped	M,V
+3130	Monitoring-Duration	-	Time	M,V
+3132	Reachability-Type	-	Unsigned32	M,V
+3133	Maximum-Latency	-	Unsigned32	M,V
+3134	Maximum-Response-Time	-	Unsigned32	M,V
+3135	Location-Information-Configuration	-	Grouped	M,V
+3136	MONTE-Location-Type	-	Unsigned32	M,V
+3137	Accuracy	-	Unsigned32	M,V
+3140	Reachability-Information	-	Unsigned32	M,V
+3142	Monitoring-Event-Config_Status	-	Grouped	V
+3143	Supported-Services	-	Grouped	M,V
+3144	Supported-Monitoring-Events	-	Unsigned64	M,V
+3146	Service-Result	-	Grouped	M,V
+3147	Service-Result-Code	-	Unsigned32	M,V
+3148	Reference-ID-Validity-Time	-	Time	M,V
+3152	Service-Report	-	Grouped	M,V
+3153	Node-Type	-	Unsigned32	M,V
+3162	Loss-Of-Connectivity-Reason	-	Unsigned32	M,V
+3329	Maximum-UE-Availability-Time	-	Time	M,V
+3701	ProSe-Subscription-Data	-	Grouped	V
+3702	ProSe-Permission	-	Unsigned32	M,V
+4008	eNodeB-ID	-	OctetString	V
+4013	Extended-eNodeB-ID	-	OctetString	V
+4324	Active-Time	-	Time	V

@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-24 14:15:39.929000
+//  Created by afink on 2019-10-11 06:37:26.008000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -47,23 +47,23 @@
 	NSArray<UMDiameterAvpRoute_Record *>	*_var_route_record;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*session_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpDRMP	*drmp;
-@property(readwrite,strong,atomic)	UMDiameterAvpVendor_Specific_Application_Id	*vendor_specific_application_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpAuth_Session_State	*auth_session_state;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*origin_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*origin_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*destination_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*destination_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*user_name;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSupported_Features *>	*supported_features;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpVPLMN_CSG_Subscription_Data *>	*vplmn_csg_subscription_data;
-@property(readwrite,strong,atomic)	UMDiameterAvpSubscription_Data	*subscription_data;
-@property(readwrite,strong,atomic)	UMDiameterAvpIDR_Flags	*idr_flags;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpReset_ID *>	*reset_id;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*proxy_info;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*route_record;
+@property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*var_session_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpDRMP	*var_drmp;
+@property(readwrite,strong,atomic)	UMDiameterAvpVendor_Specific_Application_Id	*var_vendor_specific_application_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpAuth_Session_State	*var_auth_session_state;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*var_origin_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*var_origin_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*var_destination_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*var_destination_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*var_user_name;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSupported_Features *>	*var_supported_features;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpVPLMN_CSG_Subscription_Data *>	*var_vplmn_csg_subscription_data;
+@property(readwrite,strong,atomic)	UMDiameterAvpSubscription_Data	*var_subscription_data;
+@property(readwrite,strong,atomic)	UMDiameterAvpIDR_Flags	*var_idr_flags;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpReset_ID *>	*var_reset_id;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*var_proxy_info;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*var_route_record;
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;

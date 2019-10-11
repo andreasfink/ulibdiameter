@@ -10,6 +10,12 @@
 
 @implementation UMDiameterAvpUTF8String
 
+- (UMDiameterAvpUTF8String *)initWithString:(NSString *)str
+{
+    return [super initWithString:str encoding:NSUTF8StringEncoding];
+}
+
+
 - (NSString *)avpType
 {
     return @"UTF8String";

@@ -1,8 +1,8 @@
 //
-//  UMDiameterAvpAdditional_Context_ID.h
+//  UMDiameterAvpSequence_Number.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 14:58:14.482000
+//  Created by afink on 2019-10-11 07:52:17.645000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 
 
-@interface UMDiameterAvpAdditional_Context_ID : UMDiameterAvpUnsigned32
+@interface UMDiameterAvpSequence_Number : UMDiameterAvpUnsigned32
 {
 }
 

@@ -40,6 +40,30 @@
     return self;
 }
 
+- (UMDiameterAvp *)initWithString:(NSString *)str
+{
+    self = [super init];
+    if(self)
+    {
+        [self genericInitialisation];
+        [self setStringValue:str];
+    }
+    return self;
+}
+
+- (UMDiameterAvp *)initWithObject:(id)obj
+{
+    self = [super init];
+    if(self)
+    {
+        [self genericInitialisation];
+        [self setObjectValue:obj];
+
+    }
+    return self;
+
+}
+
 
 - (UMDiameterAvp *)initWithJsonString:(NSString *)json
 {
@@ -391,6 +415,7 @@ break;
     UMAssert(0,@"please implement setDateValue:");
 }
 
+
 - (void)setObjectValue:(id)obj
 {
     if([obj isKindOfClass:[NSString class]])
@@ -462,6 +487,18 @@ break;
     [s appendString:@"<tr>\n"];
     [s appendFormat:@"    <td class=%@>%@</td>\n",cssClass,webName];
     [s appendFormat:@"    <td class=%@><input name=\"%@\" type=text> %@</td>\n",cssClass,webName,webComment ? webComment : @""];
+    [s appendString:@"</tr>\n"];
+}
+
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass value:(NSString *)value
+{
+    if([webName isEqualToString:@"avp"])
+    {
+        return;
+    }
+    [s appendString:@"<tr>\n"];
+    [s appendFormat:@"    <td class=%@>%@</td>\n",cssClass,webName];
+    [s appendFormat:@"    <td class=%@><input name=\"%@\" type=text value=\"%@\"> %@</td>\n",cssClass,webName,(value ? value : @"") ,(webComment ? webComment : @"")];
     [s appendString:@"</tr>\n"];
 }
 

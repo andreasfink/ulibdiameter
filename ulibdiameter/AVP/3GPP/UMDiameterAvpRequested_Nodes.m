@@ -1,30 +1,30 @@
 //
-//  UMDiameterAvpAdditional_Context_ID.m
+//  UMDiameterAvpRequested_Nodes.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-07-03 14:58:14.482000
+//  Created by afink on 2019-10-11 07:52:17.645000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpAdditional_Context_ID.h"
+#import "UMDiameterAvpRequested_Nodes.h"
 
-@implementation UMDiameterAvpAdditional_Context_ID
+@implementation UMDiameterAvpRequested_Nodes
 
 
 - (NSString *)avpType
 {
-    return @"Additional-Context-ID";
+    return @"Requested-Nodes";
 }
 
 - (uint32_t)avpCode
 {
-    return 1683;
+    return 713;
 }
 
 + (uint32_t)avpCode
 {
-    return 1683;
+    return 713;
 }
 
 - (void)genericInitialisation

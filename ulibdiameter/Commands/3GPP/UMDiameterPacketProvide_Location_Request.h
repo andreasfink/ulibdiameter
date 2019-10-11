@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-09-24 14:15:40.079000
+//  Created by afink on 2019-10-11 06:37:27.196000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -71,35 +71,35 @@
 	NSArray<UMDiameterAvpRoute_Record *>	*_var_route_record;
 }
 
-@property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*session_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpVendor_Specific_Application_Id	*vendor_specific_application_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpAuth_Session_State	*auth_session_state;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*origin_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*origin_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*destination_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*destination_realm;
-@property(readwrite,strong,atomic)	UMDiameterAvpSLg_Location_Type	*slg_location_type;
-@property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*user_name;
-@property(readwrite,strong,atomic)	UMDiameterAvpMSISDN	*msisdn;
-@property(readwrite,strong,atomic)	UMDiameterAvpIMEI	*imei;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_EPS_Client_Name	*lcs_eps_client_name;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Client_Type	*lcs_client_type;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Requestor_Name	*lcs_requestor_name;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Priority	*lcs_priority;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_QoS	*lcs_qos;
-@property(readwrite,strong,atomic)	UMDiameterAvpVelocity_Requested	*velocity_requested;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Supported_GAD_Shapes	*lcs_supported_gad_shapes;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Service_Type_ID	*lcs_service_type_id;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Codeword	*lcs_codeword;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Privacy_Check_Non_Session	*lcs_privacy_check_non_session;
-@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Privacy_Check_Session	*lcs_privacy_check_session;
-@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*service_selection;
-@property(readwrite,strong,atomic)	UMDiameterAvpDeferred_Location_Type	*deferred_location_type;
-@property(readwrite,strong,atomic)	UMDiameterAvpPLR_Flags	*plr_flags;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSupported_Features *>	*supported_features;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*avp;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*proxy_info;
-@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*route_record;
+@property(readwrite,strong,atomic)	UMDiameterAvpSession_Id	*var_session_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpVendor_Specific_Application_Id	*var_vendor_specific_application_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpAuth_Session_State	*var_auth_session_state;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*var_origin_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*var_origin_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*var_destination_host;
+@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*var_destination_realm;
+@property(readwrite,strong,atomic)	UMDiameterAvpSLg_Location_Type	*var_slg_location_type;
+@property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*var_user_name;
+@property(readwrite,strong,atomic)	UMDiameterAvpMSISDN	*var_msisdn;
+@property(readwrite,strong,atomic)	UMDiameterAvpIMEI	*var_imei;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_EPS_Client_Name	*var_lcs_eps_client_name;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Client_Type	*var_lcs_client_type;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Requestor_Name	*var_lcs_requestor_name;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Priority	*var_lcs_priority;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_QoS	*var_lcs_qos;
+@property(readwrite,strong,atomic)	UMDiameterAvpVelocity_Requested	*var_velocity_requested;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Supported_GAD_Shapes	*var_lcs_supported_gad_shapes;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Service_Type_ID	*var_lcs_service_type_id;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Codeword	*var_lcs_codeword;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Privacy_Check_Non_Session	*var_lcs_privacy_check_non_session;
+@property(readwrite,strong,atomic)	UMDiameterAvpLCS_Privacy_Check_Session	*var_lcs_privacy_check_session;
+@property(readwrite,strong,atomic)	UMDiameterAvpService_Selection	*var_service_selection;
+@property(readwrite,strong,atomic)	UMDiameterAvpDeferred_Location_Type	*var_deferred_location_type;
+@property(readwrite,strong,atomic)	UMDiameterAvpPLR_Flags	*var_plr_flags;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSupported_Features *>	*var_supported_features;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpAVP *>	*var_avp;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpProxy_Info *>	*var_proxy_info;
+@property(readwrite,strong,atomic)	NSArray<UMDiameterAvpRoute_Record *>	*var_route_record;
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;
