@@ -498,7 +498,7 @@ break;
     }
     [s appendString:@"<tr>\n"];
     [s appendFormat:@"    <td class=%@>%@</td>\n",cssClass,webName];
-    [s appendFormat:@"    <td class=%@><input name=\"%@\" type=text value=\"@\"> %@</td>\n",cssClass,webName,value ? value : @"" ,webComment ? webComment : @""];
+    [s appendFormat:@"    <td class=%@><input name=\"%@\" type=text value=\"%@\"> %@</td>\n",cssClass,webName,(value ? value : @"") ,(webComment ? webComment : @"")];
     [s appendString:@"</tr>\n"];
 }
 
