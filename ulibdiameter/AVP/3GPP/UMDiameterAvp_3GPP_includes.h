@@ -47,7 +47,6 @@
 #import "UMDiameterAvpAssociated_Identities.h"
 #import "UMDiameterAvpOriginating_Request.h"
 #import "UMDiameterAvpWildcarded_Public_Identity.h"
-#import "UMDiameterAvpWildcarded_Public_Identity.h"
 #import "UMDiameterAvpSIP_Digest_Authenticate.h"
 #import "UMDiameterAvpWildcarded_IMPU.h"
 #import "UMDiameterAvpUAR_Flags.h"

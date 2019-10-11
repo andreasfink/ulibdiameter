@@ -2,7 +2,7 @@
 //  UMDiameterAvpIdentity_Set.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 07:01:24.403000
+//  Created by afink on 2019-10-11 07:52:17.645000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 
 - (NSString *)avpType
 {
-    return @"Identity-Set ";
+    return @"Identity-Set";
 }
 
 - (uint32_t)avpCode

@@ -13,6 +13,6 @@
 
 - (void)setStringValue:(NSString *)string;
 - (NSString *)stringValue;
-
+- (UMDiameterAvpOctetString *)initWithString:(NSString *)str encoding:(NSStringEncoding)encoding;
 
 @end

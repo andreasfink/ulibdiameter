@@ -382,7 +382,7 @@
         [flags addObject:@"TRANSMIT"];
     }
     dict[@"commandFlags"] = [flags componentsJoinedByString:@","];
-    dict[@"command"] = UMDiameterCommandCode_description(_commandCode, (_commandFlags & UMDiameterCommandFlag_Request));
+    dict[@"command"] = UMDiameterCommandCode_description(_commandCode, (_commandFlags & UMDiameterCommandFlag_Request) ? YES : NO);
     dict[@"commandCode"] = @(_commandCode);
     dict[@"application"] = [UMDiameterPacket applicationIdToString:_applicationId];
     dict[@"applicationId"] = @(_applicationId);

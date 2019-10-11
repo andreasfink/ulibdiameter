@@ -38,6 +38,10 @@
 
 - (uint32_t)dataLength;     /* length exclusive padding exclusive header length */
 
+
+- (UMDiameterAvp *)initWithString:(NSString *)str;
+- (UMDiameterAvp *)initWithObject:(id)obj;
+
 /* to set an object from Json */
 - (void)setObjectValue:(id)obj;
 - (id)objectValue;
@@ -64,6 +68,7 @@
 - (void)afterDecode;
 - (void)beforeEncode;
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass;
++ (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass value:(NSString *)value;
 - (UMSynchronizedSortedDictionary *)definition;
 
 @end

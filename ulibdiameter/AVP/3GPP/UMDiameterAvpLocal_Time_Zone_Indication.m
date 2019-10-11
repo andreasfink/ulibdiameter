@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocal_Time_Zone_Indication.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 07:01:24.403000
+//  Created by afink on 2019-10-11 07:52:17.645000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 
 - (NSString *)avpType
 {
-    return @"Local-Time-Zone-Indication ";
+    return @"Local-Time-Zone-Indication";
 }
 
 - (uint32_t)avpCode

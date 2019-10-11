@@ -57,4 +57,14 @@
 }
 
 
+- (UMDiameterAvpOctetString *)initWithString:(NSString *)str encoding:(NSStringEncoding)encoding;
+{
+    NSData *d = [str dataUsingEncoding:encoding];
+    self = [super init];
+    if(self)
+    {
+        [self setDataValue:d];
+    }
+    return self;
+}
 @end

@@ -12,4 +12,6 @@
 
 - (NSString *)value;
 - (void)setValue:(NSString *)v;
+- (UMDiameterAvpUTF8String *)initWithString:(NSString *)str;
+
 @end
