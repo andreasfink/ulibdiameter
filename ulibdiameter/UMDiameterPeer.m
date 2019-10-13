@@ -335,6 +335,7 @@
         UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // { Origin-Realm }
@@ -343,6 +344,7 @@
         UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -357,6 +359,7 @@
             [avp setFlagMandatory:YES];
  /* FIXME */
             //[avp setHostIPAddress:addr];
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -366,6 +369,7 @@
         UMDiameterAvpVendor_Id *avp = [[UMDiameterAvpVendor_Id alloc]init];
         [avp setFlagMandatory:YES];
         [avp setNumberValue:@(_router.vendorId)];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // { Product-Name }
@@ -374,6 +378,7 @@
         UMDiameterAvpProduct_Name *avp = [[UMDiameterAvpProduct_Name alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.productName  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -383,6 +388,7 @@
         UMDiameterAvpOrigin_State_Id *avp =  [[UMDiameterAvpOrigin_State_Id alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumberValue:_originStateId];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -395,6 +401,7 @@
             UMDiameterAvpSupported_Vendor_Id *avp =  [[UMDiameterAvpSupported_Vendor_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumberValue:n];
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -407,6 +414,7 @@
             UMDiameterAvpAuth_Application_Id *avp =  [[UMDiameterAvpAuth_Application_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumberValue:n];
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -420,6 +428,7 @@
             UMDiameterAvpInband_Security_Id *avp =  [[UMDiameterAvpInband_Security_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumberValue:n]; /* NO_INBAND_SECURITY */
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -436,13 +445,16 @@
 
         UMDiameterAvpVendor_Id *avp_vendor = [[UMDiameterAvpVendor_Id alloc]init];
         avp_vendor.numberValue = vendor;
+        [avp_vendor beforeEncode];
         [entries addObject:avp_vendor];
 
         UMDiameterAvpAuth_Application_Id *avp_app = [[UMDiameterAvpAuth_Application_Id alloc]init];
         avp_app.numberValue = application;
+        [avp_app beforeEncode];
         [entries addObject:avp_app];
 
         [avp setArray:entries];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -453,6 +465,7 @@
         UMDiameterAvpFirmware_Revision *avp =  [[UMDiameterAvpFirmware_Revision alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumberValue:_router.firmwareRevision];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -511,6 +524,7 @@
         UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData = [_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // { Origin-Realm }
@@ -519,6 +533,7 @@
         UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -529,6 +544,7 @@
         UMDiameterAvpError_Message *avp =  [[UMDiameterAvpError_Message alloc]init];
         [avp setFlagMandatory:NO];
         [avp setValue:errorMessage];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // [ Failed-AVP ]
@@ -537,6 +553,7 @@
         UMDiameterAvpFailed_AVP *avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [avp setFlagMandatory:NO];
         [avp setArray:failedAvp];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -600,6 +617,7 @@
         UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData = [_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // { Origin-Realm }
@@ -608,6 +626,7 @@
         UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -617,6 +636,7 @@
         UMDiameterAvpResult_Code *avp = [[UMDiameterAvpResult_Code alloc]init];
         [avp setFlagMandatory:YES];
         [avp setNumberValue:@(resultCode)];
+        [avp beforeEncode];
         [packet appendAvp:avp];
         if(resultCode != UMDiameterResultCode_DIAMETER_SUCCESS)
         {
@@ -636,6 +656,7 @@
             UMDiameterAvpHost_IP_Address *avp =  [[UMDiameterAvpHost_IP_Address alloc]init];
             [avp setFlagMandatory:YES];
     //        [avp setHostIPAddress:addr]
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -646,6 +667,7 @@
         UMDiameterAvpVendor_Id *avp = [[UMDiameterAvpVendor_Id alloc]init];
         [avp setFlagMandatory:YES];
         [avp setNumberValue:@(_router.vendorId)];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // { Product-Name }
@@ -654,6 +676,7 @@
         UMDiameterAvpProduct_Name *avp = [[UMDiameterAvpProduct_Name alloc]init];
         [avp setFlagMandatory:YES];
         avp.avpData =[_router.productName  dataUsingEncoding:NSUTF8StringEncoding];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -663,6 +686,7 @@
         UMDiameterAvpOrigin_State_Id *avp =  [[UMDiameterAvpOrigin_State_Id alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumberValue:_originStateId];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -672,6 +696,7 @@
         UMDiameterAvpError_Message *avp =  [[UMDiameterAvpError_Message alloc]init];
         [avp setFlagMandatory:NO];
         [avp setValue:errorMessage];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -681,6 +706,7 @@
         UMDiameterAvpFailed_AVP *avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [avp setFlagMandatory:NO];
         [avp setArray:failedAvp];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // * [ Supported-Vendor-Id ]
@@ -692,6 +718,7 @@
             UMDiameterAvpSupported_Vendor_Id *avp =  [[UMDiameterAvpSupported_Vendor_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumberValue:n];
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -704,6 +731,7 @@
             UMDiameterAvpInband_Security_Id *avp =  [[UMDiameterAvpInband_Security_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumberValue:n]; /* NO_INBAND_SECURITY */
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
@@ -713,6 +741,7 @@
         UMDiameterAvpFirmware_Revision *avp =  [[UMDiameterAvpFirmware_Revision alloc]init];
         [avp setFlagMandatory:NO];
         [avp setNumberValue:_router.firmwareRevision];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
 
@@ -728,13 +757,17 @@
 
         UMDiameterAvpVendor_Id *avp_vendor = [[UMDiameterAvpVendor_Id alloc]init];
         avp_vendor.numberValue = vendor;
+        [avp_vendor beforeEncode];
         [entries addObject:avp_vendor];
 
         UMDiameterAvpAuth_Application_Id *avp_app = [[UMDiameterAvpAuth_Application_Id alloc]init];
         avp_app.numberValue = application;
+        [avp_app beforeEncode];
         [entries addObject:avp_app];
 
+
         [avp setArray:entries];
+        [avp beforeEncode];
         [packet appendAvp:avp];
     }
     // * [ Auth-Application-Id ]
@@ -746,10 +779,10 @@
             UMDiameterAvpAuth_Application_Id *avp =  [[UMDiameterAvpAuth_Application_Id alloc]init];
             [avp setFlagMandatory:YES];
             [avp setNumberValue:n];
+            [avp beforeEncode];
             [packet appendAvp:avp];
         }
     }
-
     return packet;
 }
 
