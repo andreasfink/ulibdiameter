@@ -38,7 +38,7 @@
     BOOL                    _isActive;
     BOOL                    _isConnecting;
     BOOL                    _isForcedOutOfService;
-
+    BOOL                    _shouldSendCER; /* this triggers a CER after the first CER is received from the remote */
     UMMutex                 *_nextHopIdentifierLock;
     NSNumber                *_originStateId;
 
