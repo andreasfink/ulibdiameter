@@ -61,18 +61,18 @@
 649	Restoration-Info	6.3.52	Grouped	V
 650	Session-Priority	06.03.21	Enumerated	V
 654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
-700	User-Identity	06.03.01	Grouped	M, V
+700	User-Identity	06.03.01	Grouped	M,V
 701	MSISDN	.	OctetString	M,V
-702	User-Data	06.03.03	OctetString	M, V
-703	Data-Reference	06.03.04	Enumerated	M, V
-704	Service-Indication	06.03.05	OctetString	M, V
-705	Subs-Req-Type	06.03.06	Enumerated	M, V
-706	Requested-Domain	06.03.07	Enumerated	M, V
-707	Current-Location	06.03.08	Enumerated	M, V
+702	User-Data	06.03.03	OctetString	M,V
+703	Data-Reference	06.03.04	Enumerated	M,V
+704	Service-Indication	06.03.05	OctetString	M,V
+705	Subs-Req-Type	06.03.06	Enumerated	M,V
+706	Requested-Domain	06.03.07	Enumerated	M,V
+707	Current-Location	06.03.08	Enumerated	M,V
 708	Identity-Set	06.03.10	Enumerated	V
 709	Expiry-Time	06.03.16	Time	V
 710	Send-Data-Indication	06.03.17	Enumerated	V
-711	DSAI-Tag	06.03.18	OctetString	M, V
+711	DSAI-Tag	06.03.18	OctetString	M,V
 712	One-Time-Notification	06.03.22	Enumerated	V
 713	Requested-Nodes	6.3.7A	Unsigned32	V
 714	Serving-Node-Indication	06.03.23	Enumerated	V
@@ -301,30 +301,30 @@
 2409	SGSN-Name	-	DiameterIdentity	V
 2410	SGSN-Realm	-	DiameterIdentity	V
 2411	RIA-Flags	-	Unsigned32	V
-2500	SLg-Location-Type	07.04.02	Enumerated	M, V
-2501	LCS-EPS-Client-Name	07.04.03	Grouped	M, V
-2502	LCS-Requestor-Name	07.04.04	Grouped	M, V
-2503	LCS-Priority	07.04.05	Unsigned32	M, V
-2504	LCS-QoS	07.04.06	Grouped	M, V
-2505	Horizontal-Accuracy	07.04.07	Unsigned32	M, V
-2506	Vertical-Accuracy	07.04.08	Unsigned32	M, V
-2507	Vertical-Requested	07.04.09	Enumerated	M, V
-2508	Velocity-Requested	07.04.10	Enumerated	M, V
-2509	Response-Time	07.04.11	Enumerated	M, V
-2510	LCS-Supported-GAD-Shapes	07.04.12	Unsigned32	M, V	10415
-2511	LCS-Codeword	07.04.13	UTF8String	M, V
-2512	LCS-Privacy-Check	07.04.14	Enumerated	M, V
-2513	Accuracy-Fulfilment-Indicator	07.04.15	Enumerated	M, V
-2514	Age-Of-Location-Estimate	07.04.16	Unsigned32	M, V
-2515	Velocity-Estimate	07.04.17	OctetString	M, V
-2516	EUTRAN-Positioning-Data	07.04.18	OctetString	M, V
-2517	ECGI	07.04.19	OctetString	M, V
-2518	Location-Event	07.04.20	Enumerated	M, V
-2519	Pseudonym-Indicator	07.04.21	Enumerated	M, V
-2520	LCS-Service-Type-ID	07.04.22	Unsigned32	M, V
-2521	LCS-Privacy-Check-Non-Session 	07.04.23	Grouped	M, V
-2522	LCS-Privacy-Check-Session 	07.04.24	Grouped	M, V
-2523	LCS-QoS-Class	07.04.27	Enumerated	M, V
+2500	SLg-Location-Type	07.04.02	Enumerated	M,V
+2501	LCS-EPS-Client-Name	07.04.03	Grouped	M,V
+2502	LCS-Requestor-Name	07.04.04	Grouped	M,V
+2503	LCS-Priority	07.04.05	Unsigned32	M,V
+2504	LCS-QoS	07.04.06	Grouped	M,V
+2505	Horizontal-Accuracy	07.04.07	Unsigned32	M,V
+2506	Vertical-Accuracy	07.04.08	Unsigned32	M,V
+2507	Vertical-Requested	07.04.09	Enumerated	M,V
+2508	Velocity-Requested	07.04.10	Enumerated	M,V
+2509	Response-Time	07.04.11	Enumerated	M,V
+2510	LCS-Supported-GAD-Shapes	07.04.12	Unsigned32	M,V	10415
+2511	LCS-Codeword	07.04.13	UTF8String	M,V
+2512	LCS-Privacy-Check	07.04.14	Enumerated	M,V
+2513	Accuracy-Fulfilment-Indicator	07.04.15	Enumerated	M,V
+2514	Age-Of-Location-Estimate	07.04.16	Unsigned32	M,V
+2515	Velocity-Estimate	07.04.17	OctetString	M,V
+2516	EUTRAN-Positioning-Data	07.04.18	OctetString	M,V
+2517	ECGI	07.04.19	OctetString	M,V
+2518	Location-Event	07.04.20	Enumerated	M,V
+2519	Pseudonym-Indicator	07.04.21	Enumerated	M,V
+2520	LCS-Service-Type-ID	07.04.22	Unsigned32	M,V
+2521	LCS-Privacy-Check-Non-Session 	07.04.23	Grouped	M,V
+2522	LCS-Privacy-Check-Session 	07.04.24	Grouped	M,V
+2523	LCS-QoS-Class	07.04.27	Enumerated	M,V
 2524	GERAN-Positioning-Info	07.04.29	Grouped	V
 2525	GERAN-Positioning-Data	07.04.30	OctetString	V
 2526	GERAN-GANSS-Positioning-Data	07.04.31	OctetString	V

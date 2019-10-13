@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Supported_GAD_Shapes.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 07:52:17.645000
+//  Created by afink on 2019-10-13 13:13:09.603000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,7 +30,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    _avpFlags = UMDiameterAvpFlag_Mandatory;
+    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
+    _avpVendorId = 10415;
 }
 
 
