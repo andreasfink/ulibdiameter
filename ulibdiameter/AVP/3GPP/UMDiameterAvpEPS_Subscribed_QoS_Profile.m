@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_Subscribed_QoS_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_qos_class_identifier)
     {
-        [o beforeEncode];
+        [_var_qos_class_identifier beforeEncode];
         [arr addObject:_var_qos_class_identifier];
     }
     if(_var_allocation_retention_priority)
     {
-        [o beforeEncode];
+        [_var_allocation_retention_priority beforeEncode];
         [arr addObject:_var_allocation_retention_priority];
     }
     if(_var_avp.count > 0)

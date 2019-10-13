@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -52,17 +52,17 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_scef_reference_id)
     {
-        [o beforeEncode];
+        [_var_scef_reference_id beforeEncode];
         [arr addObject:_var_scef_reference_id];
     }
     if(_var_scef_id)
     {
-        [o beforeEncode];
+        [_var_scef_id beforeEncode];
         [arr addObject:_var_scef_id];
     }
     if(_var_monitoring_type)
     {
-        [o beforeEncode];
+        [_var_monitoring_type beforeEncode];
         [arr addObject:_var_monitoring_type];
     }
     if(_var_scef_reference_id_for_deletion.count > 0)
@@ -75,32 +75,32 @@
     }
     if(_var_maximum_number_of_reports)
     {
-        [o beforeEncode];
+        [_var_maximum_number_of_reports beforeEncode];
         [arr addObject:_var_maximum_number_of_reports];
     }
     if(_var_monitoring_duration)
     {
-        [o beforeEncode];
+        [_var_monitoring_duration beforeEncode];
         [arr addObject:_var_monitoring_duration];
     }
     if(_var_charged_party)
     {
-        [o beforeEncode];
+        [_var_charged_party beforeEncode];
         [arr addObject:_var_charged_party];
     }
     if(_var_ue_reachability_configuration)
     {
-        [o beforeEncode];
+        [_var_ue_reachability_configuration beforeEncode];
         [arr addObject:_var_ue_reachability_configuration];
     }
     if(_var_location_information_configuration)
     {
-        [o beforeEncode];
+        [_var_location_information_configuration beforeEncode];
         [arr addObject:_var_location_information_configuration];
     }
     if(_var_scef_realm)
     {
-        [o beforeEncode];
+        [_var_scef_realm beforeEncode];
         [arr addObject:_var_scef_realm];
     }
     if(_var_avp.count > 0)

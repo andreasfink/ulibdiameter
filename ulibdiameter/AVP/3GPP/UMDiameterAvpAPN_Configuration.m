@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -49,7 +49,7 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_context_identifier)
     {
-        [o beforeEncode];
+        [_var_context_identifier beforeEncode];
         [arr addObject:_var_context_identifier];
     }
     if(_var_served_party_ip_address.count > 0)
@@ -62,32 +62,32 @@
     }
     if(_var_pdn_type)
     {
-        [o beforeEncode];
+        [_var_pdn_type beforeEncode];
         [arr addObject:_var_pdn_type];
     }
     if(_var_service_selection)
     {
-        [o beforeEncode];
+        [_var_service_selection beforeEncode];
         [arr addObject:_var_service_selection];
     }
     if(_var_eps_subscribed_qos_profile)
     {
-        [o beforeEncode];
+        [_var_eps_subscribed_qos_profile beforeEncode];
         [arr addObject:_var_eps_subscribed_qos_profile];
     }
     if(_var_vplmn_dynamic_address_allowed)
     {
-        [o beforeEncode];
+        [_var_vplmn_dynamic_address_allowed beforeEncode];
         [arr addObject:_var_vplmn_dynamic_address_allowed];
     }
     if(_var_mip6_agent_info)
     {
-        [o beforeEncode];
+        [_var_mip6_agent_info beforeEncode];
         [arr addObject:_var_mip6_agent_info];
     }
     if(_var_visited_network_identifier)
     {
-        [o beforeEncode];
+        [_var_visited_network_identifier beforeEncode];
         [arr addObject:_var_visited_network_identifier];
     }
     [self setArray:arr];

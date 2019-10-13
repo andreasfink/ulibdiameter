@@ -2,7 +2,7 @@
 //  UMDiameterAvpPLMN_ID_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_visited_plmn_id)
     {
-        [o beforeEncode];
+        [_var_visited_plmn_id beforeEncode];
         [arr addObject:_var_visited_plmn_id];
     }
     if(_var_periodic_location_support_indicator)
     {
-        [o beforeEncode];
+        [_var_periodic_location_support_indicator beforeEncode];
         [arr addObject:_var_periodic_location_support_indicator];
     }
     if(_var_avp.count > 0)

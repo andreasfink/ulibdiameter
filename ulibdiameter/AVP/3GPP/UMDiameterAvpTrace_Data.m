@@ -2,7 +2,7 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -50,42 +50,42 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_trace_reference)
     {
-        [o beforeEncode];
+        [_var_trace_reference beforeEncode];
         [arr addObject:_var_trace_reference];
     }
     if(_var_trace_depth)
     {
-        [o beforeEncode];
+        [_var_trace_depth beforeEncode];
         [arr addObject:_var_trace_depth];
     }
     if(_var_trace_ne_type_list)
     {
-        [o beforeEncode];
+        [_var_trace_ne_type_list beforeEncode];
         [arr addObject:_var_trace_ne_type_list];
     }
     if(_var_trace_interface_list)
     {
-        [o beforeEncode];
+        [_var_trace_interface_list beforeEncode];
         [arr addObject:_var_trace_interface_list];
     }
     if(_var_trace_event_list)
     {
-        [o beforeEncode];
+        [_var_trace_event_list beforeEncode];
         [arr addObject:_var_trace_event_list];
     }
     if(_var_omc_id)
     {
-        [o beforeEncode];
+        [_var_omc_id beforeEncode];
         [arr addObject:_var_omc_id];
     }
     if(_var_trace_collection_entity)
     {
-        [o beforeEncode];
+        [_var_trace_collection_entity beforeEncode];
         [arr addObject:_var_trace_collection_entity];
     }
     if(_var_mdt_configuration)
     {
-        [o beforeEncode];
+        [_var_mdt_configuration beforeEncode];
         [arr addObject:_var_mdt_configuration];
     }
     if(_var_avp.count > 0)

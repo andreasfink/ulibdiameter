@@ -2,7 +2,7 @@
 //  UMDiameterAvpPDP_Context.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -59,87 +59,87 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_context_identifier)
     {
-        [o beforeEncode];
+        [_var_context_identifier beforeEncode];
         [arr addObject:_var_context_identifier];
     }
     if(_var_pdp_type)
     {
-        [o beforeEncode];
+        [_var_pdp_type beforeEncode];
         [arr addObject:_var_pdp_type];
     }
     if(_var_pdp_address)
     {
-        [o beforeEncode];
+        [_var_pdp_address beforeEncode];
         [arr addObject:_var_pdp_address];
     }
     if(_var_qos_subscribed)
     {
-        [o beforeEncode];
+        [_var_qos_subscribed beforeEncode];
         [arr addObject:_var_qos_subscribed];
     }
     if(_var_vplmn_dynamic_address_allowed)
     {
-        [o beforeEncode];
+        [_var_vplmn_dynamic_address_allowed beforeEncode];
         [arr addObject:_var_vplmn_dynamic_address_allowed];
     }
     if(_var_service_selection)
     {
-        [o beforeEncode];
+        [_var_service_selection beforeEncode];
         [arr addObject:_var_service_selection];
     }
     if(_var_3gpp_charging_characteristics)
     {
-        [o beforeEncode];
+        [_var_3gpp_charging_characteristics beforeEncode];
         [arr addObject:_var_3gpp_charging_characteristics];
     }
     if(_var_ext_pdp_type)
     {
-        [o beforeEncode];
+        [_var_ext_pdp_type beforeEncode];
         [arr addObject:_var_ext_pdp_type];
     }
     if(_var_ext_pdp_address)
     {
-        [o beforeEncode];
+        [_var_ext_pdp_address beforeEncode];
         [arr addObject:_var_ext_pdp_address];
     }
     if(_var_ambr)
     {
-        [o beforeEncode];
+        [_var_ambr beforeEncode];
         [arr addObject:_var_ambr];
     }
     if(_var_apn_oi_replacement)
     {
-        [o beforeEncode];
+        [_var_apn_oi_replacement beforeEncode];
         [arr addObject:_var_apn_oi_replacement];
     }
     if(_var_sipto_permission)
     {
-        [o beforeEncode];
+        [_var_sipto_permission beforeEncode];
         [arr addObject:_var_sipto_permission];
     }
     if(_var_lipa_permission)
     {
-        [o beforeEncode];
+        [_var_lipa_permission beforeEncode];
         [arr addObject:_var_lipa_permission];
     }
     if(_var_restoration_priority)
     {
-        [o beforeEncode];
+        [_var_restoration_priority beforeEncode];
         [arr addObject:_var_restoration_priority];
     }
     if(_var_sipto_local_network_permission)
     {
-        [o beforeEncode];
+        [_var_sipto_local_network_permission beforeEncode];
         [arr addObject:_var_sipto_local_network_permission];
     }
     if(_var_non_ip_data_delivery_mechanism)
     {
-        [o beforeEncode];
+        [_var_non_ip_data_delivery_mechanism beforeEncode];
         [arr addObject:_var_non_ip_data_delivery_mechanism];
     }
     if(_var_scef_id)
     {
-        [o beforeEncode];
+        [_var_scef_id beforeEncode];
         [arr addObject:_var_scef_id];
     }
     if(_var_avp.count > 0)

@@ -2,7 +2,7 @@
 //  UMDiameterAvpUser_CSG_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,17 +44,17 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_csg_id)
     {
-        [o beforeEncode];
+        [_var_csg_id beforeEncode];
         [arr addObject:_var_csg_id];
     }
     if(_var_csg_access_mode)
     {
-        [o beforeEncode];
+        [_var_csg_access_mode beforeEncode];
         [arr addObject:_var_csg_access_mode];
     }
     if(_var_csg_membership_indication)
     {
-        [o beforeEncode];
+        [_var_csg_membership_indication beforeEncode];
         [arr addObject:_var_csg_membership_indication];
     }
     [self setArray:arr];

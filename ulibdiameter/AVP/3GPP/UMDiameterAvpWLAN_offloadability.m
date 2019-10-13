@@ -2,7 +2,7 @@
 //  UMDiameterAvpWLAN_offloadability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_wlan_offloadability_eutran)
     {
-        [o beforeEncode];
+        [_var_wlan_offloadability_eutran beforeEncode];
         [arr addObject:_var_wlan_offloadability_eutran];
     }
     if(_var_wlan_offloadability_utran)
     {
-        [o beforeEncode];
+        [_var_wlan_offloadability_utran beforeEncode];
         [arr addObject:_var_wlan_offloadability_utran];
     }
     if(_var_avp.count > 0)

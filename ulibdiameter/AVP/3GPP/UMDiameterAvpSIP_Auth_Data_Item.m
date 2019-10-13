@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Auth_Data_Item.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -52,47 +52,47 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_sip_item_number)
     {
-        [o beforeEncode];
+        [_var_sip_item_number beforeEncode];
         [arr addObject:_var_sip_item_number];
     }
     if(_var_sip_authentication_scheme)
     {
-        [o beforeEncode];
+        [_var_sip_authentication_scheme beforeEncode];
         [arr addObject:_var_sip_authentication_scheme];
     }
     if(_var_sip_authorization)
     {
-        [o beforeEncode];
+        [_var_sip_authorization beforeEncode];
         [arr addObject:_var_sip_authorization];
     }
     if(_var_sip_authentication_context)
     {
-        [o beforeEncode];
+        [_var_sip_authentication_context beforeEncode];
         [arr addObject:_var_sip_authentication_context];
     }
     if(_var_integrity_key)
     {
-        [o beforeEncode];
+        [_var_integrity_key beforeEncode];
         [arr addObject:_var_integrity_key];
     }
     if(_var_sip_digest_authenticate)
     {
-        [o beforeEncode];
+        [_var_sip_digest_authenticate beforeEncode];
         [arr addObject:_var_sip_digest_authenticate];
     }
     if(_var_framed_ip_address)
     {
-        [o beforeEncode];
+        [_var_framed_ip_address beforeEncode];
         [arr addObject:_var_framed_ip_address];
     }
     if(_var_framed_ipv6_prefix)
     {
-        [o beforeEncode];
+        [_var_framed_ipv6_prefix beforeEncode];
         [arr addObject:_var_framed_ipv6_prefix];
     }
     if(_var_framed_interface_id)
     {
-        [o beforeEncode];
+        [_var_framed_interface_id beforeEncode];
         [arr addObject:_var_framed_interface_id];
     }
     if(_var_line_identifier.count > 0)

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSCSCF_Restoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -45,7 +45,7 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_user_name)
     {
-        [o beforeEncode];
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_restoration_info.count > 0)
@@ -58,7 +58,7 @@
     }
     if(_var_sip_authentication_scheme)
     {
-        [o beforeEncode];
+        [_var_sip_authentication_scheme beforeEncode];
         [arr addObject:_var_sip_authentication_scheme];
     }
     if(_var_avp.count > 0)

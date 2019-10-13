@@ -2,7 +2,7 @@
 //  UMDiameterAvpMBSFN_Area.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_mbsfn_area_id)
     {
-        [o beforeEncode];
+        [_var_mbsfn_area_id beforeEncode];
         [arr addObject:_var_mbsfn_area_id];
     }
     if(_var_carrier_frequency)
     {
-        [o beforeEncode];
+        [_var_carrier_frequency beforeEncode];
         [arr addObject:_var_carrier_frequency];
     }
     if(_var_avp.count > 0)

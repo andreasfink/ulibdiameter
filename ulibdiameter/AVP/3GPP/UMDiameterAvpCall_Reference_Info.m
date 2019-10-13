@@ -2,7 +2,7 @@
 //  UMDiameterAvpCall_Reference_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_call_reference_number)
     {
-        [o beforeEncode];
+        [_var_call_reference_number beforeEncode];
         [arr addObject:_var_call_reference_number];
     }
     if(_var_as_number)
     {
-        [o beforeEncode];
+        [_var_as_number beforeEncode];
         [arr addObject:_var_as_number];
     }
     if(_var_avp.count > 0)

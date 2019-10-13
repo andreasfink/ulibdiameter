@@ -2,7 +2,7 @@
 //  UMDiameterAvpRestoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,22 +46,22 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_path)
     {
-        [o beforeEncode];
+        [_var_path beforeEncode];
         [arr addObject:_var_path];
     }
     if(_var_contact)
     {
-        [o beforeEncode];
+        [_var_contact beforeEncode];
         [arr addObject:_var_contact];
     }
     if(_var_initial_cseq_sequence_number)
     {
-        [o beforeEncode];
+        [_var_initial_cseq_sequence_number beforeEncode];
         [arr addObject:_var_initial_cseq_sequence_number];
     }
     if(_var_subscription_info)
     {
-        [o beforeEncode];
+        [_var_subscription_info beforeEncode];
         [arr addObject:_var_subscription_info];
     }
     if(_var_avp.count > 0)

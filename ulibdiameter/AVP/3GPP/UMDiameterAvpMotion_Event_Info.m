@@ -2,7 +2,7 @@
 //  UMDiameterAvpMotion_Event_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -49,37 +49,37 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_linear_distance)
     {
-        [o beforeEncode];
+        [_var_linear_distance beforeEncode];
         [arr addObject:_var_linear_distance];
     }
     if(_var_occurrence_info)
     {
-        [o beforeEncode];
+        [_var_occurrence_info beforeEncode];
         [arr addObject:_var_occurrence_info];
     }
     if(_var_interval_time)
     {
-        [o beforeEncode];
+        [_var_interval_time beforeEncode];
         [arr addObject:_var_interval_time];
     }
     if(_var_maximum_interval)
     {
-        [o beforeEncode];
+        [_var_maximum_interval beforeEncode];
         [arr addObject:_var_maximum_interval];
     }
     if(_var_sampling_interval)
     {
-        [o beforeEncode];
+        [_var_sampling_interval beforeEncode];
         [arr addObject:_var_sampling_interval];
     }
     if(_var_reporting_duration)
     {
-        [o beforeEncode];
+        [_var_reporting_duration beforeEncode];
         [arr addObject:_var_reporting_duration];
     }
     if(_var_reporting_location_requirements)
     {
-        [o beforeEncode];
+        [_var_reporting_location_requirements beforeEncode];
         [arr addObject:_var_reporting_location_requirements];
     }
     if(_var_avp.count > 0)

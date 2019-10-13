@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,12 +48,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_dsr_flags)
     {
-        [o beforeEncode];
+        [_var_dsr_flags beforeEncode];
         [arr addObject:_var_dsr_flags];
     }
     if(_var_scef_id)
     {
-        [o beforeEncode];
+        [_var_scef_id beforeEncode];
         [arr addObject:_var_scef_id];
     }
     if(_var_context_identifier.count > 0)
@@ -66,7 +66,7 @@
     }
     if(_var_trace_reference)
     {
-        [o beforeEncode];
+        [_var_trace_reference beforeEncode];
         [arr addObject:_var_trace_reference];
     }
     if(_var_ts_code.count > 0)

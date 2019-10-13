@@ -2,7 +2,7 @@
 //  UMDiameterAvpAESE_Communication_Pattern.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,12 +46,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_scef_reference_id)
     {
-        [o beforeEncode];
+        [_var_scef_reference_id beforeEncode];
         [arr addObject:_var_scef_reference_id];
     }
     if(_var_scef_id)
     {
-        [o beforeEncode];
+        [_var_scef_id beforeEncode];
         [arr addObject:_var_scef_id];
     }
     if(_var_scef_reference_id_for_deletion.count > 0)

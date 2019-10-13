@@ -2,7 +2,7 @@
 //  UMDiameterAvpEmergency_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -43,7 +43,7 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_mip6_agent_info)
     {
-        [o beforeEncode];
+        [_var_mip6_agent_info beforeEncode];
         [arr addObject:_var_mip6_agent_info];
     }
     if(_var_avp.count > 0)

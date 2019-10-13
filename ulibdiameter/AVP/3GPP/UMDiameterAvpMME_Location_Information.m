@@ -2,7 +2,7 @@
 //  UMDiameterAvpMME_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -51,47 +51,47 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_e_utran_cell_global_identity)
     {
-        [o beforeEncode];
+        [_var_e_utran_cell_global_identity beforeEncode];
         [arr addObject:_var_e_utran_cell_global_identity];
     }
     if(_var_tracking_area_identity)
     {
-        [o beforeEncode];
+        [_var_tracking_area_identity beforeEncode];
         [arr addObject:_var_tracking_area_identity];
     }
     if(_var_geographical_information)
     {
-        [o beforeEncode];
+        [_var_geographical_information beforeEncode];
         [arr addObject:_var_geographical_information];
     }
     if(_var_geodetic_information)
     {
-        [o beforeEncode];
+        [_var_geodetic_information beforeEncode];
         [arr addObject:_var_geodetic_information];
     }
     if(_var_current_location_retrieved)
     {
-        [o beforeEncode];
+        [_var_current_location_retrieved beforeEncode];
         [arr addObject:_var_current_location_retrieved];
     }
     if(_var_age_of_location_information)
     {
-        [o beforeEncode];
+        [_var_age_of_location_information beforeEncode];
         [arr addObject:_var_age_of_location_information];
     }
     if(_var_user_csg_information)
     {
-        [o beforeEncode];
+        [_var_user_csg_information beforeEncode];
         [arr addObject:_var_user_csg_information];
     }
     if(_var_enodeb_id)
     {
-        [o beforeEncode];
+        [_var_enodeb_id beforeEncode];
         [arr addObject:_var_enodeb_id];
     }
     if(_var_extended_enodeb_id)
     {
-        [o beforeEncode];
+        [_var_extended_enodeb_id beforeEncode];
         [arr addObject:_var_extended_enodeb_id];
     }
     if(_var_avp.count > 0)

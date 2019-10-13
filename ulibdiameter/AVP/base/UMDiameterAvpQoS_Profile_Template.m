@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Profile_Template.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:53.138000
+//  Created by afink on 2019-10-13 13:50:57.979000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -42,12 +42,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_vendor_id)
     {
-        [o beforeEncode];
+        [_var_vendor_id beforeEncode];
         [arr addObject:_var_vendor_id];
     }
     if(_var_qos_profile_id)
     {
-        [o beforeEncode];
+        [_var_qos_profile_id beforeEncode];
         [arr addObject:_var_qos_profile_id];
     }
     if(_var_avp.count > 0)

@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_QoS.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,27 +46,27 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_lcs_qos_class)
     {
-        [o beforeEncode];
+        [_var_lcs_qos_class beforeEncode];
         [arr addObject:_var_lcs_qos_class];
     }
     if(_var_horizontal_accuracy)
     {
-        [o beforeEncode];
+        [_var_horizontal_accuracy beforeEncode];
         [arr addObject:_var_horizontal_accuracy];
     }
     if(_var_vertical_accuracy)
     {
-        [o beforeEncode];
+        [_var_vertical_accuracy beforeEncode];
         [arr addObject:_var_vertical_accuracy];
     }
     if(_var_vertical_requested)
     {
-        [o beforeEncode];
+        [_var_vertical_requested beforeEncode];
         [arr addObject:_var_vertical_requested];
     }
     if(_var_response_time)
     {
-        [o beforeEncode];
+        [_var_response_time beforeEncode];
         [arr addObject:_var_response_time];
     }
     [self setArray:arr];

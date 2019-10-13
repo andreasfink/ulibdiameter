@@ -2,7 +2,7 @@
 //  UMDiameterAvpCharging_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,22 +46,22 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_primary_event_charging_function_name)
     {
-        [o beforeEncode];
+        [_var_primary_event_charging_function_name beforeEncode];
         [arr addObject:_var_primary_event_charging_function_name];
     }
     if(_var_secondary_event_charging_function_name)
     {
-        [o beforeEncode];
+        [_var_secondary_event_charging_function_name beforeEncode];
         [arr addObject:_var_secondary_event_charging_function_name];
     }
     if(_var_primary_charging_collection_function_name)
     {
-        [o beforeEncode];
+        [_var_primary_charging_collection_function_name beforeEncode];
         [arr addObject:_var_primary_charging_collection_function_name];
     }
     if(_var_secondary_charging_collection_function_name)
     {
-        [o beforeEncode];
+        [_var_secondary_charging_collection_function_name beforeEncode];
         [arr addObject:_var_secondary_charging_collection_function_name];
     }
     if(_var_avp.count > 0)

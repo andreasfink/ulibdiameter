@@ -2,7 +2,7 @@
 //  UMDiameterAvpGERAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,22 +46,22 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_item_number)
     {
-        [o beforeEncode];
+        [_var_item_number beforeEncode];
         [arr addObject:_var_item_number];
     }
     if(_var_rand)
     {
-        [o beforeEncode];
+        [_var_rand beforeEncode];
         [arr addObject:_var_rand];
     }
     if(_var_sres)
     {
-        [o beforeEncode];
+        [_var_sres beforeEncode];
         [arr addObject:_var_sres];
     }
     if(_var_kc)
     {
-        [o beforeEncode];
+        [_var_kc beforeEncode];
         [arr addObject:_var_kc];
     }
     if(_var_avp.count > 0)

@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -62,92 +62,92 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_job_type)
     {
-        [o beforeEncode];
+        [_var_job_type beforeEncode];
         [arr addObject:_var_job_type];
     }
     if(_var_area_scope)
     {
-        [o beforeEncode];
+        [_var_area_scope beforeEncode];
         [arr addObject:_var_area_scope];
     }
     if(_var_list_of_measurements)
     {
-        [o beforeEncode];
+        [_var_list_of_measurements beforeEncode];
         [arr addObject:_var_list_of_measurements];
     }
     if(_var_reporting_trigger)
     {
-        [o beforeEncode];
+        [_var_reporting_trigger beforeEncode];
         [arr addObject:_var_reporting_trigger];
     }
     if(_var_report_interval)
     {
-        [o beforeEncode];
+        [_var_report_interval beforeEncode];
         [arr addObject:_var_report_interval];
     }
     if(_var_report_amount)
     {
-        [o beforeEncode];
+        [_var_report_amount beforeEncode];
         [arr addObject:_var_report_amount];
     }
     if(_var_event_threshold_rsrp)
     {
-        [o beforeEncode];
+        [_var_event_threshold_rsrp beforeEncode];
         [arr addObject:_var_event_threshold_rsrp];
     }
     if(_var_event_threshold_rsrq)
     {
-        [o beforeEncode];
+        [_var_event_threshold_rsrq beforeEncode];
         [arr addObject:_var_event_threshold_rsrq];
     }
     if(_var_logging_interval)
     {
-        [o beforeEncode];
+        [_var_logging_interval beforeEncode];
         [arr addObject:_var_logging_interval];
     }
     if(_var_logging_duration)
     {
-        [o beforeEncode];
+        [_var_logging_duration beforeEncode];
         [arr addObject:_var_logging_duration];
     }
     if(_var_measurement_period_lte)
     {
-        [o beforeEncode];
+        [_var_measurement_period_lte beforeEncode];
         [arr addObject:_var_measurement_period_lte];
     }
     if(_var_measurement_period_umts)
     {
-        [o beforeEncode];
+        [_var_measurement_period_umts beforeEncode];
         [arr addObject:_var_measurement_period_umts];
     }
     if(_var_collection_period_rrm_lte)
     {
-        [o beforeEncode];
+        [_var_collection_period_rrm_lte beforeEncode];
         [arr addObject:_var_collection_period_rrm_lte];
     }
     if(_var_collection_period_rrm_umts)
     {
-        [o beforeEncode];
+        [_var_collection_period_rrm_umts beforeEncode];
         [arr addObject:_var_collection_period_rrm_umts];
     }
     if(_var_positioning_method)
     {
-        [o beforeEncode];
+        [_var_positioning_method beforeEncode];
         [arr addObject:_var_positioning_method];
     }
     if(_var_measurement_quantity)
     {
-        [o beforeEncode];
+        [_var_measurement_quantity beforeEncode];
         [arr addObject:_var_measurement_quantity];
     }
     if(_var_event_threshold_event_1f)
     {
-        [o beforeEncode];
+        [_var_event_threshold_event_1f beforeEncode];
         [arr addObject:_var_event_threshold_event_1f];
     }
     if(_var_event_threshold_event_1i)
     {
-        [o beforeEncode];
+        [_var_event_threshold_event_1i beforeEncode];
         [arr addObject:_var_event_threshold_event_1i];
     }
     if(_var_mdt_allowed_plmn_id.count > 0)

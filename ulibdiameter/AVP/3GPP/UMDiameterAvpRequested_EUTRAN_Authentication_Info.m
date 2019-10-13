@@ -2,7 +2,7 @@
 //  UMDiameterAvpRequested_EUTRAN_Authentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -45,17 +45,17 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_number_of_requested_vectors)
     {
-        [o beforeEncode];
+        [_var_number_of_requested_vectors beforeEncode];
         [arr addObject:_var_number_of_requested_vectors];
     }
     if(_var_immediate_response_preferred)
     {
-        [o beforeEncode];
+        [_var_immediate_response_preferred beforeEncode];
         [arr addObject:_var_immediate_response_preferred];
     }
     if(_var_re_synchronization_info)
     {
-        [o beforeEncode];
+        [_var_re_synchronization_info beforeEncode];
         [arr addObject:_var_re_synchronization_info];
     }
     if(_var_avp.count > 0)

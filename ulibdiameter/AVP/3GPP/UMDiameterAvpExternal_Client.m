@@ -2,7 +2,7 @@
 //  UMDiameterAvpExternal_Client.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -45,17 +45,17 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_client_identity)
     {
-        [o beforeEncode];
+        [_var_client_identity beforeEncode];
         [arr addObject:_var_client_identity];
     }
     if(_var_gmlc_restriction)
     {
-        [o beforeEncode];
+        [_var_gmlc_restriction beforeEncode];
         [arr addObject:_var_gmlc_restriction];
     }
     if(_var_notification_to_ue_user)
     {
-        [o beforeEncode];
+        [_var_notification_to_ue_user beforeEncode];
         [arr addObject:_var_notification_to_ue_user];
     }
     if(_var_avp.count > 0)

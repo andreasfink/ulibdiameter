@@ -2,7 +2,7 @@
 //  UMDiameterAvpeDRX_Cycle_Length.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_rat_type)
     {
-        [o beforeEncode];
+        [_var_rat_type beforeEncode];
         [arr addObject:_var_rat_type];
     }
     if(_var_edrx_cycle_length_value)
     {
-        [o beforeEncode];
+        [_var_edrx_cycle_length_value beforeEncode];
         [arr addObject:_var_edrx_cycle_length_value];
     }
     if(_var_avp.count > 0)

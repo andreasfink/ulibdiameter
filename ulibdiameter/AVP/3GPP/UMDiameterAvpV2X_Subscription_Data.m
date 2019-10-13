@@ -2,7 +2,7 @@
 //  UMDiameterAvpV2X_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_v2x_permission)
     {
-        [o beforeEncode];
+        [_var_v2x_permission beforeEncode];
         [arr addObject:_var_v2x_permission];
     }
     if(_var_ue_pc5_ambr)
     {
-        [o beforeEncode];
+        [_var_ue_pc5_ambr beforeEncode];
         [arr addObject:_var_ue_pc5_ambr];
     }
     if(_var_avp.count > 0)

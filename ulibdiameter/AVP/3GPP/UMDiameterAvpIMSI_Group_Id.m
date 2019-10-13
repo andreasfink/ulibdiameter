@@ -2,7 +2,7 @@
 //  UMDiameterAvpIMSI_Group_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -45,17 +45,17 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_group_service_id)
     {
-        [o beforeEncode];
+        [_var_group_service_id beforeEncode];
         [arr addObject:_var_group_service_id];
     }
     if(_var_group_plmn_id)
     {
-        [o beforeEncode];
+        [_var_group_plmn_id beforeEncode];
         [arr addObject:_var_group_plmn_id];
     }
     if(_var_local_group_id)
     {
-        [o beforeEncode];
+        [_var_local_group_id beforeEncode];
         [arr addObject:_var_local_group_id];
     }
     if(_var_avp.count > 0)

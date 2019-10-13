@@ -2,7 +2,7 @@
 //  UMDiameterAvpRepository_Data_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_service_indication)
     {
-        [o beforeEncode];
+        [_var_service_indication beforeEncode];
         [arr addObject:_var_service_indication];
     }
     if(_var_sequence_number)
     {
-        [o beforeEncode];
+        [_var_sequence_number beforeEncode];
         [arr addObject:_var_sequence_number];
     }
     if(_var_avp.count > 0)

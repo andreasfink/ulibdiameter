@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_EPS_Client_Name.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -43,12 +43,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_lcs_name_string)
     {
-        [o beforeEncode];
+        [_var_lcs_name_string beforeEncode];
         [arr addObject:_var_lcs_name_string];
     }
     if(_var_lcs_format_indicator)
     {
-        [o beforeEncode];
+        [_var_lcs_format_indicator beforeEncode];
         [arr addObject:_var_lcs_format_indicator];
     }
     [self setArray:arr];

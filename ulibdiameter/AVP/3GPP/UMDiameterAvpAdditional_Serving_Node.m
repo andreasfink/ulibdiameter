@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdditional_Serving_Node.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:46:58.017000
+//  Created by afink on 2019-10-13 13:51:02.325000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -51,47 +51,47 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_sgsn_number)
     {
-        [o beforeEncode];
+        [_var_sgsn_number beforeEncode];
         [arr addObject:_var_sgsn_number];
     }
     if(_var_mme_name)
     {
-        [o beforeEncode];
+        [_var_mme_name beforeEncode];
         [arr addObject:_var_mme_name];
     }
     if(_var_sgsn_name)
     {
-        [o beforeEncode];
+        [_var_sgsn_name beforeEncode];
         [arr addObject:_var_sgsn_name];
     }
     if(_var_sgsn_realm)
     {
-        [o beforeEncode];
+        [_var_sgsn_realm beforeEncode];
         [arr addObject:_var_sgsn_realm];
     }
     if(_var_mme_realm)
     {
-        [o beforeEncode];
+        [_var_mme_realm beforeEncode];
         [arr addObject:_var_mme_realm];
     }
     if(_var_msc_number)
     {
-        [o beforeEncode];
+        [_var_msc_number beforeEncode];
         [arr addObject:_var_msc_number];
     }
     if(_var_3gpp_aaa_server_name)
     {
-        [o beforeEncode];
+        [_var_3gpp_aaa_server_name beforeEncode];
         [arr addObject:_var_3gpp_aaa_server_name];
     }
     if(_var_lcs_capabilities_sets)
     {
-        [o beforeEncode];
+        [_var_lcs_capabilities_sets beforeEncode];
         [arr addObject:_var_lcs_capabilities_sets];
     }
     if(_var_gmlc_address)
     {
-        [o beforeEncode];
+        [_var_gmlc_address beforeEncode];
         [arr addObject:_var_gmlc_address];
     }
     if(_var_avp.count > 0)
