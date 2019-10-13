@@ -2,7 +2,7 @@
 //  UMDiameterPacketACA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:25.097000
+//  Created by afink on 2019-10-13 14:17:09.093000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -56,84 +56,104 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_result_code)
     {
+        [_var_result_code beforeEncode];
         [arr addObject:_var_result_code];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_accounting_record_type)
     {
+        [_var_accounting_record_type beforeEncode];
         [arr addObject:_var_accounting_record_type];
     }
     if(_var_accounting_record_number)
     {
+        [_var_accounting_record_number beforeEncode];
         [arr addObject:_var_accounting_record_number];
     }
     if(_var_acct_application_id)
     {
+        [_var_acct_application_id beforeEncode];
         [arr addObject:_var_acct_application_id];
     }
     if(_var_vendor_specific_application_id)
     {
+        [_var_vendor_specific_application_id beforeEncode];
         [arr addObject:_var_vendor_specific_application_id];
     }
     if(_var_user_name)
     {
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_accounting_sub_session_id)
     {
+        [_var_accounting_sub_session_id beforeEncode];
         [arr addObject:_var_accounting_sub_session_id];
     }
     if(_var_acct_session_id)
     {
+        [_var_acct_session_id beforeEncode];
         [arr addObject:_var_acct_session_id];
     }
     if(_var_acct_multi_session_id)
     {
+        [_var_acct_multi_session_id beforeEncode];
         [arr addObject:_var_acct_multi_session_id];
     }
     if(_var_error_message)
     {
+        [_var_error_message beforeEncode];
         [arr addObject:_var_error_message];
     }
     if(_var_error_reporting_host)
     {
+        [_var_error_reporting_host beforeEncode];
         [arr addObject:_var_error_reporting_host];
     }
     if(_var_failed_avp)
     {
+        [_var_failed_avp beforeEncode];
         [arr addObject:_var_failed_avp];
     }
     if(_var_acct_interim_interval)
     {
+        [_var_acct_interim_interval beforeEncode];
         [arr addObject:_var_acct_interim_interval];
     }
     if(_var_accounting_realtime_required)
     {
+        [_var_accounting_realtime_required beforeEncode];
         [arr addObject:_var_accounting_realtime_required];
     }
     if(_var_origin_state_id)
     {
+        [_var_origin_state_id beforeEncode];
         [arr addObject:_var_origin_state_id];
     }
     if(_var_event_timestamp)
     {
+        [_var_event_timestamp beforeEncode];
         [arr addObject:_var_event_timestamp];
     }
     if(_var_proxy_info.count > 0)
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -141,6 +161,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

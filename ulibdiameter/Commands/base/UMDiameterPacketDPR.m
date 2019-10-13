@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:25.188000
+//  Created by afink on 2019-10-13 14:17:09.106000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -39,20 +39,24 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_disconnect_cause)
     {
+        [_var_disconnect_cause beforeEncode];
         [arr addObject:_var_disconnect_cause];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

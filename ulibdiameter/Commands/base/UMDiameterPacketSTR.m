@@ -2,7 +2,7 @@
 //  UMDiameterPacketSTR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:24.645000
+//  Created by afink on 2019-10-13 14:17:09.024000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,51 +48,62 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_destination_realm)
     {
+        [_var_destination_realm beforeEncode];
         [arr addObject:_var_destination_realm];
     }
     if(_var_auth_application_id)
     {
+        [_var_auth_application_id beforeEncode];
         [arr addObject:_var_auth_application_id];
     }
     if(_var_termination_cause)
     {
+        [_var_termination_cause beforeEncode];
         [arr addObject:_var_termination_cause];
     }
     if(_var_user_name)
     {
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_destination_host)
     {
+        [_var_destination_host beforeEncode];
         [arr addObject:_var_destination_host];
     }
     if(_var_class.count > 0)
     {
         for(UMDiameterAvpClass *o in _var_class)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_origin_state_id)
     {
+        [_var_origin_state_id beforeEncode];
         [arr addObject:_var_origin_state_id];
     }
     if(_var_proxy_info.count > 0)
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -100,6 +111,7 @@
     {
         for(UMDiameterAvpRoute_Record *o in _var_route_record)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -107,6 +119,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

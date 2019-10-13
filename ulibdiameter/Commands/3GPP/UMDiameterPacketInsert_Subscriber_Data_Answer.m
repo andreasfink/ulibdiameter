@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:25.917000
+//  Created by afink on 2019-10-13 14:17:04.924000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -58,79 +58,97 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_drmp)
     {
+        [_var_drmp beforeEncode];
         [arr addObject:_var_drmp];
     }
     if(_var_vendor_specific_application_id)
     {
+        [_var_vendor_specific_application_id beforeEncode];
         [arr addObject:_var_vendor_specific_application_id];
     }
     if(_var_supported_features.count > 0)
     {
         for(UMDiameterAvpSupported_Features *o in _var_supported_features)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_result_code)
     {
+        [_var_result_code beforeEncode];
         [arr addObject:_var_result_code];
     }
     if(_var_experimental_result)
     {
+        [_var_experimental_result beforeEncode];
         [arr addObject:_var_experimental_result];
     }
     if(_var_auth_session_state)
     {
+        [_var_auth_session_state beforeEncode];
         [arr addObject:_var_auth_session_state];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_ims_voice_over_ps_sessions_supported)
     {
+        [_var_ims_voice_over_ps_sessions_supported beforeEncode];
         [arr addObject:_var_ims_voice_over_ps_sessions_supported];
     }
     if(_var_last_ue_activity_time)
     {
+        [_var_last_ue_activity_time beforeEncode];
         [arr addObject:_var_last_ue_activity_time];
     }
     if(_var_rat_type)
     {
+        [_var_rat_type beforeEncode];
         [arr addObject:_var_rat_type];
     }
     if(_var_ida_flags)
     {
+        [_var_ida_flags beforeEncode];
         [arr addObject:_var_ida_flags];
     }
     if(_var_eps_user_state)
     {
+        [_var_eps_user_state beforeEncode];
         [arr addObject:_var_eps_user_state];
     }
     if(_var_eps_location_information)
     {
+        [_var_eps_location_information beforeEncode];
         [arr addObject:_var_eps_location_information];
     }
     if(_var_local_time_zone)
     {
+        [_var_local_time_zone beforeEncode];
         [arr addObject:_var_local_time_zone];
     }
     if(_var_supported_services)
     {
+        [_var_supported_services beforeEncode];
         [arr addObject:_var_supported_services];
     }
     if(_var_monitoring_event_report.count > 0)
     {
         for(UMDiameterAvpMonitoring_Event_Report *o in _var_monitoring_event_report)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -138,6 +156,7 @@
     {
         for(UMDiameterAvpMonitoring_Event_Config_Status *o in _var_monitoring_event_config_status)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -145,17 +164,20 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_failed_avp)
     {
+        [_var_failed_avp beforeEncode];
         [arr addObject:_var_failed_avp];
     }
     if(_var_proxy_info.count > 0)
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -163,6 +185,7 @@
     {
         for(UMDiameterAvpRoute_Record *o in _var_route_record)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

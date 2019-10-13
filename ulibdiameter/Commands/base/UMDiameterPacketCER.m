@@ -2,7 +2,7 @@
 //  UMDiameterPacketCER.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:24.285000
+//  Created by afink on 2019-10-13 14:17:08.970000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,35 +48,42 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_host_ip_address.count > 0)
     {
         for(UMDiameterAvpHost_IP_Address *o in _var_host_ip_address)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_vendor_id)
     {
+        [_var_vendor_id beforeEncode];
         [arr addObject:_var_vendor_id];
     }
     if(_var_product_name)
     {
+        [_var_product_name beforeEncode];
         [arr addObject:_var_product_name];
     }
     if(_var_origin_state_id)
     {
+        [_var_origin_state_id beforeEncode];
         [arr addObject:_var_origin_state_id];
     }
     if(_var_supported_vendor_id.count > 0)
     {
         for(UMDiameterAvpSupported_Vendor_Id *o in _var_supported_vendor_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -84,6 +91,7 @@
     {
         for(UMDiameterAvpAuth_Application_Id *o in _var_auth_application_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -91,6 +99,7 @@
     {
         for(UMDiameterAvpInband_Security_Id *o in _var_inband_security_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -98,6 +107,7 @@
     {
         for(UMDiameterAvpAcct_Application_Id *o in _var_acct_application_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -105,17 +115,20 @@
     {
         for(UMDiameterAvpVendor_Specific_Application_Id *o in _var_vendor_specific_application_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_firmware_revision)
     {
+        [_var_firmware_revision beforeEncode];
         [arr addObject:_var_firmware_revision];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

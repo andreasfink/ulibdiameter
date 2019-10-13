@@ -2,7 +2,7 @@
 //  UMDiameterPacketSubscribe_Notifications_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:27.929000
+//  Created by afink on 2019-10-13 14:17:05.185000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -59,74 +59,90 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_drmp)
     {
+        [_var_drmp beforeEncode];
         [arr addObject:_var_drmp];
     }
     if(_var_vendor_specific_application_id)
     {
+        [_var_vendor_specific_application_id beforeEncode];
         [arr addObject:_var_vendor_specific_application_id];
     }
     if(_var_auth_session_state)
     {
+        [_var_auth_session_state beforeEncode];
         [arr addObject:_var_auth_session_state];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_destination_host)
     {
+        [_var_destination_host beforeEncode];
         [arr addObject:_var_destination_host];
     }
     if(_var_destination_realm)
     {
+        [_var_destination_realm beforeEncode];
         [arr addObject:_var_destination_realm];
     }
     if(_var_supported_features.count > 0)
     {
         for(UMDiameterAvpSupported_Features *o in _var_supported_features)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_user_identity)
     {
+        [_var_user_identity beforeEncode];
         [arr addObject:_var_user_identity];
     }
     if(_var_wildcarded_public_identity)
     {
+        [_var_wildcarded_public_identity beforeEncode];
         [arr addObject:_var_wildcarded_public_identity];
     }
     if(_var_service_indication.count > 0)
     {
         for(UMDiameterAvpService_Indication *o in _var_service_indication)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_send_data_indication)
     {
+        [_var_send_data_indication beforeEncode];
         [arr addObject:_var_send_data_indication];
     }
     if(_var_server_name)
     {
+        [_var_server_name beforeEncode];
         [arr addObject:_var_server_name];
     }
     if(_var_subs_req_type)
     {
+        [_var_subs_req_type beforeEncode];
         [arr addObject:_var_subs_req_type];
     }
     if(_var_data_reference.count > 0)
     {
         for(UMDiameterAvpData_Reference *o in _var_data_reference)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -134,32 +150,38 @@
     {
         for(UMDiameterAvpIdentity_Set *o in _var_identity_set)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_expiry_time)
     {
+        [_var_expiry_time beforeEncode];
         [arr addObject:_var_expiry_time];
     }
     if(_var_dsai_tag.count > 0)
     {
         for(UMDiameterAvpDSAI_Tag *o in _var_dsai_tag)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_user_name)
     {
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_oc_supported_features)
     {
+        [_var_oc_supported_features beforeEncode];
         [arr addObject:_var_oc_supported_features];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -167,6 +189,7 @@
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -174,6 +197,7 @@
     {
         for(UMDiameterAvpRoute_Record *o in _var_route_record)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

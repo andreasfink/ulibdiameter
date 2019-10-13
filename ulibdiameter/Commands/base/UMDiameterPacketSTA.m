@@ -2,7 +2,7 @@
 //  UMDiameterPacketSTA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:24.733000
+//  Created by afink on 2019-10-13 14:17:09.038000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -50,66 +50,80 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_result_code)
     {
+        [_var_result_code beforeEncode];
         [arr addObject:_var_result_code];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_user_name)
     {
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_class.count > 0)
     {
         for(UMDiameterAvpClass *o in _var_class)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_error_message)
     {
+        [_var_error_message beforeEncode];
         [arr addObject:_var_error_message];
     }
     if(_var_error_reporting_host)
     {
+        [_var_error_reporting_host beforeEncode];
         [arr addObject:_var_error_reporting_host];
     }
     if(_var_failed_avp)
     {
+        [_var_failed_avp beforeEncode];
         [arr addObject:_var_failed_avp];
     }
     if(_var_origin_state_id)
     {
+        [_var_origin_state_id beforeEncode];
         [arr addObject:_var_origin_state_id];
     }
     if(_var_redirect_host.count > 0)
     {
         for(UMDiameterAvpRedirect_Host *o in _var_redirect_host)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_redirect_host_usage)
     {
+        [_var_redirect_host_usage beforeEncode];
         [arr addObject:_var_redirect_host_usage];
     }
     if(_var_redirect_max_cache_time)
     {
+        [_var_redirect_max_cache_time beforeEncode];
         [arr addObject:_var_redirect_max_cache_time];
     }
     if(_var_proxy_info.count > 0)
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -117,6 +131,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

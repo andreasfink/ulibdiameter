@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:26.008000
+//  Created by afink on 2019-10-13 14:17:04.936000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -52,44 +52,54 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_drmp)
     {
+        [_var_drmp beforeEncode];
         [arr addObject:_var_drmp];
     }
     if(_var_vendor_specific_application_id)
     {
+        [_var_vendor_specific_application_id beforeEncode];
         [arr addObject:_var_vendor_specific_application_id];
     }
     if(_var_auth_session_state)
     {
+        [_var_auth_session_state beforeEncode];
         [arr addObject:_var_auth_session_state];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_destination_host)
     {
+        [_var_destination_host beforeEncode];
         [arr addObject:_var_destination_host];
     }
     if(_var_destination_realm)
     {
+        [_var_destination_realm beforeEncode];
         [arr addObject:_var_destination_realm];
     }
     if(_var_user_name)
     {
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_supported_features.count > 0)
     {
         for(UMDiameterAvpSupported_Features *o in _var_supported_features)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -97,21 +107,25 @@
     {
         for(UMDiameterAvpVPLMN_CSG_Subscription_Data *o in _var_vplmn_csg_subscription_data)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_subscription_data)
     {
+        [_var_subscription_data beforeEncode];
         [arr addObject:_var_subscription_data];
     }
     if(_var_idr_flags)
     {
+        [_var_idr_flags beforeEncode];
         [arr addObject:_var_idr_flags];
     }
     if(_var_reset_id.count > 0)
     {
         for(UMDiameterAvpReset_ID *o in _var_reset_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -119,6 +133,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -126,6 +141,7 @@
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -133,6 +149,7 @@
     {
         for(UMDiameterAvpRoute_Record *o in _var_route_record)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

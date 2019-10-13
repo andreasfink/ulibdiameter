@@ -67,7 +67,7 @@
 
 - (void)setStringValue:(NSString *)string
 {
-    self.value = (int32_t)atoll(string.UTF8String);
+    self.value = (int32_t)[string longLongValue];
 }
 - (NSString *)stringValue
 {

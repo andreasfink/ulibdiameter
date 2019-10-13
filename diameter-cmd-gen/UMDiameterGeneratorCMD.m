@@ -444,6 +444,7 @@
             [s appendString:@"    {\n"];
             [s appendFormat:@"        for(%@%@ *o in %@)\n",avpPrefix,avp.objectName,avp.variableName];
             [s appendString:@"        {\n"];
+            [s appendString:@"            [o beforeEncode];\n"];
             [s appendString:@"            [arr addObject:o];\n"];
             [s appendString:@"        }\n"];
             [s appendString:@"    }\n"];
@@ -452,6 +453,7 @@
         {
             [s appendFormat:@"    if(%@)\n",avp.variableName];
             [s appendString:@"    {\n"];
+            [s appendFormat:@"        [%@ beforeEncode];\n",avp.variableName];
             [s appendFormat:@"        [arr addObject:%@];\n",avp.variableName];
             [s appendString:@"    }\n"];
         }

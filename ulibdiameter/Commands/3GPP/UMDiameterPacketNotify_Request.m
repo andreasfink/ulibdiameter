@@ -2,7 +2,7 @@
 //  UMDiameterPacketNotify_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 06:37:26.727000
+//  Created by afink on 2019-10-13 14:17:05.032000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -61,106 +61,130 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_session_id)
     {
+        [_var_session_id beforeEncode];
         [arr addObject:_var_session_id];
     }
     if(_var_vendor_specific_application_id)
     {
+        [_var_vendor_specific_application_id beforeEncode];
         [arr addObject:_var_vendor_specific_application_id];
     }
     if(_var_drmp)
     {
+        [_var_drmp beforeEncode];
         [arr addObject:_var_drmp];
     }
     if(_var_auth_session_state)
     {
+        [_var_auth_session_state beforeEncode];
         [arr addObject:_var_auth_session_state];
     }
     if(_var_origin_host)
     {
+        [_var_origin_host beforeEncode];
         [arr addObject:_var_origin_host];
     }
     if(_var_origin_realm)
     {
+        [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
     if(_var_destination_host)
     {
+        [_var_destination_host beforeEncode];
         [arr addObject:_var_destination_host];
     }
     if(_var_destination_realm)
     {
+        [_var_destination_realm beforeEncode];
         [arr addObject:_var_destination_realm];
     }
     if(_var_user_name)
     {
+        [_var_user_name beforeEncode];
         [arr addObject:_var_user_name];
     }
     if(_var_oc_supported_features)
     {
+        [_var_oc_supported_features beforeEncode];
         [arr addObject:_var_oc_supported_features];
     }
     if(_var_supported_features.count > 0)
     {
         for(UMDiameterAvpSupported_Features *o in _var_supported_features)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_terminal_information)
     {
+        [_var_terminal_information beforeEncode];
         [arr addObject:_var_terminal_information];
     }
     if(_var_mip6_agent_info)
     {
+        [_var_mip6_agent_info beforeEncode];
         [arr addObject:_var_mip6_agent_info];
     }
     if(_var_visited_network_identifier)
     {
+        [_var_visited_network_identifier beforeEncode];
         [arr addObject:_var_visited_network_identifier];
     }
     if(_var_context_identifier)
     {
+        [_var_context_identifier beforeEncode];
         [arr addObject:_var_context_identifier];
     }
     if(_var_service_selection)
     {
+        [_var_service_selection beforeEncode];
         [arr addObject:_var_service_selection];
     }
     if(_var_alert_reason)
     {
+        [_var_alert_reason beforeEncode];
         [arr addObject:_var_alert_reason];
     }
     if(_var_ue_srvcc_capability)
     {
+        [_var_ue_srvcc_capability beforeEncode];
         [arr addObject:_var_ue_srvcc_capability];
     }
     if(_var_nor_flags)
     {
+        [_var_nor_flags beforeEncode];
         [arr addObject:_var_nor_flags];
     }
     if(_var_homogeneous_support_of_ims_voice_over_ps_sessions)
     {
+        [_var_homogeneous_support_of_ims_voice_over_ps_sessions beforeEncode];
         [arr addObject:_var_homogeneous_support_of_ims_voice_over_ps_sessions];
     }
     if(_var_maximum_ue_availability_time)
     {
+        [_var_maximum_ue_availability_time beforeEncode];
         [arr addObject:_var_maximum_ue_availability_time];
     }
     if(_var_monitoring_event_config_status.count > 0)
     {
         for(UMDiameterAvpMonitoring_Event_Config_Status *o in _var_monitoring_event_config_status)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_emergency_services)
     {
+        [_var_emergency_services beforeEncode];
         [arr addObject:_var_emergency_services];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -168,6 +192,7 @@
     {
         for(UMDiameterAvpProxy_Info *o in _var_proxy_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -175,6 +200,7 @@
     {
         for(UMDiameterAvpRoute_Record *o in _var_route_record)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
