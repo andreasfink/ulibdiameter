@@ -479,18 +479,6 @@
                       failedAvp:(NSArray *)failedAvp
 
 {
-    /*
-     <DWA>  ::= < Diameter Header: 280 >
-     { Result-Code }
-     { Origin-Host }
-     { Origin-Realm }
-     [ Error-Message ]
-     [ Failed-AVP ]
-     [ Origin-State-Id ]
-     * [ AVP ]
-
-
-     */
     UMDiameterPacketDWA *packet = [[UMDiameterPacketDWA alloc]init];
     packet.version = 1;
     packet.commandFlags = 0;
@@ -500,44 +488,32 @@
     packet.endToEndIdentifier = endToEnd;
 
     // { Origin-Host }
-    if(1)
+    if(_router.localHostName.length  > 0)
     {
-        UMDiameterAvpOrigin_Host *avp = [[UMDiameterAvpOrigin_Host alloc]init];
-        [avp setFlagMandatory:YES];
-        avp.avpData = [_router.localHostName  dataUsingEncoding:NSUTF8StringEncoding];
-        [avp beforeEncode];
-        [packet appendAvp:avp];
+       packet.var_origin_host= [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
     }
     // { Origin-Realm }
-    if(1)
+    if(_router.localRealm.length > 0)
     {
-        UMDiameterAvpOrigin_Realm *avp = [[UMDiameterAvpOrigin_Realm alloc]init];
-        [avp setFlagMandatory:YES];
-        avp.avpData =[_router.localRealm  dataUsingEncoding:NSUTF8StringEncoding];
-        [avp beforeEncode];
-        [packet appendAvp:avp];
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
     }
-
 
     //     [ Error-Message ]
     if(errorMessage.length > 0)
     {
-        UMDiameterAvpError_Message *avp =  [[UMDiameterAvpError_Message alloc]init];
-        [avp setFlagMandatory:NO];
-        [avp setValue:errorMessage];
-        [avp beforeEncode];
-        [packet appendAvp:avp];
+        packet.var_error_message =  [[UMDiameterAvpError_Message alloc]initWithString:errorMessage];
     }
     // [ Failed-AVP ]
     if(failedAvp)
     {
-        UMDiameterAvpFailed_AVP *avp =  [[UMDiameterAvpFailed_AVP alloc]init];
-        [avp setFlagMandatory:NO];
-        [avp setArray:failedAvp];
-        [avp beforeEncode];
-        [packet appendAvp:avp];
+        packet.var_failed_avp =  [[UMDiameterAvpFailed_AVP alloc]init];
+        [packet.var_failed_avp setArray:failedAvp];
     }
 
+    if(_originStateId!=NULL)
+    {
+        packet.var_origin_state_id = [[UMDiameterAvpOrigin_State_Id alloc]initWithObject:_originStateId];
+    }
     return packet;
 }
 
