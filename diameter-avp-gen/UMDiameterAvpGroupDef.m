@@ -364,7 +364,7 @@
         {
             [s appendFormat:@"    if(%@)\n",avp.variableName];
             [s appendString:@"    {\n"];
-            [s appendString:@"        [o beforeEncode];\n"];
+            [s appendFormat:@"        [%@ beforeEncode];\n",avp.variableName];
             [s appendFormat:@"        [arr addObject:%@];\n",avp.variableName];
             [s appendString:@"    }\n"];
         }
