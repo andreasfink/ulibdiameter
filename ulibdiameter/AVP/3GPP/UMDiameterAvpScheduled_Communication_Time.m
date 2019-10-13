@@ -2,7 +2,7 @@
 //  UMDiameterAvpScheduled_Communication_Time.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -47,21 +47,25 @@
     {
         for(UMDiameterAvpDay_Of_Week_Mask *o in _var_day_of_week_mask)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_time_of_day_start)
     {
+        [o beforeEncode];
         [arr addObject:_var_time_of_day_start];
     }
     if(_var_time_of_day_end)
     {
+        [o beforeEncode];
         [arr addObject:_var_time_of_day_end];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

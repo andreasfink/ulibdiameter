@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -45,20 +45,24 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_call_id_sip_header)
     {
+        [o beforeEncode];
         [arr addObject:_var_call_id_sip_header];
     }
     if(_var_to_sip_header)
     {
+        [o beforeEncode];
         [arr addObject:_var_to_sip_header];
     }
     if(_var_record_route)
     {
+        [o beforeEncode];
         [arr addObject:_var_record_route];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

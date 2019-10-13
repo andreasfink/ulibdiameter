@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuthentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -47,6 +47,7 @@
     {
         for(UMDiameterAvpE_UTRAN_Vector *o in _var_e_utran_vector)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -54,6 +55,7 @@
     {
         for(UMDiameterAvpUTRAN_Vector *o in _var_utran_vector)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -61,6 +63,7 @@
     {
         for(UMDiameterAvpGERAN_Vector *o in _var_geran_vector)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -68,6 +71,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

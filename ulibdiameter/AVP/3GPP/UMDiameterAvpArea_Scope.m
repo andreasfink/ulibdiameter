@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -49,6 +49,7 @@
     {
         for(UMDiameterAvpCell_Global_Identity *o in _var_cell_global_identity)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -56,6 +57,7 @@
     {
         for(UMDiameterAvpE_UTRAN_Cell_Global_Identity *o in _var_e_utran_cell_global_identity)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -63,6 +65,7 @@
     {
         for(UMDiameterAvpRouting_Area_Identity *o in _var_routing_area_identity)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -70,6 +73,7 @@
     {
         for(UMDiameterAvpLocation_Area_Identity *o in _var_location_area_identity)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -77,6 +81,7 @@
     {
         for(UMDiameterAvpTracking_Area_Identity *o in _var_tracking_area_identity)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -84,6 +89,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

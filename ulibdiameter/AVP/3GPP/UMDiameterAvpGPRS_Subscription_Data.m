@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,12 +44,14 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_complete_data_list_included_indicator)
     {
+        [o beforeEncode];
         [arr addObject:_var_complete_data_list_included_indicator];
     }
     if(_var_pdp_context.count > 0)
     {
         for(UMDiameterAvpPDP_Context *o in _var_pdp_context)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -57,6 +59,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

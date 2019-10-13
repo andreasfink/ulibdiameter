@@ -2,7 +2,7 @@
 //  UMDiameterAvpReporting_PLMN_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,17 +46,20 @@
     {
         for(UMDiameterAvpPLMN_ID_List *o in _var_plmn_id_list)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_prioritized_list_indicator)
     {
+        [o beforeEncode];
         [arr addObject:_var_prioritized_list_indicator];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

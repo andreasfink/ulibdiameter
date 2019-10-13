@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocal_Time_Zone.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,16 +44,19 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_time_zone)
     {
+        [o beforeEncode];
         [arr addObject:_var_time_zone];
     }
     if(_var_daylight_saving_time)
     {
+        [o beforeEncode];
         [arr addObject:_var_daylight_saving_time];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

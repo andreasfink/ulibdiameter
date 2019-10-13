@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -45,11 +45,13 @@
     {
         for(UMDiameterAvpVendor_Id *o in _var_vendor_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_service_result_code)
     {
+        [o beforeEncode];
         [arr addObject:_var_service_result_code];
     }
     [self setArray:arr];

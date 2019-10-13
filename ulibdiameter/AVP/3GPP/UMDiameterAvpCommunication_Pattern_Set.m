@@ -2,7 +2,7 @@
 //  UMDiameterAvpCommunication_Pattern_Set.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,35 +48,42 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_periodic_communication_indicator)
     {
+        [o beforeEncode];
         [arr addObject:_var_periodic_communication_indicator];
     }
     if(_var_communication_duration_time)
     {
+        [o beforeEncode];
         [arr addObject:_var_communication_duration_time];
     }
     if(_var_periodic_time)
     {
+        [o beforeEncode];
         [arr addObject:_var_periodic_time];
     }
     if(_var_scheduled_communication_time.count > 0)
     {
         for(UMDiameterAvpScheduled_Communication_Time *o in _var_scheduled_communication_time)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_stationary_indication)
     {
+        [o beforeEncode];
         [arr addObject:_var_stationary_indication];
     }
     if(_var_reference_id_validity_time)
     {
+        [o beforeEncode];
         [arr addObject:_var_reference_id_validity_time];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

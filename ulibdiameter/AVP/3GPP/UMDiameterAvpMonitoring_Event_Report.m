@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Report.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,32 +48,39 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_scef_reference_id)
     {
+        [o beforeEncode];
         [arr addObject:_var_scef_reference_id];
     }
     if(_var_scef_id)
     {
+        [o beforeEncode];
         [arr addObject:_var_scef_id];
     }
     if(_var_reachability_information)
     {
+        [o beforeEncode];
         [arr addObject:_var_reachability_information];
     }
     if(_var_eps_location_information)
     {
+        [o beforeEncode];
         [arr addObject:_var_eps_location_information];
     }
     if(_var_monitoring_type)
     {
+        [o beforeEncode];
         [arr addObject:_var_monitoring_type];
     }
     if(_var_loss_of_connectivity_reason)
     {
+        [o beforeEncode];
         [arr addObject:_var_loss_of_connectivity_reason];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

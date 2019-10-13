@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -47,6 +47,7 @@
     {
         for(UMDiameterAvpGMLC_Number *o in _var_gmlc_number)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -54,6 +55,7 @@
     {
         for(UMDiameterAvpLCS_PrivacyException *o in _var_lcs_privacyexception)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -61,6 +63,7 @@
     {
         for(UMDiameterAvpMO_LR *o in _var_mo_lr)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -68,6 +71,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -48,20 +48,24 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_ss_code)
     {
+        [o beforeEncode];
         [arr addObject:_var_ss_code];
     }
     if(_var_ss_status)
     {
+        [o beforeEncode];
         [arr addObject:_var_ss_status];
     }
     if(_var_notification_to_ue_user)
     {
+        [o beforeEncode];
         [arr addObject:_var_notification_to_ue_user];
     }
     if(_var_external_client.count > 0)
     {
         for(UMDiameterAvpExternal_Client *o in _var_external_client)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -69,6 +73,7 @@
     {
         for(UMDiameterAvpPLMN_Client *o in _var_plmn_client)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -76,6 +81,7 @@
     {
         for(UMDiameterAvpService_Type *o in _var_service_type)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -83,6 +89,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

@@ -2,7 +2,7 @@
 //  UMDiameterAvpAllocation_Retention_Priority.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -42,14 +42,17 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_priority_level)
     {
+        [o beforeEncode];
         [arr addObject:_var_priority_level];
     }
     if(_var_pre_emption_capability)
     {
+        [o beforeEncode];
         [arr addObject:_var_pre_emption_capability];
     }
     if(_var_pre_emption_vulnerability)
     {
+        [o beforeEncode];
         [arr addObject:_var_pre_emption_vulnerability];
     }
     [self setArray:arr];

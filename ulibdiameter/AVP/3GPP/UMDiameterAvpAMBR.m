@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,24 +46,29 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_max_requested_bandwidth_ul)
     {
+        [o beforeEncode];
         [arr addObject:_var_max_requested_bandwidth_ul];
     }
     if(_var_max_requested_bandwidth_dl)
     {
+        [o beforeEncode];
         [arr addObject:_var_max_requested_bandwidth_dl];
     }
     if(_var_extended_max_requested_bw_ul)
     {
+        [o beforeEncode];
         [arr addObject:_var_extended_max_requested_bw_ul];
     }
     if(_var_extended_max_requested_bw_dl)
     {
+        [o beforeEncode];
         [arr addObject:_var_extended_max_requested_bw_dl];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

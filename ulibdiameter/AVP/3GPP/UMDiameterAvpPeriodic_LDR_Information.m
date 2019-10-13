@@ -2,7 +2,7 @@
 //  UMDiameterAvpPeriodic_LDR_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,16 +44,19 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_reporting_amount)
     {
+        [o beforeEncode];
         [arr addObject:_var_reporting_amount];
     }
     if(_var_reporting_interval)
     {
+        [o beforeEncode];
         [arr addObject:_var_reporting_interval];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

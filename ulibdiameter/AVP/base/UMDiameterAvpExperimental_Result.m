@@ -2,7 +2,7 @@
 //  UMDiameterAvpExperimental_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 07:01:28.749000
+//  Created by afink on 2019-10-13 13:46:53.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -42,10 +42,12 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_vendor_id)
     {
+        [o beforeEncode];
         [arr addObject:_var_vendor_id];
     }
     if(_var_experimental_result_code)
     {
+        [o beforeEncode];
         [arr addObject:_var_experimental_result_code];
     }
     [self setArray:arr];

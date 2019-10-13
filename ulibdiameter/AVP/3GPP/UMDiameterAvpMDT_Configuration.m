@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -62,80 +62,99 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_job_type)
     {
+        [o beforeEncode];
         [arr addObject:_var_job_type];
     }
     if(_var_area_scope)
     {
+        [o beforeEncode];
         [arr addObject:_var_area_scope];
     }
     if(_var_list_of_measurements)
     {
+        [o beforeEncode];
         [arr addObject:_var_list_of_measurements];
     }
     if(_var_reporting_trigger)
     {
+        [o beforeEncode];
         [arr addObject:_var_reporting_trigger];
     }
     if(_var_report_interval)
     {
+        [o beforeEncode];
         [arr addObject:_var_report_interval];
     }
     if(_var_report_amount)
     {
+        [o beforeEncode];
         [arr addObject:_var_report_amount];
     }
     if(_var_event_threshold_rsrp)
     {
+        [o beforeEncode];
         [arr addObject:_var_event_threshold_rsrp];
     }
     if(_var_event_threshold_rsrq)
     {
+        [o beforeEncode];
         [arr addObject:_var_event_threshold_rsrq];
     }
     if(_var_logging_interval)
     {
+        [o beforeEncode];
         [arr addObject:_var_logging_interval];
     }
     if(_var_logging_duration)
     {
+        [o beforeEncode];
         [arr addObject:_var_logging_duration];
     }
     if(_var_measurement_period_lte)
     {
+        [o beforeEncode];
         [arr addObject:_var_measurement_period_lte];
     }
     if(_var_measurement_period_umts)
     {
+        [o beforeEncode];
         [arr addObject:_var_measurement_period_umts];
     }
     if(_var_collection_period_rrm_lte)
     {
+        [o beforeEncode];
         [arr addObject:_var_collection_period_rrm_lte];
     }
     if(_var_collection_period_rrm_umts)
     {
+        [o beforeEncode];
         [arr addObject:_var_collection_period_rrm_umts];
     }
     if(_var_positioning_method)
     {
+        [o beforeEncode];
         [arr addObject:_var_positioning_method];
     }
     if(_var_measurement_quantity)
     {
+        [o beforeEncode];
         [arr addObject:_var_measurement_quantity];
     }
     if(_var_event_threshold_event_1f)
     {
+        [o beforeEncode];
         [arr addObject:_var_event_threshold_event_1f];
     }
     if(_var_event_threshold_event_1i)
     {
+        [o beforeEncode];
         [arr addObject:_var_event_threshold_event_1i];
     }
     if(_var_mdt_allowed_plmn_id.count > 0)
     {
         for(UMDiameterAvpMDT_Allowed_PLMN_Id *o in _var_mdt_allowed_plmn_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -143,6 +162,7 @@
     {
         for(UMDiameterAvpMBSFN_Area *o in _var_mbsfn_area)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -150,6 +170,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

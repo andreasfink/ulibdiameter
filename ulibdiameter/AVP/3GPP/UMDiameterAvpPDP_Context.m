@@ -2,7 +2,7 @@
 //  UMDiameterAvpPDP_Context.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -59,76 +59,94 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_context_identifier)
     {
+        [o beforeEncode];
         [arr addObject:_var_context_identifier];
     }
     if(_var_pdp_type)
     {
+        [o beforeEncode];
         [arr addObject:_var_pdp_type];
     }
     if(_var_pdp_address)
     {
+        [o beforeEncode];
         [arr addObject:_var_pdp_address];
     }
     if(_var_qos_subscribed)
     {
+        [o beforeEncode];
         [arr addObject:_var_qos_subscribed];
     }
     if(_var_vplmn_dynamic_address_allowed)
     {
+        [o beforeEncode];
         [arr addObject:_var_vplmn_dynamic_address_allowed];
     }
     if(_var_service_selection)
     {
+        [o beforeEncode];
         [arr addObject:_var_service_selection];
     }
     if(_var_3gpp_charging_characteristics)
     {
+        [o beforeEncode];
         [arr addObject:_var_3gpp_charging_characteristics];
     }
     if(_var_ext_pdp_type)
     {
+        [o beforeEncode];
         [arr addObject:_var_ext_pdp_type];
     }
     if(_var_ext_pdp_address)
     {
+        [o beforeEncode];
         [arr addObject:_var_ext_pdp_address];
     }
     if(_var_ambr)
     {
+        [o beforeEncode];
         [arr addObject:_var_ambr];
     }
     if(_var_apn_oi_replacement)
     {
+        [o beforeEncode];
         [arr addObject:_var_apn_oi_replacement];
     }
     if(_var_sipto_permission)
     {
+        [o beforeEncode];
         [arr addObject:_var_sipto_permission];
     }
     if(_var_lipa_permission)
     {
+        [o beforeEncode];
         [arr addObject:_var_lipa_permission];
     }
     if(_var_restoration_priority)
     {
+        [o beforeEncode];
         [arr addObject:_var_restoration_priority];
     }
     if(_var_sipto_local_network_permission)
     {
+        [o beforeEncode];
         [arr addObject:_var_sipto_local_network_permission];
     }
     if(_var_non_ip_data_delivery_mechanism)
     {
+        [o beforeEncode];
         [arr addObject:_var_non_ip_data_delivery_mechanism];
     }
     if(_var_scef_id)
     {
+        [o beforeEncode];
         [arr addObject:_var_scef_id];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

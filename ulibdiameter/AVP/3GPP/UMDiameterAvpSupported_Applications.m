@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Applications.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -47,6 +47,7 @@
     {
         for(UMDiameterAvpAuth_Application_Id *o in _var_auth_application_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -54,6 +55,7 @@
     {
         for(UMDiameterAvpAcct_Application_Id *o in _var_acct_application_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -61,6 +63,7 @@
     {
         for(UMDiameterAvpVendor_Specific_Application_Id *o in _var_vendor_specific_application_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -68,6 +71,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

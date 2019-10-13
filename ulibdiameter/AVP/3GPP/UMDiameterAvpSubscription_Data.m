@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -83,159 +83,194 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_subscriber_status)
     {
+        [o beforeEncode];
         [arr addObject:_var_subscriber_status];
     }
     if(_var_msisdn)
     {
+        [o beforeEncode];
         [arr addObject:_var_msisdn];
     }
     if(_var_a_msisdn)
     {
+        [o beforeEncode];
         [arr addObject:_var_a_msisdn];
     }
     if(_var_stn_sr)
     {
+        [o beforeEncode];
         [arr addObject:_var_stn_sr];
     }
     if(_var_ics_indicator)
     {
+        [o beforeEncode];
         [arr addObject:_var_ics_indicator];
     }
     if(_var_network_access_mode)
     {
+        [o beforeEncode];
         [arr addObject:_var_network_access_mode];
     }
     if(_var_operator_determined_barring)
     {
+        [o beforeEncode];
         [arr addObject:_var_operator_determined_barring];
     }
     if(_var_hplmn_odb)
     {
+        [o beforeEncode];
         [arr addObject:_var_hplmn_odb];
     }
     if(_var_regional_subscription_zone_code.count > 0)
     {
         for(UMDiameterAvpRegional_Subscription_Zone_Code *o in _var_regional_subscription_zone_code)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_access_restriction_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_access_restriction_data];
     }
     if(_var_apn_oi_replacement)
     {
+        [o beforeEncode];
         [arr addObject:_var_apn_oi_replacement];
     }
     if(_var_lcs_info)
     {
+        [o beforeEncode];
         [arr addObject:_var_lcs_info];
     }
     if(_var_teleservice_list)
     {
+        [o beforeEncode];
         [arr addObject:_var_teleservice_list];
     }
     if(_var_call_barring_info.count > 0)
     {
         for(UMDiameterAvpCall_Barring_Info *o in _var_call_barring_info)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_3gpp_charging_characteristics)
     {
+        [o beforeEncode];
         [arr addObject:_var_3gpp_charging_characteristics];
     }
     if(_var_ambr)
     {
+        [o beforeEncode];
         [arr addObject:_var_ambr];
     }
     if(_var_apn_configuration_profile)
     {
+        [o beforeEncode];
         [arr addObject:_var_apn_configuration_profile];
     }
     if(_var_rat_frequency_selection_priority_id)
     {
+        [o beforeEncode];
         [arr addObject:_var_rat_frequency_selection_priority_id];
     }
     if(_var_trace_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_data];
     }
     if(_var_gprs_subscription_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_gprs_subscription_data];
     }
     if(_var_csg_subscription_data.count > 0)
     {
         for(UMDiameterAvpCSG_Subscription_Data *o in _var_csg_subscription_data)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_roaming_restricted_due_to_unsupported_feature)
     {
+        [o beforeEncode];
         [arr addObject:_var_roaming_restricted_due_to_unsupported_feature];
     }
     if(_var_subscribed_periodic_rau_tau_timer)
     {
+        [o beforeEncode];
         [arr addObject:_var_subscribed_periodic_rau_tau_timer];
     }
     if(_var_mps_priority)
     {
+        [o beforeEncode];
         [arr addObject:_var_mps_priority];
     }
     if(_var_vplmn_lipa_allowed)
     {
+        [o beforeEncode];
         [arr addObject:_var_vplmn_lipa_allowed];
     }
     if(_var_relay_node_indicator)
     {
+        [o beforeEncode];
         [arr addObject:_var_relay_node_indicator];
     }
     if(_var_mdt_user_consent)
     {
+        [o beforeEncode];
         [arr addObject:_var_mdt_user_consent];
     }
     if(_var_subscribed_vsrvcc)
     {
+        [o beforeEncode];
         [arr addObject:_var_subscribed_vsrvcc];
     }
     if(_var_prose_subscription_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_prose_subscription_data];
     }
     if(_var_subscription_data_flags)
     {
+        [o beforeEncode];
         [arr addObject:_var_subscription_data_flags];
     }
     if(_var_adjacent_access_restriction_data.count > 0)
     {
         for(UMDiameterAvpAdjacent_Access_Restriction_Data *o in _var_adjacent_access_restriction_data)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_dl_buffering_suggested_packet_count)
     {
+        [o beforeEncode];
         [arr addObject:_var_dl_buffering_suggested_packet_count];
     }
     if(_var_imsi_group_id.count > 0)
     {
         for(UMDiameterAvpIMSI_Group_Id *o in _var_imsi_group_id)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_ue_usage_type)
     {
+        [o beforeEncode];
         [arr addObject:_var_ue_usage_type];
     }
     if(_var_aese_communication_pattern.count > 0)
     {
         for(UMDiameterAvpAESE_Communication_Pattern *o in _var_aese_communication_pattern)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -243,36 +278,43 @@
     {
         for(UMDiameterAvpMonitoring_Event_Configuration *o in _var_monitoring_event_configuration)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_emergency_info)
     {
+        [o beforeEncode];
         [arr addObject:_var_emergency_info];
     }
     if(_var_v2x_subscription_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_v2x_subscription_data];
     }
     if(_var_edrx_cycle_length.count > 0)
     {
         for(UMDiameterAvpeDRX_Cycle_Length *o in _var_edrx_cycle_length)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
     if(_var_external_identifier)
     {
+        [o beforeEncode];
         [arr addObject:_var_external_identifier];
     }
     if(_var_active_time)
     {
+        [o beforeEncode];
         [arr addObject:_var_active_time];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

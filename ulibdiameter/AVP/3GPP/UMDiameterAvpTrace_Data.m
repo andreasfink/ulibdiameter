@@ -2,7 +2,7 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -50,40 +50,49 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_trace_reference)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_reference];
     }
     if(_var_trace_depth)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_depth];
     }
     if(_var_trace_ne_type_list)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_ne_type_list];
     }
     if(_var_trace_interface_list)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_interface_list];
     }
     if(_var_trace_event_list)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_event_list];
     }
     if(_var_omc_id)
     {
+        [o beforeEncode];
         [arr addObject:_var_omc_id];
     }
     if(_var_trace_collection_entity)
     {
+        [o beforeEncode];
         [arr addObject:_var_trace_collection_entity];
     }
     if(_var_mdt_configuration)
     {
+        [o beforeEncode];
         [arr addObject:_var_mdt_configuration];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

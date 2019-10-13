@@ -122,6 +122,7 @@
     {
         for(UMDiameterAvpService_Indication *o in _var_service_indication)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -129,6 +130,7 @@
     {
         for(UMDiameterAvpData_Reference *o in _var_data_reference)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

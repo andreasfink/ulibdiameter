@@ -2,7 +2,7 @@
 //  UMDiameterAvpProxy_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 07:01:28.749000
+//  Created by afink on 2019-10-13 13:46:53.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -43,16 +43,19 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_proxy_host)
     {
+        [o beforeEncode];
         [arr addObject:_var_proxy_host];
     }
     if(_var_proxy_state)
     {
+        [o beforeEncode];
         [arr addObject:_var_proxy_state];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

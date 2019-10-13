@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Event_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -49,36 +49,44 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_area_definition)
     {
+        [o beforeEncode];
         [arr addObject:_var_area_definition];
     }
     if(_var_occurrence_info)
     {
+        [o beforeEncode];
         [arr addObject:_var_occurrence_info];
     }
     if(_var_interval_time)
     {
+        [o beforeEncode];
         [arr addObject:_var_interval_time];
     }
     if(_var_maximum_interval)
     {
+        [o beforeEncode];
         [arr addObject:_var_maximum_interval];
     }
     if(_var_sampling_interval)
     {
+        [o beforeEncode];
         [arr addObject:_var_sampling_interval];
     }
     if(_var_reporting_duration)
     {
+        [o beforeEncode];
         [arr addObject:_var_reporting_duration];
     }
     if(_var_reporting_location_requirements)
     {
+        [o beforeEncode];
         [arr addObject:_var_reporting_location_requirements];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

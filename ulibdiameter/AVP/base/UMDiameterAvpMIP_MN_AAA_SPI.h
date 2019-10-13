@@ -2,7 +2,7 @@
 //  UMDiameterAvpMIP_MN_AAA_SPI.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-11 07:01:28.749000
+//  Created by afink on 2019-10-13 13:46:53.138000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

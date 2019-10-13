@@ -2,7 +2,7 @@
 //  UMDiameterAvpServer_Capabilities.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,6 +46,7 @@
     {
         for(UMDiameterAvpMandatory_Capability *o in _var_mandatory_capability)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -53,6 +54,7 @@
     {
         for(UMDiameterAvpOptional_Capability *o in _var_optional_capability)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -60,6 +62,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

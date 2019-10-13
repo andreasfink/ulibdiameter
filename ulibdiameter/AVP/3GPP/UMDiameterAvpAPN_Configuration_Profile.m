@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -46,20 +46,24 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_context_identifier)
     {
+        [o beforeEncode];
         [arr addObject:_var_context_identifier];
     }
     if(_var_additional_context_identifier)
     {
+        [o beforeEncode];
         [arr addObject:_var_additional_context_identifier];
     }
     if(_var_all_apn_configurations_included_indicator)
     {
+        [o beforeEncode];
         [arr addObject:_var_all_apn_configurations_included_indicator];
     }
     if(_var_apn_configuration.count > 0)
     {
         for(UMDiameterAvpAPN_Configuration *o in _var_apn_configuration)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -67,6 +71,7 @@
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }

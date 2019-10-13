@@ -2,7 +2,7 @@
 //  UMDiameterAvpGERAN_Positioning_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:13:09.603000
+//  Created by afink on 2019-10-13 13:46:58.017000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,16 +44,19 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_geran_positioning_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_geran_positioning_data];
     }
     if(_var_geran_ganss_positioning_data)
     {
+        [o beforeEncode];
         [arr addObject:_var_geran_ganss_positioning_data];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
