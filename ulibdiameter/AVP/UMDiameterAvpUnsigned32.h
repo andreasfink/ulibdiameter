@@ -19,4 +19,5 @@
 - (void)setNumberValue:(NSNumber *)n;
 - (void)setStringValue:(NSString *)string;
 - (NSString *)stringValue;
+
 @end

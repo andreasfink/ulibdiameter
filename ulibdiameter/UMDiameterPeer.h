@@ -21,6 +21,7 @@
 @class UMDiameterRouter;
 @class UMDiameterTcpConnection;
 @class UMDiameterPacket;
+@class UMDiameterAVP;
 
 @interface UMDiameterPeer : UMLayer<UMLayerUserProtocol,UMLayerSctpUserProtocol>
 {
@@ -76,7 +77,7 @@
        endToEnd:(uint32_t)endToEnd
      resultCode:(uint32_t)resultCode
    errorMessage:(NSString *)errorMessage
-      failedAvp:(NSArray *)failedAvp;
+      failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
 
 - (void)powerOn;
 - (void)powerOff;
