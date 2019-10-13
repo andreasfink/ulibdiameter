@@ -23,6 +23,7 @@
 #import "UMDiameterAvpTime.h"
 #import "UMDiameterAvpUnsigned32.h"
 #import "UMDiameterAvpUTF8String.h"
+#import "UMDiameterAvpAddress+diameter.h"
 
 
 /* from AVP subdirectories  */

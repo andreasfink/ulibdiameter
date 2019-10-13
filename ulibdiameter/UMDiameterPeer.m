@@ -15,6 +15,8 @@
 #import "UMDiameterResultCode.h"
 #import "UMDiameterPacketCEA.h"
 #import "UMDiameterPacketCER.h"
+#import "UMDiameterPacketDWR.h"
+#import "UMDiameterPacketDWA.h"
 
 #import "UMDiameterAvpAll.h"
 
@@ -489,8 +491,7 @@
 
 
      */
-
-    UMDiameterPacket *packet = [[UMDiameterPacket alloc]init];
+    UMDiameterPacketDWA *packet = [[UMDiameterPacketDWA alloc]init];
     packet.version = 1;
     packet.commandFlags = 0;
     packet.commandCode = UMDiameterCommandCode_Device_Watchdog;
