@@ -2,7 +2,7 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -146,6 +146,21 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Trace-Reference"] = [_var_trace_reference objectValue];
+	dict[@"Trace-Depth"] = [_var_trace_depth objectValue];
+	dict[@"Trace-NE-Type-List"] = [_var_trace_ne_type_list objectValue];
+	dict[@"Trace-Interface-List"] = [_var_trace_interface_list objectValue];
+	dict[@"Trace-Event-List"] = [_var_trace_event_list objectValue];
+	dict[@"OMC-Id"] = [_var_omc_id objectValue];
+	dict[@"Trace-Collection-Entity"] = [_var_trace_collection_entity objectValue];
+	dict[@"MDT-Configuration"] = [_var_mdt_configuration objectValue];
+	return dict;
+}
+
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpVendor_Specific_Application_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:50:57.979000
+//  Created by afink on 2019-10-14 07:52:18.180000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,16 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Vendor-Id"] = [_var_vendor_id objectValue];
+	dict[@"Auth-Application-Id"] = [_var_auth_application_id objectValue];
+	dict[@"Acct-Application-Id"] = [_var_acct_application_id objectValue];
+	return dict;
+}
+
 
 @end
 

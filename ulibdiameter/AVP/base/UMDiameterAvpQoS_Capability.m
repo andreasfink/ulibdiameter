@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Capability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:50:57.979000
+//  Created by afink on 2019-10-14 07:52:18.180000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -78,6 +78,21 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_qos_profile_template)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"QoS-Profile-Template"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

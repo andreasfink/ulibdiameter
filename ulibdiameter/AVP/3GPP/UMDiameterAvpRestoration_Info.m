@@ -2,7 +2,7 @@
 //  UMDiameterAvpRestoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,6 +106,17 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Path"] = [_var_path objectValue];
+	dict[@"Contact"] = [_var_contact objectValue];
+	dict[@"Initial-CSeq-Sequence-Number"] = [_var_initial_cseq_sequence_number objectValue];
+	dict[@"Subscription-Info"] = [_var_subscription_info objectValue];
+	return dict;
+}
+
 
 @end
 

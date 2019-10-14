@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -140,6 +140,28 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Context-Identifier"] = [_var_context_identifier objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_served_party_ip_address)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Served-Party-IP-Address"] = arr;
+	}
+	dict[@"PDN-Type"] = [_var_pdn_type objectValue];
+	dict[@"Service-Selection"] = [_var_service_selection objectValue];
+	dict[@"EPS-Subscribed-QoS-Profile"] = [_var_eps_subscribed_qos_profile objectValue];
+	dict[@"VPLMN-Dynamic-Address-Allowed"] = [_var_vplmn_dynamic_address_allowed objectValue];
+	dict[@"MIP6-Agent-Info"] = [_var_mip6_agent_info objectValue];
+	dict[@"Visited-Network-Identifier"] = [_var_visited_network_identifier objectValue];
+	return dict;
+}
+
 
 @end
 

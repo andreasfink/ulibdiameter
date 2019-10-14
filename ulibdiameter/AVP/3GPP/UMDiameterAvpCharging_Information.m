@@ -2,7 +2,7 @@
 //  UMDiameterAvpCharging_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,6 +106,17 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Primary-Event-Charging-Function-Name"] = [_var_primary_event_charging_function_name objectValue];
+	dict[@"Secondary-Event-Charging-Function-Name"] = [_var_secondary_event_charging_function_name objectValue];
+	dict[@"Primary-Charging-Collection-Function-Name"] = [_var_primary_charging_collection_function_name objectValue];
+	dict[@"Secondary-Charging-Collection-Function-Name"] = [_var_secondary_charging_collection_function_name objectValue];
+	return dict;
+}
+
 
 @end
 

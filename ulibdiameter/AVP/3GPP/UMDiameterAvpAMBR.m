@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,6 +106,17 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Max-Requested-Bandwidth-UL"] = [_var_max_requested_bandwidth_ul objectValue];
+	dict[@"Max-Requested-Bandwidth-DL"] = [_var_max_requested_bandwidth_dl objectValue];
+	dict[@"Extended-Max-Requested-BW-UL"] = [_var_extended_max_requested_bw_ul objectValue];
+	dict[@"Extended-Max-Requested-BW-DL"] = [_var_extended_max_requested_bw_dl objectValue];
+	return dict;
+}
+
 
 @end
 

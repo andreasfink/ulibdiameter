@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Auth_Data_Item.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -169,6 +169,30 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"SIP-Item-Number"] = [_var_sip_item_number objectValue];
+	dict[@"SIP-Authentication-Scheme"] = [_var_sip_authentication_scheme objectValue];
+	dict[@"SIP-Authorization"] = [_var_sip_authorization objectValue];
+	dict[@"SIP-Authentication-Context"] = [_var_sip_authentication_context objectValue];
+	dict[@"Integrity-Key"] = [_var_integrity_key objectValue];
+	dict[@"SIP-Digest-Authenticate"] = [_var_sip_digest_authenticate objectValue];
+	dict[@"Framed-IP-Address"] = [_var_framed_ip_address objectValue];
+	dict[@"Framed-IPv6-Prefix"] = [_var_framed_ipv6_prefix objectValue];
+	dict[@"Framed-Interface-Id"] = [_var_framed_interface_id objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_line_identifier)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Line-Identifier"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

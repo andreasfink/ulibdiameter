@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -500,6 +500,110 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Subscriber-Status"] = [_var_subscriber_status objectValue];
+	dict[@"MSISDN"] = [_var_msisdn objectValue];
+	dict[@"A-MSISDN"] = [_var_a_msisdn objectValue];
+	dict[@"STN-SR"] = [_var_stn_sr objectValue];
+	dict[@"ICS-Indicator"] = [_var_ics_indicator objectValue];
+	dict[@"Network-Access-Mode"] = [_var_network_access_mode objectValue];
+	dict[@"Operator-Determined-Barring"] = [_var_operator_determined_barring objectValue];
+	dict[@"HPLMN-ODB"] = [_var_hplmn_odb objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_regional_subscription_zone_code)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Regional-Subscription-Zone-Code"] = arr;
+	}
+	dict[@"Access-Restriction-Data"] = [_var_access_restriction_data objectValue];
+	dict[@"APN-OI-Replacement"] = [_var_apn_oi_replacement objectValue];
+	dict[@"LCS-Info"] = [_var_lcs_info objectValue];
+	dict[@"Teleservice-List"] = [_var_teleservice_list objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_call_barring_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Call-Barring-Info"] = arr;
+	}
+	dict[@"3GPP-Charging-Characteristics"] = [_var_3gpp_charging_characteristics objectValue];
+	dict[@"AMBR"] = [_var_ambr objectValue];
+	dict[@"APN-Configuration-Profile"] = [_var_apn_configuration_profile objectValue];
+	dict[@"RAT-Frequency-Selection-Priority-ID"] = [_var_rat_frequency_selection_priority_id objectValue];
+	dict[@"Trace-Data"] = [_var_trace_data objectValue];
+	dict[@"GPRS-Subscription-Data"] = [_var_gprs_subscription_data objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_csg_subscription_data)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"CSG-Subscription-Data"] = arr;
+	}
+	dict[@"Roaming-Restricted-Due-To-Unsupported-Feature"] = [_var_roaming_restricted_due_to_unsupported_feature objectValue];
+	dict[@"Subscribed-Periodic-RAU-TAU-Timer"] = [_var_subscribed_periodic_rau_tau_timer objectValue];
+	dict[@"MPS-Priority"] = [_var_mps_priority objectValue];
+	dict[@"VPLMN-LIPA-Allowed"] = [_var_vplmn_lipa_allowed objectValue];
+	dict[@"Relay-Node-Indicator"] = [_var_relay_node_indicator objectValue];
+	dict[@"MDT-User-Consent"] = [_var_mdt_user_consent objectValue];
+	dict[@"Subscribed-VSRVCC"] = [_var_subscribed_vsrvcc objectValue];
+	dict[@"ProSe-Subscription-Data"] = [_var_prose_subscription_data objectValue];
+	dict[@"Subscription-Data-Flags"] = [_var_subscription_data_flags objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_adjacent_access_restriction_data)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Adjacent-Access-Restriction-Data"] = arr;
+	}
+	dict[@"DL-Buffering-Suggested-Packet-Count"] = [_var_dl_buffering_suggested_packet_count objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_imsi_group_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"IMSI-Group-Id"] = arr;
+	}
+	dict[@"UE-Usage-Type"] = [_var_ue_usage_type objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_aese_communication_pattern)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"AESE-Communication-Pattern"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_monitoring_event_configuration)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Monitoring-Event-Configuration"] = arr;
+	}
+	dict[@"Emergency-Info"] = [_var_emergency_info objectValue];
+	dict[@"V2X-Subscription-Data"] = [_var_v2x_subscription_data objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_edrx_cycle_length)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"eDRX-Cycle-Length"] = arr;
+	}
+	dict[@"External-Identifier"] = [_var_external_identifier objectValue];
+	dict[@"Active-Time"] = [_var_active_time objectValue];
+	return dict;
+}
+
 
 @end
 

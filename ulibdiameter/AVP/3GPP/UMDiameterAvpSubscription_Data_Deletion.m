@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -135,6 +135,40 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"DSR-Flags"] = [_var_dsr_flags objectValue];
+	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_context_identifier)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Context-Identifier"] = arr;
+	}
+	dict[@"Trace-Reference"] = [_var_trace_reference objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_ts_code)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"TS-Code"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_ss_code)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"SS-Code"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

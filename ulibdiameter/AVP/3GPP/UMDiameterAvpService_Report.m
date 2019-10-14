@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Report.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,15 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Service-Result"] = [_var_service_result objectValue];
+	dict[@"Node-Type"] = [_var_node_type objectValue];
+	return dict;
+}
+
 
 @end
 

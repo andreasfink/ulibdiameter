@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -105,6 +105,37 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_gmlc_number)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"GMLC-Number"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_lcs_privacyexception)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"LCS-PrivacyException"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_mo_lr)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"MO-LR"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

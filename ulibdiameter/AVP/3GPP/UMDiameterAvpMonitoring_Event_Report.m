@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Report.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -126,6 +126,19 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"SCEF-Reference-ID"] = [_var_scef_reference_id objectValue];
+	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
+	dict[@"Reachability-Information"] = [_var_reachability_information objectValue];
+	dict[@"EPS-Location-Information"] = [_var_eps_location_information objectValue];
+	dict[@"Monitoring-Type"] = [_var_monitoring_type objectValue];
+	dict[@"Loss-Of-Connectivity-Reason"] = [_var_loss_of_connectivity_reason objectValue];
+	return dict;
+}
+
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpRepository_Data_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,15 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Service-Indication"] = [_var_service_indication objectValue];
+	dict[@"Sequence-Number"] = [_var_sequence_number objectValue];
+	return dict;
+}
+
 
 @end
 

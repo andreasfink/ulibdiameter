@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Digest_Authenticate.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,6 +106,17 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Digest-Realm"] = [_var_digest_realm objectValue];
+	dict[@"Digest-Algorithm"] = [_var_digest_algorithm objectValue];
+	dict[@"Digest-QoP"] = [_var_digest_qop objectValue];
+	dict[@"Digest-HA1"] = [_var_digest_ha1 objectValue];
+	return dict;
+}
+
 
 @end
 

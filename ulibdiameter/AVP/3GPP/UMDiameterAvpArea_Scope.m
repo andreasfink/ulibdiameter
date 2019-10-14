@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -131,6 +131,53 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_cell_global_identity)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Cell-Global-Identity"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_e_utran_cell_global_identity)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"E-UTRAN-Cell-Global-Identity"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_routing_area_identity)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Routing-Area-Identity"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_location_area_identity)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Location-Area-Identity"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_tracking_area_identity)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Tracking-Area-Identity"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

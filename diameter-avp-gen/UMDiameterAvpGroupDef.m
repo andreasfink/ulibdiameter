@@ -454,7 +454,6 @@
         }
         if(placeholderAVP)
         {
-            
             [s appendString:@"    if(unknownAVPs.count>0)\n"];
             [s appendString:@"    {\n"];
             [s appendFormat:@"        %@ = unknownAVPs;\n",placeholderAVP.variableName];
@@ -510,12 +509,46 @@
         }
         [s appendFormat:@"        [%@ appendWebDiameterParameters:s webName:webName2 comment:NULL css:@\"%@\"];\n",objcName,mptr];
         [s appendString:@"    }\n"];
-
     }
     [s appendString:@"    [s appendString:@\"</table>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"</td>\\n\"];\n"];
     [s appendString:@"    [s appendString:@\"</tr>\\n\"];\n"];
     [s appendString:@"}\n"];
+
+
+    [s appendString:@"\n"];
+    [s appendString:@"- (id)objectValue\n"];
+    [s appendString:@"{\n"];
+
+
+    [s appendString:@"\tUMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];\n"];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if([avp.standardsName isEqualToString:@"AVP"])
+        {
+            continue;
+        }
+        if(avp.multiple)
+        {
+            [s appendString:@"\t{\n"];
+            [s appendString:@"\t\tNSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
+            [s appendFormat:@"\t\tfor(UMDiameterAvp *avp in %@)\n",avp.variableName];
+            [s appendString:@"\t\t{\n"];
+            [s appendFormat:@"\t\t\t[arr addObject:[avp objectValue]];\n"];
+            [s appendString:@"\t\t}\n"];
+            [s appendFormat:@"\t\tdict[@\"%@\"] = arr;\n",avp.standardsName];
+            [s appendString:@"\t}\n"];
+        }
+        else
+        {
+            [s appendFormat:@"\tdict[@\"%@\"] = [%@ objectValue];\n",avp.standardsName,avp.variableName];
+        }
+    }
+    [s appendString:@"\treturn dict;\n"];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
     return s;
 }
 

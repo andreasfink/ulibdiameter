@@ -2,7 +2,7 @@
 //  UMDiameterAvpeDRX_Cycle_Length.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,15 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"RAT-Type"] = [_var_rat_type objectValue];
+	dict[@"eDRX-Cycle-Length-Value"] = [_var_edrx_cycle_length_value objectValue];
+	return dict;
+}
+
 
 @end
 

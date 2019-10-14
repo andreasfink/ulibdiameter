@@ -2,7 +2,7 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -156,6 +156,22 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Cell-Global-Identity"] = [_var_cell_global_identity objectValue];
+	dict[@"Location-Area-Identity"] = [_var_location_area_identity objectValue];
+	dict[@"Service-Area-Identity"] = [_var_service_area_identity objectValue];
+	dict[@"Routing-Area-Identity"] = [_var_routing_area_identity objectValue];
+	dict[@"Geographical-Information"] = [_var_geographical_information objectValue];
+	dict[@"Geodetic-Information"] = [_var_geodetic_information objectValue];
+	dict[@"Current-Location-Retrieved"] = [_var_current_location_retrieved objectValue];
+	dict[@"Age-Of-Location-Information"] = [_var_age_of_location_information objectValue];
+	dict[@"User-CSG-Information"] = [_var_user_csg_information objectValue];
+	return dict;
+}
+
 
 @end
 

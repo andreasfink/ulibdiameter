@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -272,6 +272,47 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Job-Type"] = [_var_job_type objectValue];
+	dict[@"Area-Scope"] = [_var_area_scope objectValue];
+	dict[@"List-Of-Measurements"] = [_var_list_of_measurements objectValue];
+	dict[@"Reporting-Trigger"] = [_var_reporting_trigger objectValue];
+	dict[@"Report-Interval"] = [_var_report_interval objectValue];
+	dict[@"Report-Amount"] = [_var_report_amount objectValue];
+	dict[@"Event-Threshold-RSRP"] = [_var_event_threshold_rsrp objectValue];
+	dict[@"Event-Threshold-RSRQ"] = [_var_event_threshold_rsrq objectValue];
+	dict[@"Logging-Interval"] = [_var_logging_interval objectValue];
+	dict[@"Logging-Duration"] = [_var_logging_duration objectValue];
+	dict[@"Measurement-Period-LTE"] = [_var_measurement_period_lte objectValue];
+	dict[@"Measurement-Period-UMTS"] = [_var_measurement_period_umts objectValue];
+	dict[@"Collection-Period-RRM-LTE"] = [_var_collection_period_rrm_lte objectValue];
+	dict[@"Collection-Period-RRM-UMTS"] = [_var_collection_period_rrm_umts objectValue];
+	dict[@"Positioning-Method"] = [_var_positioning_method objectValue];
+	dict[@"Measurement-Quantity"] = [_var_measurement_quantity objectValue];
+	dict[@"Event-Threshold-Event-1F"] = [_var_event_threshold_event_1f objectValue];
+	dict[@"Event-Threshold-Event-1I"] = [_var_event_threshold_event_1i objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_mdt_allowed_plmn_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"MDT-Allowed-PLMN-Id"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_mbsfn_area)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"MBSFN-Area"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

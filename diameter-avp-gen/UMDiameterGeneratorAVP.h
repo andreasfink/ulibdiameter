@@ -13,8 +13,8 @@
     NSString *_standardsName;   /* something like Origin-Realm */
     NSString *_objectName;      /* something like Origin_Realm */
     NSString *_webName;         /* origin-realm */
-    NSString *_variableName;    /* _origin_realm */
-    NSString *_propertyName;    /* origin_realm */
+    NSString *_variableName;    /* _var-origin_realm */
+    NSString *_propertyName;    /* var_origin_realm */
     
     NSString *_comment;
     BOOL    _mandatory;

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -96,6 +96,16 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Call-ID-SIP-Header"] = [_var_call_id_sip_header objectValue];
+	dict[@"To-SIP-Header"] = [_var_to_sip_header objectValue];
+	dict[@"Record-Route"] = [_var_record_route objectValue];
+	return dict;
+}
+
 
 @end
 

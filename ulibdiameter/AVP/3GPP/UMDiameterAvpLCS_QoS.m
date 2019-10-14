@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_QoS.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -107,6 +107,18 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"LCS-QoS-Class"] = [_var_lcs_qos_class objectValue];
+	dict[@"Horizontal-Accuracy"] = [_var_horizontal_accuracy objectValue];
+	dict[@"Vertical-Accuracy"] = [_var_vertical_accuracy objectValue];
+	dict[@"Vertical-Requested"] = [_var_vertical_requested objectValue];
+	dict[@"Response-Time"] = [_var_response_time objectValue];
+	return dict;
+}
+
 
 @end
 

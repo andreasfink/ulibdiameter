@@ -129,7 +129,14 @@
 
 - (UMSynchronizedSortedDictionary *)dictionaryValue
 {
-    return [[UMSynchronizedSortedDictionary alloc]init];
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    for(UMDiameterAvp *avp in _grouped_avps)
+    {
+        NSString *key = [avp avpType];
+        id value = [avp objectValue];
+        dict[key] = value;
+    }
+    return dict;
 }
 
 -(id)objectValue

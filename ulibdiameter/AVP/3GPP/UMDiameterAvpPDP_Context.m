@@ -2,7 +2,7 @@
 //  UMDiameterAvpPDP_Context.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -236,6 +236,30 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Context-Identifier"] = [_var_context_identifier objectValue];
+	dict[@"PDP-Type"] = [_var_pdp_type objectValue];
+	dict[@"PDP-Address"] = [_var_pdp_address objectValue];
+	dict[@"QoS-Subscribed"] = [_var_qos_subscribed objectValue];
+	dict[@"VPLMN-Dynamic-Address-Allowed"] = [_var_vplmn_dynamic_address_allowed objectValue];
+	dict[@"Service-Selection"] = [_var_service_selection objectValue];
+	dict[@"3GPP-Charging-Characteristics"] = [_var_3gpp_charging_characteristics objectValue];
+	dict[@"Ext-PDP-Type"] = [_var_ext_pdp_type objectValue];
+	dict[@"Ext-PDP-Address"] = [_var_ext_pdp_address objectValue];
+	dict[@"AMBR"] = [_var_ambr objectValue];
+	dict[@"APN-OI-Replacement"] = [_var_apn_oi_replacement objectValue];
+	dict[@"SIPTO-Permission"] = [_var_sipto_permission objectValue];
+	dict[@"LIPA-Permission"] = [_var_lipa_permission objectValue];
+	dict[@"Restoration-Priority"] = [_var_restoration_priority objectValue];
+	dict[@"SIPTO-Local-Network-Permission"] = [_var_sipto_local_network_permission objectValue];
+	dict[@"Non-IP-Data-Delivery-Mechanism"] = [_var_non_ip_data_delivery_mechanism objectValue];
+	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
+	return dict;
+}
+
 
 @end
 

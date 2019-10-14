@@ -2,7 +2,7 @@
 //  UMDiameterAvpPLMN_ID_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,15 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
+	dict[@"Periodic-Location-Support-Indicator"] = [_var_periodic_location_support_indicator objectValue];
+	return dict;
+}
+
 
 @end
 

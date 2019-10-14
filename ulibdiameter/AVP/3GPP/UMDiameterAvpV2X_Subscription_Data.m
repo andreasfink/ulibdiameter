@@ -2,7 +2,7 @@
 //  UMDiameterAvpV2X_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,15 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"V2X-Permission"] = [_var_v2x_permission objectValue];
+	dict[@"UE-PC5-AMBR"] = [_var_ue_pc5_ambr objectValue];
+	return dict;
+}
+
 
 @end
 

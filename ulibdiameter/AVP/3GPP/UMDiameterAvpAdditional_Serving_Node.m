@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdditional_Serving_Node.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -156,6 +156,22 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"SGSN-Number"] = [_var_sgsn_number objectValue];
+	dict[@"MME-Name"] = [_var_mme_name objectValue];
+	dict[@"SGSN-Name"] = [_var_sgsn_name objectValue];
+	dict[@"SGSN-Realm"] = [_var_sgsn_realm objectValue];
+	dict[@"MME-Realm"] = [_var_mme_realm objectValue];
+	dict[@"MSC-Number"] = [_var_msc_number objectValue];
+	dict[@"3GPP-AAA-Server-Name"] = [_var_3gpp_aaa_server_name objectValue];
+	dict[@"LCS-Capabilities-Sets"] = [_var_lcs_capabilities_sets objectValue];
+	dict[@"GMLC-Address"] = [_var_gmlc_address objectValue];
+	return dict;
+}
+
 
 @end
 

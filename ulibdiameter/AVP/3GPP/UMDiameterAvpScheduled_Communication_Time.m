@@ -2,7 +2,7 @@
 //  UMDiameterAvpScheduled_Communication_Time.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -99,6 +99,23 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_day_of_week_mask)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Day-Of-Week-Mask"] = arr;
+	}
+	dict[@"Time-Of-Day-Start"] = [_var_time_of_day_start objectValue];
+	dict[@"Time-Of-Day-End"] = [_var_time_of_day_end objectValue];
+	return dict;
+}
+
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -169,6 +169,30 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"SCEF-Reference-ID"] = [_var_scef_reference_id objectValue];
+	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
+	dict[@"Monitoring-Type"] = [_var_monitoring_type objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_scef_reference_id_for_deletion)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"SCEF-Reference-ID-for-Deletion"] = arr;
+	}
+	dict[@"Maximum-Number-of-Reports"] = [_var_maximum_number_of_reports objectValue];
+	dict[@"Monitoring-Duration"] = [_var_monitoring_duration objectValue];
+	dict[@"Charged-Party"] = [_var_charged_party objectValue];
+	dict[@"UE-Reachability-Configuration"] = [_var_ue_reachability_configuration objectValue];
+	dict[@"Location-Information-Configuration"] = [_var_location_information_configuration objectValue];
+	dict[@"SCEF-Realm"] = [_var_scef_realm objectValue];
+	return dict;
+}
+
 
 @end
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -135,6 +135,40 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"SS-Code"] = [_var_ss_code objectValue];
+	dict[@"SS-Status"] = [_var_ss_status objectValue];
+	dict[@"Notification-To-UE-User"] = [_var_notification_to_ue_user objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_external_client)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"External-Client"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_plmn_client)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"PLMN-Client"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_service_type)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Service-Type"] = arr;
+	}
+	return dict;
+}
+
 
 @end
 

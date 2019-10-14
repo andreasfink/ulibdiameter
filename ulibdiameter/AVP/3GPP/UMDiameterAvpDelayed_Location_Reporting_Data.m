@@ -2,7 +2,7 @@
 //  UMDiameterAvpDelayed_Location_Reporting_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,6 +86,15 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Termination-Cause"] = [_var_termination_cause objectValue];
+	dict[@"Serving-Node"] = [_var_serving_node objectValue];
+	return dict;
+}
+
 
 @end
 

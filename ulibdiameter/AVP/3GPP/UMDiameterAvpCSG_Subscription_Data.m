@@ -2,7 +2,7 @@
 //  UMDiameterAvpCSG_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 13:51:02.325000
+//  Created by afink on 2019-10-14 07:53:14.933000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -107,6 +107,24 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"CSG-ID"] = [_var_csg_id objectValue];
+	dict[@"Expiration-Date"] = [_var_expiration_date objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_service_selection)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Service-Selection"] = arr;
+	}
+	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
+	return dict;
+}
+
 
 @end
 
