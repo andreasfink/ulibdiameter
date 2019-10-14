@@ -597,11 +597,14 @@
         {
             [s appendString:@"\t{\n"];
             [s appendString:@"\t\tNSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
-            [s appendFormat:@"\t\tfor(UMDiameterAvp *avp in %@)\n",avp.variableName];
-            [s appendString:@"\t\t{\n"];
-            [s appendFormat:@"\t\t\t[arr addObject:[avp objectValue]];\n"];
+            [s appendFormat:@"\t\tif(%@.count>0)\n",avp.variableName];
+            [s appendFormat:@"\t\t{\n"];
+            [s appendFormat:@"\t\t\tfor(UMDiameterAvp *avp in %@)\n",avp.variableName];
+            [s appendString:@"\t\t\t{\n"];
+            [s appendFormat:@"\t\t\t\t[arr addObject:[avp objectValue]];\n"];
+            [s appendString:@"\t\t\t}\n"];
+            [s appendFormat:@"\t\t\tdict[@\"%@\"] = arr;\n",avp.standardsName];
             [s appendString:@"\t\t}\n"];
-            [s appendFormat:@"\t\tdict[@\"%@\"] = arr;\n",avp.standardsName];
             [s appendString:@"\t}\n"];
         }
         else
