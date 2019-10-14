@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:09.106000
+//  Created by afink on 2019-10-14 08:53:30.724000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -147,6 +147,16 @@
 
     [UMDiameterAvpDisconnect_Cause appendWebDiameterParameters:s webName:@"disconnect-cause"  comment:@"" css:@"mandatory"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Disconnect-Cause"] = [_var_disconnect_cause objectValue];
+	return dict;
 }
 
 @end

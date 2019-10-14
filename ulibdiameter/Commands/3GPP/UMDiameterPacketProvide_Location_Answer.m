@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.103000
+//  Created by afink on 2019-10-14 08:53:35.319000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -636,6 +636,60 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Location-Estimate"] = [_var_location_estimate objectValue];
+	dict[@"Accuracy-Fulfilment-Indicator"] = [_var_accuracy_fulfilment_indicator objectValue];
+	dict[@"Age-Of-Location-Estimate"] = [_var_age_of_location_estimate objectValue];
+	dict[@"Velocity-Estimate"] = [_var_velocity_estimate objectValue];
+	dict[@"EUTRAN-Positioning-Data"] = [_var_eutran_positioning_data objectValue];
+	dict[@"ECGI"] = [_var_ecgi objectValue];
+	dict[@"GERAN-Positioning-Info"] = [_var_geran_positioning_info objectValue];
+	dict[@"Cell-Global-Identity"] = [_var_cell_global_identity objectValue];
+	dict[@"UTRAN-Positioning-Info"] = [_var_utran_positioning_info objectValue];
+	dict[@"Service-Area-Identity"] = [_var_service_area_identity objectValue];
+	dict[@"Serving-Node"] = [_var_serving_node objectValue];
+	dict[@"PLA-Flags"] = [_var_pla_flags objectValue];
+	dict[@"ESMLC-Cell-Info"] = [_var_esmlc_cell_info objectValue];
+	dict[@"Civic-Address"] = [_var_civic_address objectValue];
+	dict[@"Barometric-Pressure"] = [_var_barometric_pressure objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

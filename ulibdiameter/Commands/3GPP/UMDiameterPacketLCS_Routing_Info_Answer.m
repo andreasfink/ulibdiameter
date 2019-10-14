@@ -2,7 +2,7 @@
 //  UMDiameterPacketLCS_Routing_Info_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.079000
+//  Created by afink on 2019-10-14 08:53:35.279000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -535,6 +535,60 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"MSISDN"] = [_var_msisdn objectValue];
+	dict[@"LMSI"] = [_var_lmsi objectValue];
+	dict[@"Serving-Node"] = [_var_serving_node objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_additional_serving_node)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Additional-Serving-Node"] = arr;
+	}
+	dict[@"GMLC-Address"] = [_var_gmlc_address objectValue];
+	dict[@"PPR-Address"] = [_var_ppr_address objectValue];
+	dict[@"RIA-Flags"] = [_var_ria_flags objectValue];
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

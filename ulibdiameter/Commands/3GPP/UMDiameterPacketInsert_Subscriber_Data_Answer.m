@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:04.924000
+//  Created by afink on 2019-10-14 08:53:35.004000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -614,6 +614,70 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"IMS-Voice-Over-PS-Sessions-Supported"] = [_var_ims_voice_over_ps_sessions_supported objectValue];
+	dict[@"Last-UE-Activity-Time"] = [_var_last_ue_activity_time objectValue];
+	dict[@"RAT-Type"] = [_var_rat_type objectValue];
+	dict[@"IDA-Flags"] = [_var_ida_flags objectValue];
+	dict[@"EPS-User-State"] = [_var_eps_user_state objectValue];
+	dict[@"EPS-Location-Information"] = [_var_eps_location_information objectValue];
+	dict[@"Local-Time-Zone"] = [_var_local_time_zone objectValue];
+	dict[@"Supported-Services"] = [_var_supported_services objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_monitoring_event_report)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Monitoring-Event-Report"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_monitoring_event_config_status)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Monitoring-Event-Config-Status"] = arr;
+	}
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

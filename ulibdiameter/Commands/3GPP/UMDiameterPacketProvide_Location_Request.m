@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.091000
+//  Created by afink on 2019-10-14 08:53:35.299000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -672,6 +672,62 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	dict[@"SLg-Location-Type"] = [_var_slg_location_type objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"MSISDN"] = [_var_msisdn objectValue];
+	dict[@"IMEI"] = [_var_imei objectValue];
+	dict[@"LCS-EPS-Client-Name"] = [_var_lcs_eps_client_name objectValue];
+	dict[@"LCS-Client-Type"] = [_var_lcs_client_type objectValue];
+	dict[@"LCS-Requestor-Name"] = [_var_lcs_requestor_name objectValue];
+	dict[@"LCS-Priority"] = [_var_lcs_priority objectValue];
+	dict[@"LCS-QoS"] = [_var_lcs_qos objectValue];
+	dict[@"Velocity-Requested"] = [_var_velocity_requested objectValue];
+	dict[@"LCS-Supported-GAD-Shapes"] = [_var_lcs_supported_gad_shapes objectValue];
+	dict[@"LCS-Service-Type-ID"] = [_var_lcs_service_type_id objectValue];
+	dict[@"LCS-Codeword"] = [_var_lcs_codeword objectValue];
+	dict[@"LCS-Privacy-Check-Non-Session"] = [_var_lcs_privacy_check_non_session objectValue];
+	dict[@"LCS-Privacy-Check-Session"] = [_var_lcs_privacy_check_session objectValue];
+	dict[@"Service-Selection"] = [_var_service_selection objectValue];
+	dict[@"Deferred-Location-Type"] = [_var_deferred_location_type objectValue];
+	dict[@"PLR-Flags"] = [_var_plr_flags objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

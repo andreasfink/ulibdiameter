@@ -2,7 +2,7 @@
 //  UMDiameterPacketRAA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:09.066000
+//  Created by afink on 2019-10-14 08:53:30.687000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -377,6 +377,40 @@
 
     [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"Origin-State-Id"] = [_var_origin_state_id objectValue];
+	dict[@"Error-Message"] = [_var_error_message objectValue];
+	dict[@"Error-Reporting-Host"] = [_var_error_reporting_host objectValue];
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_redirect_host)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Redirect-Host"] = arr;
+	}
+	dict[@"Redirect-Host-Usage"] = [_var_redirect_host_usage objectValue];
+	dict[@"Redirect-Max-Cache-Time"] = [_var_redirect_max_cache_time objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	return dict;
 }
 
 @end

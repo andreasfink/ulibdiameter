@@ -2,7 +2,7 @@
 //  UMDiameterPacketCER.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:08.970000
+//  Created by afink on 2019-10-14 08:53:30.602000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -459,6 +459,67 @@
 
     [UMDiameterAvpFirmware_Revision appendWebDiameterParameters:s webName:@"firmware-revision"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_host_ip_address)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Host-IP-Address"] = arr;
+	}
+	dict[@"Vendor-Id"] = [_var_vendor_id objectValue];
+	dict[@"Product-Name"] = [_var_product_name objectValue];
+	dict[@"Origin-State-Id"] = [_var_origin_state_id objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_vendor_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Vendor-Id"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_auth_application_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Auth-Application-Id"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_inband_security_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Inband-Security-Id"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_acct_application_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Acct-Application-Id"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_vendor_specific_application_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Vendor-Specific-Application-Id"] = arr;
+	}
+	dict[@"Firmware-Revision"] = [_var_firmware_revision objectValue];
+	return dict;
 }
 
 @end

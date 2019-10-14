@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:09.010000
+//  Created by afink on 2019-10-14 08:53:30.638000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -201,6 +201,19 @@
 
     [UMDiameterAvpOrigin_State_Id appendWebDiameterParameters:s webName:@"origin-state-id"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Error-Message"] = [_var_error_message objectValue];
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	dict[@"Origin-State-Id"] = [_var_origin_state_id objectValue];
+	return dict;
 }
 
 @end

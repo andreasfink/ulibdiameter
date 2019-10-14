@@ -2,7 +2,7 @@
 //  UMDiameterPacketSTR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:09.024000
+//  Created by afink on 2019-10-14 08:53:30.650000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -384,6 +384,46 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	dict[@"Auth-Application-Id"] = [_var_auth_application_id objectValue];
+	dict[@"Termination-Cause"] = [_var_termination_cause objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_class)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Class"] = arr;
+	}
+	dict[@"Origin-State-Id"] = [_var_origin_state_id objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

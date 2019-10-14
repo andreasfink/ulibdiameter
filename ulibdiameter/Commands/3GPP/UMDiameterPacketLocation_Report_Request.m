@@ -2,7 +2,7 @@
 //  UMDiameterPacketLocation_Report_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.115000
+//  Created by afink on 2019-10-14 08:53:35.339000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -888,6 +888,74 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	dict[@"Location-Event"] = [_var_location_event objectValue];
+	dict[@"LCS-EPS-Client-Name"] = [_var_lcs_eps_client_name objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"MSISDN"] = [_var_msisdn objectValue];
+	dict[@"IMEI"] = [_var_imei objectValue];
+	dict[@"Location-Estimate"] = [_var_location_estimate objectValue];
+	dict[@"Accuracy-Fulfilment-Indicator"] = [_var_accuracy_fulfilment_indicator objectValue];
+	dict[@"Age-Of-Location-Estimate"] = [_var_age_of_location_estimate objectValue];
+	dict[@"Velocity-Estimate"] = [_var_velocity_estimate objectValue];
+	dict[@"EUTRAN-Positioning-Data"] = [_var_eutran_positioning_data objectValue];
+	dict[@"ECGI"] = [_var_ecgi objectValue];
+	dict[@"GERAN-Positioning-Info"] = [_var_geran_positioning_info objectValue];
+	dict[@"Cell-Global-Identity"] = [_var_cell_global_identity objectValue];
+	dict[@"UTRAN-Positioning-Info"] = [_var_utran_positioning_info objectValue];
+	dict[@"Service-Area-Identity"] = [_var_service_area_identity objectValue];
+	dict[@"LCS-Service-Type-ID"] = [_var_lcs_service_type_id objectValue];
+	dict[@"Pseudonym-Indicator"] = [_var_pseudonym_indicator objectValue];
+	dict[@"LCS-QoS-Class"] = [_var_lcs_qos_class objectValue];
+	dict[@"Serving-Node"] = [_var_serving_node objectValue];
+	dict[@"LRR-Flags"] = [_var_lrr_flags objectValue];
+	dict[@"LCS-Reference-Number"] = [_var_lcs_reference_number objectValue];
+	dict[@"Deferred-MT-LR-Data"] = [_var_deferred_mt_lr_data objectValue];
+	dict[@"GMLC-Address"] = [_var_gmlc_address objectValue];
+	dict[@"Reporting-Amount"] = [_var_reporting_amount objectValue];
+	dict[@"Periodic-LDR-Information"] = [_var_periodic_ldr_information objectValue];
+	dict[@"ESMLC-Cell-Info"] = [_var_esmlc_cell_info objectValue];
+	dict[@"1xRTT-RCID"] = [_var_1xrtt_rcid objectValue];
+	dict[@"Delayed-Location-Reporting-Data"] = [_var_delayed_location_reporting_data objectValue];
+	dict[@"Civic-Address"] = [_var_civic_address objectValue];
+	dict[@"Barometric-Pressure"] = [_var_barometric_pressure objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

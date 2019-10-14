@@ -2,7 +2,7 @@
 //  UMDiameterPacketUpdate_Location_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:04.896000
+//  Created by afink on 2019-10-14 08:53:34.963000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -560,6 +560,67 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
+	dict[@"Error-Diagnostic"] = [_var_error_diagnostic objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
+	dict[@"OC-OLR"] = [_var_oc_olr objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_load)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Load"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"ULA-Flags"] = [_var_ula_flags objectValue];
+	dict[@"Subscription-Data"] = [_var_subscription_data objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_reset_id)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Reset-ID"] = arr;
+	}
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

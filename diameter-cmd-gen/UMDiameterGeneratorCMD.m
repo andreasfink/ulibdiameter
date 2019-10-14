@@ -579,6 +579,43 @@
     [s appendString:@"}\n"];
     [s appendString:@"\n"];
 
+
+    [s appendString:@"\n"];
+    [s appendString:@"- (id)objectValue\n"];
+    [s appendString:@"{\n"];
+
+
+    [s appendString:@"\tUMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];\n"];
+
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if([avp.standardsName isEqualToString:@"AVP"])
+        {
+            continue;
+        }
+        if(avp.multiple)
+        {
+            [s appendString:@"\t{\n"];
+            [s appendString:@"\t\tNSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
+            [s appendFormat:@"\t\tfor(UMDiameterAvp *avp in %@)\n",avp.variableName];
+            [s appendString:@"\t\t{\n"];
+            [s appendFormat:@"\t\t\t[arr addObject:[avp objectValue]];\n"];
+            [s appendString:@"\t\t}\n"];
+            [s appendFormat:@"\t\tdict[@\"%@\"] = arr;\n",avp.standardsName];
+            [s appendString:@"\t}\n"];
+        }
+        else
+        {
+            [s appendFormat:@"\tdict[@\"%@\"] = [%@ objectValue];\n",avp.standardsName,avp.variableName];
+        }
+    }
+    [s appendString:@"\treturn dict;\n"];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+
+
+    
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
     return s;

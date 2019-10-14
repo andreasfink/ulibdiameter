@@ -2,7 +2,7 @@
 //  UMDiameterPacketUpdate_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:04.909000
+//  Created by afink on 2019-10-14 08:53:34.984000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -715,6 +715,70 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"Terminal-Information"] = [_var_terminal_information objectValue];
+	dict[@"RAT-Type"] = [_var_rat_type objectValue];
+	dict[@"ULR-Flags"] = [_var_ulr_flags objectValue];
+	dict[@"UE-SRVCC-Capability"] = [_var_ue_srvcc_capability objectValue];
+	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
+	dict[@"SGSN-Number"] = [_var_sgsn_number objectValue];
+	dict[@"Homogeneous-Support-of-IMS-Voice-Over-PS-Sessions"] = [_var_homogeneous_support_of_ims_voice_over_ps_sessions objectValue];
+	dict[@"GMLC-Address"] = [_var_gmlc_address objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_active_apn)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Active-APN"] = arr;
+	}
+	dict[@"Equivalent-PLMN-List"] = [_var_equivalent_plmn_list objectValue];
+	dict[@"MME-Number-for-MT-SMS"] = [_var_mme_number_for_mt_sms objectValue];
+	dict[@"SMS-Register-Request"] = [_var_sms_register_request objectValue];
+	dict[@"SGs-MME-Identity"] = [_var_sgs_mme_identity objectValue];
+	dict[@"Coupled-Node-Diameter-ID"] = [_var_coupled_node_diameter_id objectValue];
+	dict[@"Adjacent-PLMNs"] = [_var_adjacent_plmns objectValue];
+	dict[@"Supported-Services"] = [_var_supported_services objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

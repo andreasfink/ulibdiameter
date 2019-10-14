@@ -2,7 +2,7 @@
 //  UMDiameterPacketUser_Data_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.139000
+//  Created by afink on 2019-10-14 08:53:35.379000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -790,6 +790,91 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"User-Identity"] = [_var_user_identity objectValue];
+	dict[@"Wildcarded-Public-Identity"] = [_var_wildcarded_public_identity objectValue];
+	dict[@"Wildcarded-IMPU"] = [_var_wildcarded_impu objectValue];
+	dict[@"Server-Name"] = [_var_server_name objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_service_indication)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Service-Indication"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_data_reference)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Data-Reference"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_identity_set)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Identity-Set"] = arr;
+	}
+	dict[@"Requested-Domain"] = [_var_requested_domain objectValue];
+	dict[@"Current-Location"] = [_var_current_location objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_dsai_tag)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"DSAI-Tag"] = arr;
+	}
+	dict[@"Session-Priority"] = [_var_session_priority objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"Requested-Nodes"] = [_var_requested_nodes objectValue];
+	dict[@"Serving-Node-Indication"] = [_var_serving_node_indication objectValue];
+	dict[@"Pre-paging-Supported"] = [_var_pre_paging_supported objectValue];
+	dict[@"Local-Time-Zone-Indication"] = [_var_local_time_zone_indication objectValue];
+	dict[@"Call-Reference-Info"] = [_var_call_reference_info objectValue];
+	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

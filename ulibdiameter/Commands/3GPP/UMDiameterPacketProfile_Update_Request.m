@@ -2,7 +2,7 @@
 //  UMDiameterPacketProfile_Update_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.208000
+//  Created by afink on 2019-10-14 08:53:35.505000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -458,6 +458,58 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"User-Identity"] = [_var_user_identity objectValue];
+	dict[@"Wildcarded-Public-Identity"] = [_var_wildcarded_public_identity objectValue];
+	dict[@"Wildcarded-IMPU"] = [_var_wildcarded_impu objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_data_reference)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Data-Reference"] = arr;
+	}
+	dict[@"User-Data"] = [_var_user_data objectValue];
+	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

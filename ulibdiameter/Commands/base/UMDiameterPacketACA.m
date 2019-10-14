@@ -2,7 +2,7 @@
 //  UMDiameterPacketACA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:09.093000
+//  Created by afink on 2019-10-14 08:53:30.711000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -478,6 +478,40 @@
 
     [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Accounting-Record-Type"] = [_var_accounting_record_type objectValue];
+	dict[@"Accounting-Record-Number"] = [_var_accounting_record_number objectValue];
+	dict[@"Acct-Application-Id"] = [_var_acct_application_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"Accounting-Sub-Session-Id"] = [_var_accounting_sub_session_id objectValue];
+	dict[@"Acct-Session-Id"] = [_var_acct_session_id objectValue];
+	dict[@"Acct-Multi-Session-Id"] = [_var_acct_multi_session_id objectValue];
+	dict[@"Error-Message"] = [_var_error_message objectValue];
+	dict[@"Error-Reporting-Host"] = [_var_error_reporting_host objectValue];
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	dict[@"Acct-Interim-Interval"] = [_var_acct_interim_interval objectValue];
+	dict[@"Accounting-Realtime-Required"] = [_var_accounting_realtime_required objectValue];
+	dict[@"Origin-State-Id"] = [_var_origin_state_id objectValue];
+	dict[@"Event-Timestamp"] = [_var_event_timestamp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	return dict;
 }
 
 @end

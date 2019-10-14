@@ -2,7 +2,7 @@
 //  UMDiameterPacketLocation_Report_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.128000
+//  Created by afink on 2019-10-14 08:53:35.360000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -438,6 +438,49 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Result-Code"] = [_var_result_code objectValue];
+	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"GMLC-Address"] = [_var_gmlc_address objectValue];
+	dict[@"LRA-Flags"] = [_var_lra_flags objectValue];
+	dict[@"Reporting-PLMN-List"] = [_var_reporting_plmn_list objectValue];
+	dict[@"LCS-Reference-Number"] = [_var_lcs_reference_number objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

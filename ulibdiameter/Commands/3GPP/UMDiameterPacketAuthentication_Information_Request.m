@@ -2,7 +2,7 @@
 //  UMDiameterPacketAuthentication_Information_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:04.884000
+//  Created by afink on 2019-10-14 08:53:34.942000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -474,6 +474,51 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"Requested-EUTRAN-Authentication-Info"] = [_var_requested_eutran_authentication_info objectValue];
+	dict[@"Requested-UTRAN-GERAN-Authentication-Info"] = [_var_requested_utran_geran_authentication_info objectValue];
+	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
+	dict[@"AIR-Flags"] = [_var_air_flags objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end

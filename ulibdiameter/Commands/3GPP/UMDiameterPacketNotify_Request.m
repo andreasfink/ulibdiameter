@@ -2,7 +2,7 @@
 //  UMDiameterPacketNotify_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-13 14:17:05.032000
+//  Created by afink on 2019-10-14 08:53:35.202000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -643,6 +643,66 @@
 
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
 
+}
+
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Session-Id"] = [_var_session_id objectValue];
+	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
+	dict[@"DRMP"] = [_var_drmp objectValue];
+	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
+	dict[@"Origin-Host"] = [_var_origin_host objectValue];
+	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+	dict[@"Destination-Host"] = [_var_destination_host objectValue];
+	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
+	dict[@"User-Name"] = [_var_user_name objectValue];
+	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_supported_features)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Supported-Features"] = arr;
+	}
+	dict[@"Terminal-Information"] = [_var_terminal_information objectValue];
+	dict[@"MIP6-Agent-Info"] = [_var_mip6_agent_info objectValue];
+	dict[@"Visited-Network-Identifier"] = [_var_visited_network_identifier objectValue];
+	dict[@"Context-Identifier"] = [_var_context_identifier objectValue];
+	dict[@"Service-Selection"] = [_var_service_selection objectValue];
+	dict[@"Alert-Reason"] = [_var_alert_reason objectValue];
+	dict[@"UE-SRVCC-Capability"] = [_var_ue_srvcc_capability objectValue];
+	dict[@"NOR-Flags"] = [_var_nor_flags objectValue];
+	dict[@"Homogeneous-Support-of-IMS-Voice-Over-PS-Sessions"] = [_var_homogeneous_support_of_ims_voice_over_ps_sessions objectValue];
+	dict[@"Maximum-UE-Availability-Time"] = [_var_maximum_ue_availability_time objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_monitoring_event_config_status)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Monitoring-Event-Config-Status"] = arr;
+	}
+	dict[@"Emergency-Services"] = [_var_emergency_services objectValue];
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_proxy_info)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Proxy-Info"] = arr;
+	}
+	{
+		NSMutableArray *arr = [[NSMutableArray alloc]init];
+		for(UMDiameterAvp *avp in _var_route_record)
+		{
+			[arr addObject:[avp objectValue]];
+		}
+		dict[@"Route-Record"] = arr;
+	}
+	return dict;
 }
 
 @end
