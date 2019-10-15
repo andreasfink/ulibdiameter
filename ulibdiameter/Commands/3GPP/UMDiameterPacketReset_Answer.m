@@ -2,7 +2,7 @@
 //  UMDiameterPacketReset_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:35.140000
+//  Created by afink on 2019-10-14 23:40:09.706000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -386,6 +386,89 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpSession_Id class]])
+        {
+            _var_session_id = (UMDiameterAvpSession_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDRMP class]])
+        {
+            _var_drmp = (UMDiameterAvpDRMP *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
+        {
+            _var_vendor_specific_application_id = (UMDiameterAvpVendor_Specific_Application_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpSupported_Features class]])
+        {
+            if(_var_supported_features == NULL)
+            {
+                _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp];
+            }
+            else
+            {
+                _var_supported_features = [_var_supported_features arrayByAddingObject:(UMDiameterAvpSupported_Features *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpResult_Code class]])
+        {
+            _var_result_code = (UMDiameterAvpResult_Code *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpExperimental_Result class]])
+        {
+            _var_experimental_result = (UMDiameterAvpExperimental_Result *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAuth_Session_State class]])
+        {
+            _var_auth_session_state = (UMDiameterAvpAuth_Session_State *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpFailed_AVP class]])
+        {
+            _var_failed_avp = (UMDiameterAvpFailed_AVP *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpProxy_Info class]])
+        {
+            if(_var_proxy_info == NULL)
+            {
+                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp];
+            }
+            else
+            {
+                _var_proxy_info = [_var_proxy_info arrayByAddingObject:(UMDiameterAvpProxy_Info *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRoute_Record class]])
+        {
+            if(_var_route_record == NULL)
+            {
+                _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp];
+            }
+            else
+            {
+                _var_route_record = [_var_route_record arrayByAddingObject:(UMDiameterAvpRoute_Record *)avp];
+            }
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {
@@ -395,11 +478,14 @@
 	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_supported_features)
+		if(_var_supported_features.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_supported_features)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Supported-Features"] = arr;
 		}
-		dict[@"Supported-Features"] = arr;
 	}
 	dict[@"Result-Code"] = [_var_result_code objectValue];
 	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
@@ -409,19 +495,25 @@
 	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_proxy_info)
+		if(_var_proxy_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_proxy_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Proxy-Info"] = arr;
 		}
-		dict[@"Proxy-Info"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_route_record)
+		if(_var_route_record.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_route_record)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Route-Record"] = arr;
 		}
-		dict[@"Route-Record"] = arr;
 	}
 	return dict;
 }

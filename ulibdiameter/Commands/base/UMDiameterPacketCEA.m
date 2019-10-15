@@ -2,7 +2,7 @@
 //  UMDiameterPacketCEA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:30.615000
+//  Created by afink on 2019-10-14 23:40:01.991000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -515,6 +515,122 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpResult_Code class]])
+        {
+            _var_result_code = (UMDiameterAvpResult_Code *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpHost_IP_Address class]])
+        {
+            if(_var_host_ip_address == NULL)
+            {
+                _var_host_ip_address = (NSArray<UMDiameterAvpHost_IP_Address *>*)@[avp];
+            }
+            else
+            {
+                _var_host_ip_address = [_var_host_ip_address arrayByAddingObject:(UMDiameterAvpHost_IP_Address *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVendor_Id class]])
+        {
+            _var_vendor_id = (UMDiameterAvpVendor_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpProduct_Name class]])
+        {
+            _var_product_name = (UMDiameterAvpProduct_Name *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_State_Id class]])
+        {
+            _var_origin_state_id = (UMDiameterAvpOrigin_State_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpError_Message class]])
+        {
+            _var_error_message = (UMDiameterAvpError_Message *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpFailed_AVP class]])
+        {
+            _var_failed_avp = (UMDiameterAvpFailed_AVP *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpSupported_Vendor_Id class]])
+        {
+            if(_var_supported_vendor_id == NULL)
+            {
+                _var_supported_vendor_id = (NSArray<UMDiameterAvpSupported_Vendor_Id *>*)@[avp];
+            }
+            else
+            {
+                _var_supported_vendor_id = [_var_supported_vendor_id arrayByAddingObject:(UMDiameterAvpSupported_Vendor_Id *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAuth_Application_Id class]])
+        {
+            if(_var_auth_application_id == NULL)
+            {
+                _var_auth_application_id = (NSArray<UMDiameterAvpAuth_Application_Id *>*)@[avp];
+            }
+            else
+            {
+                _var_auth_application_id = [_var_auth_application_id arrayByAddingObject:(UMDiameterAvpAuth_Application_Id *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpInband_Security_Id class]])
+        {
+            if(_var_inband_security_id == NULL)
+            {
+                _var_inband_security_id = (NSArray<UMDiameterAvpInband_Security_Id *>*)@[avp];
+            }
+            else
+            {
+                _var_inband_security_id = [_var_inband_security_id arrayByAddingObject:(UMDiameterAvpInband_Security_Id *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAcct_Application_Id class]])
+        {
+            if(_var_acct_application_id == NULL)
+            {
+                _var_acct_application_id = (NSArray<UMDiameterAvpAcct_Application_Id *>*)@[avp];
+            }
+            else
+            {
+                _var_acct_application_id = [_var_acct_application_id arrayByAddingObject:(UMDiameterAvpAcct_Application_Id *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
+        {
+            if(_var_vendor_specific_application_id == NULL)
+            {
+                _var_vendor_specific_application_id = (NSArray<UMDiameterAvpVendor_Specific_Application_Id *>*)@[avp];
+            }
+            else
+            {
+                _var_vendor_specific_application_id = [_var_vendor_specific_application_id arrayByAddingObject:(UMDiameterAvpVendor_Specific_Application_Id *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpFirmware_Revision class]])
+        {
+            _var_firmware_revision = (UMDiameterAvpFirmware_Revision *)avp;
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {
@@ -524,11 +640,14 @@
 	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_host_ip_address)
+		if(_var_host_ip_address.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_host_ip_address)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Host-IP-Address"] = arr;
 		}
-		dict[@"Host-IP-Address"] = arr;
 	}
 	dict[@"Vendor-Id"] = [_var_vendor_id objectValue];
 	dict[@"Product-Name"] = [_var_product_name objectValue];
@@ -537,43 +656,58 @@
 	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_supported_vendor_id)
+		if(_var_supported_vendor_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_supported_vendor_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Supported-Vendor-Id"] = arr;
 		}
-		dict[@"Supported-Vendor-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_auth_application_id)
+		if(_var_auth_application_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_auth_application_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Auth-Application-Id"] = arr;
 		}
-		dict[@"Auth-Application-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_inband_security_id)
+		if(_var_inband_security_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_inband_security_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Inband-Security-Id"] = arr;
 		}
-		dict[@"Inband-Security-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_acct_application_id)
+		if(_var_acct_application_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_acct_application_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Acct-Application-Id"] = arr;
 		}
-		dict[@"Acct-Application-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_vendor_specific_application_id)
+		if(_var_vendor_specific_application_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_vendor_specific_application_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Vendor-Specific-Application-Id"] = arr;
 		}
-		dict[@"Vendor-Specific-Application-Id"] = arr;
 	}
 	dict[@"Firmware-Revision"] = [_var_firmware_revision objectValue];
 	return dict;

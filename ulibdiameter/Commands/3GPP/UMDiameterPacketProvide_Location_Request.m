@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:35.299000
+//  Created by afink on 2019-10-14 23:40:09.802000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -674,6 +674,153 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpSession_Id class]])
+        {
+            _var_session_id = (UMDiameterAvpSession_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
+        {
+            _var_vendor_specific_application_id = (UMDiameterAvpVendor_Specific_Application_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAuth_Session_State class]])
+        {
+            _var_auth_session_state = (UMDiameterAvpAuth_Session_State *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDestination_Host class]])
+        {
+            _var_destination_host = (UMDiameterAvpDestination_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDestination_Realm class]])
+        {
+            _var_destination_realm = (UMDiameterAvpDestination_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpSLg_Location_Type class]])
+        {
+            _var_slg_location_type = (UMDiameterAvpSLg_Location_Type *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpUser_Name class]])
+        {
+            _var_user_name = (UMDiameterAvpUser_Name *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpMSISDN class]])
+        {
+            _var_msisdn = (UMDiameterAvpMSISDN *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpIMEI class]])
+        {
+            _var_imei = (UMDiameterAvpIMEI *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_EPS_Client_Name class]])
+        {
+            _var_lcs_eps_client_name = (UMDiameterAvpLCS_EPS_Client_Name *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Client_Type class]])
+        {
+            _var_lcs_client_type = (UMDiameterAvpLCS_Client_Type *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Requestor_Name class]])
+        {
+            _var_lcs_requestor_name = (UMDiameterAvpLCS_Requestor_Name *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Priority class]])
+        {
+            _var_lcs_priority = (UMDiameterAvpLCS_Priority *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_QoS class]])
+        {
+            _var_lcs_qos = (UMDiameterAvpLCS_QoS *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVelocity_Requested class]])
+        {
+            _var_velocity_requested = (UMDiameterAvpVelocity_Requested *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Supported_GAD_Shapes class]])
+        {
+            _var_lcs_supported_gad_shapes = (UMDiameterAvpLCS_Supported_GAD_Shapes *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Service_Type_ID class]])
+        {
+            _var_lcs_service_type_id = (UMDiameterAvpLCS_Service_Type_ID *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Codeword class]])
+        {
+            _var_lcs_codeword = (UMDiameterAvpLCS_Codeword *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Privacy_Check_Non_Session class]])
+        {
+            _var_lcs_privacy_check_non_session = (UMDiameterAvpLCS_Privacy_Check_Non_Session *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLCS_Privacy_Check_Session class]])
+        {
+            _var_lcs_privacy_check_session = (UMDiameterAvpLCS_Privacy_Check_Session *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpService_Selection class]])
+        {
+            _var_service_selection = (UMDiameterAvpService_Selection *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDeferred_Location_Type class]])
+        {
+            _var_deferred_location_type = (UMDiameterAvpDeferred_Location_Type *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpPLR_Flags class]])
+        {
+            _var_plr_flags = (UMDiameterAvpPLR_Flags *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpSupported_Features class]])
+        {
+            if(_var_supported_features == NULL)
+            {
+                _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp];
+            }
+            else
+            {
+                _var_supported_features = [_var_supported_features arrayByAddingObject:(UMDiameterAvpSupported_Features *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpProxy_Info class]])
+        {
+            if(_var_proxy_info == NULL)
+            {
+                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp];
+            }
+            else
+            {
+                _var_proxy_info = [_var_proxy_info arrayByAddingObject:(UMDiameterAvpProxy_Info *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRoute_Record class]])
+        {
+            if(_var_route_record == NULL)
+            {
+                _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp];
+            }
+            else
+            {
+                _var_route_record = [_var_route_record arrayByAddingObject:(UMDiameterAvpRoute_Record *)avp];
+            }
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {
@@ -705,27 +852,36 @@
 	dict[@"PLR-Flags"] = [_var_plr_flags objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_supported_features)
+		if(_var_supported_features.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_supported_features)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Supported-Features"] = arr;
 		}
-		dict[@"Supported-Features"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_proxy_info)
+		if(_var_proxy_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_proxy_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Proxy-Info"] = arr;
 		}
-		dict[@"Proxy-Info"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_route_record)
+		if(_var_route_record.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_route_record)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Route-Record"] = arr;
 		}
-		dict[@"Route-Record"] = arr;
 	}
 	return dict;
 }

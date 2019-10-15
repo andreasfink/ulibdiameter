@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:30.724000
+//  Created by afink on 2019-10-14 23:40:02.101000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -149,6 +149,32 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDisconnect_Cause class]])
+        {
+            _var_disconnect_cause = (UMDiameterAvpDisconnect_Cause *)avp;
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {

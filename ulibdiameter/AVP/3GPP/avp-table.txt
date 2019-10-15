@@ -59,7 +59,7 @@
 647	Associated-Registered-Identities	6.3.50	Grouped	V
 648	Multiple-Registration-Indication	6.3.51	Enumerated	V
 649	Restoration-Info	6.3.52	Grouped	V
-650	Session-Priority	06.03.21	Enumerated	V
+650	Session-Priority	06.03.21	Enumerated	V   10415
 654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
 700	User-Identity	06.03.01	Grouped	M,V
 701	MSISDN	.	OctetString	M,V

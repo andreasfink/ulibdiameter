@@ -10,7 +10,7 @@
 
 @implementation UMDiameterAvpMSISDN(diameter)
 
-- (void)objectValue
+- (id)objectValue
 {
     return [self stringValue];
 }

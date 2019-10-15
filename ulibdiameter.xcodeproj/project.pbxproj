@@ -1501,6 +1501,8 @@
 		A69A2CEE2327E7C100F12046 /* UMDiameterPacketLCS_Routing_Info_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketLCS_Routing_Info_Answer.h; sourceTree = "<group>"; };
 		A6A0B24C2353966100A41343 /* UMDiameterAvpAddress+diameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UMDiameterAvpAddress+diameter.h"; sourceTree = "<group>"; };
 		A6A0B24D2353966100A41343 /* UMDiameterAvpAddress+diameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UMDiameterAvpAddress+diameter.m"; sourceTree = "<group>"; };
+		A6A0B25023553F2500A41343 /* UMDiameterCommands_3GPP.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = UMDiameterCommands_3GPP.inc; sourceTree = "<group>"; };
+		A6A0B25123553F4000A41343 /* UMDiameterCommands_base.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = UMDiameterCommands_base.inc; sourceTree = "<group>"; };
 		A6A58BAD203A6D9700D0C2BE /* UMDiameterPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacket.h; sourceTree = "<group>"; };
 		A6A58BAE203A6D9700D0C2BE /* UMDiameterPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacket.m; sourceTree = "<group>"; };
 		A6A58BB1203A6EEB00D0C2BE /* UMDiameterAvp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp.h; sourceTree = "<group>"; };
@@ -4044,6 +4046,7 @@
 			children = (
 				A67FC9E522CA7D22007A28AB /* command-def */,
 				A67FCA1522CA7D22007A28AB /* commands.txt */,
+				A6A0B25023553F2500A41343 /* UMDiameterCommands_3GPP.inc */,
 				A67FCA1422CA7D22007A28AB /* generate-commands.sh */,
 				A6DB9C13233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Answer.h */,
 				A6DB9C11233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Answer.m */,
@@ -4149,6 +4152,7 @@
 			children = (
 				A67FCA1E22CA7D23007A28AB /* command-def */,
 				A67FCA2E22CA7D23007A28AB /* commands.txt */,
+				A6A0B25123553F4000A41343 /* UMDiameterCommands_base.inc */,
 				A67FCA2D22CA7D23007A28AB /* generate-commands.sh */,
 				A67FCA7F22CA8091007A28AB /* UMDiameterPacketACA.h */,
 				A67FCA7922CA8088007A28AB /* UMDiameterPacketACA.m */,

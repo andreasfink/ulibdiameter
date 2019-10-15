@@ -2,7 +2,7 @@
 //  UMDiameterPacketSubscribe_Notifications_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:35.464000
+//  Created by afink on 2019-10-14 23:40:09.905000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -88,6 +88,7 @@
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;
-+ (void)webDiameterParameters:(NSMutableString *)s
-;@end
++ (void)webDiameterParameters:(NSMutableString *)str;
+- (void)afterDecode;
+@end
 

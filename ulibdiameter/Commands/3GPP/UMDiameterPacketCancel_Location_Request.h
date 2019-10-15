@@ -2,7 +2,7 @@
 //  UMDiameterPacketCancel_Location_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:35.120000
+//  Created by afink on 2019-10-14 23:40:09.694000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -61,6 +61,7 @@
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;
-+ (void)webDiameterParameters:(NSMutableString *)s
-;@end
++ (void)webDiameterParameters:(NSMutableString *)str;
+- (void)afterDecode;
+@end
 

@@ -10,7 +10,7 @@
 
 
 @interface UMDiameterAvpDiameterIdentity(diameter)
-- (void)objectValue;
+- (id)objectValue;
 
 @end
 

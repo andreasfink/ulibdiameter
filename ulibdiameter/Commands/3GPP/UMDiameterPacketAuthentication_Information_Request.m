@@ -2,7 +2,7 @@
 //  UMDiameterPacketAuthentication_Information_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:34.942000
+//  Created by afink on 2019-10-14 23:40:09.586000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -476,6 +476,109 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpSession_Id class]])
+        {
+            _var_session_id = (UMDiameterAvpSession_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDRMP class]])
+        {
+            _var_drmp = (UMDiameterAvpDRMP *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
+        {
+            _var_vendor_specific_application_id = (UMDiameterAvpVendor_Specific_Application_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAuth_Session_State class]])
+        {
+            _var_auth_session_state = (UMDiameterAvpAuth_Session_State *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDestination_Host class]])
+        {
+            _var_destination_host = (UMDiameterAvpDestination_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpDestination_Realm class]])
+        {
+            _var_destination_realm = (UMDiameterAvpDestination_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpUser_Name class]])
+        {
+            _var_user_name = (UMDiameterAvpUser_Name *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOC_Supported_Features class]])
+        {
+            _var_oc_supported_features = (UMDiameterAvpOC_Supported_Features *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpSupported_Features class]])
+        {
+            if(_var_supported_features == NULL)
+            {
+                _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp];
+            }
+            else
+            {
+                _var_supported_features = [_var_supported_features arrayByAddingObject:(UMDiameterAvpSupported_Features *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRequested_EUTRAN_Authentication_Info class]])
+        {
+            _var_requested_eutran_authentication_info = (UMDiameterAvpRequested_EUTRAN_Authentication_Info *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info class]])
+        {
+            _var_requested_utran_geran_authentication_info = (UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVisited_PLMN_Id class]])
+        {
+            _var_visited_plmn_id = (UMDiameterAvpVisited_PLMN_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAIR_Flags class]])
+        {
+            _var_air_flags = (UMDiameterAvpAIR_Flags *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpProxy_Info class]])
+        {
+            if(_var_proxy_info == NULL)
+            {
+                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp];
+            }
+            else
+            {
+                _var_proxy_info = [_var_proxy_info arrayByAddingObject:(UMDiameterAvpProxy_Info *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRoute_Record class]])
+        {
+            if(_var_route_record == NULL)
+            {
+                _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp];
+            }
+            else
+            {
+                _var_route_record = [_var_route_record arrayByAddingObject:(UMDiameterAvpRoute_Record *)avp];
+            }
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {
@@ -492,11 +595,14 @@
 	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_supported_features)
+		if(_var_supported_features.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_supported_features)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Supported-Features"] = arr;
 		}
-		dict[@"Supported-Features"] = arr;
 	}
 	dict[@"Requested-EUTRAN-Authentication-Info"] = [_var_requested_eutran_authentication_info objectValue];
 	dict[@"Requested-UTRAN-GERAN-Authentication-Info"] = [_var_requested_utran_geran_authentication_info objectValue];
@@ -504,19 +610,25 @@
 	dict[@"AIR-Flags"] = [_var_air_flags objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_proxy_info)
+		if(_var_proxy_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_proxy_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Proxy-Info"] = arr;
 		}
-		dict[@"Proxy-Info"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_route_record)
+		if(_var_route_record.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_route_record)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Route-Record"] = arr;
 		}
-		dict[@"Route-Record"] = arr;
 	}
 	return dict;
 }

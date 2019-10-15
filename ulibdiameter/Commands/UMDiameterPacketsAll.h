@@ -6,7 +6,6 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterPacketAuthentication_Information_Answer.h"
 
 #import "UMDiameterPacketACA.h"
 #import "UMDiameterPacketASA.h"

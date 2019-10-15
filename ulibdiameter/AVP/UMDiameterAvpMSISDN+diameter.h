@@ -10,7 +10,7 @@
 
 
 @interface UMDiameterAvpMSISDN(diameter)
-- (void)objectValue;
+- (id)objectValue;
 
 @end
 

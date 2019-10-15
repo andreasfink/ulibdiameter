@@ -14,6 +14,7 @@
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterVendorId.h"
 #import "UMDiameterRoute.h"
+#import "UMDiameterPacketsAll.h"
 
 @implementation UMDiameterRouter
 
@@ -505,6 +506,21 @@
 - (void)processIncomingPacket:(UMDiameterPacket *)packet
                      fromPeer:(UMDiameterPeer *)peer
 {
+
+#define COMMAND(CMDNAME) \
+    else if(packet.commandCode ==  [CMDNAME commandCode]) \
+    {  \
+        packet = [[CMDNAME alloc]initWithPacket:packet]; \
+    }
+
+    if(0)
+    {
+    }
+#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
+#include "Commands/base/UMDiameterCommands_base.inc"
+
+#undef COMMAND
+
     if(packet.commandFlags & DIAMETER_COMMAND_FLAG_REQUEST)
     {
         [self processIncomingRequestPacket:packet fromPeer:peer];
@@ -549,6 +565,5 @@
     UMDiameterRoute *route = [[UMDiameterRoute alloc]initWithConfig:config];
     [self addRoute:route];
 }
-
 
 @end

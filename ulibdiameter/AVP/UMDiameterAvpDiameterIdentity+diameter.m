@@ -11,7 +11,7 @@
 @implementation UMDiameterAvpDiameterIdentity(diameter)
 
 
-- (void)objectValue
+- (id)objectValue
 {
     return [self stringValue];
 }

@@ -45,6 +45,24 @@
     return [self initWithData:packet atPosition:NULL];
 }
 
+- (UMDiameterPacket *)initWithPacket:(UMDiameterPacket *)packet
+{
+    self = [super init];
+    if(self)
+    {
+        [self genericInitialisation];
+
+        _version = packet.version;
+        _commandFlags = packet.commandFlags;
+        _commandCode = packet.commandCode;
+        _applicationId = packet.applicationId;
+        _hopByHopIdentifier = packet.hopByHopIdentifier;
+        _endToEndIdentifier = packet.endToEndIdentifier;
+        _packet_avps = [[UMSynchronizedArray alloc]initWithArray:[packet.packet_avps arrayCopy]];
+        [self afterDecode];
+    }
+    return self;
+}
 - (void)genericInitialisation
 {
 	_packet_avps = [[UMSynchronizedArray alloc]init];
@@ -63,7 +81,8 @@
 }
 
 
-- (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr
+- (UMDiameterPacket *)initWithData:(NSData *)packet
+                        atPosition:(NSInteger *)posPtr
 {
     NSInteger pos=0;
     if(posPtr==NULL)
@@ -116,16 +135,17 @@
             }
             NSData *avpdata = [NSData dataWithBytes:&packet.bytes[pos] length:avplen];
 /*FIXME. read out vendor here */
-            int avpVendor = 0;
+            int avpVendor = _applicationId;
             
-            UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata avpCode:avpCode avpVendor:avpVendor];
+            UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata
+                                                            avpCode:avpCode
+                                                          avpVendor:avpVendor];
             if(avp)
             {
                 [_packet_avps addObject:avp];
             }
 			NSInteger avplen_padded = PADDING_TO_4(avplen);
 			pos  = pos + avplen_padded;
-
         }
 		if(posPtr)
 		{

@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:35.319000
+//  Created by afink on 2019-10-14 23:40:09.815000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -638,6 +638,145 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpSession_Id class]])
+        {
+            _var_session_id = (UMDiameterAvpSession_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
+        {
+            _var_vendor_specific_application_id = (UMDiameterAvpVendor_Specific_Application_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpResult_Code class]])
+        {
+            _var_result_code = (UMDiameterAvpResult_Code *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpExperimental_Result class]])
+        {
+            _var_experimental_result = (UMDiameterAvpExperimental_Result *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAuth_Session_State class]])
+        {
+            _var_auth_session_state = (UMDiameterAvpAuth_Session_State *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpLocation_Estimate class]])
+        {
+            _var_location_estimate = (UMDiameterAvpLocation_Estimate *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAccuracy_Fulfilment_Indicator class]])
+        {
+            _var_accuracy_fulfilment_indicator = (UMDiameterAvpAccuracy_Fulfilment_Indicator *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpAge_Of_Location_Estimate class]])
+        {
+            _var_age_of_location_estimate = (UMDiameterAvpAge_Of_Location_Estimate *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpVelocity_Estimate class]])
+        {
+            _var_velocity_estimate = (UMDiameterAvpVelocity_Estimate *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpEUTRAN_Positioning_Data class]])
+        {
+            _var_eutran_positioning_data = (UMDiameterAvpEUTRAN_Positioning_Data *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpECGI class]])
+        {
+            _var_ecgi = (UMDiameterAvpECGI *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpGERAN_Positioning_Info class]])
+        {
+            _var_geran_positioning_info = (UMDiameterAvpGERAN_Positioning_Info *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpCell_Global_Identity class]])
+        {
+            _var_cell_global_identity = (UMDiameterAvpCell_Global_Identity *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpUTRAN_Positioning_Info class]])
+        {
+            _var_utran_positioning_info = (UMDiameterAvpUTRAN_Positioning_Info *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpService_Area_Identity class]])
+        {
+            _var_service_area_identity = (UMDiameterAvpService_Area_Identity *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpServing_Node class]])
+        {
+            _var_serving_node = (UMDiameterAvpServing_Node *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpPLA_Flags class]])
+        {
+            _var_pla_flags = (UMDiameterAvpPLA_Flags *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpESMLC_Cell_Info class]])
+        {
+            _var_esmlc_cell_info = (UMDiameterAvpESMLC_Cell_Info *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpCivic_Address class]])
+        {
+            _var_civic_address = (UMDiameterAvpCivic_Address *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpBarometric_Pressure class]])
+        {
+            _var_barometric_pressure = (UMDiameterAvpBarometric_Pressure *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpSupported_Features class]])
+        {
+            if(_var_supported_features == NULL)
+            {
+                _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp];
+            }
+            else
+            {
+                _var_supported_features = [_var_supported_features arrayByAddingObject:(UMDiameterAvpSupported_Features *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpFailed_AVP class]])
+        {
+            _var_failed_avp = (UMDiameterAvpFailed_AVP *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpProxy_Info class]])
+        {
+            if(_var_proxy_info == NULL)
+            {
+                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp];
+            }
+            else
+            {
+                _var_proxy_info = [_var_proxy_info arrayByAddingObject:(UMDiameterAvpProxy_Info *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRoute_Record class]])
+        {
+            if(_var_route_record == NULL)
+            {
+                _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp];
+            }
+            else
+            {
+                _var_route_record = [_var_route_record arrayByAddingObject:(UMDiameterAvpRoute_Record *)avp];
+            }
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {
@@ -666,28 +805,37 @@
 	dict[@"Barometric-Pressure"] = [_var_barometric_pressure objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_supported_features)
+		if(_var_supported_features.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_supported_features)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Supported-Features"] = arr;
 		}
-		dict[@"Supported-Features"] = arr;
 	}
 	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_proxy_info)
+		if(_var_proxy_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_proxy_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Proxy-Info"] = arr;
 		}
-		dict[@"Proxy-Info"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_route_record)
+		if(_var_route_record.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_route_record)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Route-Record"] = arr;
 		}
-		dict[@"Route-Record"] = arr;
 	}
 	return dict;
 }

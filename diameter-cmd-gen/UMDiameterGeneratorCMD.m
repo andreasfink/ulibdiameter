@@ -320,7 +320,8 @@
     [s appendString:@"\n"];
     [s appendString:@"+ (uint32_t)commandCode;\n"];
     [s appendString:@"+ (uint32_t)defaultApplicationId;\n"];
-    [s appendString:@"+ (void)webDiameterParameters:(NSMutableString *)s\n;"];
+    [s appendString:@"+ (void)webDiameterParameters:(NSMutableString *)str;\n"];
+    [s appendString:@"- (void)afterDecode;\n"];
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
 
@@ -579,8 +580,64 @@
     [s appendString:@"}\n"];
     [s appendString:@"\n"];
 
+    [s appendString:@"- (void)afterDecode\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"    for(UMDiameterAvp *avp in _packet_avps)\n"];
+    [s appendString:@"    {\n"];
+
+    BOOL firstAvp=YES;
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if([avp.objectName isEqualToString:@"AVP"])
+        {
+            continue;
+        }
+        if(firstAvp)
+        {
+            firstAvp=NO;
+            [s appendFormat:@"        if([avp isKindOfClass:[%@%@ class]])\n",avpPrefix,avp.objectName];
+        }
+        else
+        {
+            [s appendFormat:@"        else if([avp isKindOfClass:[%@%@ class]])\n",avpPrefix,avp.objectName];
+        }
+        [s appendString:@"        {\n"];
+        if(!avp.multiple)
+        {
+            [s appendFormat:@"            %@ = (%@%@ *)avp;\n",avp.variableName,avpPrefix,avp.objectName];
+        }
+        else
+        {
+            [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
+            [s appendFormat:@"            {\n"];
+            [s appendFormat:@"                %@ = (NSArray<%@%@ *>*)@[avp];\n",avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"            }\n"];
+            [s appendFormat:@"            else\n"];
+            [s appendFormat:@"            {\n"];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:(%@%@ *)avp];\n",avp.variableName,avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"            }\n"];
+        }
+        [s appendString:@"        }\n"];
+    }
+
+    [s appendFormat:@"        else\n"];
+    [s appendFormat:@"        {\n"];
+    [s appendFormat:@"            if(_unknown_avps == NULL)\n"];
+    [s appendFormat:@"            {\n"];
+    [s appendFormat:@"                _unknown_avps = [[UMSynchronizedArray alloc]init];\n"];
+    [s appendFormat:@"            }\n"];
+    [s appendFormat:@"            [_unknown_avps addObject:avp];\n"];
+    [s appendFormat:@"        }\n"];
+    [s appendString:@"    }\n"];
+    [s appendString:@"}\n"];
+
+
+
 
     [s appendString:@"\n"];
+
+
+    
     [s appendString:@"- (id)objectValue\n"];
     [s appendString:@"{\n"];
 

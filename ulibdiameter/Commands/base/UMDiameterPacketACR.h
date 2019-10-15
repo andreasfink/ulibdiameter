@@ -2,7 +2,7 @@
 //  UMDiameterPacketACR.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:30.699000
+//  Created by afink on 2019-10-14 23:40:02.076000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -76,6 +76,7 @@
 
 + (uint32_t)commandCode;
 + (uint32_t)defaultApplicationId;
-+ (void)webDiameterParameters:(NSMutableString *)s
-;@end
++ (void)webDiameterParameters:(NSMutableString *)str;
+- (void)afterDecode;
+@end
 

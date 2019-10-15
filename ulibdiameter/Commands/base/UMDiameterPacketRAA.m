@@ -2,7 +2,7 @@
 //  UMDiameterPacketRAA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 08:53:30.687000
+//  Created by afink on 2019-10-14 23:40:02.063000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -379,6 +379,86 @@
 
 }
 
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if([avp isKindOfClass:[UMDiameterAvpSession_Id class]])
+        {
+            _var_session_id = (UMDiameterAvpSession_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpResult_Code class]])
+        {
+            _var_result_code = (UMDiameterAvpResult_Code *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        {
+            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        {
+            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpUser_Name class]])
+        {
+            _var_user_name = (UMDiameterAvpUser_Name *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpOrigin_State_Id class]])
+        {
+            _var_origin_state_id = (UMDiameterAvpOrigin_State_Id *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpError_Message class]])
+        {
+            _var_error_message = (UMDiameterAvpError_Message *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpError_Reporting_Host class]])
+        {
+            _var_error_reporting_host = (UMDiameterAvpError_Reporting_Host *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpFailed_AVP class]])
+        {
+            _var_failed_avp = (UMDiameterAvpFailed_AVP *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRedirect_Host class]])
+        {
+            if(_var_redirect_host == NULL)
+            {
+                _var_redirect_host = (NSArray<UMDiameterAvpRedirect_Host *>*)@[avp];
+            }
+            else
+            {
+                _var_redirect_host = [_var_redirect_host arrayByAddingObject:(UMDiameterAvpRedirect_Host *)avp];
+            }
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRedirect_Host_Usage class]])
+        {
+            _var_redirect_host_usage = (UMDiameterAvpRedirect_Host_Usage *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpRedirect_Max_Cache_Time class]])
+        {
+            _var_redirect_max_cache_time = (UMDiameterAvpRedirect_Max_Cache_Time *)avp;
+        }
+        else if([avp isKindOfClass:[UMDiameterAvpProxy_Info class]])
+        {
+            if(_var_proxy_info == NULL)
+            {
+                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp];
+            }
+            else
+            {
+                _var_proxy_info = [_var_proxy_info arrayByAddingObject:(UMDiameterAvpProxy_Info *)avp];
+            }
+        }
+        else
+        {
+            if(_unknown_avps == NULL)
+            {
+                _unknown_avps = [[UMSynchronizedArray alloc]init];
+            }
+            [_unknown_avps addObject:avp];
+        }
+    }
+}
 
 - (id)objectValue
 {
@@ -394,21 +474,27 @@
 	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_redirect_host)
+		if(_var_redirect_host.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_redirect_host)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Redirect-Host"] = arr;
 		}
-		dict[@"Redirect-Host"] = arr;
 	}
 	dict[@"Redirect-Host-Usage"] = [_var_redirect_host_usage objectValue];
 	dict[@"Redirect-Max-Cache-Time"] = [_var_redirect_max_cache_time objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_proxy_info)
+		if(_var_proxy_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_proxy_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Proxy-Info"] = arr;
 		}
-		dict[@"Proxy-Info"] = arr;
 	}
 	return dict;
 }

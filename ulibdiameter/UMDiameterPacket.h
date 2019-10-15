@@ -27,6 +27,7 @@
     uint32_t    _endToEndIdentifier;
 	uint32_t	_messageLength; /* calculated  */
     UMSynchronizedArray *_packet_avps;
+    UMSynchronizedArray *_unknown_avps;
 }
 
 
@@ -36,11 +37,14 @@
 @property(readwrite,assign,atomic)  uint32_t    applicationId;
 @property(readwrite,assign,atomic)  uint32_t    hopByHopIdentifier;
 @property(readwrite,assign,atomic)  uint32_t    endToEndIdentifier;
+@property(readwrite,strong,atomic)  UMSynchronizedArray *packet_avps;
+@property(readwrite,strong,atomic)  UMSynchronizedArray *unknown_avps;
 
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;
 - (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr;
 - (UMDiameterPacket *)initWithJsonString:(NSString *)str;
+- (UMDiameterPacket *)initWithPacket:(UMDiameterPacket *)packet;
 
 - (void)genericInitialisation;
 
