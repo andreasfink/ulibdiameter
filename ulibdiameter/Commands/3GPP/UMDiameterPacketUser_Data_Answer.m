@@ -672,6 +672,7 @@
 			dict[@"Route-Record"] = arr;
 		}
 	}
+    NSLog(@"UMDiameterPacketUser_Data_Answer %@",dict);
 	return dict;
 }
 

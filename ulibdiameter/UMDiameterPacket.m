@@ -417,6 +417,8 @@
     {
         dict[@"avp"] = a;
     }
+
+    NSLog(@"UMDiameterPacket objectValue returns %@",dict);
     return dict;
 }
 
