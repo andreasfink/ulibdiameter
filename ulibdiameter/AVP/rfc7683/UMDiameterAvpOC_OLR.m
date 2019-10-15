@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_OLR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:20.755000
+//  Created by afink on 2019-10-15 08:59:38.871000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -44,24 +44,29 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_oc_sequence_number)
     {
+        [_var_oc_sequence_number beforeEncode];
         [arr addObject:_var_oc_sequence_number];
     }
     if(_var_oc_report_type)
     {
+        [_var_oc_report_type beforeEncode];
         [arr addObject:_var_oc_report_type];
     }
     if(_var_oc_reduction_percentage)
     {
+        [_var_oc_reduction_percentage beforeEncode];
         [arr addObject:_var_oc_reduction_percentage];
     }
     if(_var_oc_validity_duration)
     {
+        [_var_oc_validity_duration beforeEncode];
         [arr addObject:_var_oc_validity_duration];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -99,6 +104,17 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"OC-Sequence-Number"] = [_var_oc_sequence_number objectValue];
+	dict[@"OC-Report-Type"] = [_var_oc_report_type objectValue];
+	dict[@"OC-Reduction-Percentage"] = [_var_oc_reduction_percentage objectValue];
+	dict[@"OC-Validity-Duration"] = [_var_oc_validity_duration objectValue];
+	return dict;
+}
+
 
 @end
 

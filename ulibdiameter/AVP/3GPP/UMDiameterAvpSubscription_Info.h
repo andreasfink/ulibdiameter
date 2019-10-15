@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Info.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 07:53:14.933000
+//  Created by afink on 2019-10-15 08:59:23.971000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

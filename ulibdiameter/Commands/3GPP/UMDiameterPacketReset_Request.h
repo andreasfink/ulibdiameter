@@ -2,7 +2,7 @@
 //  UMDiameterPacketReset_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-14 23:40:09.718000
+//  Created by afink on 2019-10-15 08:59:10.409000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

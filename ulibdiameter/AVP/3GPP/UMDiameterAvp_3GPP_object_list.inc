@@ -59,7 +59,7 @@ AVP_OBJECT(UMDiameterAvpRecord_Route,UMDiameterAvpOctetString,646,@"Record-Route
 AVP_OBJECT(UMDiameterAvpAssociated_Registered_Identities,UMDiameterAvpGrouped,647,@"Associated-Registered-Identities",Grouped,NO,YES,10415,YES)
 AVP_OBJECT(UMDiameterAvpMultiple_Registration_Indication,UMDiameterAvpEnumerated,648,@"Multiple-Registration-Indication",Enumerated,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpRestoration_Info,UMDiameterAvpGrouped,649,@"Restoration-Info",Grouped,NO,YES,10415,YES)
-AVP_OBJECT(UMDiameterAvpSession_Priority,UMDiameterAvpEnumerated,650,@"Session-Priority",Enumerated,NO,YES,10415,NO)
+AVP_OBJECT(UMDiameterAvpSession_Priority,UMDiameterAvpEnumerated,650,@"Session-Priority",Enumerated,NO,NO,10415,NO)
 AVP_OBJECT(UMDiameterAvpInitial_CSeq_Sequence_Number,UMDiameterAvpUnsigned32,654,@"Initial_CSeq_Sequence_Number",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpUser_Identity,UMDiameterAvpGrouped,700,@"User-Identity",Grouped,YES,YES,10415,YES)
 AVP_OBJECT(UMDiameterAvpMSISDN,UMDiameterAvpOctetString,701,@"MSISDN",OctetString,YES,YES,10415,NO)

@@ -2,7 +2,7 @@
 //  UMDiameterAvpLoad.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-08-05 22:45:20.802000
+//  Created by afink on 2019-10-15 08:59:30.744000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -43,20 +43,24 @@
     NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
     if(_var_load_type)
     {
+        [_var_load_type beforeEncode];
         [arr addObject:_var_load_type];
     }
     if(_var_load_value)
     {
+        [_var_load_value beforeEncode];
         [arr addObject:_var_load_value];
     }
     if(_var_sourceid)
     {
+        [_var_sourceid beforeEncode];
         [arr addObject:_var_sourceid];
     }
     if(_var_avp.count > 0)
     {
         for(UMDiameterAvpAVP *o in _var_avp)
         {
+            [o beforeEncode];
             [arr addObject:o];
         }
     }
@@ -90,6 +94,16 @@
     [s appendString:@"</td>\n"];
     [s appendString:@"</tr>\n"];
 }
+
+- (id)objectValue
+{
+	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+	dict[@"Load-Type"] = [_var_load_type objectValue];
+	dict[@"Load-Value"] = [_var_load_value objectValue];
+	dict[@"SourceID"] = [_var_sourceid objectValue];
+	return dict;
+}
+
 
 @end
 
