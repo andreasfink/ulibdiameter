@@ -675,13 +675,39 @@
 
 
 
+    [s appendString:@"+ (NSString *)webJsonDefintion\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"    NSMutableArray *arr = [[NSMutableArray alloc]init];\n"];
+    for(UMDiameterGeneratorAVP *avp in _avps)
+    {
+        if([avp.standardsName isEqualToString:@"AVP"])
+        {
+            continue;
+        }
+        [s appendFormat:@"    [arr addObject:@{ @\"%@\" : [%@%@ definition] }];\n",avp.variableName,avpPrefix,avp.objectName];
+    }
+    [s appendString:@"\n"];
+    [s appendString:@"    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];\n"];
+    [s appendFormat:@"    commandDef[@\"command-name\"] = @\"%@\";\n",_commandName];
+    [s appendFormat:@"    commandDef[@\"web-name\"] = @\"%@\";\n",_webName];
+    [s appendFormat:@"    commandDef[@\"command-number\"] = @(%ld);\n",_commandNumber];
+    [s appendFormat:@"    commandDef[@\"application-id\"] = @(%ld);\n",_applicationId];
+    [s appendFormat:@"    commandDef[@\"rbit\"] = @(%@);\n",_rbit ? @"YES" : @"NO"];
+    [s appendFormat:@"    commandDef[@\"ebit\"] = @(%@);\n",_ebit ? @"YES" : @"NO"];
+    [s appendFormat:@"    commandDef[@\"pbit\"] = @(%@);\n",_pbit ? @"YES" : @"NO"];
+    [s appendFormat:@"    commandDef[@\"tbit\"] = @(%@);\n",_tbit ? @"YES" : @"NO"];
+    [s appendString:@"    commandDef[@\"fields\"] = arr;\n"];
+    [s appendString:@"\n"];
+    [s appendString:@"    return [commandDef jsonString];\n"];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
+
+
     
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
     return s;
 }
 
-
 @end
-
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpUser_Identity.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,6 +104,23 @@
 	dict[@"MSISDN"] = [_var_msisdn objectValue];
 	dict[@"External-Identifier"] = [_var_external_identifier objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"user-identity";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpPublic_Identity definition]];
+    [entries addObject:[UMDiameterAvpMSISDN definition]];
+    [entries addObject:[UMDiameterAvpExternal_Identifier definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

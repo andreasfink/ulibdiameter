@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Auth_Data_Item.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -184,13 +184,40 @@
 	dict[@"Framed-Interface-Id"] = [_var_framed_interface_id objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_line_identifier)
+		if(_var_line_identifier.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_line_identifier)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Line-Identifier"] = arr;
 		}
-		dict[@"Line-Identifier"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"sip-auth-data-item";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSIP_Item_Number definition]];
+    [entries addObject:[UMDiameterAvpSIP_Authentication_Scheme definition]];
+    [entries addObject:[UMDiameterAvpSIP_Authorization definition]];
+    [entries addObject:[UMDiameterAvpSIP_Authentication_Context definition]];
+    [entries addObject:[UMDiameterAvpIntegrity_Key definition]];
+    [entries addObject:[UMDiameterAvpSIP_Digest_Authenticate definition]];
+    [entries addObject:[UMDiameterAvpFramed_IP_Address definition]];
+    [entries addObject:[UMDiameterAvpFramed_IPv6_Prefix definition]];
+    [entries addObject:[UMDiameterAvpFramed_Interface_Id definition]];
+    [entries addObject:[UMDiameterAvpLine_Identifier definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

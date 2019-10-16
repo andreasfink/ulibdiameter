@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Scope.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -137,45 +137,79 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_cell_global_identity)
+		if(_var_cell_global_identity.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_cell_global_identity)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Cell-Global-Identity"] = arr;
 		}
-		dict[@"Cell-Global-Identity"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_e_utran_cell_global_identity)
+		if(_var_e_utran_cell_global_identity.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_e_utran_cell_global_identity)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"E-UTRAN-Cell-Global-Identity"] = arr;
 		}
-		dict[@"E-UTRAN-Cell-Global-Identity"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_routing_area_identity)
+		if(_var_routing_area_identity.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_routing_area_identity)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Routing-Area-Identity"] = arr;
 		}
-		dict[@"Routing-Area-Identity"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_location_area_identity)
+		if(_var_location_area_identity.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_location_area_identity)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Location-Area-Identity"] = arr;
 		}
-		dict[@"Location-Area-Identity"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_tracking_area_identity)
+		if(_var_tracking_area_identity.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_tracking_area_identity)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Tracking-Area-Identity"] = arr;
 		}
-		dict[@"Tracking-Area-Identity"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"area-scope";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpCell_Global_Identity definition]];
+    [entries addObject:[UMDiameterAvpE_UTRAN_Cell_Global_Identity definition]];
+    [entries addObject:[UMDiameterAvpRouting_Area_Identity definition]];
+    [entries addObject:[UMDiameterAvpLocation_Area_Identity definition]];
+    [entries addObject:[UMDiameterAvpTracking_Area_Identity definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

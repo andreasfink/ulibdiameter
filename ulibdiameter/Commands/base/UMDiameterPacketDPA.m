@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.231000
+//  Created by afink on 2019-10-16 20:49:11.111000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -229,6 +229,29 @@
 	dict[@"Error-Message"] = [_var_error_message objectValue];
 	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_error_message" : [UMDiameterAvpError_Message definition] }];
+    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"DPA";
+    commandDef[@"web-name"] = @"dpa";
+    commandDef[@"command-number"] = @(282);
+    commandDef[@"application-id"] = @(0);
+    commandDef[@"rbit"] = @(NO);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(NO);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

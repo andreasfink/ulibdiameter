@@ -2,7 +2,7 @@
 //  UMDiameterAvpV2X_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"V2X-Permission"] = [_var_v2x_permission objectValue];
 	dict[@"UE-PC5-AMBR"] = [_var_ue_pc5_ambr objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"v2x-subscription-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpV2X_Permission definition]];
+    [entries addObject:[UMDiameterAvpUE_PC5_AMBR definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

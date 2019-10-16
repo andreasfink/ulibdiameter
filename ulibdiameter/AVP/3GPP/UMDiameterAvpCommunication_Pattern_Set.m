@@ -2,7 +2,7 @@
 //  UMDiameterAvpCommunication_Pattern_Set.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -138,15 +138,38 @@
 	dict[@"Periodic-Time"] = [_var_periodic_time objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_scheduled_communication_time)
+		if(_var_scheduled_communication_time.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_scheduled_communication_time)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Scheduled-Communication-Time"] = arr;
 		}
-		dict[@"Scheduled-Communication-Time"] = arr;
 	}
 	dict[@"Stationary-Indication"] = [_var_stationary_indication objectValue];
 	dict[@"Reference-ID-Validity-Time"] = [_var_reference_id_validity_time objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"communication-pattern-set";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpPeriodic_Communication_Indicator definition]];
+    [entries addObject:[UMDiameterAvpCommunication_Duration_Time definition]];
+    [entries addObject:[UMDiameterAvpPeriodic_Time definition]];
+    [entries addObject:[UMDiameterAvpScheduled_Communication_Time definition]];
+    [entries addObject:[UMDiameterAvpStationary_Indication definition]];
+    [entries addObject:[UMDiameterAvpReference_ID_Validity_Time definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

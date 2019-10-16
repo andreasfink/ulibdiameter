@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -296,21 +296,61 @@
 	dict[@"Event-Threshold-Event-1I"] = [_var_event_threshold_event_1i objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_mdt_allowed_plmn_id)
+		if(_var_mdt_allowed_plmn_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_mdt_allowed_plmn_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"MDT-Allowed-PLMN-Id"] = arr;
 		}
-		dict[@"MDT-Allowed-PLMN-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_mbsfn_area)
+		if(_var_mbsfn_area.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_mbsfn_area)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"MBSFN-Area"] = arr;
 		}
-		dict[@"MBSFN-Area"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"mdt-configuration";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpJob_Type definition]];
+    [entries addObject:[UMDiameterAvpArea_Scope definition]];
+    [entries addObject:[UMDiameterAvpList_Of_Measurements definition]];
+    [entries addObject:[UMDiameterAvpReporting_Trigger definition]];
+    [entries addObject:[UMDiameterAvpReport_Interval definition]];
+    [entries addObject:[UMDiameterAvpReport_Amount definition]];
+    [entries addObject:[UMDiameterAvpEvent_Threshold_RSRP definition]];
+    [entries addObject:[UMDiameterAvpEvent_Threshold_RSRQ definition]];
+    [entries addObject:[UMDiameterAvpLogging_Interval definition]];
+    [entries addObject:[UMDiameterAvpLogging_Duration definition]];
+    [entries addObject:[UMDiameterAvpMeasurement_Period_LTE definition]];
+    [entries addObject:[UMDiameterAvpMeasurement_Period_UMTS definition]];
+    [entries addObject:[UMDiameterAvpCollection_Period_RRM_LTE definition]];
+    [entries addObject:[UMDiameterAvpCollection_Period_RRM_UMTS definition]];
+    [entries addObject:[UMDiameterAvpPositioning_Method definition]];
+    [entries addObject:[UMDiameterAvpMeasurement_Quantity definition]];
+    [entries addObject:[UMDiameterAvpEvent_Threshold_Event_1F definition]];
+    [entries addObject:[UMDiameterAvpEvent_Threshold_Event_1I definition]];
+    [entries addObject:[UMDiameterAvpMDT_Allowed_PLMN_Id definition]];
+    [entries addObject:[UMDiameterAvpMBSFN_Area definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

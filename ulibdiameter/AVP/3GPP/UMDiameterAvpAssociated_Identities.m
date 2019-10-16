@@ -2,7 +2,7 @@
 //  UMDiameterAvpAssociated_Identities.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -85,13 +85,31 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_user_name)
+		if(_var_user_name.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_user_name)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"User-Name"] = arr;
 		}
-		dict[@"User-Name"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"associated-identities";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpUser_Name definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

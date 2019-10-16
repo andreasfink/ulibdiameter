@@ -2,7 +2,7 @@
 //  UMDiameterPacketCER.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.095000
+//  Created by afink on 2019-10-16 20:49:10.890000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -642,6 +642,36 @@
 	}
 	dict[@"Firmware-Revision"] = [_var_firmware_revision objectValue];
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_host_ip_address" : [UMDiameterAvpHost_IP_Address definition] }];
+    [arr addObject:@{ @"_var_vendor_id" : [UMDiameterAvpVendor_Id definition] }];
+    [arr addObject:@{ @"_var_product_name" : [UMDiameterAvpProduct_Name definition] }];
+    [arr addObject:@{ @"_var_origin_state_id" : [UMDiameterAvpOrigin_State_Id definition] }];
+    [arr addObject:@{ @"_var_supported_vendor_id" : [UMDiameterAvpSupported_Vendor_Id definition] }];
+    [arr addObject:@{ @"_var_auth_application_id" : [UMDiameterAvpAuth_Application_Id definition] }];
+    [arr addObject:@{ @"_var_inband_security_id" : [UMDiameterAvpInband_Security_Id definition] }];
+    [arr addObject:@{ @"_var_acct_application_id" : [UMDiameterAvpAcct_Application_Id definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_firmware_revision" : [UMDiameterAvpFirmware_Revision definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"CER";
+    commandDef[@"web-name"] = @"cer";
+    commandDef[@"command-number"] = @(257);
+    commandDef[@"application-id"] = @(0);
+    commandDef[@"rbit"] = @(YES);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(NO);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

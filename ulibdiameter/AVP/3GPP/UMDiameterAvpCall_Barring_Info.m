@@ -2,7 +2,7 @@
 //  UMDiameterAvpCall_Barring_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"SS-Code"] = [_var_ss_code objectValue];
 	dict[@"SS-Status"] = [_var_ss_status objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"call-barring-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSS_Code definition]];
+    [entries addObject:[UMDiameterAvpSS_Status definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

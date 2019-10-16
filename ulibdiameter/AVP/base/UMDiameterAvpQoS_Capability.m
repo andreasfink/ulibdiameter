@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Capability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:18.862000
+//  Created by afink on 2019-10-16 20:52:18.128000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -84,13 +84,31 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_qos_profile_template)
+		if(_var_qos_profile_template.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_qos_profile_template)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"QoS-Profile-Template"] = arr;
 		}
-		dict[@"QoS-Profile-Template"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"qos-capability";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpQoS_Profile_Template definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

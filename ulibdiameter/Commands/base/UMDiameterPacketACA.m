@@ -2,7 +2,7 @@
 //  UMDiameterPacketACA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.206000
+//  Created by afink on 2019-10-16 20:49:11.068000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -616,6 +616,44 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_accounting_record_type" : [UMDiameterAvpAccounting_Record_Type definition] }];
+    [arr addObject:@{ @"_var_accounting_record_number" : [UMDiameterAvpAccounting_Record_Number definition] }];
+    [arr addObject:@{ @"_var_acct_application_id" : [UMDiameterAvpAcct_Application_Id definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_accounting_sub_session_id" : [UMDiameterAvpAccounting_Sub_Session_Id definition] }];
+    [arr addObject:@{ @"_var_acct_session_id" : [UMDiameterAvpAcct_Session_Id definition] }];
+    [arr addObject:@{ @"_var_acct_multi_session_id" : [UMDiameterAvpAcct_Multi_Session_Id definition] }];
+    [arr addObject:@{ @"_var_error_message" : [UMDiameterAvpError_Message definition] }];
+    [arr addObject:@{ @"_var_error_reporting_host" : [UMDiameterAvpError_Reporting_Host definition] }];
+    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
+    [arr addObject:@{ @"_var_acct_interim_interval" : [UMDiameterAvpAcct_Interim_Interval definition] }];
+    [arr addObject:@{ @"_var_accounting_realtime_required" : [UMDiameterAvpAccounting_Realtime_Required definition] }];
+    [arr addObject:@{ @"_var_origin_state_id" : [UMDiameterAvpOrigin_State_Id definition] }];
+    [arr addObject:@{ @"_var_event_timestamp" : [UMDiameterAvpEvent_Timestamp definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"ACA";
+    commandDef[@"web-name"] = @"aca";
+    commandDef[@"command-number"] = @(271);
+    commandDef[@"application-id"] = @(0);
+    commandDef[@"rbit"] = @(NO);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

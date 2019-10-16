@@ -2,7 +2,7 @@
 //  UMDiameterAvpRepository_Data_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Service-Indication"] = [_var_service_indication objectValue];
 	dict[@"Sequence-Number"] = [_var_sequence_number objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"repository-data-id";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpService_Indication definition]];
+    [entries addObject:[UMDiameterAvpSequence_Number definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

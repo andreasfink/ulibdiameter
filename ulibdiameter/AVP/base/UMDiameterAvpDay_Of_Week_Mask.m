@@ -2,7 +2,7 @@
 //  UMDiameterAvpDay_Of_Week_Mask.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:18.862000
+//  Created by afink on 2019-10-16 20:52:18.128000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,6 +30,18 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"day-of-week-mask";
+    avpDef[@"type"] = @"Unsigned32";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(NO);
+
+    return avpDef;
 }
 
 

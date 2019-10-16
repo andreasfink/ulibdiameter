@@ -2,7 +2,7 @@
 //  UMDiameterAvpTrace_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -159,6 +159,28 @@
 	dict[@"Trace-Collection-Entity"] = [_var_trace_collection_entity objectValue];
 	dict[@"MDT-Configuration"] = [_var_mdt_configuration objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"trace-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpTrace_Reference definition]];
+    [entries addObject:[UMDiameterAvpTrace_Depth definition]];
+    [entries addObject:[UMDiameterAvpTrace_NE_Type_List definition]];
+    [entries addObject:[UMDiameterAvpTrace_Interface_List definition]];
+    [entries addObject:[UMDiameterAvpTrace_Event_List definition]];
+    [entries addObject:[UMDiameterAvpOMC_Id definition]];
+    [entries addObject:[UMDiameterAvpTrace_Collection_Entity definition]];
+    [entries addObject:[UMDiameterAvpMDT_Configuration definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

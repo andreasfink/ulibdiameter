@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdditional_Serving_Node.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -170,6 +170,29 @@
 	dict[@"LCS-Capabilities-Sets"] = [_var_lcs_capabilities_sets objectValue];
 	dict[@"GMLC-Address"] = [_var_gmlc_address objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"additional-serving-node";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSGSN_Number definition]];
+    [entries addObject:[UMDiameterAvpMME_Name definition]];
+    [entries addObject:[UMDiameterAvpSGSN_Name definition]];
+    [entries addObject:[UMDiameterAvpSGSN_Realm definition]];
+    [entries addObject:[UMDiameterAvpMME_Realm definition]];
+    [entries addObject:[UMDiameterAvpMSC_Number definition]];
+    [entries addObject:[UMDiameterAvp3GPP_AAA_Server_Name definition]];
+    [entries addObject:[UMDiameterAvpLCS_Capabilities_Sets definition]];
+    [entries addObject:[UMDiameterAvpGMLC_Address definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

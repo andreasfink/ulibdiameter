@@ -2,7 +2,7 @@
 //  UMDiameterAvpMME_User_State.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"MME-Location-Information"] = [_var_mme_location_information objectValue];
 	dict[@"SGSN-Location-Information"] = [_var_sgsn_location_information objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"mme-user-state";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpMME_Location_Information definition]];
+    [entries addObject:[UMDiameterAvpSGSN_Location_Information definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

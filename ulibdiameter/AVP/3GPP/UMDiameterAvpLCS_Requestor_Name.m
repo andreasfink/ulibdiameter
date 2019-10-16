@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Requestor_Name.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -84,6 +84,22 @@
 	dict[@"LCS-Requestor-Id-String"] = [_var_lcs_requestor_id_string objectValue];
 	dict[@"LCS-Format-Indicator"] = [_var_lcs_format_indicator objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"lcs-requestor-name";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpLCS_Requestor_Id_String definition]];
+    [entries addObject:[UMDiameterAvpLCS_Format_Indicator definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Report.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -137,6 +137,26 @@
 	dict[@"Monitoring-Type"] = [_var_monitoring_type objectValue];
 	dict[@"Loss-Of-Connectivity-Reason"] = [_var_loss_of_connectivity_reason objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"monitoring-event-report";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSCEF_Reference_ID definition]];
+    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
+    [entries addObject:[UMDiameterAvpReachability_Information definition]];
+    [entries addObject:[UMDiameterAvpEPS_Location_Information definition]];
+    [entries addObject:[UMDiameterAvpMonitoring_Type definition]];
+    [entries addObject:[UMDiameterAvpLoss_Of_Connectivity_Reason definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

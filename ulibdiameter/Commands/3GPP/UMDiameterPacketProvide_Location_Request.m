@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.497000
+//  Created by afink on 2019-10-16 20:49:11.642000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -884,6 +884,52 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
+    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
+    [arr addObject:@{ @"_var_slg_location_type" : [UMDiameterAvpSLg_Location_Type definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_msisdn" : [UMDiameterAvpMSISDN definition] }];
+    [arr addObject:@{ @"_var_imei" : [UMDiameterAvpIMEI definition] }];
+    [arr addObject:@{ @"_var_lcs_eps_client_name" : [UMDiameterAvpLCS_EPS_Client_Name definition] }];
+    [arr addObject:@{ @"_var_lcs_client_type" : [UMDiameterAvpLCS_Client_Type definition] }];
+    [arr addObject:@{ @"_var_lcs_requestor_name" : [UMDiameterAvpLCS_Requestor_Name definition] }];
+    [arr addObject:@{ @"_var_lcs_priority" : [UMDiameterAvpLCS_Priority definition] }];
+    [arr addObject:@{ @"_var_lcs_qos" : [UMDiameterAvpLCS_QoS definition] }];
+    [arr addObject:@{ @"_var_velocity_requested" : [UMDiameterAvpVelocity_Requested definition] }];
+    [arr addObject:@{ @"_var_lcs_supported_gad_shapes" : [UMDiameterAvpLCS_Supported_GAD_Shapes definition] }];
+    [arr addObject:@{ @"_var_lcs_service_type_id" : [UMDiameterAvpLCS_Service_Type_ID definition] }];
+    [arr addObject:@{ @"_var_lcs_codeword" : [UMDiameterAvpLCS_Codeword definition] }];
+    [arr addObject:@{ @"_var_lcs_privacy_check_non_session" : [UMDiameterAvpLCS_Privacy_Check_Non_Session definition] }];
+    [arr addObject:@{ @"_var_lcs_privacy_check_session" : [UMDiameterAvpLCS_Privacy_Check_Session definition] }];
+    [arr addObject:@{ @"_var_service_selection" : [UMDiameterAvpService_Selection definition] }];
+    [arr addObject:@{ @"_var_deferred_location_type" : [UMDiameterAvpDeferred_Location_Type definition] }];
+    [arr addObject:@{ @"_var_plr_flags" : [UMDiameterAvpPLR_Flags definition] }];
+    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"Provide-Location-Request";
+    commandDef[@"web-name"] = @"provide-location-request";
+    commandDef[@"command-number"] = @(8388620);
+    commandDef[@"application-id"] = @(16777255);
+    commandDef[@"rbit"] = @(YES);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

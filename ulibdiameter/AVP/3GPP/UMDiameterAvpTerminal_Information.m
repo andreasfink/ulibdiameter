@@ -2,7 +2,7 @@
 //  UMDiameterAvpTerminal_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,6 +104,23 @@
 	dict[@"3GPP2-MEID"] = [_var_3gpp2_meid objectValue];
 	dict[@"Software-Version"] = [_var_software_version objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"terminal-information";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpIMEI definition]];
+    [entries addObject:[UMDiameterAvp3GPP2_MEID definition]];
+    [entries addObject:[UMDiameterAvpSoftware_Version definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterPacketRAR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.169000
+//  Created by afink on 2019-10-16 20:49:11.006000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -451,6 +451,35 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
+    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
+    [arr addObject:@{ @"_var_auth_application_id" : [UMDiameterAvpAuth_Application_Id definition] }];
+    [arr addObject:@{ @"_var_re_auth_request_type" : [UMDiameterAvpRe_Auth_Request_Type definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_origin_state_id" : [UMDiameterAvpOrigin_State_Id definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"RAR";
+    commandDef[@"web-name"] = @"rar";
+    commandDef[@"command-number"] = @(258);
+    commandDef[@"application-id"] = @(0);
+    commandDef[@"rbit"] = @(YES);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

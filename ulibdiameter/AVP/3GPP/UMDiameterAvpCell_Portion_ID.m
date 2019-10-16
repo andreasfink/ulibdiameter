@@ -2,7 +2,7 @@
 //  UMDiameterAvpCell_Portion_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -32,6 +32,18 @@
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Vendor;
     _avpVendorId = 10415;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"cell-portion-id";
+    avpDef[@"type"] = @"Unsigned32";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(NO);
+
+    return avpDef;
 }
 
 

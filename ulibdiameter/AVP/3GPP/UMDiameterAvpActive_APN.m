@@ -2,7 +2,7 @@
 //  UMDiameterAvpActive_APN.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -129,13 +129,35 @@
 	dict[@"Visited-Network-Identifier"] = [_var_visited_network_identifier objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_specific_apn_info)
+		if(_var_specific_apn_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_specific_apn_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Specific-APN-Info"] = arr;
 		}
-		dict[@"Specific-APN-Info"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"active-apn";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
+    [entries addObject:[UMDiameterAvpService_Selection definition]];
+    [entries addObject:[UMDiameterAvpMIP6_Agent_Info definition]];
+    [entries addObject:[UMDiameterAvpVisited_Network_Identifier definition]];
+    [entries addObject:[UMDiameterAvpSpecific_APN_Info definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

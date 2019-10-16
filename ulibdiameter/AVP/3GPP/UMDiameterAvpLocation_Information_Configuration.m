@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocation_Information_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"MONTE-Location-Type"] = [_var_monte_location_type objectValue];
 	dict[@"Accuracy"] = [_var_accuracy objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"location-information-configuration";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpMONTE_Location_Type definition]];
+    [entries addObject:[UMDiameterAvpAccuracy definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

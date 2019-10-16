@@ -2,7 +2,7 @@
 //  UMDiameterAvpScheduled_Communication_Time.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -105,15 +105,35 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_day_of_week_mask)
+		if(_var_day_of_week_mask.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_day_of_week_mask)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Day-Of-Week-Mask"] = arr;
 		}
-		dict[@"Day-Of-Week-Mask"] = arr;
 	}
 	dict[@"Time-Of-Day-Start"] = [_var_time_of_day_start objectValue];
 	dict[@"Time-Of-Day-End"] = [_var_time_of_day_end objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"scheduled-communication-time";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpDay_Of_Week_Mask definition]];
+    [entries addObject:[UMDiameterAvpTime_Of_Day_Start definition]];
+    [entries addObject:[UMDiameterAvpTime_Of_Day_End definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

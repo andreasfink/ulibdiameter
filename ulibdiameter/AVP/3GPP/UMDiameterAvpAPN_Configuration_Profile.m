@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -118,13 +118,34 @@
 	dict[@"All-APN-Configurations-Included-Indicator"] = [_var_all_apn_configurations_included_indicator objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_apn_configuration)
+		if(_var_apn_configuration.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_apn_configuration)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"APN-Configuration"] = arr;
 		}
-		dict[@"APN-Configuration"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"apn-configuration-profile";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
+    [entries addObject:[UMDiameterAvpAdditional_Context_Identifier definition]];
+    [entries addObject:[UMDiameterAvpAll_APN_Configurations_Included_Indicator definition]];
+    [entries addObject:[UMDiameterAvpAPN_Configuration definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

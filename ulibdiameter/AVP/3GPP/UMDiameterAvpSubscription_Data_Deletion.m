@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -143,30 +143,59 @@
 	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_context_identifier)
+		if(_var_context_identifier.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_context_identifier)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Context-Identifier"] = arr;
 		}
-		dict[@"Context-Identifier"] = arr;
 	}
 	dict[@"Trace-Reference"] = [_var_trace_reference objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_ts_code)
+		if(_var_ts_code.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_ts_code)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"TS-Code"] = arr;
 		}
-		dict[@"TS-Code"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_ss_code)
+		if(_var_ss_code.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_ss_code)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"SS-Code"] = arr;
 		}
-		dict[@"SS-Code"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"subscription-data-deletion";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpDSR_Flags definition]];
+    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
+    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
+    [entries addObject:[UMDiameterAvpTrace_Reference definition]];
+    [entries addObject:[UMDiameterAvpTS_Code definition]];
+    [entries addObject:[UMDiameterAvpSS_Code definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

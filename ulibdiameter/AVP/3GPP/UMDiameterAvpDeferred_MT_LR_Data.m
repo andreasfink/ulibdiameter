@@ -2,7 +2,7 @@
 //  UMDiameterAvpDeferred_MT_LR_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -84,6 +84,22 @@
 	dict[@"Deferred-Location-Type"] = [_var_deferred_location_type objectValue];
 	dict[@"Termination-Cause"] = [_var_termination_cause objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"deferred-mt-lr-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpDeferred_Location_Type definition]];
+    [entries addObject:[UMDiameterAvpTermination_Cause definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

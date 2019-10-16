@@ -2,7 +2,7 @@
 //  UMDiameterAvpGPRS_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -96,13 +96,32 @@
 	dict[@"Complete-Data-List-Included-Indicator"] = [_var_complete_data_list_included_indicator objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_pdp_context)
+		if(_var_pdp_context.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_pdp_context)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"PDP-Context"] = arr;
 		}
-		dict[@"PDP-Context"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"gprs-subscription-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpComplete_Data_List_Included_Indicator definition]];
+    [entries addObject:[UMDiameterAvpPDP_Context definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Selection.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:18.862000
+//  Created by afink on 2019-10-16 20:52:18.128000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -31,6 +31,18 @@
 {
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Mandatory;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"service-selection";
+    avpDef[@"type"] = @"UTF8String";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(NO);
+
+    return avpDef;
 }
 
 

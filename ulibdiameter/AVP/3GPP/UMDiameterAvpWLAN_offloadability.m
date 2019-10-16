@@ -2,7 +2,7 @@
 //  UMDiameterAvpWLAN_offloadability.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"WLAN-offloadability-EUTRAN"] = [_var_wlan_offloadability_eutran objectValue];
 	dict[@"WLAN-offloadability-UTRAN"] = [_var_wlan_offloadability_utran objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"wlan-offloadability";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpWLAN_offloadability_EUTRAN definition]];
+    [entries addObject:[UMDiameterAvpWLAN_offloadability_UTRAN definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

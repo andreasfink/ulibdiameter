@@ -2,7 +2,7 @@
 //  UMDiameterAvpDeregistration_Reason.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Reason-Code"] = [_var_reason_code objectValue];
 	dict[@"Reason-Info"] = [_var_reason_info objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"deregistration-reason";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpReason_Code definition]];
+    [entries addObject:[UMDiameterAvpReason_Info definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

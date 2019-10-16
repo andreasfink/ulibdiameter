@@ -2,7 +2,7 @@
 //  UMDiameterAvpMotion_Event_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -148,6 +148,27 @@
 	dict[@"Reporting-Duration"] = [_var_reporting_duration objectValue];
 	dict[@"Reporting-Location-Requirements"] = [_var_reporting_location_requirements objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"motion-event-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpLinear_Distance definition]];
+    [entries addObject:[UMDiameterAvpOccurrence_Info definition]];
+    [entries addObject:[UMDiameterAvpInterval_Time definition]];
+    [entries addObject:[UMDiameterAvpMaximum_Interval definition]];
+    [entries addObject:[UMDiameterAvpSampling_Interval definition]];
+    [entries addObject:[UMDiameterAvpReporting_Duration definition]];
+    [entries addObject:[UMDiameterAvpReporting_Location_Requirements definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

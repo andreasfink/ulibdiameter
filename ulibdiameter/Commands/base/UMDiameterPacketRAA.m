@@ -2,7 +2,7 @@
 //  UMDiameterPacketRAA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.181000
+//  Created by afink on 2019-10-16 20:49:11.023000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -497,6 +497,37 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_origin_state_id" : [UMDiameterAvpOrigin_State_Id definition] }];
+    [arr addObject:@{ @"_var_error_message" : [UMDiameterAvpError_Message definition] }];
+    [arr addObject:@{ @"_var_error_reporting_host" : [UMDiameterAvpError_Reporting_Host definition] }];
+    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
+    [arr addObject:@{ @"_var_redirect_host" : [UMDiameterAvpRedirect_Host definition] }];
+    [arr addObject:@{ @"_var_redirect_host_usage" : [UMDiameterAvpRedirect_Host_Usage definition] }];
+    [arr addObject:@{ @"_var_redirect_max_cache_time" : [UMDiameterAvpRedirect_Max_Cache_Time definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"RAA";
+    commandDef[@"web-name"] = @"raa";
+    commandDef[@"command-number"] = @(258);
+    commandDef[@"application-id"] = @(0);
+    commandDef[@"rbit"] = @(NO);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

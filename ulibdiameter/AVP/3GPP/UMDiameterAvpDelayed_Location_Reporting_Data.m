@@ -2,7 +2,7 @@
 //  UMDiameterAvpDelayed_Location_Reporting_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Termination-Cause"] = [_var_termination_cause objectValue];
 	dict[@"Serving-Node"] = [_var_serving_node objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"delayed-location-reporting-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpTermination_Cause definition]];
+    [entries addObject:[UMDiameterAvpServing_Node definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

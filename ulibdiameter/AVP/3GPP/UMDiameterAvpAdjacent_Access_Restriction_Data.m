@@ -2,7 +2,7 @@
 //  UMDiameterAvpAdjacent_Access_Restriction_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
 	dict[@"Access-Restriction-Data"] = [_var_access_restriction_data objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"adjacent-access-restriction-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpVisited_PLMN_Id definition]];
+    [entries addObject:[UMDiameterAvpAccess_Restriction_Data definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

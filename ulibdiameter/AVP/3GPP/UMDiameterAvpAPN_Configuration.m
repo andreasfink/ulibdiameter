@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -147,11 +147,14 @@
 	dict[@"Context-Identifier"] = [_var_context_identifier objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_served_party_ip_address)
+		if(_var_served_party_ip_address.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_served_party_ip_address)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Served-Party-IP-Address"] = arr;
 		}
-		dict[@"Served-Party-IP-Address"] = arr;
 	}
 	dict[@"PDN-Type"] = [_var_pdn_type objectValue];
 	dict[@"Service-Selection"] = [_var_service_selection objectValue];
@@ -160,6 +163,28 @@
 	dict[@"MIP6-Agent-Info"] = [_var_mip6_agent_info objectValue];
 	dict[@"Visited-Network-Identifier"] = [_var_visited_network_identifier objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"apn-configuration";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
+    [entries addObject:[UMDiameterAvpServed_Party_IP_Address definition]];
+    [entries addObject:[UMDiameterAvpPDN_Type definition]];
+    [entries addObject:[UMDiameterAvpService_Selection definition]];
+    [entries addObject:[UMDiameterAvpEPS_Subscribed_QoS_Profile definition]];
+    [entries addObject:[UMDiameterAvpVPLMN_Dynamic_Address_Allowed definition]];
+    [entries addObject:[UMDiameterAvpMIP6_Agent_Info definition]];
+    [entries addObject:[UMDiameterAvpVisited_Network_Identifier definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

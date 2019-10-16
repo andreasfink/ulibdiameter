@@ -2,7 +2,7 @@
 //  UMDiameterPacketNotify_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.434000
+//  Created by afink on 2019-10-16 20:49:11.469000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -857,6 +857,49 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_drmp" : [UMDiameterAvpDRMP definition] }];
+    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
+    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_oc_supported_features" : [UMDiameterAvpOC_Supported_Features definition] }];
+    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
+    [arr addObject:@{ @"_var_terminal_information" : [UMDiameterAvpTerminal_Information definition] }];
+    [arr addObject:@{ @"_var_mip6_agent_info" : [UMDiameterAvpMIP6_Agent_Info definition] }];
+    [arr addObject:@{ @"_var_visited_network_identifier" : [UMDiameterAvpVisited_Network_Identifier definition] }];
+    [arr addObject:@{ @"_var_context_identifier" : [UMDiameterAvpContext_Identifier definition] }];
+    [arr addObject:@{ @"_var_service_selection" : [UMDiameterAvpService_Selection definition] }];
+    [arr addObject:@{ @"_var_alert_reason" : [UMDiameterAvpAlert_Reason definition] }];
+    [arr addObject:@{ @"_var_ue_srvcc_capability" : [UMDiameterAvpUE_SRVCC_Capability definition] }];
+    [arr addObject:@{ @"_var_nor_flags" : [UMDiameterAvpNOR_Flags definition] }];
+    [arr addObject:@{ @"_var_homogeneous_support_of_ims_voice_over_ps_sessions" : [UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions definition] }];
+    [arr addObject:@{ @"_var_maximum_ue_availability_time" : [UMDiameterAvpMaximum_UE_Availability_Time definition] }];
+    [arr addObject:@{ @"_var_monitoring_event_config_status" : [UMDiameterAvpMonitoring_Event_Config_Status definition] }];
+    [arr addObject:@{ @"_var_emergency_services" : [UMDiameterAvpEmergency_Services definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"Notify-Request";
+    commandDef[@"web-name"] = @"notify-request";
+    commandDef[@"command-number"] = @(323);
+    commandDef[@"application-id"] = @(16777251);
+    commandDef[@"rbit"] = @(YES);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

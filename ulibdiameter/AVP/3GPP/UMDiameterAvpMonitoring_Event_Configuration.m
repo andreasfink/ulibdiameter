@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -178,11 +178,14 @@
 	dict[@"Monitoring-Type"] = [_var_monitoring_type objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_scef_reference_id_for_deletion)
+		if(_var_scef_reference_id_for_deletion.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_scef_reference_id_for_deletion)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"SCEF-Reference-ID-for-Deletion"] = arr;
 		}
-		dict[@"SCEF-Reference-ID-for-Deletion"] = arr;
 	}
 	dict[@"Maximum-Number-of-Reports"] = [_var_maximum_number_of_reports objectValue];
 	dict[@"Monitoring-Duration"] = [_var_monitoring_duration objectValue];
@@ -191,6 +194,30 @@
 	dict[@"Location-Information-Configuration"] = [_var_location_information_configuration objectValue];
 	dict[@"SCEF-Realm"] = [_var_scef_realm objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"monitoring-event-configuration";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSCEF_Reference_ID definition]];
+    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
+    [entries addObject:[UMDiameterAvpMonitoring_Type definition]];
+    [entries addObject:[UMDiameterAvpSCEF_Reference_ID_for_Deletion definition]];
+    [entries addObject:[UMDiameterAvpMaximum_Number_of_Reports definition]];
+    [entries addObject:[UMDiameterAvpMonitoring_Duration definition]];
+    [entries addObject:[UMDiameterAvpCharged_Party definition]];
+    [entries addObject:[UMDiameterAvpUE_Reachability_Configuration definition]];
+    [entries addObject:[UMDiameterAvpLocation_Information_Configuration definition]];
+    [entries addObject:[UMDiameterAvpSCEF_Realm definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

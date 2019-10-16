@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_PrivacyException.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -144,29 +144,58 @@
 	dict[@"Notification-To-UE-User"] = [_var_notification_to_ue_user objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_external_client)
+		if(_var_external_client.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_external_client)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"External-Client"] = arr;
 		}
-		dict[@"External-Client"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_plmn_client)
+		if(_var_plmn_client.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_plmn_client)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"PLMN-Client"] = arr;
 		}
-		dict[@"PLMN-Client"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_service_type)
+		if(_var_service_type.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_service_type)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Service-Type"] = arr;
 		}
-		dict[@"Service-Type"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"lcs-privacyexception";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSS_Code definition]];
+    [entries addObject:[UMDiameterAvpSS_Status definition]];
+    [entries addObject:[UMDiameterAvpNotification_To_UE_User definition]];
+    [entries addObject:[UMDiameterAvpExternal_Client definition]];
+    [entries addObject:[UMDiameterAvpPLMN_Client definition]];
+    [entries addObject:[UMDiameterAvpService_Type definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

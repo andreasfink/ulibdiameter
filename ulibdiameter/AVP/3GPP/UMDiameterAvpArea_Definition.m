@@ -2,7 +2,7 @@
 //  UMDiameterAvpArea_Definition.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -98,21 +98,43 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_area)
+		if(_var_area.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_area)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Area"] = arr;
 		}
-		dict[@"Area"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_additional_area)
+		if(_var_additional_area.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_additional_area)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Additional-Area"] = arr;
 		}
-		dict[@"Additional-Area"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"area-definition";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpArea definition]];
+    [entries addObject:[UMDiameterAvpAdditional_Area definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

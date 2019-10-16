@@ -2,7 +2,7 @@
 //  UMDiameterAvpServer_Capabilities.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -98,21 +98,43 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_mandatory_capability)
+		if(_var_mandatory_capability.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_mandatory_capability)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Mandatory-Capability"] = arr;
 		}
-		dict[@"Mandatory-Capability"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_optional_capability)
+		if(_var_optional_capability.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_optional_capability)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Optional-Capability"] = arr;
 		}
-		dict[@"Optional-Capability"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"server-capabilities";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpMandatory_Capability definition]];
+    [entries addObject:[UMDiameterAvpOptional_Capability definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocal_Time_Zone.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Time-Zone"] = [_var_time_zone objectValue];
 	dict[@"Daylight-Saving-Time"] = [_var_daylight_saving_time objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"local-time-zone";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpTime_Zone definition]];
+    [entries addObject:[UMDiameterAvpDaylight_Saving_Time definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

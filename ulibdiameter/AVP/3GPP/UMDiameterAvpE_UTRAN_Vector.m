@@ -2,7 +2,7 @@
 //  UMDiameterAvpE_UTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -126,6 +126,25 @@
 	dict[@"AUTN"] = [_var_autn objectValue];
 	dict[@"KASME"] = [_var_kasme objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"e-utran-vector";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpItem_Number definition]];
+    [entries addObject:[UMDiameterAvpRAND definition]];
+    [entries addObject:[UMDiameterAvpXRES definition]];
+    [entries addObject:[UMDiameterAvpAUTN definition]];
+    [entries addObject:[UMDiameterAvpKASME definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

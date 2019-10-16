@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.322000
+//  Created by afink on 2019-10-16 20:49:11.269000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -830,6 +830,46 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_drmp" : [UMDiameterAvpDRMP definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
+    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
+    [arr addObject:@{ @"_var_experimental_result" : [UMDiameterAvpExperimental_Result definition] }];
+    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_ims_voice_over_ps_sessions_supported" : [UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported definition] }];
+    [arr addObject:@{ @"_var_last_ue_activity_time" : [UMDiameterAvpLast_UE_Activity_Time definition] }];
+    [arr addObject:@{ @"_var_rat_type" : [UMDiameterAvpRAT_Type definition] }];
+    [arr addObject:@{ @"_var_ida_flags" : [UMDiameterAvpIDA_Flags definition] }];
+    [arr addObject:@{ @"_var_eps_user_state" : [UMDiameterAvpEPS_User_State definition] }];
+    [arr addObject:@{ @"_var_eps_location_information" : [UMDiameterAvpEPS_Location_Information definition] }];
+    [arr addObject:@{ @"_var_local_time_zone" : [UMDiameterAvpLocal_Time_Zone definition] }];
+    [arr addObject:@{ @"_var_supported_services" : [UMDiameterAvpSupported_Services definition] }];
+    [arr addObject:@{ @"_var_monitoring_event_report" : [UMDiameterAvpMonitoring_Event_Report definition] }];
+    [arr addObject:@{ @"_var_monitoring_event_config_status" : [UMDiameterAvpMonitoring_Event_Config_Status definition] }];
+    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"Insert-Subscriber-Data-Answer";
+    commandDef[@"web-name"] = @"insert-subscriber-data-answer";
+    commandDef[@"command-number"] = @(319);
+    commandDef[@"application-id"] = @(16777251);
+    commandDef[@"rbit"] = @(NO);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

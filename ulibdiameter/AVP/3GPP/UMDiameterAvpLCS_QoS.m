@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_QoS.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -117,6 +117,25 @@
 	dict[@"Vertical-Requested"] = [_var_vertical_requested objectValue];
 	dict[@"Response-Time"] = [_var_response_time objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"lcs-qos";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpLCS_QoS_Class definition]];
+    [entries addObject:[UMDiameterAvpHorizontal_Accuracy definition]];
+    [entries addObject:[UMDiameterAvpVertical_Accuracy definition]];
+    [entries addObject:[UMDiameterAvpVertical_Requested definition]];
+    [entries addObject:[UMDiameterAvpResponse_Time definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

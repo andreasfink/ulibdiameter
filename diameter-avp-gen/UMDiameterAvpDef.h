@@ -16,6 +16,8 @@
     NSString *_standardsName;
     NSString *_definitionReference;
     NSString *_typeDefinition;
+    NSString *_webName;
+
     BOOL    _mandatoryFlag;
     BOOL    _vendorFlag;
     NSInteger _vendorCode;

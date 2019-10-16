@@ -2,7 +2,7 @@
 //  UMDiameterAvpIMSI_Group_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,6 +104,23 @@
 	dict[@"Group-PLMN-Id"] = [_var_group_plmn_id objectValue];
 	dict[@"Local-Group-Id"] = [_var_local_group_id objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"imsi-group-id";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpGroup_Service_Id definition]];
+    [entries addObject:[UMDiameterAvpGroup_PLMN_Id definition]];
+    [entries addObject:[UMDiameterAvpLocal_Group_Id definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpCharging_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,6 +115,24 @@
 	dict[@"Primary-Charging-Collection-Function-Name"] = [_var_primary_charging_collection_function_name objectValue];
 	dict[@"Secondary-Charging-Collection-Function-Name"] = [_var_secondary_charging_collection_function_name objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"charging-information";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpPrimary_Event_Charging_Function_Name definition]];
+    [entries addObject:[UMDiameterAvpSecondary_Event_Charging_Function_Name definition]];
+    [entries addObject:[UMDiameterAvpPrimary_Charging_Collection_Function_Name definition]];
+    [entries addObject:[UMDiameterAvpSecondary_Charging_Collection_Function_Name definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

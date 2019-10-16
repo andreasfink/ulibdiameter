@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -111,29 +111,55 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_gmlc_number)
+		if(_var_gmlc_number.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_gmlc_number)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"GMLC-Number"] = arr;
 		}
-		dict[@"GMLC-Number"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_lcs_privacyexception)
+		if(_var_lcs_privacyexception.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_lcs_privacyexception)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"LCS-PrivacyException"] = arr;
 		}
-		dict[@"LCS-PrivacyException"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_mo_lr)
+		if(_var_mo_lr.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_mo_lr)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"MO-LR"] = arr;
 		}
-		dict[@"MO-LR"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"lcs-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpGMLC_Number definition]];
+    [entries addObject:[UMDiameterAvpLCS_PrivacyException definition]];
+    [entries addObject:[UMDiameterAvpMO_LR definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

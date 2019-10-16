@@ -2,7 +2,7 @@
 //  UMDiameterAvpPDP_Context.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -258,6 +258,37 @@
 	dict[@"Non-IP-Data-Delivery-Mechanism"] = [_var_non_ip_data_delivery_mechanism objectValue];
 	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"pdp-context";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
+    [entries addObject:[UMDiameterAvpPDP_Type definition]];
+    [entries addObject:[UMDiameterAvpPDP_Address definition]];
+    [entries addObject:[UMDiameterAvpQoS_Subscribed definition]];
+    [entries addObject:[UMDiameterAvpVPLMN_Dynamic_Address_Allowed definition]];
+    [entries addObject:[UMDiameterAvpService_Selection definition]];
+    [entries addObject:[UMDiameterAvp3GPP_Charging_Characteristics definition]];
+    [entries addObject:[UMDiameterAvpExt_PDP_Type definition]];
+    [entries addObject:[UMDiameterAvpExt_PDP_Address definition]];
+    [entries addObject:[UMDiameterAvpAMBR definition]];
+    [entries addObject:[UMDiameterAvpAPN_OI_Replacement definition]];
+    [entries addObject:[UMDiameterAvpSIPTO_Permission definition]];
+    [entries addObject:[UMDiameterAvpLIPA_Permission definition]];
+    [entries addObject:[UMDiameterAvpRestoration_Priority definition]];
+    [entries addObject:[UMDiameterAvpSIPTO_Local_Network_Permission definition]];
+    [entries addObject:[UMDiameterAvpNon_IP_Data_Delivery_Mechanism definition]];
+    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

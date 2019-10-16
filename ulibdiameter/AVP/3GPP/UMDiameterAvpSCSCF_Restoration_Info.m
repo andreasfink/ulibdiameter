@@ -2,7 +2,7 @@
 //  UMDiameterAvpSCSCF_Restoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,14 +106,34 @@
 	dict[@"User-Name"] = [_var_user_name objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_restoration_info)
+		if(_var_restoration_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_restoration_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Restoration-Info"] = arr;
 		}
-		dict[@"Restoration-Info"] = arr;
 	}
 	dict[@"SIP-Authentication-Scheme"] = [_var_sip_authentication_scheme objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"scscf-restoration-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpUser_Name definition]];
+    [entries addObject:[UMDiameterAvpRestoration_Info definition]];
+    [entries addObject:[UMDiameterAvpSIP_Authentication_Scheme definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

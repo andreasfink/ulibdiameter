@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Report.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Service-Result"] = [_var_service_result objectValue];
 	dict[@"Node-Type"] = [_var_node_type objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"service-report";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpService_Result definition]];
+    [entries addObject:[UMDiameterAvpNode_Type definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

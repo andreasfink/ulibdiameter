@@ -2,7 +2,7 @@
 //  UMDiameterAvpeDRX_Cycle_Length.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"RAT-Type"] = [_var_rat_type objectValue];
 	dict[@"eDRX-Cycle-Length-Value"] = [_var_edrx_cycle_length_value objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"edrx-cycle-length";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpRAT_Type definition]];
+    [entries addObject:[UMDiameterAvpeDRX_Cycle_Length_Value definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

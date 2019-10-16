@@ -2,7 +2,7 @@
 //  UMDiameterAvpPeriodic_LDR_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Reporting-Amount"] = [_var_reporting_amount objectValue];
 	dict[@"Reporting-Interval"] = [_var_reporting_interval objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"periodic-ldr-information";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpReporting_Amount definition]];
+    [entries addObject:[UMDiameterAvpReporting_Interval definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterPacketCancel_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.384000
+//  Created by afink on 2019-10-16 20:49:11.382000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -562,6 +562,38 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_drmp" : [UMDiameterAvpDRMP definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
+    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
+    [arr addObject:@{ @"_var_cancellation_type" : [UMDiameterAvpCancellation_Type definition] }];
+    [arr addObject:@{ @"_var_clr_flags" : [UMDiameterAvpCLR_Flags definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"Cancel-Location-Request";
+    commandDef[@"web-name"] = @"cancel-location-request";
+    commandDef[@"command-number"] = @(317);
+    commandDef[@"application-id"] = @(16777251);
+    commandDef[@"rbit"] = @(YES);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

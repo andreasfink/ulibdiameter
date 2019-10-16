@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Config_Status.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,6 +104,23 @@
 	dict[@"SCEF-Reference-ID"] = [_var_scef_reference_id objectValue];
 	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"monitoring-event-config_status";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpService_Report definition]];
+    [entries addObject:[UMDiameterAvpSCEF_Reference_ID definition]];
+    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

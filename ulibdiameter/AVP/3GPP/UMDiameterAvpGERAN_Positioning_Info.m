@@ -2,7 +2,7 @@
 //  UMDiameterAvpGERAN_Positioning_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"GERAN-Positioning-Data"] = [_var_geran_positioning_data objectValue];
 	dict[@"GERAN-GANSS-Positioning-Data"] = [_var_geran_ganss_positioning_data objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"geran-positioning-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpGERAN_Positioning_Data definition]];
+    [entries addObject:[UMDiameterAvpGERAN_GANSS_Positioning_Data definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

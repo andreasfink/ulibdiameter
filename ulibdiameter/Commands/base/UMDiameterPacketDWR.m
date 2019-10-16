@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.120000
+//  Created by afink on 2019-10-16 20:49:10.928000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -183,6 +183,27 @@
 	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
 	dict[@"Origin-State-Id"] = [_var_origin_state_id objectValue];
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_origin_state_id" : [UMDiameterAvpOrigin_State_Id definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"DWR";
+    commandDef[@"web-name"] = @"dwr";
+    commandDef[@"command-number"] = @(280);
+    commandDef[@"application-id"] = @(0);
+    commandDef[@"rbit"] = @(YES);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(NO);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

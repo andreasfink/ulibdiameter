@@ -2,7 +2,7 @@
 //  UMDiameterAvpVendor_Specific_Application_Id.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:18.862000
+//  Created by afink on 2019-10-16 20:52:18.128000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -94,6 +94,23 @@
 	dict[@"Auth-Application-Id"] = [_var_auth_application_id objectValue];
 	dict[@"Acct-Application-Id"] = [_var_acct_application_id objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"vendor-specific-application-id";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpVendor_Id definition]];
+    [entries addObject:[UMDiameterAvpAuth_Application_Id definition]];
+    [entries addObject:[UMDiameterAvpAcct_Application_Id definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

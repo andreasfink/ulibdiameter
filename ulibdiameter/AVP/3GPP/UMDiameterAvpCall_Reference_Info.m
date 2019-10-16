@@ -2,7 +2,7 @@
 //  UMDiameterAvpCall_Reference_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Call-Reference-Number"] = [_var_call_reference_number objectValue];
 	dict[@"AS-Number"] = [_var_as_number objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"call-reference-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpCall_Reference_Number definition]];
+    [entries addObject:[UMDiameterAvpAS_Number definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

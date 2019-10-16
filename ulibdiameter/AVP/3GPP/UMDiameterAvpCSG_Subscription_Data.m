@@ -2,7 +2,7 @@
 //  UMDiameterAvpCSG_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,14 +115,35 @@
 	dict[@"Expiration-Date"] = [_var_expiration_date objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_service_selection)
+		if(_var_service_selection.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_service_selection)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Service-Selection"] = arr;
 		}
-		dict[@"Service-Selection"] = arr;
 	}
 	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"csg-subscription-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpCSG_ID definition]];
+    [entries addObject:[UMDiameterAvpExpiration_Date definition]];
+    [entries addObject:[UMDiameterAvpService_Selection definition]];
+    [entries addObject:[UMDiameterAvpVisited_PLMN_Id definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

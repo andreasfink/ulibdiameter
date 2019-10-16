@@ -2,7 +2,7 @@
 //  UMDiameterAvpAMBR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,6 +115,24 @@
 	dict[@"Extended-Max-Requested-BW-UL"] = [_var_extended_max_requested_bw_ul objectValue];
 	dict[@"Extended-Max-Requested-BW-DL"] = [_var_extended_max_requested_bw_dl objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"ambr";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpMax_Requested_Bandwidth_UL definition]];
+    [entries addObject:[UMDiameterAvpMax_Requested_Bandwidth_DL definition]];
+    [entries addObject:[UMDiameterAvpExtended_Max_Requested_BW_UL definition]];
+    [entries addObject:[UMDiameterAvpExtended_Max_Requested_BW_DL definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

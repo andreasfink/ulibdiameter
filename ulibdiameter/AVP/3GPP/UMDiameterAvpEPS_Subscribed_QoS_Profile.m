@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_Subscribed_QoS_Profile.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"QoS-Class-Identifier"] = [_var_qos_class_identifier objectValue];
 	dict[@"Allocation-Retention-Priority"] = [_var_allocation_retention_priority objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"eps-subscribed-qos-profile";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpQoS_Class_Identifier definition]];
+    [entries addObject:[UMDiameterAvpAllocation_Retention_Priority definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

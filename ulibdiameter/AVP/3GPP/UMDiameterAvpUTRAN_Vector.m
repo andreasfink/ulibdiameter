@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -137,6 +137,26 @@
 	dict[@"Confidentiality-Key"] = [_var_confidentiality_key objectValue];
 	dict[@"Integrity-Key"] = [_var_integrity_key objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"utran-vector";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpItem_Number definition]];
+    [entries addObject:[UMDiameterAvpRAND definition]];
+    [entries addObject:[UMDiameterAvpXRES definition]];
+    [entries addObject:[UMDiameterAvpAUTN definition]];
+    [entries addObject:[UMDiameterAvpConfidentiality_Key definition]];
+    [entries addObject:[UMDiameterAvpIntegrity_Key definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

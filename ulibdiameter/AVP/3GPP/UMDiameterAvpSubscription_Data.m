@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -514,11 +514,14 @@
 	dict[@"HPLMN-ODB"] = [_var_hplmn_odb objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_regional_subscription_zone_code)
+		if(_var_regional_subscription_zone_code.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_regional_subscription_zone_code)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Regional-Subscription-Zone-Code"] = arr;
 		}
-		dict[@"Regional-Subscription-Zone-Code"] = arr;
 	}
 	dict[@"Access-Restriction-Data"] = [_var_access_restriction_data objectValue];
 	dict[@"APN-OI-Replacement"] = [_var_apn_oi_replacement objectValue];
@@ -526,11 +529,14 @@
 	dict[@"Teleservice-List"] = [_var_teleservice_list objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_call_barring_info)
+		if(_var_call_barring_info.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_call_barring_info)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Call-Barring-Info"] = arr;
 		}
-		dict[@"Call-Barring-Info"] = arr;
 	}
 	dict[@"3GPP-Charging-Characteristics"] = [_var_3gpp_charging_characteristics objectValue];
 	dict[@"AMBR"] = [_var_ambr objectValue];
@@ -540,11 +546,14 @@
 	dict[@"GPRS-Subscription-Data"] = [_var_gprs_subscription_data objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_csg_subscription_data)
+		if(_var_csg_subscription_data.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_csg_subscription_data)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"CSG-Subscription-Data"] = arr;
 		}
-		dict[@"CSG-Subscription-Data"] = arr;
 	}
 	dict[@"Roaming-Restricted-Due-To-Unsupported-Feature"] = [_var_roaming_restricted_due_to_unsupported_feature objectValue];
 	dict[@"Subscribed-Periodic-RAU-TAU-Timer"] = [_var_subscribed_periodic_rau_tau_timer objectValue];
@@ -557,51 +566,121 @@
 	dict[@"Subscription-Data-Flags"] = [_var_subscription_data_flags objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_adjacent_access_restriction_data)
+		if(_var_adjacent_access_restriction_data.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_adjacent_access_restriction_data)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Adjacent-Access-Restriction-Data"] = arr;
 		}
-		dict[@"Adjacent-Access-Restriction-Data"] = arr;
 	}
 	dict[@"DL-Buffering-Suggested-Packet-Count"] = [_var_dl_buffering_suggested_packet_count objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_imsi_group_id)
+		if(_var_imsi_group_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_imsi_group_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"IMSI-Group-Id"] = arr;
 		}
-		dict[@"IMSI-Group-Id"] = arr;
 	}
 	dict[@"UE-Usage-Type"] = [_var_ue_usage_type objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_aese_communication_pattern)
+		if(_var_aese_communication_pattern.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_aese_communication_pattern)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"AESE-Communication-Pattern"] = arr;
 		}
-		dict[@"AESE-Communication-Pattern"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_monitoring_event_configuration)
+		if(_var_monitoring_event_configuration.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_monitoring_event_configuration)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Monitoring-Event-Configuration"] = arr;
 		}
-		dict[@"Monitoring-Event-Configuration"] = arr;
 	}
 	dict[@"Emergency-Info"] = [_var_emergency_info objectValue];
 	dict[@"V2X-Subscription-Data"] = [_var_v2x_subscription_data objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_edrx_cycle_length)
+		if(_var_edrx_cycle_length.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_edrx_cycle_length)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"eDRX-Cycle-Length"] = arr;
 		}
-		dict[@"eDRX-Cycle-Length"] = arr;
 	}
 	dict[@"External-Identifier"] = [_var_external_identifier objectValue];
 	dict[@"Active-Time"] = [_var_active_time objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"subscription-data";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSubscriber_Status definition]];
+    [entries addObject:[UMDiameterAvpMSISDN definition]];
+    [entries addObject:[UMDiameterAvpA_MSISDN definition]];
+    [entries addObject:[UMDiameterAvpSTN_SR definition]];
+    [entries addObject:[UMDiameterAvpICS_Indicator definition]];
+    [entries addObject:[UMDiameterAvpNetwork_Access_Mode definition]];
+    [entries addObject:[UMDiameterAvpOperator_Determined_Barring definition]];
+    [entries addObject:[UMDiameterAvpHPLMN_ODB definition]];
+    [entries addObject:[UMDiameterAvpRegional_Subscription_Zone_Code definition]];
+    [entries addObject:[UMDiameterAvpAccess_Restriction_Data definition]];
+    [entries addObject:[UMDiameterAvpAPN_OI_Replacement definition]];
+    [entries addObject:[UMDiameterAvpLCS_Info definition]];
+    [entries addObject:[UMDiameterAvpTeleservice_List definition]];
+    [entries addObject:[UMDiameterAvpCall_Barring_Info definition]];
+    [entries addObject:[UMDiameterAvp3GPP_Charging_Characteristics definition]];
+    [entries addObject:[UMDiameterAvpAMBR definition]];
+    [entries addObject:[UMDiameterAvpAPN_Configuration_Profile definition]];
+    [entries addObject:[UMDiameterAvpRAT_Frequency_Selection_Priority_ID definition]];
+    [entries addObject:[UMDiameterAvpTrace_Data definition]];
+    [entries addObject:[UMDiameterAvpGPRS_Subscription_Data definition]];
+    [entries addObject:[UMDiameterAvpCSG_Subscription_Data definition]];
+    [entries addObject:[UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature definition]];
+    [entries addObject:[UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer definition]];
+    [entries addObject:[UMDiameterAvpMPS_Priority definition]];
+    [entries addObject:[UMDiameterAvpVPLMN_LIPA_Allowed definition]];
+    [entries addObject:[UMDiameterAvpRelay_Node_Indicator definition]];
+    [entries addObject:[UMDiameterAvpMDT_User_Consent definition]];
+    [entries addObject:[UMDiameterAvpSubscribed_VSRVCC definition]];
+    [entries addObject:[UMDiameterAvpProSe_Subscription_Data definition]];
+    [entries addObject:[UMDiameterAvpSubscription_Data_Flags definition]];
+    [entries addObject:[UMDiameterAvpAdjacent_Access_Restriction_Data definition]];
+    [entries addObject:[UMDiameterAvpDL_Buffering_Suggested_Packet_Count definition]];
+    [entries addObject:[UMDiameterAvpIMSI_Group_Id definition]];
+    [entries addObject:[UMDiameterAvpUE_Usage_Type definition]];
+    [entries addObject:[UMDiameterAvpAESE_Communication_Pattern definition]];
+    [entries addObject:[UMDiameterAvpMonitoring_Event_Configuration definition]];
+    [entries addObject:[UMDiameterAvpEmergency_Info definition]];
+    [entries addObject:[UMDiameterAvpV2X_Subscription_Data definition]];
+    [entries addObject:[UMDiameterAvpeDRX_Cycle_Length definition]];
+    [entries addObject:[UMDiameterAvpExternal_Identifier definition]];
+    [entries addObject:[UMDiameterAvpActive_Time definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

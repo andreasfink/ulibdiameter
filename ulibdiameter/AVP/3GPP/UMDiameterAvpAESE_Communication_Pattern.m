@@ -2,7 +2,7 @@
 //  UMDiameterAvpAESE_Communication_Pattern.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -120,21 +120,45 @@
 	dict[@"SCEF-ID"] = [_var_scef_id objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_scef_reference_id_for_deletion)
+		if(_var_scef_reference_id_for_deletion.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_scef_reference_id_for_deletion)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"SCEF-Reference-ID-for-Deletion"] = arr;
 		}
-		dict[@"SCEF-Reference-ID-for-Deletion"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_communication_pattern_set)
+		if(_var_communication_pattern_set.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_communication_pattern_set)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Communication-Pattern-Set"] = arr;
 		}
-		dict[@"Communication-Pattern-Set"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"aese-communication-pattern";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpSCEF_Reference_ID definition]];
+    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
+    [entries addObject:[UMDiameterAvpSCEF_Reference_ID_for_Deletion definition]];
+    [entries addObject:[UMDiameterAvpCommunication_Pattern_Set definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

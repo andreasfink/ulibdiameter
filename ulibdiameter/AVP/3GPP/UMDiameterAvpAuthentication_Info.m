@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuthentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -111,29 +111,55 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_e_utran_vector)
+		if(_var_e_utran_vector.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_e_utran_vector)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"E-UTRAN-Vector"] = arr;
 		}
-		dict[@"E-UTRAN-Vector"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_utran_vector)
+		if(_var_utran_vector.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_utran_vector)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"UTRAN-Vector"] = arr;
 		}
-		dict[@"UTRAN-Vector"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_geran_vector)
+		if(_var_geran_vector.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_geran_vector)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"GERAN-Vector"] = arr;
 		}
-		dict[@"GERAN-Vector"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"authentication-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpE_UTRAN_Vector definition]];
+    [entries addObject:[UMDiameterAvpUTRAN_Vector definition]];
+    [entries addObject:[UMDiameterAvpGERAN_Vector definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

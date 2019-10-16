@@ -39,5 +39,6 @@
 - (UMDiameterGeneratorAVP *)initWithString:(NSString *)s;
 - (BOOL)parseString:(NSString *)s; /* returns yes on success */
 
-- (UMSynchronizedSortedDictionary *)definition;
+- (id) definition;
+
 @end

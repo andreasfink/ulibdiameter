@@ -2,7 +2,7 @@
 //  UMDiameterAvpReporting_PLMN_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -95,14 +95,33 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_plmn_id_list)
+		if(_var_plmn_id_list.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_plmn_id_list)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"PLMN-ID-List"] = arr;
 		}
-		dict[@"PLMN-ID-List"] = arr;
 	}
 	dict[@"Prioritized-List-Indicator"] = [_var_prioritized_list_indicator objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"reporting-plmn-list";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpPLMN_ID_List definition]];
+    [entries addObject:[UMDiameterAvpPrioritized_List_Indicator definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

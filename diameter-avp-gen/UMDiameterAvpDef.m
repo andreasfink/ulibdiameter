@@ -8,6 +8,7 @@
 
 #import "UMDiameterAvpDef.h"
 #import "UMDiameterAvpGroupDef.h"
+#import "UMDiameterGeneratorAVP.h"
 
 @implementation UMDiameterAvpDef
 
@@ -109,6 +110,44 @@
     return _objectName;
 }
 
+
+- (NSString *)webName
+{
+    if(_webName)
+    {
+        return _webName;
+    }
+    _standardsName = [_standardsName trim];
+    NSInteger count = [_standardsName length];
+
+    NSMutableString *wname = [[NSMutableString alloc]init];
+
+    for(NSInteger idx=0;idx<count;idx++)
+    {
+        unichar c = [_standardsName characterAtIndex:idx];
+        unichar lowerC;
+        if((c>='A') && (c<='Z'))
+        {
+            lowerC = c - 'A' + 'a';
+        }
+        else
+        {
+            lowerC = c;
+        }
+        if(c=='-')
+        {
+            [wname appendString:@"-"];
+        }
+        else
+        {
+            [wname appendFormat:@"%C",lowerC];
+        }
+    }
+    _webName = wname;
+    return _webName;
+}
+
+
 - (NSString *)objectTypeWithPrefix:(NSString *)prefix
 {
     if(_objectType == NULL)
@@ -179,9 +218,8 @@
     [s appendString:@"- (NSString *)avpType;\n"];
     [s appendString:@"- (uint32_t)avpCode;\n"];
     [s appendString:@"+ (uint32_t)avpCode;\n"];
-
+    [s appendString:@"+ (id)definition;\n"];
     [s appendString:@"\n"];
-
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
     return s;
@@ -264,6 +302,35 @@
                                            mandatory:_mandatoryFlag]];
     }
 
+
+
+
+    [s appendString:@"+ (id)definition\n"];
+    [s appendString:@"{\n"];
+    [s appendString:@"    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];\n"];
+    [s appendFormat:@"    avpDef[@\"name\"] = @\"%@\";\n",self.webName];
+    [s appendFormat:@"    avpDef[@\"type\"] = @\"%@\";\n",_typeDefinition];
+    [s appendFormat:@"    avpDef[@\"mandatory\"] = @(%@);\n",_mandatoryFlag ? @"YES" : @"NO"];
+    [s appendFormat:@"    avpDef[@\"vendor\"] = @(%@);\n",_vendorFlag ? @"YES" : @"NO"];
+    [s appendFormat:@"    avpDef[@\"group\"] = @(%@);\n",_isGroup ? @"YES" : @"NO"];
+    if(_isGroup)
+    {
+        [s appendFormat:@"    NSMutableArray *entries = [[NSMutableArray alloc]init];\n"];
+        NSArray<UMDiameterGeneratorAVP *> *groupEntries = _groupDef.avps;
+        for(UMDiameterGeneratorAVP *avp in groupEntries)
+        {
+            if([avp.objectName isEqualToString:@"AVP"])
+            {
+                continue;
+            }
+            [s appendFormat:@"    [entries addObject:[%@%@ definition]];\n",prefix,avp.objectName];
+        }
+        [s appendFormat:@"    avpDef[@\"members\"] = entries;\n"];
+    }
+    [s appendString:@"\n"];
+    [s appendString:@"    return avpDef;\n"];
+    [s appendString:@"}\n"];
+    [s appendString:@"\n"];
 
 
     [s appendString:@"\n"];

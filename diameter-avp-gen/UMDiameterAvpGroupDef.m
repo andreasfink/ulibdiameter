@@ -563,6 +563,7 @@
     dict[@"web-name"]                       = _webName;
     dict[@"avp-code"]                       = @(_avpCode);
     dict[@"vendor"]                         = @(_vendor);
+    
     return dict;
 }
 
@@ -575,6 +576,7 @@
     }
     return entries;
 }
+
 
 @end
 

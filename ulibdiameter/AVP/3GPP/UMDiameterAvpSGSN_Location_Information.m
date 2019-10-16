@@ -2,7 +2,7 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -170,6 +170,29 @@
 	dict[@"Age-Of-Location-Information"] = [_var_age_of_location_information objectValue];
 	dict[@"User-CSG-Information"] = [_var_user_csg_information objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"sgsn-location-information";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpCell_Global_Identity definition]];
+    [entries addObject:[UMDiameterAvpLocation_Area_Identity definition]];
+    [entries addObject:[UMDiameterAvpService_Area_Identity definition]];
+    [entries addObject:[UMDiameterAvpRouting_Area_Identity definition]];
+    [entries addObject:[UMDiameterAvpGeographical_Information definition]];
+    [entries addObject:[UMDiameterAvpGeodetic_Information definition]];
+    [entries addObject:[UMDiameterAvpCurrent_Location_Retrieved definition]];
+    [entries addObject:[UMDiameterAvpAge_Of_Location_Information definition]];
+    [entries addObject:[UMDiameterAvpUser_CSG_Information definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

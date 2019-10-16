@@ -2,7 +2,7 @@
 //  UMDiameterAvpEPS_User_State.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"MME-User-State"] = [_var_mme_user_state objectValue];
 	dict[@"SGSN-User-State"] = [_var_sgsn_user_state objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"eps-user-state";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpMME_User_State definition]];
+    [entries addObject:[UMDiameterAvpSGSN_User_State definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

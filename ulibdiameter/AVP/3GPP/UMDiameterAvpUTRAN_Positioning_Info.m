@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_Positioning_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,6 +104,23 @@
 	dict[@"UTRAN-GANSS-Positioning-Data"] = [_var_utran_ganss_positioning_data objectValue];
 	dict[@"UTRAN-Additional-Positioning-Data"] = [_var_utran_additional_positioning_data objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"utran-positioning-info";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpUTRAN_Positioning_Data definition]];
+    [entries addObject:[UMDiameterAvpUTRAN_GANSS_Positioning_Data definition]];
+    [entries addObject:[UMDiameterAvpUTRAN_Additional_Positioning_Data definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

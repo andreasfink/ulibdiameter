@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Digest_Authenticate.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,6 +115,24 @@
 	dict[@"Digest-QoP"] = [_var_digest_qop objectValue];
 	dict[@"Digest-HA1"] = [_var_digest_ha1 objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"sip-digest-authenticate";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpDigest_Realm definition]];
+    [entries addObject:[UMDiameterAvpDigest_Algorithm definition]];
+    [entries addObject:[UMDiameterAvpDigest_QoP definition]];
+    [entries addObject:[UMDiameterAvpDigest_HA1 definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

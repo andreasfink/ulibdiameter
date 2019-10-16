@@ -2,7 +2,7 @@
 //  UMDiameterAvpAllocation_Retention_Priority.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,23 @@
 	dict[@"Pre-emption-Capability"] = [_var_pre_emption_capability objectValue];
 	dict[@"Pre-emption-Vulnerability"] = [_var_pre_emption_vulnerability objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"allocation-retention-priority";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpPriority_Level definition]];
+    [entries addObject:[UMDiameterAvpPre_emption_Capability definition]];
+    [entries addObject:[UMDiameterAvpPre_emption_Vulnerability definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -2,7 +2,7 @@
 //  UMDiameterAvpPLMN_ID_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,6 +93,22 @@
 	dict[@"Visited-PLMN-Id"] = [_var_visited_plmn_id objectValue];
 	dict[@"Periodic-Location-Support-Indicator"] = [_var_periodic_location_support_indicator objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"plmn-id-list";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpVisited_PLMN_Id definition]];
+    [entries addObject:[UMDiameterAvpPeriodic_Location_Support_Indicator definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

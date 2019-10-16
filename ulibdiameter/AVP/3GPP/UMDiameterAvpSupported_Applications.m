@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Applications.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -111,29 +111,55 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_auth_application_id)
+		if(_var_auth_application_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_auth_application_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Auth-Application-Id"] = arr;
 		}
-		dict[@"Auth-Application-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_acct_application_id)
+		if(_var_acct_application_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_acct_application_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Acct-Application-Id"] = arr;
 		}
-		dict[@"Acct-Application-Id"] = arr;
 	}
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_vendor_specific_application_id)
+		if(_var_vendor_specific_application_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_vendor_specific_application_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Vendor-Specific-Application-Id"] = arr;
 		}
-		dict[@"Vendor-Specific-Application-Id"] = arr;
 	}
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"supported-applications";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpAuth_Application_Id definition]];
+    [entries addObject:[UMDiameterAvpAcct_Application_Id definition]];
+    [entries addObject:[UMDiameterAvpVendor_Specific_Application_Id definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

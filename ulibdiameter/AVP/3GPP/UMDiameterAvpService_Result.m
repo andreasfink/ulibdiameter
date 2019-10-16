@@ -2,7 +2,7 @@
 //  UMDiameterAvpService_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:23.971000
+//  Created by afink on 2019-10-16 20:52:18.293000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -86,14 +86,33 @@
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		for(UMDiameterAvp *avp in _var_vendor_id)
+		if(_var_vendor_id.count>0)
 		{
-			[arr addObject:[avp objectValue]];
+			for(UMDiameterAvp *avp in _var_vendor_id)
+			{
+				[arr addObject:[avp objectValue]];
+			}
+			dict[@"Vendor-Id"] = arr;
 		}
-		dict[@"Vendor-Id"] = arr;
 	}
 	dict[@"Service-Result-Code"] = [_var_service_result_code objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"service-result";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(YES);
+    avpDef[@"vendor"] = @(YES);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpVendor_Id definition]];
+    [entries addObject:[UMDiameterAvpService_Result_Code definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 

@@ -309,9 +309,32 @@
     return s;
 }
 
-- (UMSynchronizedSortedDictionary *)definition
+- (id)definition
 {
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+
+    if(_webName.length > 0)
+    {
+        dict[@"name"] = _webName;
+    }
+    if(_comment.length > 0)
+    {
+        dict[@"comment"] = _comment;
+    }
+    dict[@"mandatory" ] = _mandatory ? @(YES) : @(NO);
+    dict[@"fixed-position"] = _fixedPosition ? @(YES) : @(NO);
+    dict[@"multiple"] = _multiple ? @(YES) : @(NO);
+    if(_multiple)
+    {
+        if(_minimumCount)
+        {
+            dict[@"minimum-count"] = _minimumCount;
+        }
+        if(_maximumCount)
+        {
+            dict[@"maximum-count"] = _maximumCount;
+        }
+    }
     return dict;
 }
 

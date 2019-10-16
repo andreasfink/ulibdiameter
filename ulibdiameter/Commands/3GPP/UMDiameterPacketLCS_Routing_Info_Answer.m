@@ -2,7 +2,7 @@
 //  UMDiameterPacketLCS_Routing_Info_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:10.485000
+//  Created by afink on 2019-10-16 20:49:11.553000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -719,6 +719,43 @@
 		}
 	}
 	return dict;
+}
+
++ (NSString *)webJsonDefintion
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
+    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
+    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
+    [arr addObject:@{ @"_var_experimental_result" : [UMDiameterAvpExperimental_Result definition] }];
+    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
+    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
+    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
+    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
+    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
+    [arr addObject:@{ @"_var_msisdn" : [UMDiameterAvpMSISDN definition] }];
+    [arr addObject:@{ @"_var_lmsi" : [UMDiameterAvpLMSI definition] }];
+    [arr addObject:@{ @"_var_serving_node" : [UMDiameterAvpServing_Node definition] }];
+    [arr addObject:@{ @"_var_additional_serving_node" : [UMDiameterAvpAdditional_Serving_Node definition] }];
+    [arr addObject:@{ @"_var_gmlc_address" : [UMDiameterAvpGMLC_Address definition] }];
+    [arr addObject:@{ @"_var_ppr_address" : [UMDiameterAvpPPR_Address definition] }];
+    [arr addObject:@{ @"_var_ria_flags" : [UMDiameterAvpRIA_Flags definition] }];
+    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
+    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
+    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+
+    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
+    commandDef[@"command-name"] = @"LCS-Routing-Info-Answer";
+    commandDef[@"web-name"] = @"lcs-routing-info-answer";
+    commandDef[@"command-number"] = @(8388622);
+    commandDef[@"application-id"] = @(16777291);
+    commandDef[@"rbit"] = @(NO);
+    commandDef[@"ebit"] = @(NO);
+    commandDef[@"pbit"] = @(YES);
+    commandDef[@"tbit"] = @(NO);
+    commandDef[@"fields"] = arr;
+
+    return [commandDef jsonString];
 }
 
 @end

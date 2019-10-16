@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_OLR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-15 08:59:38.871000
+//  Created by afink on 2019-10-16 20:52:19.099000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -113,6 +113,24 @@
 	dict[@"OC-Reduction-Percentage"] = [_var_oc_reduction_percentage objectValue];
 	dict[@"OC-Validity-Duration"] = [_var_oc_validity_duration objectValue];
 	return dict;
+}
+
++ (id)definition
+{
+    UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
+    avpDef[@"name"] = @"oc-olr";
+    avpDef[@"type"] = @"Grouped";
+    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"vendor"] = @(NO);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    [entries addObject:[UMDiameterAvpOC_Sequence_Number definition]];
+    [entries addObject:[UMDiameterAvpOC_Report_Type definition]];
+    [entries addObject:[UMDiameterAvpOC_Reduction_Percentage definition]];
+    [entries addObject:[UMDiameterAvpOC_Validity_Duration definition]];
+    avpDef[@"members"] = entries;
+
+    return avpDef;
 }
 
 
