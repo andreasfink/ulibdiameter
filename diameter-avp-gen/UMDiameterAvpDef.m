@@ -46,9 +46,9 @@
      4: V
      */
     _avpCode = [a[0] integerValue];
-    _standardsName = a[1];
-    _definitionReference = a[2];
-    _typeDefinition = a[3];
+    _standardsName = [a[1] trim];
+    _definitionReference = [a[2] trim];
+    _typeDefinition = [a[3] trim];
     if(a.count >4)
     {
         NSString *flags = a[4];

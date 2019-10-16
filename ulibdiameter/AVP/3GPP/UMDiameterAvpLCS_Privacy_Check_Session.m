@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_Privacy_Check_Session.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:17:01.105000
+//  Created by afink on 2019-10-16 21:45:21.078000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 
 - (NSString *)avpType
 {
-    return @"LCS-Privacy-Check-Session ";
+    return @"LCS-Privacy-Check-Session";
 }
 
 - (uint32_t)avpCode
