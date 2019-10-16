@@ -322,6 +322,7 @@
     [s appendString:@"+ (uint32_t)defaultApplicationId;\n"];
     [s appendString:@"+ (void)webDiameterParameters:(NSMutableString *)str;\n"];
     [s appendString:@"- (void)afterDecode;\n"];
+    [s appendString:@"+ (NSString *)webJsonDefintion;\n"];
     [s appendString:@"@end\n"];
     [s appendString:@"\n"];
 
@@ -684,7 +685,7 @@
         {
             continue;
         }
-        [s appendFormat:@"    [arr addObject:@{ @\"%@\" : [%@%@ definition] }];\n",avp.variableName,avpPrefix,avp.objectName];
+        [s appendFormat:@"    [arr addObject: [%@%@ definition]];\n",avpPrefix,avp.objectName];
     }
     [s appendString:@"\n"];
     [s appendString:@"    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];\n"];

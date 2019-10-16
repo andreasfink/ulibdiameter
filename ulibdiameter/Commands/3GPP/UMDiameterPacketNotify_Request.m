@@ -2,7 +2,7 @@
 //  UMDiameterPacketNotify_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.469000
+//  Created by afink on 2019-10-16 21:32:34.012000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -862,31 +862,31 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
-    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
-    [arr addObject:@{ @"_var_drmp" : [UMDiameterAvpDRMP definition] }];
-    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
-    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
-    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
-    [arr addObject:@{ @"_var_oc_supported_features" : [UMDiameterAvpOC_Supported_Features definition] }];
-    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
-    [arr addObject:@{ @"_var_terminal_information" : [UMDiameterAvpTerminal_Information definition] }];
-    [arr addObject:@{ @"_var_mip6_agent_info" : [UMDiameterAvpMIP6_Agent_Info definition] }];
-    [arr addObject:@{ @"_var_visited_network_identifier" : [UMDiameterAvpVisited_Network_Identifier definition] }];
-    [arr addObject:@{ @"_var_context_identifier" : [UMDiameterAvpContext_Identifier definition] }];
-    [arr addObject:@{ @"_var_service_selection" : [UMDiameterAvpService_Selection definition] }];
-    [arr addObject:@{ @"_var_alert_reason" : [UMDiameterAvpAlert_Reason definition] }];
-    [arr addObject:@{ @"_var_ue_srvcc_capability" : [UMDiameterAvpUE_SRVCC_Capability definition] }];
-    [arr addObject:@{ @"_var_nor_flags" : [UMDiameterAvpNOR_Flags definition] }];
-    [arr addObject:@{ @"_var_homogeneous_support_of_ims_voice_over_ps_sessions" : [UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions definition] }];
-    [arr addObject:@{ @"_var_maximum_ue_availability_time" : [UMDiameterAvpMaximum_UE_Availability_Time definition] }];
-    [arr addObject:@{ @"_var_monitoring_event_config_status" : [UMDiameterAvpMonitoring_Event_Config_Status definition] }];
-    [arr addObject:@{ @"_var_emergency_services" : [UMDiameterAvpEmergency_Services definition] }];
-    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
-    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+    [arr addObject: [UMDiameterAvpSession_Id definition]];
+    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpDRMP definition]];
+    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpDestination_Host definition]];
+    [arr addObject: [UMDiameterAvpDestination_Realm definition]];
+    [arr addObject: [UMDiameterAvpUser_Name definition]];
+    [arr addObject: [UMDiameterAvpOC_Supported_Features definition]];
+    [arr addObject: [UMDiameterAvpSupported_Features definition]];
+    [arr addObject: [UMDiameterAvpTerminal_Information definition]];
+    [arr addObject: [UMDiameterAvpMIP6_Agent_Info definition]];
+    [arr addObject: [UMDiameterAvpVisited_Network_Identifier definition]];
+    [arr addObject: [UMDiameterAvpContext_Identifier definition]];
+    [arr addObject: [UMDiameterAvpService_Selection definition]];
+    [arr addObject: [UMDiameterAvpAlert_Reason definition]];
+    [arr addObject: [UMDiameterAvpUE_SRVCC_Capability definition]];
+    [arr addObject: [UMDiameterAvpNOR_Flags definition]];
+    [arr addObject: [UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions definition]];
+    [arr addObject: [UMDiameterAvpMaximum_UE_Availability_Time definition]];
+    [arr addObject: [UMDiameterAvpMonitoring_Event_Config_Status definition]];
+    [arr addObject: [UMDiameterAvpEmergency_Services definition]];
+    [arr addObject: [UMDiameterAvpProxy_Info definition]];
+    [arr addObject: [UMDiameterAvpRoute_Record definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"Notify-Request";

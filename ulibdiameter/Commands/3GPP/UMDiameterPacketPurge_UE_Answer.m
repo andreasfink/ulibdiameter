@@ -2,7 +2,7 @@
 //  UMDiameterPacketPurge_UE_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.490000
+//  Created by afink on 2019-10-16 21:32:34.027000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -655,22 +655,22 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
-    [arr addObject:@{ @"_var_drmp" : [UMDiameterAvpDRMP definition] }];
-    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
-    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
-    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
-    [arr addObject:@{ @"_var_experimental_result" : [UMDiameterAvpExperimental_Result definition] }];
-    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_oc_supported_features" : [UMDiameterAvpOC_Supported_Features definition] }];
-    [arr addObject:@{ @"_var_oc_olr" : [UMDiameterAvpOC_OLR definition] }];
-    [arr addObject:@{ @"_var_load" : [UMDiameterAvpLoad definition] }];
-    [arr addObject:@{ @"_var_pua_flags" : [UMDiameterAvpPUA_Flags definition] }];
-    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
-    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
-    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+    [arr addObject: [UMDiameterAvpSession_Id definition]];
+    [arr addObject: [UMDiameterAvpDRMP definition]];
+    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpSupported_Features definition]];
+    [arr addObject: [UMDiameterAvpResult_Code definition]];
+    [arr addObject: [UMDiameterAvpExperimental_Result definition]];
+    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpOC_Supported_Features definition]];
+    [arr addObject: [UMDiameterAvpOC_OLR definition]];
+    [arr addObject: [UMDiameterAvpLoad definition]];
+    [arr addObject: [UMDiameterAvpPUA_Flags definition]];
+    [arr addObject: [UMDiameterAvpFailed_AVP definition]];
+    [arr addObject: [UMDiameterAvpProxy_Info definition]];
+    [arr addObject: [UMDiameterAvpRoute_Record definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"Purge-UE-Answer";

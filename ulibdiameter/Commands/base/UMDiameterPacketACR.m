@@ -2,7 +2,7 @@
 //  UMDiameterPacketACR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.045000
+//  Created by afink on 2019-10-16 21:32:33.742000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -640,25 +640,25 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
-    [arr addObject:@{ @"_var_accounting_record_type" : [UMDiameterAvpAccounting_Record_Type definition] }];
-    [arr addObject:@{ @"_var_accounting_record_number" : [UMDiameterAvpAccounting_Record_Number definition] }];
-    [arr addObject:@{ @"_var_acct_application_id" : [UMDiameterAvpAcct_Application_Id definition] }];
-    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
-    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
-    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
-    [arr addObject:@{ @"_var_accounting_sub_session_id" : [UMDiameterAvpAccounting_Sub_Session_Id definition] }];
-    [arr addObject:@{ @"_var_acct_session_id" : [UMDiameterAvpAcct_Session_Id definition] }];
-    [arr addObject:@{ @"_var_acct_multi_session_id" : [UMDiameterAvpAcct_Multi_Session_Id definition] }];
-    [arr addObject:@{ @"_var_acct_interim_interval" : [UMDiameterAvpAcct_Interim_Interval definition] }];
-    [arr addObject:@{ @"_var_accounting_realtime_required" : [UMDiameterAvpAccounting_Realtime_Required definition] }];
-    [arr addObject:@{ @"_var_origin_state_id" : [UMDiameterAvpOrigin_State_Id definition] }];
-    [arr addObject:@{ @"_var_event_timestamp" : [UMDiameterAvpEvent_Timestamp definition] }];
-    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
-    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+    [arr addObject: [UMDiameterAvpSession_Id definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpDestination_Realm definition]];
+    [arr addObject: [UMDiameterAvpAccounting_Record_Type definition]];
+    [arr addObject: [UMDiameterAvpAccounting_Record_Number definition]];
+    [arr addObject: [UMDiameterAvpAcct_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpUser_Name definition]];
+    [arr addObject: [UMDiameterAvpDestination_Host definition]];
+    [arr addObject: [UMDiameterAvpAccounting_Sub_Session_Id definition]];
+    [arr addObject: [UMDiameterAvpAcct_Session_Id definition]];
+    [arr addObject: [UMDiameterAvpAcct_Multi_Session_Id definition]];
+    [arr addObject: [UMDiameterAvpAcct_Interim_Interval definition]];
+    [arr addObject: [UMDiameterAvpAccounting_Realtime_Required definition]];
+    [arr addObject: [UMDiameterAvpOrigin_State_Id definition]];
+    [arr addObject: [UMDiameterAvpEvent_Timestamp definition]];
+    [arr addObject: [UMDiameterAvpProxy_Info definition]];
+    [arr addObject: [UMDiameterAvpRoute_Record definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"ACR";

@@ -2,7 +2,7 @@
 //  UMDiameterPacketLCS_Routing_Info_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.531000
+//  Created by afink on 2019-10-16 21:32:34.058000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -544,19 +544,19 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
-    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
-    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
-    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
-    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
-    [arr addObject:@{ @"_var_msisdn" : [UMDiameterAvpMSISDN definition] }];
-    [arr addObject:@{ @"_var_gmlc_number" : [UMDiameterAvpGMLC_Number definition] }];
-    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
-    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
-    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+    [arr addObject: [UMDiameterAvpSession_Id definition]];
+    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpDestination_Host definition]];
+    [arr addObject: [UMDiameterAvpDestination_Realm definition]];
+    [arr addObject: [UMDiameterAvpUser_Name definition]];
+    [arr addObject: [UMDiameterAvpMSISDN definition]];
+    [arr addObject: [UMDiameterAvpGMLC_Number definition]];
+    [arr addObject: [UMDiameterAvpSupported_Features definition]];
+    [arr addObject: [UMDiameterAvpProxy_Info definition]];
+    [arr addObject: [UMDiameterAvpRoute_Record definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"LCS-Routing-Info-Request";

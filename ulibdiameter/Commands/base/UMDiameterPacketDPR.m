@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.089000
+//  Created by afink on 2019-10-16 21:32:33.771000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -188,9 +188,9 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_disconnect_cause" : [UMDiameterAvpDisconnect_Cause definition] }];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpDisconnect_Cause definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"DPR";

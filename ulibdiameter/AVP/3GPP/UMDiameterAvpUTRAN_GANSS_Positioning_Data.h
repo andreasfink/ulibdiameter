@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_GANSS_Positioning_Data.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:52:18.293000
+//  Created by afink on 2019-10-16 21:17:01.105000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

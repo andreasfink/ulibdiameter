@@ -2,7 +2,7 @@
 //  UMDiameterPacketUser_Data_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.724000
+//  Created by afink on 2019-10-16 21:32:34.162000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -1080,35 +1080,35 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
-    [arr addObject:@{ @"_var_drmp" : [UMDiameterAvpDRMP definition] }];
-    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
-    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_destination_host" : [UMDiameterAvpDestination_Host definition] }];
-    [arr addObject:@{ @"_var_destination_realm" : [UMDiameterAvpDestination_Realm definition] }];
-    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
-    [arr addObject:@{ @"_var_user_identity" : [UMDiameterAvpUser_Identity definition] }];
-    [arr addObject:@{ @"_var_wildcarded_public_identity" : [UMDiameterAvpWildcarded_Public_Identity definition] }];
-    [arr addObject:@{ @"_var_wildcarded_impu" : [UMDiameterAvpWildcarded_IMPU definition] }];
-    [arr addObject:@{ @"_var_server_name" : [UMDiameterAvpServer_Name definition] }];
-    [arr addObject:@{ @"_var_service_indication" : [UMDiameterAvpService_Indication definition] }];
-    [arr addObject:@{ @"_var_data_reference" : [UMDiameterAvpData_Reference definition] }];
-    [arr addObject:@{ @"_var_identity_set" : [UMDiameterAvpIdentity_Set definition] }];
-    [arr addObject:@{ @"_var_requested_domain" : [UMDiameterAvpRequested_Domain definition] }];
-    [arr addObject:@{ @"_var_current_location" : [UMDiameterAvpCurrent_Location definition] }];
-    [arr addObject:@{ @"_var_dsai_tag" : [UMDiameterAvpDSAI_Tag definition] }];
-    [arr addObject:@{ @"_var_session_priority" : [UMDiameterAvpSession_Priority definition] }];
-    [arr addObject:@{ @"_var_user_name" : [UMDiameterAvpUser_Name definition] }];
-    [arr addObject:@{ @"_var_requested_nodes" : [UMDiameterAvpRequested_Nodes definition] }];
-    [arr addObject:@{ @"_var_serving_node_indication" : [UMDiameterAvpServing_Node_Indication definition] }];
-    [arr addObject:@{ @"_var_pre_paging_supported" : [UMDiameterAvpPre_paging_Supported definition] }];
-    [arr addObject:@{ @"_var_local_time_zone_indication" : [UMDiameterAvpLocal_Time_Zone_Indication definition] }];
-    [arr addObject:@{ @"_var_call_reference_info" : [UMDiameterAvpCall_Reference_Info definition] }];
-    [arr addObject:@{ @"_var_oc_supported_features" : [UMDiameterAvpOC_Supported_Features definition] }];
-    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
-    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+    [arr addObject: [UMDiameterAvpSession_Id definition]];
+    [arr addObject: [UMDiameterAvpDRMP definition]];
+    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpDestination_Host definition]];
+    [arr addObject: [UMDiameterAvpDestination_Realm definition]];
+    [arr addObject: [UMDiameterAvpSupported_Features definition]];
+    [arr addObject: [UMDiameterAvpUser_Identity definition]];
+    [arr addObject: [UMDiameterAvpWildcarded_Public_Identity definition]];
+    [arr addObject: [UMDiameterAvpWildcarded_IMPU definition]];
+    [arr addObject: [UMDiameterAvpServer_Name definition]];
+    [arr addObject: [UMDiameterAvpService_Indication definition]];
+    [arr addObject: [UMDiameterAvpData_Reference definition]];
+    [arr addObject: [UMDiameterAvpIdentity_Set definition]];
+    [arr addObject: [UMDiameterAvpRequested_Domain definition]];
+    [arr addObject: [UMDiameterAvpCurrent_Location definition]];
+    [arr addObject: [UMDiameterAvpDSAI_Tag definition]];
+    [arr addObject: [UMDiameterAvpSession_Priority definition]];
+    [arr addObject: [UMDiameterAvpUser_Name definition]];
+    [arr addObject: [UMDiameterAvpRequested_Nodes definition]];
+    [arr addObject: [UMDiameterAvpServing_Node_Indication definition]];
+    [arr addObject: [UMDiameterAvpPre_paging_Supported definition]];
+    [arr addObject: [UMDiameterAvpLocal_Time_Zone_Indication definition]];
+    [arr addObject: [UMDiameterAvpCall_Reference_Info definition]];
+    [arr addObject: [UMDiameterAvpOC_Supported_Features definition]];
+    [arr addObject: [UMDiameterAvpProxy_Info definition]];
+    [arr addObject: [UMDiameterAvpRoute_Record definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"User-Data-Request";

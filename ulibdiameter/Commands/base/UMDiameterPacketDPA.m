@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.111000
+//  Created by afink on 2019-10-16 21:32:33.783000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -234,11 +234,11 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_error_message" : [UMDiameterAvpError_Message definition] }];
-    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
+    [arr addObject: [UMDiameterAvpResult_Code definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpError_Message definition]];
+    [arr addObject: [UMDiameterAvpFailed_AVP definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"DPA";

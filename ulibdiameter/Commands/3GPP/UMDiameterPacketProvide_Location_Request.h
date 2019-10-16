@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.642000
+//  Created by afink on 2019-10-16 21:32:34.091000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -105,5 +105,6 @@
 + (uint32_t)defaultApplicationId;
 + (void)webDiameterParameters:(NSMutableString *)str;
 - (void)afterDecode;
++ (NSString *)webJsonDefintion;
 @end
 

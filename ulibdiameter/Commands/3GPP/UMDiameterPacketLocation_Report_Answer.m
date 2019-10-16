@@ -2,7 +2,7 @@
 //  UMDiameterPacketLocation_Report_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 20:49:11.705000
+//  Created by afink on 2019-10-16 21:32:34.145000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -590,21 +590,21 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject:@{ @"_var_session_id" : [UMDiameterAvpSession_Id definition] }];
-    [arr addObject:@{ @"_var_vendor_specific_application_id" : [UMDiameterAvpVendor_Specific_Application_Id definition] }];
-    [arr addObject:@{ @"_var_result_code" : [UMDiameterAvpResult_Code definition] }];
-    [arr addObject:@{ @"_var_experimental_result" : [UMDiameterAvpExperimental_Result definition] }];
-    [arr addObject:@{ @"_var_auth_session_state" : [UMDiameterAvpAuth_Session_State definition] }];
-    [arr addObject:@{ @"_var_origin_host" : [UMDiameterAvpOrigin_Host definition] }];
-    [arr addObject:@{ @"_var_origin_realm" : [UMDiameterAvpOrigin_Realm definition] }];
-    [arr addObject:@{ @"_var_gmlc_address" : [UMDiameterAvpGMLC_Address definition] }];
-    [arr addObject:@{ @"_var_lra_flags" : [UMDiameterAvpLRA_Flags definition] }];
-    [arr addObject:@{ @"_var_reporting_plmn_list" : [UMDiameterAvpReporting_PLMN_List definition] }];
-    [arr addObject:@{ @"_var_lcs_reference_number" : [UMDiameterAvpLCS_Reference_Number definition] }];
-    [arr addObject:@{ @"_var_supported_features" : [UMDiameterAvpSupported_Features definition] }];
-    [arr addObject:@{ @"_var_failed_avp" : [UMDiameterAvpFailed_AVP definition] }];
-    [arr addObject:@{ @"_var_proxy_info" : [UMDiameterAvpProxy_Info definition] }];
-    [arr addObject:@{ @"_var_route_record" : [UMDiameterAvpRoute_Record definition] }];
+    [arr addObject: [UMDiameterAvpSession_Id definition]];
+    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
+    [arr addObject: [UMDiameterAvpResult_Code definition]];
+    [arr addObject: [UMDiameterAvpExperimental_Result definition]];
+    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
+    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
+    [arr addObject: [UMDiameterAvpGMLC_Address definition]];
+    [arr addObject: [UMDiameterAvpLRA_Flags definition]];
+    [arr addObject: [UMDiameterAvpReporting_PLMN_List definition]];
+    [arr addObject: [UMDiameterAvpLCS_Reference_Number definition]];
+    [arr addObject: [UMDiameterAvpSupported_Features definition]];
+    [arr addObject: [UMDiameterAvpFailed_AVP definition]];
+    [arr addObject: [UMDiameterAvpProxy_Info definition]];
+    [arr addObject: [UMDiameterAvpRoute_Record definition]];
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"Location-Report-Answer";
