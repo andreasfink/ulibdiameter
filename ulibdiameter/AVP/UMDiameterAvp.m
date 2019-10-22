@@ -85,7 +85,10 @@
                   error:(NSError **)err
 {
     /* this has to be overrittten by the subclass */
-    *err = [NSError errorWithDomain:@"PARSING" code:100 userInfo:@{@"reason" : @"parseJsonString: not implemented"}];
+    if(err)
+    {
+        *err = [NSError errorWithDomain:@"PARSING" code:100 userInfo:@{@"reason" : @"parseJsonString: not implemented"}];
+    }
 }
 
 - (UMDiameterAvp *)initWithData:(NSData *)data

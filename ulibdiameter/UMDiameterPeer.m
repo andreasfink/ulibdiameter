@@ -430,15 +430,15 @@
             NSNumber *acc_application = vid[@"acc-application"];
 
            UMDiameterAvpVendor_Specific_Application_Id *aid = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
-            if(vendor)
+            if(vendor != NULL)
             {
                 aid.var_vendor_id = [[UMDiameterAvpVendor_Id alloc]initWithObject:vendor];
             }
-            if(application)
+            if(application != NULL)
             {
                 aid.var_auth_application_id =  [[UMDiameterAvpAuth_Application_Id alloc]initWithObject:application];
             }
-            if(acc_application)
+            if(acc_application!= NULL)
             {
                 aid.var_acct_application_id =  [[UMDiameterAvpAcct_Application_Id alloc]initWithObject:acc_application];
             }
@@ -613,7 +613,7 @@
         packet.var_inband_security_id = arr;
     }
     // [ Firmware-Revision ]
-    if(_router.firmwareRevision)
+    if(_router.firmwareRevision!= NULL)
     {
         packet.var_firmware_revision =  [[UMDiameterAvpFirmware_Revision alloc]initWithObject:_router.firmwareRevision];
     }
