@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_Supported_Features.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.480000
+//  Created by afink on 2019-11-01 14:41:36.354000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -91,7 +91,12 @@
     avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpOC_Feature_Vector definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOC_Feature_Vector definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

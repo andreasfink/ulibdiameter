@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:26.788000
+//  Created by afink on 2019-11-01 14:37:26.123000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -835,28 +835,138 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject: [UMDiameterAvpSession_Id definition]];
-    [arr addObject: [UMDiameterAvpDRMP definition]];
-    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
-    [arr addObject: [UMDiameterAvpSupported_Features definition]];
-    [arr addObject: [UMDiameterAvpResult_Code definition]];
-    [arr addObject: [UMDiameterAvpExperimental_Result definition]];
-    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
-    [arr addObject: [UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported definition]];
-    [arr addObject: [UMDiameterAvpLast_UE_Activity_Time definition]];
-    [arr addObject: [UMDiameterAvpRAT_Type definition]];
-    [arr addObject: [UMDiameterAvpIDA_Flags definition]];
-    [arr addObject: [UMDiameterAvpEPS_User_State definition]];
-    [arr addObject: [UMDiameterAvpEPS_Location_Information definition]];
-    [arr addObject: [UMDiameterAvpLocal_Time_Zone definition]];
-    [arr addObject: [UMDiameterAvpSupported_Services definition]];
-    [arr addObject: [UMDiameterAvpMonitoring_Event_Report definition]];
-    [arr addObject: [UMDiameterAvpMonitoring_Event_Config_Status definition]];
-    [arr addObject: [UMDiameterAvpFailed_AVP definition]];
-    [arr addObject: [UMDiameterAvpProxy_Info definition]];
-    [arr addObject: [UMDiameterAvpRoute_Record definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSession_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDRMP definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVendor_Specific_Application_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSupported_Features definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpResult_Code definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpExperimental_Result definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAuth_Session_State definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Host definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Realm definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLast_UE_Activity_Time definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRAT_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpIDA_Flags definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEPS_User_State definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEPS_Location_Information definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLocal_Time_Zone definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSupported_Services definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMonitoring_Event_Report definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMonitoring_Event_Config_Status definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpFailed_AVP definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpProxy_Info definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRoute_Record definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"Insert-Subscriber-Data-Answer";

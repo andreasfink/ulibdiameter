@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:26.649000
+//  Created by afink on 2019-11-01 14:37:26.018000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -234,11 +234,36 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject: [UMDiameterAvpResult_Code definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
-    [arr addObject: [UMDiameterAvpError_Message definition]];
-    [arr addObject: [UMDiameterAvpFailed_AVP definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpResult_Code definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Host definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Realm definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpError_Message definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpFailed_AVP definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"DPA";

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -637,47 +637,253 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpSubscriber_Status definition]];
-    [entries addObject:[UMDiameterAvpMSISDN definition]];
-    [entries addObject:[UMDiameterAvpA_MSISDN definition]];
-    [entries addObject:[UMDiameterAvpSTN_SR definition]];
-    [entries addObject:[UMDiameterAvpICS_Indicator definition]];
-    [entries addObject:[UMDiameterAvpNetwork_Access_Mode definition]];
-    [entries addObject:[UMDiameterAvpOperator_Determined_Barring definition]];
-    [entries addObject:[UMDiameterAvpHPLMN_ODB definition]];
-    [entries addObject:[UMDiameterAvpRegional_Subscription_Zone_Code definition]];
-    [entries addObject:[UMDiameterAvpAccess_Restriction_Data definition]];
-    [entries addObject:[UMDiameterAvpAPN_OI_Replacement definition]];
-    [entries addObject:[UMDiameterAvpLCS_Info definition]];
-    [entries addObject:[UMDiameterAvpTeleservice_List definition]];
-    [entries addObject:[UMDiameterAvpCall_Barring_Info definition]];
-    [entries addObject:[UMDiameterAvp3GPP_Charging_Characteristics definition]];
-    [entries addObject:[UMDiameterAvpAMBR definition]];
-    [entries addObject:[UMDiameterAvpAPN_Configuration_Profile definition]];
-    [entries addObject:[UMDiameterAvpRAT_Frequency_Selection_Priority_ID definition]];
-    [entries addObject:[UMDiameterAvpTrace_Data definition]];
-    [entries addObject:[UMDiameterAvpGPRS_Subscription_Data definition]];
-    [entries addObject:[UMDiameterAvpCSG_Subscription_Data definition]];
-    [entries addObject:[UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature definition]];
-    [entries addObject:[UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer definition]];
-    [entries addObject:[UMDiameterAvpMPS_Priority definition]];
-    [entries addObject:[UMDiameterAvpVPLMN_LIPA_Allowed definition]];
-    [entries addObject:[UMDiameterAvpRelay_Node_Indicator definition]];
-    [entries addObject:[UMDiameterAvpMDT_User_Consent definition]];
-    [entries addObject:[UMDiameterAvpSubscribed_VSRVCC definition]];
-    [entries addObject:[UMDiameterAvpProSe_Subscription_Data definition]];
-    [entries addObject:[UMDiameterAvpSubscription_Data_Flags definition]];
-    [entries addObject:[UMDiameterAvpAdjacent_Access_Restriction_Data definition]];
-    [entries addObject:[UMDiameterAvpDL_Buffering_Suggested_Packet_Count definition]];
-    [entries addObject:[UMDiameterAvpIMSI_Group_Id definition]];
-    [entries addObject:[UMDiameterAvpUE_Usage_Type definition]];
-    [entries addObject:[UMDiameterAvpAESE_Communication_Pattern definition]];
-    [entries addObject:[UMDiameterAvpMonitoring_Event_Configuration definition]];
-    [entries addObject:[UMDiameterAvpEmergency_Info definition]];
-    [entries addObject:[UMDiameterAvpV2X_Subscription_Data definition]];
-    [entries addObject:[UMDiameterAvpeDRX_Cycle_Length definition]];
-    [entries addObject:[UMDiameterAvpExternal_Identifier definition]];
-    [entries addObject:[UMDiameterAvpActive_Time definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSubscriber_Status definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMSISDN definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpA_MSISDN definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSTN_SR definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpICS_Indicator definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpNetwork_Access_Mode definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOperator_Determined_Barring definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpHPLMN_ODB definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRegional_Subscription_Zone_Code definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        def[@"maximum-count"]=@(10);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAccess_Restriction_Data definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAPN_OI_Replacement definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLCS_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpTeleservice_List definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCall_Barring_Info definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvp3GPP_Charging_Characteristics definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAMBR definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAPN_Configuration_Profile definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRAT_Frequency_Selection_Priority_ID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpTrace_Data definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpGPRS_Subscription_Data definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCSG_Subscription_Data definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMPS_Priority definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVPLMN_LIPA_Allowed definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRelay_Node_Indicator definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMDT_User_Consent definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSubscribed_VSRVCC definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpProSe_Subscription_Data definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSubscription_Data_Flags definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAdjacent_Access_Restriction_Data definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDL_Buffering_Suggested_Packet_Count definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpIMSI_Group_Id definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUE_Usage_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAESE_Communication_Pattern definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMonitoring_Event_Configuration definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEmergency_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpV2X_Subscription_Data definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpeDRX_Cycle_Length definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpExternal_Identifier definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpActive_Time definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

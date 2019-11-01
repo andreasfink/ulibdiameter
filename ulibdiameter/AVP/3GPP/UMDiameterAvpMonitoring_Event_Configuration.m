@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -205,16 +205,66 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpSCEF_Reference_ID definition]];
-    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
-    [entries addObject:[UMDiameterAvpMonitoring_Type definition]];
-    [entries addObject:[UMDiameterAvpSCEF_Reference_ID_for_Deletion definition]];
-    [entries addObject:[UMDiameterAvpMaximum_Number_of_Reports definition]];
-    [entries addObject:[UMDiameterAvpMonitoring_Duration definition]];
-    [entries addObject:[UMDiameterAvpCharged_Party definition]];
-    [entries addObject:[UMDiameterAvpUE_Reachability_Configuration definition]];
-    [entries addObject:[UMDiameterAvpLocation_Information_Configuration definition]];
-    [entries addObject:[UMDiameterAvpSCEF_Realm definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_Reference_ID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_ID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMonitoring_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_Reference_ID_for_Deletion definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMaximum_Number_of_Reports definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMonitoring_Duration definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCharged_Party definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUE_Reachability_Configuration definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLocation_Information_Configuration definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_Realm definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

@@ -2,7 +2,7 @@
 //  UMDiameterAvpEmergency_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -93,7 +93,12 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpMIP6_Agent_Info definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMIP6_Agent_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

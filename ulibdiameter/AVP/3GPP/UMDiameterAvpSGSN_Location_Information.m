@@ -2,7 +2,7 @@
 //  UMDiameterAvpSGSN_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -181,15 +181,60 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpCell_Global_Identity definition]];
-    [entries addObject:[UMDiameterAvpLocation_Area_Identity definition]];
-    [entries addObject:[UMDiameterAvpService_Area_Identity definition]];
-    [entries addObject:[UMDiameterAvpRouting_Area_Identity definition]];
-    [entries addObject:[UMDiameterAvpGeographical_Information definition]];
-    [entries addObject:[UMDiameterAvpGeodetic_Information definition]];
-    [entries addObject:[UMDiameterAvpCurrent_Location_Retrieved definition]];
-    [entries addObject:[UMDiameterAvpAge_Of_Location_Information definition]];
-    [entries addObject:[UMDiameterAvpUser_CSG_Information definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCell_Global_Identity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLocation_Area_Identity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpService_Area_Identity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRouting_Area_Identity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpGeographical_Information definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpGeodetic_Information definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCurrent_Location_Retrieved definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAge_Of_Location_Information definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_CSG_Information definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

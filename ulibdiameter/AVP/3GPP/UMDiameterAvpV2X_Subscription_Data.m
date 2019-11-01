@@ -2,7 +2,7 @@
 //  UMDiameterAvpV2X_Subscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -104,8 +104,18 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpV2X_Permission definition]];
-    [entries addObject:[UMDiameterAvpUE_PC5_AMBR definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpV2X_Permission definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUE_PC5_AMBR definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

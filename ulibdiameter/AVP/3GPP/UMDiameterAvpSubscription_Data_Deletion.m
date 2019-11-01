@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data_Deletion.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -187,12 +187,42 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpDSR_Flags definition]];
-    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
-    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
-    [entries addObject:[UMDiameterAvpTrace_Reference definition]];
-    [entries addObject:[UMDiameterAvpTS_Code definition]];
-    [entries addObject:[UMDiameterAvpSS_Code definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDSR_Flags definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_ID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpContext_Identifier definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpTrace_Reference definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpTS_Code definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSS_Code definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

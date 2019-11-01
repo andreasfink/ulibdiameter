@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,9 +115,24 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpCall_ID_SIP_Header definition]];
-    [entries addObject:[UMDiameterAvpTo_SIP_Header definition]];
-    [entries addObject:[UMDiameterAvpRecord_Route definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCall_ID_SIP_Header definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpTo_SIP_Header definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRecord_Route definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

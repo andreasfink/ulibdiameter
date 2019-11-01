@@ -2,7 +2,7 @@
 //  UMDiameterPacketCancel_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:26.880000
+//  Created by afink on 2019-11-01 14:37:26.202000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -567,20 +567,90 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject: [UMDiameterAvpSession_Id definition]];
-    [arr addObject: [UMDiameterAvpDRMP definition]];
-    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
-    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
-    [arr addObject: [UMDiameterAvpDestination_Host definition]];
-    [arr addObject: [UMDiameterAvpDestination_Realm definition]];
-    [arr addObject: [UMDiameterAvpUser_Name definition]];
-    [arr addObject: [UMDiameterAvpSupported_Features definition]];
-    [arr addObject: [UMDiameterAvpCancellation_Type definition]];
-    [arr addObject: [UMDiameterAvpCLR_Flags definition]];
-    [arr addObject: [UMDiameterAvpProxy_Info definition]];
-    [arr addObject: [UMDiameterAvpRoute_Record definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSession_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDRMP definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVendor_Specific_Application_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAuth_Session_State definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Host definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Realm definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDestination_Host definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDestination_Realm definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Name definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSupported_Features definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCancellation_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCLR_Flags definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpProxy_Info definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRoute_Record definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"Cancel-Location-Request";

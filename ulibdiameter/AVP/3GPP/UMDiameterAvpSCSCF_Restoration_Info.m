@@ -2,7 +2,7 @@
 //  UMDiameterAvpSCSCF_Restoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -128,9 +128,25 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpUser_Name definition]];
-    [entries addObject:[UMDiameterAvpRestoration_Info definition]];
-    [entries addObject:[UMDiameterAvpSIP_Authentication_Scheme definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Name definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRestoration_Info definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(YES);
+        def[@"minimum-count"]=@(1);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSIP_Authentication_Scheme definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

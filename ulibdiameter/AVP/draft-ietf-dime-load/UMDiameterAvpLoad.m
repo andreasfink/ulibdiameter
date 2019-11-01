@@ -2,7 +2,7 @@
 //  UMDiameterAvpLoad.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.463000
+//  Created by afink on 2019-11-01 14:41:36.334000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -113,9 +113,24 @@
     avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpLoad_Type definition]];
-    [entries addObject:[UMDiameterAvpLoad_Value definition]];
-    [entries addObject:[UMDiameterAvpSourceID definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLoad_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLoad_Value definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSourceID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

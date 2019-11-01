@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:27.080000
+//  Created by afink on 2019-11-01 14:37:26.350000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -843,32 +843,162 @@
 + (NSString *)webJsonDefintion
 {
     NSMutableArray *arr = [[NSMutableArray alloc]init];
-    [arr addObject: [UMDiameterAvpSession_Id definition]];
-    [arr addObject: [UMDiameterAvpVendor_Specific_Application_Id definition]];
-    [arr addObject: [UMDiameterAvpResult_Code definition]];
-    [arr addObject: [UMDiameterAvpExperimental_Result definition]];
-    [arr addObject: [UMDiameterAvpAuth_Session_State definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Host definition]];
-    [arr addObject: [UMDiameterAvpOrigin_Realm definition]];
-    [arr addObject: [UMDiameterAvpLocation_Estimate definition]];
-    [arr addObject: [UMDiameterAvpAccuracy_Fulfilment_Indicator definition]];
-    [arr addObject: [UMDiameterAvpAge_Of_Location_Estimate definition]];
-    [arr addObject: [UMDiameterAvpVelocity_Estimate definition]];
-    [arr addObject: [UMDiameterAvpEUTRAN_Positioning_Data definition]];
-    [arr addObject: [UMDiameterAvpECGI definition]];
-    [arr addObject: [UMDiameterAvpGERAN_Positioning_Info definition]];
-    [arr addObject: [UMDiameterAvpCell_Global_Identity definition]];
-    [arr addObject: [UMDiameterAvpUTRAN_Positioning_Info definition]];
-    [arr addObject: [UMDiameterAvpService_Area_Identity definition]];
-    [arr addObject: [UMDiameterAvpServing_Node definition]];
-    [arr addObject: [UMDiameterAvpPLA_Flags definition]];
-    [arr addObject: [UMDiameterAvpESMLC_Cell_Info definition]];
-    [arr addObject: [UMDiameterAvpCivic_Address definition]];
-    [arr addObject: [UMDiameterAvpBarometric_Pressure definition]];
-    [arr addObject: [UMDiameterAvpSupported_Features definition]];
-    [arr addObject: [UMDiameterAvpFailed_AVP definition]];
-    [arr addObject: [UMDiameterAvpProxy_Info definition]];
-    [arr addObject: [UMDiameterAvpRoute_Record definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSession_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVendor_Specific_Application_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpResult_Code definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpExperimental_Result definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAuth_Session_State definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Host definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Realm definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLocation_Estimate definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAccuracy_Fulfilment_Indicator definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAge_Of_Location_Estimate definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVelocity_Estimate definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEUTRAN_Positioning_Data definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpECGI definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpGERAN_Positioning_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCell_Global_Identity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUTRAN_Positioning_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpService_Area_Identity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpServing_Node definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpPLA_Flags definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpESMLC_Cell_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCivic_Address definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpBarometric_Pressure definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSupported_Features definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpFailed_AVP definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpProxy_Info definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRoute_Record definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
     commandDef[@"command-name"] = @"Provide-Location-Answer";

@@ -2,7 +2,7 @@
 //  UMDiameterAvpTeleservice_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,7 +106,13 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpTS_Code definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpTS_Code definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(YES);
+        def[@"minimum-count"]=@(1);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

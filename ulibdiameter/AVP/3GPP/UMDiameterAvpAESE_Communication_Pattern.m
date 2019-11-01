@@ -2,7 +2,7 @@
 //  UMDiameterAvpAESE_Communication_Pattern.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -152,10 +152,30 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpSCEF_Reference_ID definition]];
-    [entries addObject:[UMDiameterAvpSCEF_ID definition]];
-    [entries addObject:[UMDiameterAvpSCEF_Reference_ID_for_Deletion definition]];
-    [entries addObject:[UMDiameterAvpCommunication_Pattern_Set definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_Reference_ID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_ID definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSCEF_Reference_ID_for_Deletion definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCommunication_Pattern_Set definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

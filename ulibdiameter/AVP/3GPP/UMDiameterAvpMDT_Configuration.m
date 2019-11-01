@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -328,26 +328,126 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpJob_Type definition]];
-    [entries addObject:[UMDiameterAvpArea_Scope definition]];
-    [entries addObject:[UMDiameterAvpList_Of_Measurements definition]];
-    [entries addObject:[UMDiameterAvpReporting_Trigger definition]];
-    [entries addObject:[UMDiameterAvpReport_Interval definition]];
-    [entries addObject:[UMDiameterAvpReport_Amount definition]];
-    [entries addObject:[UMDiameterAvpEvent_Threshold_RSRP definition]];
-    [entries addObject:[UMDiameterAvpEvent_Threshold_RSRQ definition]];
-    [entries addObject:[UMDiameterAvpLogging_Interval definition]];
-    [entries addObject:[UMDiameterAvpLogging_Duration definition]];
-    [entries addObject:[UMDiameterAvpMeasurement_Period_LTE definition]];
-    [entries addObject:[UMDiameterAvpMeasurement_Period_UMTS definition]];
-    [entries addObject:[UMDiameterAvpCollection_Period_RRM_LTE definition]];
-    [entries addObject:[UMDiameterAvpCollection_Period_RRM_UMTS definition]];
-    [entries addObject:[UMDiameterAvpPositioning_Method definition]];
-    [entries addObject:[UMDiameterAvpMeasurement_Quantity definition]];
-    [entries addObject:[UMDiameterAvpEvent_Threshold_Event_1F definition]];
-    [entries addObject:[UMDiameterAvpEvent_Threshold_Event_1I definition]];
-    [entries addObject:[UMDiameterAvpMDT_Allowed_PLMN_Id definition]];
-    [entries addObject:[UMDiameterAvpMBSFN_Area definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpJob_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpArea_Scope definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpList_Of_Measurements definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpReporting_Trigger definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpReport_Interval definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpReport_Amount definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEvent_Threshold_RSRP definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEvent_Threshold_RSRQ definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLogging_Interval definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLogging_Duration definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMeasurement_Period_LTE definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMeasurement_Period_UMTS definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCollection_Period_RRM_LTE definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpCollection_Period_RRM_UMTS definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpPositioning_Method definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMeasurement_Quantity definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEvent_Threshold_Event_1F definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEvent_Threshold_Event_1I definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMDT_Allowed_PLMN_Id definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMBSFN_Area definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

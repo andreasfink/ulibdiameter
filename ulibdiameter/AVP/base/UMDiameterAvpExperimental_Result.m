@@ -2,7 +2,7 @@
 //  UMDiameterAvpExperimental_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:20.998000
+//  Created by afink on 2019-11-01 14:41:35.873000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -94,8 +94,18 @@
     avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpVendor_Id definition]];
-    [entries addObject:[UMDiameterAvpExperimental_Result_Code definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVendor_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpExperimental_Result_Code definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -174,14 +174,55 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpContext_Identifier definition]];
-    [entries addObject:[UMDiameterAvpServed_Party_IP_Address definition]];
-    [entries addObject:[UMDiameterAvpPDN_Type definition]];
-    [entries addObject:[UMDiameterAvpService_Selection definition]];
-    [entries addObject:[UMDiameterAvpEPS_Subscribed_QoS_Profile definition]];
-    [entries addObject:[UMDiameterAvpVPLMN_Dynamic_Address_Allowed definition]];
-    [entries addObject:[UMDiameterAvpMIP6_Agent_Info definition]];
-    [entries addObject:[UMDiameterAvpVisited_Network_Identifier definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpContext_Identifier definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpServed_Party_IP_Address definition];
+        def[@"multiple"]=@(YES);
+        def[@"mandatory"]=@(NO);
+        def[@"maximum-count"]=@(2);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpPDN_Type definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpService_Selection definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(YES);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpEPS_Subscribed_QoS_Profile definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVPLMN_Dynamic_Address_Allowed definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMIP6_Agent_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVisited_Network_Identifier definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

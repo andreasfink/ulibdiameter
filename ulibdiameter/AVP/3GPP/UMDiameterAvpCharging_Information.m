@@ -2,7 +2,7 @@
 //  UMDiameterAvpCharging_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -126,10 +126,30 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpPrimary_Event_Charging_Function_Name definition]];
-    [entries addObject:[UMDiameterAvpSecondary_Event_Charging_Function_Name definition]];
-    [entries addObject:[UMDiameterAvpPrimary_Charging_Collection_Function_Name definition]];
-    [entries addObject:[UMDiameterAvpSecondary_Charging_Collection_Function_Name definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpPrimary_Event_Charging_Function_Name definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSecondary_Event_Charging_Function_Name definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpPrimary_Charging_Collection_Function_Name definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSecondary_Charging_Collection_Function_Name definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;

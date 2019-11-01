@@ -323,7 +323,27 @@
             {
                 continue;
             }
-            [s appendFormat:@"    [entries addObject:[%@%@ definition]];\n",prefix,avp.objectName];
+
+            [s appendFormat:@"    {\n"];
+            [s appendFormat:@"        UMSynchronizedSortedDictionary *def =  [%@%@ definition];\n",prefix,avp.objectName];
+            [s appendFormat:@"        def[@\"multiple\"]=@(%@);\n",avp.multiple ? @"YES" : @"NO"];
+            [s appendFormat:@"        def[@\"mandatory\"]=@(%@);\n",avp.mandatory ? @"YES" : @"NO"];
+            if(avp.multiple)
+            {
+                if(avp.minimumCount)
+                {
+                    [s appendFormat:@"        def[@\"minimum-count\"]=@(%@);\n",avp.minimumCount.stringValue];
+                }
+                if(avp.maximumCount)
+                {
+                    [s appendFormat:@"        def[@\"maximum-count\"]=@(%@);\n",avp.maximumCount.stringValue];
+                }
+            }
+            [s appendFormat:@"        [entries addObject:def];\n"];
+            [s appendFormat:@"    }\n"];
+
+
+            //[s appendFormat:@"    [entries addObject:[%@%@ definition]];\n",prefix,avp.objectName];
         }
         [s appendFormat:@"    avpDef[@\"members\"] = entries;\n"];
     }

@@ -2,7 +2,7 @@
 //  UMDiameterAvpRequested_EUTRAN_Authentication_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-10-16 21:45:21.078000
+//  Created by afink on 2019-11-01 14:41:35.961000
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,9 +115,24 @@
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
-    [entries addObject:[UMDiameterAvpNumber_Of_Requested_Vectors definition]];
-    [entries addObject:[UMDiameterAvpImmediate_Response_Preferred definition]];
-    [entries addObject:[UMDiameterAvpRe_Synchronization_Info definition]];
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpNumber_Of_Requested_Vectors definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpImmediate_Response_Preferred definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRe_Synchronization_Info definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [entries addObject:def];
+    }
     avpDef[@"members"] = entries;
 
     return avpDef;
