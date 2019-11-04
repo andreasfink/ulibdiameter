@@ -450,6 +450,62 @@
     }
 }
 
+- (void)setDictionaryValueFromWeb:(NSDictionary *)dict
+{
+    if(dict[@"json"])
+    {
+        NSString *jsonString = dict[@"json"];
+        UMJsonParser *parser = [[UMJsonParser alloc]init];
+        NSError *err;
+        id r = [parser objectWithString:jsonString error:&err];
+        if([r isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary *rdict = (NSDictionary *)r;
+            NSMutableDictionary *pdict = [[NSMutableDictionary alloc]init];
+            id f = rdict[@"fields"];
+            if([r isKindOfClass:[NSArray class]])
+            {
+                NSArray *fields = (NSArray *)f;
+                for(id fld in fields)
+                {
+                    if([fld isKindOfClass:[NSDictionary class]])
+                    {
+                        NSDictionary *field = (NSDictionary *)fld;
+                        id n = field[@"name"];
+                        id v = field[@"value"];
+                        if([n isKindOfClass:[NSString class]])
+                        {
+                            NSString *name = (NSString *)n;
+                            NSString *value;
+                            if([v isKindOfClass:[NSString class]])
+                            {
+                                value = (NSString *)v;
+                                if(pdict[name]==NULL)
+                                {
+                                    pdict[name]=value;
+                                }
+                                else if([pdict[name] isKindOfClass:[NSString class]])
+                                {
+                                    pdict[name]=@[pdict[name],value];
+                                }
+                                else if([pdict[name] isKindOfClass:[NSArray class]])
+                                {
+                                    NSArray *a = pdict[name];
+                                    pdict[name] = [a arrayByAddingObject:value];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            [self setDictionaryValue:pdict];
+        }
+    }
+    else
+    {
+        [self setDictionaryValue:dict];
+    }
+}
 
 
 - (void)setDictionaryValue:(NSDictionary *)dict

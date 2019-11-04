@@ -67,7 +67,7 @@
 
 - (void)parseJsonString:(NSString *)s error:(NSError **)eptr;
 
-
+- (void)setDictionaryValueFromWeb:(NSDictionary *)dict;
 - (void)setDictionaryValue:(NSDictionary *)dict;
 - (UMSynchronizedSortedDictionary *)dictionaryValue;
 
