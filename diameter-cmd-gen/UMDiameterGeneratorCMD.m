@@ -700,24 +700,8 @@
                 [s appendFormat:@"        def[@\"maximum-count\"]=@(%@);\n",avp.maximumCount.stringValue];
             }
         }
-        [s appendFormat:@"        [arr addObject:def];        [s appendFormat:@"    {\n"];
-        [s appendFormat:@"        UMSynchronizedSortedDictionary *def =  [%@%@ definition];\n",avpPrefix,avp.objectName];
-        [s appendFormat:@"        def[@\"multiple\"]=@(%@)\n",avp.multiple ? @"YES" : @"NO"];
-        [s appendFormat:@"        def[@\"mandatory\"]=@(%@)\n",avp.mandatory ? @"YES" : @"NO"];
-        if(avp.multiple)
-        {
-            if(avp.minimumCount)
-            {
-                [s appendFormat:@"        def[@\"minimum-count\"]=@(%@)\n",avp.minimumCount.stringValue];
-            }
-            if(avp.maximumCount)
-            {
-                [s appendFormat:@"        def[@\"maximum-count\"]=@(%@)\n",avp.maximumCount.stringValue];
-            }
-        }
         [s appendFormat:@"        [arr addObject:def]\n"];
-\n"];
-        [s appendFormat:@"    }\n"];
+        [s appendString:@"    }\n"];
     }
     [s appendString:@"\n"];
     [s appendString:@"    UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];\n"];
