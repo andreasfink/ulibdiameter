@@ -8,6 +8,9 @@
 
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterPeer.h"
+#import "UMDiameterPacket.h"
+#import "UMDiameterPacketsAll.h"
+#import "UMDiameterRouter.h"
 
 @implementation UMDiameterRouterSession
 
@@ -41,6 +44,42 @@
         return YES;
     }
     return NO;
+}
+
+- (void)processIncomingPacket:(UMDiameterPacket *)packet forRouter:(UMDiameterRouter *)router fromPeer:(UMDiameterPeer *)peer
+{
+#define COMMAND(CMDNAME) \
+    else if(packet.commandCode ==  [CMDNAME commandCode]) \
+    {  \
+        packet = [[CMDNAME alloc]initWithPacket:packet]; \
+    }
+
+    if(0)
+    {
+    }
+#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
+#include "Commands/base/UMDiameterCommands_base.inc"
+
+#undef COMMAND
+
+    if(packet.commandFlags & DIAMETER_COMMAND_FLAG_REQUEST)
+    {
+        [router processIncomingRequestPacket:packet fromPeer:peer];
+    }
+    else if(packet.commandFlags & DIAMETER_COMMAND_FLAG_ERROR)
+    {
+        [router processIncomingErrorPacket:packet fromPeer:peer];
+
+    }
+    else
+    {
+        [router processIncomingResponsePacket:packet fromPeer:peer];
+    }
+}
+
+- (void)expire
+{
+    /* FIXME */
 }
 
 @end

@@ -58,6 +58,9 @@
 - (void)setFlagError:(BOOL)flag;
 - (void)setFlagTransmit:(BOOL)flag;
 - (void)appendAvp:(UMDiameterAvp *)avp;
+- (UMDiameterAvp *)getAvpByCode:(uint32_t)avpCode;
+- (NSArray<UMDiameterAvp *> *)getArrayOfAvpsByCode:(uint32_t)avpCode;
+
 - (void)setAvps:(NSArray<UMDiameterAvp *> *)avp;
 
 - (NSString *)getSessionIdentifier;

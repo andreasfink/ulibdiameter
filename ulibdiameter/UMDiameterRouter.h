@@ -40,6 +40,10 @@
     NSMutableArray<NSNumber *>      *_inbandSecurityIds;
     NSMutableArray<NSNumber *>      *_authApplicationIds;
     id<UMDiameterLocalUserProtocol> _localUser;
+
+    uint32_t _sid_int1;
+    uint32_t _sid_int2;
+    UMMutex *_sid_lock;
 }
 
 @property(readwrite,strong,atomic)  NSString    *localHostName;
@@ -77,5 +81,14 @@
 
 - (void)addRoute:(UMDiameterRoute *)route;
 - (void)addRouteFromConfig:(NSDictionary *)config;
+
+/* local processing */
+- (void)processIncomingRequestPacket:(UMDiameterPacket *)packet
+                            fromPeer:(UMDiameterPeer *)peer;
+- (void)processIncomingErrorPacket:(UMDiameterPacket *)packet
+                          fromPeer:(UMDiameterPeer *)peer;
+- (void)processIncomingResponsePacket:(UMDiameterPacket *)packet
+                             fromPeer:(UMDiameterPeer *)peer;
+
 
 @end

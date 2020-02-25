@@ -37,6 +37,8 @@
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _housekeepingTimer = [[UMTimer alloc]initWithTarget:self selector:@selector(housekeeping) object:NULL seconds:30 name:@"housekeeping-timer" repeats:YES];
         _housekeepingLock = [[UMMutex alloc]initWithName:@"housekeeping-timer-lock"];
+        _sid_lock = [[UMMutex alloc]initWithName:@"diameter-router-sid-lock"];
+
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
         _vendorId = 54013; /* fts */
         _productName = @"Fink Telecom Services ulibdiameter";
@@ -335,7 +337,7 @@
             UMDiameterRouterSession *session = [self findSessionById:sid];
             if([session isExpired])
             {
-
+                [session expire];
             }
         }
         [_housekeepingLock unlock];
@@ -361,6 +363,36 @@
     [self queueFromLowerWithPriority:task];
 }
 
+- (NSString *)newSessionIdentifier
+{
+    [_sid_lock lock];
+    if(_sid_int1 == 0)
+    {
+        _sid_int1 = (uint32_t)time(NULL);
+        _sid_int2 = 0;
+    }
+    if(_sid_int2 == INT32_MAX)
+    {
+        _sid_int1++;
+        _sid_int2=0;
+    }
+    else
+    {
+        _sid_int2++;
+    }
+    NSString *sid = [NSString stringWithFormat:@"%@;%u;%u", _localHostName,_sid_int1,_sid_int2];
+    [_sid_lock unlock];
+    return sid;
+}
+
+- (void)addSession:(UMDiameterRouterSession *)session
+{
+    if(session.sessionIdentifier.length == 0)
+    {
+        session.sessionIdentifier = [self newSessionIdentifier];
+    }
+    _sessions[session.sessionIdentifier] = session;
+}
 
 - (UMDiameterRouterSession *)findSessionById:(NSString *)sid
 {
@@ -372,7 +404,7 @@
     NSString *sid = [pkt getSessionIdentifier];
     if(sid)
     {
-        return _sessions[sid];
+        return [self findSessionById:sid];
     }
     return NULL;
 }
@@ -506,6 +538,27 @@
 - (void)processIncomingPacket:(UMDiameterPacket *)packet
                      fromPeer:(UMDiameterPeer *)peer
 {
+    [self queuePacketForRouting:packet source:peer];
+    UMDiameterRouterSession *session = [self findSessionForPacket:packet];
+    if(session)
+    {
+        if(session.isLocal)
+        {
+            /* if we have a session, we use the same route back */
+            [session processIncomingPacket:packet forRouter:self fromPeer:peer];
+            [session touch];
+            return;
+        }
+        else
+        {
+            [self queuePacketForRouting:packet source:peer];
+        }
+    }
+    else
+    {
+        session = [[UMDiameterRouterSession alloc]initWithTimeout:_defaultSessionTimeout];
+        session.initiator = peer;
+    }
 
 #define COMMAND(CMDNAME) \
     else if(packet.commandCode ==  [CMDNAME commandCode]) \
@@ -531,7 +584,7 @@
     }
     else
     {
-            [self processIncomingResponsePacket:packet fromPeer:peer];
+        [self processIncomingResponsePacket:packet fromPeer:peer];
     }
 }
 

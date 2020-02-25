@@ -10,6 +10,7 @@
 #import "UMDiameterAvp.h"
 #import "UMDiameterCommandFlags.h"
 #import "UMDiameterApplicationId.h"
+#import "UMDiameterAvpSession_Id.h"
 
 @implementation UMDiameterPacket
 
@@ -299,14 +300,39 @@
 
 - (void)appendAvp:(UMDiameterAvp *)avp
 {
+
     [_packet_avps addObject:avp];
 }
 
+- (UMDiameterAvp *)getAvpByCode:(uint32_t)avpCode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == avpCode)
+        {
+            return avp;
+        }
+    }
+    return NULL;
+}
+
+- (NSArray<UMDiameterAvp *> *)getArrayOfAvpsByCode:(uint32_t)avpCode
+{
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == avpCode)
+        {
+            [arr addObject:avp];
+        }
+    }
+    return arr;
+}
 
 - (NSString *)getSessionIdentifier
 {
-    /* FIXME */
-    return NULL;
+    UMDiameterAvpSession_Id *avp = (UMDiameterAvpSession_Id *)[self getAvpByCode:[UMDiameterAvpSession_Id avpCode]];
+    return avp.value;
 }
 
 
