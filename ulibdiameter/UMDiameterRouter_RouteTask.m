@@ -41,9 +41,7 @@
     {
         /* if we have a session, we use the same route back */
         [session touch];
-        
     }
-
 }
 
 @end
