@@ -38,13 +38,33 @@
 
 - (void) sctpStatusIndication:(UMLayer *)caller
                        userId:(id)uid
-                       status:(SCTP_Status)s
+                       status:(SCTP_Status)statusNew
 {
-    if(_sctpStatus == s)
+    UMLayerSctp *sctp = NULL;
+    SCTP_Status previousStatus;
+    BOOL initiator;
+
+    if([caller isEqualTo:_sctp_i])
+    {
+        sctp = _sctp_i;
+        previousStatus = _sctpStatus_i;
+        initiator = YES;
+    }
+    else if([caller isEqualTo:_sctp_r])
+    {
+        sctp = _sctp_r;
+        previousStatus = _sctpStatus_r;
+        initiator = NO;
+    }
+    else
+    {
+        NSLog(@"sctp status update for a connection we dont know");
+        return;
+    }
+    if(previousStatus == statusNew)
     {
         return;
     }
-    SCTP_Status previousStatus = _sctpStatus;
     NSString *oldStatusString= @"undefined";
     switch(previousStatus)
     {
@@ -61,43 +81,61 @@
             oldStatusString = @"IS";
             break;
     }
-    _sctpStatus = s;
-    switch(_sctpStatus)
+    if(initiator)
+    {
+        _sctpStatus_i = statusNew;
+    }
+    else
+    {
+        _sctpStatus_r = statusNew;
+    }
+    switch(statusNew)
     {
         case  SCTP_STATUS_M_FOOS:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->M_FOOS",oldStatusString];
             [self.logFeed infoText:s];
-            _peerState = [_peerState eventSctpForcedOutOfService:self];
+            if(initiator)
+            {
+                _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+            }
+            else
+            {
+                _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
+            }
             break;
         }
         case SCTP_STATUS_OFF:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OFF",oldStatusString];
             [self.logFeed infoText:s];
-            _peerState = [_peerState eventSctpOff:self];
+            if(initiator)
+            {
+                _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
+            }
+            else
+            {
+                _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
+            }
             break;
         }
         case SCTP_STATUS_OOS:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OOS",oldStatusString];
             [self.logFeed infoText:s];
-            _peerState = [_peerState eventSctpOutOfService:self];
             break;
         }
         case SCTP_STATUS_IS:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->IS",oldStatusString];
             [self.logFeed infoText:s];
-            _peerState = [_peerState eventSctpInService:self];
-            if(_sctp.isPassive==YES)
+            if(initiator)
             {
-                _isIncoming = YES;
-                _shouldSendCER= YES;
+                _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
             }
             else
             {
-                [self sendCER];
+                _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
             }
             break;
         }
@@ -110,20 +148,41 @@
                  protocolId:(uint32_t)pid
                        data:(NSData *)d
 {
+    UMLayerSctp *sctp = NULL;
+    BOOL initiator;
+
+    if([caller isEqualTo:_sctp_i])
+    {
+        sctp = _sctp_i;
+        initiator = YES;
+    }
+    else if([caller isEqualTo:_sctp_r])
+    {
+        sctp = _sctp_r;
+        initiator = NO;
+    }
+    else
+    {
+        NSLog(@"sctp status update for a connection we dont know");
+        return;
+    }
+
     UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:d];
     if(!packet)
     {
         NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)sid, (int)pid, [d hexString]];
         NSLog(@"%@",s);
         [self.logFeed majorError:0 withText:s];
-        _peerState = [_peerState eventStop:self];
+        /* FIXME: what shall we do in case of packets we can not decode? */
+        //_peerState = [_peerState eventError:self message:d];
     }
     if((pid!=0) && (pid!=DIAMETER_SCTP_PPID_CLEAR))
     {
         NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)pid];
         NSLog(@"%@",s);
         [self.logFeed majorError:0 withText:s];
-        _peerState = [_peerState eventStop:self];
+        /* FIXME: what shall we do in case of packets we can not decode? */
+        // _peerState = [_peerState eventStop:self];
     }
 
     if(packet.commandFlags & UMDiameterCommandFlag_Request)
@@ -148,20 +207,91 @@
                 switch(packet.commandCode)
                 {
                     case UMDiameterCommandCode_Capabilities_Exchange:
-                        [self processCEA:packet];
+                    {
+                        if(packet.flagRequest)
+                        {
+                            if(initiator)
+                            {
+                                _peerState = [_peerState eventI_Rcv_CER:self message:packet];
+                            }
+                            else
+                            {
+                                _peerState = [_peerState eventR_Rcv_CER:self message:packet];
+                            }
+                        }
+                        else
+                        {
+                            if(initiator)
+                            {
+                                _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
+                            }
+                            else
+                            {
+                                _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
+                            }
+                        }
                         break;
+                    }
+                    case UMDiameterCommandCode_Disconnect_Peer:
+                    {
+                        if(packet.flagRequest)
+                        {
+                            if(initiator)
+                            {
+                                _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
+                            }
+                            else
+                            {
+                                _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
+                            }
+                        }
+                        else
+                        {
+                            if(initiator)
+                            {
+                                _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
+                            }
+                            else
+                            {
+                                _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
+                            }
+                        }
+                        break;
+                    }
                     case UMDiameterCommandCode_Device_Watchdog:
-                        [self processDWA:packet];
+                    {
+                        if(packet.flagRequest)
+                        {
+                            if(initiator)
+                            {
+                                _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
+                            }
+                            else
+                            {
+                                _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
+                            }
+                        }
+                        else
+                        {
+                            if(initiator)
+                            {
+                                _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
+                            }
+                            else
+                            {
+                                _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
+                            }
+                        }
                         break;
+                    }
+                        /* FIXME: this shoudl be moved into eventProcessPacket... */
                     case UMDiameterCommandCode_Abort_Session:
                         [self processASR:packet];
                         break;
                     case UMDiameterCommandCode_Accounting:
                         [self processACR:packet];
                         break;
-                    case UMDiameterCommandCode_Disconnect_Peer:
-                        [self processDPR:packet];
-                        break;
+
                     case UMDiameterCommandCode_Re_Auth:
                         [self processRAR:packet];
 
@@ -681,6 +811,198 @@
 - (void)processDCA:(UMDiameterPacket *)pkt
 {
 }
+
+
+
+/***** ACTIONS *****/
+
+/* Snd-Conn-Req: A transport connection is initiated with the peer. */
+- (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+/* Accept: The incoming connection associated with the R-Conn-CER is accepted as the responder connection.*/
+- (void)actionR_Accept:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+/* Reject: The incoming connection associated with the R-Conn-CER is disconnected.*/
+- (void)actionReject:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Process-CER:  The CER associated with the R-Conn-CER is processed. */
+- (void)actionProcess_CER:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Snd-CER        A CER message is sent to the peer. */
+- (void)actionSnd_CER:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Snd-CEA        A CEA message is sent to the peer. */
+- (void)actionSnd_CEA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
+- (void)actionCleanup:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Error: The transport layer connection is disconnected, either politely or abortively, in response to, an error condition.  Local resources are freed. */
+- (void)actionError:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Process-CEA    A received CEA is processed. */
+- (void)actionProcess_CEA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Snd-DPR A DPR message is sent to the peer. */
+- (void)actionSnd_DPR:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Snd-DPA A DPA message is sent to the peer. */
+- (void)actionSnd_DPA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+
+/* Disc: The transport layer connection is disconnected, and local resources are freed. */
+- (void)actionDisc:(UMDiameterPacket *)message
+{
+    [self actionI_Disc:message];
+    [self actionR_Disc:message];
+}
+
+- (void)actionI_Disc:(UMDiameterPacket *)message
+{
+    [_sctp_i closeFor:self];
+}
+
+- (void)actionR_Disc:(UMDiameterPacket *)message
+{
+    [_sctp_r closeFor:self];
+}
+
+
+/* Elect: An election occurs (see Section 5.6.4 for more information). */
+- (void)actionElect:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Snd-Message    A message is sent. */
+- (void)actionSnd_Message:(UMDiameterPacket *)message
+{
+    if([_peerState isKindOfClass:[UMDiameterPeerState_I_Open class]])
+    {
+        [self actionI_Snd_Message:message];
+    }
+    else if([_peerState isKindOfClass:[UMDiameterPeerState_R_Open class]])
+    {
+        [self actionR_Snd_Message:message];
+    }
+}
+- (void)actionI_Snd_Message:(UMDiameterPacket *)message
+{
+    [message beforeEncode];
+    NSData *packedData = [message packedData];
+
+    [_sctp_i dataFor:self
+                data:packedData
+            streamId:0
+          protocolId:DIAMETER_SCTP_PPID_CLEAR
+          ackRequest:NULL];
+}
+
+- (void)actionR_Snd_Message:(UMDiameterPacket *)message
+{
+    [message beforeEncode];
+    NSData *packedData = [message packedData];
+
+    [_sctp_r dataFor:self
+                data:packedData
+            streamId:0
+          protocolId:DIAMETER_SCTP_PPID_CLEAR
+          ackRequest:NULL];
+}
+
+
+/* Snd-DWR        A DWR message is sent. */
+- (void)actionSnd_DWR:(UMDiameterPacket *)message
+{
+    if([_peerState isKindOfClass:[UMDiameterPeerState_I_Open class]])
+    {
+        [self actionI_Snd_DWR:message];
+    }
+    else if([_peerState isKindOfClass:[UMDiameterPeerState_R_Open class]])
+    {
+        [self actionR_Snd_DWR:message];
+    }
+}
+
+- (void)actionI_Snd_DWR:(UMDiameterPacket *)message
+{
+}
+
+- (void)actionR_Snd_DWR:(UMDiameterPacket *)message
+{
+}
+
+
+/* Snd-DWA        A DWA message is sent. */
+- (void)actionSnd_DWA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Process-DWR    The DWR message is serviced. */
+- (void)actionProcess_DWR:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Process-DWA    The DWA message is serviced. */
+- (void)actionProcess_DWA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+
+/* Process        A message is serviced. */
+- (void)actionProcess:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
 
 @end
 

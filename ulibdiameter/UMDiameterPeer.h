@@ -29,9 +29,11 @@
 	NSString				*_tcpRemoteIP;
 	int						_tcpRemotePort;
 	UMDiameterTcpConnection	*_tcpConnection;
-    UMLayerSctp             *_sctp;
+    UMLayerSctp             *_sctp_i; /* initiator */
+    UMLayerSctp             *_sctp_r; /* responder */
     UMDiameterRouter        *_router;
-    SCTP_Status             _sctpStatus;
+    SCTP_Status             _sctpStatus_i;
+    SCTP_Status             _sctpStatus_r;
     UMDiameterPeerState     *_peerState;
     BOOL                    _isIncoming;
     BOOL                    _isConnected;
@@ -91,6 +93,97 @@
 - (void)processDCR:(UMDiameterPacket *)pkt;
 - (void)processDCA:(UMDiameterPacket *)pkt;
 
+
+/* Snd-Conn-Req: A transport connection is initiated with the peer. */
+- (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message;
+
+/* Accept: The incoming connection associated with the R-Conn-CER is accepted as the responder connection.*/
+- (void)actionR_Accept:(UMDiameterPacket *)message;
+
+/* Reject: The incoming connection associated with the R-Conn-CER is disconnected.*/
+- (void)actionReject:(UMDiameterPacket *)message;
+
+
+/* Process-CER:  The CER associated with the R-Conn-CER is processed. */
+- (void)actionProcess_CER:(UMDiameterPacket *)message;
+
+/* Snd-CER        A CER message is sent to the peer. */
+- (void)actionSnd_CER:(UMDiameterPacket *)message;
+
+/* Snd-CEA        A CEA message is sent to the peer. */
+- (void)actionSnd_CEA:(UMDiameterPacket *)message;
+
+/* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
+- (void)actionCleanup:(UMDiameterPacket *)message;
+
+/* Error: The transport layer connection is disconnected, either politely or abortively, in response to, an error condition.  Local resources are freed. */
+- (void)actionError:(UMDiameterPacket *)message;
+
+/* Process-CEA    A received CEA is processed. */
+- (void)actionProcess_CEA:(UMDiameterPacket *)message;
+
+/* Snd-DPR A DPR message is sent to the peer. */
+- (void)actionSnd_DPR:(UMDiameterPacket *)message;
+
+/* Snd-DPA A DPA message is sent to the peer. */
+- (void)actionSnd_DPA:(UMDiameterPacket *)message;
+
+
+/* Disc: The transport layer connection is disconnected, and local resources are freed. */
+- (void)actionDisc:(UMDiameterPacket *)message;
+- (void)actionI_Disc:(UMDiameterPacket *)message;
+- (void)actionR_Disc:(UMDiameterPacket *)message;
+
+/* Elect: An election occurs (see Section 5.6.4 for more information). */
+- (void)actionElect:(UMDiameterPacket *)message;
+
+/* Snd-Message    A message is sent. */
+- (void)actionSnd_Message:(UMDiameterPacket *)message;
+- (void)actionI_Snd_Message:(UMDiameterPacket *)message;
+- (void)actionR_Snd_Message:(UMDiameterPacket *)message;
+
+/* Snd-DWR        A DWR message is sent. */
+- (void)actionSnd_DWR:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DWR:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DWR:(UMDiameterPacket *)message;
+
+/* Snd-DWA        A DWA message is sent. */
+- (void)actionSnd_DWA:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DWA:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DWA:(UMDiameterPacket *)message;
+
+/* Process-DWR    The DWR message is serviced. */
+- (void)actionProcess_DWR:(UMDiameterPacket *)message;
+
+/* Process-DWA    The DWA message is serviced. */
+- (void)actionProcess_DWA:(UMDiameterPacket *)message;
+
+/* Process        A message is serviced. */
+- (void)actionProcess:(UMDiameterPacket *)message;
+
+
+/*
+- (void)actionR_Snd_CEA:(UMDiameterPacket *)message;
+- (void)actionI_Snd_CER:(UMDiameterPacket *)message;
+- (void)actionCleanup:(UMDiameterPacket *)message;
+- (void)actionError:(UMDiameterPacket *)message;
+- (void)actionProcess_CEA:(UMDiameterPacket *)message;
+- (void)actionElect:(UMDiameterPacket *)message;
+- (void)actionI_Disc:(UMDiameterPacket *)message;
+- (void)actionR_Disc:(UMDiameterPacket *)message;
+- (void)actionR_Reject:(UMDiameterPacket *)message;
+- (void)actionR_Snd_Message:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DPR:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DPA:(UMDiameterPacket *)message;
+- (void)actionProcess_DWR:(UMDiameterPacket *)message;
+- (void)actionProcess_DWA:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DWA:(UMDiameterPacket *)message;
+- (void)actionProcess:(UMDiameterPacket *)message;
+- (void)actionI_Snd_Message:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DPR:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DPA:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DWA:(UMDiameterPacket *)message;
+*/
 @end
 
 

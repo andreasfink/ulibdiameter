@@ -6,7 +6,22 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
+
+
+/*
+ state            event              action         next state
+ -----------------------------------------------------------------
+ Closing          I-Rcv-DPA        I-Disc           Closed
+                  R-Rcv-DPA        R-Disc           Closed
+                  Timeout          Error            Closed
+                  I-Peer-Disc      I-Disc           Closed
+                  R-Peer-Disc      R-Disc           Closed
+
+ */
 #import "UMDiameterPeerState_Closing.h"
+#import "UMDiameterPeer.h"
+#import "UMDiameterPeerState_all.h"
+
 
 @implementation UMDiameterPeerState_Closing
 

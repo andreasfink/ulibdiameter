@@ -20,6 +20,324 @@
     return @"undefined";
 }
 
+
+/*  eventStart: The Diameter application has signaled that a connection should be initiated with the peer. */
+- (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStart",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+/*  R-Conn-CER An acknowledgement is received stating that the transport connection has been established, and the associated CER has arrived. */
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Conn_CER",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-Conn-Ack   A positive acknowledgement is received confirming that the transport connection is established. */
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_Conn_Ack",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_Conn_Ack",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/*  Rcv-Conn-Nack  A negative acknowledgement was received stating that the transport connection was not established. */
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_Conn_Nack",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_Conn_Nack",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/*  Timeout:An application-defined timer has expired while waiting for some event.*/
+- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventTimeout",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-CER: A CER message from the peer was received. */
+- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_CER",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventI_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_CER",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-CEA: A CEA message from the peer was received.  */
+- (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_CEA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventI_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_CEA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-Non-CEA: A message, other than a CEA, from the peer was received. */
+- (UMDiameterPeerState *)eventR_Rcv_NonCEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_NonCEA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventI_Rcv_NonCEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_NonCEA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Peer-Disc: A disconnection indication from the peer was received. */
+- (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Peer_Disc",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Peer_Disc",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-DPR: A DPR message from the peer was received. */
+- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_DPR",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventI_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_DPR",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-DPA:A DPA message from the peer was received. */
+- (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_DPA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_DPA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+
+/* Rcv-DWR: A DWR message from the peer was received. */
+- (UMDiameterPeerState *)eventR_Rcv_DWR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_DWR",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventI_Rcv_DWR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_DWR",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-DWA:A DWA message from the peer was received. */
+- (UMDiameterPeerState *)eventI_Rcv_DWA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_DWA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Rcv_DWA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_DWA",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+
+/* Win-Election: An election was held, and the local node was the winner. */
+- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventWin_Election",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Send-Message:A message is to be sent. */
+- (UMDiameterPeerState *)eventSendMessage:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventSendMessage",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Rcv-Message:A message other than CER, CEA, DPR, DPA, DWR, or DWA was received. */
+- (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_Message",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_Message",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+/* Stop: The Diameter application has signaled that a connection should be terminated (e.g., on system shutdown). */
+- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStop",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
+
+#ifdefined OLDCODE
+
 - (UMDiameterPeerState *)eventSctpForcedOutOfService:(UMDiameterPeer *)peer
 {
     peer.isConnected = NO;
@@ -64,131 +382,6 @@
     return self;
 }
 
-
-
-- (UMDiameterPeerState *)eventRConnCER:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvConnNack:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvConnAck:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvNonCEA:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIPeerDisc:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRPeerDisc:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventWinElection:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventSendMessage:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvMessage:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvMessage:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvDWR:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvDWR:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvDWA:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvDWA:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvDPR:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvDPA:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvDPR:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvDPA:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvCER:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvCER:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventRRcvCEA:(UMDiameterPeer *)peer
-{
-    return self;
-}
-
-- (UMDiameterPeerState *)eventIRcvCEA:(UMDiameterPeer *)peer
-{
-    return self;
-}
+#endif
 
 @end

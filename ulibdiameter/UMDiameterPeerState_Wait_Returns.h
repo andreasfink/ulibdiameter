@@ -1,5 +1,5 @@
 //
-//  UMDiameterPeerState_WaitReturns.h
+//  UMDiameterPeerState_Wait_Returns.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 27.05.19.
@@ -8,7 +8,7 @@
 
 #import "UMDiameterPeerState.h"
 
-@interface UMDiameterPeerState_WaitReturns : UMDiameterPeerState
+@interface UMDiameterPeerState_Wait_Returns : UMDiameterPeerState
 
 @end
 

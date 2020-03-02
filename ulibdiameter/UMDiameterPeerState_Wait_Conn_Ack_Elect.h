@@ -1,5 +1,5 @@
 //
-//  UMDiameterPeerState_WaitConAck_Elect.h
+//  UMDiameterPeerState_Wait_Conn_Ack_Elect.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 27.05.19.
@@ -8,7 +8,7 @@
 
 #import "UMDiameterPeerState.h"
 
-@interface UMDiameterPeerState_WaitConAck_Elect : UMDiameterPeerState
+@interface UMDiameterPeerState_Wait_Conn_Ack_Elect : UMDiameterPeerState
 
 @end
 

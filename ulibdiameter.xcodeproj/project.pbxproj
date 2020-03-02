@@ -179,6 +179,10 @@
 		A6A58CA6203CA1FB00D0C2BE /* UMDiameterAvpCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58CA5203CA1FB00D0C2BE /* UMDiameterAvpCodes.m */; };
 		A6A58CAD203CAE9700D0C2BE /* UMDiameterError.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A58CAB203CAE9700D0C2BE /* UMDiameterError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6A58CAE203CAE9700D0C2BE /* UMDiameterError.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A58CAC203CAE9700D0C2BE /* UMDiameterError.m */; };
+		A6A66907240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A66905240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6A66908240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A66906240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.m */; };
+		A6A6690B240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A66909240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6A6690C240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A6690A240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.m */; };
 		A6BB8C2C22AFA35000728CDC /* UMDiameterVendorId.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BB8C2A22AFA35000728CDC /* UMDiameterVendorId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6BE474A22C7462000A9353D /* UMDiameterGeneratorAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BE474922C7462000A9353D /* UMDiameterGeneratorAVP.m */; };
 		A6BE474D22C746ED00A9353D /* UMDiameterGeneratorCMD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BE474C22C746ED00A9353D /* UMDiameterGeneratorCMD.m */; };
@@ -192,10 +196,10 @@
 		A6BF319B229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF3199229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m */; };
 		A6BF319E229C90E20000578B /* UMDiameterPeerState_I_Open.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF319C229C90E20000578B /* UMDiameterPeerState_I_Open.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6BF319F229C90E20000578B /* UMDiameterPeerState_I_Open.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF319D229C90E20000578B /* UMDiameterPeerState_I_Open.m */; };
-		A6BF31A2229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31A0229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6BF31A3229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31A1229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.m */; };
-		A6BF31A6229C91140000578B /* UMDiameterPeerState_WaitReturns.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31A4229C91140000578B /* UMDiameterPeerState_WaitReturns.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6BF31A7229C91140000578B /* UMDiameterPeerState_WaitReturns.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31A5229C91140000578B /* UMDiameterPeerState_WaitReturns.m */; };
+		A6BF31A2229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31A0229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6BF31A3229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31A1229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.m */; };
+		A6BF31A6229C91140000578B /* UMDiameterPeerState_Wait_Returns.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31A4229C91140000578B /* UMDiameterPeerState_Wait_Returns.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6BF31A7229C91140000578B /* UMDiameterPeerState_Wait_Returns.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31A5229C91140000578B /* UMDiameterPeerState_Wait_Returns.m */; };
 		A6BF31AA229C91420000578B /* UMDiameterPeerState_Closing.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31A8229C91420000578B /* UMDiameterPeerState_Closing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6BF31AB229C91420000578B /* UMDiameterPeerState_Closing.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF31A9229C91420000578B /* UMDiameterPeerState_Closing.m */; };
 		A6BF31AE229C9B330000578B /* UMDiameterPeerState_Connected.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF31AC229C9B330000578B /* UMDiameterPeerState_Connected.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1527,6 +1531,10 @@
 		A6A58CA5203CA1FB00D0C2BE /* UMDiameterAvpCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpCodes.m; sourceTree = "<group>"; };
 		A6A58CAB203CAE9700D0C2BE /* UMDiameterError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterError.h; sourceTree = "<group>"; };
 		A6A58CAC203CAE9700D0C2BE /* UMDiameterError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterError.m; sourceTree = "<group>"; };
+		A6A66905240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_Wait_Conn_Ack.h; sourceTree = "<group>"; };
+		A6A66906240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Wait_Conn_Ack.m; sourceTree = "<group>"; };
+		A6A66909240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_R_Open.h; sourceTree = "<group>"; };
+		A6A6690A240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_R_Open.m; sourceTree = "<group>"; };
 		A6BB8C2A22AFA35000728CDC /* UMDiameterVendorId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterVendorId.h; sourceTree = "<group>"; };
 		A6BE474822C7462000A9353D /* UMDiameterGeneratorAVP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterGeneratorAVP.h; sourceTree = "<group>"; };
 		A6BE474922C7462000A9353D /* UMDiameterGeneratorAVP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterGeneratorAVP.m; sourceTree = "<group>"; };
@@ -1542,10 +1550,10 @@
 		A6BF3199229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Wait_I_CEA.m; sourceTree = "<group>"; };
 		A6BF319C229C90E20000578B /* UMDiameterPeerState_I_Open.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_I_Open.h; sourceTree = "<group>"; };
 		A6BF319D229C90E20000578B /* UMDiameterPeerState_I_Open.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_I_Open.m; sourceTree = "<group>"; };
-		A6BF31A0229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_WaitConAck_Elect.h; sourceTree = "<group>"; };
-		A6BF31A1229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_WaitConAck_Elect.m; sourceTree = "<group>"; };
-		A6BF31A4229C91140000578B /* UMDiameterPeerState_WaitReturns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_WaitReturns.h; sourceTree = "<group>"; };
-		A6BF31A5229C91140000578B /* UMDiameterPeerState_WaitReturns.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_WaitReturns.m; sourceTree = "<group>"; };
+		A6BF31A0229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_Wait_Conn_Ack_Elect.h; sourceTree = "<group>"; };
+		A6BF31A1229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Wait_Conn_Ack_Elect.m; sourceTree = "<group>"; };
+		A6BF31A4229C91140000578B /* UMDiameterPeerState_Wait_Returns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_Wait_Returns.h; sourceTree = "<group>"; };
+		A6BF31A5229C91140000578B /* UMDiameterPeerState_Wait_Returns.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Wait_Returns.m; sourceTree = "<group>"; };
 		A6BF31A8229C91420000578B /* UMDiameterPeerState_Closing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_Closing.h; sourceTree = "<group>"; };
 		A6BF31A9229C91420000578B /* UMDiameterPeerState_Closing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeerState_Closing.m; sourceTree = "<group>"; };
 		A6BF31AC229C9B330000578B /* UMDiameterPeerState_Connected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState_Connected.h; sourceTree = "<group>"; };
@@ -3992,22 +4000,26 @@
 				A6506EBE2211B727006665A9 /* UMDiameterPeerState.m */,
 				A6506EC12211B8B7006665A9 /* UMDiameterPeerState_Closed.h */,
 				A6506EC22211B8B7006665A9 /* UMDiameterPeerState_Closed.m */,
+				A6A66905240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.h */,
+				A6A66906240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.m */,
+				A6BF3198229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.h */,
+				A6BF3199229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m */,
+				A6BF31A0229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.h */,
+				A6BF31A1229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.m */,
+				A6BF31A4229C91140000578B /* UMDiameterPeerState_Wait_Returns.h */,
+				A6BF31A5229C91140000578B /* UMDiameterPeerState_Wait_Returns.m */,
+				A6A66909240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.h */,
+				A6A6690A240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.m */,
+				A6BF319C229C90E20000578B /* UMDiameterPeerState_I_Open.h */,
+				A6BF319D229C90E20000578B /* UMDiameterPeerState_I_Open.m */,
+				A6BF31A8229C91420000578B /* UMDiameterPeerState_Closing.h */,
+				A6BF31A9229C91420000578B /* UMDiameterPeerState_Closing.m */,
 				A6BF3190229C90BD0000578B /* UMDiameterPeerState_Connecting.h */,
 				A6BF3191229C90BD0000578B /* UMDiameterPeerState_Connecting.m */,
 				A6BF31AC229C9B330000578B /* UMDiameterPeerState_Connected.h */,
 				A6BF31AD229C9B330000578B /* UMDiameterPeerState_Connected.m */,
 				A6BF318C229C906D0000578B /* UMDiameterPeerState_Open.h */,
 				A6BF318D229C906D0000578B /* UMDiameterPeerState_Open.m */,
-				A6BF31A8229C91420000578B /* UMDiameterPeerState_Closing.h */,
-				A6BF31A9229C91420000578B /* UMDiameterPeerState_Closing.m */,
-				A6BF3198229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.h */,
-				A6BF3199229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m */,
-				A6BF319C229C90E20000578B /* UMDiameterPeerState_I_Open.h */,
-				A6BF319D229C90E20000578B /* UMDiameterPeerState_I_Open.m */,
-				A6BF31A0229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.h */,
-				A6BF31A1229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.m */,
-				A6BF31A4229C91140000578B /* UMDiameterPeerState_WaitReturns.h */,
-				A6BF31A5229C91140000578B /* UMDiameterPeerState_WaitReturns.m */,
 				A6506EC92211B8CC006665A9 /* UMDiameterPeerState_active.h */,
 				A6506ECA2211B8CC006665A9 /* UMDiameterPeerState_active.m */,
 				A6506ECD2211B8DA006665A9 /* UMDiameterPeerState_forced_out_of_service.h */,
@@ -4507,7 +4519,7 @@
 				A6E24C6D235061EF00742DCA /* UMDiameterAvpExt_PDP_Type.h in Headers */,
 				A6E24E06235061F000742DCA /* UMDiameterAvpULR_Flags.h in Headers */,
 				A6D8F11322CBFC4700CB9399 /* UMDiameterAvpQoS_Profile_Id.h in Headers */,
-				A6BF31A2229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.h in Headers */,
+				A6BF31A2229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.h in Headers */,
 				A6E24CEC235061F000742DCA /* UMDiameterAvpServer_Name.h in Headers */,
 				A6E24CD9235061EF00742DCA /* UMDiameterAvpArea_Event_Info.h in Headers */,
 				A6E24DBA235061F000742DCA /* UMDiameterAvpServiceTypeIdentity.h in Headers */,
@@ -4590,6 +4602,7 @@
 				A6E24D6F235061F000742DCA /* UMDiameterAvpPrimary_Charging_Collection_Function_Name.h in Headers */,
 				A6506EC32211B8B7006665A9 /* UMDiameterPeerState_Closed.h in Headers */,
 				A6E24DBF235061F000742DCA /* UMDiameterAvpUTRAN_Vector.h in Headers */,
+				A6A6690B240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.h in Headers */,
 				A6C9EE9722CB625300778583 /* UMDiameterAvpAcct_Application_Id.h in Headers */,
 				A6E24CB2235061EF00742DCA /* UMDiameterAvpSIP_Authenticate.h in Headers */,
 				A6E24C26235061EF00742DCA /* UMDiameterAvpCell_Portion_ID.h in Headers */,
@@ -4800,7 +4813,7 @@
 				A6E24D2D235061F000742DCA /* UMDiameterAvpAuthentication_Info.h in Headers */,
 				A68FC4AB22A5C1CC006351C3 /* UMDiameterRoute.h in Headers */,
 				A6E24DDD235061F000742DCA /* UMDiameterAvpContact.h in Headers */,
-				A6BF31A6229C91140000578B /* UMDiameterPeerState_WaitReturns.h in Headers */,
+				A6BF31A6229C91140000578B /* UMDiameterPeerState_Wait_Returns.h in Headers */,
 				A6C9EE9622CB625300778583 /* UMDiameterAvpSession_Timeout.h in Headers */,
 				A68CFD4722A854C100F94967 /* UMDiameterPacketsAll.h in Headers */,
 				A6E24C78235061EF00742DCA /* UMDiameterAvpEmergency_Info.h in Headers */,
@@ -4933,6 +4946,7 @@
 				A6C9EE7322CB625300778583 /* UMDiameterAvpDisconnect_Cause.h in Headers */,
 				A6E24D36235061F000742DCA /* UMDiameterAvpWLAN_offloadability.h in Headers */,
 				A6C9EE7D22CB625300778583 /* UMDiameterAvpAuth_Grace_Period.h in Headers */,
+				A6A66907240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.h in Headers */,
 				A6C9EE7722CB625300778583 /* UMDiameterAvpSession_Binding.h in Headers */,
 				A6E24E72235061F000742DCA /* UMDiameterAvpGERAN_Positioning_Info.h in Headers */,
 				A6C9F2D922CB78A100778583 /* UMDiameterAvpService_Selection.h in Headers */,
@@ -5245,7 +5259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C9EEB822CB625300778583 /* UMDiameterAvpSession_Id.m in Sources */,
-				A6BF31A3229C91030000578B /* UMDiameterPeerState_WaitConAck_Elect.m in Sources */,
+				A6BF31A3229C91030000578B /* UMDiameterPeerState_Wait_Conn_Ack_Elect.m in Sources */,
 				A6E24DAE235061F000742DCA /* UMDiameterAvpArea_Scope.m in Sources */,
 				A6C9EEC822CB625300778583 /* UMDiameterAvpAuth_Grace_Period.m in Sources */,
 				A6A58BE0203C675600D0C2BE /* UMDiameterAvpEnumerated.m in Sources */,
@@ -5375,7 +5389,7 @@
 				A67FCAAE22CA80B1007A28AB /* UMDiameterPacketDPR.m in Sources */,
 				A6E24E33235061F000742DCA /* UMDiameterAvpKASME.m in Sources */,
 				A6E24BD9235061EF00742DCA /* UMDiameterAvpRAND.m in Sources */,
-				A6BF31A7229C91140000578B /* UMDiameterPeerState_WaitReturns.m in Sources */,
+				A6BF31A7229C91140000578B /* UMDiameterPeerState_Wait_Returns.m in Sources */,
 				A6E2481A2350574F00742DCA /* UMDiameterPacketUser_Data_Answer.m in Sources */,
 				A6BF31AF229C9B330000578B /* UMDiameterPeerState_Connected.m in Sources */,
 				A6E24E8D235061F000742DCA /* UMDiameterAvpEmergency_Info.m in Sources */,
@@ -5412,6 +5426,7 @@
 				A6E24C24235061EF00742DCA /* UMDiameterAvpSupported_Services.m in Sources */,
 				A6E24C43235061EF00742DCA /* UMDiameterAvpRe_Synchronization_Info.m in Sources */,
 				A6E24E53235061F000742DCA /* UMDiameterAvpSpecific_APN_Info.m in Sources */,
+				A6A66908240CF59D007C4E20 /* UMDiameterPeerState_Wait_Conn_Ack.m in Sources */,
 				A6E24C2B235061EF00742DCA /* UMDiameterAvpLCS_Privacy_Check.m in Sources */,
 				A6A58CA6203CA1FB00D0C2BE /* UMDiameterAvpCodes.m in Sources */,
 				A6E24C42235061EF00742DCA /* UMDiameterAvpEvent_Threshold_Event_1I.m in Sources */,
@@ -5456,6 +5471,7 @@
 				A6506EC42211B8B7006665A9 /* UMDiameterPeerState_Closed.m in Sources */,
 				A6C9F31B22CB7EA100778583 /* UMDiameterAvpMIP_MN_AAA_SPI.m in Sources */,
 				A6C9F32322CB7EA100778583 /* UMDiameterAvpMIP_MN_HA_SPI.m in Sources */,
+				A6A6690C240CF5BF007C4E20 /* UMDiameterPeerState_R_Open.m in Sources */,
 				A6E24C5E235061EF00742DCA /* UMDiameterAvpDelayed_Location_Reporting_Data.m in Sources */,
 				A6E24D68235061F000742DCA /* UMDiameterAvp3GPP_AAA_Server_Name.m in Sources */,
 				A6E24D60235061F000742DCA /* UMDiameterAvpQoS_Subscribed.m in Sources */,

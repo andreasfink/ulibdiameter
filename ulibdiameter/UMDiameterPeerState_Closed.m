@@ -16,6 +16,22 @@
 {
     return @"Closed";
 }
+/* ############# */
+- (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer
+{
+    [peer actionI_Snd_Conn_Req];
+    return [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+}
+
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
+{
+    [peer actionR_Accept];
+    [peer actionProcess_CER];
+    [peer actionR_Snd_CEA];
+    return [[UMDiameterPeerState_R_Open alloc]init];
+}
+
+/* #############
 
 - (UMDiameterPeerState *)eventSctpForcedOutOfService:(UMDiameterPeer *)peer
 {
@@ -35,10 +51,13 @@
     return self;
 }
 
+
+
 - (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer
 {
     [peer sendCER];
     return [[UMDiameterPeerState_Connected alloc]init];
 }
 
+  */
 @end
