@@ -24,6 +24,7 @@
 #import "UMDiameterAvpVendor_Specific_Application_Id.h"
 #import "UMDiameterAvpFirmware_Revision.h"
 #import "UMDiameterAvpAVP.h"
+#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacketCEA
 
@@ -31,8 +32,10 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    self.commandCode = 257;
     self.commandFlags = 0;
+    self.commandCode = UMDiameterCommandCode_Capabilities_Exchange;
+    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
+
 }
 
 + (uint32_t)commandCode

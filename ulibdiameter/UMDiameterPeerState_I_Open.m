@@ -34,53 +34,53 @@
     return @"I-Open";
 }
 
-- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionI_Snd_Message];
+    [peer actionI_Snd_Message:message];
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionProcess];
+    [peer actionProcessMessage:message];
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_DWR:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Rcv_DWR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionProcess_DWR];
-    [peer actionI_Snd_DWA];
+    [peer actionProcess_DWR:message];
+    [peer actionI_Snd_DWA:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_DWA:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Rcv_DWA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionProcess_DWA];
+    [peer actionProcess_DWA:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionR_Reject];
+    [peer actionR_Reject:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionI_Snd_DPR];
+    [peer actionI_Snd_DPR:NULL];
     return [[UMDiameterPeerState_Closing alloc]init];
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_DPR:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionI_Snd_DPA];
+    [peer actionI_Snd_DPA:NULL];
     return [[UMDiameterPeerState_Closing alloc]init];
 }
 
-- (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionI_Disc];
+    [peer actionI_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 

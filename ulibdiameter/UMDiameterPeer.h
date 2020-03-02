@@ -31,6 +31,7 @@
 	UMDiameterTcpConnection	*_tcpConnection;
     UMLayerSctp             *_sctp_i; /* initiator */
     UMLayerSctp             *_sctp_r; /* responder */
+    UMLayerSctp             *_sctp_elected; /* initiator or responder */
     UMDiameterRouter        *_router;
     SCTP_Status             _sctpStatus_i;
     SCTP_Status             _sctpStatus_r;
@@ -54,7 +55,6 @@
     NSDate                  *_lastIncomingWatchdogAnswerSent;
     NSDate                  *_lastOutgoingWatchdogRequestSent;
     NSDate                  *_lastOutgoingWatchdogAnswerReceived;
-
 }
 
 @property(readwrite,assign,atomic)		BOOL					tcpPeer;
@@ -77,7 +77,7 @@
 - (void) sendCER;
 - (void)sendCEA:(uint32_t)hopByHop
        endToEnd:(uint32_t)endToEnd
-     resultCode:(uint32_t)resultCode
+     resultCode:(NSNumber *)resultCode
    errorMessage:(NSString *)errorMessage
       failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
 
@@ -102,6 +102,7 @@
 
 /* Reject: The incoming connection associated with the R-Conn-CER is disconnected.*/
 - (void)actionReject:(UMDiameterPacket *)message;
+- (void)actionR_Reject:(UMDiameterPacket *)message;
 
 
 /* Process-CER:  The CER associated with the R-Conn-CER is processed. */
@@ -109,9 +110,11 @@
 
 /* Snd-CER        A CER message is sent to the peer. */
 - (void)actionSnd_CER:(UMDiameterPacket *)message;
+- (void)actionI_Snd_CER:(UMDiameterPacket *)message;
 
 /* Snd-CEA        A CEA message is sent to the peer. */
 - (void)actionSnd_CEA:(UMDiameterPacket *)message;
+- (void)actionR_Snd_CEA:(UMDiameterPacket *)message;
 
 /* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
 - (void)actionCleanup:(UMDiameterPacket *)message;
@@ -124,9 +127,13 @@
 
 /* Snd-DPR A DPR message is sent to the peer. */
 - (void)actionSnd_DPR:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DPR:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DPR:(UMDiameterPacket *)message;
 
 /* Snd-DPA A DPA message is sent to the peer. */
 - (void)actionSnd_DPA:(UMDiameterPacket *)message;
+- (void)actionR_Snd_DPA:(UMDiameterPacket *)message;
+- (void)actionI_Snd_DPA:(UMDiameterPacket *)message;
 
 
 /* Disc: The transport layer connection is disconnected, and local resources are freed. */
@@ -159,7 +166,7 @@
 - (void)actionProcess_DWA:(UMDiameterPacket *)message;
 
 /* Process        A message is serviced. */
-- (void)actionProcess:(UMDiameterPacket *)message;
+- (void)actionProcessMessage:(UMDiameterPacket *)message;
 
 
 /*
@@ -178,12 +185,29 @@
 - (void)actionProcess_DWR:(UMDiameterPacket *)message;
 - (void)actionProcess_DWA:(UMDiameterPacket *)message;
 - (void)actionR_Snd_DWA:(UMDiameterPacket *)message;
-- (void)actionProcess:(UMDiameterPacket *)message;
+- (void)actionProcessMessage:(UMDiameterPacket *)message;
 - (void)actionI_Snd_Message:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DPR:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DPA:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DWA:(UMDiameterPacket *)message;
 */
+
+
+- (UMDiameterPacket *)createDPR:(uint32_t)hopByHop
+                disconnectCause:(NSNumber *)cause;
+
+- (UMDiameterPacket *)createDPA:(uint32_t)hopByHop
+                       endToEnd:(uint32_t)endToEnd
+                     resultCode:(NSNumber *)resultCode
+                   errorMessage:(NSString *)errorMessage
+                      failedAvp:(NSArray *)failedAvp;
+
+- (UMDiameterPacket *)createCER;
+- (UMDiameterPacket *)createCEA:(uint32_t)hopByHop
+                       endToEnd:(uint32_t)endToEnd
+                     resultCode:(NSNumber *)resultCode
+                   errorMessage:(NSString *)errorMessage
+                      failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
 @end
 
 

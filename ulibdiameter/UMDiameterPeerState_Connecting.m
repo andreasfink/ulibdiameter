@@ -18,7 +18,7 @@
 }
 
 
-- (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     peer.isConnected = YES;
     peer.isConnecting = NO;

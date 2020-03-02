@@ -12,6 +12,7 @@
 #import "UMDiameterAvpOrigin_Realm.h"
 #import "UMDiameterAvpDisconnect_Cause.h"
 #import "UMDiameterAvpAVP.h"
+#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacketDPR
 
@@ -21,6 +22,7 @@
     [super genericInitialisation];
     self.commandCode = 282;
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST;
+    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
 }
 
 + (uint32_t)commandCode

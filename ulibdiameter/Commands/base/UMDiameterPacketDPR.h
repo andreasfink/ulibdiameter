@@ -15,8 +15,8 @@
 @class UMDiameterAvpAVP;
 @interface UMDiameterPacketDPR : UMDiameterPacket
 {
-	UMDiameterAvpOrigin_Host	*_var_origin_host;
-	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+	UMDiameterAvpOrigin_Host	    *_var_origin_host;
+	UMDiameterAvpOrigin_Realm	    *_var_origin_realm;
 	UMDiameterAvpDisconnect_Cause	*_var_disconnect_cause;
 	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }

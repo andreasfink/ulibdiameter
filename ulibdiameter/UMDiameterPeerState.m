@@ -336,7 +336,7 @@
 }
 
 
-#ifdefined OLDCODE
+#if defined(OLDCODE)
 
 - (UMDiameterPeerState *)eventSctpForcedOutOfService:(UMDiameterPeer *)peer
 {

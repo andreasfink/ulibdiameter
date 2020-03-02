@@ -28,34 +28,34 @@
     return @"Wait-Conn-Ack-Elect";
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionI_Snd_CER];
-    [peer actionElect];
+    [peer actionI_Snd_CER:NULL];
+    [peer actionElect:NULL];
     return [[UMDiameterPeerState_Wait_Returns alloc]init];
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack  :(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack  :(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Snd_CEA];
+    [peer actionR_Snd_CEA:NULL];
     return [[UMDiameterPeerState_R_Open alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Peer_Disc  :(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Peer_Disc  :(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Disc];
+    [peer actionR_Disc:NULL];
     return [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Conn_CER  :(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Conn_CER  :(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Reject];
+    [peer actionR_Reject:NULL];
     return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]init];
 }
 
-- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer   message:(UMDiameterPacket *)message
 {
-    [peer actionError];
+    [peer actionError:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 

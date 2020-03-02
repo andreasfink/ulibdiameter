@@ -15,6 +15,7 @@
 #import "UMDiameterAvpFailed_AVP.h"
 #import "UMDiameterAvpOrigin_State_Id.h"
 #import "UMDiameterAvpAVP.h"
+#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacketDWA
 
@@ -22,8 +23,9 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    self.commandCode = 280;
+    self.commandCode = UMDiameterCommandCode_Device_Watchdog;
     self.commandFlags = 0;
+    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
 }
 
 + (uint32_t)commandCode

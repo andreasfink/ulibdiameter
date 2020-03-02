@@ -24,6 +24,7 @@
 #import "UMDiameterPeerState_R_Open.h"
 #import "UMDiameterPeer.h"
 #import "UMDiameterPeerState_all.h"
+#import "UMDiameterPacket.h"
 
 @implementation UMDiameterPeerState_R_Open
 
@@ -32,53 +33,59 @@
     return @"R-Open";
 }
 
-- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Snd_Message];
+    [peer actionR_Snd_Message:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionProcess];
+    [peer actionProcessMessage:message];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DWR:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Rcv_DWR:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionProcess_DWR];
-    [peer actionR_Snd_DWA];
+    [peer actionProcess_DWR:NULL];
+    [peer actionR_Snd_DWA:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DWA:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Rcv_DWA:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionProcess_DWA];
+    [peer actionProcess_DWA:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Reject];
+    [peer actionR_Reject:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Snd_DPR];
+    [peer actionR_Snd_DPR:NULL];
     return [[UMDiameterPeerState_Closing alloc]init];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Snd_DPA];
+    message = [peer createDPA:message.hopByHopIdentifier
+                     endToEnd:message.endToEndIdentifier
+                   resultCode:NULL
+                 errorMessage:NULL
+                    failedAvp:NULL];
+    
+    [peer actionR_Snd_DPA:message];
     return [[UMDiameterPeerState_Closing alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
 {
-    [peer actionR_Disc];
+    [peer actionR_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 

@@ -17,7 +17,8 @@
 #import "UMDiameterPacketCER.h"
 #import "UMDiameterPacketDWR.h"
 #import "UMDiameterPacketDWA.h"
-
+#import "UMDiameterPacketDPR.h"
+#import "UMDiameterPacketDPA.h"
 #import "UMDiameterAvpAll.h"
 
 @implementation UMDiameterPeer
@@ -111,11 +112,11 @@
             [self.logFeed infoText:s];
             if(initiator)
             {
-                _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
+                _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
             }
             else
             {
-                _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
+                _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
             }
             break;
         }
@@ -171,34 +172,23 @@
     if(!packet)
     {
         NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)sid, (int)pid, [d hexString]];
-        NSLog(@"%@",s);
         [self.logFeed majorError:0 withText:s];
         /* FIXME: what shall we do in case of packets we can not decode? */
-        //_peerState = [_peerState eventError:self message:d];
+        [self actionError:NULL];
+        //_peerState = [_peerState eventError:self message:NULL];
     }
     if((pid!=0) && (pid!=DIAMETER_SCTP_PPID_CLEAR))
     {
         NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)pid];
-        NSLog(@"%@",s);
         [self.logFeed majorError:0 withText:s];
         /* FIXME: what shall we do in case of packets we can not decode? */
+        [self actionError:NULL];
         // _peerState = [_peerState eventStop:self];
     }
 
+    BOOL defaultProcessing = NO;
+    /* REQUESTS */
     if(packet.commandFlags & UMDiameterCommandFlag_Request)
-    {
-        if((packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages)
-            && (packet.commandCode == UMDiameterCommandCode_Capabilities_Exchange))
-        {
-            [self processCER:packet];
-        }
-        if((packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages)
-           && (packet.commandCode == UMDiameterCommandCode_Device_Watchdog))
-        {
-            [self processDWR:packet];
-        }
-    }
-    else if(!(packet.commandFlags & UMDiameterCommandFlag_Request))
     {
         switch(packet.applicationId)
         {
@@ -208,106 +198,160 @@
                 {
                     case UMDiameterCommandCode_Capabilities_Exchange:
                     {
-                        if(packet.flagRequest)
+                        if(initiator)
                         {
-                            if(initiator)
-                            {
-                                _peerState = [_peerState eventI_Rcv_CER:self message:packet];
-                            }
-                            else
-                            {
-                                _peerState = [_peerState eventR_Rcv_CER:self message:packet];
-                            }
+                            _peerState = [_peerState eventI_Rcv_CER:self message:packet];
                         }
                         else
                         {
-                            if(initiator)
-                            {
-                                _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
-                            }
-                            else
-                            {
-                                _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
-                            }
+                            _peerState = [_peerState eventR_Rcv_CER:self message:packet];
                         }
                         break;
                     }
                     case UMDiameterCommandCode_Disconnect_Peer:
                     {
-                        if(packet.flagRequest)
+                        if(initiator)
                         {
-                            if(initiator)
-                            {
-                                _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
-                            }
-                            else
-                            {
-                                _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
-                            }
+                            _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
                         }
                         else
                         {
-                            if(initiator)
-                            {
-                                _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
-                            }
-                            else
-                            {
-                                _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
-                            }
+                            _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
                         }
                         break;
                     }
                     case UMDiameterCommandCode_Device_Watchdog:
                     {
-                        if(packet.flagRequest)
+                        if(initiator)
                         {
-                            if(initiator)
-                            {
-                                _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
-                            }
-                            else
-                            {
-                                _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
-                            }
+                            _peerState = [_peerState eventI_Rcv_DWR:self message:packet];
                         }
                         else
                         {
-                            if(initiator)
-                            {
-                                _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
-                            }
-                            else
-                            {
-                                _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
-                            }
+                            _peerState = [_peerState eventR_Rcv_DWR:self message:packet];
                         }
                         break;
                     }
-                        /* FIXME: this shoudl be moved into eventProcessPacket... */
-                    case UMDiameterCommandCode_Abort_Session:
-                        [self processASR:packet];
+                    default:
+                    {
+                        defaultProcessing = YES;
                         break;
-                    case UMDiameterCommandCode_Accounting:
-                        [self processACR:packet];
-                        break;
-
-                    case UMDiameterCommandCode_Re_Auth:
-                        [self processRAR:packet];
-
-                    case UMDiameterCommandCode_Session_Termination:
-                        [self processSTR:packet];
-                        break;
+                    }
                 }
                 break;
             }
-            case UMDiameterApplicationId_Diameter_Base_Accounting:
-            case UMDiameterApplicationId_3GPP_S6a_S6d:
-            case UMDiameterApplicationId_3GPP_S9:
-            case UMDiameterApplicationId_3GPP_SLh:
             default:
-                [_router processIncomingPacket:packet fromPeer:self];
+            {
+                defaultProcessing = YES;
                 break;
+            }
+        }
+    }
+    else if(!(packet.commandFlags & UMDiameterCommandFlag_Error)) /* ANSWER */
+    {
+        switch(packet.applicationId)
+        {
+            case UMDiameterApplicationId_Diameter_Common_Messages:
+            {
+                switch(packet.commandCode)
+                {
+                    case UMDiameterCommandCode_Capabilities_Exchange:
+                    {
+                        if(initiator)
+                        {
+                            _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
+                        }
+                        else
+                        {
+                            _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
+                        }
+                        break;
+                    }
+                    case UMDiameterCommandCode_Disconnect_Peer:
+                    {
+                        if(initiator)
+                        {
+                            _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
+                        }
+                        else
+                        {
+                            _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
+                        }
+                        break;
+                    }
+                    case UMDiameterCommandCode_Device_Watchdog:
+                    {
+                        if(initiator)
+                        {
+                            _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
+                        }
+                        else
+                        {
+                            _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
+                        }
+                        break;
+                    }
+                    default:
+                    {
+                        defaultProcessing = YES;
+                        break;
+                    }
+                }
+                break;
+            }
+            default:
+            {
+                defaultProcessing = YES;
+                break;
+            }
+        }
+    }
+    else if(packet.commandFlags & UMDiameterCommandFlag_Error)
+    {
+        switch(packet.applicationId)
+        {
+            case UMDiameterApplicationId_Diameter_Common_Messages:
+            {
+                switch(packet.commandCode)
+                {
+                    case UMDiameterCommandCode_Capabilities_Exchange:
+                    {
+                        /* FIXME: process CER Error response */
+                        break;
+                    }
+                    case UMDiameterCommandCode_Disconnect_Peer:
+                    {
+                        /* FIXME: process DPR Error response */
+                        break;
+                    }
+                    case UMDiameterCommandCode_Device_Watchdog:
+                    {
+                        /* FIXME: process DWR Error response */
+                        break;
+                    }
+                    default:
+                    {
+                        defaultProcessing =YES;
+                        break;
+                    }
+                }
+            }
+            default:
+            {
+                defaultProcessing =YES;
+                break;
+            }
+        }
+    }
+    if(defaultProcessing)
+    {
+        if(initiator)
+        {
+            _peerState = [_peerState eventI_Rcv_Message:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventR_Rcv_Message:self message:packet];
         }
     }
 }
@@ -396,16 +440,17 @@
 
 - (void)stopDetachAndDestroy
 {
+    [_peerState eventStop:self message:NULL];
 }
 
 - (void)powerOn
 {
-    [_sctp openFor:self];
+    [_peerState eventStart:self message:NULL];
 }
 
 - (void)powerOff
 {
-    [_sctp closeFor:self];
+    [_peerState eventStop:self message:NULL];
 }
 
 - (uint32_t)nextHopByHopIdentifier
@@ -647,10 +692,82 @@
     return packet;
 }
 
+- (UMDiameterPacket *)createDPR:(uint32_t)hopByHop
+                disconnectCause:(NSNumber *)cause
+{
+    UMDiameterPacketDPR *packet = [[UMDiameterPacketDPR alloc]init];
+    packet.hopByHopIdentifier = [self nextHopByHopIdentifier];
+    packet.endToEndIdentifier = [_router nextEndToEndIdentifier];
+    // { Origin-Host }
+    if(_router.localHostName.length > 0)
+    {
+        packet.var_origin_host = [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
+    }
+    // { Origin-Realm }
+    if(_router.localRealm.length > 0)
+    {
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
+    }
+    if(cause)
+    {
+        packet.var_disconnect_cause = [[UMDiameterAvpDisconnect_Cause alloc]init];
+        packet.var_disconnect_cause.value = [cause intValue];
+    }
+    return packet;
+}
+
+- (UMDiameterPacket *)createDPA:(uint32_t)hopByHop
+                       endToEnd:(uint32_t)endToEnd
+                     resultCode:(NSNumber *)resultCode
+                   errorMessage:(NSString *)errorMessage
+                      failedAvp:(NSArray *)failedAvp
+
+{
+    UMDiameterPacketDWA *packet = [[UMDiameterPacketDWA alloc]init];
+    packet.hopByHopIdentifier = hopByHop;
+    packet.endToEndIdentifier = endToEnd;
+
+    // { Result-Code }
+    if(resultCode)
+    {
+        packet.var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        packet.var_result_code.value = [resultCode unsignedIntValue];
+    }
+    // { Origin-Host }
+    if(_router.localHostName.length  > 0)
+    {
+       packet.var_origin_host= [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
+    }
+    // { Origin-Realm }
+    if(_router.localRealm.length > 0)
+    {
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
+    }
+
+    // [ Error-Message ]
+    if(errorMessage.length > 0)
+    {
+        packet.var_error_message =  [[UMDiameterAvpError_Message alloc]initWithString:errorMessage];
+    }
+    // [ Failed-AVP ]
+    if(failedAvp)
+    {
+        packet.var_failed_avp =  [[UMDiameterAvpFailed_AVP alloc]init];
+        [packet.var_failed_avp setArray:failedAvp];
+    }
+
+    if(_originStateId!=NULL)
+    {
+        packet.var_origin_state_id = [[UMDiameterAvpOrigin_State_Id alloc]initWithObject:_originStateId];
+    }
+    return packet;
+}
+
+
 
 - (void)sendCEA:(uint32_t)hopByHop
        endToEnd:(uint32_t)endToEnd
-     resultCode:(uint32_t)resultCode
+     resultCode:(NSNumber *)resultCode
    errorMessage:(NSString *)errorMessage
       failedAvp:(NSArray *)failedAvp
 {
@@ -664,29 +781,32 @@
 
 - (UMDiameterPacket *)createCEA:(uint32_t)hopByHop
                        endToEnd:(uint32_t)endToEnd
-                     resultCode:(uint32_t)resultCode
+                     resultCode:(NSNumber *)resultCode
                    errorMessage:(NSString *)errorMessage
                       failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp
 
 {
-
     UMDiameterPacketCEA * packet = [[UMDiameterPacketCEA alloc]init];
-    packet.version = 1;
-    packet.commandFlags = 0;
-    packet.commandCode = UMDiameterCommandCode_Capabilities_Exchange;
-    packet.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
     packet.hopByHopIdentifier = hopByHop;
     packet.endToEndIdentifier = endToEnd;
 
-    packet.var_result_code = [[UMDiameterAvpResult_Code alloc]initWithObject:@(resultCode)];
-    if(resultCode != UMDiameterResultCode_DIAMETER_SUCCESS)
+    if(resultCode)
     {
-        packet.commandFlags |= UMDiameterCommandFlag_Error;
+        packet.var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        packet.var_result_code.value = [resultCode unsignedIntValue];
+        if(resultCode.unsignedIntValue != UMDiameterResultCode_DIAMETER_SUCCESS)
+        {
+            packet.commandFlags |= UMDiameterCommandFlag_Error;
+        }
     }
-
-    packet.var_origin_host  = [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
-    packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
-
+    if(_router.localHostName.length > 0)
+    {
+        packet.var_origin_host  = [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
+    }
+    if(_router.localRealm)
+    {
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
+    }
     NSArray *addrs = _sctp.configured_local_addresses;
     NSMutableArray<UMDiameterAvpHost_IP_Address *> *hosts = [[NSMutableArray alloc]init];
     for (NSString *addr in addrs)
@@ -756,7 +876,7 @@
 
     [self sendCEA:pkt.hopByHopIdentifier
          endToEnd:pkt.endToEndIdentifier
-       resultCode:resultCode
+       resultCode:@(resultCode)
      errorMessage:NULL
         failedAvp:NULL];
     if(_shouldSendCER)
@@ -819,21 +939,25 @@
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
 - (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    [_sctp_i openFor:self];
 }
 
 /* Accept: The incoming connection associated with the R-Conn-CER is accepted as the responder connection.*/
 - (void)actionR_Accept:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    /* FIXME:  [_sctp_r accept:self]; */
 }
 
 /* Reject: The incoming connection associated with the R-Conn-CER is disconnected.*/
 - (void)actionReject:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    [_sctp_r closeFor:self];
 }
 
+- (void)actionR_Reject:(UMDiameterPacket *)message
+{
+    [_sctp_r closeFor:self];
+}
 
 /* Process-CER:  The CER associated with the R-Conn-CER is processed. */
 - (void)actionProcess_CER:(UMDiameterPacket *)message
@@ -845,16 +969,32 @@
 /* Snd-CER        A CER message is sent to the peer. */
 - (void)actionSnd_CER:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    [self actionI_Snd_CER:message];
+    /* there is no R_Snd_CER */
 }
+
+- (void)actionI_Snd_CER:(UMDiameterPacket *)message
+{
+    if(message==NULL)
+    {
+        message = [self createCER];
+    }
+    [self actionI_Snd_Message:message];
+}
+
 
 
 /* Snd-CEA        A CEA message is sent to the peer. */
 - (void)actionSnd_CEA:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    [self actionR_Snd_CEA:message];
+    /* there is no I_Snd_CEA */
 }
 
+- (void)actionR_Snd_CEA:(UMDiameterPacket *)message
+{
+    [self actionR_Snd_Message:message];
+}
 
 /* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
 - (void)actionCleanup:(UMDiameterPacket *)message
@@ -866,7 +1006,8 @@
 /* Error: The transport layer connection is disconnected, either politely or abortively, in response to, an error condition.  Local resources are freed. */
 - (void)actionError:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    [_sctp_i closeFor:self];
+    [_sctp_r closeFor:self];
 }
 
 
@@ -883,6 +1024,15 @@
     /* FIXME: to be implemented */
 }
 
+- (void)actionR_Snd_DPR:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+- (void)actionI_Snd_DPR:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
 
 /* Snd-DPA A DPA message is sent to the peer. */
 - (void)actionSnd_DPA:(UMDiameterPacket *)message
@@ -890,6 +1040,33 @@
     /* FIXME: to be implemented */
 }
 
+- (void)actionR_Snd_DPA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+
+- (void)actionI_Snd_DPA:(UMDiameterPacket *)message
+{
+    if(message)
+    {
+        [self actionI_Snd_Message:message];
+    }
+}
+
+/* Snd-DWA        A DWA message is sent. */
+- (void)actionSnd_DWA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+
+}
+- (void)actionI_Snd_DWA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
+- (void)actionR_Snd_DWA:(UMDiameterPacket *)message
+{
+    /* FIXME: to be implemented */
+}
 
 
 /* Disc: The transport layer connection is disconnected, and local resources are freed. */
@@ -910,10 +1087,93 @@
 }
 
 
+typedef enum ElectionResult
+{
+    ElectionResult_localWins = -1,
+    ElectionResult_tie = 0,
+    ElectionResult_remoteWins = 1
+} ElectionResult;
+
 /* Elect: An election occurs (see Section 5.6.4 for more information). */
 - (void)actionElect:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+/*
+    The election is performed on the responder.  The responder compares
+    the Origin-Host received in the CER with its own Origin-Host as two
+    streams of octets.  If the local Origin-Host lexicographically
+    succeeds the received Origin-Host, a Win-Election event is issued
+    locally.  Diameter identities are in ASCII form; therefore, the
+    lexical comparison is consistent with DNS case insensitivity, where
+    octets that fall in the ASCII range 'a' through 'z' MUST compare
+    equally to their uppercase counterparts between 'A' and 'Z'.  See
+    Appendix D for interactions between the Diameter protocol and
+    Internationalized Domain Name (IDNs).
+ 
+*/
+    ElectionResult r = ElectionResult_tie;
+
+    NSArray *a = [message getArrayOfAvpsByCode:[UMDiameterAvpOrigin_Host avpCode]];
+    if(a.count > 0)
+    {
+        NSString *remoteOriginHost = a[0];
+        NSString *localOriginHost = _router.localHostName;
+        remoteOriginHost = [remoteOriginHost lowercaseString];
+        localOriginHost = [localOriginHost lowercaseString];
+        NSData *remoteAscii =
+        [remoteOriginHost dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSData *localAscii =
+        [localOriginHost dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        const uint8_t *rb = (uint8_t *)remoteAscii.bytes;
+        size_t rl = remoteAscii.length;
+        const uint8_t *lb = (uint8_t *)localAscii.bytes;
+        size_t ll = localAscii.length;
+        size_t i=0;
+        
+        while((i<ll) && (i<rl))
+        {
+            if(rb[i] < lb[i])
+            {
+                r = ElectionResult_localWins;
+                break;
+            }
+            else if(rb[i] > lb[i])
+            {
+                r = ElectionResult_remoteWins;
+                break;
+            }
+            i++;
+        }
+        if(r==ElectionResult_tie)
+        {
+            if(rl < ll)
+            {
+                r = ElectionResult_localWins;
+            }
+            else if(rl > ll)
+            {
+                r = ElectionResult_remoteWins;
+            }
+            else
+            {
+                r = ElectionResult_tie;
+            }
+        }
+    }
+    else
+    {
+        r = ElectionResult_localWins;
+    }
+    
+    /*
+        The winner of the election MUST close the connection it initiated.
+        Historically, maintaining the responder side of a connection was more
+        efficient than maintaining the initiator side.  However, current
+        practices makes this distinction irrelevant.
+    */
+    if(r == ElectionResult_localWins)
+    {
+        [_sctp_i closeFor:self];
+    }
 }
 
 
@@ -933,7 +1193,6 @@
 {
     [message beforeEncode];
     NSData *packedData = [message packedData];
-
     [_sctp_i dataFor:self
                 data:packedData
             streamId:0
@@ -969,18 +1228,14 @@
 
 - (void)actionI_Snd_DWR:(UMDiameterPacket *)message
 {
+    /* FIXME: to be implemented */
 }
 
 - (void)actionR_Snd_DWR:(UMDiameterPacket *)message
 {
-}
-
-
-/* Snd-DWA        A DWA message is sent. */
-- (void)actionSnd_DWA:(UMDiameterPacket *)message
-{
     /* FIXME: to be implemented */
 }
+
 
 
 /* Process-DWR    The DWR message is serviced. */
@@ -998,9 +1253,9 @@
 
 
 /* Process        A message is serviced. */
-- (void)actionProcess:(UMDiameterPacket *)message
+- (void)actionProcessMessage:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    [_router processIncomingPacket:message fromPeer:self];
 }
 
 
