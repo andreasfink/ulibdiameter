@@ -81,17 +81,11 @@
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterPeerAppDelegateProtocol>)appContext;
 - (void) stopDetachAndDestroy;
-- (void) sendCER;
-- (void)sendCEA:(uint32_t)hopByHop
-       endToEnd:(uint32_t)endToEnd
-     resultCode:(NSNumber *)resultCode
-   errorMessage:(NSString *)errorMessage
-      failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
 
 - (void)powerOn;
 - (void)powerOff;
 
-- (void)sendPacket:(UMDiameterPacket *)packet;
+- (void)sendMessage:(UMDiameterPacket *)packet;
 
 
 
@@ -128,12 +122,10 @@
 - (void)actionProcess_CEA:(UMDiameterPacket *)message;
 
 /* Snd-DPR A DPR message is sent to the peer. */
-- (void)actionSnd_DPR:(UMDiameterPacket *)message;
 - (void)actionR_Snd_DPR:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DPR:(UMDiameterPacket *)message;
 
 /* Snd-DPA A DPA message is sent to the peer. */
-- (void)actionSnd_DPA:(UMDiameterPacket *)message;
 - (void)actionR_Snd_DPA:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DPA:(UMDiameterPacket *)message;
 
@@ -177,7 +169,7 @@
                    errorMessage:(NSString *)errorMessage
                       failedAvp:(NSArray *)failedAvp;
 
-- (UMDiameterPacket *)createDPRwithCause:(NSNumber *)cause;
+- (UMDiameterPacket *)createDPRwithDisconnectCause:(NSNumber *)dcause;
 
 - (UMDiameterPacket *)createDPA:(uint32_t)hopByHop
                        endToEnd:(uint32_t)endToEnd

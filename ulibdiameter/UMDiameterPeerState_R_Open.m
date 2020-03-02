@@ -21,10 +21,11 @@
 
  */
 #import "UMDiameterPeerState_R_Open.h"
-#import "UMDiameterPeer.h"
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterPacket.h"
+#import "UMDiameterPeer.h"
 #import "UMDiameterResultCode.h"
+#import "UMDiameterAvpDisconnect_Cause.h"
 
 @implementation UMDiameterPeerState_R_Open
 
@@ -71,20 +72,20 @@
 
 - (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionR_Snd_DPR:NULL];
+    UMDiameterPacket *pkt = [peer createDPRwithDisconnectCause:@(UMDiameterAvpDisconnect_Cause_REBOOTING)];
+    [peer actionR_Snd_DPR:pkt];
     return [[UMDiameterPeerState_Closing alloc]init];
     return self;
 }
 
 - (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    message = [peer createDPA:message.hopByHopIdentifier
-                     endToEnd:message.endToEndIdentifier
-                   resultCode:NULL
-                 errorMessage:NULL
-                    failedAvp:NULL];
-    
-    [peer actionR_Snd_DPA:message];
+    UMDiameterPacket *pkt = [peer createDPA:message.hopByHopIdentifier
+                                   endToEnd:message.endToEndIdentifier
+                                 resultCode:NULL
+                               errorMessage:NULL
+                                  failedAvp:NULL];
+    [peer actionR_Snd_DPA:pkt];
     return [[UMDiameterPeerState_Closing alloc]init];
 }
 

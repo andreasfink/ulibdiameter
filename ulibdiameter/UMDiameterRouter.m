@@ -420,7 +420,11 @@
 
 - (UMDiameterTcpConnectionAuthorisationResult)authorizeIncomingDiameterTcpConnection:(UMSocket *)socket
 {
-	/* FIXME: check list of peers */
+    /* FIXME: check list of peers */
+
+    /* go through list of peers                    */
+    /* find peer where sctp_r points to the remote */
+    /* call event for this peer to see if it completes accept or not */
 	return UMDiameterTcpConnectionAuthorisationResult_successful;
 }
 
@@ -539,7 +543,7 @@
     {
         return NO;
     }
-    [peer sendPacket:pkt];
+    [peer sendMessage:pkt];
     return YES;
 }
 

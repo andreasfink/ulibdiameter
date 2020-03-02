@@ -8,7 +8,12 @@
 
 #import "UMDiameterAvpEnumerated.h"
 
-
+typedef enum UMDiameterAvpDisconnect_Cause_enum
+{
+    UMDiameterAvpDisconnect_Cause_REBOOTING                     = 0,
+    UMDiameterAvpDisconnect_Cause_BUSY                          = 1,
+    UMDiameterAvpDisconnect_Cause_DO_NOT_WANT_TO_TALK_TO_YOU    = 2,
+} UMDiameterAvpDisconnect_Cause_enum;
 
 @interface UMDiameterAvpDisconnect_Cause : UMDiameterAvpEnumerated
 {

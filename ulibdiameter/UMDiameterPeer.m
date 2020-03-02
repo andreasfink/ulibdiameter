@@ -499,25 +499,12 @@
     return r;
 }
 
-
-- (void)sendPacket:(UMDiameterPacket *)packet
+/* this is called from local */
+- (void)sendMessage:(UMDiameterPacket *)packet
 {
-    [packet beforeEncode];
-    NSData *packedData = [packet packedData];
-
-    [_sctp dataFor:self
-              data:packedData
-          streamId:0
-        protocolId:DIAMETER_SCTP_PPID_CLEAR
-        ackRequest:NULL];
+    [_peerState eventSend_Message:self message:packet];
 }
 
-
-- (void)sendCER
-{
-    UMDiameterPacket *p = [self createCER];
-    [self sendPacket:p];
-}
 
 - (UMDiameterPacket *)createCER
 {
@@ -743,7 +730,7 @@
     return packet;
 }
 
-- (UMDiameterPacket *)createDPRwithCause:(NSNumber *)cause
+- (UMDiameterPacket *)createDPRwithDisconnectCause:(NSNumber *)dcause
 {
     UMDiameterPacketDPR *packet = [[UMDiameterPacketDPR alloc]init];
     packet.hopByHopIdentifier = [self nextHopByHopIdentifier];
@@ -758,10 +745,10 @@
     {
         packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
     }
-    if(cause)
+    if(dcause)
     {
         packet.var_disconnect_cause = [[UMDiameterAvpDisconnect_Cause alloc]init];
-        packet.var_disconnect_cause.value = [cause intValue];
+        packet.var_disconnect_cause.value = [dcause intValue];
     }
     return packet;
 }
@@ -813,21 +800,6 @@
     return packet;
 }
 
-
-
-- (void)sendCEA:(uint32_t)hopByHop
-       endToEnd:(uint32_t)endToEnd
-     resultCode:(NSNumber *)resultCode
-   errorMessage:(NSString *)errorMessage
-      failedAvp:(NSArray *)failedAvp
-{
-    UMDiameterPacket *p = [self createCEA:hopByHop
-                                 endToEnd:endToEnd
-                               resultCode:resultCode
-                             errorMessage:errorMessage
-                                failedAvp:failedAvp];
-    [self sendPacket:p];
-}
 
 - (UMDiameterPacket *)createCEA:(uint32_t)hopByHop
                        endToEnd:(uint32_t)endToEnd
@@ -948,7 +920,11 @@
 /* Process-CER:  The CER associated with the R-Conn-CER is processed. */
 - (void)actionProcess_CER:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    if(_logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:message.objectValue.jsonString];
+    }
+    /* FIXME: do something useful here */
 }
 
 
@@ -985,7 +961,7 @@
 /* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
 - (void)actionCleanup:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    /* FIXME: do something useful here */
 }
 
 
@@ -1001,43 +977,40 @@
 /* Process-CEA    A received CEA is processed. */
 - (void)actionProcess_CEA:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    if(_logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:message.objectValue.jsonString];
+    }
+    /* FIXME: do something useful here */
 }
 
 
 /* Snd-DPR A DPR message is sent to the peer. */
-- (void)actionSnd_DPR:(UMDiameterPacket *)message
-{
-    /* FIXME: to be implemented */
-}
 
 - (void)actionR_Snd_DPR:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    UMAssert(message,@"Message can not be null here");
+    [self actionR_Snd_Message:message];
 }
 
 - (void)actionI_Snd_DPR:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    UMAssert(message,@"Message can not be null here");
+    [self actionI_Snd_Message:message];
 }
 
 /* Snd-DPA A DPA message is sent to the peer. */
-- (void)actionSnd_DPA:(UMDiameterPacket *)message
-{
-    /* FIXME: to be implemented */
-}
 
 - (void)actionR_Snd_DPA:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    UMAssert(message,@"Message can not be null here");
+    [self actionR_Snd_Message:message];
 }
 
 - (void)actionI_Snd_DPA:(UMDiameterPacket *)message
 {
-    if(message)
-    {
-        [self actionI_Snd_Message:message];
-    }
+    UMAssert(message,@"Message can not be null here");
+    [self actionI_Snd_Message:message];
 }
 
 /* Snd-DWA        A DWA message is sent. */
@@ -1214,14 +1187,15 @@ typedef enum ElectionResult
 - (void)actionI_Snd_DWR:(UMDiameterPacket *)message
 {
     _outstandingWatchdogEvents++;
-
-    /* FIXME: to be implemented */
+    UMAssert(message,@"Message can not be null here");
+    [self actionI_Snd_Message:message];
 }
 
 - (void)actionR_Snd_DWR:(UMDiameterPacket *)message
 {
     _outstandingWatchdogEvents++;
-    /* FIXME: to be implemented */
+    UMAssert(message,@"Message can not be null here");
+    [self actionR_Snd_Message:message];
 }
 
 
