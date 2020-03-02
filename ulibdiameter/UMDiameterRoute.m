@@ -15,13 +15,14 @@
     self = [super init];
     if(self)
     {
+        _destination = [conf[@"destination"] stringValue];
         _hostname = [conf[@"hostname"] stringValue];
         _realm = [conf[@"realm"]stringValue];
         _applicationId = @([conf[@"application-id"] integerValue]);
         _oneTimeRoute = NO;
         _weight = @([conf[@"weight"] doubleValue]);
         _priority = @([conf[@"priority"] doubleValue]);
-
+        _local = [conf[@"local"] boolValue];
         [self updateIdentifier];
     }
     return self;

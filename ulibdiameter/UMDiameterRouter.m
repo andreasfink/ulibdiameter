@@ -345,7 +345,8 @@
     }
 }
 
-- (void)queuePacketForRouting:(UMDiameterPacket *)pkt   source:(UMDiameterPeer *)peer
+- (void)queuePacketForRouting:(UMDiameterPacket *)pkt
+                       source:(UMDiameterPeer *)peer
 {
 
     UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
@@ -354,7 +355,8 @@
     [self queueFromLower:task];
 }
 
-- (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt   source:(UMDiameterPeer *)peer
+- (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt
+                               source:(UMDiameterPeer *)peer
 {
 
     UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
