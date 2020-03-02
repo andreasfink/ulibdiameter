@@ -6,7 +6,6 @@
 //  Copyright © 2020 Andreas Fink. All rights reserved.
 //
 
-
 /*
  state            event              action         next state
  -----------------------------------------------------------------
@@ -25,6 +24,7 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterPacket.h"
+#import "UMDiameterResultCode.h"
 
 @implementation UMDiameterPeerState_R_Open
 
@@ -33,45 +33,50 @@
     return @"R-Open";
 }
 
-- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionR_Snd_Message:NULL];
+    [peer actionR_Snd_Message:message];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionProcessMessage:message];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DWR:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_DWR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionProcess_DWR:NULL];
-    [peer actionR_Snd_DWA:NULL];
+    UMDiameterPacket *pkt = [peer createDWA:message.hopByHopIdentifier
+                                   endToEnd:message.endToEndIdentifier
+                                 resultCode:@(UMDiameterResultCode_DIAMETER_SUCCESS)
+                               errorMessage:NULL
+                                  failedAvp:NULL];
+    [peer actionR_Snd_DWA:pkt];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DWA:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_DWA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionProcess_DWA:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionR_Reject:NULL];
     return self;
 }
 
-- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionR_Snd_DPR:NULL];
     return [[UMDiameterPeerState_Closing alloc]init];
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     message = [peer createDPA:message.hopByHopIdentifier
                      endToEnd:message.endToEndIdentifier
@@ -83,11 +88,18 @@
     return [[UMDiameterPeerState_Closing alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionR_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
+
+- (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    UMDiameterPacket *pkt = [peer createDWR];
+    [peer actionR_Snd_DWR:pkt];
+    return self;
+}
 
 @end

@@ -13,13 +13,6 @@
 
 @interface UMDiameterPeerState : UMObject
 - (NSString *)currentState;
-/*
-- (UMDiameterPeerState *)eventSctpForcedOutOfService:(UMDiameterPeer *)peer;
-- (UMDiameterPeerState *)eventSctpOff:(UMDiameterPeer *)peer;
-- (UMDiameterPeerState *)eventSctpOutOfService:(UMDiameterPeer *)peer;
-- (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer;
-- (UMDiameterPeerState *)eventAuthenticationPassed:(UMDiameterPeer *)peer;
-*/
 
 /*  eventStart: The Diameter application has signaled that a connection should be initiated with the peer. */
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
@@ -39,24 +32,24 @@
 - (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Rcv-CER: A CER message from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventI_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Rcv-CEA: A CEA message from the peer was received.  */
-- (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventI_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Rcv-Non-CEA: A message, other than a CEA, from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_NonCEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
-- (UMDiameterPeerState *)eventI_Rcv_NonCEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventI_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventR_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Peer-Disc: A disconnection indication from the peer was received. */
 - (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Rcv-DPR: A DPR message from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventI_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Rcv-DPA:A DPA message from the peer was received. */
 - (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
@@ -73,10 +66,10 @@
 
 
 /* Win-Election: An election was held, and the local node was the winner. */
-- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message;;
+- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;;
 
 /* Send-Message:A message is to be sent. */
-- (UMDiameterPeerState *)eventSendMessage:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Rcv-Message:A message other than CER, CEA, DPR, DPA, DWR, or DWA was received. */
 - (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
@@ -85,5 +78,6 @@
 /* Stop: The Diameter application has signaled that a connection should be terminated (e.g., on system shutdown). */
 - (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
+- (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 @end
 

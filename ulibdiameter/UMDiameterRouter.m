@@ -42,7 +42,13 @@
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
         _vendorId = 54013; /* fts */
         _productName = @"Fink Telecom Services ulibdiameter";
-
+        [NSDate dateWithStandardDateString:@"123"];
+        
+        NSString *s = @"2020-01-01 00:00:00.000000";
+        NSDate *zeroDay = [s dateValue];
+        NSTimeInterval timeShift = [[NSDate date] timeIntervalSinceDate:zeroDay];
+        _origin_state_id = (uint32_t)timeShift;
+        
         _supportedVendorIds = [[NSMutableArray alloc]init];
         [_supportedVendorIds addObject:@(0xFFFFFFFF)];
 

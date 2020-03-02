@@ -51,10 +51,17 @@
     
     UMPCAPFile              *_packetTraceFile;
     UMPCAPPseudoConnection  *_packetTracePseudoConnection;
-    NSDate                  *_lastIncomingWatchdogRequestReceived;
-    NSDate                  *_lastIncomingWatchdogAnswerSent;
-    NSDate                  *_lastOutgoingWatchdogRequestSent;
-    NSDate                  *_lastOutgoingWatchdogAnswerReceived;
+
+    NSDate                  *_lastWatchdogRequestSent;
+    NSDate                  *_lastWatchdogAnswerReceived;
+    NSDate                  *_lastWatchdogRequestReceived;
+    NSDate                  *_lastWatchdogAnswerSent;
+    
+    UMTimer                 *_housekeepingTimer;
+    UMTimer                 *_watchdogTimer;
+    int                     _outstandingWatchdogEvents;
+    int                     _maxOutstandingWatchdogEvents;
+
 }
 
 @property(readwrite,assign,atomic)		BOOL					tcpPeer;
@@ -86,12 +93,7 @@
 
 - (void)sendPacket:(UMDiameterPacket *)packet;
 
-- (void)processCER:(UMDiameterPacket *)pkt;
-- (void)processCEA:(UMDiameterPacket *)pkt;
-- (void)processDWR:(UMDiameterPacket *)pkt;
-- (void)processDWA:(UMDiameterPacket *)pkt;
-- (void)processDCR:(UMDiameterPacket *)pkt;
-- (void)processDCA:(UMDiameterPacket *)pkt;
+
 
 
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
@@ -155,7 +157,6 @@
 - (void)actionR_Snd_DWR:(UMDiameterPacket *)message;
 
 /* Snd-DWA        A DWA message is sent. */
-- (void)actionSnd_DWA:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DWA:(UMDiameterPacket *)message;
 - (void)actionR_Snd_DWA:(UMDiameterPacket *)message;
 
@@ -169,32 +170,14 @@
 - (void)actionProcessMessage:(UMDiameterPacket *)message;
 
 
-/*
-- (void)actionR_Snd_CEA:(UMDiameterPacket *)message;
-- (void)actionI_Snd_CER:(UMDiameterPacket *)message;
-- (void)actionCleanup:(UMDiameterPacket *)message;
-- (void)actionError:(UMDiameterPacket *)message;
-- (void)actionProcess_CEA:(UMDiameterPacket *)message;
-- (void)actionElect:(UMDiameterPacket *)message;
-- (void)actionI_Disc:(UMDiameterPacket *)message;
-- (void)actionR_Disc:(UMDiameterPacket *)message;
-- (void)actionR_Reject:(UMDiameterPacket *)message;
-- (void)actionR_Snd_Message:(UMDiameterPacket *)message;
-- (void)actionR_Snd_DPR:(UMDiameterPacket *)message;
-- (void)actionR_Snd_DPA:(UMDiameterPacket *)message;
-- (void)actionProcess_DWR:(UMDiameterPacket *)message;
-- (void)actionProcess_DWA:(UMDiameterPacket *)message;
-- (void)actionR_Snd_DWA:(UMDiameterPacket *)message;
-- (void)actionProcessMessage:(UMDiameterPacket *)message;
-- (void)actionI_Snd_Message:(UMDiameterPacket *)message;
-- (void)actionI_Snd_DPR:(UMDiameterPacket *)message;
-- (void)actionI_Snd_DPA:(UMDiameterPacket *)message;
-- (void)actionI_Snd_DWA:(UMDiameterPacket *)message;
-*/
+- (UMDiameterPacket *)createDWR;
+- (UMDiameterPacket *)createDWA:(uint32_t)hopByHop
+                       endToEnd:(uint32_t)endToEnd
+                     resultCode:(NSNumber *)resultCode
+                   errorMessage:(NSString *)errorMessage
+                      failedAvp:(NSArray *)failedAvp;
 
-
-- (UMDiameterPacket *)createDPR:(uint32_t)hopByHop
-                disconnectCause:(NSNumber *)cause;
+- (UMDiameterPacket *)createDPRwithCause:(NSNumber *)cause;
 
 - (UMDiameterPacket *)createDPA:(uint32_t)hopByHop
                        endToEnd:(uint32_t)endToEnd

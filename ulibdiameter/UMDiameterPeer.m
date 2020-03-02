@@ -21,6 +21,7 @@
 #import "UMDiameterPacketDPA.h"
 #import "UMDiameterAvpAll.h"
 
+#define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 @implementation UMDiameterPeer
 
 - (UMDiameterPeer *)init
@@ -33,8 +34,29 @@
         _isActive = NO;
         _isConnecting = NO;
         _nextHopIdentifierLock = [[UMMutex alloc]init];
+        
+        _outstandingWatchdogEvents = 0;
+        _maxOutstandingWatchdogEvents = 3;
+        _watchdogTimer = [[UMTimer alloc]initWithTarget:self
+                                               selector:@selector(watchdogTimerEvent)
+                                                 object:NULL
+                                                seconds:10
+                                                   name:@"watchdog-timer"
+                                                repeats:YES];
+        _housekeepingTimer = [[UMTimer alloc]initWithTarget:self
+                                               selector:@selector(housekeeping)
+                                                 object:NULL
+                                                seconds:5
+                                                   name:@"housekeeping"
+                                                repeats:YES];
+        [_housekeepingTimer start];
     }
     return self;
+}
+
+- (void) watchdogTimerEvent
+{
+    [_peerState eventWatchdogTimer:self message:NULL];
 }
 
 - (void) sctpStatusIndication:(UMLayer *)caller
@@ -172,8 +194,7 @@
     if(!packet)
     {
         NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)sid, (int)pid, [d hexString]];
-        [self.logFeed majorError:0 withText:s];
-        /* FIXME: what shall we do in case of packets we can not decode? */
+        [self.logFeed majorErrorText:s];
         [self actionError:NULL];
         //_peerState = [_peerState eventError:self message:NULL];
     }
@@ -181,7 +202,6 @@
     {
         NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)pid];
         [self.logFeed majorError:0 withText:s];
-        /* FIXME: what shall we do in case of packets we can not decode? */
         [self actionError:NULL];
         // _peerState = [_peerState eventStop:self];
     }
@@ -316,17 +336,20 @@
                 {
                     case UMDiameterCommandCode_Capabilities_Exchange:
                     {
-                        /* FIXME: process CER Error response */
+                        NSString *s = [NSString stringWithFormat:@"Capabilities Exchange Error: %@",packet.dictionaryValue.jsonString];
+                        [self logMajorError:s];
                         break;
                     }
                     case UMDiameterCommandCode_Disconnect_Peer:
                     {
-                        /* FIXME: process DPR Error response */
+                        NSString *s = [NSString stringWithFormat:@"Disconnect Peer Error: %@",packet.dictionaryValue.jsonString];
+                        [self logMajorError:s];
                         break;
                     }
                     case UMDiameterCommandCode_Device_Watchdog:
                     {
-                        /* FIXME: process DWR Error response */
+                        NSString *s = [NSString stringWithFormat:@"Device Watchdog Error: %@",packet.dictionaryValue.jsonString];
+                        [self logMajorError:s];
                         break;
                     }
                     default:
@@ -411,10 +434,22 @@
     {
         self.layerName = [cfg[@"name"] stringValue];
     }
-    if(cfg[@"attach-to"])
+    if(cfg[@"attach-responder-to"])
     {
-        NSString *attachTo =  [cfg[@"attach-to"] stringValue];
-        _sctp = [appContext getSCTP:attachTo];
+        NSString *attachTo =  [cfg[@"attach-responder-to"] stringValue];
+        _sctp_r = [appContext getSCTP:attachTo];
+        if(_sctp == NULL)
+        {
+            NSString *s = [NSString stringWithFormat:@"Can not find sctp layer '%@' referred from m2pa layer '%@'",attachTo,self.layerName];
+            @throw([NSException exceptionWithName:[NSString stringWithFormat:@"CONFIG_ERROR FILE %s line:%ld",__FILE__,(long)__LINE__]
+                                           reason:s
+                                         userInfo:NULL]);
+        }
+    }
+    if(cfg[@"attach-initiator-to"])
+    {
+        NSString *attachTo =  [cfg[@"attach-initiator-to"] stringValue];
+        _sctp_i = [appContext getSCTP:attachTo];
         if(_sctp == NULL)
         {
             NSString *s = [NSString stringWithFormat:@"Can not find sctp layer '%@' referred from m2pa layer '%@'",attachTo,self.layerName];
@@ -435,7 +470,8 @@
     }
 
     UMLayerSctpUserProfile *profile = [[UMLayerSctpUserProfile alloc]initWithDefaultProfile];
-    [_sctp adminAttachFor:self profile:profile userId:self.layerName];
+    [_sctp_i adminAttachFor:self profile:profile userId:self.layerName];
+    [_sctp_r adminAttachFor:self profile:profile userId:self.layerName];
 }
 
 - (void)stopDetachAndDestroy
@@ -630,38 +666,54 @@
     return packet;
 }
 
-- (void)sendDWA:(uint32_t)hopByHop
-       endToEnd:(uint32_t)endToEnd
-     resultCode:(uint32_t)resultCode
-   errorMessage:(NSString *)errorMessage
-      failedAvp:(NSArray *)failedAvp
 
+- (UMDiameterPacket *)createDWR
 {
-    UMDiameterPacket *p = [self createDWA:hopByHop
-                                 endToEnd:endToEnd
-                               resultCode:resultCode
-                             errorMessage:errorMessage
-                                failedAvp:failedAvp];
-    [self sendPacket:p];
-    _lastIncomingWatchdogAnswerSent = [NSDate date];
+    UMDiameterPacketDWR *packet = [[UMDiameterPacketDWR alloc]init];
+    packet.hopByHopIdentifier = [self nextHopByHopIdentifier];
+    packet.endToEndIdentifier = [_router nextEndToEndIdentifier];
+    /*
+       { Origin-Host }
+       { Origin-Realm }
+       [ Origin-State-Id ]
+       *[ AVP ]
+     */
+    //     { Origin-Host }
+    if(_router.localHostName.length > 0)
+    {
+        packet.var_origin_host = [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
+    }
+    //      { Origin-Realm }
+    if(_router.localRealm.length > 0)
+    {
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
+    }
+#ifdef SEND_ORIGIN_STATE_ID_IN_DWR
+    //   [ Origin-State-Id ]
+    {
+        packet.var_origin_state_id = [[UMDiameterAvpOrigin_State_Id alloc]init];
+        packet.var_origin_state_id.value = _router.origin_state_id;
+    }
+#endif
+    return packet;
 }
-
 
 - (UMDiameterPacket *)createDWA:(uint32_t)hopByHop
                        endToEnd:(uint32_t)endToEnd
-                     resultCode:(uint32_t)resultCode
+                     resultCode:(NSNumber *)resultCode
                    errorMessage:(NSString *)errorMessage
                       failedAvp:(NSArray *)failedAvp
 
 {
     UMDiameterPacketDWA *packet = [[UMDiameterPacketDWA alloc]init];
-    packet.version = 1;
-    packet.commandFlags = 0;
-    packet.commandCode = UMDiameterCommandCode_Device_Watchdog;
-    packet.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
     packet.hopByHopIdentifier = hopByHop;
     packet.endToEndIdentifier = endToEnd;
 
+    if(resultCode)
+    {
+        packet.var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        packet.var_result_code.value = resultCode.unsignedIntValue;
+    }
     // { Origin-Host }
     if(_router.localHostName.length  > 0)
     {
@@ -672,7 +724,6 @@
     {
         packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
     }
-
     //     [ Error-Message ]
     if(errorMessage.length > 0)
     {
@@ -692,8 +743,7 @@
     return packet;
 }
 
-- (UMDiameterPacket *)createDPR:(uint32_t)hopByHop
-                disconnectCause:(NSNumber *)cause
+- (UMDiameterPacket *)createDPRwithCause:(NSNumber *)cause
 {
     UMDiameterPacketDPR *packet = [[UMDiameterPacketDPR alloc]init];
     packet.hopByHopIdentifier = [self nextHopByHopIdentifier];
@@ -870,70 +920,6 @@
     return packet;
 }
 
-- (void)processCER:(UMDiameterPacket *)pkt
-{
-    uint32_t resultCode = UMDiameterResultCode_DIAMETER_SUCCESS;
-
-    [self sendCEA:pkt.hopByHopIdentifier
-         endToEnd:pkt.endToEndIdentifier
-       resultCode:@(resultCode)
-     errorMessage:NULL
-        failedAvp:NULL];
-    if(_shouldSendCER)
-    {
-        _shouldSendCER = NO;
-        [self sendCER];
-    }
-}
-
-- (void)processCEA:(UMDiameterPacket *)pkt
-{
-}
-
-- (void)processDWR:(UMDiameterPacket *)pkt
-{
-    _lastIncomingWatchdogRequestReceived = [NSDate date];
-
-    [self sendDWA:pkt.hopByHopIdentifier
-         endToEnd:pkt.endToEndIdentifier
-       resultCode:UMDiameterResultCode_DIAMETER_SUCCESS
-     errorMessage:NULL
-        failedAvp:NULL];
-
-}
-
-- (void)processDWA:(UMDiameterPacket *)pkt
-{
-    _lastOutgoingWatchdogAnswerReceived = [NSDate date];
-}
-
-- (void)processASR:(UMDiameterPacket *)pkt
-{
-}
-- (void)processACR:(UMDiameterPacket *)pkt
-{
-}
-- (void)processDPR:(UMDiameterPacket *)pkt
-{
-}
-- (void)processRAR:(UMDiameterPacket *)pkt
-{
-}
-- (void)processSTR:(UMDiameterPacket *)pkt
-{
-}
-
-- (void)processDCR:(UMDiameterPacket *)pkt
-{
-    /* disconnect request */
-}
-
-- (void)processDCA:(UMDiameterPacket *)pkt
-{
-}
-
-
-
 /***** ACTIONS *****/
 
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
@@ -1008,6 +994,7 @@
 {
     [_sctp_i closeFor:self];
     [_sctp_r closeFor:self];
+    _peerState = [[UMDiameterPeerState_Closed alloc]init];
 }
 
 
@@ -1054,18 +1041,16 @@
 }
 
 /* Snd-DWA        A DWA message is sent. */
-- (void)actionSnd_DWA:(UMDiameterPacket *)message
-{
-    /* FIXME: to be implemented */
-
-}
 - (void)actionI_Snd_DWA:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    _lastWatchdogAnswerSent = [NSDate date];
+    [self actionI_Snd_Message:message];
 }
+
 - (void)actionR_Snd_DWA:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    _lastWatchdogAnswerSent = [NSDate date];
+    [self actionR_Snd_Message:message];
 }
 
 
@@ -1228,11 +1213,14 @@ typedef enum ElectionResult
 
 - (void)actionI_Snd_DWR:(UMDiameterPacket *)message
 {
+    _outstandingWatchdogEvents++;
+
     /* FIXME: to be implemented */
 }
 
 - (void)actionR_Snd_DWR:(UMDiameterPacket *)message
 {
+    _outstandingWatchdogEvents++;
     /* FIXME: to be implemented */
 }
 
@@ -1241,14 +1229,17 @@ typedef enum ElectionResult
 /* Process-DWR    The DWR message is serviced. */
 - (void)actionProcess_DWR:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    _lastWatchdogRequestReceived = [NSDate date];
 }
 
 
 /* Process-DWA    The DWA message is serviced. */
 - (void)actionProcess_DWA:(UMDiameterPacket *)message
 {
-    /* FIXME: to be implemented */
+    _lastWatchdogAnswerReceived = [NSDate date];
+    _outstandingWatchdogEvents--;
+    [_watchdogTimer stop];
+    [_watchdogTimer start];
 }
 
 
@@ -1258,6 +1249,13 @@ typedef enum ElectionResult
     [_router processIncomingPacket:message fromPeer:self];
 }
 
-
+- (void)housekeeping
+{
+    if(_outstandingWatchdogEvents > _maxOutstandingWatchdogEvents)
+    {
+        [self.logFeed majorErrorText:@"WATCHDOG-KILL"];
+        [self actionError:NULL];
+    }
+}
 @end
 

@@ -16,12 +16,3 @@
 #import "UMDiameterPeerState_R_Open.h"
 #import "UMDiameterPeerState_I_Open.h"
 #import "UMDiameterPeerState_Closing.h"
-/*
-#import "UMDiameterPeerState_active.h"
-#import "UMDiameterPeerState_forced_out_of_service.h"
-
-#import "UMDiameterPeerState_Connecting.h"
-#import "UMDiameterPeerState_Connected.h"
-#import "UMDiameterPeerState_Open.h"
-
-*/

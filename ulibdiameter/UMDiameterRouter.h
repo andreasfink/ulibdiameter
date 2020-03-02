@@ -34,6 +34,7 @@
     NSNumber    *_firmwareRevision;
     UMMutex     *_endToEndIdentifierLock;
     uint32_t    _lastEndToEndIdentifier;
+    uint32_t    _origin_state_id;
 
     NSMutableArray<NSNumber *>      *_supportedVendorIds;
     NSMutableArray<NSDictionary *>  *_vendorSpecificIds;
@@ -56,6 +57,7 @@
 @property(readonly,copy,atomic)     NSArray<NSNumber *> *inbandSecurityIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
 @property(readwrite,strong,atomic)  id<UMDiameterLocalUserProtocol> localUser;
+@property(readwrite,assign,atomic)  uint32_t    origin_state_id;
 
 - (uint32_t)nextEndToEndIdentifier;
 

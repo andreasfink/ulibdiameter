@@ -7,11 +7,8 @@
 //
 
 #import "UMDiameterPeerState.h"
+#import "UMDiameterPeerState_all.h"
 #import "UMDiameterPeer.h"
-#import "UMDiameterPeerState_Closed.h"      /* SCTP is down */
-#import "UMDiameterPeerState_Connecting.h"  /* connection requested but not acked yet */
-#import "UMDiameterPeerState_Connected.h"   /* SCTP connection established but no CER/CEA handshake yet */
-#import "UMDiameterPeerState_Open.h"        /* SCTP up, CER/CEA handshake completed. Ready for Service */
 
 @implementation UMDiameterPeerState
 
@@ -64,7 +61,6 @@
     }
     return self;
 }
-
 
 /*  Rcv-Conn-Nack  A negative acknowledgement was received stating that the transport connection was not established. */
 - (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -145,21 +141,21 @@
 
 
 /* Rcv-Non-CEA: A message, other than a CEA, from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_NonCEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
-        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_NonCEA",self.currentState];
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_Non_CEA",self.currentState];
         [peer logDebug:s];
     }
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_NonCEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
-        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_NonCEA",self.currentState];
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_Non_CEA",self.currentState];
         [peer logDebug:s];
     }
     return self;
@@ -279,7 +275,7 @@
 
 
 /* Win-Election: An election was held, and the local node was the winner. */
-- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer  message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -291,11 +287,11 @@
 
 
 /* Send-Message:A message is to be sent. */
-- (UMDiameterPeerState *)eventSendMessage:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
-        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventSendMessage",self.currentState];
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventSend_Message",self.currentState];
         [peer logDebug:s];
     }
     return self;
@@ -336,52 +332,14 @@
 }
 
 
-#if defined(OLDCODE)
-
-- (UMDiameterPeerState *)eventSctpForcedOutOfService:(UMDiameterPeer *)peer
+- (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    peer.isConnected = NO;
-    peer.isActive  = NO;
-    peer.isConnecting  = NO;
-    peer.isForcedOutOfService = YES;
-    return [[UMDiameterPeerState_Closed alloc]init];
-}
-- (UMDiameterPeerState *)eventSctpOff:(UMDiameterPeer *)peer
-{
-    peer.isConnected = NO;
-    peer.isActive  = NO;
-    peer.isConnecting = NO;
-    peer.isForcedOutOfService = NO;
-    return [[UMDiameterPeerState_Closed alloc]init];
-}
-
-- (UMDiameterPeerState *)eventSctpOutOfService:(UMDiameterPeer *)peer
-{
-    peer.isConnected = NO;
-    peer.isActive  = NO;
-    peer.isConnecting = YES;
-    peer.isForcedOutOfService = NO;
-    return [[UMDiameterPeerState_Connecting alloc]init];
-}
-
-- (UMDiameterPeerState *)eventSctpInService:(UMDiameterPeer *)peer
-{
-    peer.isConnected = YES;
-    peer.isConnecting = NO;
-    peer.isForcedOutOfService = NO;
-    return [[UMDiameterPeerState_Connected alloc]init];
-}
-
-
-- (UMDiameterPeerState *)eventAuthenticationPassed:(UMDiameterPeer *)peer
-{
-    if(peer.isConnected)
+    if(peer.logLevel <= UMLOG_DEBUG)
     {
-        peer.isActive = YES;
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventWatchdogTimer",self.currentState];
+        [peer logDebug:s];
     }
     return self;
 }
-
-#endif
 
 @end

@@ -84,4 +84,11 @@
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
+- (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    UMDiameterPacket *pkt = [peer createDWR];
+    [peer actionI_Snd_DWR:pkt];
+    return self;
+}
+
 @end
