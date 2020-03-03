@@ -31,7 +31,6 @@
 	UMDiameterTcpConnection	*_tcpConnection;
     UMLayerSctp             *_sctp_i; /* initiator */
     UMLayerSctp             *_sctp_r; /* responder */
-    UMLayerSctp             *_sctp_elected; /* initiator or responder */
     UMDiameterRouter        *_router;
     SCTP_Status             _sctpStatus_i;
     SCTP_Status             _sctpStatus_r;
@@ -68,7 +67,8 @@
 @property(readwrite,strong,atomic)		NSString				*tcpRemoteIP;
 @property(readwrite,assign,atomic)		int						tcpRemotePort;
 @property(readwrite,strong,atomic)		UMDiameterTcpConnection	*tcpConnection;
-@property(readwrite,strong,atomic)      UMLayerSctp             *sctp;
+@property(readwrite,strong,atomic)      UMLayerSctp             *sctp_r;
+@property(readwrite,strong,atomic)      UMLayerSctp             *sctp_i;
 @property(readwrite,strong,atomic)      UMDiameterRouter        *router;
 @property(readwrite,strong,atomic)      UMDiameterPeerState     *peerState;
 @property(readwrite,assign,atomic)      BOOL                    isConnected;

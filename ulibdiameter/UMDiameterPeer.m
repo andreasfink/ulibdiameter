@@ -438,9 +438,9 @@
     {
         NSString *attachTo =  [cfg[@"attach-responder-to"] stringValue];
         _sctp_r = [appContext getSCTP:attachTo];
-        if(_sctp == NULL)
+        if(_sctp_r == NULL)
         {
-            NSString *s = [NSString stringWithFormat:@"Can not find sctp layer '%@' referred from m2pa layer '%@'",attachTo,self.layerName];
+            NSString *s = [NSString stringWithFormat:@"Can not find sctp_r layer '%@' referred from diameter layer '%@'",attachTo,self.layerName];
             @throw([NSException exceptionWithName:[NSString stringWithFormat:@"CONFIG_ERROR FILE %s line:%ld",__FILE__,(long)__LINE__]
                                            reason:s
                                          userInfo:NULL]);
@@ -450,7 +450,7 @@
     {
         NSString *attachTo =  [cfg[@"attach-initiator-to"] stringValue];
         _sctp_i = [appContext getSCTP:attachTo];
-        if(_sctp == NULL)
+        if(_sctp_i == NULL)
         {
             NSString *s = [NSString stringWithFormat:@"Can not find sctp layer '%@' referred from m2pa layer '%@'",attachTo,self.layerName];
             @throw([NSException exceptionWithName:[NSString stringWithFormat:@"CONFIG_ERROR FILE %s line:%ld",__FILE__,(long)__LINE__]
@@ -538,7 +538,7 @@
     }
 
     //     1* { Host-IP-Address }
-    NSArray *addrs = _sctp.configured_local_addresses;
+    NSArray *addrs = _sctp_r.configured_local_addresses;
     NSMutableArray<UMDiameterAvpHost_IP_Address *> *hosts = [[NSMutableArray alloc]init];
     for (NSString *addr in addrs)
     {
@@ -829,7 +829,7 @@
     {
         packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
     }
-    NSArray *addrs = _sctp.configured_local_addresses;
+    NSArray *addrs = _sctp_r.configured_local_addresses;
     NSMutableArray<UMDiameterAvpHost_IP_Address *> *hosts = [[NSMutableArray alloc]init];
     for (NSString *addr in addrs)
     {
