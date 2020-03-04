@@ -41,10 +41,14 @@
     NSMutableArray<NSNumber *>      *_inbandSecurityIds;
     NSMutableArray<NSNumber *>      *_authApplicationIds;
     id<UMDiameterLocalUserProtocol> _localUser;
-
+    
+    UMSynchronizedDictionary        *_tcpListeners;
+    UMSocketSCTPRegistry            *_sctpRegistry;
+    
     uint32_t _sid_int1;
     uint32_t _sid_int2;
     UMMutex *_sid_lock;
+    UMMutex *_listenerLock;
 }
 
 @property(readwrite,strong,atomic)  NSString    *localHostName;
@@ -58,6 +62,11 @@
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
 @property(readwrite,strong,atomic)  id<UMDiameterLocalUserProtocol> localUser;
 @property(readwrite,assign,atomic)  uint32_t    origin_state_id;
+
+@property(readwrite,strong,atomic) UMSynchronizedDictionary *peers;
+@property(readwrite,strong,atomic) UMSynchronizedDictionary *sessions;
+@property(readwrite,strong,atomic) UMSynchronizedDictionary *routes;
+@property(readwrite,strong,atomic) UMSynchronizedDictionary *tcpListeners;
 
 - (uint32_t)nextEndToEndIdentifier;
 
@@ -92,5 +101,10 @@
 - (void)processIncomingResponsePacket:(UMDiameterPacket *)packet
                              fromPeer:(UMDiameterPeer *)peer;
 
+- (UMSocket *)getTcpListenerForPort:(int)port
+                       localAddress:(NSString *)address;
 
+- (UMSocketError)handlePollResult:(int)revent
+                           socket:(UMSocket *)socket
+                        poll_time:(UMMicroSec)poll_time;
 @end

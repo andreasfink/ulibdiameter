@@ -63,19 +63,19 @@
                        userId:(id)uid
                        status:(SCTP_Status)statusNew
 {
-    UMLayerSctp *sctp = NULL;
+    UMSocket *sock = NULL;
     SCTP_Status previousStatus;
     BOOL initiator;
 
-    if([caller isEqualTo:_sctp_i])
+    if([caller isEqualTo:_initiator_socket])
     {
-        sctp = _sctp_i;
+        sock = _initiator_socket;
         previousStatus = _sctpStatus_i;
         initiator = YES;
     }
-    else if([caller isEqualTo:_sctp_r])
+    else if([caller isEqualTo:_responder_socket])
     {
-        sctp = _sctp_r;
+        sock = _responder_socket;
         previousStatus = _sctpStatus_r;
         initiator = NO;
     }
@@ -171,17 +171,17 @@
                  protocolId:(uint32_t)pid
                        data:(NSData *)d
 {
-    UMLayerSctp *sctp = NULL;
+    UMSocket *sock = NULL;
     BOOL initiator;
 
-    if([caller isEqualTo:_sctp_i])
+    if([caller isEqualTo:_initiator_socket])
     {
-        sctp = _sctp_i;
+        sock = _initiator_socket;
         initiator = YES;
     }
-    else if([caller isEqualTo:_sctp_r])
+    else if([caller isEqualTo:_responder_socket])
     {
-        sctp = _sctp_r;
+        sock = _responder_socket;
         initiator = NO;
     }
     else
@@ -434,45 +434,110 @@
     {
         self.layerName = [cfg[@"name"] stringValue];
     }
-    if(cfg[@"attach-responder-to"])
+
+    _tcpPeer = NO;
+    if(cfg[@"protocol"])
     {
-        NSString *attachTo =  [cfg[@"attach-responder-to"] stringValue];
-        _sctp_r = [appContext getSCTP:attachTo];
-        if(_sctp_r == NULL)
+        NSString *p = [cfg[@"protocol"] stringValue];
+        if([p isEqualToStringCaseInsensitive:@"tcp"])
         {
-            NSString *s = [NSString stringWithFormat:@"Can not find sctp_r layer '%@' referred from diameter layer '%@'",attachTo,self.layerName];
-            @throw([NSException exceptionWithName:[NSString stringWithFormat:@"CONFIG_ERROR FILE %s line:%ld",__FILE__,(long)__LINE__]
-                                           reason:s
-                                         userInfo:NULL]);
+            _tcpPeer = YES;
         }
     }
-    if(cfg[@"attach-initiator-to"])
+    
+    /* **** */
+    if (cfg[@"local-ip"])
     {
-        NSString *attachTo =  [cfg[@"attach-initiator-to"] stringValue];
-        _sctp_i = [appContext getSCTP:attachTo];
-        if(_sctp_i == NULL)
+         id local_ip_object = cfg[@"local-ip"];
+         if([local_ip_object isKindOfClass:[NSString class]])
+         {
+             NSString *line = (NSString *)local_ip_object;
+             _configuredLocalAddresses = [line componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n\r\t;,"]];
+         }
+         else if([local_ip_object isKindOfClass:[UMSynchronizedArray class]])
+         {
+             UMSynchronizedArray *ua = (UMSynchronizedArray *)local_ip_object;
+             _configuredLocalAddresses = [ua.array copy];
+         }
+         else if([local_ip_object isKindOfClass:[NSArray class]])
+         {
+             NSArray *arr = (NSArray *)local_ip_object;
+             _configuredLocalAddresses = [arr copy];
+         }
+     }
+     else
+     {
+         NSLog(@"Warning: no local-ip defined in %@",self.layerName);
+     }
+     if (cfg[@"local-port"])
+     {
+         _configuredLocalPort = [cfg[@"local-port"] intValue];
+     }
+     if (cfg[@"remote-ip"])
+     {
+         id remote_ip_object = cfg[@"remote-ip"];
+         if([remote_ip_object isKindOfClass:[NSString class]])
+         {
+             NSString *line = (NSString *)remote_ip_object;
+             _configuredRemoteAddresses = [line componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n\r\t;,"]];
+         }
+         else if([remote_ip_object isKindOfClass:[UMSynchronizedArray class]])
+         {
+             UMSynchronizedArray *ua = (UMSynchronizedArray *)remote_ip_object;
+             _configuredRemoteAddresses = [ua.array copy];
+         }
+         else if([remote_ip_object isKindOfClass:[NSArray class]])
+         {
+             NSArray *arr = (NSArray *)remote_ip_object;
+             _configuredRemoteAddresses = [arr copy];
+         }
+     }
+     if (cfg[@"remote-port"])
+     {
+         _configuredRemotePort = [cfg[@"remote-port"] intValue];
+     }
+     if (cfg[@"heartbeat"])
+     {
+         _heartbeatSeconds = [cfg[@"heartbeat"] doubleValue];
+     }
+     if (cfg[@"mtu"])
+     {
+         _mtu = [cfg[@"mtu"] intValue];
+     }
+    
+    if(_tcpPeer)
+    {
+        _initiator_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
+        _responder_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
+        if(_configuredLocalAddresses.count > 0)
         {
-            NSString *s = [NSString stringWithFormat:@"Can not find sctp layer '%@' referred from m2pa layer '%@'",attachTo,self.layerName];
-            @throw([NSException exceptionWithName:[NSString stringWithFormat:@"CONFIG_ERROR FILE %s line:%ld",__FILE__,(long)__LINE__]
-                                           reason:s
-                                         userInfo:NULL]);
+            UMHost *localHost = [[UMHost alloc]initWithAddress:_configuredLocalAddresses[0]];
+            _initiator_socket.localHost = localHost;
+            _responder_socket.localHost = localHost;
         }
+        if(_configuredRemoteAddresses.count > 0)
+        {
+            UMHost *remoteHost = [[UMHost alloc]initWithAddress:_configuredRemoteAddresses[0]];
+            _initiator_socket.remoteHost = remoteHost;
+            _responder_socket.remoteHost = remoteHost;
+        }
+        _initiator_socket.requestedRemotePort = _configuredRemotePort;
+        _responder_socket.requestedLocalPort = _configuredLocalPort;
     }
-    [self adminAttachOrder];
+    else
+    {
+        UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
+        UMSocketSCTP *rs = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
+        is.requestedRemotePort = _configuredRemotePort;
+        rs.requestedRemotePort = 0;
+        is.requestedLocalPort = 0;
+        rs.requestedLocalPort = _configuredLocalPort;
+        _initiator_socket = is;
+        _responder_socket = rs;
+    }
 }
 
 
-- (void)adminAttachOrder
-{
-    if(self.logLevel <= UMLOG_DEBUG)
-    {
-        [self logDebug:@"adminAttachOrder"];
-    }
-
-    UMLayerSctpUserProfile *profile = [[UMLayerSctpUserProfile alloc]initWithDefaultProfile];
-    [_sctp_i adminAttachFor:self profile:profile userId:self.layerName];
-    [_sctp_r adminAttachFor:self profile:profile userId:self.layerName];
-}
 
 - (void)stopDetachAndDestroy
 {

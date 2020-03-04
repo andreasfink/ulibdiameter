@@ -29,8 +29,8 @@
 	NSString				*_tcpRemoteIP;
 	int						_tcpRemotePort;
 	UMDiameterTcpConnection	*_tcpConnection;
-    UMLayerSctp             *_sctp_i; /* initiator */
-    UMLayerSctp             *_sctp_r; /* responder */
+    UMSocket                *_initiator_socket; /* initiator */
+    UMSocket                *_responder_socket; /* responder */
     UMDiameterRouter        *_router;
     SCTP_Status             _sctpStatus_i;
     SCTP_Status             _sctpStatus_r;
@@ -60,7 +60,13 @@
     UMTimer                 *_watchdogTimer;
     int                     _outstandingWatchdogEvents;
     int                     _maxOutstandingWatchdogEvents;
-
+    
+    NSArray                 *_configuredLocalAddresses;
+    NSArray                 *_configuredRemoteAddresses;
+    int                     _configuredLocalPort;
+    int                     _configuredRemotePort;
+    double                  _heartbeatSeconds;
+    int                     _mtu;
 }
 
 @property(readwrite,assign,atomic)		BOOL					tcpPeer;

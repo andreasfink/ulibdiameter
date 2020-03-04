@@ -15,6 +15,7 @@
 #import "UMDiameterVendorId.h"
 #import "UMDiameterRoute.h"
 #import "UMDiameterPacketsAll.h"
+#include <poll.h>
 
 @implementation UMDiameterRouter
 
@@ -37,6 +38,7 @@
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _housekeepingTimer = [[UMTimer alloc]initWithTarget:self selector:@selector(housekeeping) object:NULL seconds:30 name:@"housekeeping-timer" repeats:YES];
         _housekeepingLock = [[UMMutex alloc]initWithName:@"housekeeping-timer-lock"];
+        _listenerLock     = [[UMMutex alloc]initWithName:@"listener-lock"];
         _sid_lock = [[UMMutex alloc]initWithName:@"diameter-router-sid-lock"];
 
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
@@ -631,4 +633,61 @@
     [self addRoute:route];
 }
 
+- (UMSocket *)getTcpListenerForPort:(int)port
+                       localAddress:(NSString *)address
+{
+    [_listenerLock lock];
+    NSString *key = [NSString stringWithFormat:@"tcp/%@/%d",address,port];
+    UMSocket *sock = _tcpListeners[key];
+    if(sock==NULL)
+    {
+        sock = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
+        sock.localHost = [[UMHost alloc]initWithAddress:address];
+        sock.requestedLocalPort = port;
+        UMSocketError e = [sock bind];
+        if(e != UMSocketError_no_error)
+        {
+            NSString *estr = [UMSocket getSocketErrorString:e];
+            [self logMajorError:[NSString stringWithFormat:@"Error during bind(%@): %d %@",key,e,estr]];
+            [sock close];
+            sock = NULL;
+        }
+        else
+        {
+            e = [sock listen];
+            if(e != UMSocketError_no_error)
+            {
+                NSString *estr = [UMSocket getSocketErrorString:e];
+                [self logMajorError:[NSString stringWithFormat:@"Error during listen(%@): %d %@",key,e,estr]];
+                [sock close];
+                sock = NULL;
+                
+            }
+            else
+            {
+                _tcpListeners[key] = sock;
+            }
+        }
+    }
+    [_listenerLock unlock];
+    return sock;
+}
+
+- (UMSocketError)handlePollResult:(int)revent
+                           socket:(UMSocket *)socket
+                        poll_time:(UMMicroSec)poll_time
+{
+    UMSocketError returnValue = UMSocketError_no_error;
+
+    if(revent & (POLLIN | POLLPRI))
+    {
+        UMSocket *nsock = [socket accept:&returnValue];
+        NSString *remoteAddress = [nsock.remoteHost address:UMSOCKET_TYPE_TCP];
+        /* we now have to find the matching peer for this address */
+        
+    }
+    return returnValue;
+}
+
 @end
+
