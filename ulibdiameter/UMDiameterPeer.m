@@ -24,34 +24,49 @@
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 @implementation UMDiameterPeer
 
-- (UMDiameterPeer *)init
+- (UMLayer *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq
 {
-    self = [super init];
+    self =[super initWithTaskQueueMulti:tq];
     if(self)
     {
-        _peerState = [[UMDiameterPeerState_Closed alloc]init];
-        _isConnected = NO;
-        _isActive = NO;
-        _isConnecting = NO;
-        _nextHopIdentifierLock = [[UMMutex alloc]init];
-        
-        _outstandingWatchdogEvents = 0;
-        _maxOutstandingWatchdogEvents = 3;
-        _watchdogTimer = [[UMTimer alloc]initWithTarget:self
-                                               selector:@selector(watchdogTimerEvent)
-                                                 object:NULL
-                                                seconds:10
-                                                   name:@"watchdog-timer"
-                                                repeats:YES];
-        _housekeepingTimer = [[UMTimer alloc]initWithTarget:self
-                                               selector:@selector(housekeeping)
-                                                 object:NULL
-                                                seconds:5
-                                                   name:@"housekeeping"
-                                                repeats:YES];
-        [_housekeepingTimer start];
+        [self genericInitialisation];
     }
     return self;
+}
+- (UMDiameterPeer *)init
+{
+    self =[super init];
+    if(self)
+    {
+        [self genericInitialisation];
+    }
+    return self;
+}
+
+-(void)genericInitialisation
+{
+    _peerState = [[UMDiameterPeerState_Closed alloc]init];
+    _isConnected = NO;
+    _isActive = NO;
+    _isConnecting = NO;
+    _nextHopIdentifierLock = [[UMMutex alloc]initWithName:@"diameter-peer-next-hop-identifier-lock"];
+    _sctpStatus_i = SCTP_STATUS_OFF;
+    _sctpStatus_r = SCTP_STATUS_OFF;
+    _outstandingWatchdogEvents = 0;
+    _maxOutstandingWatchdogEvents = 3;
+    _watchdogTimer = [[UMTimer alloc]initWithTarget:self
+                                           selector:@selector(watchdogTimerEvent)
+                                             object:NULL
+                                            seconds:10
+                                               name:@"watchdog-timer"
+                                            repeats:YES];
+    _housekeepingTimer = [[UMTimer alloc]initWithTarget:self
+                                           selector:@selector(housekeeping)
+                                             object:NULL
+                                            seconds:5
+                                               name:@"housekeeping"
+                                            repeats:YES];
+    [_housekeepingTimer start];
 }
 
 - (void) watchdogTimerEvent
@@ -1361,7 +1376,8 @@ typedef enum ElectionResult
     {
         [attributes addObject:@"forced-out-of-service"];
     }
-    [s appendFormat:@"\n    %@\n    %@",attributes,_peerState.currentState];
+    NSString *attributesString = [attributes componentsJoinedByString:@","];
+    [s appendFormat:@"\n    Attributes: %@\n    State: %@",attributesString,_peerState.currentState];
     return s;
 }
 @end
