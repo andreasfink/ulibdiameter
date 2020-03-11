@@ -189,6 +189,8 @@
                      resultCode:(NSNumber *)resultCode
                    errorMessage:(NSString *)errorMessage
                       failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
+
+- (NSString *)statusString;
 @end
 
 

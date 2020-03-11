@@ -1296,5 +1296,73 @@ typedef enum ElectionResult
         [self actionError:NULL];
     }
 }
+
+- (NSString *)statusString
+{
+    NSMutableString *s = [[NSMutableString alloc]init];
+    if(_tcpPeer)
+    {
+        [s appendString:@"tcp"];
+    }
+    else
+    {
+        [s appendString:@"sctp"];
+    }
+    NSString *loc = [_configuredLocalAddresses componentsJoinedByString:@","];
+    NSString *rem = [_configuredRemoteAddresses componentsJoinedByString:@","];
+    [s appendFormat:@":(%@:%d->%@:%d)",loc,_configuredLocalPort,rem,_configuredRemotePort];
+    SCTP_Status status;
+    if(_isIncoming)
+    {
+        [s appendString:@":responder"];
+        status = _sctpStatus_r;
+    }
+    else
+    {
+        [s appendString:@":initiator"];
+        status = _sctpStatus_i;
+    }
+    switch(status)
+    {
+            case    SCTP_STATUS_M_FOOS:
+                [s appendString:@":M-FOOS"];
+                break;
+            case    SCTP_STATUS_OFF:
+                [s appendString:@":OFF"];
+                break;
+            case    SCTP_STATUS_OOS:
+                [s appendString:@":OOS"];
+                break;
+            case    SCTP_STATUS_IS:
+                [s appendString:@":IS"];
+                break;
+            default:
+                [s appendFormat:@":??(%d)",status];
+                break;
+    }
+    NSMutableArray *attributes = [[NSMutableArray alloc]init];
+    if(_isIncoming)
+    {
+        [attributes addObject:@"incoming"];
+    }
+    if(_isConnecting)
+    {
+        [attributes addObject:@"connecting"];
+    }
+    if(_isConnected)
+    {
+        [attributes addObject:@"connected"];
+    }
+    if(_isActive)
+    {
+        [attributes addObject:@"active"];
+    }
+    if(_isForcedOutOfService)
+    {
+        [attributes addObject:@"forced-out-of-service"];
+    }
+    [s appendFormat:@"\n    %@\n    %@",attributes,_peerState.currentState];
+    return s;
+}
 @end
 
