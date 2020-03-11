@@ -1337,7 +1337,7 @@ typedef enum ElectionResult
                 [s appendString:@":IS"];
                 break;
             default:
-                [s appendFormat:@":??(%d)",status];
+                [s appendFormat:@":unknown(%d)",status];
                 break;
     }
     NSMutableArray *attributes = [[NSMutableArray alloc]init];
