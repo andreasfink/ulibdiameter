@@ -553,6 +553,40 @@
         rs.requestedLocalPort = _configuredLocalPort;
         rs.requestedRemoteAddresses = _configuredRemoteAddresses;
         rs.requestedLocalAddresses = _configuredLocalAddresses;
+
+        [is updateMtu:_mtu];
+        [rs updateMtu:_mtu];
+        [is switchToNonBlocking];
+        [rs switchToNonBlocking];
+        [is setNoDelay];
+        [rs setNoDelay];
+        [is setInitParams];
+        [rs setInitParams];
+
+        [is setIPDualStack];
+        [rs setIPDualStack];
+
+        [is setLinger];
+        [rs setLinger];
+        [is setReuseAddr];
+        [rs setReuseAddr];
+        [is setReusePort];
+        [rs setReusePort];
+        [is enableEvents];
+        [rs enableEvents];
+
+
+        UMSocketError err = [is bind];
+        if(err!=UMSocketError_no_error)
+        {
+            [self logMajorError:[NSString stringWithFormat:@"can not bind initiator on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
+        }
+        err = [rs bind];
+        {
+            [self logMajorError:[NSString stringWithFormat:@"can not bind responder on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
+        }
+        [is setHeartbeat:YES];
+        [rs setHeartbeat:YES];
         _initiator_socket = is;
         _responder_socket = rs;
     }
