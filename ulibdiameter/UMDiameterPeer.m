@@ -20,6 +20,7 @@
 #import "UMDiameterPacketDPR.h"
 #import "UMDiameterPacketDPA.h"
 #import "UMDiameterAvpAll.h"
+#import <ulibsctp/ulibsctp.h>
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 @implementation UMDiameterPeer
@@ -33,6 +34,7 @@
     }
     return self;
 }
+
 - (UMDiameterPeer *)init
 {
     self =[super init];
@@ -977,7 +979,7 @@
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
 - (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message
 {
-    [_sctp_i openFor:self];
+    [_initiator_socket connect];
 }
 
 /* Accept: The incoming connection associated with the R-Conn-CER is accepted as the responder connection.*/
@@ -989,12 +991,12 @@
 /* Reject: The incoming connection associated with the R-Conn-CER is disconnected.*/
 - (void)actionReject:(UMDiameterPacket *)message
 {
-    [_sctp_r closeFor:self];
+    [_responder_socket close];
 }
 
 - (void)actionR_Reject:(UMDiameterPacket *)message
 {
-    [_sctp_r closeFor:self];
+    [_responder_socket close];
 }
 
 /* Process-CER:  The CER associated with the R-Conn-CER is processed. */
@@ -1048,8 +1050,8 @@
 /* Error: The transport layer connection is disconnected, either politely or abortively, in response to, an error condition.  Local resources are freed. */
 - (void)actionError:(UMDiameterPacket *)message
 {
-    [_sctp_i closeFor:self];
-    [_sctp_r closeFor:self];
+    [_initiator_socket close];
+    [_responder_socket close];
     _peerState = [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -1210,7 +1212,7 @@ typedef enum ElectionResult
     */
     if(r == ElectionResult_localWins)
     {
-        [_sctp_i closeFor:self];
+        [_initiator_socket close];
     }
 }
 
@@ -1227,27 +1229,42 @@ typedef enum ElectionResult
         [self actionR_Snd_Message:message];
     }
 }
+
+- (UMSocketError)sendData:(NSData *)data socket:(UMSocket *)s
+{
+    if(_tcpPeer)
+    {
+        return [s sendData:data];
+    }
+    else
+    {
+        UMSocketSCTP *sctp = (UMSocketSCTP *)s;
+        UMSocketError err = UMSocketError_no_error;
+        uint32_t        tmp_assocId = -1;
+        ssize_t sent_packets = [sctp sendToAddresses:_configuredRemoteAddresses
+                                                port:_configuredRemotePort
+                                               assoc:&tmp_assocId
+                                                data:data
+                                              stream:0
+                                            protocol:DIAMETER_SCTP_PPID_CLEAR
+                                               error:&err];
+        return err;
+    }
+}
+
 - (void)actionI_Snd_Message:(UMDiameterPacket *)message
 {
     [message beforeEncode];
-    NSData *packedData = [message packedData];
-    [_sctp_i dataFor:self
-                data:packedData
-            streamId:0
-          protocolId:DIAMETER_SCTP_PPID_CLEAR
-          ackRequest:NULL];
+    NSData *data = [message packedData];
+    [self sendData:data socket:_initiator_socket];
+
 }
 
 - (void)actionR_Snd_Message:(UMDiameterPacket *)message
 {
     [message beforeEncode];
-    NSData *packedData = [message packedData];
-
-    [_sctp_r dataFor:self
-                data:packedData
-            streamId:0
-          protocolId:DIAMETER_SCTP_PPID_CLEAR
-          ackRequest:NULL];
+    NSData *data = [message packedData];
+    [self sendData:data socket:_responder_socket];
 }
 
 
