@@ -545,10 +545,14 @@
     {
         UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
         UMSocketSCTP *rs = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
+        is.requestedRemoteAddresses = _configuredRemoteAddresses;
+        is.requestedLocalAddresses = _configuredLocalAddresses;
         is.requestedRemotePort = _configuredRemotePort;
-        rs.requestedRemotePort = 0;
         is.requestedLocalPort = 0;
+        rs.requestedRemotePort = 0;
         rs.requestedLocalPort = _configuredLocalPort;
+        rs.requestedRemoteAddresses = _configuredRemoteAddresses;
+        rs.requestedLocalAddresses = _configuredLocalAddresses;
         _initiator_socket = is;
         _responder_socket = rs;
     }
