@@ -62,7 +62,7 @@
     _sctpStatus_r = SCTP_STATUS_OFF;
     _outstandingWatchdogEvents = 0;
     _maxOutstandingWatchdogEvents = 3;
-    _eventLock = [[UMMutex alloc]init];
+    _eventLock = [[UMMutex alloc]initWithName:@"diameter-event-lock"];
 
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
