@@ -762,6 +762,7 @@
             [self logMajorError:[NSString stringWithFormat:@"can not bind initiator on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
         err = [rs bind];
+        if(err!=UMSocketError_no_error)
         {
             [self logMajorError:[NSString stringWithFormat:@"can not bind responder on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
