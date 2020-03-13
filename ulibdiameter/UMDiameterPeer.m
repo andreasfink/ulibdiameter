@@ -83,8 +83,6 @@
 #pragma mark -
 #pragma mark Event Background tasks
 
-
-
 - (void) _watchdogTimerEventTask:(id)obj
 {
     [_eventLock lock];
@@ -791,7 +789,7 @@
 
 - (void)powerOff
 {
-    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT( @selector(_eventStoptask:), NULL);
+    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT( @selector(_eventStopTask:), NULL);
 }
 
 - (uint32_t)nextHopByHopIdentifier
@@ -805,7 +803,7 @@
 }
 
 /* this is called from local */
-- (void)sendMessageTask:(UMDiameterPacket *)packet
+- (void)sendMessage:(UMDiameterPacket *)packet
 {
     RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT( @selector(_eventSend_MessageTask:), packet);
 }
