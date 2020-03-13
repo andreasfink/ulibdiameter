@@ -56,6 +56,8 @@
     _sctpStatus_r = SCTP_STATUS_OFF;
     _outstandingWatchdogEvents = 0;
     _maxOutstandingWatchdogEvents = 3;
+    _configuredLocalPort = 5868;
+    _configuredRemotePort = 5868;
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
                                              object:NULL
@@ -486,6 +488,7 @@
      {
          NSLog(@"Warning: no local-ip defined in %@",self.layerName);
      }
+
      if (cfg[@"local-port"])
      {
          _configuredLocalPort = [cfg[@"local-port"] intValue];
@@ -582,6 +585,7 @@
             [self logMajorError:[NSString stringWithFormat:@"can not bind initiator on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
         err = [rs bind];
+        if(err!=UMSocketError_no_error)
         {
             [self logMajorError:[NSString stringWithFormat:@"can not bind responder on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
