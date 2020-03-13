@@ -67,6 +67,7 @@
     int                     _configuredRemotePort;
     double                  _heartbeatSeconds;
     int                     _mtu;
+    UMMutex                 *_eventLock;
 }
 
 @property(readwrite,assign,atomic)		BOOL					tcpPeer;
