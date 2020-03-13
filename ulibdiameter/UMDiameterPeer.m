@@ -23,6 +23,12 @@
 #import <ulibsctp/ulibsctp.h>
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
+
+#define RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(sel,obj) \
+    [self runSelectorInBackground:sel \
+                        withObject:obj \
+                         file:__FILE__ line:__LINE__  function:__func__]
+
 @implementation UMDiameterPeer
 
 - (UMLayer *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq
@@ -58,6 +64,7 @@
     _maxOutstandingWatchdogEvents = 3;
     _configuredLocalPort = 5868;
     _configuredRemotePort = 5868;
+    _eventLock = [[UMMutex alloc]initWithName:@"diameter-event-lock"];
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
                                              object:NULL
@@ -73,10 +80,179 @@
     [_housekeepingTimer start];
 }
 
+#pragma mark -
+#pragma mark Event Background tasks
+
+
+
+- (void) _watchdogTimerEventTask:(id)obj
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventWatchdogTimer:self message:obj];
+    [_eventLock unlock];
+
+}
+
+- (void) _eventI_Rcv_Conn_NackTask:(id)obj
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:obj];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_Conn_NackTask:(id)obj
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:obj];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_Conn_AckTask:(id)obj
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:obj];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_Conn_AckTask:(id)obj
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:obj];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_CERTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_CER:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_CERTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_CER:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_DPRTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_DPRTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_DWRTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_DWR:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_DWRTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_DWR:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_CEATask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_CEATask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_DPATask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_DPATask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_DWATask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_DWATask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventI_Rcv_MessageTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventI_Rcv_Message:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void) _eventR_Rcv_MessageTask:(id)packet
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventR_Rcv_Message:self message:packet];
+    [_eventLock unlock];
+}
+
+
+- (void)_eventSend_MessageTask:(UMDiameterPacket *)packet
+{
+    [_eventLock lock];
+    [_peerState eventSend_Message:self message:packet];
+    [_eventLock unlock];
+}
+
+- (void)_eventStopTask:(id)obj
+{
+    [_eventLock lock];
+    [_peerState eventStop:self message:obj];
+    [_eventLock unlock];
+}
+
+- (void)_eventStartTask:(id)obj
+{
+    [_eventLock lock];
+    [_peerState eventStart:self message:obj];
+    [_eventLock unlock];
+}
+
+
+
+
+#pragma mark -
+#pragma mark Methods
+
 - (void) watchdogTimerEvent
 {
-    [_peerState eventWatchdogTimer:self message:NULL];
+    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_watchdogTimerEventTask:),NULL);
 }
+
+
 
 - (void) sctpStatusIndication:(UMLayer *)caller
                        userId:(id)uid
@@ -139,11 +315,11 @@
             [self.logFeed infoText:s];
             if(initiator)
             {
-                _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_NackTask:),NULL);
             }
             else
             {
-                _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
+                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_Conn_NackTask:),NULL);
             }
             break;
         }
@@ -153,11 +329,11 @@
             [self.logFeed infoText:s];
             if(initiator)
             {
-                _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_NackTask:),NULL);
             }
             else
             {
-                _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
+                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_Conn_NackTask:),NULL);
             }
             break;
         }
@@ -173,11 +349,12 @@
             [self.logFeed infoText:s];
             if(initiator)
             {
-                _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
+                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_AckTask:),NULL);
+
             }
             else
             {
-                _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
+                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_Conn_AckTask:),NULL);
             }
             break;
         }
@@ -239,11 +416,11 @@
                     {
                         if(initiator)
                         {
-                            _peerState = [_peerState eventI_Rcv_CER:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_CERTask:),packet);
                         }
                         else
                         {
-                            _peerState = [_peerState eventR_Rcv_CER:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_CERTask:),packet);
                         }
                         break;
                     }
@@ -251,11 +428,11 @@
                     {
                         if(initiator)
                         {
-                            _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DPRTask:),packet);
                         }
                         else
                         {
-                            _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DPRTask:),packet);
                         }
                         break;
                     }
@@ -263,11 +440,13 @@
                     {
                         if(initiator)
                         {
-                            _peerState = [_peerState eventI_Rcv_DWR:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DWRTask:),packet);
+
                         }
                         else
                         {
-                            _peerState = [_peerState eventR_Rcv_DWR:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DWRTask:),packet);
+
                         }
                         break;
                     }
@@ -298,11 +477,11 @@
                     {
                         if(initiator)
                         {
-                            _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_CEATask:),packet);
                         }
                         else
                         {
-                            _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_CEATask:),packet);
                         }
                         break;
                     }
@@ -310,23 +489,23 @@
                     {
                         if(initiator)
                         {
-                            _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DPATask:),packet);
                         }
                         else
                         {
-                            _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
-                        }
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DPATask:),packet);
+                                            }
                         break;
                     }
                     case UMDiameterCommandCode_Device_Watchdog:
                     {
                         if(initiator)
                         {
-                            _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DWATask:),packet);
                         }
                         else
                         {
-                            _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
+                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DWATask:),packet);
                         }
                         break;
                     }
@@ -389,11 +568,11 @@
     {
         if(initiator)
         {
-            _peerState = [_peerState eventI_Rcv_Message:self message:packet];
+            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_MessageTask:),packet);
         }
         else
         {
-            _peerState = [_peerState eventR_Rcv_Message:self message:packet];
+            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_MessageTask:),packet);
         }
     }
 }
@@ -600,17 +779,19 @@
 
 - (void)stopDetachAndDestroy
 {
-    [_peerState eventStop:self message:NULL];
+    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventStopTask:),NULL);
 }
+
 
 - (void)powerOn
 {
-    [_peerState eventStart:self message:NULL];
+    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT( @selector(_eventStartTask:), NULL);
 }
+
 
 - (void)powerOff
 {
-    [_peerState eventStop:self message:NULL];
+    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT( @selector(_eventStoptask:), NULL);
 }
 
 - (uint32_t)nextHopByHopIdentifier
@@ -624,11 +805,10 @@
 }
 
 /* this is called from local */
-- (void)sendMessage:(UMDiameterPacket *)packet
+- (void)sendMessageTask:(UMDiameterPacket *)packet
 {
-    [_peerState eventSend_Message:self message:packet];
+    RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT( @selector(_eventSend_MessageTask:), packet);
 }
-
 
 - (UMDiameterPacket *)createCER
 {
@@ -1090,6 +1270,7 @@
 
 
 /* Error: The transport layer connection is disconnected, either politely or abortively, in response to, an error condition.  Local resources are freed. */
+
 - (void)actionError:(UMDiameterPacket *)message
 {
     [_initiator_socket close];
