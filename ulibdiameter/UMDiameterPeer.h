@@ -95,7 +95,6 @@
 - (void)sendMessage:(UMDiameterPacket *)packet;
 
 
-
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
 - (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message;
 
