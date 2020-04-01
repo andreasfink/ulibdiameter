@@ -509,6 +509,9 @@
 
 - (void)start
 {
+    [self updateListeners];
+    [self startListening];
+
     NSArray *peerNames = [_peers allKeys];
     for(NSString *name in peerNames)
     {
@@ -520,6 +523,7 @@
 
 - (void)stop
 {
+    [self stopListening];
     NSArray *peerNames = [_peers allKeys];
     for(NSString *name in peerNames)
     {
