@@ -1,31 +1,31 @@
 //
-//  UMDiameterTcpListener.h
+//  UMDiameterListener.h
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 14.05.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
-
+#if 0
 #import <ulib/ulib.h>
 #import <ulibsctp/ulibsctp.h>
 #import "UMDiameterTcpConnectionAuthorisationProtocol.h"
 @class UMDiameterRouter;
 
-typedef enum UMDiameterTcpListenerStatus
+typedef enum UMDiameterListenerStatus
 {
-	UMDiameterTcpListenerStatus_notRunning = 0,
-	UMDiameterTcpListenerStatus_startingUp,
-	UMDiameterTcpListenerStatus_running,
-	UMDiameterTcpListenerStatus_shuttingDown,
-	UMDiameterTcpListenerStatus_shutDown,
-	UMDiameterTcpListenerStatus_failed,
-} UMDiameterTcpListenerStatus;
+	UMDiameterListenerStatus_notRunning = 0,
+	UMDiameterListenerStatus_startingUp,
+	UMDiameterListenerStatus_running,
+	UMDiameterListenerStatus_shuttingDown,
+	UMDiameterListenerStatus_shutDown,
+	UMDiameterListenerStatus_failed,
+} UMDiameterListenerStatus;
 
 
-@interface UMDiameterTcpListener : UMObject
+@interface UMDiameterListener : UMBackgrounder
 {
     in_port_t   				_port;
-    UMSocket    				*_listenerTcp;
+    UMSocket    				*_listener;
     BOOL        				_useTLS;
     id          				_authorizeConnectionDelegate;
 	
@@ -40,7 +40,7 @@ typedef enum UMDiameterTcpListenerStatus
 	int							_receivePollTimeoutMs;
 	UMDiameterRouter			*_router;
 	NSString					*_listenerName;
-	UMDiameterTcpListenerStatus	_status;
+	UMDiameterListenerStatus	_status;
 	UMSocketError				_lastErr;
 
 	BOOL						_listenerRunning;
@@ -54,14 +54,18 @@ typedef enum UMDiameterTcpListenerStatus
 }
 
 @property(readwrite,assign,atomic)  in_port_t   port;
-@property(readwrite,strong,atomic)  UMSocket    *listenerTcp;
+@property(readwrite,strong,atomic)  UMSocket    *listener;
 
 @property(readwrite,assign,atomic)  BOOL        useTLS;
 @property(readwrite,assign,atomic)  BOOL        enableKeepalive;
 @property(readwrite,strong,atomic)  id          authorizeConnectionDelegate;
 @property(readwrite,strong,atomic) NSString 	*listenerName;
-@property(readwrite,assign,atomic)  UMDiameterTcpListenerStatus	status;
+@property(readwrite,assign,atomic)  UMDiameterListenerStatus	status;
 @property(readwrite,assign,atomic)  UMSocketError				lastErr;
+
+
+- (UMSocketError) start;
+- (UMSocketError) stop;
 
 - (id) initWithPort:(in_port_t)port
          socketType:(UMSocketType)type
@@ -72,3 +76,5 @@ typedef enum UMDiameterTcpListenerStatus
 
 
 @end
+
+#endif

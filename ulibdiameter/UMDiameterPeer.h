@@ -26,9 +26,12 @@
 @interface UMDiameterPeer : UMLayer<UMLayerUserProtocol,UMLayerSctpUserProtocol>
 {
 	BOOL					_tcpPeer;
-	NSString				*_tcpRemoteIP;
-	int						_tcpRemotePort;
-	UMDiameterTcpConnection	*_tcpConnection;
+    NSString                *_tcpRemoteIP;
+    NSString                *_tcpLocalIP;
+    NSArray<NSString *>     *_sctpRemoteIPs;
+    NSArray<NSString *>     *_sctpLocalIPs;
+    int                     _initatorPort;
+    int                     _responderPort;
     UMSocket                *_initiator_socket; /* initiator */
     UMSocket                *_responder_socket; /* responder */
     UMDiameterRouter        *_router;
@@ -68,23 +71,32 @@
     double                  _heartbeatSeconds;
     int                     _mtu;
     UMMutex                 *_eventLock;
+    UMMutex                 *_dataBuffersLock;
+    NSMutableData           *_initiator_receive_buffer;
+    NSMutableData           *_responder_receive_buffer;
 }
 
-@property(readwrite,assign,atomic)		BOOL					tcpPeer;
-@property(readwrite,strong,atomic)		NSString				*tcpRemoteIP;
-@property(readwrite,assign,atomic)		int						tcpRemotePort;
-@property(readwrite,strong,atomic)		UMDiameterTcpConnection	*tcpConnection;
-@property(readwrite,strong,atomic)      UMLayerSctp             *sctp_r;
-@property(readwrite,strong,atomic)      UMLayerSctp             *sctp_i;
-@property(readwrite,strong,atomic)      UMDiameterRouter        *router;
-@property(readwrite,strong,atomic)      UMDiameterPeerState     *peerState;
-@property(readwrite,assign,atomic)      BOOL                    isConnected;
-@property(readwrite,assign,atomic)      BOOL                    isActive;
-@property(readwrite,assign,atomic)      BOOL                    isConnecting;
-@property(readwrite,assign,atomic)      BOOL                    isForcedOutOfService;
-@property(readwrite,strong,atomic)      UMPCAPFile              *packetTraceFile;
-@property(readwrite,strong,atomic)      UMPCAPPseudoConnection  *packetTracePseudoConnection;
-@property(readwrite,strong,atomic)      NSNumber                *originStateId;
+@property(readwrite,assign,atomic)  BOOL					tcpPeer;
+@property(readwrite,strong,atomic)  NSString                *tcpRemoteIP;
+@property(readwrite,strong,atomic)  NSString                *tcpLocalIP;
+@property(readwrite,strong,atomic)  NSArray<NSString *>     *sctpRemoteIPs;
+@property(readwrite,strong,atomic)  NSArray<NSString *>     *sctpLocalIPs;
+@property(readwrite,strong,atomic)  UMSocket                *initiator_socket; /* initiator */
+@property(readwrite,strong,atomic)  UMSocket                *responder_socket; /* responder */
+@property(readwrite,assign,atomic)  int                     initatorPort;
+@property(readwrite,assign,atomic)  int                     responderPort;
+@property(readwrite,strong,atomic)  UMDiameterTcpConnection	*tcpConnection;
+@property(readwrite,strong,atomic)  UMLayerSctp             *sctp_r;
+@property(readwrite,strong,atomic)  UMLayerSctp             *sctp_i;
+@property(readwrite,strong,atomic)  UMDiameterRouter        *router;
+@property(readwrite,strong,atomic)  UMDiameterPeerState     *peerState;
+@property(readwrite,assign,atomic)  BOOL                    isConnected;
+@property(readwrite,assign,atomic)  BOOL                    isActive;
+@property(readwrite,assign,atomic)  BOOL                    isConnecting;
+@property(readwrite,assign,atomic)  BOOL                    isForcedOutOfService;
+@property(readwrite,strong,atomic)  UMPCAPFile              *packetTraceFile;
+@property(readwrite,strong,atomic)  UMPCAPPseudoConnection  *packetTracePseudoConnection;
+@property(readwrite,strong,atomic)  NSNumber                *originStateId;
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterPeerAppDelegateProtocol>)appContext;
 - (void) stopDetachAndDestroy;
@@ -190,6 +202,14 @@
                       failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
 
 - (NSString *)statusString;
+
+- (UMSocketError)handlePollResultInitiator:(int)revent
+                           socket:(UMSocket *)socket
+                        poll_time:(UMMicroSec)poll_time;
+
+- (UMSocketError)handlePollResultResponder:(int)revent
+                                    socket:(UMSocket *)socket
+                                 poll_time:(UMMicroSec)poll_time;
 @end
 
 

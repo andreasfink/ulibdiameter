@@ -1,16 +1,16 @@
 //
-//  UMDiameterTcpListener.m
+//  UMDiameterListener.m
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 14.05.19.
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
+#if 0
 
-#import "UMDiameterTcpListener.h"
+#import "UMDiameterListener.h"
 #import "UMDiameterRouter.h"
-#import "UMDiameterTcpConnection.h"
 
-@implementation UMDiameterTcpListener
+@implementation UMDiameterListener
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <unistd.h>
@@ -29,11 +29,10 @@ run on top of SCTP when it is used.
 #define UMDIAMETER_DEFAULT_PORT         3868
 #define UMDIAMETER_DEFAULT_TLS_PORT     5658
 
-/* HTTP methods accordings to RFC2616 */
 
 - (id) init
 {
-	UMAssert(0, @"call initWithPort:socketType:tls:sslKeyFile:sslCertFile:taskQueue:sctpRegistry:sctpListener: instead");
+	UMAssert(0, @"call initWithPort:socketType:tls:sslKeyFile:sslCertFile:taskQueue: instead");
 	return NULL;
 }
 
@@ -47,19 +46,16 @@ run on top of SCTP when it is used.
     self = [super init];
     if(self)
     {
-      	_listenerTcp = [[UMSocket alloc] initWithType:type name:@"listener"];
-        _sleeper        = [[UMSleeper alloc]initFromFile:__FILE__ line:__LINE__ function:__func__];
+      	_listener = [[UMSocket alloc] initWithType:type name:@"listener"];
+        _sleeper  = [[UMSleeper alloc]initFromFile:__FILE__ line:__LINE__ function:__func__];
         [_sleeper prepare];
-
-        _connections = [[UMSynchronizedArray alloc] init];
-        _connectionsLock = [[UMMutex alloc]initWithName:@"diameter-connections-lock"];
 
         _terminatedConnections = [[UMSynchronizedArray alloc]init];
         _lock        = [[UMMutex alloc] init];
         _sslLock     = [[UMMutex alloc]init];
         _receivePollTimeoutMs = 5000;
         _useTLS = doTLS;
-		_listenerName = [NSString stringWithFormat:@"diameter-listener-%d",port];
+        _listenerName = [NSString stringWithFormat:@"diameter-listener-%@-%d",[UMSocket socketTypeDescription:type],port];
         if(tq)
         {
             _taskQueue = tq;
@@ -86,25 +82,28 @@ run on top of SCTP when it is used.
     return self;
 }
 
-- (UMSocketError) startTcp
+- (UMSocketError) start
 {
+    [self startBackgroundTask];
+}
+- ()
     UMSocketError    sErr = UMSocketError_no_error;
     self.logFeed.copyToConsole = 1;
 
-	_listenerTcp.objectStatisticsName = [NSString stringWithFormat: @"UMSocket(%@)",_listenerName];
+	_listener.objectStatisticsName = [NSString stringWithFormat: @"UMSocket(%@)",_listenerName];
 
     @autoreleasepool
     {
-        if(self.status != UMDiameterTcpListenerStatus_notRunning)
+        if(self.status != UMDiameterListenerStatus_notRunning)
         {
-            [_logFeed majorError:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d failed to start because its already started",_listenerName, [_listenerTcp requestedLocalPort]]];
+            [_logFeed majorError:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d failed to start because its already started",_listenerName, [_listener requestedLocalPort]]];
             return UMSocketError_generic_error;
         }
 
-        [_logFeed info:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d is starting up",_listenerName, [_listenerTcp requestedLocalPort]]];
+        [_logFeed info:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d is starting up",_listenerName, [_listener requestedLocalPort]]];
         [_lock lock];
 
-        self.status = UMDiameterTcpListenerStatus_startingUp;
+        self.status = UMDiameterListenerStatus_startingUp;
         [self runSelectorInBackground:@selector(mainListener)
                            withObject:NULL
                                  file:__FILE__
@@ -112,12 +111,12 @@ run on top of SCTP when it is used.
                              function:__func__];
 
         [_sleeper reset];
-        while(_status == UMDiameterTcpListenerStatus_startingUp)
+        while(_status == UMDiameterListenerStatus_startingUp)
         {
             [_sleeper sleep:100000];/* wait 100ms */
         }
 
-        if( self.status == UMHTTPServerStatus_running )
+        if( self.status == UMDiameterListenerStatus_notRunning )
         {
             sErr = UMSocketError_no_error;
         }
@@ -125,21 +124,26 @@ run on top of SCTP when it is used.
         {
 			sErr = _lastErr;
 
-            self.status = UMHTTPServerStatus_notRunning;
+            self.status = UMDiameterListenerStatus_notRunning;
         }
 
         [_lock unlock];
 
-        if( self.status == UMHTTPServerStatus_running)
+        if( self.status == UMDiameterListenerStatus_running)
         {
-            [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d is running\n",_listenerName, [_listenerTcp requestedLocalPort]]];
+            [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d is running\n",_listenerName, [_listener requestedLocalPort]]];
         }
         else
         {
-            [self.logFeed majorError:0 withText:[NSString stringWithFormat:@"HTTPServer '%@' on port %d failed to start due to '%@'\n",_listenerName, [_listenerTcp requestedLocalPort] ,[UMSocket getSocketErrorString:sErr]]];
+            [self.logFeed majorError:0 withText:[NSString stringWithFormat:@"DiameterServer '%@' on port %d failed to start due to '%@'\n",_listenerName, [_listener requestedLocalPort] ,[UMSocket getSocketErrorString:sErr]]];
         }
     }
     return sErr;
+}
+
+- (UMSocketError) stop
+{
+    _listenerRunning = NO;
 }
 
 - (void) mainListener
@@ -153,21 +157,18 @@ run on top of SCTP when it is used.
         UMSocketError sErr = 0;
         UMSocketError pollResult;
 
-
         /*
-
          if an application is restarted, the port might come back with
          address is already in use as the kernel has not yet deallocated it
          from the old process. if thats the case, we will retry
          every second up to a minute
-
          */
 
         _listenerRunning = YES;
         int counter = 0;
         while(counter < 60)
         {
-            sErr  = [_listenerTcp bind];
+            sErr  = [_listener bind];
             if(sErr != UMSocketError_address_already_in_use)
             {
                 break;
@@ -177,26 +178,26 @@ run on top of SCTP when it is used.
         }
         if(!sErr)
         {
-            sErr  = [_listenerTcp listen];
+            sErr  = [_listener listen];
         }
         if(sErr == UMSocketError_no_error)
         {
-            self.status = UMDiameterTcpListenerStatus_running;
+            self.status = UMDiameterListenerStatus_running;
         }
         else
         {
             self.lastErr = sErr;
-            self.status = UMDiameterTcpListenerStatus_failed;
+            self.status = UMDiameterListenerStatus_failed;
         }
 
         [_sleeper wakeUp];
 
-        while(self.status == UMDiameterTcpListenerStatus_running)
+        while(self.status == UMDiameterListenerStatus_running)
         {
             @autoreleasepool
             {
                 //NSLog(@"_receivePollTimeoutMs=%ld",_receivePollTimeoutMs);
-                pollResult = [_listenerTcp dataIsAvailable:_receivePollTimeoutMs];
+                pollResult = [_listener dataIsAvailable:_receivePollTimeoutMs];
                 if(pollResult == UMSocketError_has_data_and_hup)
                 {
                     NSLog(@"  UMSocketError_has_data_and_hup");
@@ -208,27 +209,19 @@ run on top of SCTP when it is used.
                 {
                     /* we get new connection request */
                     UMSocketError ret1=UMSocketError_no_error;
-                    UMSocket *clientSocket = [_listenerTcp accept:&ret1];
-                    if(clientSocket)
+                    UMSocket *peerSocket = [_listener accept:&ret1];
+                    if(peerSocket)
                     {
-                        clientSocket.useSSL=_useTLS;
-                        clientSocket.serverSideKeyFilename  = _privateKeyFile;
-                        clientSocket.serverSideKeyData      = _privateKeyFileData;
-                        clientSocket.serverSideCertFilename = _certFile;
-                        clientSocket.serverSideCertData     = _certFileData;
-
-						UMDiameterTcpConnection *con = [[UMDiameterTcpConnection alloc] initWithSocket:clientSocket listener:self router:_router];
-						con.name = [NSString stringWithFormat:@"DiameterConnection %@:%d",clientSocket.connectedRemoteAddress,clientSocket.connectedRemotePort];
-						con.enableKeepalive = _enableKeepalive;
-						UMDiameterPeer *peer = [_router getPeerForConnection:con];
+                        peerSocket.useSSL=_useTLS;
+                        peerSocket.serverSideKeyFilename  = _privateKeyFile;
+                        peerSocket.serverSideKeyData      = _privateKeyFileData;
+                        peerSocket.serverSideCertFilename = _certFile;
+                        peerSocket.serverSideCertData     = _certFileData;
+						UMDiameterPeer *peer = [_router getPeerForSocket:peerSocket];
 						if(peer==NULL)
 						{
-							[clientSocket close];
-							con = NULL;
-						}
-						else
-						{
-                            [_connections addObject:con];
+							[peerSocket close];
+							peerSocket = NULL;
 						}
 					}
                     else
@@ -243,23 +236,12 @@ run on top of SCTP when it is used.
                 else
                 {
                     _lastErr = pollResult;
-                    self.status = UMHTTPServerStatus_failed;
+                    self.status = UMDiameterListenerStatus_failed;
                 }
-            }
-            /* maintenance work */
-            while ([_terminatedConnections count] > 0)
-            {
-                UMDiameterTcpConnection *con = [_terminatedConnections removeFirst];
-                if(con==NULL)
-                {
-                    break;
-                }
-                [con terminate];
-                con = NULL;
             }
         }
-        self.status = UMDiameterTcpListenerStatus_shutDown;
-        [_listenerTcp close];
+        self.status = UMDiameterListenerStatus_shutDown;
+        [_listener close];
         _listenerRunning = NO;
     }
 }
@@ -275,34 +257,23 @@ run on top of SCTP when it is used.
 
 - (void) stopTcp
 {
-    [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d is stopping\r\n",[_listenerTcp requestedLocalPort]]];
+    [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d is stopping\r\n",[_listener requestedLocalPort]]];
 
-    if((self.status !=UMDiameterTcpListenerStatus_running) && (_listenerRunning!=YES))
+    if((self.status !=UMDiameterListenerStatus_running) && (_listenerRunning!=YES))
     {
-		[self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d was not running\r\n",[_listenerTcp requestedLocalPort]]];
+		[self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d was not running\r\n",[_listener requestedLocalPort]]];
         return;
     }
-    self.status = UMDiameterTcpListenerStatus_shuttingDown;
-    while(self.status == UMDiameterTcpListenerStatus_shuttingDown)
+    self.status = UMDiameterListenerStatus_shuttingDown;
+    while(self.status == UMDiameterListenerStatus_shuttingDown)
     {
         [_sleeper sleep:100]; /* wait 100ms */
     }
-    self.status = UMDiameterTcpListenerStatus_notRunning;
+    self.status = UMDiameterListenerStatus_notRunning;
 
-    [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d is stopped\r\n",[_listenerTcp requestedLocalPort]]];
+    [self.logFeed info:0 withText:[NSString stringWithFormat:@"DiameterListener on port %d is stopped\r\n",[_listener requestedLocalPort]]];
 }
 
-
-- (void)connectionDone:(UMDiameterTcpConnection *)con
-{
-    if(con)
-    {
-        [_connectionsLock lock];
-        [_connections removeObject:con];
-        [_terminatedConnections addObject:con];
-        [_connectionsLock unlock];
-    }
-}
 
 
 - (void) setPrivateKeyFile:(NSString *)filename
@@ -323,3 +294,4 @@ run on top of SCTP when it is used.
 
 
 
+#endif

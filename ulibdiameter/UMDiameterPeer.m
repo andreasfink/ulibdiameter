@@ -9,7 +9,6 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterPacket.h"
 #import "UMDiameterPeerState_all.h"
-#import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterAvpVendor_Specific_Application_Id.h"
 #import "UMDiameterResultCode.h"
@@ -20,7 +19,10 @@
 #import "UMDiameterPacketDPR.h"
 #import "UMDiameterPacketDPA.h"
 #import "UMDiameterAvpAll.h"
+#import "UMDiameterRouter.h"
+
 #import <ulibsctp/ulibsctp.h>
+#include <poll.h>
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 
@@ -65,6 +67,7 @@
     _configuredLocalPort = 5868;
     _configuredRemotePort = 5868;
     _eventLock = [[UMMutex alloc]initWithName:@"diameter-event-lock"];
+    _dataBuffersLock = [[UMMutex alloc]initWithName:@"diameter-data-buffers-lock"];
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
                                              object:NULL
@@ -648,16 +651,32 @@
          if([local_ip_object isKindOfClass:[NSString class]])
          {
              NSString *line = (NSString *)local_ip_object;
-             _configuredLocalAddresses = [line componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n\r\t;,"]];
+             NSArray *inArr  = [line componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n\r\t;,"]];
+             NSMutableArray *arr = [[NSMutableArray alloc]init];
+             for(NSString *s in inArr)
+             {
+                 [arr addObject:[UMSocket unifyIP:s]];
+             }
+             _configuredLocalAddresses = [arr copy];
          }
          else if([local_ip_object isKindOfClass:[UMSynchronizedArray class]])
          {
              UMSynchronizedArray *ua = (UMSynchronizedArray *)local_ip_object;
-             _configuredLocalAddresses = [ua.array copy];
+             NSMutableArray *arr = [[NSMutableArray alloc]init];
+             for(NSString *s in ua)
+             {
+                 [arr addObject:[UMSocket unifyIP:s]];
+             }
+             _configuredLocalAddresses = [arr copy];
+
          }
          else if([local_ip_object isKindOfClass:[NSArray class]])
          {
-             NSArray *arr = (NSArray *)local_ip_object;
+             NSMutableArray *arr = [[NSMutableArray alloc]init];
+             for(NSString *s in local_ip_object)
+             {
+                 [arr addObject:[UMSocket unifyIP:s]];
+             }
              _configuredLocalAddresses = [arr copy];
          }
      }
@@ -676,19 +695,36 @@
          if([remote_ip_object isKindOfClass:[NSString class]])
          {
              NSString *line = (NSString *)remote_ip_object;
-             _configuredRemoteAddresses = [line componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n\r\t;,"]];
+             NSArray *inArr  = [line componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n\r\t;,"]];
+             NSMutableArray *arr = [[NSMutableArray alloc]init];
+             for(NSString *s in inArr)
+             {
+                 [arr addObject:[UMSocket unifyIP:s]];
+             }
+             _configuredRemoteAddresses = [arr copy];
          }
          else if([remote_ip_object isKindOfClass:[UMSynchronizedArray class]])
          {
              UMSynchronizedArray *ua = (UMSynchronizedArray *)remote_ip_object;
-             _configuredRemoteAddresses = [ua.array copy];
+             NSMutableArray *arr = [[NSMutableArray alloc]init];
+             for(NSString *s in ua)
+             {
+                 [arr addObject:[UMSocket unifyIP:s]];
+             }
+             _configuredRemoteAddresses = [arr copy];
+
          }
          else if([remote_ip_object isKindOfClass:[NSArray class]])
          {
-             NSArray *arr = (NSArray *)remote_ip_object;
+             NSMutableArray *arr = [[NSMutableArray alloc]init];
+             for(NSString *s in remote_ip_object)
+             {
+                 [arr addObject:[UMSocket unifyIP:s]];
+             }
              _configuredRemoteAddresses = [arr copy];
          }
      }
+
      if (cfg[@"remote-port"])
      {
          _configuredRemotePort = [cfg[@"remote-port"] intValue];
@@ -705,7 +741,9 @@
     if(_tcpPeer)
     {
         _initiator_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
+        _initiator_socket.customUser = self;
         _responder_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
+        _responder_socket.customUser = self;
         if(_configuredLocalAddresses.count > 0)
         {
             UMHost *localHost = [[UMHost alloc]initWithAddress:_configuredLocalAddresses[0]];
@@ -1462,13 +1500,13 @@ typedef enum ElectionResult
         UMSocketSCTP *sctp = (UMSocketSCTP *)s;
         UMSocketError err = UMSocketError_no_error;
         uint32_t        tmp_assocId = -1;
-        ssize_t sent_packets = [sctp sendToAddresses:_configuredRemoteAddresses
-                                                port:_configuredRemotePort
-                                               assoc:&tmp_assocId
-                                                data:data
-                                              stream:0
-                                            protocol:DIAMETER_SCTP_PPID_CLEAR
-                                               error:&err];
+        /* ssize_t sent_packets = */ [sctp sendToAddresses:_configuredRemoteAddresses
+                                                      port:_configuredRemotePort
+                                                     assoc:&tmp_assocId
+                                                      data:data
+                                                    stream:0
+                                                  protocol:DIAMETER_SCTP_PPID_CLEAR
+                                                     error:&err];
         return err;
     }
 }
@@ -1618,5 +1656,259 @@ typedef enum ElectionResult
     [s appendFormat:@"\n    Attributes: %@\n    State: %@",attributesString,_peerState.currentState];
     return s;
 }
+
+- (UMSocketError)handlePollResultInitiator:(int)revent
+                                    socket:(UMSocket *)socket
+                                 poll_time:(UMMicroSec)poll_time
+{
+    UMSocketError returnValue = UMSocketError_no_error;
+    if(revent & (POLLIN | POLLPRI))
+    {
+        /* Data other than high priority data may be read without blocking. */
+        returnValue = [self receiveDataOnInitiator];
+        if(returnValue == UMSocketError_has_data_and_hup)
+        {
+            _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
+            [_initiator_socket close];
+            return returnValue;
+        }
+    }
+    if(revent & POLLERR)
+    {
+        /* An exceptional condition has occurred on the device or socket */
+        _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
+        [_initiator_socket close];
+    }
+    else if(revent & POLLHUP)
+    {
+        /* The device or socket has been disconnected. */
+        _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
+        [_initiator_socket close];
+    }
+    if(revent & POLLNVAL)
+    {
+        /* POLLNVAL The file descriptor is not open */
+        _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
+        [_initiator_socket close];
+    }
+    return returnValue;
+}
+
+- (UMSocketError)handlePollResultResponder:(int)revent
+                                    socket:(UMSocket *)socket
+                                 poll_time:(UMMicroSec)poll_time
+{
+    UMSocketError returnValue = UMSocketError_no_error;
+    if(revent & (POLLIN | POLLPRI))
+    {
+        /* Data other than high priority data may be read without blocking. */
+        returnValue = [self receiveDataOnResponder];
+        if(returnValue == UMSocketError_has_data_and_hup)
+        {
+            _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
+            [_responder_socket close];
+            returnValue = UMSocketError_connection_reset;
+        }
+    }
+    if(revent & POLLERR)
+    {
+        /* An exceptional condition has occurred on the device or socket */
+        _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
+        [_responder_socket close];
+        returnValue = UMSocketError_connection_reset;
+    }
+    if(revent & POLLHUP)
+    {
+        /* The device or socket has been disconnected. */
+        _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
+        [_responder_socket close];
+        returnValue = UMSocketError_connection_reset;
+    }
+    if(revent & POLLNVAL)
+    {
+        /* POLLNVAL The file descriptor is not open */
+        _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
+        [_responder_socket close];
+        returnValue = UMSocketError_connection_reset;
+    }
+    return returnValue;
+}
+
+
+- (UMSocketError )receiveDataOnInitiator
+{
+    NSData *input;
+    UMSocketError e = [_initiator_socket receiveEverythingTo:&input];
+    if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
+    {
+        [_dataBuffersLock lock];
+        if(_initiator_receive_buffer ==NULL)
+        {
+            _initiator_receive_buffer = [[NSMutableData alloc]initWithData:input];
+        }
+        else
+        {
+            [_initiator_receive_buffer appendData:input];
+        }
+        [_dataBuffersLock unlock];
+        if(e == UMSocketError_has_data)
+        {
+            e = UMSocketError_no_error;
+        }
+    }
+    [self checkForInitiatorPackets];
+    return e;
+}
+
+- (UMSocketError)receiveDataOnResponder
+{
+    NSData *input;
+    UMSocketError e = [_responder_socket receiveEverythingTo:&input];
+    if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
+    {
+        [_dataBuffersLock lock];
+        if(_responder_receive_buffer ==NULL)
+        {
+            _responder_receive_buffer = [[NSMutableData alloc]initWithData:input];
+        }
+        else
+        {
+            [_responder_receive_buffer appendData:input];
+        }
+        [_dataBuffersLock unlock];
+        if(e == UMSocketError_has_data)
+        {
+            e = UMSocketError_no_error;
+        }
+    }
+    [self checkForResponderPackets];
+    return e;
+}
+
+- (void)checkForInitiatorPackets
+{
+    [_dataBuffersLock lock];
+    NSInteger pos=0;
+    UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:_initiator_receive_buffer atPosition:&pos];
+    if(packet)
+    {
+        [_initiator_receive_buffer replaceBytesInRange:NSMakeRange(0,pos) withBytes:"" length:0];
+        [self handleInitiatorPacket:packet];
+    }
+    [_dataBuffersLock unlock];
+}
+
+- (void)checkForResponderPackets
+{
+    [_dataBuffersLock lock];
+    NSInteger pos=0;
+    UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:_responder_receive_buffer atPosition:&pos];
+    if(packet)
+    {
+        [_responder_receive_buffer replaceBytesInRange:NSMakeRange(0,pos) withBytes:"" length:0];
+        [self handleResponderPacket:packet];
+    }
+    [_dataBuffersLock unlock];
+
+}
+
+- (void)handleInitiatorPacket:(UMDiameterPacket *)packet
+{
+    if((packet.commandCode == UMDiameterCommandCode_Capabilities_Exchange) &&
+       (packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages))
+    {
+        if(packet.flagRequest)
+        {
+            _peerState = [_peerState eventI_Rcv_CER:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
+        }
+    }
+    else
+    {
+        _peerState = [_peerState eventI_Rcv_Non_CEA:self message:packet];
+    }
+
+    if((packet.commandCode == UMDiameterCommandCode_Disconnect_Peer) &&
+       (packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages))
+    {
+        if(packet.flagRequest)
+        {
+            _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
+        }
+    }
+    else if((packet.commandCode == UMDiameterCommandCode_Device_Watchdog) &&
+            (packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages))
+    {
+        if(packet.flagRequest)
+        {
+            _peerState = [_peerState eventI_Rcv_DWR:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
+        }
+    }
+    else
+    {
+        _peerState = [_peerState eventI_Rcv_Message:self message:packet];
+    }
+}
+
+- (void)handleResponderPacket:(UMDiameterPacket *)packet
+{
+    if((packet.commandCode == UMDiameterCommandCode_Capabilities_Exchange) &&
+       (packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages))
+    {
+        if(packet.flagRequest)
+        {
+            _peerState = [_peerState eventR_Rcv_CER:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
+        }
+    }
+    else
+    {
+        _peerState = [_peerState eventR_Rcv_Non_CEA:self message:packet];
+    }
+
+    if((packet.commandCode == UMDiameterCommandCode_Disconnect_Peer) &&
+       (packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages))
+    {
+        if(packet.flagRequest)
+        {
+            _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
+        }
+    }
+    else if((packet.commandCode == UMDiameterCommandCode_Device_Watchdog) &&
+            (packet.applicationId == UMDiameterApplicationId_Diameter_Common_Messages))
+    {
+        if(packet.flagRequest)
+        {
+            _peerState = [_peerState eventR_Rcv_DWR:self message:packet];
+        }
+        else
+        {
+            _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
+        }
+    }
+    else
+    {
+        _peerState = [_peerState eventR_Rcv_Message:self message:packet];
+    }
+}
+
 @end
 

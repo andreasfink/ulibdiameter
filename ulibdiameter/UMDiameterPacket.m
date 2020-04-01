@@ -43,7 +43,8 @@
 
 - (UMDiameterPacket *)initWithData:(NSData *)packet
 {
-    return [self initWithData:packet atPosition:NULL];
+    NSInteger pos = 0;
+    return [self initWithData:packet atPosition:&pos];
 }
 
 - (UMDiameterPacket *)initWithPacket:(UMDiameterPacket *)packet

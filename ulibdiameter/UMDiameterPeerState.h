@@ -39,9 +39,6 @@
 - (UMDiameterPeerState *)eventI_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
-/* Rcv-Non-CEA: A message, other than a CEA, from the peer was received. */
-- (UMDiameterPeerState *)eventI_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
-- (UMDiameterPeerState *)eventR_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
 /* Peer-Disc: A disconnection indication from the peer was received. */
 - (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
@@ -74,6 +71,11 @@
 /* Rcv-Message:A message other than CER, CEA, DPR, DPA, DWR, or DWA was received. */
 - (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+
+/* Rcv-Non-CEA: A message, other than a CEA, from the peer was received. */
+- (UMDiameterPeerState *)eventI_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+- (UMDiameterPeerState *)eventR_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
+
 
 /* Stop: The Diameter application has signaled that a connection should be terminated (e.g., on system shutdown). */
 - (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;

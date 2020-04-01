@@ -1,28 +1,28 @@
 //
-//  UMDiameterRouterTcpReceiver.m
+//  UMDiameterRouterReceiver.m
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 03.03.2020.
 //  Copyright © 2020 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterRouterTcpReceiver.h"
+#import "UMDiameterRouterReceiver.h"
 #import "UMDiameterPeer.h"
 #import "UMDiameterRouter.h"
 
 #include <poll.h>
 
-@implementation UMDiameterRouterTcpReceiver
+@implementation UMDiameterRouterReceiver
 
-- (UMDiameterRouterTcpReceiver *)init
+- (UMDiameterRouterReceiver *)init
 {
-    NSAssert(0, @"use [UMDiameterRouterTcpReceiver initWithRouter:]");
+    NSAssert(0, @"use [UMDiameterRouterReceiver initWithRouter:]");
     return NULL;
 }
 
-- (UMDiameterRouterTcpReceiver *)initWithRouter:(UMDiameterRouter *)r;
+- (UMDiameterRouterReceiver *)initWithRouter:(UMDiameterRouter *)r;
 {
-    self = [super initWithName:@"UMDiameterRouterTcpReceiver" workSleeper:NULL];
+    self = [super initWithName:@"UMDiameterRouterReceiver" workSleeper:NULL];
     if(self)
     {
         _router = r;
@@ -33,13 +33,12 @@
 
 - (void)backgroundInit
 {
-    ulib_set_thread_name(@"UMDiameterRouterTcpReceiver");
+    ulib_set_thread_name(@"UMDiameterRouterReceiver");
 }
-
 
 - (void)backgroundExit
 {
-    ulib_set_thread_name(@"UMDiameterRouterTcpReceiver (terminating)");
+    ulib_set_thread_name(@"UMDiameterRouterReceiver (terminating)");
 }
 
 - (void)backgroundTask
@@ -75,17 +74,16 @@
 {
     UMSocketError returnValue = UMSocketError_generic_error;
 
-    NSArray *allListenerKeys = [_router.tcpListeners allKeys];
+    NSArray *allListeners = [_router getListeners];
     NSMutableArray *pinfo = [[NSMutableArray alloc]init];
-    for(NSString *key in allListenerKeys)
+    for(UMSocket *s in allListeners)
     {
-        UMSocket *s = _router.tcpListeners[key];
         if(s)
         {
             [pinfo addObject:s];
         }
     }
-    
+
     NSUInteger listeners_count = pinfo.count;
     if(listeners_count)
     {

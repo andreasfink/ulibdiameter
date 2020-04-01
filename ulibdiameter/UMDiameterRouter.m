@@ -10,11 +10,11 @@
 #import "UMDiameterRouter_RouteTask.h"
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterPacket.h"
-#import "UMDiameterTcpConnection.h"
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterVendorId.h"
 #import "UMDiameterRoute.h"
 #import "UMDiameterPacketsAll.h"
+#import "UMDiameterListener.h"
 #include <poll.h>
 
 @implementation UMDiameterRouter
@@ -33,6 +33,7 @@
 		_peers = [[UMSynchronizedDictionary alloc]init];
         _sessions = [[UMSynchronizedDictionary alloc]init];
         _routes = [[UMSynchronizedDictionary alloc]init];
+        _listeners = [[NSMutableArray alloc]init];
         _defaultSessionTimeout = 90;
         _inboundThroughputPackets   = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
@@ -431,12 +432,11 @@
 }
 
 
-/* this is used for incoming tcp peers. for SCTP the connections are established outbound/inbound and are nailed down */
-- (UMDiameterPeer *) getPeerForConnection:(UMDiameterTcpConnection *)connection
+/* this is used for incoming  peers */
+- (UMDiameterPeer *) getPeerForSocket:(UMSocket *)socket
 {
-#if 0
 	NSArray *peerNames = [_peers allKeys];
-	NSString *remoteIP = connection.socket.connectedRemoteAddress;
+    NSString *remoteIP = [UMSocket unifyIP:socket.connectedRemoteAddress];
 
 	for(NSString *peerName in peerNames)
 	{
@@ -445,24 +445,35 @@
 		{
 			continue;
 		}
-		NSString *remoteIP;
+		if((socket.type== UMSOCKET_TYPE_TCP)
+		   || (socket.type==UMSOCKET_TYPE_TCP4ONLY)
+		   || (socket.type==UMSOCKET_TYPE_TCP6ONLY))
+		{
 
-		NSString *type;
-		if((connection.socket.type!= UMSOCKET_TYPE_TCP)
-		   || (connection.socket.type!=UMSOCKET_TYPE_TCP4ONLY)
-		   || (connection.socket.type!=UMSOCKET_TYPE_TCP6ONLY))
-		{
-			UMAssert(0,@"this is not a tcp socket");
-			return NULL;
+            if( [ [UMSocket unifyIP:peer.tcpRemoteIP] isEqualToString:remoteIP])
+            {
+                if(peer.responderPort == socket.localPort)
+                {
+                    return peer;
+                }
+            }
 		}
-		if(([peer.tcpRemoteIP isEqualToString:connection.socket.connectedRemoteAddress]) &&
-			(peer.tcpRemotePort == connection.socket.connectedRemotePort))
-		{
-			peer.tcpConnection = connection;
-			return peer;
-		}
+        else if((socket.type== UMSOCKET_TYPE_SCTP)
+               || (socket.type==UMSOCKET_TYPE_SCTP4ONLY)
+               || (socket.type==UMSOCKET_TYPE_SCTP6ONLY))
+        {
+            for(NSString *socketIP in peer.sctpRemoteIPs)
+            {
+                if( [ [UMSocket unifyIP:socketIP] isEqualToString:remoteIP])
+                {
+                    if(peer.responderPort == socket.localPort)
+                    {
+                        return peer;
+                    }
+                }
+            }
+        }
 	}
-#endif
 	return NULL;
 }
 
@@ -633,15 +644,17 @@
     [self addRoute:route];
 }
 
-- (UMSocket *)getTcpListenerForPort:(int)port
-                       localAddress:(NSString *)address
+#if 0
+- (UMSocket *)getListenerForPort:(int)port
+                    localAddress:(NSString *)address
+                      socketType:(UMSocketType )socketType
 {
     [_listenerLock lock];
-    NSString *key = [NSString stringWithFormat:@"tcp/%@/%d",address,port];
-    UMSocket *sock = _tcpListeners[key];
+    NSString *key = [NSString stringWithFormat:@"%@/%@/%d",[UMSocket socketTypeDescription:socketType],address,port];
+    UMSocket *sock = _listeners[key];
     if(sock==NULL)
     {
-        sock = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
+        sock = [[UMSocket alloc]initWithType:socketType];
         sock.localHost = [[UMHost alloc]initWithAddress:address];
         sock.requestedLocalPort = port;
         UMSocketError e = [sock bind];
@@ -665,12 +678,128 @@
             }
             else
             {
-                _tcpListeners[key] = sock;
+                _listeners[key] = sock;
             }
         }
     }
     [_listenerLock unlock];
     return sock;
+}
+#endif
+
+
+- (NSArray *)getListeners
+{
+    [_listenerLock lock];
+    NSArray *a = [_listeners copy];
+    [_listenerLock unlock];
+    return a;
+}
+
+- (void)stopListening
+{
+
+    [_listenerLock lock];
+    for(UMSocket *socket in _listeners)
+    {
+        [socket close];
+    }
+    [_listenerLock unlock];
+    _listenersStarted = NO;
+}
+
+- (void)startListening
+{
+    if(_listenersStarted==NO)
+    {
+        return;
+    }
+    [_listenerLock lock];
+    for(UMSocket *socket in _listeners)
+    {
+        UMSocketError sErr;
+        int counter = 0;
+        while(counter < 5)
+        {
+            sErr  = [socket bind];
+            if(sErr == UMSocketError_address_already_in_use)
+            {
+                /* if socket is still in use, we retry */
+                usleep(1000000);
+                counter += 1;
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+        if(sErr==UMSocketError_no_error)
+        {
+            sErr  = [socket listen];
+            if(sErr)
+            {
+                NSString *s = [NSString stringWithFormat:@"can not listen on %@ port %d, %d %@",
+                                     [UMSocket socketTypeDescription:socket.socketType],
+                                     socket.requestedLocalPort,
+                                     sErr,[UMSocket getSocketErrorString:sErr]];
+                [self logMajorError:s];
+            }
+        }
+    }
+    _listenersStarted = YES;
+    [_listenerLock unlock];
+}
+
+
+- (void)updateListeners
+{
+    [_listenerLock lock];
+    [self stopListening];
+    NSMutableDictionary *listenerKeys = [[NSMutableDictionary alloc]init];
+    _listeners = [[NSMutableArray alloc]init];
+    NSArray *keys = [_peers allKeys];
+    for(id key in keys)
+    {
+        UMDiameterPeer *peer = _peers[key];
+        if(peer)
+        {
+            if(peer.tcpPeer)
+            {
+                if (peer.responderPort > 0)
+                {
+                    NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",peer.tcpLocalIP,peer.responderPort];
+                    if(listenerKeys[sdup]==NULL)
+                    {
+                        UMSocket *socket = [[UMSocket alloc] initWithType:UMSOCKET_TYPE_TCP];
+                        socket.requestedLocalPort = peer.responderPort;
+                        socket.localHost = [[UMHost alloc]initWithAddress:peer.tcpLocalIP];
+                        listenerKeys[sdup] = socket;
+                        [_listeners addObject:socket];
+                    }
+                }
+            }
+            else
+            {
+                if (peer.responderPort > 0)
+                {
+                    NSArray *a = [peer.sctpLocalIPs sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+                    NSString *s = [a componentsJoinedByString:@","];
+                    NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",s,peer.responderPort];
+                    if(listenerKeys[sdup]==NULL)
+                    {
+                        UMSocketSCTP *socket = [[UMSocketSCTP alloc] initWithType:UMSOCKET_TYPE_SCTP];
+                        socket.requestedLocalPort = peer.responderPort;
+                        socket.requestedLocalAddresses = peer.sctpLocalIPs;
+                        listenerKeys[sdup] = socket;
+                        [_listeners addObject:socket];
+                    }
+                }
+            }
+        }
+    }
+    [self startListening];
+    [_listenerLock unlock];
 }
 
 - (UMSocketError)handlePollResult:(int)revent
@@ -681,10 +810,86 @@
 
     if(revent & (POLLIN | POLLPRI))
     {
-        UMSocket *nsock = [socket accept:&returnValue];
-        NSString *remoteAddress = [nsock.remoteHost address:UMSOCKET_TYPE_TCP];
-        /* we now have to find the matching peer for this address */
-        
+        if(socket.customUser)
+        {
+            UMDiameterPeer *peer = (UMDiameterPeer *)socket.customUser;
+            if(peer.initiator_socket == socket)
+            {
+                socket.customUser = peer;
+                returnValue = [peer handlePollResultInitiator:revent
+                                                       socket:socket
+                                                    poll_time:poll_time];
+                return returnValue;
+            }
+            else if(peer.responder_socket == socket)
+            {
+                socket.customUser = peer;
+                returnValue = [peer handlePollResultResponder:revent
+                                                       socket:socket
+                                                    poll_time:poll_time];
+                return returnValue;
+            }
+        }
+        if(socket.isListening)
+        {
+            /* NEW INCOMING CONNECTIONS */
+            UMSocket *nsock = [socket accept:&returnValue];
+            NSString *remoteAddress = nsock.connectedRemoteAddress;
+            NSString *localAddress  = nsock.connectedLocalAddress;
+            int localPort = nsock.connectedLocalPort;
+
+            remoteAddress = [UMSocket unifyIP:remoteAddress];
+            localAddress = [UMSocket unifyIP:localAddress];
+            /* we now have to find the matching peer for this address */
+
+            NSArray *peerKeys = [_peers allKeys];
+            for(NSString *key in peerKeys)
+            {
+                UMDiameterPeer *peer = _peers[key];
+                if(peer)
+                {
+                    if(peer.tcpPeer)
+                    {
+                       if(([peer.tcpRemoteIP isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
+                        {
+                            if(peer.responder_socket.isConnected)
+                            {
+                                [peer.responder_socket close];
+                                [_logFeed debugText:@"have a new inbound connection from same source. closing old socket"];
+                            }
+                            peer.responder_socket = socket;
+                            socket.customUser = peer;
+                            returnValue = [peer handlePollResultResponder:revent
+                                                                   socket:socket
+                                                                poll_time:poll_time];
+                            return returnValue;
+                        }
+                    }
+                    else
+                    {
+                        /* SCTP */
+                        for(NSString *ip in peer.sctpRemoteIPs)
+                        {
+                            if(([ip isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
+                            {
+                                if(peer.responder_socket.isConnected)
+                                {
+                                    [peer.responder_socket close];
+                                    [_logFeed debugText:@"have a new inbound connection from same source. closing old socket"];
+                                }
+                                peer.responder_socket = socket;
+                                socket.customUser = peer;
+                                returnValue = [peer handlePollResultResponder:revent
+                                                                       socket:socket
+                                                                    poll_time:poll_time];
+                                return returnValue;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
     }
     return returnValue;
 }

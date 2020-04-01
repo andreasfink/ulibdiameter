@@ -32,8 +32,6 @@
     return self;
 }
 
-
-
 - (void)main
 {
     UMDiameterRouterSession *session = [_router findSessionForPacket:_packet];

@@ -42,7 +42,9 @@
     NSMutableArray<NSNumber *>      *_authApplicationIds;
     id<UMDiameterLocalUserProtocol> _localUser;
     
-    UMSynchronizedDictionary        *_tcpListeners;
+    NSMutableArray<UMSocket *>      *_listeners; /* all listening sockets which wait for incoming connections */
+    BOOL                            _listenersStarted;
+    NSMutableArray                  *_establishedSockets; /* all sockets which wait for incoming data */
     UMSocketSCTPRegistry            *_sctpRegistry;
     
     uint32_t _sid_int1;
@@ -66,7 +68,7 @@
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *peers;
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *sessions;
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *routes;
-@property(readwrite,strong,atomic) UMSynchronizedDictionary *tcpListeners;
+- (NSArray *)getListeners;
 
 - (uint32_t)nextEndToEndIdentifier;
 
@@ -82,7 +84,7 @@
 
 - (UMDiameterRouterSession *)findSessionById:(NSString *)sid;
 - (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt;
-- (UMDiameterPeer *) getPeerForConnection:(UMDiameterTcpConnection *)connection;
+- (UMDiameterPeer *) getPeerForSocket:(UMSocket *)socket;
 
 - (void)addPeer:(UMDiameterPeer *)peer;
 - (void)start;
@@ -101,10 +103,8 @@
 - (void)processIncomingResponsePacket:(UMDiameterPacket *)packet
                              fromPeer:(UMDiameterPeer *)peer;
 
-- (UMSocket *)getTcpListenerForPort:(int)port
-                       localAddress:(NSString *)address;
-
 - (UMSocketError)handlePollResult:(int)revent
                            socket:(UMSocket *)socket
                         poll_time:(UMMicroSec)poll_time;
+
 @end
