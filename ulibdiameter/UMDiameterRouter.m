@@ -717,7 +717,7 @@
     [_listenerLock lock];
     for(UMSocket *socket in _listeners)
     {
-        UMSocketError sErr;
+        UMSocketError sErr = UMSocketError_no_error;
         int counter = 0;
         while(counter < 5)
         {
