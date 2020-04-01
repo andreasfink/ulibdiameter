@@ -60,8 +60,8 @@
     _isActive = NO;
     _isConnecting = NO;
     _nextHopIdentifierLock = [[UMMutex alloc]initWithName:@"diameter-peer-next-hop-identifier-lock"];
-    _sctpStatus_i = SCTP_STATUS_OFF;
-    _sctpStatus_r = SCTP_STATUS_OFF;
+    _sctpStatus_i = UMSOCKET_STATUS_OFF;
+    _sctpStatus_r = UMSOCKET_STATUS_OFF;
     _outstandingWatchdogEvents = 0;
     _maxOutstandingWatchdogEvents = 3;
     _configuredLocalPort = 5868;
@@ -257,10 +257,10 @@
 
 - (void) sctpStatusIndication:(UMLayer *)caller
                        userId:(id)uid
-                       status:(SCTP_Status)statusNew
+                       status:(UMSocketStatus)statusNew
 {
     UMSocket *sock = NULL;
-    SCTP_Status previousStatus;
+    UMSocketStatus previousStatus;
     BOOL initiator;
 
     if([caller isEqualTo:_initiator_socket])
@@ -287,16 +287,16 @@
     NSString *oldStatusString= @"undefined";
     switch(previousStatus)
     {
-        case  SCTP_STATUS_M_FOOS:
+        case  UMSOCKET_STATUS_FOOS:
             oldStatusString = @"M_FOOS";
             break;
-        case SCTP_STATUS_OFF:
+        case UMSOCKET_STATUS_OFF:
             oldStatusString = @"OFF";
             break;
-        case SCTP_STATUS_OOS:
+        case UMSOCKET_STATUS_OOS:
             oldStatusString = @"OOS";
             break;
-        case SCTP_STATUS_IS:
+        case UMSOCKET_STATUS_IS:
             oldStatusString = @"IS";
             break;
     }
@@ -310,7 +310,7 @@
     }
     switch(statusNew)
     {
-        case  SCTP_STATUS_M_FOOS:
+        case  UMSOCKET_STATUS_FOOS:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->M_FOOS",oldStatusString];
             [self.logFeed infoText:s];
@@ -324,7 +324,7 @@
             }
             break;
         }
-        case SCTP_STATUS_OFF:
+        case UMSOCKET_STATUS_OFF:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OFF",oldStatusString];
             [self.logFeed infoText:s];
@@ -338,13 +338,13 @@
             }
             break;
         }
-        case SCTP_STATUS_OOS:
+        case UMSOCKET_STATUS_OOS:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OOS",oldStatusString];
             [self.logFeed infoText:s];
             break;
         }
-        case SCTP_STATUS_IS:
+        case UMSOCKET_STATUS_IS:
         {
             NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->IS",oldStatusString];
             [self.logFeed infoText:s];
@@ -1602,7 +1602,7 @@ typedef enum ElectionResult
     NSString *loc = [_configuredLocalAddresses componentsJoinedByString:@","];
     NSString *rem = [_configuredRemoteAddresses componentsJoinedByString:@","];
     [s appendFormat:@":(%@:%d->%@:%d)",loc,_configuredLocalPort,rem,_configuredRemotePort];
-    SCTP_Status status;
+    UMSocketStatus status;
     if(_isIncoming)
     {
         [s appendString:@":responder"];
@@ -1615,16 +1615,16 @@ typedef enum ElectionResult
     }
     switch(status)
     {
-            case    SCTP_STATUS_M_FOOS:
+            case    UMSOCKET_STATUS_FOOS:
                 [s appendString:@":M-FOOS"];
                 break;
-            case    SCTP_STATUS_OFF:
+            case    UMSOCKET_STATUS_OFF:
                 [s appendString:@":OFF"];
                 break;
-            case    SCTP_STATUS_OOS:
+            case    UMSOCKET_STATUS_OOS:
                 [s appendString:@":OOS"];
                 break;
-            case    SCTP_STATUS_IS:
+            case    UMSOCKET_STATUS_IS:
                 [s appendString:@":IS"];
                 break;
             default:
