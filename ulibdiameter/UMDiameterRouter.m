@@ -534,8 +534,6 @@
     }
 }
 
-
-
 - (uint32_t)nextEndToEndIdentifier;
 {
     uint32_t r;
