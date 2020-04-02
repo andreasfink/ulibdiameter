@@ -23,7 +23,12 @@
 
 #import <ulibsctp/ulibsctp.h>
 #include <poll.h>
-#include <sctp/sctp.h>
+
+#ifdef __APPLE__
+#import <sctp/sctp.h>
+#else
+#include "netinet/sctp.h"
+#endif
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 
