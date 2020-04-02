@@ -152,13 +152,16 @@
             BOOL isListener = [a[0] boolValue];
             UMSocket *socket = a[1];
             int revent = pollfds[i].revents;
-            UMSocketError r = [_router handlePollResult:revent
-                                                 socket:socket
-                                              poll_time:poll_time
-                                             isListener:isListener];
-            if(r != UMSocketError_no_error)
+            if(revent!=0)
             {
-                returnValue= r;
+                 UMSocketError r = [_router handlePollResult:revent
+                                                     socket:socket
+                                                  poll_time:poll_time
+                                                 isListener:isListener];
+                if(r != UMSocketError_no_error)
+                {
+                    returnValue= r;
+                }
             }
         }
     }
