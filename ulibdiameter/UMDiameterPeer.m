@@ -540,8 +540,6 @@
     {
         _initiator_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
         _initiator_socket.customUser = self;
-        _responder_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
-        _responder_socket.customUser = self;
         if(_configuredLocalAddresses.count > 0)
         {
             UMHost *localHost = [[UMHost alloc]initWithAddress:_configuredLocalAddresses[0]];

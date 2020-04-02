@@ -893,7 +893,19 @@
                 || (socket.type == UMSOCKET_TYPE_SCTP4ONLY)
                 || (socket.type == UMSOCKET_TYPE_SCTP6ONLY))
             {
-                nsock = [((UMSocketSCTP *)socket) acceptSCTP:&returnValue];
+                UMSocketSCTP *rs = (UMSocketSCTP *)socket;
+                rs = [rs acceptSCTP:&returnValue];
+                nsock = rs;
+                //[rs updateMtu:_mtu];
+                [rs switchToNonBlocking];
+                [rs setNoDelay];
+                [rs setInitParams];
+                [rs setIPDualStack];
+                [rs setLinger];
+                [rs setReuseAddr];
+                [rs setReusePort];
+                [rs enableEvents];
+                [rs setHeartbeat:YES];
             }
             else
             {
@@ -926,9 +938,9 @@
                                 [peer.responder_socket close];
                                 [_logFeed debugText:@"have a new inbound connection from same source. closing old socket"];
                             }
-                            peer.responder_socket = socket;
-                            [self startReceivingOnSocket:socket forPeer:peer];
-                            [peer connectionUpForSocket:socket];
+                            peer.responder_socket = nsock;
+                            [self startReceivingOnSocket:nsock forPeer:peer];
+                            [peer connectionUpForSocket:nsock];
                             listenerHandled = YES;
                             break;
                         }
