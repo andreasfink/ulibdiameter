@@ -557,7 +557,7 @@
     }
     else
     {
-        UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
+        UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP ];
         is.requestedRemoteAddresses = _configuredRemoteAddresses;
         is.requestedLocalAddresses = _configuredLocalAddresses;
         is.requestedRemotePort = _initiatorPort;
@@ -1461,7 +1461,7 @@ typedef enum ElectionResult
     if(revent & (POLLIN | POLLPRI))
     {
         /* Data other than high priority data may be read without blocking. */
-        returnValue = [self receiveData:YES];
+        returnValue = [self receiveData:initiator];
         if(returnValue == UMSocketError_has_data_and_hup)
         {
             [self connectionDisconnectedForSocket:socket];
@@ -2371,6 +2371,10 @@ typedef enum ElectionResult
          protocolId:(uint16_t)protocolId
           initiator:(BOOL)initiator
 {
+    if(data.length == 0)
+    {
+        return;
+    }
     UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:data];
      if(!packet)
      {
