@@ -1020,7 +1020,7 @@
                                   port:_initiatorPort
                                  assoc:&_i_assoc];
     }
-    if(err==UMSocketError_no_error)
+    if((err==UMSocketError_no_error) || (err==UMSocketError_in_progress))
     {
         [_router startReceivingOnSocket:_initiator_socket forPeer:self];
     }
