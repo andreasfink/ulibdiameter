@@ -560,7 +560,6 @@
     else
     {
         UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
-        UMSocketSCTP *rs = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
         is.requestedRemoteAddresses = _configuredRemoteAddresses;
         is.requestedLocalAddresses = _configuredLocalAddresses;
         is.requestedRemotePort = _initiatorPort;
@@ -580,29 +579,8 @@
             [self logMajorError:[NSString stringWithFormat:@"can not bind initiator on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
         [is setHeartbeat:YES];
-
-        rs.requestedRemoteAddresses = _configuredRemoteAddresses;
-        rs.requestedLocalAddresses = _configuredLocalAddresses;
-        rs.requestedRemotePort = 0;
-        rs.requestedLocalPort = _responderPort;
-        [rs updateMtu:_mtu];
-        [rs switchToNonBlocking];
-        [rs setNoDelay];
-        [rs setInitParams];
-        [rs setIPDualStack];
-        [rs setLinger];
-        [rs setReuseAddr];
-        [rs setReusePort];
-        [rs enableEvents];
-        err = [rs bind];
-        if(err!=UMSocketError_no_error)
-        {
-            [self logMajorError:[NSString stringWithFormat:@"can not bind responder on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
-        }
-        [rs setHeartbeat:YES];
-
         _initiator_socket = is;
-        _responder_socket = rs;
+        _responder_socket = NULL; /* this one will be created by accept() */
     }
 }
 
