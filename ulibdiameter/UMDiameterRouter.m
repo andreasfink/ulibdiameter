@@ -865,7 +865,6 @@
             UMDiameterPeer *peer = (UMDiameterPeer *)socket.customUser;
             if(peer.initiator_socket == socket)
             {
-                socket.customUser = peer;
                 returnValue = [peer handlePollResult:revent
                                               socket:socket
                                            poll_time:poll_time

@@ -1489,16 +1489,20 @@ typedef enum ElectionResult
 {
     NSData *input;
     UMSocketError e;
+
+    UMSocket *socket;
+    if(initiator)
+    {
+        socket = _initiator_socket;
+    }
+    else
+    {
+        socket = _responder_socket;
+    }
     if(_tcpPeer)
     {
-        if(initiator)
-        {
-            e = [_responder_socket receiveEverythingTo:&input];
-        }
-        else
-        {
-            e = [_initiator_socket receiveEverythingTo:&input];
-        }
+        e = [socket receiveEverythingTo:&input];
+
         if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
         {
             [_dataBuffersLock lock];
@@ -1539,7 +1543,7 @@ typedef enum ElectionResult
     }
     else
     {
-        UMSocketSCTP *sctp = (UMSocketSCTP *)_responder_socket;
+        UMSocketSCTP *sctp = (UMSocketSCTP *)socket;
         UMSocketSCTPReceivedPacket *rx = [sctp receiveSCTP];
         e = rx.err;
         if(e == UMSocketError_no_error)
