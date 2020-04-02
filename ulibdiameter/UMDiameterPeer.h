@@ -23,7 +23,7 @@
 @class UMDiameterPacket;
 @class UMDiameterAVP;
 
-@interface UMDiameterPeer : UMLayer<UMLayerUserProtocol,UMLayerSctpUserProtocol>
+@interface UMDiameterPeer : UMLayer<UMLayerUserProtocol>
 {
 	BOOL					_tcpPeer;
     NSArray                 *_configuredLocalAddresses;
