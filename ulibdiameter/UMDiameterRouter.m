@@ -781,7 +781,7 @@
             if(sErr)
             {
                 NSString *s = [NSString stringWithFormat:@"can not listen on %@ port %d, %d %@",
-                                     [UMSocket socketTypeDescription:socket.socketType],
+                                     [UMSocket socketTypeDescription:socket.type],
                                      socket.requestedLocalPort,
                                      sErr,[UMSocket getSocketErrorString:sErr]];
                 [self logMajorError:s];
@@ -888,7 +888,17 @@
                 NSLog(@"listener registered but not market as listening");
             }
             /* NEW INCOMING CONNECTIONS */
-            UMSocket *nsock = [socket accept:&returnValue];
+            UMSocket *nsock;
+            if((socket.type == UMSOCKET_TYPE_SCTP)
+                || (socket.type == UMSOCKET_TYPE_SCTP4ONLY)
+                || (socket.type == UMSOCKET_TYPE_SCTP6ONLY))
+            {
+                nsock = [((UMSocketSCTP *)socket) acceptSCTP:&returnValue];
+            }
+            else
+            {
+                nsock = [socket accept:&returnValue];
+            }
             NSString *remoteAddress = nsock.connectedRemoteAddress;
             NSString *localAddress  = nsock.connectedLocalAddress;
             int localPort = nsock.connectedLocalPort;

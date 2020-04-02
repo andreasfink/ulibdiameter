@@ -1018,10 +1018,9 @@
     else
     {
         UMSocketSCTP *sctp = (UMSocketSCTP *)_initiator_socket;
-        sctp.requestedRemoteAddresses = _configuredRemoteAddresses;
-        sctp.requestedRemotePort = _initiatorPort;
-        sctp.requestedLocalPort = 0;
-        err = [sctp connectAssoc:&_i_assoc];
+        err = [sctp connectToAddresses:_configuredRemoteAddresses
+                                  port:_initiatorPort
+                                 assoc:&_i_assoc];
     }
     if(err==UMSocketError_no_error)
     {
