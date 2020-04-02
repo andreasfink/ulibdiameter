@@ -175,10 +175,11 @@
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
-        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Peer_Disc",self.currentState];
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Peer_Disc. Choosing closing",self.currentState];
         [peer logDebug:s];
     }
-    return self;
+    //[peer actionI_Disc:NULL];
+    return [UMDiameterPeerState_Closed];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
