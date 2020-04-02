@@ -20,14 +20,13 @@
 
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    UMSocketError err = [peer actionI_Snd_Conn_Req:NULL];
+    [peer actionI_Snd_Conn_Req:NULL];
     UMDiameterPeerState *newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
     return newState;
 }
 
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionR_Accept:message];
     [peer actionProcess_CER:message];
     
     UMDiameterPacket *response = [peer createCEA:message.hopByHopIdentifier
@@ -37,6 +36,17 @@
                                        failedAvp:NULL];
     [peer actionR_Snd_CEA:response];
     return [[UMDiameterPeerState_R_Open alloc]init];
+}
+
+
+- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_CER. Treating as eventR_Conn_CER",self.currentState];
+        [peer logDebug:s];
+    }
+    return [self eventR_Conn_CER:peer message:message];
 }
 
 @end

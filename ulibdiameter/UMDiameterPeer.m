@@ -1049,7 +1049,7 @@
 {
     if(_logLevel <= UMLOG_DEBUG)
     {
-        [self logDebug:message.objectValue.jsonString];
+        [self logDebug:message.description];
     }
     /* FIXME: do something useful here */
 }
