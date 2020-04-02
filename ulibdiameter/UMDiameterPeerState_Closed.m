@@ -22,10 +22,13 @@
 {
     UMSocketError err = [peer actionI_Snd_Conn_Req:NULL];
     UMDiameterPeerState *newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+#if (0)
+    // we do this now on connection up notification
     if(err == UMSocketError_no_error)
     {
-        newState = [newState eventI_Rcv_Conn_Ack:peer message:NULL];
+            newState = [newState eventI_Rcv_Conn_Ack:peer message:NULL];
     }
+#endif
     return newState;
 }
 

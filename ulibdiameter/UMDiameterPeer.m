@@ -1286,10 +1286,18 @@ typedef enum ElectionResult
     {
         UMSocketSCTP *sctp = (UMSocketSCTP *)s;
         UMSocketError err = UMSocketError_no_error;
-        uint32_t        tmp_assocId = -1;
+        uint32_t        *tmp_assocPtr;
+        if(s == _initiator_socket )
+        {
+            tmp_assocPtr = &_i_assoc;
+        }
+        else
+        {
+            tmp_assocPtr = &_r_assoc;
+        }
         /* ssize_t sent_packets = */ [sctp sendToAddresses:_configuredRemoteAddresses
                                                       port:s.connectedRemotePort
-                                                     assoc:&tmp_assocId
+                                                     assoc:tmp_assocPtr
                                                       data:data
                                                     stream:0
                                                   protocol:DIAMETER_SCTP_PPID_CLEAR
