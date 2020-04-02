@@ -865,15 +865,15 @@
                 if(peer)
                 {
                     NSArray *localIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-                    NSArray *remoteIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+                    NSArray *remoteIpAddresses = [peer.configuredRemoteAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
                     NSString *localIpString = [localIpAddresses componentsJoinedByString:@","];
                     NSString *remoteIpString = [localIpAddresses componentsJoinedByString:@","];
 
-                    if(0)
-                    {/*
-                    if(peer.tcpPeer)
+
+                    /* SCTP */
+                    for(NSString *ip in remoteIpAddresses)
                     {
-                       if(([peer.tcpRemoteIP isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
+                        if(([ip isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
                         {
                             if(peer.responder_socket.isConnected)
                             {
@@ -887,31 +887,8 @@
                                                                 poll_time:poll_time];
                             listenerHandled = YES;
                             break;
-                        }*/
-                    }
-                    else
-                    {
-                        /* SCTP */
-                        for(NSString *ip in remoteIpAddresses)
-                        {
-                            if(([ip isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
-                            {
-                                if(peer.responder_socket.isConnected)
-                                {
-                                    [peer.responder_socket close];
-                                    [_logFeed debugText:@"have a new inbound connection from same source. closing old socket"];
-                                }
-                                peer.responder_socket = socket;
-                                socket.customUser = peer;
-                                returnValue = [peer handlePollResultResponder:revent
-                                                                       socket:socket
-                                                                    poll_time:poll_time];
-                                listenerHandled = YES;
-                                break;
-                            }
                         }
                     }
-
                 }
             }
             if(listenerHandled==NO)
