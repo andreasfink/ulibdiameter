@@ -451,8 +451,11 @@
 		   || (socket.type==UMSOCKET_TYPE_TCP4ONLY)
 		   || (socket.type==UMSOCKET_TYPE_TCP6ONLY))
 		{
-
-            if( [ [UMSocket unifyIP:peer.tcpRemoteIP] isEqualToString:remoteIP])
+            if(peer.configuredRemoteAddresses.count<1)
+            {
+               return NULL;
+            }
+            if( [ [UMSocket unifyIP:peer.configuredRemoteAddresses[0]] isEqualToString:remoteIP])
             {
                 if(peer.responderPort == socket.localPort)
                 {
@@ -464,7 +467,7 @@
                || (socket.type==UMSOCKET_TYPE_SCTP4ONLY)
                || (socket.type==UMSOCKET_TYPE_SCTP6ONLY))
         {
-            for(NSString *socketIP in peer.sctpRemoteIPs)
+            for(NSString *socketIP in peer.configuredRemoteAddresses)
             {
                 if( [ [UMSocket unifyIP:socketIP] isEqualToString:remoteIP])
                 {
@@ -770,19 +773,24 @@
     NSArray *keys = [_peers allKeys];
     for(id key in keys)
     {
+
         UMDiameterPeer *peer = _peers[key];
         if(peer)
         {
+            NSArray *localIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+            NSString *localIpString = [localIpAddresses componentsJoinedByString:@","];
+
             if(peer.tcpPeer)
             {
                 if (peer.responderPort > 0)
                 {
-                    NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",peer.tcpLocalIP,peer.responderPort];
+
+                    NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",localIpString,peer.responderPort];
                     if(listenerKeys[sdup]==NULL)
                     {
                         UMSocket *socket = [[UMSocket alloc] initWithType:UMSOCKET_TYPE_TCP];
                         socket.requestedLocalPort = peer.responderPort;
-                        socket.localHost = [[UMHost alloc]initWithAddress:peer.tcpLocalIP];
+                        socket.localHost = [[UMHost alloc]initWithAddress:localIpAddresses[0]];
                         listenerKeys[sdup] = socket;
                         [_listeners addObject:socket];
                     }
@@ -792,14 +800,12 @@
             {
                 if (peer.responderPort > 0)
                 {
-                    NSArray *a = [peer.sctpLocalIPs sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-                    NSString *s = [a componentsJoinedByString:@","];
-                    NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",s,peer.responderPort];
+                    NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",localIpString,peer.responderPort];
                     if(listenerKeys[sdup]==NULL)
                     {
                         UMSocketSCTP *socket = [[UMSocketSCTP alloc] initWithType:UMSOCKET_TYPE_SCTP];
                         socket.requestedLocalPort = peer.responderPort;
-                        socket.requestedLocalAddresses = peer.sctpLocalIPs;
+                        socket.requestedLocalAddresses = localIpAddresses;
                         listenerKeys[sdup] = socket;
                         [_listeners addObject:socket];
                     }
@@ -858,6 +864,13 @@
                 UMDiameterPeer *peer = _peers[key];
                 if(peer)
                 {
+                    NSArray *localIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+                    NSArray *remoteIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+                    NSString *localIpString = [localIpAddresses componentsJoinedByString:@","];
+                    NSString *remoteIpString = [localIpAddresses componentsJoinedByString:@","];
+
+                    if(0)
+                    {/*
                     if(peer.tcpPeer)
                     {
                        if(([peer.tcpRemoteIP isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
@@ -874,12 +887,12 @@
                                                                 poll_time:poll_time];
                             listenerHandled = YES;
                             break;
-                        }
+                        }*/
                     }
                     else
                     {
                         /* SCTP */
-                        for(NSString *ip in peer.sctpRemoteIPs)
+                        for(NSString *ip in remoteIpAddresses)
                         {
                             if(([ip isEqualToString:remoteAddress]) && (peer.responderPort == localPort))
                             {

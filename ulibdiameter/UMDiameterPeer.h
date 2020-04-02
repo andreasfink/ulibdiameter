@@ -26,10 +26,8 @@
 @interface UMDiameterPeer : UMLayer<UMLayerUserProtocol,UMLayerSctpUserProtocol>
 {
 	BOOL					_tcpPeer;
-    NSString                *_tcpRemoteIP;
-    NSString                *_tcpLocalIP;
-    NSArray<NSString *>     *_sctpRemoteIPs;
-    NSArray<NSString *>     *_sctpLocalIPs;
+    NSArray                 *_configuredLocalAddresses;
+    NSArray                 *_configuredRemoteAddresses;
     int                     _initiatorPort;
     int                     _responderPort;
     UMSocket                *_initiator_socket; /* initiator */
@@ -64,8 +62,6 @@
     int                     _outstandingWatchdogEvents;
     int                     _maxOutstandingWatchdogEvents;
     
-    NSArray                 *_configuredLocalAddresses;
-    NSArray                 *_configuredRemoteAddresses;
     double                  _heartbeatSeconds;
     int                     _mtu;
     UMMutex                 *_eventLock;
@@ -75,10 +71,8 @@
 }
 
 @property(readwrite,assign,atomic)  BOOL					tcpPeer;
-@property(readwrite,strong,atomic)  NSString                *tcpRemoteIP;
-@property(readwrite,strong,atomic)  NSString                *tcpLocalIP;
-@property(readwrite,strong,atomic)  NSArray<NSString *>     *sctpRemoteIPs;
-@property(readwrite,strong,atomic)  NSArray<NSString *>     *sctpLocalIPs;
+@property(readwrite,strong,atomic)  NSArray<NSString *>     *configuredLocalAddresses;
+@property(readwrite,strong,atomic)  NSArray<NSString *>     *configuredRemoteAddresses;
 @property(readwrite,strong,atomic)  UMSocket                *initiator_socket; /* initiator */
 @property(readwrite,strong,atomic)  UMSocket                *responder_socket; /* responder */
 @property(readwrite,assign,atomic)  int                     initiatorPort;

@@ -656,7 +656,6 @@
              for(NSString *s in inArr)
              {
                  NSString *ip = [UMSocket unifyIP:s];
-                 _tcpLocalIP = ip;
                  [arr addObject:ip];
              }
              _configuredLocalAddresses = [arr copy];
@@ -668,7 +667,6 @@
              for(NSString *s in ua)
              {
                  NSString *ip = [UMSocket unifyIP:s];
-                 _tcpLocalIP = ip;
                  [arr addObject:ip];
              }
              _configuredLocalAddresses = [arr copy];
@@ -680,7 +678,6 @@
              for(NSString *s in local_ip_object)
              {
                  NSString *ip = [UMSocket unifyIP:s];
-                 _tcpLocalIP = ip;
                  [arr addObject:ip];
              }
              _configuredLocalAddresses = [arr copy];
@@ -706,7 +703,6 @@
              for(NSString *s in inArr)
              {
                  NSString *ip = [UMSocket unifyIP:s];
-                 _tcpRemoteIP = ip;
                  [arr addObject:ip];
              }
              _configuredRemoteAddresses = [arr copy];
@@ -718,7 +714,6 @@
              for(NSString *s in ua)
              {
                  NSString *ip = [UMSocket unifyIP:s];
-                 _tcpRemoteIP = ip;
                  [arr addObject:ip];
              }
              _configuredRemoteAddresses = [arr copy];
@@ -730,7 +725,6 @@
              for(NSString *s in remote_ip_object)
              {
                  NSString *ip = [UMSocket unifyIP:s];
-                 _tcpRemoteIP = ip;
                  [arr addObject:ip];
              }
              _configuredRemoteAddresses = [arr copy];
