@@ -85,7 +85,7 @@
     }
 
     NSUInteger listeners_count = pinfo.count;
-    if(listeners_count)
+    if(listeners_count==0)
     {
         sleep(1);
         return UMSocketError_no_data;
@@ -102,17 +102,17 @@
 #ifdef POLLRDHUP
     events |= POLLRDHUP;
 #endif
-    nfds_t j=0;
+    //nfds_t j=0;
 
     for(NSUInteger i=0;i<listeners_count;i++)
     {
         UMSocket *listener = pinfo[i];
-        pollfds[j].fd = listener.fileDescriptor;
-        pollfds[j].events = events;
-        j++;
+        pollfds[i].fd = listener.fileDescriptor;
+        pollfds[i].events = events;
+        //j++;
     }
     /* we could add a wakeup pipe here if we want. thats why the size of pollfds is +1 */
-    int ret1 = poll(pollfds, j, _timeoutInMs);
+    int ret1 = poll(pollfds, (nfds_t)listeners_count, _timeoutInMs);
     UMMicroSec poll_time = ulib_microsecondTime();
     if (ret1 < 0)
     {
@@ -139,7 +139,7 @@
         for(NSUInteger i=0;i<listeners_count;i++)
         {
             socket = pinfo[i];
-            int revent = pollfds[j].revents;
+            int revent = pollfds[i].revents;
             UMSocketError r = [_router handlePollResult:revent
                                                  socket:socket
                                               poll_time:poll_time];

@@ -12,6 +12,8 @@
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterTcpConnectionAuthorisationProtocol.h"
 #import "UMDiameterLocalUserProtocol.h"
+@class UMDiameterRouterReceiver;
+
 @class UMDiameterRoute;
 
 @protocol UMDiameterRouterAppDelegateProtocol
@@ -22,6 +24,8 @@
 	UMSynchronizedDictionary *_peers;
     UMSynchronizedDictionary *_sessions;
     UMSynchronizedDictionary *_routes;
+    UMDiameterRouterReceiver *_receiver;
+
     UMThroughputCounter *_inboundThroughputPackets;
     UMThroughputCounter *_outboundThroughputPackets;
     NSTimeInterval      _defaultSessionTimeout;

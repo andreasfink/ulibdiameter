@@ -64,8 +64,8 @@
     _sctpStatus_r = UMSOCKET_STATUS_OFF;
     _outstandingWatchdogEvents = 0;
     _maxOutstandingWatchdogEvents = 3;
-    _configuredLocalPort = 5868;
-    _configuredRemotePort = 5868;
+    _responderPort = 5868;
+    _initiatorPort = 5868;
     _eventLock = [[UMMutex alloc]initWithName:@"diameter-event-lock"];
     _dataBuffersLock = [[UMMutex alloc]initWithName:@"diameter-data-buffers-lock"];
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
@@ -655,7 +655,9 @@
              NSMutableArray *arr = [[NSMutableArray alloc]init];
              for(NSString *s in inArr)
              {
-                 [arr addObject:[UMSocket unifyIP:s]];
+                 NSString *ip = [UMSocket unifyIP:s];
+                 _tcpLocalIP = ip;
+                 [arr addObject:ip];
              }
              _configuredLocalAddresses = [arr copy];
          }
@@ -665,7 +667,9 @@
              NSMutableArray *arr = [[NSMutableArray alloc]init];
              for(NSString *s in ua)
              {
-                 [arr addObject:[UMSocket unifyIP:s]];
+                 NSString *ip = [UMSocket unifyIP:s];
+                 _tcpLocalIP = ip;
+                 [arr addObject:ip];
              }
              _configuredLocalAddresses = [arr copy];
 
@@ -675,7 +679,9 @@
              NSMutableArray *arr = [[NSMutableArray alloc]init];
              for(NSString *s in local_ip_object)
              {
-                 [arr addObject:[UMSocket unifyIP:s]];
+                 NSString *ip = [UMSocket unifyIP:s];
+                 _tcpLocalIP = ip;
+                 [arr addObject:ip];
              }
              _configuredLocalAddresses = [arr copy];
          }
@@ -687,7 +693,7 @@
 
      if (cfg[@"local-port"])
      {
-         _configuredLocalPort = [cfg[@"local-port"] intValue];
+         _responderPort = [cfg[@"local-port"] intValue];
      }
      if (cfg[@"remote-ip"])
      {
@@ -699,7 +705,9 @@
              NSMutableArray *arr = [[NSMutableArray alloc]init];
              for(NSString *s in inArr)
              {
-                 [arr addObject:[UMSocket unifyIP:s]];
+                 NSString *ip = [UMSocket unifyIP:s];
+                 _tcpRemoteIP = ip;
+                 [arr addObject:ip];
              }
              _configuredRemoteAddresses = [arr copy];
          }
@@ -709,7 +717,9 @@
              NSMutableArray *arr = [[NSMutableArray alloc]init];
              for(NSString *s in ua)
              {
-                 [arr addObject:[UMSocket unifyIP:s]];
+                 NSString *ip = [UMSocket unifyIP:s];
+                 _tcpRemoteIP = ip;
+                 [arr addObject:ip];
              }
              _configuredRemoteAddresses = [arr copy];
 
@@ -719,7 +729,9 @@
              NSMutableArray *arr = [[NSMutableArray alloc]init];
              for(NSString *s in remote_ip_object)
              {
-                 [arr addObject:[UMSocket unifyIP:s]];
+                 NSString *ip = [UMSocket unifyIP:s];
+                 _tcpRemoteIP = ip;
+                 [arr addObject:ip];
              }
              _configuredRemoteAddresses = [arr copy];
          }
@@ -727,7 +739,7 @@
 
      if (cfg[@"remote-port"])
      {
-         _configuredRemotePort = [cfg[@"remote-port"] intValue];
+         _initiatorPort = [cfg[@"remote-port"] intValue];
      }
      if (cfg[@"heartbeat"])
      {
@@ -756,8 +768,8 @@
             _initiator_socket.remoteHost = remoteHost;
             _responder_socket.remoteHost = remoteHost;
         }
-        _initiator_socket.requestedRemotePort = _configuredRemotePort;
-        _responder_socket.requestedLocalPort = _configuredLocalPort;
+        _initiator_socket.requestedRemotePort = _initiatorPort;
+        _responder_socket.requestedLocalPort = _responderPort;
     }
     else
     {
@@ -765,47 +777,44 @@
         UMSocketSCTP *rs = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP];
         is.requestedRemoteAddresses = _configuredRemoteAddresses;
         is.requestedLocalAddresses = _configuredLocalAddresses;
-        is.requestedRemotePort = _configuredRemotePort;
+        is.requestedRemotePort = _initiatorPort;
         is.requestedLocalPort = 0;
-        rs.requestedRemotePort = 0;
-        rs.requestedLocalPort = _configuredLocalPort;
-        rs.requestedRemoteAddresses = _configuredRemoteAddresses;
-        rs.requestedLocalAddresses = _configuredLocalAddresses;
-
         [is updateMtu:_mtu];
-        [rs updateMtu:_mtu];
         [is switchToNonBlocking];
-        [rs switchToNonBlocking];
         [is setNoDelay];
-        [rs setNoDelay];
         [is setInitParams];
-        [rs setInitParams];
-
         [is setIPDualStack];
-        [rs setIPDualStack];
-
         [is setLinger];
-        [rs setLinger];
         [is setReuseAddr];
-        [rs setReuseAddr];
         [is setReusePort];
-        [rs setReusePort];
         [is enableEvents];
-        [rs enableEvents];
-
-
         UMSocketError err = [is bind];
         if(err!=UMSocketError_no_error)
         {
             [self logMajorError:[NSString stringWithFormat:@"can not bind initiator on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
+        [is setHeartbeat:YES];
+
+        rs.requestedRemoteAddresses = _configuredRemoteAddresses;
+        rs.requestedLocalAddresses = _configuredLocalAddresses;
+        rs.requestedRemotePort = 0;
+        rs.requestedLocalPort = _responderPort;
+        [rs updateMtu:_mtu];
+        [rs switchToNonBlocking];
+        [rs setNoDelay];
+        [rs setInitParams];
+        [rs setIPDualStack];
+        [rs setLinger];
+        [rs setReuseAddr];
+        [rs setReusePort];
+        [rs enableEvents];
         err = [rs bind];
         if(err!=UMSocketError_no_error)
         {
             [self logMajorError:[NSString stringWithFormat:@"can not bind responder on %@: %d %@",_layerName,err,[UMSocket getSocketErrorString:err]]];
         }
-        [is setHeartbeat:YES];
         [rs setHeartbeat:YES];
+
         _initiator_socket = is;
         _responder_socket = rs;
     }
@@ -1501,7 +1510,7 @@ typedef enum ElectionResult
         UMSocketError err = UMSocketError_no_error;
         uint32_t        tmp_assocId = -1;
         /* ssize_t sent_packets = */ [sctp sendToAddresses:_configuredRemoteAddresses
-                                                      port:_configuredRemotePort
+                                                      port:s.connectedRemotePort
                                                      assoc:&tmp_assocId
                                                       data:data
                                                     stream:0
@@ -1601,7 +1610,7 @@ typedef enum ElectionResult
     }
     NSString *loc = [_configuredLocalAddresses componentsJoinedByString:@","];
     NSString *rem = [_configuredRemoteAddresses componentsJoinedByString:@","];
-    [s appendFormat:@":(%@:%d->%@:%d)",loc,_configuredLocalPort,rem,_configuredRemotePort];
+    [s appendFormat:@":(%@:%d<->%@:%d)",loc,_responderPort,rem,_initiatorPort];
     UMSocketStatus status;
     if(_isIncoming)
     {

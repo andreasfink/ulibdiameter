@@ -16,6 +16,7 @@
     int _timeoutInMs;
     
 }
+- (UMDiameterRouterReceiver *)initWithRouter:(UMDiameterRouter *)r;
 
 @end
 

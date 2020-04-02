@@ -30,13 +30,13 @@
     NSString                *_tcpLocalIP;
     NSArray<NSString *>     *_sctpRemoteIPs;
     NSArray<NSString *>     *_sctpLocalIPs;
-    int                     _initatorPort;
+    int                     _initiatorPort;
     int                     _responderPort;
     UMSocket                *_initiator_socket; /* initiator */
     UMSocket                *_responder_socket; /* responder */
     UMDiameterRouter        *_router;
-    UMSocketStatus             _sctpStatus_i;
-    UMSocketStatus             _sctpStatus_r;
+    UMSocketStatus          _sctpStatus_i;
+    UMSocketStatus          _sctpStatus_r;
     UMDiameterPeerState     *_peerState;
     BOOL                    _isIncoming;
     BOOL                    _isConnected;
@@ -66,8 +66,6 @@
     
     NSArray                 *_configuredLocalAddresses;
     NSArray                 *_configuredRemoteAddresses;
-    int                     _configuredLocalPort;
-    int                     _configuredRemotePort;
     double                  _heartbeatSeconds;
     int                     _mtu;
     UMMutex                 *_eventLock;
@@ -83,7 +81,7 @@
 @property(readwrite,strong,atomic)  NSArray<NSString *>     *sctpLocalIPs;
 @property(readwrite,strong,atomic)  UMSocket                *initiator_socket; /* initiator */
 @property(readwrite,strong,atomic)  UMSocket                *responder_socket; /* responder */
-@property(readwrite,assign,atomic)  int                     initatorPort;
+@property(readwrite,assign,atomic)  int                     initiatorPort;
 @property(readwrite,assign,atomic)  int                     responderPort;
 @property(readwrite,strong,atomic)  UMDiameterTcpConnection	*tcpConnection;
 @property(readwrite,strong,atomic)  UMLayerSctp             *sctp_r;

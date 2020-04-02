@@ -15,6 +15,8 @@
 #import "UMDiameterRoute.h"
 #import "UMDiameterPacketsAll.h"
 #import "UMDiameterListener.h"
+#import "UMDiameterRouterReceiver.h"
+
 #include <poll.h>
 
 @implementation UMDiameterRouter
@@ -714,7 +716,7 @@
 
 - (void)startListening
 {
-    if(_listenersStarted==NO)
+    if(_listenersStarted==YES)
     {
         return;
     }
@@ -751,6 +753,11 @@
             }
         }
     }
+    if(_receiver==NULL)
+    {
+        _receiver = [[UMDiameterRouterReceiver alloc]initWithRouter:self];
+    }
+    [_receiver startBackgroundTask];
     _listenersStarted = YES;
     [_listenerLock unlock];
 }
@@ -847,6 +854,7 @@
             /* we now have to find the matching peer for this address */
 
             NSArray *peerKeys = [_peers allKeys];
+            BOOL listenerHandled = NO;
             for(NSString *key in peerKeys)
             {
                 UMDiameterPeer *peer = _peers[key];
@@ -866,7 +874,8 @@
                             returnValue = [peer handlePollResultResponder:revent
                                                                    socket:socket
                                                                 poll_time:poll_time];
-                            return returnValue;
+                            listenerHandled = YES;
+                            break;
                         }
                     }
                     else
@@ -886,12 +895,17 @@
                                 returnValue = [peer handlePollResultResponder:revent
                                                                        socket:socket
                                                                     poll_time:poll_time];
-                                return returnValue;
+                                listenerHandled = YES;
+                                break;
                             }
                         }
                     }
 
                 }
+            }
+            if(listenerHandled==NO)
+            {
+                [nsock close];
             }
         }
     }
