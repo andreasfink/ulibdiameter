@@ -73,6 +73,9 @@
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *sessions;
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *routes;
 - (NSArray *)getListeners;
+- (NSArray *)getReceivignSockets;
+- (void)startReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer;
+- (void)stopReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer;
 
 - (uint32_t)nextEndToEndIdentifier;
 
@@ -109,6 +112,7 @@
 
 - (UMSocketError)handlePollResult:(int)revent
                            socket:(UMSocket *)socket
-                        poll_time:(UMMicroSec)poll_time;
+                        poll_time:(UMMicroSec)poll_time
+                       isListener:(BOOL) isListener;
 
 @end

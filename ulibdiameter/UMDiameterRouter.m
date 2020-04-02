@@ -703,6 +703,39 @@
     return a;
 }
 
+- (NSArray *)getReceivignSockets
+{
+    [_listenerLock lock];
+    NSArray *a = [_establishedSockets copy];
+    [_listenerLock unlock];
+    return a;
+}
+
+- (void)startReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer
+{
+    [_listenerLock lock];
+    socket.customUser = peer;
+    [_establishedSockets addObject:socket];
+    [_listenerLock unlock];
+}
+
+- (void)stopReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer
+{
+    [_listenerLock lock];
+    [_establishedSockets removeObject:socket];
+    socket.customUser = NULL;
+    [_listenerLock unlock];
+}
+
+
+- (NSArray *)getReceivers
+{
+    [_listenerLock lock];
+    NSArray *a = [_establishedSockets copy];
+    [_listenerLock unlock];
+    return a;
+}
+
 - (void)stopListening
 {
 
@@ -820,6 +853,7 @@
 - (UMSocketError)handlePollResult:(int)revent
                            socket:(UMSocket *)socket
                         poll_time:(UMMicroSec)poll_time
+                       isListener:(BOOL) isListener
 {
     UMSocketError returnValue = UMSocketError_no_error;
 
@@ -845,8 +879,12 @@
                 return returnValue;
             }
         }
-        if(socket.isListening)
+        if(isListener)
         {
+            if(!socket.isListening)
+            {
+                NSLog(@"listener registered but not market as listening");
+            }
             /* NEW INCOMING CONNECTIONS */
             UMSocket *nsock = [socket accept:&returnValue];
             NSString *remoteAddress = nsock.connectedRemoteAddress;
@@ -881,10 +919,8 @@
                                 [_logFeed debugText:@"have a new inbound connection from same source. closing old socket"];
                             }
                             peer.responder_socket = socket;
-                            socket.customUser = peer;
-                            returnValue = [peer handlePollResultResponder:revent
-                                                                   socket:socket
-                                                                poll_time:poll_time];
+                            [self startReceivingOnSocket:socket forPeer:peer];
+                            [peer connectionUpForSocket:socket];
                             listenerHandled = YES;
                             break;
                         }
@@ -895,6 +931,24 @@
             {
                 [nsock close];
             }
+        }
+        else
+        {
+            if(!socket.isConnected)
+            {
+                NSLog(@"receiving data on not connected socket?!?");
+            }
+
+            UMDiameterPeer *peer = socket.customUser;
+            if(peer==NULL)
+            {
+                NSLog(@"receiving data on socket not connected to a peer?");
+            }
+            returnValue = [peer handlePollResultResponder:revent
+                                                   socket:socket
+                                                poll_time:poll_time];
+
+            /* receiving socket */
         }
     }
     return returnValue;

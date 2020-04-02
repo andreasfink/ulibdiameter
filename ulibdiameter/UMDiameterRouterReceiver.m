@@ -75,25 +75,34 @@
     UMSocketError returnValue = UMSocketError_generic_error;
 
     NSArray *allListeners = [_router getListeners];
+    NSArray *allReceivers = [_router getReceivignSockets];
     NSMutableArray *pinfo = [[NSMutableArray alloc]init];
     for(UMSocket *s in allListeners)
     {
         if(s)
         {
-            [pinfo addObject:s];
+            [pinfo addObject:@[@(YES),s]];
         }
     }
 
-    NSUInteger listeners_count = pinfo.count;
-    if(listeners_count==0)
+     for(UMSocket *s in allReceivers)
+     {
+         if(s)
+         {
+             [pinfo addObject:@[@(NO),s]];
+         }
+     }
+
+    NSUInteger sockets_count = pinfo.count;
+    if(sockets_count==0)
     {
         sleep(1);
         return UMSocketError_no_data;
     }
 
-    struct pollfd *pollfds = calloc(listeners_count+1,sizeof(struct pollfd));
+    struct pollfd *pollfds = calloc(sockets_count+1,sizeof(struct pollfd));
     NSAssert(pollfds !=0,@"can not allocate memory for poll()");
-    memset(pollfds, 0x00,listeners_count+1  * sizeof(struct pollfd));
+    memset(pollfds, 0x00,sockets_count+1  * sizeof(struct pollfd));
     int events = POLLIN | POLLPRI | POLLERR | POLLHUP | POLLNVAL;
 #ifdef POLLRDBAND
     events |= POLLRDBAND;
@@ -104,15 +113,16 @@
 #endif
     //nfds_t j=0;
 
-    for(NSUInteger i=0;i<listeners_count;i++)
+    for(NSUInteger i=0;i<sockets_count;i++)
     {
-        UMSocket *listener = pinfo[i];
-        pollfds[i].fd = listener.fileDescriptor;
+        NSArray *a = pinfo[i];
+        UMSocket *socket = a[1];
+        pollfds[i].fd = socket.fileDescriptor;
         pollfds[i].events = events;
         //j++;
     }
     /* we could add a wakeup pipe here if we want. thats why the size of pollfds is +1 */
-    int ret1 = poll(pollfds, (nfds_t)listeners_count, _timeoutInMs);
+    int ret1 = poll(pollfds, (nfds_t)sockets_count, _timeoutInMs);
     UMMicroSec poll_time = ulib_microsecondTime();
     if (ret1 < 0)
     {
@@ -135,14 +145,16 @@
         /* we have some event to handle. */
         returnValue = UMSocketError_no_error;
 
-        UMSocket *socket = NULL;
-        for(NSUInteger i=0;i<listeners_count;i++)
+        for(NSUInteger i=0;i<sockets_count;i++)
         {
-            socket = pinfo[i];
+            NSArray *a = pinfo[i];
+            BOOL isListener = [a[0] boolValue];
+            UMSocket *socket = a[1];
             int revent = pollfds[i].revents;
             UMSocketError r = [_router handlePollResult:revent
                                                  socket:socket
-                                              poll_time:poll_time];
+                                              poll_time:poll_time
+                                             isListener:isListener];
             if(r != UMSocketError_no_error)
             {
                 returnValue= r;

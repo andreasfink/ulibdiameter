@@ -100,7 +100,7 @@
 
 
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
-- (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message;
+- (UMSocketError)actionI_Snd_Conn_Req:(UMDiameterPacket *)message;
 
 /* Accept: The incoming connection associated with the R-Conn-CER is accepted as the responder connection.*/
 - (void)actionR_Accept:(UMDiameterPacket *)message;
@@ -202,6 +202,9 @@
 - (UMSocketError)handlePollResultResponder:(int)revent
                                     socket:(UMSocket *)socket
                                  poll_time:(UMMicroSec)poll_time;
+
+- (void)connectionUpForSocket:(UMSocket *)sock;
+
 @end
 
 

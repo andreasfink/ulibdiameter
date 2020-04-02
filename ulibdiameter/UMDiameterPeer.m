@@ -1238,9 +1238,10 @@
 /***** ACTIONS *****/
 
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
-- (void)actionI_Snd_Conn_Req:(UMDiameterPacket *)message
+- (UMSocketError )actionI_Snd_Conn_Req:(UMDiameterPacket *)message
 {
-    [_initiator_socket connect];
+    UMSocketError err = [_initiator_socket connect];
+    return err;
 }
 
 /* Accept: The incoming connection associated with the R-Conn-CER is accepted as the responder connection.*/
@@ -1760,6 +1761,10 @@ typedef enum ElectionResult
         }
     }
     [self checkForInitiatorPackets];
+    if(e==UMSocketError_not_connected)
+    {
+        [self connectionDownForSocket:_initiator_socket];
+    }
     return e;
 }
 
@@ -1785,6 +1790,10 @@ typedef enum ElectionResult
         }
     }
     [self checkForResponderPackets];
+    if(e==UMSocketError_not_connected)
+    {
+        [self connectionDownForSocket:_responder_socket];
+    }
     return e;
 }
 
@@ -1910,6 +1919,30 @@ typedef enum ElectionResult
     else
     {
         _peerState = [_peerState eventR_Rcv_Message:self message:packet];
+    }
+}
+
+- (void)connectionUpForSocket:(UMSocket *)sock
+{
+    if(sock == _initiator_socket)
+    {
+        _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
+    }
+    else if (sock == _responder_socket)
+    {
+        _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
+    }
+}
+
+- (void)connectionDownForSocket:(UMSocket *)sock
+{
+    if(sock == _initiator_socket)
+    {
+        _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+    }
+    else if (sock == _responder_socket)
+    {
+        _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
     }
 }
 

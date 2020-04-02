@@ -20,8 +20,13 @@
 
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    [peer actionI_Snd_Conn_Req:NULL];
-    return [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+    UMSocketError err = [peer actionI_Snd_Conn_Req:NULL];
+    UMDiameterPeerState *newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+    if(err == UMSocketError_no_error)
+    {
+        newState = [newState eventI_Rcv_Conn_Ack:peer message:NULL];
+    }
+    return newState;
 }
 
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
