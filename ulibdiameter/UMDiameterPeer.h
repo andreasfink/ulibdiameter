@@ -29,7 +29,9 @@
     NSArray                 *_configuredLocalAddresses;
     NSArray                 *_configuredRemoteAddresses;
     int                     _initiatorPort;
+    uint32_t                _i_assoc;
     int                     _responderPort;
+    uint32_t                _r_assoc;
     UMSocket                *_initiator_socket; /* initiator */
     UMSocket                *_responder_socket; /* responder */
     UMDiameterRouter        *_router;

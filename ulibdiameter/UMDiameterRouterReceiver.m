@@ -122,6 +122,9 @@
         //j++;
     }
     /* we could add a wakeup pipe here if we want. thats why the size of pollfds is +1 */
+    /* FIXME: TEMPORARY DEBUG */
+    _timeoutInMs = 100000;
+
     int ret1 = poll(pollfds, (nfds_t)sockets_count, _timeoutInMs);
     UMMicroSec poll_time = ulib_microsecondTime();
     if (ret1 < 0)

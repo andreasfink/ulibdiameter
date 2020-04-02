@@ -36,6 +36,7 @@
         _sessions = [[UMSynchronizedDictionary alloc]init];
         _routes = [[UMSynchronizedDictionary alloc]init];
         _listeners = [[NSMutableArray alloc]init];
+        _establishedSockets = [[NSMutableArray alloc]init];
         _defaultSessionTimeout = 90;
         _inboundThroughputPackets   = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];
         _outboundThroughputPackets  = [[UMThroughputCounter alloc]initWithResolutionInSeconds: 1.0 maxDuration: 1260.0];

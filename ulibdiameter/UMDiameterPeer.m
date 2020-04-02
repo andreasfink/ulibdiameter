@@ -224,21 +224,21 @@
 - (void)_eventSend_MessageTask:(UMDiameterPacket *)packet
 {
     [_eventLock lock];
-    [_peerState eventSend_Message:self message:packet];
+    _peerState = [_peerState eventSend_Message:self message:packet];
     [_eventLock unlock];
 }
 
 - (void)_eventStopTask:(id)obj
 {
     [_eventLock lock];
-    [_peerState eventStop:self message:obj];
+    _peerState = [_peerState eventStop:self message:obj];
     [_eventLock unlock];
 }
 
 - (void)_eventStartTask:(id)obj
 {
     [_eventLock lock];
-    [_peerState eventStart:self message:obj];
+    _peerState =[_peerState eventStart:self message:obj];
     [_eventLock unlock];
 }
 
@@ -1240,7 +1240,19 @@
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
 - (UMSocketError )actionI_Snd_Conn_Req:(UMDiameterPacket *)message
 {
-    UMSocketError err = [_initiator_socket connect];
+    UMSocketError err;
+    if(_tcpPeer)
+    {
+        err = [_initiator_socket connect];
+    }
+    else
+    {
+        UMSocketSCTP *sctp = (UMSocketSCTP *)_initiator_socket;
+        sctp.requestedRemoteAddresses = _configuredRemoteAddresses;
+        sctp.requestedRemotePort = _initiatorPort;
+        sctp.requestedLocalPort = 0;
+        err = [sctp connectAssoc:&_i_assoc];
+    }
     if(err==UMSocketError_no_error)
     {
         [_router startReceivingOnSocket:_initiator_socket forPeer:self];
@@ -1930,11 +1942,15 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
+        [_eventLock unlock];
     }
     else if (sock == _responder_socket)
     {
+        [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
+        [_eventLock unlock];
     }
 }
 
@@ -1942,12 +1958,17 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+        [_eventLock unlock];
+
 
     }
     else if (sock == _responder_socket)
     {
+        [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
+        [_eventLock unlock];
     }
 }
 
