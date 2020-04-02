@@ -905,10 +905,6 @@
                 {
                     NSArray *localIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
                     NSArray *remoteIpAddresses = [peer.configuredRemoteAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-                    NSString *localIpString = [localIpAddresses componentsJoinedByString:@","];
-                    NSString *remoteIpString = [localIpAddresses componentsJoinedByString:@","];
-
-
                     /* SCTP */
                     for(NSString *ip in remoteIpAddresses)
                     {

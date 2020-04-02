@@ -23,6 +23,7 @@
 
 #import <ulibsctp/ulibsctp.h>
 #include <poll.h>
+#include <sctp/sctp.h>
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 
@@ -362,221 +363,6 @@
     }
 }
 
-- (void) sctpDataIndication:(UMLayer *)caller
-                     userId:(id)uid
-                   streamId:(uint16_t)sid
-                 protocolId:(uint32_t)pid
-                       data:(NSData *)d
-{
-    UMSocket *sock = NULL;
-    BOOL initiator;
-
-    if([caller isEqualTo:_initiator_socket])
-    {
-        sock = _initiator_socket;
-        initiator = YES;
-    }
-    else if([caller isEqualTo:_responder_socket])
-    {
-        sock = _responder_socket;
-        initiator = NO;
-    }
-    else
-    {
-        NSLog(@"sctp status update for a connection we dont know");
-        return;
-    }
-
-    UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:d];
-    if(!packet)
-    {
-        NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)sid, (int)pid, [d hexString]];
-        [self.logFeed majorErrorText:s];
-        [self actionError:NULL];
-        //_peerState = [_peerState eventError:self message:NULL];
-    }
-    if((pid!=0) && (pid!=DIAMETER_SCTP_PPID_CLEAR))
-    {
-        NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)pid];
-        [self.logFeed majorError:0 withText:s];
-        [self actionError:NULL];
-        // _peerState = [_peerState eventStop:self];
-    }
-
-    BOOL defaultProcessing = NO;
-    /* REQUESTS */
-    if(packet.commandFlags & UMDiameterCommandFlag_Request)
-    {
-        switch(packet.applicationId)
-        {
-            case UMDiameterApplicationId_Diameter_Common_Messages:
-            {
-                switch(packet.commandCode)
-                {
-                    case UMDiameterCommandCode_Capabilities_Exchange:
-                    {
-                        if(initiator)
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_CERTask:),packet);
-                        }
-                        else
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_CERTask:),packet);
-                        }
-                        break;
-                    }
-                    case UMDiameterCommandCode_Disconnect_Peer:
-                    {
-                        if(initiator)
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DPRTask:),packet);
-                        }
-                        else
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DPRTask:),packet);
-                        }
-                        break;
-                    }
-                    case UMDiameterCommandCode_Device_Watchdog:
-                    {
-                        if(initiator)
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DWRTask:),packet);
-
-                        }
-                        else
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DWRTask:),packet);
-
-                        }
-                        break;
-                    }
-                    default:
-                    {
-                        defaultProcessing = YES;
-                        break;
-                    }
-                }
-                break;
-            }
-            default:
-            {
-                defaultProcessing = YES;
-                break;
-            }
-        }
-    }
-    else if(!(packet.commandFlags & UMDiameterCommandFlag_Error)) /* ANSWER */
-    {
-        switch(packet.applicationId)
-        {
-            case UMDiameterApplicationId_Diameter_Common_Messages:
-            {
-                switch(packet.commandCode)
-                {
-                    case UMDiameterCommandCode_Capabilities_Exchange:
-                    {
-                        if(initiator)
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_CEATask:),packet);
-                        }
-                        else
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_CEATask:),packet);
-                        }
-                        break;
-                    }
-                    case UMDiameterCommandCode_Disconnect_Peer:
-                    {
-                        if(initiator)
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DPATask:),packet);
-                        }
-                        else
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DPATask:),packet);
-                                            }
-                        break;
-                    }
-                    case UMDiameterCommandCode_Device_Watchdog:
-                    {
-                        if(initiator)
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DWATask:),packet);
-                        }
-                        else
-                        {
-                            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DWATask:),packet);
-                        }
-                        break;
-                    }
-                    default:
-                    {
-                        defaultProcessing = YES;
-                        break;
-                    }
-                }
-                break;
-            }
-            default:
-            {
-                defaultProcessing = YES;
-                break;
-            }
-        }
-    }
-    else if(packet.commandFlags & UMDiameterCommandFlag_Error)
-    {
-        switch(packet.applicationId)
-        {
-            case UMDiameterApplicationId_Diameter_Common_Messages:
-            {
-                switch(packet.commandCode)
-                {
-                    case UMDiameterCommandCode_Capabilities_Exchange:
-                    {
-                        NSString *s = [NSString stringWithFormat:@"Capabilities Exchange Error: %@",packet.dictionaryValue.jsonString];
-                        [self logMajorError:s];
-                        break;
-                    }
-                    case UMDiameterCommandCode_Disconnect_Peer:
-                    {
-                        NSString *s = [NSString stringWithFormat:@"Disconnect Peer Error: %@",packet.dictionaryValue.jsonString];
-                        [self logMajorError:s];
-                        break;
-                    }
-                    case UMDiameterCommandCode_Device_Watchdog:
-                    {
-                        NSString *s = [NSString stringWithFormat:@"Device Watchdog Error: %@",packet.dictionaryValue.jsonString];
-                        [self logMajorError:s];
-                        break;
-                    }
-                    default:
-                    {
-                        defaultProcessing =YES;
-                        break;
-                    }
-                }
-            }
-            default:
-            {
-                defaultProcessing =YES;
-                break;
-            }
-        }
-    }
-    if(defaultProcessing)
-    {
-        if(initiator)
-        {
-            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_MessageTask:),packet);
-        }
-        else
-        {
-            RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_MessageTask:),packet);
-        }
-    }
-}
 
 - (void) sctpMonitorIndication:(UMLayer *)caller
                         userId:(id)uid
@@ -1787,28 +1573,55 @@ typedef enum ElectionResult
 - (UMSocketError)receiveDataOnResponder
 {
     NSData *input;
-    UMSocketError e = [_responder_socket receiveEverythingTo:&input];
-    if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
+    UMSocketError e;
+    if(_tcpPeer)
     {
-        [_dataBuffersLock lock];
-        if(_responder_receive_buffer ==NULL)
+        e = [_responder_socket receiveEverythingTo:&input];
+        if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
         {
-            _responder_receive_buffer = [[NSMutableData alloc]initWithData:input];
+            [_dataBuffersLock lock];
+            if(_responder_receive_buffer ==NULL)
+            {
+                _responder_receive_buffer = [[NSMutableData alloc]initWithData:input];
+            }
+            else
+            {
+                [_responder_receive_buffer appendData:input];
+            }
+            [_dataBuffersLock unlock];
+            if(e == UMSocketError_has_data)
+            {
+                e = UMSocketError_no_error;
+            }
         }
-        else
+        [self checkForResponderPackets];
+        if(e==UMSocketError_not_connected)
         {
-            [_responder_receive_buffer appendData:input];
-        }
-        [_dataBuffersLock unlock];
-        if(e == UMSocketError_has_data)
-        {
-            e = UMSocketError_no_error;
+            [self connectionDownForSocket:_responder_socket];
         }
     }
-    [self checkForResponderPackets];
-    if(e==UMSocketError_not_connected)
+    else
     {
-        [self connectionDownForSocket:_responder_socket];
+        UMSocketSCTP *sctp = (UMSocketSCTP *)_responder_socket;
+        UMSocketSCTPReceivedPacket *rx = [sctp receiveSCTP];
+        e = rx.err;
+        if(e == UMSocketError_no_error)
+        {
+            if(rx.isNotification)
+            {
+                [self handleEvent:rx.data
+                         streamId:rx.streamId
+                       protocolId:rx.protocolId
+                        initiator:NO];
+            }
+            else
+            {
+                [self handleData:rx.data
+                         streamId:rx.streamId
+                       protocolId:rx.protocolId
+                        initiator:NO];
+            }
+        }
     }
     return e;
 }
@@ -1837,7 +1650,64 @@ typedef enum ElectionResult
         [self handleResponderPacket:packet];
     }
     [_dataBuffersLock unlock];
+}
 
+
+/* EVENT HANDLERS */
+
+
+-(void) handleEvent:(NSData *)event
+           streamId:(uint32_t)streamId
+         protocolId:(uint16_t)protocolId
+          initiator:(BOOL)initiator
+{
+
+    const union sctp_notification *snp;
+    snp = event.bytes;
+    switch(snp->sn_header.sn_type)
+    {
+        case SCTP_ASSOC_CHANGE:
+            [self handleAssocChange:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+        case SCTP_PEER_ADDR_CHANGE:
+            [self handlePeerAddrChange:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+        case SCTP_SEND_FAILED:
+            [self handleSendFailed:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+        case SCTP_REMOTE_ERROR:
+            [self handleRemoteError:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+        case SCTP_SHUTDOWN_EVENT:
+            [self handleShutdownEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+        case SCTP_PARTIAL_DELIVERY_EVENT:
+            [self handleAdaptionIndication:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+        case SCTP_ADAPTATION_INDICATION:
+            [self handleAdaptionIndication:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+#if defined SCTP_AUTHENTICATION_EVENT
+        case SCTP_AUTHENTICATION_EVENT:
+            [self handleAuthenticationEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+#endif
+        case SCTP_SENDER_DRY_EVENT:
+            [self handleSenderDryEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+
+#if defined SCTP_STREAM_RESET_EVENT
+        case  SCTP_STREAM_RESET_EVENT:
+            [self handleStreamResetEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            break;
+#endif
+
+        default:
+            [self.logFeed majorErrorText:[NSString stringWithFormat:@"SCTP unknown event type: %hu", snp->sn_header.sn_type]];
+            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-STREAM: %d",streamId]];
+            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-PROTO: %d", protocolId]];
+            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-DATA: %@",event.description]];
+    }
 }
 
 - (void)handleInitiatorPacket:(UMDiameterPacket *)packet
@@ -1972,5 +1842,758 @@ typedef enum ElectionResult
     }
 }
 
+
+- (void)connectionFailedForSocket:(UMSocket *)sock
+{
+    if(sock == _initiator_socket)
+    {
+        [_eventLock lock];
+        _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+        [_eventLock unlock];
+
+
+    }
+    else if (sock == _responder_socket)
+    {
+        [_eventLock lock];
+        _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
+        [_eventLock unlock];
+    }
+}
+
+- (void)connectionErrorForSocket:(UMSocket *)sock
+{
+    if(sock == _initiator_socket)
+    {
+        [_eventLock lock];
+        _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+        [_eventLock unlock];
+
+
+    }
+    else if (sock == _responder_socket)
+    {
+        [_eventLock lock];
+        _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
+        [_eventLock unlock];
+    }
+}
+
+
+-(void) handleAssocChange:(NSData *)event
+                 streamId:(uint32_t)streamId
+               protocolId:(uint16_t)protocolId
+                initiator:(BOOL)initiator
+{
+    const union sctp_notification *snp;
+    snp = event.bytes;
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_ASSOC_CHANGE"];
+    }
+#endif
+    if(len < sizeof (struct sctp_assoc_change))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_ASSOC_CHANGE"];
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *state = @"(UNKNOWN)";
+        switch(snp->sn_assoc_change.sac_state)
+        {
+            case SCTP_COMM_UP:
+                state =@"SCTP_COMM_UP";
+                break;
+            case SCTP_COMM_LOST:
+                state =@"SCTP_COMM_LOST";
+                break;
+            case SCTP_RESTART:
+                state =@"SCTP_RESTART";
+                break;
+            case SCTP_SHUTDOWN_COMP:
+                state =@"SCTP_SHUTDOWN_COMP";
+                break;
+            case SCTP_CANT_STR_ASSOC:
+                state =@"SCTP_CANT_STR_ASSOC";
+                break;
+        }
+
+
+        [self logDebug:[NSString stringWithFormat:@"  sac_type: %d",             (int)snp->sn_assoc_change.sac_type]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_flags: %d",            (int)snp->sn_assoc_change.sac_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_length: %d",           (int)snp->sn_assoc_change.sac_length]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_state: %d %@",            (int)snp->sn_assoc_change.sac_state, state]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_error: %d",            (int)snp->sn_assoc_change.sac_error]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_outbound_streams: %d", (int)snp->sn_assoc_change.sac_outbound_streams]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_inbound_streams: %d",  (int)snp->sn_assoc_change.sac_inbound_streams]];
+        [self logDebug:[NSString stringWithFormat:@"  sac_assoc_id: %d",         (int)snp->sn_assoc_change.sac_assoc_id]];
+    }
+#endif
+    if((snp->sn_assoc_change.sac_state==SCTP_COMM_UP) && (snp->sn_assoc_change.sac_error== 0))
+    {
+        if(initiator)
+        {
+            _i_assoc = snp->sn_assoc_change.sac_assoc_id;
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Initiator SCTP_ASSOC_CHANGE: SCTP_COMM_UP(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
+            [self connectionUpForSocket:_initiator_socket];
+
+        }
+        else
+        {
+            _r_assoc = snp->sn_assoc_change.sac_assoc_id;
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Responder SCTP_ASSOC_CHANGE: SCTP_COMM_UP(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
+            [self connectionUpForSocket:_responder_socket];
+        }
+    }
+    else if(snp->sn_assoc_change.sac_state==SCTP_COMM_LOST)
+    {
+        if(initiator)
+        {
+            _i_assoc = snp->sn_assoc_change.sac_assoc_id;
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Initiator SCTP_ASSOC_CHANGE: SCTP_COMM_LOST(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
+            [self connectionDownForSocket:_initiator_socket];
+
+        }
+        else
+        {
+            _r_assoc = snp->sn_assoc_change.sac_assoc_id;
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Responder SCTP_ASSOC_CHANGE: SCTP_COMM_LOST(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
+            [self connectionDownForSocket:_responder_socket];
+        }
+    }
+    else if(snp->sn_assoc_change.sac_state==SCTP_CANT_STR_ASSOC)
+    {
+        if(initiator)
+        {
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Initiator SCTP_ASSOC_CHANGE: SCTP_CANT_STR_ASSOC",_layerName]];
+            [self connectionFailedForSocket:_initiator_socket];
+        }
+        else
+        {
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Responder SCTP_ASSOC_CHANGE: SCTP_CANT_STR_ASSOC",_layerName]];
+            [self connectionFailedForSocket:_responder_socket];
+        }
+
+    }
+    else if(snp->sn_assoc_change.sac_error!=0)
+    {
+        if(initiator)
+        {
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Initiator SCTP_ASSOC_CHANGE: SCTP_COMM_ERROR",_layerName]];
+            [self connectionErrorForSocket:_initiator_socket];
+        }
+        else
+        {
+            [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Responder SCTP_ASSOC_CHANGE: SCTP_COMM_ERROR",_layerName]];
+            [self connectionErrorForSocket:_responder_socket];
+        }
+    }
+}
+
+
+-(void) handlePeerAddrChange:(NSData *)event
+                    streamId:(uint32_t)streamId
+                  protocolId:(uint16_t)protocolId
+                   initiator:(BOOL)initiator
+{
+    const union sctp_notification *snp;
+
+    char addrbuf[INET6_ADDRSTRLEN];
+    const char *ap;
+    struct sockaddr_in *sin;
+    struct sockaddr_in6 *sin6;
+
+    snp = event.bytes;
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_PEER_ADDR_CHANGE"];
+    }
+#endif
+    if(len < sizeof (struct sctp_paddr_change))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_PEER_ADDR_CHANGE"];
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  spc_type: %d",    (int)snp->sn_paddr_change.spc_type]];
+        [self logDebug:[NSString stringWithFormat:@"  spc_flags: %d",   (int)snp->sn_paddr_change.spc_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  spc_length: %d",  (int)snp->sn_paddr_change.spc_length]];
+    }
+#endif
+    if (snp->sn_paddr_change.spc_aaddr.ss_family == AF_INET)
+    {
+        //struct sockaddr_in *sin;
+        sin = (struct sockaddr_in *)&snp->sn_paddr_change.spc_aaddr;
+        ap = inet_ntop(AF_INET, &sin->sin_addr, addrbuf, INET6_ADDRSTRLEN);
+        if(self.logLevel <= UMLOG_DEBUG)
+        {
+            [self logDebug:[NSString stringWithFormat:@"  spc_aaddr: ipv4:%s", ap]];
+        }
+    }
+    else
+    {
+        sin6 = (struct sockaddr_in6 *)&snp->sn_paddr_change.spc_aaddr;
+        ap = inet_ntop(AF_INET6, &sin6->sin6_addr, addrbuf, INET6_ADDRSTRLEN);
+        if(self.logLevel <= UMLOG_DEBUG)
+        {
+            [self logDebug:[NSString stringWithFormat:@"  spc_aaddr: ipv6:%s", ap]];
+        }
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  spc_state: %d",   (int)snp->sn_paddr_change.spc_state]];
+        [self logDebug:[NSString stringWithFormat:@"  spc_error: %d",   (int)snp->sn_paddr_change.spc_error]];
+        if (snp->sn_paddr_change.spc_aaddr.ss_family == AF_INET)
+        {
+            [self logDebug:[NSString stringWithFormat:@" SCTP_PEER_ADDR_CHANGE: ipv4:%s",ap]];
+        }
+        else
+        {
+            [self logDebug:[NSString stringWithFormat:@" SCTP_PEER_ADDR_CHANGE: ipv6:%s",ap]];
+        }
+    }
+#endif
+}
+
+-(void) handleRemoteError:(NSData *)event
+                 streamId:(uint32_t)streamId
+               protocolId:(uint16_t)protocolId
+                initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_REMOTE_ERROR"];
+    }
+#endif
+    if(len < sizeof (struct sctp_remote_error))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_REMOTE_ERROR"];
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  sre_type: %d",             (int)snp->sn_remote_error.sre_type]];
+        [self logDebug:[NSString stringWithFormat:@"  sre_flags: %d",            (int)snp->sn_remote_error.sre_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  sre_length: %d",           (int)snp->sn_remote_error.sre_length]];
+        [self logDebug:[NSString stringWithFormat:@"  sre_length: %d",           (int)snp->sn_remote_error.sre_error]];
+        [self logDebug:[NSString stringWithFormat:@"  sre_assoc_id: %d",         (int)snp->sn_remote_error.sre_assoc_id]];
+        [self logDebug:[NSString stringWithFormat:@"  sre_data: %02X %02X %02X %02x",
+                        (int)snp->sn_remote_error.sre_data[0],
+                        (int)snp->sn_remote_error.sre_data[1],
+                        (int)snp->sn_remote_error.sre_data[2],
+                        (int)snp->sn_remote_error.sre_data[3]]];
+    }
+#endif
+}
+
+
+-(int) handleSendFailed:(NSData *)event
+               streamId:(uint32_t)streamId
+             protocolId:(uint16_t)protocolId
+              initiator:(BOOL)initiator
+{
+    const union sctp_notification *snp;
+    snp = event.bytes;
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_SEND_FAILED"];
+    }
+#endif
+    if(len < sizeof (struct sctp_send_failed))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_SEND_FAILED"];
+        return UMSocketError_not_supported_operation;
+    }
+    [self.logFeed majorErrorText:@"SCTP_SEND_FAILED"];
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  ssf_type: %d",                (int)snp->sn_send_failed.ssf_type]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_flags: %d",               (int)snp->sn_send_failed.ssf_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_length: %d",              (int)snp->sn_send_failed.ssf_length]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_error: %d",               (int)snp->sn_send_failed.ssf_error]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_assoc_id: %d",            (int)snp->sn_send_failed.ssf_assoc_id]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_stream: %d",   (int)snp->sn_send_failed.ssf_info.sinfo_stream]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_ssn: %d",      (int)snp->sn_send_failed.ssf_info.sinfo_ssn]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_flags: %d",    (int)snp->sn_send_failed.ssf_info.sinfo_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_stream: %d",   (int)snp->sn_send_failed.ssf_info.sinfo_stream]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_context: %d",  (int)snp->sn_send_failed.ssf_info.sinfo_context]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_timetolive: %d",(int)snp->sn_send_failed.ssf_info.sinfo_timetolive]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_tsn: %d",      (int)snp->sn_send_failed.ssf_info.sinfo_tsn]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_cumtsn: %d",   (int)snp->sn_send_failed.ssf_info.sinfo_cumtsn]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_info.sinfo_assoc_id: %d", (int)snp->sn_send_failed.ssf_info.sinfo_assoc_id]];
+        [self logDebug:[NSString stringWithFormat:@"  ssf_assoc_id: %d",    (int)snp->sn_send_failed.ssf_assoc_id]];
+    }
+#endif
+    [self.logFeed majorErrorText:[NSString stringWithFormat:@"SCTP sendfailed: len=%u err=%d\n", snp->sn_send_failed.ssf_length,snp->sn_send_failed.ssf_error]];
+    if(initiator)
+    {
+        [self connectionErrorForSocket:_initiator_socket];
+    }
+    else
+    {
+        [self connectionErrorForSocket:_responder_socket];
+    }
+    return -1;
+}
+
+
+-(int) handleShutdownEvent:(NSData *)event
+                  streamId:(uint32_t)streamId
+                protocolId:(uint16_t)protocolId
+                 initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_SHUTDOWN_EVENT"];
+    }
+#endif
+    if(len < sizeof (struct sctp_shutdown_event))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_SHUTDOWN_EVENT"];
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  sse_type: %d",     (int)snp->sn_shutdown_event.sse_type]];
+        [self logDebug:[NSString stringWithFormat:@"  sse_flags: %d",    (int)snp->sn_shutdown_event.sse_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  sse_length: %d",   (int)snp->sn_shutdown_event.sse_length]];
+        [self logDebug:[NSString stringWithFormat:@"  sse_assoc_id: %d", (int)snp->sn_shutdown_event.sse_assoc_id]];
+    }
+#endif
+    [self.logFeed warningText:@"SCTP_SHUTDOWN_EVENT->POWERDOWN"];
+    if(initiator)
+    {
+        [self connectionDownForSocket:_initiator_socket];
+    }
+    else
+    {
+        [self connectionDownForSocket:_responder_socket];
+    }
+    return -1;
+}
+
+
+-(int) handleAdaptionIndication:(NSData *)event
+                       streamId:(uint32_t)streamId
+                     protocolId:(uint16_t)protocolId
+                      initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_ADAPTATION_INDICATION"];
+    }
+#endif
+    if(len < sizeof(struct sctp_adaptation_event))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_ADAPTATION_INDICATION"];
+        return UMSocketError_not_supported_operation;
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  sai_type: %d",           (int)snp->sn_adaptation_event.sai_type]];
+        [self logDebug:[NSString stringWithFormat:@"  sai_flags: %d",          (int)snp->sn_adaptation_event.sai_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  sai_length: %d",         (int)snp->sn_adaptation_event.sai_length]];
+        [self logDebug:[NSString stringWithFormat:@"  sai_adaptation_ind: %d", (int)snp->sn_adaptation_event.sai_adaptation_ind]];
+        [self logDebug:[NSString stringWithFormat:@"  sai_assoc_id: %d",       (int)snp->sn_adaptation_event.sai_assoc_id]];
+    }
+#endif
+    return 0;
+}
+
+-(int) handlePartialDeliveryEvent:(NSData *)event
+                         streamId:(uint32_t)streamId
+                       protocolId:(uint16_t)protocolId
+                        initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_PARTIAL_DELIVERY_EVENT"];
+    }
+#endif
+    if(len < sizeof(struct sctp_pdapi_event))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_PARTIAL_DELIVERY_EVENT"];
+        return UMSocketError_not_supported_operation;
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_type: %d",           (int)snp->sn_pdapi_event.pdapi_type]];
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_flags: %d",          (int)snp->sn_pdapi_event.pdapi_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_length: %d",         (int)snp->sn_pdapi_event.pdapi_length]];
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_indication: %d",     (int)snp->sn_pdapi_event.pdapi_indication]];
+#ifndef LINUX
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_stream: %d",         (int)snp->sn_pdapi_event.pdapi_stream]];
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_seq: %d",            (int)snp->sn_pdapi_event.pdapi_seq]];
+#endif
+        [self logDebug:[NSString stringWithFormat:@"  pdapi_assoc_id: %d",       (int)snp->sn_pdapi_event.pdapi_assoc_id]];
+    }
+#endif
+    return UMSocketError_no_error;
+}
+
+-(int) handleAuthenticationEvent:(NSData *)event
+                        streamId:(uint32_t)streamId
+                      protocolId:(uint16_t)protocolId
+                       initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_AUTHENTICATION_EVENT"];
+    }
+#endif
+    if(len < sizeof(struct sctp_authkey_event))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_AUTHENTICATION_EVENT"];
+        return UMSocketError_not_supported_operation;
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+#if defined(LINUX)
+        [self logDebug:[NSString stringWithFormat:@"  auth_type: %d",           (int)snp->sn_authkey_event.auth_type]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_flags: %d",          (int)snp->sn_authkey_event.auth_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_length: %d",         (int)snp->sn_authkey_event.auth_length]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_keynumber: %d",      (int)snp->sn_authkey_event.auth_keynumber]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_altkeynumber: %d",   (int)snp->sn_authkey_event.auth_altkeynumber]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_indication: %d",     (int)snp->sn_authkey_event.auth_indication]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_assoc_id: %d",       (int)snp->sn_authkey_event.auth_assoc_id]];
+
+#else
+        [self logDebug:[NSString stringWithFormat:@"  auth_type: %d",           (int)snp->sn_auth_event.auth_type]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_flags: %d",          (int)snp->sn_auth_event.auth_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_length: %d",         (int)snp->sn_auth_event.auth_length]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_keynumber: %d",      (int)snp->sn_auth_event.auth_keynumber]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_altkeynumber: %d",   (int)snp->sn_auth_event.auth_altkeynumber]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_indication: %d",     (int)snp->sn_auth_event.auth_indication]];
+        [self logDebug:[NSString stringWithFormat:@"  auth_assoc_id: %d",       (int)snp->sn_auth_event.auth_assoc_id]];
+#endif
+    }
+#endif
+    return UMSocketError_no_error;
+}
+
+#if defined(SCTP_STREAM_RESET_EVENT)
+-(int) handleStreamResetEvent:(NSData *)event
+                     streamId:(uint32_t)streamId
+                   protocolId:(uint16_t)protocolId
+                    initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_STREAM_RESET_EVENT"];
+    }
+#endif
+    if(len < sizeof(struct sctp_stream_reset_event))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_STREAM_RESET_EVENT"];
+        return UMSocketError_not_supported_operation;
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  strreset_type: %d",     (int)snp->sn_strreset_event.strreset_type]];
+        [self logDebug:[NSString stringWithFormat:@"  strreset_flags: %d",    (int)snp->sn_strreset_event.strreset_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  strreset_length: %d",   (int)snp->sn_strreset_event.strreset_length]];
+        [self logDebug:[NSString stringWithFormat:@"  strreset_assoc_id: %d", (int)snp->sn_strreset_event.strreset_assoc_id]];
+    }
+#endif
+    return UMSocketError_no_error;
+}
+#endif
+
+-(int) handleSenderDryEvent:(NSData *)event
+                   streamId:(uint32_t)streamId
+                 protocolId:(uint16_t)protocolId
+                  initiator:(BOOL)initiator
+{
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    const union sctp_notification *snp;
+    snp = event.bytes;
+#endif
+    NSUInteger len = event.length;
+
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:@"SCTP_SENDER_DRY_EVENT"];
+    }
+#endif
+    if(len < sizeof(struct sctp_sender_dry_event))
+    {
+        [self.logFeed majorErrorText:@" Size Mismatch in SCTP_SENDER_DRY_EVENT"];
+        return UMSocketError_not_supported_operation;
+    }
+#if defined(ULIBSCTP_CONFIG_DEBUG)
+    if(self.logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:[NSString stringWithFormat:@"  sender_dry_type: %d",     (int)snp->sn_sender_dry_event.sender_dry_type]];
+        [self logDebug:[NSString stringWithFormat:@"  sender_dry_flags: %d",    (int)snp->sn_sender_dry_event.sender_dry_flags]];
+        [self logDebug:[NSString stringWithFormat:@"  sender_dry_length: %d",   (int)snp->sn_sender_dry_event.sender_dry_length]];
+        [self logDebug:[NSString stringWithFormat:@"  sender_dry_assoc_id: %d", (int)snp->sn_sender_dry_event.sender_dry_assoc_id]];
+    }
+#endif
+    return UMSocketError_no_error;
+}
+
+
+- (void) handleData:(NSData *)data
+           streamId:(uint32_t)streamId
+         protocolId:(uint16_t)protocolId
+          initiator:(BOOL)initiator
+{
+    UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:data];
+     if(!packet)
+     {
+         NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)streamId, (int)protocolId, [data hexString]];
+         [self.logFeed majorErrorText:s];
+         [self actionError:NULL];
+     }
+     else if((protocolId!=0) && (protocolId!=DIAMETER_SCTP_PPID_CLEAR))
+     {
+         NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)protocolId];
+         [self.logFeed majorError:0 withText:s];
+         [self actionError:NULL];
+     }
+    else
+    {
+        [self processPacket:packet initiator:initiator];
+    }
+}
+
+- (void) processPacket:(UMDiameterPacket *)packet
+             initiator:(BOOL)initiator
+{
+     BOOL defaultProcessing = NO;
+     /* REQUESTS */
+     if(packet.commandFlags & UMDiameterCommandFlag_Request)
+     {
+         switch(packet.applicationId)
+         {
+             case UMDiameterApplicationId_Diameter_Common_Messages:
+             {
+                 switch(packet.commandCode)
+                 {
+                     case UMDiameterCommandCode_Capabilities_Exchange:
+                     {
+                         if(initiator)
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_CERTask:),packet);
+                         }
+                         else
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_CERTask:),packet);
+                         }
+                         break;
+                     }
+                     case UMDiameterCommandCode_Disconnect_Peer:
+                     {
+                         if(initiator)
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DPRTask:),packet);
+                         }
+                         else
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DPRTask:),packet);
+                         }
+                         break;
+                     }
+                     case UMDiameterCommandCode_Device_Watchdog:
+                     {
+                         if(initiator)
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DWRTask:),packet);
+
+                         }
+                         else
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DWRTask:),packet);
+
+                         }
+                         break;
+                     }
+                     default:
+                     {
+                         defaultProcessing = YES;
+                         break;
+                     }
+                 }
+                 break;
+             }
+             default:
+             {
+                 defaultProcessing = YES;
+                 break;
+             }
+         }
+     }
+     else if(!(packet.commandFlags & UMDiameterCommandFlag_Error)) /* ANSWER */
+     {
+         switch(packet.applicationId)
+         {
+             case UMDiameterApplicationId_Diameter_Common_Messages:
+             {
+                 switch(packet.commandCode)
+                 {
+                     case UMDiameterCommandCode_Capabilities_Exchange:
+                     {
+                         if(initiator)
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_CEATask:),packet);
+                         }
+                         else
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_CEATask:),packet);
+                         }
+                         break;
+                     }
+                     case UMDiameterCommandCode_Disconnect_Peer:
+                     {
+                         if(initiator)
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DPATask:),packet);
+                         }
+                         else
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DPATask:),packet);
+                                             }
+                         break;
+                     }
+                     case UMDiameterCommandCode_Device_Watchdog:
+                     {
+                         if(initiator)
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_DWATask:),packet);
+                         }
+                         else
+                         {
+                             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_DWATask:),packet);
+                         }
+                         break;
+                     }
+                     default:
+                     {
+                         defaultProcessing = YES;
+                         break;
+                     }
+                 }
+                 break;
+             }
+             default:
+             {
+                 defaultProcessing = YES;
+                 break;
+             }
+         }
+     }
+     else if(packet.commandFlags & UMDiameterCommandFlag_Error)
+     {
+         switch(packet.applicationId)
+         {
+             case UMDiameterApplicationId_Diameter_Common_Messages:
+             {
+                 switch(packet.commandCode)
+                 {
+                     case UMDiameterCommandCode_Capabilities_Exchange:
+                     {
+                         NSString *s = [NSString stringWithFormat:@"Capabilities Exchange Error: %@",packet.dictionaryValue.jsonString];
+                         [self logMajorError:s];
+                         break;
+                     }
+                     case UMDiameterCommandCode_Disconnect_Peer:
+                     {
+                         NSString *s = [NSString stringWithFormat:@"Disconnect Peer Error: %@",packet.dictionaryValue.jsonString];
+                         [self logMajorError:s];
+                         break;
+                     }
+                     case UMDiameterCommandCode_Device_Watchdog:
+                     {
+                         NSString *s = [NSString stringWithFormat:@"Device Watchdog Error: %@",packet.dictionaryValue.jsonString];
+                         [self logMajorError:s];
+                         break;
+                     }
+                     default:
+                     {
+                         defaultProcessing =YES;
+                         break;
+                     }
+                 }
+             }
+             default:
+             {
+                 defaultProcessing =YES;
+                 break;
+             }
+         }
+     }
+     if(defaultProcessing)
+     {
+         if(initiator)
+         {
+             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_MessageTask:),packet);
+         }
+         else
+         {
+             RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_MessageTask:),packet);
+         }
+     }
+ }
 @end
 
