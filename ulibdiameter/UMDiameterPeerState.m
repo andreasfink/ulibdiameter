@@ -9,6 +9,7 @@
 #import "UMDiameterPeerState.h"
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterPeer.h"
+#import "UMDiameterRouter.h"
 
 @implementation UMDiameterPeerState
 
@@ -69,8 +70,11 @@
     {
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Rcv_Conn_Nack",self.currentState];
         [peer logDebug:s];
+
+        [peer.router stopReceivingOnSocket:peer.initiator_socket forPeer:peer];
+        [peer.initiator_socket close];
     }
-    return self;
+    return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventR_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -79,8 +83,12 @@
     {
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_Conn_Nack",self.currentState];
         [peer logDebug:s];
+
+        [peer.router stopReceivingOnSocket:peer.responder_socket forPeer:peer];
+        [peer.initiator_socket close];
+
     }
-    return self;
+    return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 

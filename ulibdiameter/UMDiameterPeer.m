@@ -1241,6 +1241,10 @@
 - (UMSocketError )actionI_Snd_Conn_Req:(UMDiameterPacket *)message
 {
     UMSocketError err = [_initiator_socket connect];
+    if(err==UMSocketError_no_error)
+    {
+        [_router startReceivingOnSocket:_initiator_socket forPeer:self];
+    }
     return err;
 }
 
@@ -1939,6 +1943,7 @@ typedef enum ElectionResult
     if(sock == _initiator_socket)
     {
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
+
     }
     else if (sock == _responder_socket)
     {
