@@ -197,13 +197,10 @@
 
 - (NSString *)statusString;
 
-- (UMSocketError)handlePollResultInitiator:(int)revent
+- (UMSocketError)handlePollResult:(int)revent
                            socket:(UMSocket *)socket
-                        poll_time:(UMMicroSec)poll_time;
-
-- (UMSocketError)handlePollResultResponder:(int)revent
-                                    socket:(UMSocket *)socket
-                                 poll_time:(UMMicroSec)poll_time;
+                        poll_time:(UMMicroSec)poll_time
+                        initiator:(BOOL)initiator;
 
 - (void)connectionUpForSocket:(UMSocket *)sock;
 

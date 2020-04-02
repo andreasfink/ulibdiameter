@@ -866,17 +866,19 @@
             if(peer.initiator_socket == socket)
             {
                 socket.customUser = peer;
-                returnValue = [peer handlePollResultInitiator:revent
-                                                       socket:socket
-                                                    poll_time:poll_time];
+                returnValue = [peer handlePollResult:revent
+                                              socket:socket
+                                           poll_time:poll_time
+                                           initiator:YES];
                 return returnValue;
             }
             else if(peer.responder_socket == socket)
             {
                 socket.customUser = peer;
-                returnValue = [peer handlePollResultResponder:revent
-                                                       socket:socket
-                                                    poll_time:poll_time];
+                returnValue = [peer handlePollResult:revent
+                                              socket:socket
+                                           poll_time:poll_time
+                                           initiator:NO];
                 return returnValue;
             }
         }
@@ -903,7 +905,7 @@
                 UMDiameterPeer *peer = _peers[key];
                 if(peer)
                 {
-                    NSArray *localIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+                    //NSArray *localIpAddresses = [peer.configuredLocalAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
                     NSArray *remoteIpAddresses = [peer.configuredRemoteAddresses sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
                     /* SCTP */
                     for(NSString *ip in remoteIpAddresses)
@@ -941,9 +943,25 @@
             {
                 NSLog(@"receiving data on socket not connected to a peer?");
             }
-            returnValue = [peer handlePollResultResponder:revent
-                                                   socket:socket
-                                                poll_time:poll_time];
+            if(socket == peer.initiator_socket)
+            {
+                returnValue = [peer handlePollResult:revent
+                                              socket:socket
+                                           poll_time:poll_time
+                                           initiator:YES];
+            }
+            else if(socket == peer.responder_socket)
+            {
+                returnValue = [peer handlePollResult:revent
+                                              socket:socket
+                                            poll_time:poll_time
+                                           initiator:NO];
+            }
+            else
+            {
+                NSLog(@"Neither initiator nor responder socket match?!?");
+            }
+
 
             /* receiving socket */
         }
