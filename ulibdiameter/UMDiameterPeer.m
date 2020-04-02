@@ -673,7 +673,7 @@
     }
 
     //     1* { Host-IP-Address }
-    NSArray *addrs = _sctp_r.configured_local_addresses;
+    NSArray *addrs = _configuredLocalAddresses;
     NSMutableArray<UMDiameterAvpHost_IP_Address *> *hosts = [[NSMutableArray alloc]init];
     for (NSString *addr in addrs)
     {
@@ -964,7 +964,7 @@
     {
         packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
     }
-    NSArray *addrs = _sctp_r.configured_local_addresses;
+    NSArray *addrs = _configuredLocalAddresses;
     NSMutableArray<UMDiameterAvpHost_IP_Address *> *hosts = [[NSMutableArray alloc]init];
     for (NSString *addr in addrs)
     {
@@ -1189,12 +1189,12 @@
 
 - (void)actionI_Disc:(UMDiameterPacket *)message
 {
-    [_sctp_i closeFor:self];
+    [_initiator_socket close];
 }
 
 - (void)actionR_Disc:(UMDiameterPacket *)message
 {
-    [_sctp_r closeFor:self];
+    [_responder_socket close];
 }
 
 

@@ -28,9 +28,9 @@
 	BOOL					_tcpPeer;
     NSArray                 *_configuredLocalAddresses;
     NSArray                 *_configuredRemoteAddresses;
-    int                     _initiatorPort;
     uint32_t                _i_assoc;
     uint32_t                _r_assoc;
+    int                     _initiatorPort;
     int                     _responderPort;
     UMSocket                *_initiator_socket; /* initiator */
     UMSocket                *_responder_socket; /* responder */
@@ -80,8 +80,6 @@
 @property(readwrite,assign,atomic)  int                     initiatorPort;
 @property(readwrite,assign,atomic)  int                     responderPort;
 @property(readwrite,strong,atomic)  UMDiameterTcpConnection	*tcpConnection;
-@property(readwrite,strong,atomic)  UMLayerSctp             *sctp_r;
-@property(readwrite,strong,atomic)  UMLayerSctp             *sctp_i;
 @property(readwrite,strong,atomic)  UMDiameterRouter        *router;
 @property(readwrite,strong,atomic)  UMDiameterPeerState     *peerState;
 @property(readwrite,assign,atomic)  BOOL                    isConnected;
