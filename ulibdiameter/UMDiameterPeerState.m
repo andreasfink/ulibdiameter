@@ -179,7 +179,7 @@
         [peer logDebug:s];
     }
     //[peer actionI_Disc:NULL];
-    return [UMDiameterPeerState_Closed];
+    return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -213,7 +213,6 @@
     }
     return self;
 }
-
 
 /* Rcv-DPA:A DPA message from the peer was received. */
 - (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
