@@ -557,7 +557,7 @@
     }
     else
     {
-        UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP ];
+        UMSocketSCTP *is = [[UMSocketSCTP alloc]initWithType:UMSOCKET_TYPE_SCTP_STREAM ];
         is.requestedRemoteAddresses = _configuredRemoteAddresses;
         is.requestedLocalAddresses = _configuredLocalAddresses;
         is.requestedRemotePort = _initiatorPort;

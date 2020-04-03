@@ -464,9 +464,7 @@
                 }
             }
 		}
-        else if((socket.type== UMSOCKET_TYPE_SCTP)
-               || (socket.type==UMSOCKET_TYPE_SCTP4ONLY)
-               || (socket.type==UMSOCKET_TYPE_SCTP6ONLY))
+        else if(UMSOCKET_IS_SCTP_TYPE(socket.type))
         {
             for(NSString *socketIP in peer.configuredRemoteAddresses)
             {
@@ -837,7 +835,7 @@
                     NSString *sdup = [NSString stringWithFormat:@"tcp/%@/%d",localIpString,peer.responderPort];
                     if(listenerKeys[sdup]==NULL)
                     {
-                        UMSocketSCTP *socket = [[UMSocketSCTP alloc] initWithType:UMSOCKET_TYPE_SCTP];
+                        UMSocketSCTP *socket = [[UMSocketSCTP alloc] initWithType:UMSOCKET_TYPE_SCTP_STREAM];
                         socket.requestedLocalPort = peer.responderPort;
                         socket.requestedLocalAddresses = localIpAddresses;
                         listenerKeys[sdup] = socket;
@@ -889,9 +887,7 @@
             }
             /* NEW INCOMING CONNECTIONS */
             UMSocket *nsock;
-            if((socket.type == UMSOCKET_TYPE_SCTP)
-                || (socket.type == UMSOCKET_TYPE_SCTP4ONLY)
-                || (socket.type == UMSOCKET_TYPE_SCTP6ONLY))
+            if(UMSOCKET_IS_SCTP_TYPE(socket.type))
             {
                 UMSocketSCTP *rs = (UMSocketSCTP *)socket;
                 rs = [rs acceptSCTP:&returnValue];
