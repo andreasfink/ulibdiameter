@@ -14,7 +14,6 @@
 #import "UMDiameterVendorId.h"
 #import "UMDiameterRoute.h"
 #import "UMDiameterPacketsAll.h"
-#import "UMDiameterListener.h"
 #import "UMDiameterRouterReceiver.h"
 
 #include <poll.h>
