@@ -60,7 +60,13 @@
     NSDate                  *_lastWatchdogAnswerSent;
     
     UMTimer                 *_housekeepingTimer;
+
+    NSTimeInterval          _watchdog_timer_value;
+    NSTimeInterval          _reopen_timer1_value;
+    NSTimeInterval          _reopen_timer2_value;
     UMTimer                 *_watchdogTimer;
+    UMTimer                 *_reopenTimer1;
+    UMTimer                 *_reopenTimer2;
     int                     _outstandingWatchdogEvents;
     int                     _maxOutstandingWatchdogEvents;
     
@@ -203,6 +209,15 @@
 - (void)connectionUpForSocket:(UMSocket *)sock;
 
 - (UMSynchronizedSortedDictionary *)diameterStatus;
+
+- (void)startReopenTimer1;
+- (void)stopReopenTimer1;
+
+- (void)startReopenTimer2;
+- (void)stopReopenTimer2;
+
+- (void)startWatchdogTimer;
+- (void)stopWatchdogTimer;
 
 @end
 

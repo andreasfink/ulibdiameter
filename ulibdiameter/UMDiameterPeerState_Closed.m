@@ -38,6 +38,16 @@
     return [[UMDiameterPeerState_R_Open alloc]init];
 }
 
+- (UMDiameterPeerState *)eventR_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventR_Rcv_Conn_Ack",self.currentState];
+        [peer logDebug:s];
+    }
+    return self;
+}
+
 
 - (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {

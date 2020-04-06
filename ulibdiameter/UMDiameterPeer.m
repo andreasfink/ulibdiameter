@@ -38,6 +38,11 @@
                         withObject:obj \
                          file:__FILE__ line:__LINE__  function:__func__]
 
+
+#define DIAMETER_LINK_REOPEN_TIME1_DEFAULT  6.0
+#define DIAMETER_LINK_REOPEN_TIME2_DEFAULT 120.0
+#define DIAMETER_WATCHDOG_TIMER_DEFAULT   30.0
+
 @implementation UMDiameterPeer
 
 - (UMLayer *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq
@@ -75,10 +80,15 @@
     _initiatorPort = 5868;
     _eventLock = [[UMMutex alloc]initWithName:@"diameter-event-lock"];
     _dataBuffersLock = [[UMMutex alloc]initWithName:@"diameter-data-buffers-lock"];
+
+    _reopen_timer1_value = DIAMETER_LINK_REOPEN_TIME1_DEFAULT;
+    _reopen_timer2_value = DIAMETER_LINK_REOPEN_TIME2_DEFAULT;
+    _watchdog_timer_value = DIAMETER_WATCHDOG_TIMER_DEFAULT;
+
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
                                              object:NULL
-                                            seconds:10
+                                            seconds:_watchdog_timer_value
                                                name:@"watchdog-timer"
                                             repeats:YES];
     _housekeepingTimer = [[UMTimer alloc]initWithTarget:self
@@ -87,6 +97,7 @@
                                             seconds:5
                                                name:@"housekeeping"
                                             repeats:YES];
+
     [_housekeepingTimer start];
 }
 
@@ -535,7 +546,19 @@
      {
          _mtu = [cfg[@"mtu"] intValue];
      }
-    
+
+    if (cfg[@"reopen-timer1"])
+    {
+        _reopen_timer1_value = [cfg[@"reopen-timer1"] doubleValue];
+    }
+    if (cfg[@"reopen-timer2"])
+    {
+        _reopen_timer2_value = [cfg[@"reopen-timer2"] doubleValue];
+    }
+    if (cfg[@"watchdog-timer"])
+    {
+        _watchdog_timer_value = [cfg[@"watchdog-timer"] doubleValue];
+    }
     if(_tcpPeer)
     {
         _initiator_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
@@ -2594,6 +2617,115 @@ typedef enum ElectionResult
     return dict;
 }
 
+- (void)startReopenTimer1
+{
+    if(_reopen_timer1_value > 0)
+    {
+        if(_reopenTimer1==NULL)
+        {
+            _reopenTimer1 = [[UMTimer alloc]initWithTarget:self
+                                                 selector:@selector(reopenTimer1Event:)
+                                                   object:NULL
+                                                  seconds:_reopen_timer1_value
+                                                     name:@"reopenTimer1"
+                                                  repeats:NO
+                                          runInForeground:YES];
+        }
+        else
+        {
+            _reopenTimer1.seconds = _reopen_timer1_value;
+        }
+        [_reopenTimer1 startIfNotRunning];
+    }
+}
 
+- (void)startReopenTimer2
+{
+    if(_reopen_timer2_value > 0)
+    {
+        if(_reopenTimer2==NULL)
+        {
+            _reopenTimer2 = [[UMTimer alloc]initWithTarget:self
+                                                 selector:@selector(reopenTimer2Event:)
+                                                   object:NULL
+                                                  seconds:_reopen_timer2_value
+                                                     name:@"reopenTimer2"
+                                                  repeats:NO
+                                          runInForeground:YES];
+        }
+        else
+        {
+            _reopenTimer2.seconds = _reopen_timer2_value;
+        }
+        [_reopenTimer2 startIfNotRunning];
+    }
+}
+
+- (void)startWatchdogTimer
+{
+    if(_watchdog_timer_value > 0)
+    {
+        if(_watchdogTimer==NULL)
+        {
+            _watchdogTimer = [[UMTimer alloc]initWithTarget:self
+                                                 selector:@selector(watchdogTimerEvent:)
+                                                   object:NULL
+                                                  seconds:_watchdog_timer_value
+                                                     name:@"watchdogTimer"
+                                                  repeats:YES
+                                          runInForeground:YES];
+        }
+        else
+        {
+            _watchdogTimer.seconds = _watchdog_timer_value;
+        }
+        [_watchdogTimer startIfNotRunning];
+    }
+}
+
+- (void)stopReopenTimer1
+{
+    [_reopenTimer1 stop];
+}
+
+- (void)stopReopenTimer2
+{
+    [_reopenTimer2 stop];
+}
+
+- (void)stopWatchdogTimer
+{
+    [_watchdogTimer stop];
+}
+
+- (void)reopenTimer1Event:(id)dummy
+{
+    if([_peerState isKindOfClass:[UMDiameterPeerState_Closed class]])
+    {
+        [self powerOn];
+    }
+}
+
+- (void)reopenTimer2Event:(id)dummy
+{
+    [_eventLock lock];
+    if (  !([_peerState isKindOfClass:[UMDiameterPeerState_I_Open class]])
+       && !([_peerState isKindOfClass:[UMDiameterPeerState_R_Open class]]))
+    {
+
+        [_initiator_socket close];
+        [_responder_socket close];
+    }
+    _peerState = [[UMDiameterPeerState_Closed alloc]init];
+    [_eventLock unlock];
+    [_reopenTimer1 start];
+}
+
+- (void)watchdogTimerEvent:(id)dummy
+{
+    [_eventLock lock];
+    _peerState = [_peerState eventWatchdogTimer:self message:NULL];
+    [_eventLock unlock];
+}
 @end
 

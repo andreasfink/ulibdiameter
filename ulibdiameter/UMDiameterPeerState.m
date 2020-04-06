@@ -74,6 +74,7 @@
         [peer.router stopReceivingOnSocket:peer.initiator_socket forPeer:peer];
         [peer.initiator_socket close];
     }
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -336,7 +337,11 @@
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStop",self.currentState];
         [peer logDebug:s];
     }
-    return self;
+
+    [peer.initiator_socket close];
+    [peer.responder_socket close];
+    [peer startReopenTimer1];
+    return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 
