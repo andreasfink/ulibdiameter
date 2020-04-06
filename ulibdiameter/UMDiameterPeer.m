@@ -2571,5 +2571,29 @@ typedef enum ElectionResult
          }
      }
  }
+
+
+- (UMSynchronizedSortedDictionary *)diameterStatus
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    dict[@"protocol"] = _tcpPeer ? @"tcp" :  @"sctp";
+    dict[@"remote-ip"] = [_configuredRemoteAddresses componentsJoinedByString:@", "];
+    dict[@"local-ip"] = [_configuredLocalAddresses componentsJoinedByString:@", "];
+    dict[@"remote-port"] = @(_initiatorPort);
+    dict[@"local-port"] = @(_responderPort);
+    if(!_tcpPeer)
+    {
+        dict[@"initiator-sctp-socket-status"] = [UMSocket statusDescription:_sctpStatus_i];
+        dict[@"responder-sctp-socket-status"] = [UMSocket statusDescription:_sctpStatus_r];
+    }
+    dict[@"peer-state"] = _peerState.currentState;
+    dict[@"watchdog-last-request-sent"]     =  _lastWatchdogRequestSent     ? _lastWatchdogRequestSent      : @"never";
+    dict[@"watchdog-last-answer-received"]  =  _lastWatchdogAnswerReceived  ? _lastWatchdogAnswerReceived   : @"never";
+    dict[@"watchdog-last-request-received"] =  _lastWatchdogRequestReceived ? _lastWatchdogRequestReceived  : @"never";
+    dict[@"watchdog-last-answer-sent"]      =  _lastWatchdogAnswerSent      ? _lastWatchdogAnswerSent       : @"never";
+    return dict;
+}
+
+
 @end
 

@@ -115,4 +115,6 @@
                         poll_time:(UMMicroSec)poll_time
                        isListener:(BOOL) isListener;
 
+- (UMSynchronizedSortedDictionary *)diameterStatus;
+
 @end

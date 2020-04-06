@@ -202,6 +202,8 @@
 
 - (void)connectionUpForSocket:(UMSocket *)sock;
 
+- (UMSynchronizedSortedDictionary *)diameterStatus;
+
 @end
 
 

@@ -985,5 +985,20 @@
     return returnValue;
 }
 
+- (UMSynchronizedSortedDictionary *)diameterStatus
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    NSArray *peerNames = [_peers allKeys];
+    for(NSString *peerName in peerNames)
+    {
+        UMDiameterPeer *peer = _peers[peerName];
+        if(peer)
+        {
+            dict[peerName] = [peer diameterStatus];
+        }
+    }
+    return dict;
+}
+
 @end
 
