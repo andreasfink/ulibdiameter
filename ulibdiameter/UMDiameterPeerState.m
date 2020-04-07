@@ -22,7 +22,7 @@
 /*  eventStart: The Diameter application has signaled that a connection should be initiated with the peer. */
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
-    if(peer.logLevel <= UMLOG_DEBUG)
+if(peer.logLevel <= UMLOG_DEBUG)
     {
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStart",self.currentState];
         [peer logDebug:s];
