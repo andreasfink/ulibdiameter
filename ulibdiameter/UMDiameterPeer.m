@@ -1764,12 +1764,14 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
         [_eventLock unlock];
     }
     else if (sock == _responder_socket)
     {
+        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
         [_eventLock unlock];
@@ -1780,6 +1782,7 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1788,6 +1791,8 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
+        _sctpStatus_r = sock.status;
+
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1799,6 +1804,7 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1807,6 +1813,7 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
+        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1817,6 +1824,7 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1825,6 +1833,7 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
+        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1835,6 +1844,7 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
+        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
         [_eventLock unlock];
@@ -1843,6 +1853,7 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
+        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
         [_eventLock unlock];
