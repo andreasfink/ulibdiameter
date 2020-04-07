@@ -997,14 +997,6 @@
     /* FIXME: do something useful here */
 }
 
-
-/* Snd-CER        A CER message is sent to the peer. */
-- (void)actionSnd_CER:(UMDiameterPacket *)message
-{
-    [self actionI_Snd_CER:message];
-    /* there is no R_Snd_CER */
-}
-
 - (void)actionI_Snd_CER:(UMDiameterPacket *)message
 {
     if(message==NULL)
@@ -1015,17 +1007,27 @@
 }
 
 
+- (void)actionR_Snd_CER:(UMDiameterPacket *)message
+{
+    if(message==NULL)
+    {
+        message = [self createCER];
+    }
+    [self actionR_Snd_Message:message];
+}
+
 
 /* Snd-CEA        A CEA message is sent to the peer. */
-- (void)actionSnd_CEA:(UMDiameterPacket *)message
-{
-    [self actionR_Snd_CEA:message];
-    /* there is no I_Snd_CEA */
-}
 
 - (void)actionR_Snd_CEA:(UMDiameterPacket *)message
 {
     [self actionR_Snd_Message:message];
+}
+
+
+- (void)actionI_Snd_CEA:(UMDiameterPacket *)message
+{
+    [self actionI_Snd_Message:message];
 }
 
 /* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
@@ -1263,6 +1265,7 @@ typedef enum ElectionResult
     NSData *data = [message packedData];
     [self sendData:data socket:_responder_socket];
 }
+
 
 
 /* Snd-DWR        A DWR message is sent. */
