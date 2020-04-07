@@ -286,12 +286,14 @@
         sock = _initiator_socket;
         previousStatus = _sctpStatus_i;
         initiator = YES;
+        _sctpStatus_i = statusNew;
     }
     else if([caller isEqualTo:_responder_socket])
     {
         sock = _responder_socket;
         previousStatus = _sctpStatus_r;
         initiator = NO;
+        _sctpStatus_r = statusNew;
     }
     else
     {
@@ -302,36 +304,15 @@
     {
         return;
     }
-    NSString *oldStatusString= @"undefined";
-    switch(previousStatus)
-    {
-        case  UMSOCKET_STATUS_FOOS:
-            oldStatusString = @"M_FOOS";
-            break;
-        case UMSOCKET_STATUS_OFF:
-            oldStatusString = @"OFF";
-            break;
-        case UMSOCKET_STATUS_OOS:
-            oldStatusString = @"OOS";
-            break;
-        case UMSOCKET_STATUS_IS:
-            oldStatusString = @"IS";
-            break;
-    }
-    if(initiator)
-    {
-        _sctpStatus_i = statusNew;
-    }
-    else
-    {
-        _sctpStatus_r = statusNew;
-    }
+    NSString *oldStatusString =  [UMSocket statusDescription:previousStatus];
+    NSString *statusString =  [UMSocket statusDescription:statusNew];
+    NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->%@",oldStatusString,statusString];
+    [self.logFeed infoText:s];
+
     switch(statusNew)
     {
         case  UMSOCKET_STATUS_FOOS:
         {
-            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->M_FOOS",oldStatusString];
-            [self.logFeed infoText:s];
             if(initiator)
             {
                 RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_NackTask:),NULL);
@@ -344,8 +325,6 @@
         }
         case UMSOCKET_STATUS_OFF:
         {
-            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OFF",oldStatusString];
-            [self.logFeed infoText:s];
             if(initiator)
             {
                 RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_NackTask:),NULL);
@@ -358,14 +337,10 @@
         }
         case UMSOCKET_STATUS_OOS:
         {
-            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->OOS",oldStatusString];
-            [self.logFeed infoText:s];
             break;
         }
         case UMSOCKET_STATUS_IS:
         {
-            NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->IS",oldStatusString];
-            [self.logFeed infoText:s];
             if(initiator)
             {
                 RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_AckTask:),NULL);
