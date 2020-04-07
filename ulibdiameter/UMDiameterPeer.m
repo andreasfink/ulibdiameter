@@ -72,8 +72,6 @@
     _isActive = NO;
     _isConnecting = NO;
     _nextHopIdentifierLock = [[UMMutex alloc]initWithName:@"diameter-peer-next-hop-identifier-lock"];
-    _sctpStatus_i = UMSOCKET_STATUS_OFF;
-    _sctpStatus_r = UMSOCKET_STATUS_OFF;
     _outstandingWatchdogEvents = 0;
     _maxOutstandingWatchdogEvents = 3;
     _responderPort = 5868;
@@ -272,88 +270,6 @@
 }
 
 
-
-- (void) sctpStatusIndication:(UMLayer *)caller
-                       userId:(id)uid
-                       status:(UMSocketStatus)statusNew
-{
-    UMSocket *sock = NULL;
-    UMSocketStatus previousStatus;
-    BOOL initiator;
-
-    if([caller isEqualTo:_initiator_socket])
-    {
-        sock = _initiator_socket;
-        previousStatus = _sctpStatus_i;
-        initiator = YES;
-        _sctpStatus_i = statusNew;
-    }
-    else if([caller isEqualTo:_responder_socket])
-    {
-        sock = _responder_socket;
-        previousStatus = _sctpStatus_r;
-        initiator = NO;
-        _sctpStatus_r = statusNew;
-    }
-    else
-    {
-        NSLog(@"sctp status update for a connection we dont know");
-        return;
-    }
-    if(previousStatus == statusNew)
-    {
-        return;
-    }
-    NSString *oldStatusString =  [UMSocket statusDescription:previousStatus];
-    NSString *statusString =  [UMSocket statusDescription:statusNew];
-    NSString *s = [NSString stringWithFormat:@"SCTP-Status-Change: %@->%@",oldStatusString,statusString];
-    [self.logFeed infoText:s];
-
-    switch(statusNew)
-    {
-        case  UMSOCKET_STATUS_FOOS:
-        {
-            if(initiator)
-            {
-                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_NackTask:),NULL);
-            }
-            else
-            {
-                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_Conn_NackTask:),NULL);
-            }
-            break;
-        }
-        case UMSOCKET_STATUS_OFF:
-        {
-            if(initiator)
-            {
-                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_NackTask:),NULL);
-            }
-            else
-            {
-                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_Conn_NackTask:),NULL);
-            }
-            break;
-        }
-        case UMSOCKET_STATUS_OOS:
-        {
-            break;
-        }
-        case UMSOCKET_STATUS_IS:
-        {
-            if(initiator)
-            {
-                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventI_Rcv_Conn_AckTask:),NULL);
-
-            }
-            else
-            {
-                RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(@selector(_eventR_Rcv_Conn_AckTask:),NULL);
-            }
-            break;
-        }
-    }
-}
 
 
 - (void) sctpMonitorIndication:(UMLayer *)caller
@@ -1399,31 +1315,15 @@ typedef enum ElectionResult
     if(_isIncoming)
     {
         [s appendString:@":responder"];
-        status = _sctpStatus_r;
+        status = _responder_socket.status;
     }
     else
     {
         [s appendString:@":initiator"];
-        status = _sctpStatus_i;
+        status = _initiator_socket.status;
     }
-    switch(status)
-    {
-            case    UMSOCKET_STATUS_FOOS:
-                [s appendString:@":M-FOOS"];
-                break;
-            case    UMSOCKET_STATUS_OFF:
-                [s appendString:@":OFF"];
-                break;
-            case    UMSOCKET_STATUS_OOS:
-                [s appendString:@":OOS"];
-                break;
-            case    UMSOCKET_STATUS_IS:
-                [s appendString:@":IS"];
-                break;
-            default:
-                [s appendFormat:@":unknown(%d)",status];
-                break;
-    }
+    [s appendString:@":"];
+    [s appendString:[UMSocket statusDescription:status]];
     NSMutableArray *attributes = [[NSMutableArray alloc]init];
     if(_isIncoming)
     {
@@ -1764,14 +1664,12 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
         [_eventLock unlock];
     }
     else if (sock == _responder_socket)
     {
-        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
         [_eventLock unlock];
@@ -1782,7 +1680,6 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1791,8 +1688,6 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
-        _sctpStatus_r = sock.status;
-
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1804,7 +1699,6 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1813,7 +1707,6 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
-        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1824,7 +1717,6 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1833,7 +1725,6 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
-        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
         [_eventLock unlock];
@@ -1844,7 +1735,6 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        _sctpStatus_i = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
         [_eventLock unlock];
@@ -1853,7 +1743,6 @@ typedef enum ElectionResult
     }
     else if (sock == _responder_socket)
     {
-        _sctpStatus_r = sock.status;
         [_eventLock lock];
         _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
         [_eventLock unlock];
@@ -2592,8 +2481,14 @@ typedef enum ElectionResult
     dict[@"local-port"] = @(_responderPort);
     if(!_tcpPeer)
     {
-        dict[@"initiator-sctp-socket-status"] = [UMSocket statusDescription:_sctpStatus_i];
-        dict[@"responder-sctp-socket-status"] = [UMSocket statusDescription:_sctpStatus_r];
+        if(_initiator_socket)
+        {
+            dict[@"initiator-sctp-socket-status"] = [UMSocket statusDescription:_initiator_socket.status];
+        }
+        if(_responder_socket)
+        {
+            dict[@"responder-sctp-socket-status"] = [UMSocket statusDescription:_responder_socket.status];
+        }
     }
     dict[@"peer-state"] = _peerState.currentState;
     dict[@"watchdog-last-request-sent"]     =  _lastWatchdogRequestSent     ? _lastWatchdogRequestSent      : @"never";

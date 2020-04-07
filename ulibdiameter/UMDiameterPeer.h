@@ -35,8 +35,6 @@
     UMSocket                *_initiator_socket; /* initiator */
     UMSocket                *_responder_socket; /* responder */
     UMDiameterRouter        *_router;
-    UMSocketStatus          _sctpStatus_i;
-    UMSocketStatus          _sctpStatus_r;
     UMDiameterPeerState     *_peerState;
     BOOL                    _isIncoming;
     BOOL                    _isConnected;
