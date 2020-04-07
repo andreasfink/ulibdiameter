@@ -333,7 +333,19 @@
                                       @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_Zpn)
                                       }];
-    }
+        [_vendorSpecificIds addObject:@{
+                                      @"vendor":@(UMDiameterVendorId_FinkTelecomServices) ,
+                                      @"application": @(UMDiameterApplicationId_FTS_Routing)
+                                      }];
+        [_vendorSpecificIds addObject:@{
+                                      @"vendor":@(UMDiameterVendorId_FinkTelecomServices) ,
+                                      @"application": @(UMDiameterApplicationId_FTS_UMTransport)
+                                    }];
+       [_vendorSpecificIds addObject:@{
+                                     @"vendor":@(UMDiameterVendorId_FinkTelecomServices) ,
+                                     @"application": @(UMDiameterApplicationId_FTS_Tracing)
+                                   }];
+}
     return self;
 }
 
