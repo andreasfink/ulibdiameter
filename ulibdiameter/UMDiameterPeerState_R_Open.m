@@ -86,7 +86,8 @@
                                errorMessage:NULL
                                   failedAvp:NULL];
     [peer actionR_Snd_DPA:pkt];
-    return [[UMDiameterPeerState_Closing alloc]init];
+    [peer actionR_Disc:NULL];
+    return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -95,6 +96,22 @@
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
+- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    UMDiameterPacket *pkt = [peer createCEA:message.hopByHopIdentifier
+                                   endToEnd:message.endToEndIdentifier
+                                 resultCode:NULL
+                               errorMessage:NULL
+                                  failedAvp:NULL];
+    [peer actionR_Snd_CEA:pkt];
+    return self;
+}
+
+- (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    [peer actionProcess_CEA:message];
+    return self;
+}
 
 - (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {

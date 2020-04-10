@@ -30,4 +30,28 @@
     return @"Closing";
 }
 
+- (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    [peer actionI_Disc:NULL];
+    return [[UMDiameterPeerState_Closed alloc]init];
+}
+
+- (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    [peer actionI_Disc:NULL];
+    return [[UMDiameterPeerState_Closed alloc]init];
+}
+
+- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    [peer actionR_Disc:NULL];
+    return [[UMDiameterPeerState_Closed alloc]init];
+}
+
+- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    [peer actionError:NULL];
+    return [[UMDiameterPeerState_Closed alloc]init];
+}
+
 @end

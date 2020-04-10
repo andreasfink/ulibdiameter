@@ -92,6 +92,25 @@
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
+
+- (UMDiameterPeerState *)eventI_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    UMDiameterPacket *pkt = [peer createCEA:message.hopByHopIdentifier
+                                   endToEnd:message.endToEndIdentifier
+                                 resultCode:NULL
+                               errorMessage:NULL
+                                  failedAvp:NULL];
+    [peer actionI_Snd_CEA:pkt];
+    return self;
+}
+
+- (UMDiameterPeerState *)eventI_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+{
+    [peer actionProcess_CEA:message];
+    return self;
+}
+
+
 - (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     UMDiameterPacket *pkt = [peer createDWR];

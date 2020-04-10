@@ -118,11 +118,11 @@
 - (void)actionProcess_CER:(UMDiameterPacket *)message;
 
 /* Snd-CER        A CER message is sent to the peer. */
-- (void)actionSnd_CER:(UMDiameterPacket *)message;
 - (void)actionI_Snd_CER:(UMDiameterPacket *)message;
+- (void)actionR_Snd_CER:(UMDiameterPacket *)message;
 
 /* Snd-CEA        A CEA message is sent to the peer. */
-- (void)actionSnd_CEA:(UMDiameterPacket *)message;
+- (void)actionI_Snd_CEA:(UMDiameterPacket *)message;
 - (void)actionR_Snd_CEA:(UMDiameterPacket *)message;
 
 /* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
