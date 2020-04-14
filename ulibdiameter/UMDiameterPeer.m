@@ -1010,7 +1010,7 @@
     _peer_firmware_revision = cer.var_firmware_revision;
     
     NSMutableArray<NSNumber *> *c = [[NSMutableArray alloc]init];
-    for(UMDiameterAvpSupported_Vendor_Id *a in _peer_vendor_specific_application_id)
+    for(UMDiameterAvpSupported_Vendor_Id *a in _peer_supported_vendor_id)
     {
         for(NSNumber *b in _supportedVendorIds)
         {
@@ -1061,18 +1061,26 @@
         {
             NSNumber *vendor = b[@"vendor"];
             NSNumber *app    = b[@"application"];
-            NSNumber *acct    = b[@"acct"];
+            NSNumber *acct   = b[@"acct"];
 
-            if([a.var_vendor_id.numberValue isEqualToNumber:vendor])
+            if((a.var_vendor_id) && ([a.var_vendor_id.numberValue isEqualToNumber:vendor]))
             {
                 BOOL match=YES;
-                if(a.var_auth_application_id && ![a.var_auth_application_id.numberValue isEqualToNumber:app])
+                if(app)
                 {
-                    match=NO;
+                    if(  (a.var_auth_application_id==NULL) &&
+                        !([a.var_auth_application_id.numberValue isEqualToNumber:app]))
+                    {
+                        match = NO;
+                    }
                 }
-                else if(a.var_acct_application_id && [a.var_acct_application_id.numberValue isEqualToNumber:acct])
+                if(acct)
                 {
-                    match=NO;
+                    if(  (a.var_acct_application_id==NULL) &&
+                        !([a.var_acct_application_id.numberValue isEqualToNumber:app]))
+                    {
+                        match = NO;
+                    }
                 }
                 if(match)
                 {
