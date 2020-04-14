@@ -2680,7 +2680,7 @@ typedef enum ElectionResult
     }
     if(_peer_vendor_specific_application_id)
     {
-        NSMutableArray *a = [[NSMutableArray alloc]init];
+        UMSynchronizedArray *a = [[UMSynchronizedArray alloc]init];
         for(UMDiameterAvpVendor_Specific_Application_Id *avp in _peer_vendor_specific_application_id)
         {
             [a addObject:avp.objectValue];
