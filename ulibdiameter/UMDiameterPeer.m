@@ -785,10 +785,19 @@
                       failedAvp:(NSArray *)failedAvp
 
 {
-    UMDiameterPacketDWA *packet = [[UMDiameterPacketDWA alloc]init];
+    UMDiameterPacketDPA *packet = [[UMDiameterPacketDPA alloc]init];
     packet.hopByHopIdentifier = hopByHop;
     packet.endToEndIdentifier = endToEnd;
 
+    /*
+     <DPA>  ::= < Diameter Header: 282 >
+       { Result-Code }
+       { Origin-Host }
+       { Origin-Realm }
+       [ Error-Message ]
+       [ Failed-AVP ]
+     * [ AVP ]
+     */
     // { Result-Code }
     if(resultCode)
     {
@@ -816,11 +825,6 @@
     {
         packet.var_failed_avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [packet.var_failed_avp setArray:failedAvp];
-    }
-
-    if(_originStateId!=NULL)
-    {
-        packet.var_origin_state_id = [[UMDiameterAvpOrigin_State_Id alloc]initWithObject:_originStateId];
     }
     return packet;
 }
@@ -878,18 +882,17 @@
         packet.var_failed_avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [packet.var_failed_avp setArray:failedAvp];
     }
-
-    if([_router.supportedVendorIds count] > 0)
+    if([_supportedVendorIds count] > 0)
     {
         NSMutableArray<UMDiameterAvpSupported_Vendor_Id *>*arr =  [[NSMutableArray alloc]init];
-        for(NSNumber *n in _router.supportedVendorIds)
+        for(NSNumber *n in _supportedVendorIds)
         {
             UMDiameterAvpSupported_Vendor_Id *avp =  [[UMDiameterAvpSupported_Vendor_Id alloc]initWithObject:n];
             [arr addObject:avp];
         }
         packet.var_supported_vendor_id = arr;
     }
-    if([_router.authApplicationIds count] > 0)
+    if([_authApplicationIds count] > 0)
     {
         NSMutableArray<UMDiameterAvpAuth_Application_Id *> *arr = [[NSMutableArray alloc]init];
         for(NSNumber *n in _router.authApplicationIds)
@@ -911,7 +914,7 @@
     }
 
     // * [ Vendor-Specific-Application-Id ]
-    NSArray<NSDictionary *>*vids = [_router.vendorSpecificIds copy];
+    NSArray<NSDictionary *>*vids = [_vendorSpecificIds copy];
     if(vids.count>0)
     {
         NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *> *entries = [[NSMutableArray alloc]init];
@@ -990,11 +993,95 @@
 /* Process-CER:  The CER associated with the R-Conn-CER is processed. */
 - (void)actionProcess_CER:(UMDiameterPacket *)message
 {
+    UMDiameterPacketCER *cer = [[UMDiameterPacketCER alloc]initWithPacket:message];
+    
     if(_logLevel <= UMLOG_DEBUG)
     {
         [self logDebug:message.description];
     }
-    /* FIXME: do something useful here */
+
+    _peer_vendor_id = cer.var_vendor_id;
+    _peer_product_name = cer.var_product_name;
+    _peer_supported_vendor_id = cer.var_supported_vendor_id;
+    _peer_auth_application_id = cer.var_auth_application_id;
+    _peer_inband_security_id = cer.var_inband_security_id;
+    _peer_acct_application_id = cer.var_acct_application_id;
+    _peer_vendor_specific_application_id = cer.var_vendor_specific_application_id;
+    _peer_firmware_revision = cer.var_firmware_revision;
+    
+    NSMutableArray<NSNumber *> *c = [[NSMutableArray alloc]init];
+    for(UMDiameterAvpSupported_Vendor_Id *a in _peer_vendor_specific_application_id)
+    {
+        for(NSNumber *b in _supportedVendorIds)
+        {
+            if([a.numberValue isEqualToNumber:b])
+            {
+                [c addObject:b];
+                break;
+            }
+        }
+    }
+    _supportedVendorIds = c;
+    
+    c = [[NSMutableArray alloc]init];
+    for(UMDiameterAvpAuth_Application_Id *a in _peer_auth_application_id)
+    {
+        for(NSNumber *b in _authApplicationIds)
+        {
+            if([a.numberValue isEqualToNumber:b])
+            {
+                [c addObject:b];
+                break;
+            }
+        }
+    }
+    _authApplicationIds = c;
+    
+    
+    c = [[NSMutableArray alloc]init];
+    for(UMDiameterAvpAcct_Application_Id *a in _peer_acct_application_id)
+    {
+        for(NSNumber *b in _acctApplicationIds)
+        {
+            if([a.numberValue isEqualToNumber:b])
+            {
+                [c addObject:b];
+                break;
+            }
+        }
+    }
+    _acctApplicationIds = c;
+    
+    
+    NSMutableArray<NSDictionary *> *vids = [[NSMutableArray alloc]init];
+
+    for(UMDiameterAvpVendor_Specific_Application_Id *a in _peer_vendor_specific_application_id)
+    {
+        for(NSDictionary *b in _vendorSpecificIds)
+        {
+            NSNumber *vendor = b[@"vendor"];
+            NSNumber *app    = b[@"application"];
+            NSNumber *acct    = b[@"acct"];
+
+            if([a.var_vendor_id.numberValue isEqualToNumber:vendor])
+            {
+                BOOL match=YES;
+                if(a.var_auth_application_id && ![a.var_auth_application_id.numberValue isEqualToNumber:app])
+                {
+                    match=NO;
+                }
+                else if(a.var_acct_application_id && [a.var_acct_application_id.numberValue isEqualToNumber:acct])
+                {
+                    match=NO;
+                }
+                if(match)
+                {
+                    [vids addObject:b];
+                }
+            }
+        }
+    }
+    _vendorSpecificIds = vids;
 }
 
 - (void)actionI_Snd_CER:(UMDiameterPacket *)message
@@ -2527,6 +2614,75 @@ typedef enum ElectionResult
     dict[@"watchdog-last-answer-received"]  =  _lastWatchdogAnswerReceived  ? _lastWatchdogAnswerReceived   : @"never";
     dict[@"watchdog-last-request-received"] =  _lastWatchdogRequestReceived ? _lastWatchdogRequestReceived  : @"never";
     dict[@"watchdog-last-answer-sent"]      =  _lastWatchdogAnswerSent      ? _lastWatchdogAnswerSent       : @"never";
+    
+    if(_peer_vendor_id)
+    {
+        dict[@"peer-vendor-id"] = _peer_vendor_id.objectValue;
+    }
+    if(_peer_product_name)
+    {
+        dict[@"peer-product-name"] = _peer_product_name.objectValue;
+    }
+    if(_peer_supported_vendor_id)
+    {
+        NSMutableArray *a = [[NSMutableArray alloc]init];
+        for(UMDiameterAvpSupported_Vendor_Id *avp in _peer_supported_vendor_id)
+        {
+            [a addObject:avp.objectValue];
+        }
+        dict[@"peer-suppored-vendor-id"] = a;
+    }
+    
+    if(_peer_auth_application_id)
+    {
+        NSMutableArray *a = [[NSMutableArray alloc]init];
+        for(UMDiameterAvpAuth_Application_Id *avp in _peer_auth_application_id)
+        {
+            [a addObject:avp.objectValue];
+        }
+        dict[@"peer-auth-application-id"] = a;
+    }
+    if(_peer_auth_application_id)
+    {
+        NSMutableArray *a = [[NSMutableArray alloc]init];
+        for(UMDiameterAvpAuth_Application_Id *avp in _peer_auth_application_id)
+        {
+            [a addObject:avp.objectValue];
+        }
+        dict[@"peer-auth-application-id"] = a;
+    }
+    if(_peer_inband_security_id)
+    {
+        NSMutableArray *a = [[NSMutableArray alloc]init];
+        for(UMDiameterAvpInband_Security_Id *avp in _peer_inband_security_id)
+        {
+            [a addObject:avp.objectValue];
+        }
+        dict[@"peer-inband-security-id"] = a;
+    }
+    
+    if(_peer_acct_application_id)
+    {
+        NSMutableArray *a = [[NSMutableArray alloc]init];
+        for(UMDiameterAvpAcct_Application_Id *avp in _peer_acct_application_id)
+        {
+            [a addObject:avp.objectValue];
+        }
+        dict[@"peer-acct-application-id"] = a;
+    }
+    if(_peer_vendor_specific_application_id)
+    {
+        NSMutableArray *a = [[NSMutableArray alloc]init];
+        for(UMDiameterAvpVendor_Specific_Application_Id *avp in _peer_vendor_specific_application_id)
+        {
+            [a addObject:avp.objectValue];
+        }
+        dict[@"peer-vendor-specific-application-id"] = a;
+    }
+    if(_peer_firmware_revision)
+    {
+        dict[@"peer-firmware-revision"] = _peer_firmware_revision.objectValue;
+    }
     return dict;
 }
 
@@ -2640,5 +2796,6 @@ typedef enum ElectionResult
     _peerState = [_peerState eventWatchdogTimer:self message:NULL];
     [_eventLock unlock];
 }
+
 @end
 

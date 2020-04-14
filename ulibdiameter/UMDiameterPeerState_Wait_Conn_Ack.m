@@ -32,7 +32,7 @@
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionR_Accept:NULL];
-    [peer actionProcess_CER:NULL];
+    [peer actionProcess_CER:message];
     return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]init];
 }
 

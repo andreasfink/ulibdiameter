@@ -10,6 +10,7 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterPacket.h"
 #import "UMDiameterResultCode.h"
+#import "UMDiameterRouter.h"
 
 @implementation UMDiameterPeerState_Closed
 
@@ -21,6 +22,12 @@
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
     [peer actionI_Snd_Conn_Req:NULL];
+    
+    peer.supportedVendorIds = peer.router.supportedVendorIds;
+    peer.authApplicationIds = peer.router.authApplicationIds;
+    peer.acctApplicationIds = peer.router.acctApplicationIds;
+    peer.vendorSpecificIds = peer.router.vendorSpecificIds;
+
     UMDiameterPeerState *newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
     return newState;
 }

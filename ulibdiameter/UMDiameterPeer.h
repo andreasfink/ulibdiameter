@@ -23,6 +23,15 @@
 @class UMDiameterPacket;
 @class UMDiameterAVP;
 
+@class UMDiameterAvpVendor_Id;
+@class UMDiameterAvpProduct_Name;
+@class UMDiameterAvpSupported_Vendor_Id;
+@class UMDiameterAvpAuth_Application_Id;
+@class UMDiameterAvpInband_Security_Id;
+@class UMDiameterAvpAcct_Application_Id;
+@class UMDiameterAvpVendor_Specific_Application_Id;
+@class UMDiameterAvpFirmware_Revision;
+
 @interface UMDiameterPeer : UMLayer<UMLayerUserProtocol>
 {
 	BOOL					_tcpPeer;
@@ -74,6 +83,20 @@
     UMMutex                 *_dataBuffersLock;
     NSMutableData           *_initiator_receive_buffer;
     NSMutableData           *_responder_receive_buffer;
+    
+    UMDiameterAvpVendor_Id                                  *_peer_vendor_id;
+    UMDiameterAvpProduct_Name                               *_peer_product_name;
+    NSArray<UMDiameterAvpSupported_Vendor_Id *>             *_peer_supported_vendor_id;
+    NSArray<UMDiameterAvpAuth_Application_Id *>             *_peer_auth_application_id;
+    NSArray<UMDiameterAvpInband_Security_Id *>              *_peer_inband_security_id;
+    NSArray<UMDiameterAvpAcct_Application_Id *>             *_peer_acct_application_id;
+    NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *_peer_vendor_specific_application_id;
+    UMDiameterAvpFirmware_Revision                          *_peer_firmware_revision;
+
+    NSArray<NSNumber *>                                     *_supportedVendorIds;
+    NSMutableArray<NSNumber *>                              *_authApplicationIds;
+    NSMutableArray<NSNumber *>                              *_acctApplicationIds;
+    NSArray<NSDictionary *>                                 *_vendorSpecificIds;
 }
 
 @property(readwrite,assign,atomic)  BOOL					tcpPeer;
@@ -93,6 +116,11 @@
 @property(readwrite,strong,atomic)  UMPCAPFile              *packetTraceFile;
 @property(readwrite,strong,atomic)  UMPCAPPseudoConnection  *packetTracePseudoConnection;
 @property(readwrite,strong,atomic)  NSNumber                *originStateId;
+@property(readwrite,copy,atomic)     NSArray<NSNumber *>         *supportedVendorIds;
+@property(readwrite,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
+@property(readwrite,copy,atomic)     NSMutableArray<NSNumber *>  *acctApplicationIds;
+@property(readwrite,copy,atomic)     NSArray<NSDictionary *>     *vendorSpecificIds;
+
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterPeerAppDelegateProtocol>)appContext;
 - (void) stopDetachAndDestroy;

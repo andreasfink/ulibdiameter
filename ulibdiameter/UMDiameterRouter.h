@@ -44,6 +44,7 @@
     NSMutableArray<NSDictionary *>  *_vendorSpecificIds;
     NSMutableArray<NSNumber *>      *_inbandSecurityIds;
     NSMutableArray<NSNumber *>      *_authApplicationIds;
+    NSMutableArray<NSNumber *>      *_acctApplicationIds;
     id<UMDiameterLocalUserProtocol> _localUser;
     
     NSMutableArray<UMSocket *>      *_listeners; /* all listening sockets which wait for incoming connections */
@@ -66,6 +67,7 @@
 @property(readonly,copy,atomic)     NSArray<NSDictionary *> *vendorSpecificIds;
 @property(readonly,copy,atomic)     NSArray<NSNumber *> *inbandSecurityIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
+@property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *acctApplicationIds;
 @property(readwrite,strong,atomic)  id<UMDiameterLocalUserProtocol> localUser;
 @property(readwrite,assign,atomic)  uint32_t    origin_state_id;
 
