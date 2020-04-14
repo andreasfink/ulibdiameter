@@ -68,6 +68,7 @@
 @property(readonly,copy,atomic)     NSArray<NSNumber *> *inbandSecurityIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *acctApplicationIds;
+
 @property(readwrite,strong,atomic)  id<UMDiameterLocalUserProtocol> localUser;
 @property(readwrite,assign,atomic)  uint32_t    origin_state_id;
 
