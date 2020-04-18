@@ -15,7 +15,7 @@
 
 @interface UMDiameterAvpVendor_Specific_Application_Id : UMDiameterAvpGrouped
 {
-	UMDiameterAvpVendor_Id	*_var_vendor_id;
+	UMDiameterAvpVendor_Id	            *_var_vendor_id;
 	UMDiameterAvpAuth_Application_Id	*_var_auth_application_id;
 	UMDiameterAvpAcct_Application_Id	*_var_acct_application_id;
 }
