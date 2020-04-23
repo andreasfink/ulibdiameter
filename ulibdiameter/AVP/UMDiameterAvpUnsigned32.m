@@ -10,6 +10,25 @@
 
 @implementation UMDiameterAvpUnsigned32
 
+- (UMDiameterAvpUnsigned32 *)initWithNumber:(NSNumber *)n
+{
+    self = [super init];
+    if(self)
+    {
+        [self setNumberValue:n];
+    }
+    return self;
+}
+
+- (UMDiameterAvpUnsigned32 *)initWithString:(NSString *)s
+{
+    self = [super init];
+    if(self)
+    {
+        [self setStringValue:s];
+    }
+    return self;
+}
 
 - (NSString *)avpType
 {

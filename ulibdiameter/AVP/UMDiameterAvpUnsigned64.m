@@ -13,6 +13,26 @@
 @implementation UMDiameterAvpUnsigned64
 
 
+- (UMDiameterAvpUnsigned64 *)initWithNumber:(NSNumber *)n
+{
+    self = [super init];
+    if(self)
+    {
+        [self setNumberValue:n];
+    }
+    return self;
+}
+
+- (UMDiameterAvpUnsigned64 *)initWithString:(NSString *)s
+{
+    self = [super init];
+    if(self)
+    {
+        [self setStringValue:s];
+    }
+    return self;
+}
+
 - (NSString *)avpType
 {
     return @"Unsigned64";

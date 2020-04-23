@@ -15,6 +15,9 @@
 
 @property(readwrite,assign,atomic) int64_t value;
 
+- (UMDiameterAvpInteger64 *)initWithNumber:(NSNumber *)n;
+- (UMDiameterAvpInteger64 *)initWithString:(NSString *)s;
+
 - (NSNumber *)numberValue;
 - (void)setNumberValue:(NSNumber *)n;
 

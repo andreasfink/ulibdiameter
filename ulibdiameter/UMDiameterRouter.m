@@ -20,6 +20,11 @@
 
 @implementation UMDiameterRouter
 
+- (UMDiameterRouter *)init
+{
+    @throw([NSException exceptionWithName:@"API" reason:@"call [UMDiameterRouter initWithTaskQueueMulti:name:] instead" userInfo:NULL]);
+    return NULL;
+}
 
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq
 {

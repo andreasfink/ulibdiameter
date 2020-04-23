@@ -15,6 +15,8 @@
 
 @property(readwrite,assign,atomic) int32_t value;
 
+- (UMDiameterAvpInteger32 *)initWithNumber:(NSNumber *)n;
+- (UMDiameterAvpInteger32 *)initWithString:(NSString *)s;
 
 - (void)setStringValue:(NSString *)string;
 - (NSString *)stringValue;

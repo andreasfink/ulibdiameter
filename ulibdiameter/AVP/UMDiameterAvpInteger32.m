@@ -11,6 +11,26 @@
 
 @implementation UMDiameterAvpInteger32
 
+- (UMDiameterAvpInteger32 *)initWithNumber:(NSNumber *)n
+{
+    self = [super init];
+    if(self)
+    {
+        [self setNumberValue:n];
+    }
+    return self;
+}
+
+- (UMDiameterAvpInteger32 *)initWithString:(NSString *)s
+{
+    self = [super init];
+    if(self)
+    {
+        [self setStringValue:s];
+    }
+    return self;
+}
+
 - (NSString *)avpType
 {
     return @"Integer32";
@@ -69,6 +89,7 @@
 {
     self.value = (int32_t)[string longLongValue];
 }
+
 - (NSString *)stringValue
 {
     return [NSString stringWithFormat:@"%ld",(long)self.value];
