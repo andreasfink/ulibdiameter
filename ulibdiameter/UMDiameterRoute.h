@@ -7,6 +7,7 @@
 //
 
 #import <ulib/ulib.h>
+@class UMDiameterPeer;
 
 @interface UMDiameterRoute : UMObject
 {
@@ -20,6 +21,7 @@
     BOOL     _local;
     NSNumber *_weight;
     NSNumber *_priority;
+    UMDiameterPeer *_peer;
 }
 
 @property(readwrite,strong,atomic)     NSString *identifier;
@@ -32,6 +34,7 @@
 @property(readwrite,assign,atomic)     BOOL     local;
 @property(readwrite,strong,atomic)     NSNumber   *weight;
 @property(readwrite,strong,atomic)     NSNumber   *priority;
+@property(readwrite,strong,atomic)     UMDiameterPeer   *peer;
 
 - (UMDiameterRoute *)initWithConfig:(NSDictionary *)conf;
 

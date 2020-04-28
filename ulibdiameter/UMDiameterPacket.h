@@ -16,6 +16,10 @@
 #define DIAMETER_COMMAND_FLAG_ERROR					0x20
 #define DIAMETER_COMMAND_FLAG_POTENTIAL_RETRANSMIT	0x10
 @class UMDiameterAvp;
+@class UMDiameterAvpOrigin_Host;
+@class UMDiameterAvpOrigin_Realm;
+@class UMDiameterAvpDestination_Host;
+@class UMDiameterAvpDestination_Realm;
 
 @interface UMDiameterPacket : UMObject
 {
@@ -28,6 +32,11 @@
 	uint32_t	_messageLength; /* calculated  */
     UMSynchronizedArray *_packet_avps;
     UMSynchronizedArray *_unknown_avps;
+    
+    UMDiameterAvpOrigin_Host *_originHost;
+    UMDiameterAvpOrigin_Realm *_originRealm;
+    UMDiameterAvpDestination_Host *_destinationHost;
+    UMDiameterAvpDestination_Realm *_destinationRealm;
 }
 
 
@@ -39,6 +48,11 @@
 @property(readwrite,assign,atomic)  uint32_t    endToEndIdentifier;
 @property(readwrite,strong,atomic)  UMSynchronizedArray *packet_avps;
 @property(readwrite,strong,atomic)  UMSynchronizedArray *unknown_avps;
+@property(readwrite,strong,atomic)  UMDiameterAvpOrigin_Host *originHost;
+@property(readwrite,strong,atomic)  UMDiameterAvpOrigin_Realm *originRealm;
+@property(readwrite,strong,atomic)  UMDiameterAvpDestination_Host *destinationHost;
+@property(readwrite,strong,atomic)  UMDiameterAvpDestination_Realm *destinationRealm;
+
 
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;
@@ -64,6 +78,13 @@
 - (void)setAvps:(NSArray<UMDiameterAvp *> *)avp;
 
 - (NSString *)getSessionIdentifier;
+
+
+- (NSString *)getOriginHost;
+- (NSString *)getOriginRealm;
+- (NSString *)getDestinationHost;
+- (NSString *)getDestinationRealm;
+
 - (UMSynchronizedSortedDictionary *)objectValue;
 - (void)afterDecode;
 - (void)beforeEncode;

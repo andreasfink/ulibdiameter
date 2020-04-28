@@ -1412,7 +1412,9 @@ typedef enum ElectionResult
 /* Process        A message is serviced. */
 - (void)actionProcessMessage:(UMDiameterPacket *)message
 {
-    [_router processIncomingPacket:message fromPeer:self];
+    [_router processIncomingPacket:message fromPeer:self
+                             realm:message.destinationRealm.stringValue
+                              host:message.destinationHost.stringValue];
 }
 
 - (void)housekeeping

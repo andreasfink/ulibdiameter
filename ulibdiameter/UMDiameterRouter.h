@@ -89,8 +89,16 @@
 
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq name:(NSString *)name;
 
-- (void)queuePacketForRouting:(UMDiameterPacket *)pkt           source:(UMDiameterPeer *)peer;
-- (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt   source:(UMDiameterPeer *)peer;
+- (void)queuePacketForRouting:(UMDiameterPacket *)pkt
+                       source:(UMDiameterPeer *)peer
+                        realm:(NSString *)realm
+                         host:(NSString *)host;
+
+- (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt
+                               source:(UMDiameterPeer *)peer
+                                realm:(NSString *)realm
+                                 host:(NSString *)host;
+
 
 - (UMDiameterRouterSession *)findSessionById:(NSString *)sid;
 - (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt;
@@ -99,11 +107,22 @@
 - (void)addPeer:(UMDiameterPeer *)peer;
 - (void)start;
 
-- (BOOL)localSendPacket:(UMDiameterPacket *)p toPeer:(UMDiameterPeer *)peer; /* peer can be NULL if route has to be discovered */
-- (void)processIncomingPacket:(UMDiameterPacket *)packet fromPeer:(UMDiameterPeer *)peer;
+- (BOOL)localSendPacket:(UMDiameterPacket *)p
+                 toPeer:(UMDiameterPeer *)peer; /* peer can be NULL if route has to be discovered */
+
+- (void)processIncomingPacket:(UMDiameterPacket *)packet
+                     fromPeer:(UMDiameterPeer *)peer
+                        realm:(NSString *)realm
+                         host:(NSString *)host;
+
 
 - (void)addRoute:(UMDiameterRoute *)route;
 - (void)addRouteFromConfig:(NSDictionary *)config;
+
+- (UMDiameterRoute *)findRouteForRealm:(NSString *)realm;
+- (UMDiameterRoute *)findRouteForHost:(NSString *)host;
+- (UMDiameterPeer *)findPeer:(NSString *)peerName;
+
 
 /* local processing */
 - (void)processIncomingRequestPacket:(UMDiameterPacket *)packet

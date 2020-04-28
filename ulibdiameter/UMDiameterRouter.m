@@ -52,7 +52,6 @@
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
         _vendorId = 54013; /* fts */
         _productName = @"Fink Telecom Services ulibdiameter";
-        [NSDate dateWithStandardDateString:@"123"];
         
         NSString *s = @"2020-01-01 00:00:00.000000";
         NSDate *zeroDay = [s dateValue];
@@ -375,21 +374,30 @@
 
 - (void)queuePacketForRouting:(UMDiameterPacket *)pkt
                        source:(UMDiameterPeer *)peer
+                        realm:(NSString *)realm
+                         host:(NSString *)host
 {
 
     UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
                                                                                   sender:peer
-                                                                                  packet:pkt];
+                                                                                  packet:pkt
+                                                                                   realm:realm
+                                                                                    host:host];
     [self queueFromLower:task];
 }
 
 - (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt
                                source:(UMDiameterPeer *)peer
+                                realm:(NSString *)realm
+                                 host:(NSString *)host
+
 {
 
     UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
                                                                                   sender:peer
-                                                                                  packet:pkt];
+                                                                                  packet:pkt
+                                                                                   realm:realm
+                                                                                    host:host];
     [self queueFromLowerWithPriority:task];
 }
 
@@ -437,6 +445,18 @@
         return [self findSessionById:sid];
     }
     return NULL;
+}
+
+- (NSString *)findRealmForPacket:(UMDiameterPacket *)pkt
+{
+    NSString *realm = [pkt getDestinationRealm];
+    return realm;
+}
+
+- (NSString *)findHostForPacket:(UMDiameterPacket *)pkt
+{
+    NSString *host = [pkt getDestinationHost];
+    return host;
 }
 
 
@@ -561,6 +581,7 @@
     return r;
 }
 
+
 - (BOOL)localSendPacket:(UMDiameterPacket *)pkt toPeer:(UMDiameterPeer *)peer /* peer can be NULL if route has to be discovered, Returns YES on success */
 {
     if(peer == NULL)
@@ -584,8 +605,9 @@
 
 - (void)processIncomingPacket:(UMDiameterPacket *)packet
                      fromPeer:(UMDiameterPeer *)peer
+                        realm:(NSString *)realm
+                         host:(NSString *)host
 {
-    [self queuePacketForRouting:packet source:peer];
     UMDiameterRouterSession *session = [self findSessionForPacket:packet];
     if(session)
     {
@@ -598,7 +620,10 @@
         }
         else
         {
-            [self queuePacketForRouting:packet source:peer];
+            [self queuePacketForRouting:packet
+                                 source:peer
+                                  realm:realm
+                                   host:host];
         }
     }
     else
@@ -660,11 +685,96 @@
 {
     _routes[route.identifier] = route;
 }
+
 - (void)addRouteFromConfig:(NSDictionary *)config
 {
     UMDiameterRoute *route = [[UMDiameterRoute alloc]initWithConfig:config];
     [self addRoute:route];
 }
+
+
+- (UMDiameterRoute *)findRouteForRealm:(NSString *)realm
+{
+    UMDiameterRoute *route=NULL;
+    NSArray *allKeys = [_routes allKeys];
+    for(NSString *key in allKeys)
+    {
+        UMDiameterRoute *thisRoute =     _routes[key];
+        if([thisRoute.realm isEqualToString:realm])
+        {
+            if(route==NULL)
+            {
+                route = thisRoute;
+            }
+            else
+            {
+                if(thisRoute.priority < route.priority)
+                {
+                    route = thisRoute;
+                }
+                else if(thisRoute.priority == route.priority)
+                {
+                    if(thisRoute.weight > route.weight)
+                    {
+                        route = thisRoute;
+                    }
+                }
+            }
+        }
+    }
+    return route;
+}
+
+
+- (UMDiameterRoute *)findRouteForHost:(NSString *)hostname
+{
+    UMDiameterRoute *route=NULL;
+    NSArray *allKeys = [_routes allKeys];
+    for(NSString *key in allKeys)
+    {
+        UMDiameterRoute *thisRoute =     _routes[key];
+        if([thisRoute.hostname isEqualToString:hostname])
+        {
+            if(route==NULL)
+            {
+                route = thisRoute;
+            }
+            else
+            {
+                if(thisRoute.priority < route.priority)
+                {
+                    route = thisRoute;
+                }
+                else if(thisRoute.priority == route.priority)
+                {
+                    if(thisRoute.weight > route.weight)
+                    {
+                        route = thisRoute;
+                    }
+                }
+            }
+        }
+    }
+    return route;
+}
+
+- (UMDiameterPeer *)findPeer:(NSString *)peerName
+{
+    return _peers[peerName];
+}
+/*
+ NSString *_identifier;
+ NSString *_destination;
+ NSString *_hostname;
+ NSString *_realm;
+ NSNumber *_applicationId;
+ NSString *_sessionId;
+ BOOL     _oneTimeRoute;
+ BOOL     _local;
+ NSNumber *_weight;
+ NSNumber *_priority;
+ 
+ */
 
 #if 0
 - (UMSocket *)getListenerForPort:(int)port

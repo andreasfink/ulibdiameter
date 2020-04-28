@@ -12,6 +12,11 @@
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterAvpSession_Id.h"
 
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpDestination_Host.h"
+#import "UMDiameterAvpDestination_Realm.h"
+
 @implementation UMDiameterPacket
 
 - (UMDiameterPacket *)init
@@ -82,7 +87,6 @@
 {
 }
 
-
 - (UMDiameterPacket *)initWithData:(NSData *)packet
                         atPosition:(NSInteger *)posPtr
 {
@@ -142,6 +146,24 @@
             UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:avpdata
                                                             avpCode:avpCode
                                                           avpVendor:avpVendor];
+
+            if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
+            {
+                _originHost = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            }
+            if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
+            {
+                _originRealm = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            }
+            
+            if(avp.avpCode == [UMDiameterAvpDestination_Host avpCode])
+            {
+                _destinationHost = [[UMDiameterAvpDestination_Host alloc]initWithAvp:avp];
+            }
+            if(avp.avpCode == [UMDiameterAvpDestination_Realm avpCode])
+            {
+                _destinationRealm = [[UMDiameterAvpDestination_Realm alloc]initWithAvp:avp];
+            }
             if(avp)
             {
                 [_packet_avps addObject:avp];
@@ -157,6 +179,29 @@
     return self;
 }
 
+- (void)extractSourceDestinationRealmHostnames
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
+        {
+            _originHost = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+        }
+        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
+        {
+            _originRealm = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+        }
+        
+        if(avp.avpCode == [UMDiameterAvpDestination_Host avpCode])
+        {
+            _destinationHost = [[UMDiameterAvpDestination_Host alloc]initWithAvp:avp];
+        }
+        if(avp.avpCode == [UMDiameterAvpDestination_Realm avpCode])
+        {
+            _destinationRealm = [[UMDiameterAvpDestination_Realm alloc]initWithAvp:avp];
+        }
+    }
+}
 
 - (NSData *)packedData
 {
@@ -336,6 +381,25 @@
     return avp.value;
 }
 
+- (NSString *)getOriginHost
+{
+    return [_originHost stringValue];
+}
+
+- (NSString *)getOriginRealm
+{
+    return [_originRealm stringValue];
+}
+
+- (NSString *)getDestinationHost
+{
+    return [_destinationHost stringValue];
+}
+
+- (NSString *)getDestinationRealm
+{
+    return [_destinationRealm stringValue];
+}
 
 - (NSString *)description
 {

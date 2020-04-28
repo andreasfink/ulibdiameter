@@ -17,13 +17,17 @@
     UMDiameterPacket *_packet;
     UMDiameterPeer   *_sender;
     UMDiameterRouter *_router;
+    NSString *_realm;
+    NSString *_host;
 }
 
 @property(readwrite,strong,atomic)  UMDiameterPacket *packet;
 
 - (UMDiameterRouter_RouteTask *)initWithRouter:(UMDiameterRouter *)router
                                         sender:(UMDiameterPeer *)sender
-                                        packet:(UMDiameterPacket *)packet;
+                                        packet:(UMDiameterPacket *)packet
+                                         realm:(NSString *)realm
+                                          host:(NSString *)host;
 
 - (void)main;
 

@@ -7,7 +7,7 @@
 //
 
 #import "UMDiameterRoute.h"
-
+#import "UMDiameterPeer.h"
 @implementation UMDiameterRoute
 
 - (UMDiameterRoute *)initWithConfig:(NSDictionary *)conf
