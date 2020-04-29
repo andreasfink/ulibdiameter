@@ -28,7 +28,7 @@
 
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq
 {
-    return [self initWithTaskQueueMulti:tq name:@""];
+    return [self initWithTaskQueueMulti:tq name:@"UMDiameterRouter"];
 }
 
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq name:(NSString *)name
