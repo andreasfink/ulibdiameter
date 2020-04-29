@@ -141,6 +141,14 @@
 		A68FC4A722A5C098006351C3 /* UMDiameterLocalUserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A68FC4A522A5C098006351C3 /* UMDiameterLocalUserProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68FC4AB22A5C1CC006351C3 /* UMDiameterRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = A68FC4A922A5C1CC006351C3 /* UMDiameterRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68FC4AC22A5C1CC006351C3 /* UMDiameterRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = A68FC4AA22A5C1CC006351C3 /* UMDiameterRoute.m */; };
+		A6967B00245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.h in Headers */ = {isa = PBXBuildFile; fileRef = A6967AF8245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.h */; };
+		A6967B01245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6967AF9245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.m */; };
+		A6967B02245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.h in Headers */ = {isa = PBXBuildFile; fileRef = A6967AFA245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.h */; };
+		A6967B03245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.h in Headers */ = {isa = PBXBuildFile; fileRef = A6967AFB245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.h */; };
+		A6967B04245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6967AFC245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.m */; };
+		A6967B05245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.h in Headers */ = {isa = PBXBuildFile; fileRef = A6967AFD245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.h */; };
+		A6967B06245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = A6967AFE245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.m */; };
+		A6967B07245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = A6967AFF245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.m */; };
 		A69A0DD922CB43B100240423 /* UMDiameterAvpAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = A69A0DD722CB43B000240423 /* UMDiameterAvpAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A69A0DDA22CB43B100240423 /* UMDiameterAvpAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = A69A0DD822CB43B000240423 /* UMDiameterAvpAddress.m */; };
 		A69A2CEF2327E7C100F12046 /* UMDiameterPacketLCS_Routing_Info_Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A69A2CEB2327E7C000F12046 /* UMDiameterPacketLCS_Routing_Info_Answer.m */; };
@@ -1477,6 +1485,18 @@
 		A68FC4A522A5C098006351C3 /* UMDiameterLocalUserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterLocalUserProtocol.h; sourceTree = "<group>"; };
 		A68FC4A922A5C1CC006351C3 /* UMDiameterRoute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterRoute.h; sourceTree = "<group>"; };
 		A68FC4AA22A5C1CC006351C3 /* UMDiameterRoute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterRoute.m; sourceTree = "<group>"; };
+		A6967AF8245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketSend_Routing_Info_for_SM_Answer.h; sourceTree = "<group>"; };
+		A6967AF9245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacketSend_Routing_Info_for_SM_Answer.m; sourceTree = "<group>"; };
+		A6967AFA245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketSend_Routing_Info_for_SM_Request.h; sourceTree = "<group>"; };
+		A6967AFB245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketAlert_Service_Centre_Answer.h; sourceTree = "<group>"; };
+		A6967AFC245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacketAlert_Service_Centre_Answer.m; sourceTree = "<group>"; };
+		A6967AFD245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketAlert_Service_Centre_Request.h; sourceTree = "<group>"; };
+		A6967AFE245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacketSend_Routing_Info_for_SM_Request.m; sourceTree = "<group>"; };
+		A6967AFF245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPacketAlert_Service_Centre_Request.m; sourceTree = "<group>"; };
+		A6967B08245A1A60000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketAlert_Service_Centre_Answer.bnf; sourceTree = "<group>"; };
+		A6967B09245A1A60000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketAlert_Service_Centre_Request.bnf; sourceTree = "<group>"; };
+		A6967B0A245A1A6E000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketSend_Routing_Info_for_SM_Request.bnf; sourceTree = "<group>"; };
+		A6967B0B245A1A6F000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketSend_Routing_Info_for_SM_Answer.bnf; sourceTree = "<group>"; };
 		A69A0DD722CB43B000240423 /* UMDiameterAvpAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAddress.h; sourceTree = "<group>"; };
 		A69A0DD822CB43B000240423 /* UMDiameterAvpAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAddress.m; sourceTree = "<group>"; };
 		A69A2CE72327E6BE00F12046 /* UMDiameterPacketLCS_Routing_Info_Request.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketLCS_Routing_Info_Request.bnf; sourceTree = "<group>"; };
@@ -4024,6 +4044,14 @@
 				A67FCA1522CA7D22007A28AB /* commands.txt */,
 				A6A0B25023553F2500A41343 /* UMDiameterCommands_3GPP.inc */,
 				A67FCA1422CA7D22007A28AB /* generate-commands.sh */,
+				A6967AFB245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.h */,
+				A6967AFC245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.m */,
+				A6967AFD245A1902000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.h */,
+				A6967AFF245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.m */,
+				A6967AF8245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.h */,
+				A6967AF9245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.m */,
+				A6967AFA245A1902000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.h */,
+				A6967AFE245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.m */,
 				A6DB9C13233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Answer.h */,
 				A6DB9C11233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Answer.m */,
 				A6DB9C10233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Request.h */,
@@ -4091,6 +4119,10 @@
 		A67FC9E522CA7D22007A28AB /* command-def */ = {
 			isa = PBXGroup;
 			children = (
+				A6967B08245A1A60000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.bnf */,
+				A6967B09245A1A60000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.bnf */,
+				A6967B0B245A1A6F000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.bnf */,
+				A6967B0A245A1A6E000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.bnf */,
 				A67FC9E622CA7D22007A28AB /* UMDiameterPacketAuthentication_Information_Request.bnf */,
 				A67FC9E722CA7D22007A28AB /* UMDiameterPacketAuthentication_Information_Answer.bnf */,
 				A67FC9E822CA7D22007A28AB /* UMDiameterPacketUpdate_Location_Request.bnf */,
@@ -4365,7 +4397,9 @@
 				A6E24D25235061F000742DCA /* UMDiameterAvpECGI.h in Headers */,
 				A6E24CE4235061EF00742DCA /* UMDiameterAvpService_Area_Identity.h in Headers */,
 				A6E24C03235061EF00742DCA /* UMDiameterAvpLMSI.h in Headers */,
+				A6967B00245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.h in Headers */,
 				A6E24E8E235061F000742DCA /* UMDiameterAvpLocal_Time_Zone.h in Headers */,
+				A6967B05245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.h in Headers */,
 				A6C9EE7422CB625300778583 /* UMDiameterAvpVendor_Specific_Application_Id.h in Headers */,
 				A6E24B74235061EF00742DCA /* UMDiameterAvpUTRAN_Positioning_Data.h in Headers */,
 				A6A58BB7203AE65B00D0C2BE /* UMDiameterCommandCode.h in Headers */,
@@ -4649,6 +4683,7 @@
 				A6C9F33022CB7EB400778583 /* UMDiameterAvpQoS_Resources.h in Headers */,
 				A651AAA422CA073700F2A479 /* UMDiameterAvpAVP.h in Headers */,
 				A6E24D78235061F000742DCA /* UMDiameterAvpPeriodic_Location_Support_Indicator.h in Headers */,
+				A6967B02245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.h in Headers */,
 				A6260C42228AE79500C94036 /* UMDiameterTcpConnectionAuthorisationProtocol.h in Headers */,
 				A6075B00221304EC00750CCD /* UMDiameterRouterSession.h in Headers */,
 				A6E24BB6235061EF00742DCA /* UMDiameterAvpSGSN_Location_Information.h in Headers */,
@@ -4890,6 +4925,7 @@
 				A6E24E0D235061F000742DCA /* UMDiameterAvpLRR_Flags.h in Headers */,
 				A6C9F31F22CB7EA100778583 /* UMDiameterAvpMIP6_Agent_Info.h in Headers */,
 				A6E24CB9235061EF00742DCA /* UMDiameterAvpSupported_Applications.h in Headers */,
+				A6967B03245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.h in Headers */,
 				A6E24E5B235061F000742DCA /* UMDiameterAvpRAT_Type.h in Headers */,
 				A67FCAAD22CA80B1007A28AB /* UMDiameterPacketCER.h in Headers */,
 				A6E24E44235061F000742DCA /* UMDiameterAvpAESE_Communication_Pattern.h in Headers */,
@@ -5299,6 +5335,7 @@
 				A6E24E5E235061F000742DCA /* UMDiameterAvpLCS_Requestor_Name.m in Sources */,
 				A6E24E18235061F000742DCA /* UMDiameterAvpPre_paging_Supported.m in Sources */,
 				A6E24D6B235061F000742DCA /* UMDiameterAvpGeodetic_Information.m in Sources */,
+				A6967B07245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.m in Sources */,
 				A6E24D31235061F000742DCA /* UMDiameterAvpDSR_Flags.m in Sources */,
 				A6E24D6A235061F000742DCA /* UMDiameterAvpTo_SIP_Header.m in Sources */,
 				A6C9EE9C22CB625300778583 /* UMDiameterAvpAuthorization_Lifetime.m in Sources */,
@@ -5399,6 +5436,7 @@
 				A6E24E05235061F000742DCA /* UMDiameterAvpRelay_Node_Indicator.m in Sources */,
 				A6E24CE2235061EF00742DCA /* UMDiameterAvpContact.m in Sources */,
 				A6E24E54235061F000742DCA /* UMDiameterAvpIDA_Flags.m in Sources */,
+				A6967B06245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.m in Sources */,
 				A6E24D9A235061F000742DCA /* UMDiameterAvpICS_Indicator.m in Sources */,
 				A6E24E70235061F000742DCA /* UMDiameterAvpServing_Node_Indication.m in Sources */,
 				A6C9F36522CBA20B00778583 /* UMDiameterAvpAccounting_Record_Type.m in Sources */,
@@ -5585,6 +5623,7 @@
 				A6E24D0A235061F000742DCA /* UMDiameterAvpPUA_Flags.m in Sources */,
 				A6E24E83235061F000742DCA /* UMDiameterAvpPLA_Flags.m in Sources */,
 				A6C9EE8422CB625300778583 /* UMDiameterAvpHost_IP_Address.m in Sources */,
+				A6967B01245A1903000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.m in Sources */,
 				A6E24C65235061EF00742DCA /* UMDiameterAvpService_Area_Identity.m in Sources */,
 				A6BF319B229C90D90000578B /* UMDiameterPeerState_Wait_I_CEA.m in Sources */,
 				A6E24C76235061EF00742DCA /* UMDiameterAvpDigest_Algorithm.m in Sources */,
@@ -5734,6 +5773,7 @@
 				A6A58BB0203A6D9700D0C2BE /* UMDiameterPacket.m in Sources */,
 				A6C9EE9E22CB625300778583 /* UMDiameterAvpUser_Name.m in Sources */,
 				A6C9F36922CBA2B200778583 /* UMDiameterAvpAccounting_Realtime_Required.m in Sources */,
+				A6967B04245A1903000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.m in Sources */,
 				A6E24B71235061EF00742DCA /* UMDiameterAvpLCS_Reference_Number.m in Sources */,
 				A6E24CF1235061F000742DCA /* UMDiameterAvpSIP_Number_Auth_Items.m in Sources */,
 				A6C9EEB522CB625300778583 /* UMDiameterAvpRedirect_Host_Usage.m in Sources */,

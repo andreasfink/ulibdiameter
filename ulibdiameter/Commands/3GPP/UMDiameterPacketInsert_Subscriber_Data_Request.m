@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-04-29 20:17:05.215309
+//  Created by afink on 2020-04-29 20:26:45.585391
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -701,97 +701,97 @@
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSession_Id definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDRMP definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVendor_Specific_Application_Id definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAuth_Session_State definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Host definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Realm definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDestination_Host definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDestination_Realm definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Name definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSupported_Features definition];
         def[@"multiple"]=@(YES);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpVPLMN_CSG_Subscription_Data definition];
         def[@"multiple"]=@(YES);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSubscription_Data definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpIDR_Flags definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpReset_ID definition];
         def[@"multiple"]=@(YES);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpProxy_Info definition];
         def[@"multiple"]=@(YES);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpRoute_Record definition];
         def[@"multiple"]=@(YES);
         def[@"mandatory"]=@(NO);
-        [arr addObject:def]
+        [arr addObject:def];
     }
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];

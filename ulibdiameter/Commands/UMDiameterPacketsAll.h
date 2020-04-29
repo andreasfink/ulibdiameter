@@ -55,3 +55,7 @@
 #import "UMDiameterPacketProfile_Update_Request.h"
 #import "UMDiameterPacketProfile_Update_Answer.h"
 
+#import "UMDiameterPacketSend_Routing_Info_for_SM_Request.h"
+#import "UMDiameterPacketSend_Routing_Info_for_SM_Answer.h"
+#import "UMDiameterPacketAlert_Service_Centre_Request.h"
+#import "UMDiameterPacketAlert_Service_Centre_Answer.h"

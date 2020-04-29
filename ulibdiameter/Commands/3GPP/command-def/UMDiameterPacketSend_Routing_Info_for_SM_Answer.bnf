@@ -1,4 +1,4 @@
-< Send-Routing-info-for-SM-Answer > ::= < Diameter Header: 8388647, PXY, 16777312 > 
+< Send-Routing-Info-for-SM-Answer > ::= < Diameter Header: 8388647, PXY, 16777312 > 
 	< Session-Id >
 	[ DRMP ]
 	[ Vendor-Specific-Application-Id ]

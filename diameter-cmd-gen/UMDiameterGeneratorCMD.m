@@ -700,7 +700,7 @@
                 [s appendFormat:@"        def[@\"maximum-count\"]=@(%@);\n",avp.maximumCount.stringValue];
             }
         }
-        [s appendFormat:@"        [arr addObject:def]\n"];
+        [s appendFormat:@"        [arr addObject:def];\n"];
         [s appendString:@"    }\n"];
     }
     [s appendString:@"\n"];

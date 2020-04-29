@@ -1,8 +1,8 @@
 //
-//  UMDiameterPacketSend_Routing_info_for_SM_Answer.h
+//  UMDiameterPacketSend_Routing_Info_for_SM_Answer.h
 //  ulibdiameter
 //
-//  Created by afink on 2020-04-29 20:17:05.689555
+//  Created by afink on 2020-04-29 20:26:46.083644
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -31,7 +31,7 @@
 @class UMDiameterAvpFailed_AVP;
 @class UMDiameterAvpProxy_Info;
 @class UMDiameterAvpRoute_Record;
-@interface UMDiameterPacketSend_Routing_info_for_SM_Answer : UMDiameterPacket
+@interface UMDiameterPacketSend_Routing_Info_for_SM_Answer : UMDiameterPacket
 {
 	UMDiameterAvpSession_Id	*_var_session_id;
 	UMDiameterAvpDRMP	*_var_drmp;
