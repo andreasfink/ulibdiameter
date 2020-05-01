@@ -8,7 +8,7 @@
 	[ Destination-Host ]
 	{ Destination-Realm }
 	{ SC-Address }
-	{ User-Identifier }
+	{ User-Id }
 	[ SMSMI-Correlation-ID ]
 	[ Maximum-UE-Availability-Time ]
 	[ SMS-GMSC-Alert-Event ]

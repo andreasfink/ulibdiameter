@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:37:26.004000
+//  Created by afink on 2020-05-01 08:25:22.506497
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,8 +15,8 @@
 @class UMDiameterAvpAVP;
 @interface UMDiameterPacketDPR : UMDiameterPacket
 {
-	UMDiameterAvpOrigin_Host	    *_var_origin_host;
-	UMDiameterAvpOrigin_Realm	    *_var_origin_realm;
+	UMDiameterAvpOrigin_Host	*_var_origin_host;
+	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
 	UMDiameterAvpDisconnect_Cause	*_var_disconnect_cause;
 	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }

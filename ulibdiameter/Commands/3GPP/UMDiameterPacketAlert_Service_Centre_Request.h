@@ -2,7 +2,7 @@
 //  UMDiameterPacketAlert_Service_Centre_Request.h
 //  ulibdiameter
 //
-//  Created by afink on 2020-04-29 20:26:46.028071
+//  Created by afink on 2020-05-01 09:51:23.362561
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -18,7 +18,7 @@
 @class UMDiameterAvpDestination_Host;
 @class UMDiameterAvpDestination_Realm;
 @class UMDiameterAvpSC_Address;
-@class UMDiameterAvpUser_Identifier;
+@class UMDiameterAvpUser_Id;
 @class UMDiameterAvpSMSMI_Correlation_ID;
 @class UMDiameterAvpMaximum_UE_Availability_Time;
 @class UMDiameterAvpSMS_GMSC_Alert_Event;
@@ -38,7 +38,7 @@
 	UMDiameterAvpDestination_Host	*_var_destination_host;
 	UMDiameterAvpDestination_Realm	*_var_destination_realm;
 	UMDiameterAvpSC_Address	*_var_sc_address;
-	UMDiameterAvpUser_Identifier	*_var_user_identifier;
+	UMDiameterAvpUser_Id	*_var_user_id;
 	UMDiameterAvpSMSMI_Correlation_ID	*_var_smsmi_correlation_id;
 	UMDiameterAvpMaximum_UE_Availability_Time	*_var_maximum_ue_availability_time;
 	UMDiameterAvpSMS_GMSC_Alert_Event	*_var_sms_gmsc_alert_event;
@@ -58,7 +58,7 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*var_destination_host;
 @property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*var_destination_realm;
 @property(readwrite,strong,atomic)	UMDiameterAvpSC_Address	*var_sc_address;
-@property(readwrite,strong,atomic)	UMDiameterAvpUser_Identifier	*var_user_identifier;
+@property(readwrite,strong,atomic)	UMDiameterAvpUser_Id	*var_user_id;
 @property(readwrite,strong,atomic)	UMDiameterAvpSMSMI_Correlation_ID	*var_smsmi_correlation_id;
 @property(readwrite,strong,atomic)	UMDiameterAvpMaximum_UE_Availability_Time	*var_maximum_ue_availability_time;
 @property(readwrite,strong,atomic)	UMDiameterAvpSMS_GMSC_Alert_Event	*var_sms_gmsc_alert_event;

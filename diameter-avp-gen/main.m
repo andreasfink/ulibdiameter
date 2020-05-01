@@ -14,6 +14,7 @@ NSString *getFirst(id param);
 int main(int argc, const char * argv[]);
 NSString *headerFileNameWithPrefix(NSString *prefix, NSString *dir,  BOOL *exists);
 NSString *methodFileNameWithPrefix(NSString *prefix, NSString *dir,  BOOL *exists);
+BOOL linesAreDifferent(NSString *a, NSString *b, int skipStart);
 
 NSString *getFirst(id param)
 {
@@ -263,19 +264,41 @@ int main(int argc, const char * argv[])
                                                                     user:user
                                                                     date:date
                                                                directory:dir];
-                        NSError *e = NULL;
-                        if(verbose)
+                        BOOL doWrite=NO;
+                        if(exists==YES)
                         {
-                            fprintf(stdout,"writing header to %s\n",filename.UTF8String);
-                            fflush(stdout);
+                            NSError *e=NULL;
+                            NSString *oldContent = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:&e];
+                            if(e)
+                            {
+                                doWrite=YES;
+                            }
+                            else
+                            {
+                                doWrite = linesAreDifferent(content,oldContent,7);
+                            }
                         }
-                        [content writeToFile:filename
-                                  atomically:YES
-                                    encoding:NSUTF8StringEncoding
-                                       error:&e];
-                        if(e)
+                        else
                         {
-                            NSLog(@"Error: %@",e);
+                            doWrite=YES;
+                        }
+
+                        NSError *e = NULL;
+                        if(doWrite)
+                        {
+                            if(verbose)
+                            {
+                                fprintf(stdout,"writing header to %s\n",filename.UTF8String);
+                                fflush(stdout);
+                            }
+                            [content writeToFile:filename
+                                      atomically:YES
+                                        encoding:NSUTF8StringEncoding
+                                           error:&e];
+                            if(e)
+                            {
+                                NSLog(@"Error: %@",e);
+                            }
                         }
                     }
                 }
@@ -303,18 +326,41 @@ int main(int argc, const char * argv[])
                                                                      date:date
                                                                 directory:dir];
                         NSError *e = NULL;
-                        if(verbose)
+                        
+                        BOOL doWrite=NO;
+                        if(exists==YES)
                         {
-                            fprintf(stdout,"writing methods to %s\n",filename.UTF8String);
-                            fflush(stdout);
+                            NSError *e;
+                            NSString *oldContent = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:&e];
+                            if(e)
+                            {
+                                doWrite=YES;
+                            }
+                            else
+                            {
+                                doWrite = linesAreDifferent(content,oldContent,7);
+                            }
                         }
-                        [content writeToFile:filename
-                                  atomically:YES
-                                    encoding:NSUTF8StringEncoding
-                                       error:&e];
-                        if(e)
+                        else
                         {
-                            NSLog(@"Error: %@",e);
+                            doWrite=YES;
+                        }
+
+                        if(doWrite)
+                        {
+                            if(verbose)
+                            {
+                                fprintf(stdout,"writing methods to %s\n",filename.UTF8String);
+                                fflush(stdout);
+                            }
+                            [content writeToFile:filename
+                                      atomically:YES
+                                        encoding:NSUTF8StringEncoding
+                                           error:&e];
+                            if(e)
+                            {
+                                NSLog(@"Error: %@",e);
+                            }
                         }
                     }
                 }
@@ -384,4 +430,28 @@ int main(int argc, const char * argv[])
     return 0;
 }
 
+
+BOOL linesAreDifferent(NSString *a, NSString *b, int skipStart)
+{
+    NSArray *aLines = [a componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    NSArray *bLines = [b componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    if(aLines.count != bLines.count)
+    {
+        return YES;
+    }
+    for(NSInteger i=skipStart;i<aLines.count;i++)
+    {
+        NSString *astr = aLines[i];
+        NSString *bstr = bLines[i];
+        if([astr isEqualToString:bstr])
+        {
+            continue;
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    return NO;
+}
 

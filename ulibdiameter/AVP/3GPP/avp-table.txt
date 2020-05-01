@@ -59,7 +59,7 @@
 647	Associated-Registered-Identities	6.3.50	Grouped	V
 648	Multiple-Registration-Indication	6.3.51	Enumerated	V
 649	Restoration-Info	6.3.52	Grouped	V
-650	Session-Priority	06.03.21	Enumerated	V   10415
+650	Session-Priority	06.03.21	Enumerated	V	10415
 654	Initial_CSeq_Sequence_Number	-	Unsigned32	V
 700	User-Identity	06.03.01	Grouped	M,V
 701	MSISDN	.	OctetString	M,V
@@ -93,11 +93,11 @@
 1047	Pre-emption-Capability	-	Enumerated	V
 1048	Pre-emption-Vulnerability	-	Enumerated	V
 1227	PDP-Address	-	Address	M,V
-1237	LCS-Format-Indicator	3GPP TS 32.299 [10]	Enumerated	M,V
-1238	LCS-Name-String	3GPP TS 32.299 [10]	UTF8String	M,V
-1240	LCS-Requestor-Id-String	3GPP TS 32.299 [10]	UTF8String	M,V
-1241	LCS-Client-Type	3GPP TS 32.299 [10]	Enumerated	M,V
-1242	Location-Estimate	3GPP TS 32.299 [10]	OctetString	M,V
+1237	LCS-Format-Indicator	TS32.299	Enumerated	M,V
+1238	LCS-Name-String	-	UTF8String	M,V
+1240	LCS-Requestor-Id-String	3GPP_TS_32.299_[10]	UTF8String	M,V
+1241	LCS-Client-Type	3GPP_TS_32.299_[10]	Enumerated	M,V
+1242	Location-Estimate	3GPP_TS_32.299_[10]	OctetString	M,V
 1400	Subscription-Data	7.3.2	Grouped	M,V
 1401	Terminal-Information	7.3.3	Grouped	M,V
 1402	IMEI	7.3.4	UTF8String	M,V
@@ -322,8 +322,8 @@
 2518	Location-Event	07.04.20	Enumerated	M,V
 2519	Pseudonym-Indicator	07.04.21	Enumerated	M,V
 2520	LCS-Service-Type-ID	07.04.22	Unsigned32	M,V
-2521	LCS-Privacy-Check-Non-Session 	07.04.23	Grouped	M,V
-2522	LCS-Privacy-Check-Session 	07.04.24	Grouped	M,V
+2521	LCS-Privacy-Check-Non-Session	07.04.23	Grouped	M,V
+2522	LCS-Privacy-Check-Session	07.04.24	Grouped	M,V
 2523	LCS-QoS-Class	07.04.27	Enumerated	M,V
 2524	GERAN-Positioning-Info	07.04.29	Grouped	V
 2525	GERAN-Positioning-Data	07.04.30	OctetString	V
@@ -399,7 +399,40 @@
 3152	Service-Report	-	Grouped	M,V
 3153	Node-Type	-	Unsigned32	M,V
 3162	Loss-Of-Connectivity-Reason	-	Unsigned32	M,V
+3300	SC-Address	-	OctetString	M,V	10415
+3301	SM-RP-UI	-	OctetString	M,V	10415
+3302	TFR-Flags	-	Unsigned32	M,V	10415
+3303	SM-Delivery-Failure-Cause	-	Grouped	M,V	10415
+3304	SM-Enumerated-Delivery-Failure-Cause	-	Enumerated	M,V	10415
+3305	SM-Diagnostic-Info	-	OctetString	M,V	10415
+3306	SM-Delivery-Timer	-	Unsigned32	M,V	10415
+3307	SM-Delivery-Start-Timer	-	Time	M,V	10415
+3308	SM-RP-MTI	-	Enumerated	M,V
+3309	SM-RP-SMEA	-	OctetString	M,V
+3310	SRR-Flags	-	Unsigned32	M,V
+3311	SM-Delivery-Not-Intended	-	Enumerated	M,V
+3312	MWD-Status	-	Unsigned32	M,V
+3313	MME-Absent-User-Diagnostic-SM	-	Unsigned32	M,V
+3314	MSC-Absent-User-Diagnostic-SM	-	Unsigned32	M,V
+3315	SGSN-Absent-User-Diagnostic-SM	-	Unsigned32	M,V
+3316	SM-Delivery-Outcome	-	Grouped	M,V
+3317	MME-SM-Delivery-Outcome	-	Grouped	M,V
+3318	MSC-SM-Delivery-Outcome	-	Grouped	M,V
+3319	SGSN-SM-Delivery-Outcome	-	Grouped	M,V
+3320	IP-SM-GW-SM-Delivery-Outcome	-	Grouped	M,V
+3321	SM-Delivery-Cause	-	Enumerated	M,V
+3322	Absent-User-Diagnostic-SM	-	Unsigned32	V
+3323	RDR-Flags	-	Unsigned32	M,V
+3324	SMSMI-Correlation-ID	-	Grouped	M,V
+3325	HSS-ID	-	OctetString	V	10415
+3326	Originating-SIP-URI	-	UTF8String	V	10415
+3327	Destination-SIP-URI	-	UTF8String	V	10415
+3328	OFR-Flags	-	Unsigned32	V	10415
 3329	Maximum-UE-Availability-Time	-	Time	M,V
+3330	Maximum-Retransmission-Time	-	Time	V	10415
+3331	Requested-Retransmission-Time	-	Time	V	10415
+3332	SMS-GMSC-Address	-	OctetString	V	10415
+3333	SMS-GMSC-Alert-Event	-	Unsigned32	V
 3701	ProSe-Subscription-Data	-	Grouped	V
 3702	ProSe-Permission	-	Unsigned32	M,V
 4008	eNodeB-ID	-	OctetString	V

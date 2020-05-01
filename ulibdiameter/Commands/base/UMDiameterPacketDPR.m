@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:37:26.004000
+//  Created by afink on 2020-05-01 08:25:22.506497
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -12,7 +12,6 @@
 #import "UMDiameterAvpOrigin_Realm.h"
 #import "UMDiameterAvpDisconnect_Cause.h"
 #import "UMDiameterAvpAVP.h"
-#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacketDPR
 
@@ -22,7 +21,6 @@
     [super genericInitialisation];
     self.commandCode = 282;
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST;
-    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
 }
 
 + (uint32_t)commandCode

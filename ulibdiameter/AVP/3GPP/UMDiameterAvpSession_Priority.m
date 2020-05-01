@@ -2,7 +2,7 @@
 //  UMDiameterAvpSession_Priority.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:41:35.961000
+//  Created by afink on 2020-05-01 08:45:30.605285
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,6 +30,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpVendorId = 10415;
 }
 
 + (id)definition
@@ -38,7 +40,7 @@
     avpDef[@"name"] = @"session-priority";
     avpDef[@"type"] = @"Enumerated";
     avpDef[@"mandatory"] = @(NO);
-    avpDef[@"vendor"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
 
     return avpDef;

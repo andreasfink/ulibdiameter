@@ -2,7 +2,7 @@
 //  UMDiameterAvpVendor_Specific_Application_Id.h
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:41:35.873000
+//  Created by afink on 2020-05-01 08:21:15.505910
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 
 @interface UMDiameterAvpVendor_Specific_Application_Id : UMDiameterAvpGrouped
 {
-	UMDiameterAvpVendor_Id	            *_var_vendor_id;
+	UMDiameterAvpVendor_Id	*_var_vendor_id;
 	UMDiameterAvpAuth_Application_Id	*_var_auth_application_id;
 	UMDiameterAvpAcct_Application_Id	*_var_acct_application_id;
 }

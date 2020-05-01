@@ -1,0 +1,6 @@
+SM-Delivery-Outcome::= <AVP header: 3316 10415>
+	[ MME-SM-Delivery-Outcome ]
+	[ MSC-SM-Delivery-Outcome ]
+	[ SGSN-SM-Delivery-Outcome ]
+	[ IP-SM-GW-SM-Delivery-Outcome]
+	*[AVP]

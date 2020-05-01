@@ -2,7 +2,7 @@
 //  UMDiameterPacketAlert_Service_Centre_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-04-29 20:26:46.028071
+//  Created by afink on 2020-05-01 09:51:23.362561
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -17,7 +17,7 @@
 #import "UMDiameterAvpDestination_Host.h"
 #import "UMDiameterAvpDestination_Realm.h"
 #import "UMDiameterAvpSC_Address.h"
-#import "UMDiameterAvpUser_Identifier.h"
+#import "UMDiameterAvpUser_Id.h"
 #import "UMDiameterAvpSMSMI_Correlation_ID.h"
 #import "UMDiameterAvpMaximum_UE_Availability_Time.h"
 #import "UMDiameterAvpSMS_GMSC_Alert_Event.h"
@@ -96,10 +96,10 @@
         [_var_sc_address beforeEncode];
         [arr addObject:_var_sc_address];
     }
-    if(_var_user_identifier)
+    if(_var_user_id)
     {
-        [_var_user_identifier beforeEncode];
-        [arr addObject:_var_user_identifier];
+        [_var_user_id beforeEncode];
+        [arr addObject:_var_user_id];
     }
     if(_var_smsmi_correlation_id)
     {
@@ -214,10 +214,10 @@
         _var_sc_address.objectValue = dict[@"sc-address"];
     }
 
-    if(dict[@"user-identifier"])
+    if(dict[@"user-id"])
     {
-        _var_user_identifier = [[UMDiameterAvpUser_Identifier alloc]init];
-        _var_user_identifier.objectValue = dict[@"user-identifier"];
+        _var_user_id = [[UMDiameterAvpUser_Id alloc]init];
+        _var_user_id.objectValue = dict[@"user-id"];
     }
 
     if(dict[@"smsmi-correlation-id"])
@@ -377,9 +377,9 @@
     {
         dict[@"sc-address"] = _var_sc_address.objectValue;
     }
-    if(_var_user_identifier)
+    if(_var_user_id)
     {
-        dict[@"user-identifier"] = _var_user_identifier.objectValue;
+        dict[@"user-id"] = _var_user_id.objectValue;
     }
     if(_var_smsmi_correlation_id)
     {
@@ -458,7 +458,7 @@
 
     [UMDiameterAvpSC_Address appendWebDiameterParameters:s webName:@"sc-address"  comment:@"" css:@"mandatory"];
 
-    [UMDiameterAvpUser_Identifier appendWebDiameterParameters:s webName:@"user-identifier"  comment:@"" css:@"mandatory"];
+    [UMDiameterAvpUser_Id appendWebDiameterParameters:s webName:@"user-id"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpSMSMI_Correlation_ID appendWebDiameterParameters:s webName:@"smsmi-correlation-id"  comment:@"" css:@"optional"];
 
@@ -516,9 +516,9 @@
         {
             _var_sc_address = (UMDiameterAvpSC_Address *)avp;
         }
-        else if([avp isKindOfClass:[UMDiameterAvpUser_Identifier class]])
+        else if([avp isKindOfClass:[UMDiameterAvpUser_Id class]])
         {
-            _var_user_identifier = (UMDiameterAvpUser_Identifier *)avp;
+            _var_user_id = (UMDiameterAvpUser_Id *)avp;
         }
         else if([avp isKindOfClass:[UMDiameterAvpSMSMI_Correlation_ID class]])
         {
@@ -592,7 +592,7 @@
 	dict[@"Destination-Host"] = [_var_destination_host objectValue];
 	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
 	dict[@"SC-Address"] = [_var_sc_address objectValue];
-	dict[@"User-Identifier"] = [_var_user_identifier objectValue];
+	dict[@"User-Id"] = [_var_user_id objectValue];
 	dict[@"SMSMI-Correlation-ID"] = [_var_smsmi_correlation_id objectValue];
 	dict[@"Maximum-UE-Availability-Time"] = [_var_maximum_ue_availability_time objectValue];
 	dict[@"SMS-GMSC-Alert-Event"] = [_var_sms_gmsc_alert_event objectValue];
@@ -691,7 +691,7 @@
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Identifier definition];
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Id definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
         [arr addObject:def];

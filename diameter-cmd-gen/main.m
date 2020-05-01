@@ -9,6 +9,7 @@
 #import <ulib/ulib.h>
 #import "../version.h"
 #import "UMDiameterGeneratorCMD.h"
+BOOL linesAreDifferent(NSString *a, NSString *b, int skipStart);
 
 
 NSString *getFirst(id param)
@@ -278,16 +279,31 @@ int main(int argc, const char * argv[])
                                                     avpPrefix:@"UMDiameterAvp"
                                                          user:user
                                                          date:date];
-                NSError *e = NULL;
-                if(verbose)
-                {
-                    fprintf(stderr,"writing header to %s\n",headerFileName.UTF8String);
-                    fflush(stderr);
-                }
-                [content writeToFile:headerFileName atomically:YES encoding:NSUTF8StringEncoding error:&e];
+                
+                BOOL doWrite=NO;
+                NSError *e=NULL;
+                NSString *oldContent = [NSString stringWithContentsOfFile:headerFileName encoding:NSUTF8StringEncoding error:&e];
                 if(e)
                 {
-                    NSLog(@"Error: %@",e);
+                    doWrite=YES;
+                }
+                else
+                {
+                    doWrite = linesAreDifferent(content,oldContent,7);
+                }
+                if(doWrite)
+                {
+                    NSError *e = NULL;
+                    if(verbose)
+                    {
+                        fprintf(stderr,"writing header to %s\n",headerFileName.UTF8String);
+                        fflush(stderr);
+                    }
+                    [content writeToFile:headerFileName atomically:YES encoding:NSUTF8StringEncoding error:&e];
+                    if(e)
+                    {
+                        NSLog(@"Error: %@",e);
+                    }
                 }
             }
         }
@@ -302,20 +318,59 @@ int main(int argc, const char * argv[])
                                                     avpPrefix:@"UMDiameterAvp"
                                                          user:user
                                                          date:date];
-                NSError *e = NULL;
-                if(verbose)
-                {
-                    fprintf(stdout,"writing methods to %s\n",methodFileName.UTF8String);
-                    fflush(stdout);
-                }
-                [content writeToFile:methodFileName atomically:YES encoding:NSUTF8StringEncoding error:&e];
+                BOOL doWrite=NO;
+                NSError *e=NULL;
+                NSString *oldContent = [NSString stringWithContentsOfFile:methodFileName encoding:NSUTF8StringEncoding error:&e];
                 if(e)
                 {
-                    NSLog(@"Error: %@",e);
+                    doWrite=YES;
+                }
+                else
+                {
+                    doWrite = linesAreDifferent(content,oldContent,7);
+                }
+                if(doWrite)
+                {
+                    NSError *e = NULL;
+                    if(verbose)
+                    {
+                        fprintf(stdout,"writing methods to %s\n",methodFileName.UTF8String);
+                        fflush(stdout);
+                    }
+                    [content writeToFile:methodFileName atomically:YES encoding:NSUTF8StringEncoding error:&e];
+                    if(e)
+                    {
+                        NSLog(@"Error: %@",e);
+                    }
                 }
             }
         }
     }
     return 0;
+}
+
+
+BOOL linesAreDifferent(NSString *a, NSString *b, int skipStart)
+{
+    NSArray *aLines = [a componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    NSArray *bLines = [b componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    if(aLines.count != bLines.count)
+    {
+        return YES;
+    }
+    for(NSInteger i=skipStart;i<aLines.count;i++)
+    {
+        NSString *astr = aLines[i];
+        NSString *bstr = bLines[i];
+        if([astr isEqualToString:bstr])
+        {
+            continue;
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    return NO;
 }
 

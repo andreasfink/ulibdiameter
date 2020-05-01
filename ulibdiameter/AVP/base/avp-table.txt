@@ -1,76 +1,79 @@
-85	Acct-Interim-Interval	9.8.2	Unsigned32	M	0
-483	Accounting-Realtime-Required	9.8.7	Enumerated	M	0
-50	Acct-Multi-Session-Id	9.8.5	UTF8String	M	0
-485	Accounting-Record-Number	9.8.3	Unsigned32	M	0
-480	Accounting-Record-Type	9.8.1	Enumerated	M	0
-44	Acct-Session-Id	9.8.4	OctetString	M	0
-287	Accounting-Sub-Session-Id	9.8.6	Unsigned64	M	0
-259	Acct-Application-Id	6.9	Unsigned32	M	0
-258	Auth-Application-Id	6.8	Unsigned32	M	0
-274	Auth-Request-Type	8.7	Enumerated	M	0
-291	Authorization-Lifetime	8.9	Unsigned32	M	0
-276	Auth-Grace-Period	8.10	Unsigned32	M	0
-277	Auth-Session-State	8.11	Enumerated	M	0
-285	Re-Auth-Request-Type	8.12	Enumerated	M	0
+1	User-Name	8.14	UTF8String 	M	0
+8	Framed-IP-Address	-	OctetString	M	0
 25	Class	8.20	OctetString	M	0
-293	Destination-Host	6.5	DiameterIdentity	M	0
-283	Destination-Realm	6.6	DiameterIdentity	M	0
-273	Disconnect-Cause	5.4.3	Enumerated	M	0
-281	Error-Message	7.3	UTF8String		0
-294	Error-Reporting-Host	7.4	DiameterIdentity		0
-55	Event-Timestamp	8.21	Time	M	0
-297	Experimental-Result	7.6	Grouped	M	0
-298	Experimental-Result-Code	7.7	Unsigned32	M	0
-279	Failed-AVP	7.5	Grouped	M	0
-267	Firmware-Revision	5.3.4	Unsigned32		0
-257	Host-IP-Address	5.3.5	Address	M	0
-299	Inband-Security-Id	6.10	Unsigned32	M	0
-272	Multi-Round-Time-Out	8.19	Unsigned32	M	0
-264	Origin-Host	6.3	DiameterIdentity	M	0
-296	Origin-Realm	6.4	DiameterIdentity	M	0
-278	Origin-State-Id	8.16	Unsigned32	M	0
-269	Product-Name	5.3.7	UTF8String		0
-280	Proxy-Host	6.7.3	DiameterIdentity	M	0
-284	Proxy-Info	6.7.2	Grouped	M	0
+27	Session-Timeout	8.13	Unsigned32 	M	0
 33	Proxy-State	6.7.4	OctetString	M	0
-292	Redirect-Host	6.12	DiameterURI	M	0
+44	Acct-Session-Id	9.8.4	OctetString	M	0
+50	Acct-Multi-Session-Id	9.8.5	UTF8String	M	0
+55	Event-Timestamp	8.21	Time	M	0
+85	Acct-Interim-Interval	9.8.2	Unsigned32	M	0
+89	Chargeable-User-Identity	6.19	OctetString	M	0
+96	Framed-Interface-Id	-	OctetString	M	0
+97	Framed-IPv6-Prefix	-	OctetString	M	0
+124	MIP6-Feature-Vector	RFC5447	Unsigned64	M	0
+125	MIP6-Home-Link-Prefix	RFC5447	OctetString	M
+257	Host-IP-Address	5.3.5	Address	M	0
+258	Auth-Application-Id	6.8	Unsigned32	M	0
+259	Acct-Application-Id	6.9	Unsigned32	M	0
+260	Vendor-Specific-Application-Id	6.11	Grouped	M	0
 261	Redirect-Host-Usage	6.13	Enumerated 	M	0
 262	Redirect-Max-Cache-Time	6.14	Unsigned32 	M	0
-268	Result-Code	7.1	Unsigned32 	M	0
-282	Route-Record	6.7.1	DiameterIdentity	M	0
 263	Session-Id	8.8	UTF8String 	M	0
-27	Session-Timeout	8.13	Unsigned32 	M	0
+264	Origin-Host	6.3	DiameterIdentity	M	0
+265	Supported-Vendor-Id	5.3.6	Unsigned32 	M	0
+266	Vendor-Id	5.3.3	Unsigned32 	M	0
+267	Firmware-Revision	5.3.4	Unsigned32		0
+268	Result-Code	7.1	Unsigned32 	M	0
+269	Product-Name	5.3.7	UTF8String		0
 270	Session-Binding	8.17	Unsigned32 	M	0
 271	Session-Server-Failover	8.18	Enumerated 	M	0
-265	Supported-Vendor-Id	5.3.6	Unsigned32 	M	0
+272	Multi-Round-Time-Out	8.19	Unsigned32	M	0
+273	Disconnect-Cause	5.4.3	Enumerated	M	0
+274	Auth-Request-Type	8.7	Enumerated	M	0
+276	Auth-Grace-Period	8.10	Unsigned32	M	0
+277	Auth-Session-State	8.11	Enumerated	M	0
+278	Origin-State-Id	8.16	Unsigned32	M	0
+279	Failed-AVP	7.5	Grouped	M	0
+280	Proxy-Host	6.7.3	DiameterIdentity	M	0
+281	Error-Message	7.3	UTF8String		0
+282	Route-Record	6.7.1	DiameterIdentity	M	0
+283	Destination-Realm	6.6	DiameterIdentity	M	0
+284	Proxy-Info	6.7.2	Grouped	M	0
+285	Re-Auth-Request-Type	8.12	Enumerated	M	0
+287	Accounting-Sub-Session-Id	9.8.6	Unsigned64	M	0
+291	Authorization-Lifetime	8.9	Unsigned32	M	0
+292	Redirect-Host	6.12	DiameterURI	M	0
+293	Destination-Host	6.5	DiameterIdentity	M	0
+294	Error-Reporting-Host	7.4	DiameterIdentity		0
 295	Termination-Cause	8.15	Enumerated 	M	0
-1	User-Name	8.14	UTF8String 	M	0
-266	Vendor-Id	5.3.3	Unsigned32 	M	0
-260	Vendor-Specific-Application-Id	6.11	Grouped	M	0
+296	Origin-Realm	6.4	DiameterIdentity	M	0
+297	Experimental-Result	7.6	Grouped	M	0
+298	Experimental-Result-Code	7.7	Unsigned32	M	0
+299	Inband-Security-Id	6.10	Unsigned32	M	0
 301	DRMP	9.1	Enumerated		0
 333	MIP-Mobile-Node-Address	RFC4004	Address	0
-486	MIP6-Agent-Info	RFC5447	Grouped	M	0
-493	Service-Selection	6.2	UTF8String	M	0
-578	QoS-Capability	RFC5777	Grouped	M	0
-508	QoS-Resources	RFC5777	Grouped	M	0
-89	Chargeable-User-Identity	6.19	OctetString	M	0
-124	MIP6-Feature-Vector	RFC5447	Unsigned64	M	0
+334	MIP-Home-Agent-Address	RFC5447	Address	0
 341	MIP-MN-AAA-SPI	RFC4004	Unsigned32	M	0
-491	MIP-MN-HA-SPI	6.4	Unsigned32	M	0
+343	MIP-Session-Key	6.10	OctetString	M	0
+346	MIP-Replay-Mode	6.14	Enumerated	M	0
+348	MIP-Home-Agent-Host	RFC4004	Grouped	M	0
+367	MIP-MSA-Lifetime	RFC4004	Unsigned32	M	0
+480	Accounting-Record-Type	9.8.1	Enumerated	M	0
+483	Accounting-Realtime-Required	9.8.7	Enumerated	M	0
+485	Accounting-Record-Number	9.8.3	Unsigned32	M	0
+486	MIP6-Agent-Info	RFC5447	Grouped	M	0
 487	MIP-Careof-Address	6.7	Address	M	0
 488	MIP-Authenticator	6.8	OctetString	M	0
 489	MIP-MAC-Mobility-Data	6.9	OctetString	M	0
-343	MIP-Session-Key	6.10	OctetString	M	0
-367	MIP-MSA-Lifetime	RFC4004	Unsigned32	M	0
-346	MIP-Replay-Mode	6.14	Enumerated	M	0
 490	MIP-Timestamp	6.16	OctetString	M	0
+491	MIP-MN-HA-SPI	6.4	Unsigned32	M	0
+493	Service-Selection	6.2	UTF8String	M	0
 494	MIP6-Auth-Mode	6.20	Enumerated	M	0
-8	Framed-IP-Address	-	OctetString	M	0
-97	Framed-IPv6-Prefix	-	OctetString	M	0
-96	Framed-Interface-Id	-	OctetString	M	0
 500	Line-Identifier	-	OctetString	M,V	13019	0
-574	QoS-Profile-Template	-	Grouped		0
-573	QoS-Profile-Id	-	Unsigned32		0
-563	Day-Of-Week-Mask	-	Unsigned32		0
+508	QoS-Resources	RFC5777	Grouped	M	0
 561	Time-Of-Day-Start	-	Unsigned32		0
 562	Time-Of-Day-End	-	Unsigned32		0
+563	Day-Of-Week-Mask	-	Unsigned32		0
+573	QoS-Profile-Id	-	Unsigned32		0
+574	QoS-Profile-Template	-	Grouped		0
+578	QoS-Capability	RFC5777	Grouped	M	0

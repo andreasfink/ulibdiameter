@@ -1,5 +1,0 @@
-MIP6-Agent-Info ::= < AVP Header: 486 >
-*2[ MIP-Home-Agent-Address ]
-[ MIP-Home-Agent-Host ]
-[ MIP6-Home-Link-Prefix ]
-*[ AVP ]

@@ -2,7 +2,7 @@
 //  UMDiameterPacketSend_Routing_Info_for_SM_Answer.h
 //  ulibdiameter
 //
-//  Created by afink on 2020-04-29 20:26:46.083644
+//  Created by afink on 2020-05-01 09:50:38.099202
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -22,7 +22,7 @@
 @class UMDiameterAvpServing_Node;
 @class UMDiameterAvpAdditional_Serving_Node;
 @class UMDiameterAvpLMSI;
-@class UMDiameterAvpUser_Identifier;
+@class UMDiameterAvpUser_Id;
 @class UMDiameterAvpMWD_Status;
 @class UMDiameterAvpMME_Absent_User_Diagnostic_SM;
 @class UMDiameterAvpMSC_Absent_User_Diagnostic_SM;
@@ -46,7 +46,7 @@
 	UMDiameterAvpServing_Node	*_var_serving_node;
 	UMDiameterAvpAdditional_Serving_Node	*_var_additional_serving_node;
 	UMDiameterAvpLMSI	*_var_lmsi;
-	UMDiameterAvpUser_Identifier	*_var_user_identifier;
+	UMDiameterAvpUser_Id	*_var_user_id;
 	UMDiameterAvpMWD_Status	*_var_mwd_status;
 	UMDiameterAvpMME_Absent_User_Diagnostic_SM	*_var_mme_absent_user_diagnostic_sm;
 	UMDiameterAvpMSC_Absent_User_Diagnostic_SM	*_var_msc_absent_user_diagnostic_sm;
@@ -70,7 +70,7 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpServing_Node	*var_serving_node;
 @property(readwrite,strong,atomic)	UMDiameterAvpAdditional_Serving_Node	*var_additional_serving_node;
 @property(readwrite,strong,atomic)	UMDiameterAvpLMSI	*var_lmsi;
-@property(readwrite,strong,atomic)	UMDiameterAvpUser_Identifier	*var_user_identifier;
+@property(readwrite,strong,atomic)	UMDiameterAvpUser_Id	*var_user_id;
 @property(readwrite,strong,atomic)	UMDiameterAvpMWD_Status	*var_mwd_status;
 @property(readwrite,strong,atomic)	UMDiameterAvpMME_Absent_User_Diagnostic_SM	*var_mme_absent_user_diagnostic_sm;
 @property(readwrite,strong,atomic)	UMDiameterAvpMSC_Absent_User_Diagnostic_SM	*var_msc_absent_user_diagnostic_sm;

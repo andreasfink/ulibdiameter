@@ -2,7 +2,7 @@
 //  UMDiameterAvpSIP_Authenticate.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:41:35.961000
+//  Created by afink on 2020-05-01 08:45:30.605285
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 

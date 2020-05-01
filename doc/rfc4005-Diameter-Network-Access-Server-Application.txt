@@ -1,9 +1,3 @@
-
-
-
-
-
-
 Network Working Group                                         P. Calhoun
 Request for Comments: 4005                                       G. Zorn
 Category: Standards Track                             Cisco Systems Inc.

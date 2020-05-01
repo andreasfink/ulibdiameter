@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-
+#import "UMDiameterAvpENUMS.h"
 #import "UMDiameterPacketACA.h"
 #import "UMDiameterPacketASA.h"
 #import "UMDiameterPacketCEA.h"

@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:37:25.903000
+//  Created by afink on 2020-05-01 08:25:22.441172
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,7 +15,6 @@
 #import "UMDiameterAvpFailed_AVP.h"
 #import "UMDiameterAvpOrigin_State_Id.h"
 #import "UMDiameterAvpAVP.h"
-#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacketDWA
 
@@ -23,9 +22,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    self.commandCode = UMDiameterCommandCode_Device_Watchdog;
+    self.commandCode = 280;
     self.commandFlags = 0;
-    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
 }
 
 + (uint32_t)commandCode

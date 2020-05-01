@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWR.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:37:25.887000
+//  Created by afink on 2020-05-01 08:25:22.432034
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -12,8 +12,6 @@
 #import "UMDiameterAvpOrigin_Realm.h"
 #import "UMDiameterAvpOrigin_State_Id.h"
 #import "UMDiameterAvpAVP.h"
-#import "UMDiameterApplicationId.h"
-#import "UMDiameterCommandCode.h"
 
 @implementation UMDiameterPacketDWR
 
@@ -21,9 +19,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    self.commandCode = 280;
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST;
-    self.commandCode = UMDiameterCommandCode_Device_Watchdog;
-    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
 }
 
 + (uint32_t)commandCode

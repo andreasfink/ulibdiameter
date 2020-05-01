@@ -2,7 +2,7 @@
 //  UMDiameterPacketSend_Routing_Info_for_SM_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-04-29 20:26:46.083644
+//  Created by afink on 2020-05-01 09:50:38.099202
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -21,7 +21,7 @@
 #import "UMDiameterAvpServing_Node.h"
 #import "UMDiameterAvpAdditional_Serving_Node.h"
 #import "UMDiameterAvpLMSI.h"
-#import "UMDiameterAvpUser_Identifier.h"
+#import "UMDiameterAvpUser_Id.h"
 #import "UMDiameterAvpMWD_Status.h"
 #import "UMDiameterAvpMME_Absent_User_Diagnostic_SM.h"
 #import "UMDiameterAvpMSC_Absent_User_Diagnostic_SM.h"
@@ -123,10 +123,10 @@
         [_var_lmsi beforeEncode];
         [arr addObject:_var_lmsi];
     }
-    if(_var_user_identifier)
+    if(_var_user_id)
     {
-        [_var_user_identifier beforeEncode];
-        [arr addObject:_var_user_identifier];
+        [_var_user_id beforeEncode];
+        [arr addObject:_var_user_id];
     }
     if(_var_mwd_status)
     {
@@ -279,10 +279,10 @@
         _var_lmsi.objectValue = dict[@"lmsi"];
     }
 
-    if(dict[@"user-identifier"])
+    if(dict[@"user-id"])
     {
-        _var_user_identifier = [[UMDiameterAvpUser_Identifier alloc]init];
-        _var_user_identifier.objectValue = dict[@"user-identifier"];
+        _var_user_id = [[UMDiameterAvpUser_Id alloc]init];
+        _var_user_id.objectValue = dict[@"user-id"];
     }
 
     if(dict[@"mwd-status"])
@@ -446,9 +446,9 @@
     {
         dict[@"lmsi"] = _var_lmsi.objectValue;
     }
-    if(_var_user_identifier)
+    if(_var_user_id)
     {
-        dict[@"user-identifier"] = _var_user_identifier.objectValue;
+        dict[@"user-id"] = _var_user_id.objectValue;
     }
     if(_var_mwd_status)
     {
@@ -530,7 +530,7 @@
 
     [UMDiameterAvpLMSI appendWebDiameterParameters:s webName:@"lmsi"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpUser_Identifier appendWebDiameterParameters:s webName:@"user-identifier"  comment:@"" css:@"optional"];
+    [UMDiameterAvpUser_Id appendWebDiameterParameters:s webName:@"user-id"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpMWD_Status appendWebDiameterParameters:s webName:@"mwd-status"  comment:@"" css:@"optional"];
 
@@ -611,9 +611,9 @@
         {
             _var_lmsi = (UMDiameterAvpLMSI *)avp;
         }
-        else if([avp isKindOfClass:[UMDiameterAvpUser_Identifier class]])
+        else if([avp isKindOfClass:[UMDiameterAvpUser_Id class]])
         {
-            _var_user_identifier = (UMDiameterAvpUser_Identifier *)avp;
+            _var_user_id = (UMDiameterAvpUser_Id *)avp;
         }
         else if([avp isKindOfClass:[UMDiameterAvpMWD_Status class]])
         {
@@ -694,7 +694,7 @@
 	dict[@"Serving-Node"] = [_var_serving_node objectValue];
 	dict[@"Additional-Serving-Node"] = [_var_additional_serving_node objectValue];
 	dict[@"LMSI"] = [_var_lmsi objectValue];
-	dict[@"User-Identifier"] = [_var_user_identifier objectValue];
+	dict[@"User-Id"] = [_var_user_id objectValue];
 	dict[@"MWD-Status"] = [_var_mwd_status objectValue];
 	dict[@"MME-Absent-User-Diagnostic-SM"] = [_var_mme_absent_user_diagnostic_sm objectValue];
 	dict[@"MSC-Absent-User-Diagnostic-SM"] = [_var_msc_absent_user_diagnostic_sm objectValue];
@@ -807,7 +807,7 @@
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Identifier definition];
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Id definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
         [arr addObject:def];

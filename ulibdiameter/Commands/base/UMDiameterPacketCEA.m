@@ -2,7 +2,7 @@
 //  UMDiameterPacketCEA.m
 //  ulibdiameter
 //
-//  Created by afink on 2019-11-01 14:37:25.872000
+//  Created by afink on 2020-05-01 08:25:22.422409
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -24,7 +24,6 @@
 #import "UMDiameterAvpVendor_Specific_Application_Id.h"
 #import "UMDiameterAvpFirmware_Revision.h"
 #import "UMDiameterAvpAVP.h"
-#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterPacketCEA
 
@@ -32,10 +31,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    self.commandCode = 257;
     self.commandFlags = 0;
-    self.commandCode = UMDiameterCommandCode_Capabilities_Exchange;
-    self.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
-
 }
 
 + (uint32_t)commandCode
