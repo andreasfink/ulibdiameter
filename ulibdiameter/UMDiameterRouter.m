@@ -700,7 +700,7 @@
     for(NSString *key in allKeys)
     {
         UMDiameterRoute *thisRoute =     _routes[key];
-        if([thisRoute.realm isEqualToString:realm])
+        if([thisRoute matchesRealm:realm])
         {
             if(route==NULL)
             {
@@ -732,8 +732,8 @@
     NSArray *allKeys = [_routes allKeys];
     for(NSString *key in allKeys)
     {
-        UMDiameterRoute *thisRoute =     _routes[key];
-        if([thisRoute.hostname isEqualToString:hostname])
+        UMDiameterRoute *thisRoute = _routes[key];
+        if([thisRoute matchesHost:hostname])
         {
             if(route==NULL)
             {
