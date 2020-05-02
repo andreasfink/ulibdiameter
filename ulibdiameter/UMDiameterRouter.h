@@ -107,8 +107,8 @@
 - (void)addPeer:(UMDiameterPeer *)peer;
 - (void)start;
 
-- (BOOL)localSendPacket:(UMDiameterPacket *)p
-                 toPeer:(UMDiameterPeer *)peer; /* peer can be NULL if route has to be discovered */
+- (BOOL)localSendPacket:(UMDiameterPacket *)pkt
+                 toPeer:(UMDiameterPeer *)peer;
 
 - (void)processIncomingPacket:(UMDiameterPacket *)packet
                      fromPeer:(UMDiameterPeer *)peer

@@ -582,7 +582,8 @@
 }
 
 
-- (BOOL)localSendPacket:(UMDiameterPacket *)pkt toPeer:(UMDiameterPeer *)peer /* peer can be NULL if route has to be discovered, Returns YES on success */
+- (BOOL)localSendPacket:(UMDiameterPacket *)pkt
+                 toPeer:(UMDiameterPeer *)peer
 {
     if(peer == NULL)
     {
@@ -591,8 +592,7 @@
         {
             return NO;
         }
-        /* we take the first peer for now */
-        /* FIXME: do some routing here!! */
+        /* we take the first peer we find  if its not prerouted */
         peer = _peers[names[0]];
     }
     if(peer == NULL)
