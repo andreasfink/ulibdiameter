@@ -545,7 +545,7 @@
 {
     if(dict[@"json"])
     {
-        NSString *jsonString = dict[@"json"];
+        NSString *jsonString = [dict[@"json"] urldecode];
         UMJsonParser *parser = [[UMJsonParser alloc]init];
         NSError *err;
         id r = [parser objectWithString:jsonString error:&err];
@@ -554,12 +554,46 @@
             NSDictionary *rdict = (NSDictionary *)r;
             NSMutableDictionary *pdict = [[NSMutableDictionary alloc]init];
             id f = rdict[@"fields"];
-            if([r isKindOfClass:[NSArray class]])
+            if([f isKindOfClass:[NSArray class]])
             {
                 NSArray *fields = (NSArray *)f;
                 for(id fld in fields)
                 {
-                    if([fld isKindOfClass:[NSDictionary class]])
+                    if([fld isKindOfClass:[NSArray class]])
+                    {
+                        for(id fldx in fld)
+                        {
+                            if([fldx isKindOfClass:[NSDictionary class]])
+                            {
+                                NSDictionary *field = (NSDictionary *)fldx;
+                                id n = field[@"name"];
+                                id v = field[@"value"];
+                                if([n isKindOfClass:[NSString class]])
+                                {
+                                    NSString *name = (NSString *)n;
+                                    NSString *value;
+                                    if([v isKindOfClass:[NSString class]])
+                                    {
+                                        value = (NSString *)v;
+                                        if(pdict[name]==NULL)
+                                        {
+                                            pdict[name]=value;
+                                        }
+                                        else if([pdict[name] isKindOfClass:[NSString class]])
+                                        {
+                                            pdict[name]=@[pdict[name],value];
+                                        }
+                                        else if([pdict[name] isKindOfClass:[NSArray class]])
+                                        {
+                                            NSArray *a = pdict[name];
+                                            pdict[name] = [a arrayByAddingObject:value];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if([fld isKindOfClass:[NSDictionary class]])
                     {
                         NSDictionary *field = (NSDictionary *)fld;
                         id n = field[@"name"];
@@ -589,6 +623,7 @@
                     }
                 }
             }
+            
             [self setDictionaryValue:pdict];
         }
     }
@@ -601,6 +636,7 @@
 
 - (void)setDictionaryValue:(NSDictionary *)dict
 {
+    NSLog(@"class %@ is missing setDictionaryValue",[self className]);
     /* overload me */
 }
 
