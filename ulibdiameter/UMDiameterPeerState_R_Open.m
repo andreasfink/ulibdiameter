@@ -35,20 +35,37 @@
     return @"R-Open";
 }
 
-- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventSend_Message:(UMDiameterPeer *)peer
+                                   message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventSend_Message:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionR_Snd_Message:message];
     return self;
 }
 
+
 - (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_Message:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionProcessMessage:message];
     return self;
 }
 
 - (UMDiameterPeerState *)eventR_Rcv_DWR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_DWR:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionProcess_DWR:NULL];
     UMDiameterPacket *pkt = [peer createDWA:message.hopByHopIdentifier
                                    endToEnd:message.endToEndIdentifier
@@ -61,18 +78,33 @@
 
 - (UMDiameterPeerState *)eventR_Rcv_DWA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_DWA:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionProcess_DWA:NULL];
     return self;
 }
 
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Conn_CER:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionR_Reject:NULL];
     return self;
 }
 
 - (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventStop:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     UMDiameterPacket *pkt = [peer createDPRwithDisconnectCause:@(UMDiameterAvpDisconnect_Cause_REBOOTING)];
     [peer actionR_Snd_DPR:pkt];
     return [[UMDiameterPeerState_Closing alloc]init];
@@ -81,6 +113,11 @@
 
 - (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_DPR:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     UMDiameterPacket *pkt = [peer createDPA:message.hopByHopIdentifier
                                    endToEnd:message.endToEndIdentifier
                                  resultCode:NULL
@@ -93,12 +130,22 @@
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Peer_Disc:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionR_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_CER:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     UMDiameterPacket *pkt = [peer createCEA:message.hopByHopIdentifier
                                    endToEnd:message.endToEndIdentifier
                                  resultCode:NULL
@@ -110,12 +157,22 @@
 
 - (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_CEA:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionProcess_CEA:message];
     return self;
 }
 
 - (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventWatchdogTimer:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     UMDiameterPacket *pkt = [peer createDWR];
     [peer actionR_Snd_DWR:pkt];
     return self;

@@ -1350,15 +1350,28 @@ typedef enum ElectionResult
 {
     [message beforeEncode];
     NSData *data = [message packedData];
-    [self sendData:data socket:_initiator_socket];
-
+    if(data==NULL)
+    {
+        [self logMajorError:[NSString stringWithFormat:@"actionI_Snd_Message: Can not encode packet %@",message]];
+    }
+    else
+    {
+        [self sendData:data socket:_initiator_socket];
+    }
 }
 
 - (void)actionR_Snd_Message:(UMDiameterPacket *)message
 {
     [message beforeEncode];
     NSData *data = [message packedData];
-    [self sendData:data socket:_responder_socket];
+    if(data==NULL)
+    {
+        [self logMajorError:[NSString stringWithFormat:@"actionR_Snd_Message: Can not encode packet %@",message]];
+    }
+    else
+    {
+        [self sendData:data socket:_responder_socket];
+    }
 }
 
 

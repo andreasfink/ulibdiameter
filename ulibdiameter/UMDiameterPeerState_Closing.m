@@ -32,24 +32,44 @@
 
 - (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventI_Rcv_DPA:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionI_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventI_Peer_Disc:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionI_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventR_Peer_Disc:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionR_Disc:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
 - (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
 {
+    if(peer.logLevel <= UMLOG_DEBUG)
+    {
+        NSString *s = [NSString stringWithFormat:@"%@: eventTimeout:\n%@",self.currentState,message];
+        [peer logDebug:s];
+    }
     [peer actionError:NULL];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
