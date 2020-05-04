@@ -692,7 +692,6 @@
     [self addRoute:route];
 }
 
-
 - (UMDiameterRoute *)findRouteForRealm:(NSString *)realm
 {
     UMDiameterRoute *route=NULL;

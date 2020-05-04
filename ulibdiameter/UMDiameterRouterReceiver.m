@@ -26,7 +26,7 @@
     if(self)
     {
         _router = r;
-        _timeoutInMs = 250;
+        _timeoutInMs = 1000;
     }
     return self;
 }

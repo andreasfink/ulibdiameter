@@ -24,6 +24,15 @@
             NSLog(@"DiameterRoute with no destination %@",conf);
             return NULL;
         }
+        
+        if(conf[@"exact-hostname"])
+        {
+            _exactHost = [conf[@"exact-hostname"] boolValue];
+        }
+        if(conf[@"exact-realm"])
+        {
+            _exactRealm = [conf[@"exact-realm"] boolValue];
+        }
         _destination    = [destination stringValue];
         if([destination isEqualToStringCaseInsensitive:@"local"])
         {
@@ -62,9 +71,12 @@
         }
         if(conf[@"local"])
         {
-            _local          = [conf[@"local"] boolValue];
+            _local = [conf[@"local"] boolValue];
         }
-        
+        else
+        {
+            _local = NO;
+        }
         [self updateIdentifier];
     }
     return self;
