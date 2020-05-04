@@ -17,7 +17,8 @@
     return @"Wait-Conn-Ack";
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer
+                                     message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -29,7 +30,8 @@
     return [[UMDiameterPeerState_Wait_I_CEA alloc]init];
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer
+                                      message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -41,7 +43,8 @@
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
+                                 message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -54,7 +57,8 @@
     return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]init];
 }
 
-- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
+                              message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {

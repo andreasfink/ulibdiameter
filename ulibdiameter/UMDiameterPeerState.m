@@ -20,9 +20,10 @@
 
 
 /*  eventStart: The Diameter application has signaled that a connection should be initiated with the peer. */
-- (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer
+                            message:(UMDiameterPacket *)message
 {
-if(peer.logLevel <= UMLOG_DEBUG)
+    if(peer.logLevel <= UMLOG_DEBUG)
     {
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStart",self.currentState];
         [peer logDebug:s];
@@ -31,7 +32,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 }
 
 /*  R-Conn-CER An acknowledgement is received stating that the transport connection has been established, and the associated CER has arrived. */
-- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
+                                 message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -43,7 +45,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-Conn-Ack   A positive acknowledgement is received confirming that the transport connection is established. */
-- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer
+                                     message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -64,7 +67,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 }
 
 /*  Rcv-Conn-Nack  A negative acknowledgement was received stating that the transport connection was not established. */
-- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer
+                                      message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -78,7 +82,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_Conn_Nack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_Conn_Nack:(UMDiameterPeer *)peer
+                                      message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -94,7 +99,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /*  Timeout:An application-defined timer has expired while waiting for some event.*/
-- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
+                              message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -106,7 +112,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-CER: A CER message from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -128,7 +135,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-CEA: A CEA message from the peer was received.  */
-- (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_CEA:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -138,7 +146,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_CEA:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -150,7 +159,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-Non-CEA: A message, other than a CEA, from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_Non_CEA:(UMDiameterPeer *)peer
+                                    message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -160,7 +170,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
     return self;
 }
 
-- (UMDiameterPeerState *)eventI_Rcv_Non_CEA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Non_CEA:(UMDiameterPeer *)peer
+                                    message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -172,7 +183,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Peer-Disc: A disconnection indication from the peer was received. */
-- (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer
+                                  message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -183,7 +195,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer
+                                  message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -195,7 +208,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-DPR: A DPR message from the peer was received. */
-- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_DPR:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -216,7 +230,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 }
 
 /* Rcv-DPA:A DPA message from the peer was received. */
-- (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_DPA:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -226,7 +241,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_DPA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_DPA:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -261,7 +277,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-DWA:A DWA message from the peer was received. */
-- (UMDiameterPeerState *)eventI_Rcv_DWA:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_DWA:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -284,7 +301,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Win-Election: An election was held, and the local node was the winner. */
-- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventWin_Election:(UMDiameterPeer *)peer
+                                   message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -308,7 +326,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Rcv-Message:A message other than CER, CEA, DPR, DPA, DWR, or DWA was received. */
-- (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventI_Rcv_Message:(UMDiameterPeer *)peer
+                                    message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -318,7 +337,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
     return self;
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_Message:(UMDiameterPeer *)peer
+                                    message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -330,7 +350,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 
 
 /* Stop: The Diameter application has signaled that a connection should be terminated (e.g., on system shutdown). */
-- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventStop:(UMDiameterPeer *)peer
+                           message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -345,7 +366,8 @@ if(peer.logLevel <= UMLOG_DEBUG)
 }
 
 
-- (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventWatchdogTimer:(UMDiameterPeer *)peer
+                                    message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
