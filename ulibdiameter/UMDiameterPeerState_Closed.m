@@ -27,14 +27,25 @@
         [peer logDebug:s];
     }
 
-    [peer actionI_Snd_Conn_Req:NULL];
-    
     peer.supportedVendorIds = peer.router.supportedVendorIds;
     peer.authApplicationIds = peer.router.authApplicationIds;
     peer.acctApplicationIds = peer.router.acctApplicationIds;
     peer.vendorSpecificIds = peer.router.vendorSpecificIds;
 
-    UMDiameterPeerState *newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+
+    UMSocketError err =[peer actionI_Snd_Conn_Req:NULL];
+    
+    UMDiameterPeerState *newState = self;
+
+    if(err==UMSocketError_in_progress)
+    {
+        newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+    }
+    else if(err == UMSocketError_no_error)
+    {
+        newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+        newState = [newState eventI_Rcv_Conn_Ack:peer message:NULL];
+    }
     return newState;
 }
 

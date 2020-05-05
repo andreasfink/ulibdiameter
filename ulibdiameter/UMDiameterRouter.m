@@ -88,7 +88,7 @@
                                         @"vendor":@(UMDiameterVendorId_3GPP) ,
                                         @"application": @(UMDiameterApplicationId_3GPP_Sh)
                                         }];
-
+#if 0
         /* CSCF - HSS */
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterVendorId_3GPP) ,
@@ -215,12 +215,12 @@
                                       @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6b)
                                       }];
-
+#endif
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6c)
                                       }];
-
+#if 0
         [_vendorSpecificIds addObject:@{
                                       @"vendor":@(UMDiameterVendorId_3GPP) ,
                                       @"application": @(UMDiameterApplicationId_3GPP_S6m)
@@ -349,6 +349,7 @@
                                      @"vendor":@(UMDiameterVendorId_FinkTelecomServices) ,
                                      @"application": @(UMDiameterApplicationId_FTS_Tracing)
                                    }];
+#endif
 }
     return self;
 }
