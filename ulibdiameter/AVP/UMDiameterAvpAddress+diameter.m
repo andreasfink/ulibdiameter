@@ -13,17 +13,43 @@
 
 - (void)setStringValue:(NSString *)string
 {
-    NSArray *arr = [string componentsSeparatedByString:@"."];
-    if(arr.count==4)
+    if([string hasPrefix:@"ipv4:"])
     {
-        uint8_t bytes[6];
-        bytes[0]=0x00;
-        bytes[1]=0x01;
-        bytes[2]=[arr[0] intValue] & 0xFF;
-        bytes[3]=[arr[1] intValue] & 0xFF;
-        bytes[4]=[arr[2] intValue] & 0xFF;
-        bytes[5]=[arr[3] intValue] & 0xFF;
-        [self setDataValue:[NSData dataWithBytes:&bytes length:6]];
+        string =  [UMSocket deunifyIp:string];
+        NSArray *arr = [string  componentsSeparatedByString:@"."];
+        if(arr.count==4)
+        {
+            uint8_t bytes[6];
+            bytes[0]=0x00;
+            bytes[1]=0x01;
+            bytes[2]=[arr[0] intValue] & 0xFF;
+            bytes[3]=[arr[1] intValue] & 0xFF;
+            bytes[4]=[arr[2] intValue] & 0xFF;
+            bytes[5]=[arr[3] intValue] & 0xFF;
+            [self setDataValue:[NSData dataWithBytes:&bytes length:6]];
+        }
+    }
+    else if([string hasPrefix:@"ipv6:"])
+    {
+        /* FIXME: we need to encode IPv6 here */
+            uint8_t bytes[6];
+            bytes[0]=0x00;
+            bytes[1]=0x02; /* ? */
+    }
+    else
+    {
+        NSArray *arr = [string  componentsSeparatedByString:@"."];
+        if(arr.count==4)
+        {
+            uint8_t bytes[6];
+            bytes[0]=0x00;
+            bytes[1]=0x01;
+            bytes[2]=[arr[0] intValue] & 0xFF;
+            bytes[3]=[arr[1] intValue] & 0xFF;
+            bytes[4]=[arr[2] intValue] & 0xFF;
+            bytes[5]=[arr[3] intValue] & 0xFF;
+            [self setDataValue:[NSData dataWithBytes:&bytes length:6]];
+        }
     }
 }
 
