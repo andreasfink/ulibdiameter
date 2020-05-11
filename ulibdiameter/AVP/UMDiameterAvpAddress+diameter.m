@@ -13,6 +13,8 @@
 
 - (void)setStringValue:(NSString *)string
 {
+    
+    /* */http://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml */
     if([string hasPrefix:@"ipv4:"])
     {
         string =  [UMSocket deunifyIp:string];
@@ -32,9 +34,16 @@
     else if([string hasPrefix:@"ipv6:"])
     {
         /* FIXME: we need to encode IPv6 here */
-            uint8_t bytes[6];
+            uint8_t bytes[18];
             bytes[0]=0x00;
-            bytes[1]=0x02; /* ? */
+            bytes[1]=0x02; /* IPV6 */
+        NSData *d = [UMSocket sockaddrFromAddress:string port:0 socketFamily:AF_INET6];
+        const struct sockaddr_in6 *sa = d.bytes;
+        for(int i=0;i<16;i++)
+        {
+            bytes[i+2] = sa->sin6_addr.__u6_addr.__u6_addr8[i];
+        }
+        [self setDataValue:[NSData dataWithBytes:&bytes length:6]];
     }
     else
     {
