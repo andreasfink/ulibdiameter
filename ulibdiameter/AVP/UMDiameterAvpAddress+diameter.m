@@ -39,7 +39,11 @@
         const struct sockaddr_in6 *sa = d.bytes;
         for(int i=0;i<16;i++)
         {
+#ifdef __APPLE__
             bytes[i+2] = sa->sin6_addr.__u6_addr.__u6_addr8[i];
+#else
+            bytes[i+2] = sa->sin6_addr.__in6_u.__u6_addr8[i];
+#endif
         }
         [self setDataValue:[NSData dataWithBytes:&bytes length:6]];
     }
