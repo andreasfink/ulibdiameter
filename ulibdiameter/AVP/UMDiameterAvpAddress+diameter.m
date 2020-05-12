@@ -10,11 +10,10 @@
 
 
 @implementation UMDiameterAvpAddress (diameter)
-
 - (void)setStringValue:(NSString *)string
 {
-    
-    /* */http://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml */
+    NSLog(@"UMDiameterAvpAddress setStringValue:%@",string);
+    /* http://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml */
     if([string hasPrefix:@"ipv4:"])
     {
         string =  [UMSocket deunifyIp:string];
@@ -69,7 +68,22 @@
     {
         if((bytes[0] == 0) & (bytes[1] == 0x01))
         {
-            return [NSString stringWithFormat:@"%d.%d.%d.%d",bytes[2],bytes[3],bytes[4],bytes[5]];
+            return [NSString stringWithFormat:@"ipv4:%d.%d.%d.%d",bytes[2],bytes[3],bytes[4],bytes[5]];
+        }
+    }
+    else if(len==18)
+    {
+        if((bytes[0] == 0) & (bytes[1] == 0x01))
+        {
+            return [NSString stringWithFormat:@"ipv6:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x",
+                    bytes[2],bytes[3],
+                    bytes[4],bytes[5],
+                    bytes[6],bytes[7],
+                    bytes[8],bytes[9],
+                    bytes[10],bytes[11],
+                    bytes[12],bytes[13],
+                    bytes[14],bytes[15],
+                    bytes[16],bytes[17]];
         }
     }
     return NULL;
