@@ -8,6 +8,7 @@
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpHost_IP_Address.h"
+#import "UMDiameterAvpAddress+diameter.h"
 
 @implementation UMDiameterAvpHost_IP_Address
 

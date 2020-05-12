@@ -33,10 +33,9 @@
     }
     else if([string hasPrefix:@"ipv6:"])
     {
-        /* FIXME: we need to encode IPv6 here */
-            uint8_t bytes[18];
-            bytes[0]=0x00;
-            bytes[1]=0x02; /* IPV6 */
+        uint8_t bytes[18];
+        bytes[0]=0x00;
+        bytes[1]=0x02; /* IPV6 */
         NSData *d = [UMSocket sockaddrFromAddress:string port:0 socketFamily:AF_INET6];
         const struct sockaddr_in6 *sa = d.bytes;
         for(int i=0;i<16;i++)
