@@ -12,7 +12,7 @@
 @implementation UMDiameterAvpAddress (diameter)
 - (void)setStringValue:(NSString *)string
 {
-    NSLog(@"UMDiameterAvpAddress setStringValue:%@",string);
+    //NSLog(@"UMDiameterAvpAddress setStringValue:%@",string);
     /* http://www.iana.org/assignments/address-family-numbers/address-family-numbers.xhtml */
     if([string hasPrefix:@"ipv4:"])
     {
