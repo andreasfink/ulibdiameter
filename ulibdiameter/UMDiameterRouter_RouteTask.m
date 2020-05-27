@@ -39,47 +39,49 @@
 
 - (void)main
 {
-    UMDiameterPeer *nextHop=NULL;
-    
-    UMDiameterRouterSession *session = [_router findSessionForPacket:_packet];
-    if(session)
+    @autoreleasepool
     {
-        /* if we have a session, we use the same route back */
-        [session touch];
-        if(session.initiator == _sender)
+        UMDiameterPeer *nextHop=NULL;        
+        UMDiameterRouterSession *session = [_router findSessionForPacket:_packet];
+        if(session)
         {
-            nextHop = session.responder;
+            /* if we have a session, we use the same route back */
+            [session touch];
+            if(session.initiator == _sender)
+            {
+                nextHop = session.responder;
+            }
+            else if(session.responder == _sender)
+            {
+                nextHop = session.initiator;
+            }
+            else
+            {
+                NSLog(@"we dont know which direction this session is supposed to be used");
+            }
         }
-        else if(session.responder == _sender)
+        if(nextHop==NULL)
         {
-            nextHop = session.initiator;
+            UMDiameterRoute *route=NULL;
+            route = [_router findRouteForRealm:_realm];
+            if(route==NULL)
+            {
+                route = [_router findRouteForHost:_host];
+            }
+            if(route.peer)
+            {
+                nextHop = route.peer;
+            }
+            else if(route.destination)
+            {
+                nextHop = [_router findPeer:route.destination];
+                route.peer = nextHop;
+            }
         }
-        else
+        if(nextHop==NULL)
         {
-            NSLog(@"we dont know which direction this session is supposed to be used");
+            NSLog(@"No route found for realm %@ host %@",_realm,_host);
         }
-    }
-    if(nextHop==NULL)
-    {
-        UMDiameterRoute *route=NULL;
-        route = [_router findRouteForRealm:_realm];
-        if(route==NULL)
-        {
-            route = [_router findRouteForHost:_host];
-        }
-        if(route.peer)
-        {
-            nextHop = route.peer;
-        }
-        else if(route.destination)
-        {
-            nextHop = [_router findPeer:route.destination];
-            route.peer = nextHop;
-        }
-    }
-    if(nextHop==NULL)
-    {
-        NSLog(@"No route found for realm %@ host %@",_realm,_host);
     }
 }
 
