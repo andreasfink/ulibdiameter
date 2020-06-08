@@ -116,10 +116,10 @@
 @property(readwrite,strong,atomic)  UMPCAPFile              *packetTraceFile;
 @property(readwrite,strong,atomic)  UMPCAPPseudoConnection  *packetTracePseudoConnection;
 @property(readwrite,strong,atomic)  NSNumber                *originStateId;
-@property(readwrite,copy,atomic)     NSArray<NSNumber *>         *supportedVendorIds;
-@property(readwrite,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
-@property(readwrite,copy,atomic)     NSMutableArray<NSNumber *>  *acctApplicationIds;
-@property(readwrite,copy,atomic)     NSArray<NSDictionary *>     *vendorSpecificIds;
+@property(readwrite,copy,atomic)     NSArray<NSNumber *>    *supportedVendorIds;
+@property(readwrite,strong,atomic)  NSMutableArray<NSNumber *>  *authApplicationIds;
+@property(readwrite,strong,atomic)  NSMutableArray<NSNumber *>  *acctApplicationIds;
+@property(readwrite,copy,atomic)    NSArray<NSDictionary *>     *vendorSpecificIds;
 
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterPeerAppDelegateProtocol>)appContext;

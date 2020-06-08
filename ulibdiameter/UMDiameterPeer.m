@@ -721,7 +721,7 @@
     packet.hopByHopIdentifier = hopByHop;
     packet.endToEndIdentifier = endToEnd;
 
-    if(resultCode)
+    if(resultCode != NULL)
     {
         packet.var_result_code = [[UMDiameterAvpResult_Code alloc]init];
         packet.var_result_code.value = resultCode.unsignedIntValue;
@@ -770,7 +770,7 @@
     {
         packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
     }
-    if(dcause)
+    if(dcause != NULL)
     {
         packet.var_disconnect_cause = [[UMDiameterAvpDisconnect_Cause alloc]init];
         packet.var_disconnect_cause.value = [dcause intValue];
@@ -841,7 +841,7 @@
     packet.hopByHopIdentifier = hopByHop;
     packet.endToEndIdentifier = endToEnd;
 
-    if(resultCode)
+    if(resultCode!= NULL)
     {
         packet.var_result_code = [[UMDiameterAvpResult_Code alloc]init];
         packet.var_result_code.value = [resultCode unsignedIntValue];
@@ -1066,7 +1066,7 @@
             if((a.var_vendor_id) && ([a.var_vendor_id.numberValue isEqualToNumber:vendor]))
             {
                 BOOL match=YES;
-                if(app)
+                if(app!= NULL)
                 {
                     if(  (a.var_auth_application_id==NULL) &&
                         !([a.var_auth_application_id.numberValue isEqualToNumber:app]))
@@ -1074,10 +1074,10 @@
                         match = NO;
                     }
                 }
-                if(acct)
+                if(acct!= NULL)
                 {
                     if(  (a.var_acct_application_id==NULL) &&
-                        !([a.var_acct_application_id.numberValue isEqualToNumber:app]))
+                        !([a.var_acct_application_id.numberValue isEqualToNumber:acct]))
                     {
                         match = NO;
                     }

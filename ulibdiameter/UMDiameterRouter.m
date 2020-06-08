@@ -1034,11 +1034,11 @@
                 nsock = [socket accept:&returnValue];
             }
             NSString *remoteAddress = nsock.connectedRemoteAddress;
-            NSString *localAddress  = nsock.connectedLocalAddress;
+            //NSString *localAddress  = nsock.connectedLocalAddress;
             int localPort = nsock.connectedLocalPort;
 
             remoteAddress = [UMSocket unifyIP:remoteAddress];
-            localAddress = [UMSocket unifyIP:localAddress];
+            //localAddress = [UMSocket unifyIP:localAddress];
             /* we now have to find the matching peer for this address */
 
             NSArray *peerKeys = [_peers allKeys];

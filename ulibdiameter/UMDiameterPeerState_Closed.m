@@ -28,10 +28,9 @@
     }
 
     peer.supportedVendorIds = peer.router.supportedVendorIds;
-    peer.authApplicationIds = peer.router.authApplicationIds;
-    peer.acctApplicationIds = peer.router.acctApplicationIds;
-    peer.vendorSpecificIds = peer.router.vendorSpecificIds;
-
+    peer.authApplicationIds = [peer.router.authApplicationIds mutableCopy];
+    peer.acctApplicationIds = [peer.router.acctApplicationIds mutableCopy];
+    peer.vendorSpecificIds = [peer.router.vendorSpecificIds mutableCopy];
 
     UMSocketError err =[peer actionI_Snd_Conn_Req:NULL];
     
