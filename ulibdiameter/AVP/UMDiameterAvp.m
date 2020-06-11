@@ -81,14 +81,17 @@
     return self;
 }
 
-- (void)parseJsonString:(NSString *)string
+- (BOOL)parseJsonString:(NSString *)string
                   error:(NSError **)err
 {
+    BOOL returnValue = NO;
     /* this has to be overrittten by the subclass */
     if(err)
     {
+        returnValue = YES;
         *err = [NSError errorWithDomain:@"PARSING" code:100 userInfo:@{@"reason" : @"parseJsonString: not implemented"}];
     }
+    return returnValue;
 }
 
 - (UMDiameterAvp *)initWithData:(NSData *)data

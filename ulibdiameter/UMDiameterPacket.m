@@ -523,8 +523,9 @@
     }
 }
 
-- (void)parseJsonString:(NSString *)s error:(NSError **)eptr
+- (BOOL)parseJsonString:(NSString *)s error:(NSError **)eptr
 {
+    BOOL returnValue = NO;
     UMJsonParser *parser = [[UMJsonParser alloc]init];
     id r = [parser objectWithString:s error:eptr];
     if([r isKindOfClass:[NSDictionary class]])
@@ -534,11 +535,14 @@
     }
     else
     {
+        returnValue = YES;
         if(eptr)
         {
+            
             *eptr = [[NSError alloc]initWithDomain:@"PARSING_ERROR" code:105 userInfo:@{@"reason":@"json decode does not return a dictionary"}];
         }
     }
+    return returnValue;
 }
 
 - (void)setDictionaryValueFromWeb:(NSDictionary *)dict

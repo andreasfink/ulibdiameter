@@ -799,7 +799,7 @@
      * [ AVP ]
      */
     // { Result-Code }
-    if(resultCode)
+    if(resultCode!=NULL)
     {
         packet.var_result_code = [[UMDiameterAvpResult_Code alloc]init];
         packet.var_result_code.value = [resultCode unsignedIntValue];
@@ -2591,6 +2591,7 @@ typedef enum ElectionResult
                          break;
                      }
                  }
+                 break;
              }
              default:
              {

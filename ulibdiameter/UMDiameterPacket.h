@@ -89,7 +89,7 @@
 - (void)afterDecode;
 - (void)beforeEncode;
 
-- (void)parseJsonString:(NSString *)s error:(NSError **)eptr;
+- (BOOL)parseJsonString:(NSString *)s error:(NSError **)eptr;
 
 - (void)setDictionaryValueFromWeb:(NSDictionary *)dict;
 - (void)setDictionaryValue:(NSDictionary *)dict;
