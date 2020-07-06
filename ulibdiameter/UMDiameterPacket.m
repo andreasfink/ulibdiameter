@@ -379,7 +379,8 @@
 {
     UMDiameterAvp *avp = [self getAvpByCode:[UMDiameterAvpSession_Id avpCode]];
     UMDiameterAvpSession_Id *sid = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
-    return sid.value;
+    NSString *s = [sid value];
+    return s;
 }
 
 - (NSString *)getOriginHost
