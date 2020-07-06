@@ -377,8 +377,9 @@
 
 - (NSString *)getSessionIdentifier
 {
-    UMDiameterAvpSession_Id *avp = (UMDiameterAvpSession_Id *)[self getAvpByCode:[UMDiameterAvpSession_Id avpCode]];
-    return avp.value;
+    UMDiameterAvp *avp = [self getAvpByCode:[UMDiameterAvpSession_Id avpCode]];
+    UMDiameterAvpSession_Id *sid = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
+    return sid.value;
 }
 
 - (NSString *)getOriginHost
