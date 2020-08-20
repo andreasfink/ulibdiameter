@@ -35,8 +35,10 @@
 
 #define RUN_SELECTOR_IN_BACKGROUND_WITH_OBJECT(sel,obj) \
     [self runSelectorInBackground:sel \
-                        withObject:obj \
-                         file:__FILE__ line:__LINE__  function:__func__]
+                       withObject:obj \
+                             file:__FILE__ \
+                             line:__LINE__ \
+                         function:__func__]
 
 
 #define DIAMETER_LINK_REOPEN_TIME1_DEFAULT  6.0

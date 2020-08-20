@@ -452,7 +452,7 @@ break;
 
 - (id)objectValue
 {
-    return [NSNull null];
+    return [self objectDescription];
 }
 
 - (UMSynchronizedSortedDictionary *)objectDescription

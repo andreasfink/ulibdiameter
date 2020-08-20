@@ -129,6 +129,8 @@
 - (void)powerOff;
 
 - (void)sendMessage:(UMDiameterPacket *)packet;
+- (void) processPacket:(UMDiameterPacket *)packet
+             initiator:(BOOL)initiator;
 
 
 /* Snd-Conn-Req: A transport connection is initiated with the peer. */
