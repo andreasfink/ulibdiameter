@@ -135,7 +135,6 @@
 
 - (void)setDictionaryValue:(NSDictionary *)dict
 {
-
     if(dict[@"session-id"])
     {
         _var_session_id = [[UMDiameterAvpSession_Id alloc]init];

@@ -16,10 +16,10 @@
 
 @interface UMDiameterAvpSupported_Features : UMDiameterAvpGrouped
 {
-	UMDiameterAvpVendor_Id	*_var_vendor_id;
+	UMDiameterAvpVendor_Id	        *_var_vendor_id;
 	UMDiameterAvpFeature_List_ID	*_var_feature_list_id;
-	UMDiameterAvpFeature_List	*_var_feature_list;
-	NSArray<UMDiameterAvpAVP *>	*_var_avp;
+	UMDiameterAvpFeature_List	    *_var_feature_list;
+	NSArray<UMDiameterAvpAVP *>	    *_var_avp;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpVendor_Id	*var_vendor_id;

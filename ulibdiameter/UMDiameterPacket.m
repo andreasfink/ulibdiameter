@@ -549,6 +549,9 @@
 
 - (void)setDictionaryValueFromWeb:(NSDictionary *)dict
 {
+    [self setDictionaryHeaderValues:dict];
+    [self setDictionaryValue:dict];
+
     if(dict[@"json"])
     {
         NSString *jsonString = [dict[@"json"] urldecode];
@@ -629,16 +632,20 @@
                     }
                 }
             }
-            
+            [self setDictionaryHeaderValues:pdict];
             [self setDictionaryValue:pdict];
         }
     }
-    else
-    {
-        [self setDictionaryValue:dict];
-    }
 }
 
+- (void)setDictionaryHeaderValues:(NSDictionary *)dict
+{
+    if(dict[@"application-id"])
+    {
+        id obj = dict[@"application-id"];
+        _applicationId = (uint32_t)[obj longLongValue];
+    }
+}
 
 - (void)setDictionaryValue:(NSDictionary *)dict
 {
