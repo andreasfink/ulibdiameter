@@ -632,7 +632,7 @@
                     }
                 }
             }
-            [self setDictionaryHeaderValues:pdict];
+            [self setDictionaryHeaderValues:rdict];
             [self setDictionaryValue:pdict];
         }
     }
