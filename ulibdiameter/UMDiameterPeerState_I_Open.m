@@ -78,7 +78,7 @@
                                  resultCode:@(UMDiameterResultCode_DIAMETER_SUCCESS)
                                errorMessage:NULL
                                   failedAvp:NULL];
-    [peer actionR_Snd_DWA:pkt];
+    [peer actionI_Snd_DWA:pkt];
     return self;
 }
 
