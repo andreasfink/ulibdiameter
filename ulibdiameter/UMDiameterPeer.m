@@ -2798,12 +2798,12 @@ typedef enum ElectionResult
     
     if([_peerState isKindOfClass:[UMDiameterPeerState_Wait_Conn_Ack class]])
     {
-        [self _eventStopTask:NULL]
+        [self _eventStopTask:NULL];
         [self powerOn];
     }
     else if([_peerState isKindOfClass:[UMDiameterPeerState_Closed class]])
     {
-        [self _eventStopTask:]
+        [self _eventStopTask:NULL];
         [self powerOn];
     }
 
