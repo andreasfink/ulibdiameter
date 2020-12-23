@@ -2795,10 +2795,18 @@ typedef enum ElectionResult
 
 - (void)reopenTimer1Event:(id)dummy
 {
-    if([_peerState isKindOfClass:[UMDiameterPeerState_Closed class]])
+    
+    if([_peerState isKindOfClass:[UMDiameterPeerState_Wait_Conn_Ack class]])
     {
+        [self _eventStopTask:NULL]
         [self powerOn];
     }
+    else if([_peerState isKindOfClass:[UMDiameterPeerState_Closed class]])
+    {
+        [self _eventStopTask:]
+        [self powerOn];
+    }
+
 }
 
 - (void)reopenTimer2Event:(id)dummy
