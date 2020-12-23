@@ -2806,7 +2806,6 @@ typedef enum ElectionResult
         [self _eventStopTask:NULL];
         [self powerOn];
     }
-
 }
 
 - (void)reopenTimer2Event:(id)dummy

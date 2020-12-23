@@ -29,6 +29,7 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterAvpDisconnect_Cause.h"
 #import "UMDiameterAvpENUMS.h"
+#import "UMDiameterResultCode.h"
 
 @implementation UMDiameterPeerState_I_Open
 
@@ -71,7 +72,13 @@
         [peer logDebug:s];
     }
     [peer actionProcess_DWR:message];
-    [peer actionI_Snd_DWA:NULL];
+    
+    UMDiameterPacket *pkt = [peer createDWA:message.hopByHopIdentifier
+                                   endToEnd:message.endToEndIdentifier
+                                 resultCode:@(UMDiameterResultCode_DIAMETER_SUCCESS)
+                               errorMessage:NULL
+                                  failedAvp:NULL];
+    [peer actionR_Snd_DWA:pkt];
     return self;
 }
 
