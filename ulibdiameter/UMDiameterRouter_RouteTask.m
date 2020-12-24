@@ -86,6 +86,10 @@
         {
             NSLog(@"No route found for realm %@ host %@",_realm,_host);
         }
+        else
+        {
+            [nextHop sendMessage:_packet];
+        }
     }
 }
 
