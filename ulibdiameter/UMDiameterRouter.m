@@ -610,54 +610,25 @@
                          host:(NSString *)host
 {
     UMDiameterRouterSession *session = [self findSessionForPacket:packet];
-    if(session)
-    {
-        if(session.isLocal)
-        {
-            /* if we have a session, we use the same route back */
-            [session processIncomingPacket:packet forRouter:self fromPeer:peer];
-            [session touch];
-            return;
-        }
-        else
-        {
-            [self queuePacketForRouting:packet
-                                 source:peer
-                                  realm:realm
-                                   host:host];
-        }
-    }
-    else
+    if(session == NULL)
     {
         session = [[UMDiameterRouterSession alloc]initWithTimeout:_defaultSessionTimeout];
         session.initiator = peer;
     }
-
-#define COMMAND(CMDNAME) \
-    else if(packet.commandCode ==  [CMDNAME commandCode]) \
-    {  \
-        packet = [[CMDNAME alloc]initWithPacket:packet]; \
-    }
-
-    if(0)
+    
+    if(session.isLocal)
     {
-    }
-#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
-#include "Commands/base/UMDiameterCommands_base.inc"
-
-#undef COMMAND
-
-    if(packet.commandFlags & DIAMETER_COMMAND_FLAG_REQUEST)
-    {
-        [self processIncomingRequestPacket:packet fromPeer:peer];
-    }
-    else if(packet.commandFlags & DIAMETER_COMMAND_FLAG_ERROR)
-    {
-        [self processIncomingErrorPacket:packet fromPeer:peer];
+        /* if we have a session, we use the same route back */
+        [session processIncomingPacket:packet forRouter:self fromPeer:peer];
+        [session touch];
+        return;
     }
     else
     {
-        [self processIncomingResponsePacket:packet fromPeer:peer];
+        [self queuePacketForRouting:packet
+                             source:peer
+                              realm:realm
+                               host:host];
     }
 }
 
