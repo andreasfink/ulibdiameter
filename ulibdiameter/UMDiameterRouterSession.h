@@ -14,6 +14,7 @@
 
 @interface UMDiameterRouterSession : UMObject
 {
+    NSString        *_localSessionIdentifier;
     NSString        *_sessionIdentifier;
     UMDiameterPeer  *_initiator;
     UMDiameterPeer  *_responder;
