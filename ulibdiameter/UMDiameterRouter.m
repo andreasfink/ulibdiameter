@@ -1213,15 +1213,13 @@
 }
 
 
-- (UMSynchronizedSortedDictionary *)routeTestForSessionId:(NSString *)session_id
-                                                 peerName:(NSString *)peerName
-                                                    realm:(NSString *)realm
-                                                     host:(NSString *)host
+- (UMSynchronizedSortedDictionary *)routeTestForPeerName:(NSString *)peerName
+                                                   realm:(NSString *)realm
+                                                    host:(NSString *)host
 {
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
     @autoreleasepool
     {
-        UMDiameterRouterSession *session = NULL;
         UMDiameterRoute *route=NULL;
         route = [self findRouteForRealm:realm];
         if(route==NULL)

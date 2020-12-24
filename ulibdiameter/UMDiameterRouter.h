@@ -126,10 +126,9 @@
 - (UMDiameterRoute *)findRouteForDefault;
 
 - (UMDiameterPeer *)findPeer:(NSString *)peerName;
-- (UMSynchronizedSortedDictionary *)routeTestForSessionId:(NSString *)session_id
-                                                 peerName:(NSString *)peerName
-                                                    realm:(NSString *)realm
-                                                     host:(NSString *)host;
+- (UMSynchronizedSortedDictionary *)routeTestForPeerName:(NSString *)peerName
+                                                   realm:(NSString *)realm
+                                                    host:(NSString *)host;
 
 
 /* local processing */
@@ -149,6 +148,6 @@
 
 + (NSString *)internalSessionIdFromHopByHop:(uint32_t)hopByHop
                                    endToEnd:(uint32_t)endToEnd
-                               incomingPeer:(UMDiameterPeer *)peer;
+                           incomingPeerName:(NSString *)peerName;
 
 @end
