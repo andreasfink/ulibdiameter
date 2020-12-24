@@ -121,6 +121,8 @@
 
 - (UMDiameterRoute *)findRouteForRealm:(NSString *)realm;
 - (UMDiameterRoute *)findRouteForHost:(NSString *)host;
+- (UMDiameterRoute *)findRouteForDefault;
+
 - (UMDiameterPeer *)findPeer:(NSString *)peerName;
 
 

@@ -664,7 +664,7 @@
     [self addRoute:route];
 }
 
-- (UMDiameterRoute *)findRouteForRealm:(NSString *)realm
+- (UMDiameterRoute *)c(NSString *)realm
 {
     UMDiameterRoute *route=NULL;
     NSArray *allKeys = [_routes allKeys];
@@ -705,6 +705,38 @@
     {
         UMDiameterRoute *thisRoute = _routes[key];
         if([thisRoute matchesHost:hostname])
+        {
+            if(route==NULL)
+            {
+                route = thisRoute;
+            }
+            else
+            {
+                if(thisRoute.priority < route.priority)
+                {
+                    route = thisRoute;
+                }
+                else if(thisRoute.priority == route.priority)
+                {
+                    if(thisRoute.weight > route.weight)
+                    {
+                        route = thisRoute;
+                    }
+                }
+            }
+        }
+    }
+    return route;
+}
+
+- (UMDiameterRoute *)findRouteForDefault
+{
+    UMDiameterRoute *route=NULL;
+    NSArray *allKeys = [_routes allKeys];
+    for(NSString *key in allKeys)
+    {
+        UMDiameterRoute *thisRoute = _routes[key];
+        if(thisRoute.defaultRoute == YES)
         {
             if(route==NULL)
             {
