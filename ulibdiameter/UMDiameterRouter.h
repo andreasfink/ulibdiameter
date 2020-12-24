@@ -100,8 +100,10 @@
                                  host:(NSString *)host;
 
 
-- (UMDiameterRouterSession *)findSessionById:(NSString *)sid;
-- (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt;
+- (void)removeSession:(UMDiameterRouterSession *)session;
+- (void)addSession:(UMDiameterRouterSession *)session;
+- (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt fromPeer:(UMDiameterPeer *)peer;
+- (UMDiameterRouterSession *)findSessionByInternalSessionId:(NSString *)sid;
 - (UMDiameterPeer *) getPeerForSocket:(UMSocket *)socket;
 
 - (void)addPeer:(UMDiameterPeer *)peer;
@@ -144,5 +146,9 @@
                        isListener:(BOOL) isListener;
 
 - (UMSynchronizedSortedDictionary *)diameterStatus;
+
++ (NSString *)internalSessionIdFromHopByHop:(uint32_t)hopByHop
+                                   endToEnd:(uint32_t)endToEnd
+                               incomingPeer:(UMDiameterPeer *)peer;
 
 @end

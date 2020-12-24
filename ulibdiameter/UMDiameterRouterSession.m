@@ -17,7 +17,7 @@
 
 - (UMDiameterRouterSession *)init
 {
-    return [self initWithTimeout:90.0];
+    return [self initWithTimeout:30.0];
 }
 
 - (UMDiameterRouterSession *)initWithTimeout:(NSTimeInterval)timeout
@@ -79,6 +79,7 @@
 
 - (void)expire
 {
+    NSLog(@"session %@ - %@ expires",_sid1,_sid2);
     /* FIXME */
 }
 
