@@ -664,7 +664,7 @@
     [self addRoute:route];
 }
 
-- (UMDiameterRoute *)c(NSString *)realm
+- (UMDiameterRoute *)findRouteForRealm:(NSString *)realm
 {
     UMDiameterRoute *route=NULL;
     NSArray *allKeys = [_routes allKeys];
@@ -760,7 +760,6 @@
     }
     return route;
 }
-
 - (UMDiameterPeer *)findPeer:(NSString *)peerName
 {
     return _peers[peerName];
