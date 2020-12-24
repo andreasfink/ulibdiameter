@@ -2,7 +2,7 @@
 //  UMDiameterAvpIDR_Flags.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:45:30.605285
+//  Created by afink on 2020-12-24 14:13:32.377163
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,8 +30,7 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
-    _avpVendorId = 10415;
+    _avpFlags = UMDiameterAvpFlag_Mandatory;
 }
 
 + (id)definition
@@ -40,7 +39,7 @@
     avpDef[@"name"] = @"idr-flags";
     avpDef[@"type"] = @"Unsigned32";
     avpDef[@"mandatory"] = @(YES);
-    avpDef[@"vendor"] = @(YES);
+    avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(NO);
 
     return avpDef;

@@ -2,13 +2,12 @@
 //  UMDiameterAvpHost_IP_Address.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:21:15.505910
+//  Created by afink on 2020-12-24 14:13:32.336902
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpHost_IP_Address.h"
-#import "UMDiameterAvpAddress+diameter.h"
 
 @implementation UMDiameterAvpHost_IP_Address
 

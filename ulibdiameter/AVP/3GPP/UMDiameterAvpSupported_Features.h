@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Features.h
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:45:30.605285
+//  Created by afink on 2020-12-24 14:13:32.377163
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -16,10 +16,10 @@
 
 @interface UMDiameterAvpSupported_Features : UMDiameterAvpGrouped
 {
-	UMDiameterAvpVendor_Id	        *_var_vendor_id;
+	UMDiameterAvpVendor_Id	*_var_vendor_id;
 	UMDiameterAvpFeature_List_ID	*_var_feature_list_id;
-	UMDiameterAvpFeature_List	    *_var_feature_list;
-	NSArray<UMDiameterAvpAVP *>	    *_var_avp;
+	UMDiameterAvpFeature_List	*_var_feature_list;
+	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 
 @property(readwrite,strong,atomic)	UMDiameterAvpVendor_Id	*var_vendor_id;
