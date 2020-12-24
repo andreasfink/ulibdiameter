@@ -69,7 +69,7 @@
                 route = [_router findRouteForHost:_host];
                 if(route==NULL)
                 {
-                    [_router findRouteForDefault];
+                    route = [_router findRouteForDefault];
                 }
             }
             if(route.peer)
