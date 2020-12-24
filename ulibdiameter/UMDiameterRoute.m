@@ -185,4 +185,71 @@
     return NO;
 }
 
+
+- (UMSynchronizedSortedDictionary *)proxyForJson
+{
+    UMSynchronizedSortedDictionary *d = [[UMSynchronizedSortedDictionary alloc]init];    if(_exactRealm)
+    {
+        d[@"exactRealm"] = @(YES);
+    }
+
+    if(_identifier)
+    {
+        d[@"identifier"] = _identifier;
+    }
+    
+    if(_destination)
+    {
+        d[@"destination"] = _destination;
+    }
+    if(_hostname)
+    {
+        d[@"hostname"] = _hostname;
+    }
+    if(_realm)
+    {
+        d[@"realm"] = _realm;
+    }
+    if(_applicationId)
+    {
+        d[@"applicationId"] = _applicationId;
+    }
+    if(_sessionId)
+    {
+        d[@"sessionId"] = _sessionId;
+    }
+    if(_sessionId)
+    {
+        d[@"sessionId"] = _sessionId;
+    }
+    if(_weight)
+    {
+        d[@"weight"] = _weight;
+    }
+    if(_priority)
+    {
+        d[@"priority"] = _priority;
+    }
+    if(_oneTimeRoute)
+    {
+        d[@"oneTimeRoute"] = @(YES);
+    }
+    if(_local)
+    {
+        d[@"local"] = @(YES);
+    }
+    if(_exactHost)
+    {
+        d[@"exactHost"] = @(YES);
+    }
+    if(_exactRealm)
+    {
+        d[@"exactRealm"] = @(YES);
+    }
+    if(_defaultRoute)
+    {
+        d[@"defaultRoute"] = @(YES);
+    }
+    return d;
+}
 @end

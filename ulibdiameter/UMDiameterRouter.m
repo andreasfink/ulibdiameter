@@ -761,6 +761,20 @@
     return route;
 }
 
+
+- (NSArray *)listRoutes
+{
+    NSMutableArray *r = [[NSMutableArray alloc]init];
+    NSArray *allKeys = [_routes allKeys];
+    for(NSString *key in allKeys)
+    {
+        UMDiameterRoute *thisRoute = _routes[key];
+        UMSynchronizedSortedDictionary *d = [thisRoute proxyForJson];
+        [r addObject:d];
+    }
+    return r;
+}
+
 - (UMDiameterPeer *)findPeer:(NSString *)peerName
 {
     return _peers[peerName];
@@ -1130,5 +1144,77 @@
     return dict;
 }
 
+
+- (UMSynchronizedSortedDictionary *)routeTestForSessionId:(NSString *)session_id
+                                                 peerName:(NSString *)peerName
+                                                    realm:(NSString *)realm
+                                                     host:(NSString *)host
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    @autoreleasepool
+    {
+        UMDiameterRouterSession *session = NULL;
+        if(session_id)
+        {
+            session = [self findSessionById:session_id];
+        }
+        if(session)
+        {
+            dict[@"found-by-session"] = @(YES);
+            if([session.initiator.layerName isEqualToString:peerName])
+            {
+                dict[@"next-hop"] = session.responder.layerName;
+            }
+            else if([session.responder.layerName isEqualToString:peerName])
+            {
+                dict[@"next-hop"] = session.initiator.layerName;
+            }
+            else
+            {
+                dict[@"error"] = @"we dont know which direction this session is supposed to be used";
+            }
+        }
+        else
+        {
+            UMDiameterRoute *route=NULL;
+            route = [self findRouteForRealm:realm];
+            if(route==NULL)
+            {
+                dict[@"found-by-realm"] = @(NO);
+                route = [self findRouteForHost:host];
+                if(route==NULL)
+                {
+                    dict[@"found-by-host"] = @(NO);
+                    route = [self findRouteForDefault];
+                    if(route)
+                    {
+                        dict[@"found-by-default"] = @(YES);
+                    }
+                    else
+                    {
+                        dict[@"found-by-default"] = @(NO);
+                    }
+                }
+                else
+                {
+                    dict[@"found-by-host"] = @(NO);
+                }
+            }
+            else
+            {
+                dict[@"found-by-realm"] = @(YES);
+            }
+            if(route.peer)
+            {
+                dict[@"next-hop"] = route.peer.layerName;
+            }
+            else if(route.destination)
+            {
+                dict[@"next-hop"] = route.destination;
+            }
+        }
+    }
+    return dict;
+}
 @end
 

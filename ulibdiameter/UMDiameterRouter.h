@@ -124,6 +124,10 @@
 - (UMDiameterRoute *)findRouteForDefault;
 
 - (UMDiameterPeer *)findPeer:(NSString *)peerName;
+- (UMSynchronizedSortedDictionary *)routeTestForSessionId:(NSString *)session_id
+                                                 peerName:(NSString *)peerName
+                                                    realm:(NSString *)realm
+                                                     host:(NSString *)host;
 
 
 /* local processing */

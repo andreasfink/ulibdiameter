@@ -46,5 +46,6 @@
 
 - (BOOL)matchesRealm:(NSString *)realm;
 - (BOOL)matchesHost:(NSString *)host;
+- (UMSynchronizedSortedDictionary *)proxyForJson;
 
 @end
