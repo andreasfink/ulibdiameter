@@ -358,15 +358,22 @@
 {
     if([_housekeepingLock tryLock]==0)
     {
-        /* */
+        NSMutableArray *expiredSessions = [[NSMutableArray alloc]init];
+        [_sessions lock];
         NSArray *arr = [_sessions allKeys];
         for(NSString *sid in arr)
         {
-            UMDiameterRouterSession *session = [self findSessionById:sid];
+            UMDiameterRouterSession *session = _sessions[sid];
             if([session isExpired])
             {
-                [session expire];
+                [expiredSessions addObject:session];
             }
+        }
+        [_sessions unlock];
+        for( UMDiameterRouterSession *session in expiredSessions)
+        {
+            [session expire];
+            [self removeSession:session];
         }
         [_housekeepingLock unlock];
 
@@ -424,28 +431,89 @@
     return sid;
 }
 
-- (void)addSession:(UMDiameterRouterSession *)session
+
+- (void)removeSession:(UMDiameterRouterSession *)session
 {
-    if(session.sessionIdentifier.length == 0)
+    [_sessions lock];
+    if(session.sid1)
     {
-        session.sessionIdentifier = [self newSessionIdentifier];
+        [_sessions removeObjectForKey:session.sid1];
     }
-    _sessions[session.sessionIdentifier] = session;
+    if(session.sid2)
+    {
+        [_sessions removeObjectForKey:session.sid2];
+    }
+    [_sessions unlock];
 }
 
-- (UMDiameterRouterSession *)findSessionById:(NSString *)sid
+- (void)addSession:(UMDiameterRouterSession *)session
+{
+    [_sessions lock];
+    if(session.sid1)
+    {
+        [_sessions removeObjectForKey:session.sid1];
+    }
+    if(session.sid2)
+    {
+        [_sessions removeObjectForKey:session.sid2];
+    }
+    NSString *initiator_peer_name;
+    NSString *responder_peer_name;
+    if(session.initiator_is_local)
+    {
+        initiator_peer_name = @"local";
+    }
+    else
+    {
+        initiator_peer_name = session.initiator.layerName;
+    }
+    if(session.responder_is_local)
+    {
+        responder_peer_name = @"local";
+    }
+    else
+    {
+        responder_peer_name = session.responder.layerName;
+    }
+    session.sid1 = [UMDiameterRouter internalSessionIdFromHopByHop:session.initiator_hop_by_hop_identifier
+                                                          endToEnd:session.initiator_end_to_end_identifier
+                                                   incomingPeerName:initiator_peer_name];
+
+    session.sid2 = [UMDiameterRouter internalSessionIdFromHopByHop:session.responder_hop_by_hop_identifier
+                                                          endToEnd:session.responder_end_to_end_identifier
+                                                   incomingPeerName:responder_peer_name];
+
+    if(session.sid1)
+    {
+        _sessions[session.sid1] = session;
+    }
+    if(session.sid2)
+    {
+        _sessions[session.sid2] = session;
+    }
+    
+    [_sessions unlock];
+
+}
+
+- (UMDiameterRouterSession *)findSessionByInternalSessionId:(NSString *)sid
 {
     return _sessions[sid];
 }
 
-- (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt
+- (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt fromPeer:(UMDiameterPeer *)peer
 {
-    NSString *sid = [pkt getSessionIdentifier];
-    if(sid)
-    {
-        return [self findSessionById:sid];
-    }
-    return NULL;
+    NSString *sid = [UMDiameterRouter internalSessionIdFromHopByHop:pkt.hopByHopIdentifier
+                                                           endToEnd:pkt.endToEndIdentifier
+                                                  incomingPeerName:peer.layerName];
+    return [self findSessionByInternalSessionId:sid];
+}
+
++ (NSString *)internalSessionIdFromHopByHop:(uint32_t)hopByHop
+                                   endToEnd:(uint32_t)endToEnd
+                          incomingPeerName:(NSString *)peerName
+{
+   return  [NSString stringWithFormat:@"%@:%08x:%08x",peerName,hopByHop,endToEnd];
 }
 
 - (NSString *)findRealmForPacket:(UMDiameterPacket *)pkt
@@ -609,14 +677,14 @@
                         realm:(NSString *)realm
                          host:(NSString *)host
 {
-    UMDiameterRouterSession *session = [self findSessionForPacket:packet];
+    UMDiameterRouterSession *session = [self findSessionForPacket:packet fromPeer:peer];
     if(session == NULL)
     {
         session = [[UMDiameterRouterSession alloc]initWithTimeout:_defaultSessionTimeout];
         session.initiator = peer;
     }
     
-    if(session.isLocal)
+    if(session.initiator_is_local)
     {
         /* if we have a session, we use the same route back */
         [session processIncomingPacket:packet forRouter:self fromPeer:peer];
@@ -1145,73 +1213,48 @@
 }
 
 
-- (UMSynchronizedSortedDictionary *)routeTestForSessionId:(NSString *)session_id
-                                                 peerName:(NSString *)peerName
-                                                    realm:(NSString *)realm
-                                                     host:(NSString *)host
+- (UMSynchronizedSortedDictionary *)routeTestForPeerName:(NSString *)peerName
+                                                   realm:(NSString *)realm
+                                                    host:(NSString *)host
 {
     UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
     @autoreleasepool
     {
-        UMDiameterRouterSession *session = NULL;
-        if(session_id)
+        UMDiameterRoute *route=NULL;
+        route = [self findRouteForRealm:realm];
+        if(route==NULL)
         {
-            session = [self findSessionById:session_id];
-        }
-        if(session)
-        {
-            dict[@"found-by-session"] = @(YES);
-            if([session.initiator.layerName isEqualToString:peerName])
+            dict[@"found-by-realm"] = @(NO);
+            route = [self findRouteForHost:host];
+            if(route==NULL)
             {
-                dict[@"next-hop"] = session.responder.layerName;
-            }
-            else if([session.responder.layerName isEqualToString:peerName])
-            {
-                dict[@"next-hop"] = session.initiator.layerName;
+                dict[@"found-by-host"] = @(NO);
+                route = [self findRouteForDefault];
+                if(route)
+                {
+                    dict[@"found-by-default"] = @(YES);
+                }
+                else
+                {
+                    dict[@"found-by-default"] = @(NO);
+                }
             }
             else
             {
-                dict[@"error"] = @"we dont know which direction this session is supposed to be used";
+                dict[@"found-by-host"] = @(NO);
             }
         }
         else
         {
-            UMDiameterRoute *route=NULL;
-            route = [self findRouteForRealm:realm];
-            if(route==NULL)
-            {
-                dict[@"found-by-realm"] = @(NO);
-                route = [self findRouteForHost:host];
-                if(route==NULL)
-                {
-                    dict[@"found-by-host"] = @(NO);
-                    route = [self findRouteForDefault];
-                    if(route)
-                    {
-                        dict[@"found-by-default"] = @(YES);
-                    }
-                    else
-                    {
-                        dict[@"found-by-default"] = @(NO);
-                    }
-                }
-                else
-                {
-                    dict[@"found-by-host"] = @(NO);
-                }
-            }
-            else
-            {
-                dict[@"found-by-realm"] = @(YES);
-            }
-            if(route.peer)
-            {
-                dict[@"next-hop"] = route.peer.layerName;
-            }
-            else if(route.destination)
-            {
-                dict[@"next-hop"] = route.destination;
-            }
+            dict[@"found-by-realm"] = @(YES);
+        }
+        if(route.peer)
+        {
+            dict[@"next-hop"] = route.peer.layerName;
+        }
+        else if(route.destination)
+        {
+            dict[@"next-hop"] = route.destination;
         }
     }
     return dict;

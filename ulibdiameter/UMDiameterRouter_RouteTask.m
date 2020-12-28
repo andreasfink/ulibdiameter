@@ -42,7 +42,8 @@
     @autoreleasepool
     {
         UMDiameterPeer *nextHop=NULL;        
-        UMDiameterRouterSession *session = [_router findSessionForPacket:_packet];
+        UMDiameterRouterSession *session = [_router findSessionForPacket:_packet fromPeer:sender];
+        BOOL isRequest = _packet.flagRequest;
         if(session)
         {
             /* if we have a session, we use the same route back */
@@ -88,8 +89,43 @@
         }
         else
         {
-            [nextHop sendMessage:_packet];
+            if(isRequest)
+            {
+                if(session == NULL)
+                {
+                    session = [[UMDiameterRouterSession alloc]init];
+                    session.initiator = _sender;
+                    session.initiator_hop_by_hop_identifier = _packet.hopByHopIdentifier;
+                    session.initiator_end_to_end_identifier = _packet.endToEndIdentifier;
+                    session.responder = nextHop;
+                    _packet.hopByHopIdentifier = [nextHop nextHopByHopIdentifier];
+                    session.responder_hop_by_hop_identifier = _packet.hopByHopIdentifier;
+                    session.responder_end_to_end_identifier = _packet.endToEndIdentifier;
+                    [_router addSession:session];
+                    [nextHop sendMessage:_packet];
+                }
+                else
+                {
+                    NSString *s = [NSString stringWithFormat:@"Dropping request packed for an existing session: %@ / %@\n",session.sid1,session.sid2];
+                    [_router logMinorError:s];
+                }
+            }
+            else
+            {
+                if(session==NULL)
+                {
+                    NSString *s = [NSString stringWithFormat:@"Dropping response packed from %@ for a unknown hop-by-hop 0x%08x end-to-end 0x%08x",
+                    _sender.layerName,_packet.hopByHopIdentifier,_packet.endToEndIdentifier ];
+                    [_router logMinorError:s];
+                }
+                else
+                {
+                    [nextHop sendMessage:_packet];
+                    [_router removeSession:session];
+                }
+            }
         }
+        
     }
 }
 

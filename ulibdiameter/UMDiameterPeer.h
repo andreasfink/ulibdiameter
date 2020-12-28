@@ -247,6 +247,8 @@
 - (void)startWatchdogTimer;
 - (void)stopWatchdogTimer;
 
+- (uint32_t)nextHopByHopIdentifier;
+
 @end
 
 
