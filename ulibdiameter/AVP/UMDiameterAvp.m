@@ -156,8 +156,7 @@ break;
             {
                 return NULL;
             }
-            if(_avpLength != data.length)
-                _avpVendorId = (header[8] << 24) | (header[9] << 16) | (header[10] << 8) | (header[11] << 0);
+            _avpVendorId = (header[8] << 24) | (header[9] << 16) | (header[10] << 8) | (header[11] << 0);
             _avpData = [NSData dataWithBytes:&header[12]  length:(_avpLength-12)];
         }
         else
