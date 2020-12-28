@@ -2,7 +2,7 @@
 //  UMDiameterAvpCoupled_Node_Diameter_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:19.173694
+//  Created by afink on 2020-12-28 14:28:35.115196
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,7 +30,6 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = YES, _vendorCode = 10415 */
     _avpFlags = UMDiameterAvpFlag_Vendor;
     _avpVendorId = 10415;
 }

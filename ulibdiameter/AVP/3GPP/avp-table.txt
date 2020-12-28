@@ -98,7 +98,7 @@
 1240	LCS-Requestor-Id-String	3GPP_TS_32.299_[10]	UTF8String	M,V
 1241	LCS-Client-Type	3GPP_TS_32.299_[10]	Enumerated	M,V
 1242	Location-Estimate	3GPP_TS_32.299_[10]	OctetString	M,V
-1400	Subscription-Data	7.3.2	Grouped	M,V 10415
+1400	Subscription-Data	7.3.2	Grouped	M,V	10415
 1401	Terminal-Information	7.3.3	Grouped	M,V
 1402	IMEI	7.3.4	UTF8String	M,V
 1403	Software-Version	7.3.5	UTF8String	M,V

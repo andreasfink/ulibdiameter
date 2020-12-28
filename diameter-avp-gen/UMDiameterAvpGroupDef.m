@@ -171,6 +171,7 @@
     }
 
     NSString *s2 = b[1];
+    s2 = [s2 trim];
     NSArray *c = [s2 componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if(c.count<1)
     {

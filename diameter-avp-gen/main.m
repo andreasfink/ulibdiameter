@@ -168,6 +168,7 @@ int main(int argc, const char * argv[])
         if(s)
         {
             dir = s;
+            chdir(s.UTF8String);
         }
 
         s = getFirst(params[@"verbose"]);
@@ -221,7 +222,7 @@ int main(int argc, const char * argv[])
                 {
                 	if([avpdef.typeDefinition isEqualToString:@"Grouped"])
                 	{
-
+                        avpdef.isGroup = YES;
 						NSString *objectName = [avpdef objectNameWithPrefix:prefix];
                 		NSString *groupdefFilename = [NSString stringWithFormat:@"%@/%@.bnf",groupdefsDir,objectName];
 						NSString *s = [NSString stringWithContentsOfFile:groupdefFilename

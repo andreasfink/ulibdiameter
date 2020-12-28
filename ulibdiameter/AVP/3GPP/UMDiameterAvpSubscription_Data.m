@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:19.173694
+//  Created by afink on 2020-12-28 14:43:54.586398
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -72,8 +72,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = NO, _vendorCode = 1400 */
-    _avpFlags = UMDiameterAvpFlag_Mandatory;
+    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
+    _avpVendorId = 10415;
 }
 
 - (void)beforeEncode
@@ -634,7 +634,7 @@
     avpDef[@"name"] = @"subscription-data";
     avpDef[@"type"] = @"Grouped";
     avpDef[@"mandatory"] = @(YES);
-    avpDef[@"vendor"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
     {

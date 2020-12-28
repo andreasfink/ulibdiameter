@@ -2,7 +2,7 @@
 //  UMDiameterAvpFailed_AVP.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:28.084823
+//  Created by afink on 2020-12-28 14:43:54.490810
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -31,7 +31,6 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = NO, _vendorCode = 279 */
     _avpFlags = UMDiameterAvpFlag_Mandatory;
 }
 

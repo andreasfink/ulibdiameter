@@ -2,7 +2,7 @@
 //  UMDiameterAvpLoad_Type.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:28.486307
+//  Created by afink on 2020-12-28 14:43:54.724596
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,7 +30,6 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = NO, _vendorCode = 0 */
 }
 
 + (id)definition

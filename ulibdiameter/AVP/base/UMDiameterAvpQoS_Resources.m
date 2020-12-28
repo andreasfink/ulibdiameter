@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Resources.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:28.084823
+//  Created by afink on 2020-12-28 14:43:54.490810
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,7 +30,6 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = NO, _vendorCode = 0 */
     _avpFlags = UMDiameterAvpFlag_Mandatory;
 }
 
@@ -41,7 +40,9 @@
     avpDef[@"type"] = @"Grouped";
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(NO);
-    avpDef[@"group"] = @(NO);
+    avpDef[@"group"] = @(YES);
+    NSMutableArray *entries = [[NSMutableArray alloc]init];
+    avpDef[@"members"] = entries;
 
     return avpDef;
 }

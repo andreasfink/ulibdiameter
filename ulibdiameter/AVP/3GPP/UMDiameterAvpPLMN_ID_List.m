@@ -2,7 +2,7 @@
 //  UMDiameterAvpPLMN_ID_List.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:19.173694
+//  Created by afink on 2020-12-28 14:42:39.527659
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -33,9 +33,8 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = YES, _vendorCode = 2544 */
     _avpFlags = UMDiameterAvpFlag_Vendor;
-    _avpVendorId = 2544;
+    _avpVendorId = 10415;
 }
 
 - (void)beforeEncode

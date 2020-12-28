@@ -2,7 +2,7 @@
 //  UMDiameterAvpOC_Supported_Features.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:14:28.515828
+//  Created by afink on 2020-12-28 14:43:54.741533
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -32,7 +32,6 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    /* _vendorFlag = NO, _vendorCode = 621 */
 }
 
 - (void)beforeEncode

@@ -44,7 +44,7 @@
      2: 7.3.6
      3: Unsigned32
      4: V
-     */
+     5: custom Vendor ID */
     _avpCode = [a[0] integerValue];
     _standardsName = [a[1] trim];
     _definitionReference = [a[2] trim];
@@ -276,9 +276,6 @@
     [s appendString:@"- (void)genericInitialisation\n"];
     [s appendString:@"{\n"];
     [s appendString:@"    [super genericInitialisation];\n"];
-    
-    [s appendFormat:@"    /* _vendorFlag = %@, _vendorCode = %@ */\n",_vendorFlag ? @"YES" : @"NO",@(_vendorCode)];
-     
     if((_vendorFlag) && (_mandatoryFlag))
     {
         [s appendString:@"    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;\n"];
