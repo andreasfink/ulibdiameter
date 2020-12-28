@@ -110,7 +110,7 @@
                     [_router logMinorError:s];
                 }
             }
-            else
+            else /* its a response */
             {
                 if(session==NULL)
                 {
@@ -120,6 +120,7 @@
                 }
                 else
                 {
+                    _packet.hopByHopIdentifier = session.initiator_hop_by_hop_identifier;
                     [nextHop sendMessage:_packet];
                     [_router removeSession:session];
                 }
