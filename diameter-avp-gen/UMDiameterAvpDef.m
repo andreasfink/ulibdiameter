@@ -85,6 +85,10 @@
 	if(*eptr==NULL)
 	{
 		_isGroup=YES;
+        if(_groupDef.vendor > 0)
+        {
+            _vendorCode = _groupDef.vendor;
+        }
 	}
 }
 
@@ -272,6 +276,9 @@
     [s appendString:@"- (void)genericInitialisation\n"];
     [s appendString:@"{\n"];
     [s appendString:@"    [super genericInitialisation];\n"];
+    
+    [s appendFormat:@"    /* _vendorFlag = %@, _vendorCode = %@ */\n",_vendorFlag ? @"YES" : @"NO",@(_vendorCode)];
+     
     if((_vendorFlag) && (_mandatoryFlag))
     {
         [s appendString:@"    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;\n"];

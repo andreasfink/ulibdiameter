@@ -35,6 +35,7 @@
 @property(readwrite,assign,atomic)  BOOL    multiple;
 @property(readwrite,strong,atomic)  NSNumber  *minimumCount;
 @property(readwrite,strong,atomic)  NSNumber  *maximumCount;
+@property(readwrite,strong,atomic)  NSNumber *venodrId;
 
 - (UMDiameterGeneratorAVP *)initWithString:(NSString *)s;
 - (BOOL)parseString:(NSString *)s; /* returns yes on success */

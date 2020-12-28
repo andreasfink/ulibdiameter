@@ -2,7 +2,7 @@
 //  UMDiameterAvpHost_IP_Address.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-24 14:13:32.336902
+//  Created by afink on 2020-12-28 14:14:28.084823
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,6 +30,7 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    /* _vendorFlag = NO, _vendorCode = 0 */
     _avpFlags = UMDiameterAvpFlag_Mandatory;
 }
 

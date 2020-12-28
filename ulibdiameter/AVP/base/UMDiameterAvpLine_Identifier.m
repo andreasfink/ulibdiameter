@@ -2,7 +2,7 @@
 //  UMDiameterAvpLine_Identifier.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:21:15.505910
+//  Created by afink on 2020-12-28 14:14:28.084823
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -30,6 +30,7 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    /* _vendorFlag = YES, _vendorCode = 13019 */
     _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
     _avpVendorId = 13019;
 }

@@ -18,9 +18,9 @@
     NSString *_typeDefinition;
     NSString *_webName;
 
-    BOOL    _mandatoryFlag;
-    BOOL    _vendorFlag;
-    NSInteger _vendorCode;
+    BOOL        _mandatoryFlag;
+    BOOL        _vendorFlag;
+    NSInteger   _vendorCode;
     
     NSString *_objectName;
     NSString *_objectType;

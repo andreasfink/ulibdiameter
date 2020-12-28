@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Features.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:45:30.605285
+//  Created by afink on 2020-12-28 14:14:19.173694
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -34,8 +34,9 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    /* _vendorFlag = YES, _vendorCode = 628 */
     _avpFlags = UMDiameterAvpFlag_Vendor;
-    _avpVendorId = 10415;
+    _avpVendorId = 628;
 }
 
 - (void)beforeEncode

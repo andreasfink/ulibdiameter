@@ -2,7 +2,7 @@
 //  UMDiameterAvpMIP6_Agent_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 09:27:58.260329
+//  Created by afink on 2020-12-28 14:14:28.084823
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -34,6 +34,7 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
+    /* _vendorFlag = NO, _vendorCode = 486 */
     _avpFlags = UMDiameterAvpFlag_Mandatory;
 }
 
