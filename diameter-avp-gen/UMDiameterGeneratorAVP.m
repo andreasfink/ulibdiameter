@@ -171,6 +171,7 @@
                 {
                     [currentName appendFormat:@"%C", c];
                 }
+                break;
             }
             case 3:
             {
@@ -184,6 +185,7 @@
                     currentSection = 4;
                     currentComment = [[NSMutableString alloc]init];
                 }
+                break;
             }
             case 4:
             {
@@ -195,6 +197,7 @@
                 {
                     [currentComment appendFormat:@"%C", c];
                 }
+                break;
             }
         }
     }
