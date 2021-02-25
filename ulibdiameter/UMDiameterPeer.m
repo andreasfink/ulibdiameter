@@ -1093,9 +1093,9 @@
         {
             NSLog(@"b: %@",b);
             /* we loop through what we support */
-            NSNumber *our_vendor = [b[@"vendor"] numberValue];
-            NSNumber *our_app    = [b[@"application"]numberValue];
-            NSNumber *our_acct   = [b[@"acct"] numberValue];
+            NSNumber *our_vendor = b[@"vendor"];
+            NSNumber *our_app    = b[@"application"];
+            NSNumber *our_acct   = b[@"acct"];
             if((their_vendor) && ([their_vendor isEqualToNumber:our_vendor]))
             {
                 BOOL match=YES;
