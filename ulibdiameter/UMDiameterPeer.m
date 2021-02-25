@@ -1088,10 +1088,8 @@
         NSNumber *their_app    = a.var_auth_application_id.numberValue;
         NSNumber *their_acct   = a.var_acct_application_id.numberValue;
         BOOL found=NO;
-        NSLog(@"VendorSpecificIDS: %@",_vendorSpecificIds);
         for(NSDictionary *b in _vendorSpecificIds) /* this is*/
         {
-            NSLog(@"b: %@",b);
             /* we loop through what we support */
             NSNumber *our_vendor = b[@"vendor"];
             NSNumber *our_app    = b[@"application"];
