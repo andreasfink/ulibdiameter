@@ -375,7 +375,6 @@
             [self removeSession:session];
         }
         [_housekeepingLock unlock];
-
     }
 }
 
