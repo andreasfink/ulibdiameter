@@ -1093,7 +1093,6 @@
             NSNumber *our_vendor = [b[@"vendor"] numberValue];
             NSNumber *our_app    = [b[@"application"]numberValue];
             NSNumber *our_acct   = [b[@"acct"] numberValue];
-
             if((their_vendor) && ([their_vendor isEqualToNumber:our_vendor]))
             {
                 BOOL match=YES;
