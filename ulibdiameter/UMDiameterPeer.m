@@ -84,7 +84,7 @@
     _reopen_timer1_value = DIAMETER_LINK_REOPEN_TIME1_DEFAULT;
     _reopen_timer2_value = DIAMETER_LINK_REOPEN_TIME2_DEFAULT;
     _watchdog_timer_value = DIAMETER_WATCHDOG_TIMER_DEFAULT;
-
+    _failedVendorSpecificIds = NULL;
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
                                              object:NULL
@@ -915,8 +915,13 @@
         packet.var_inband_security_id = arr;
     }
 
-    // * [ Vendor-Specific-Application-Id ]
+    //      * [ Vendor-Specific-Application-Id ]
+    // this is the ones we support
     NSArray<NSDictionary *>*vids = [_vendorSpecificIds copy];
+    if(vids.count == 0)
+    {
+        vids = [_router.vendorSpecificIds copy];
+    }
     if(vids.count>0)
     {
         NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *> *entries = [[NSMutableArray alloc]init];
@@ -1055,43 +1060,69 @@
     _acctApplicationIds = c;
     
     
+    /* ****************************** */
+    /* vendor specific ID negotiation */
+    /* ****************************** */
     NSMutableArray<NSDictionary *> *vids = [[NSMutableArray alloc]init];
+    NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *> *vidsFailed = [[NSMutableArray alloc]init];
+
+    if(_vendorSpecificIds.count == 0)
+    {
+        _vendorSpecificIds = [_router.vendorSpecificIds mutableCopy];
+    }
 
     for(UMDiameterAvpVendor_Specific_Application_Id *a in _peer_vendor_specific_application_id)
     {
-        for(NSDictionary *b in _vendorSpecificIds)
+        /* we loop through what they offer us */
+        NSNumber *their_vendor = a.var_vendor_id.numberValue;
+        NSNumber *their_app    = a.var_auth_application_id.numberValue;
+        NSNumber *their_acct   = a.var_acct_application_id.numberValue;
+        BOOL found=NO;
+        for(NSDictionary *b in _vendorSpecificIds) /* this is*/
         {
-            NSNumber *vendor = b[@"vendor"];
-            NSNumber *app    = b[@"application"];
-            NSNumber *acct   = b[@"acct"];
+            /* we loop through what we support */
+            NSNumber *our_vendor = [b[@"vendor"] numberValue];
+            NSNumber *our_app    = [b[@"application"]numberValue];
+            NSNumber *our_acct   = [b[@"acct"] numberValue];
 
-            if((a.var_vendor_id) && ([a.var_vendor_id.numberValue isEqualToNumber:vendor]))
+            if((their_vendor) && ([their_vendor isEqualToNumber:our_vendor]))
             {
                 BOOL match=YES;
-                if(app!= NULL)
+                if(our_app!= NULL)
                 {
-                    if(  (a.var_auth_application_id==NULL) &&
-                        !([a.var_auth_application_id.numberValue isEqualToNumber:app]))
+                    if(  (their_app) && !([their_app isEqualToNumber:our_app]))
                     {
                         match = NO;
                     }
                 }
-                if(acct!= NULL)
+                if(our_acct!= NULL)
                 {
-                    if(  (a.var_acct_application_id==NULL) &&
-                        !([a.var_acct_application_id.numberValue isEqualToNumber:acct]))
+                    if(  (their_acct) && !([their_acct isEqualToNumber:our_acct]))
                     {
                         match = NO;
                     }
                 }
                 if(match)
                 {
+                    found=YES;
                     [vids addObject:b];
+                    break;
+                }
+                else
+                {
+                    found=YES;
+                    [vidsFailed addObject:a];
+                    break;
                 }
             }
         }
+        if(found==NO)
+        {
+            [vidsFailed addObject:a];
+        }
     }
     _vendorSpecificIds = vids;
+    _failedVendorSpecificIds = vidsFailed;
 }
 
 - (void)actionI_Snd_CER:(UMDiameterPacket *)message

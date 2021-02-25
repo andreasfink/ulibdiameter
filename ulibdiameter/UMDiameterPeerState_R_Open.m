@@ -139,18 +139,21 @@
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
-- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventR_Rcv_CER:(UMDiameterPeer *)peer
+                                message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
         NSString *s = [NSString stringWithFormat:@"%@: eventR_Rcv_CER:\n%@",self.currentState,message];
         [peer logDebug:s];
     }
+    
+    [peer actionProcess_CER:message];
     UMDiameterPacket *pkt = [peer createCEA:message.hopByHopIdentifier
                                    endToEnd:message.endToEndIdentifier
                                  resultCode:NULL
                                errorMessage:NULL
-                                  failedAvp:NULL];
+                                  failedAvp:peer.failedVendorSpecificIds];
     [peer actionR_Snd_CEA:pkt];
     return self;
 }

@@ -62,7 +62,7 @@
                                         endToEnd:message.endToEndIdentifier
                                       resultCode:@(UMDiameterResultCode_DIAMETER_SUCCESS)
                                     errorMessage:NULL
-                                       failedAvp:NULL];
+                                       failedAvp:peer.failedVendorSpecificIds];
     [peer actionR_Snd_CEA:response];
     return [[UMDiameterPeerState_R_Open alloc]init];
 }

@@ -97,6 +97,7 @@
     NSMutableArray<NSNumber *>                              *_authApplicationIds;
     NSMutableArray<NSNumber *>                              *_acctApplicationIds;
     NSArray<NSDictionary *>                                 *_vendorSpecificIds;
+    NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *_failedVendorSpecificIds;
 }
 
 @property(readwrite,assign,atomic)  BOOL					tcpPeer;
@@ -120,6 +121,7 @@
 @property(readwrite,strong,atomic)  NSMutableArray<NSNumber *>  *authApplicationIds;
 @property(readwrite,strong,atomic)  NSMutableArray<NSNumber *>  *acctApplicationIds;
 @property(readwrite,copy,atomic)    NSArray<NSDictionary *>     *vendorSpecificIds;
+@property(readwrite,copy,atomic)    NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *failedVendorSpecificIds;
 
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterPeerAppDelegateProtocol>)appContext;
