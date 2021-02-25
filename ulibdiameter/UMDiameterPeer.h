@@ -227,7 +227,7 @@
                        endToEnd:(uint32_t)endToEnd
                      resultCode:(NSNumber *)resultCode
                    errorMessage:(NSString *)errorMessage
-                      failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp;
+                      failedAvp:(NSArray<UMDiameterAvpVendor_Specific_Application_Id *>*)failedAvp;
 
 - (NSString *)statusString;
 

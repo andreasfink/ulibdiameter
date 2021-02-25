@@ -836,7 +836,7 @@
                        endToEnd:(uint32_t)endToEnd
                      resultCode:(NSNumber *)resultCode
                    errorMessage:(NSString *)errorMessage
-                      failedAvp:(NSArray<UMDiameterAVP *>*)failedAvp
+                      failedAvp:(NSArray<UMDiameterAvpVendor_Specific_Application_Id *>*)failedAvp
 
 {
     UMDiameterPacketCEA * packet = [[UMDiameterPacketCEA alloc]init];
@@ -1023,7 +1023,10 @@
         {
             if([a.numberValue isEqualToNumber:b])
             {
-                [c addObject:b];
+                if(b)
+                {
+                    [c addObject:b];
+                }
                 break;
             }
         }
@@ -1037,7 +1040,10 @@
         {
             if([a.numberValue isEqualToNumber:b])
             {
-                [c addObject:b];
+                if(b)
+                {
+                    [c addObject:b];
+                }
                 break;
             }
         }
@@ -1052,7 +1058,10 @@
         {
             if([a.numberValue isEqualToNumber:b])
             {
-                [c addObject:b];
+                if(b)
+                {
+                    [c addObject:b];
+                }
                 break;
             }
         }
@@ -1105,20 +1114,29 @@
                 if(match)
                 {
                     found=YES;
-                    [vids addObject:b];
+                    if(b)
+                    {
+                        [vids addObject:b];
+                    }
                     break;
                 }
                 else
                 {
                     found=YES;
-                    [vidsFailed addObject:a];
+                    if(a)
+                    {
+                        [vidsFailed addObject:a];
+                    }
                     break;
                 }
             }
         }
         if(found==NO)
         {
-            [vidsFailed addObject:a];
+            if(a)
+            {
+                [vidsFailed addObject:a];
+            }
         }
     }
     _vendorSpecificIds = vids;

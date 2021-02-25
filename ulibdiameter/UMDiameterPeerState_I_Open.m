@@ -152,11 +152,12 @@
         NSString *s = [NSString stringWithFormat:@"%@: eventI_Rcv_CER:\n%@",self.currentState,message];
         [peer logDebug:s];
     }
+    [peer actionProcess_CER:message];
     UMDiameterPacket *pkt = [peer createCEA:message.hopByHopIdentifier
                                    endToEnd:message.endToEndIdentifier
                                  resultCode:NULL
                                errorMessage:NULL
-                                  failedAvp:NULL];
+                                  failedAvp:peer.failedVendorSpecificIds];
     [peer actionI_Snd_CEA:pkt];
     return self;
 }
