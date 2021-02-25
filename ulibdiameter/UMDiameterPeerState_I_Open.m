@@ -72,7 +72,6 @@
         [peer logDebug:s];
     }
     [peer actionProcess_DWR:message];
-    
     UMDiameterPacket *pkt = [peer createDWA:message.hopByHopIdentifier
                                    endToEnd:message.endToEndIdentifier
                                  resultCode:@(UMDiameterResultCode_DIAMETER_SUCCESS)
