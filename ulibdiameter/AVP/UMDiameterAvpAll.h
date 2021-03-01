@@ -31,4 +31,5 @@
 #import "UMDiameterAvp_3GPP_includes.h"
 #import "UMDiameterAvp_rfc7683_includes.h"
 #import "UMDiameterAvp_draft_ietf_dime_load_includes.h"
+#import "UMDiameterAvp_fts_includes.h"
 

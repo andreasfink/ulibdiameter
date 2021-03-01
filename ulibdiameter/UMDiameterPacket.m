@@ -346,7 +346,6 @@
 
 - (void)appendAvp:(UMDiameterAvp *)avp
 {
-
     [_packet_avps addObject:avp];
 }
 

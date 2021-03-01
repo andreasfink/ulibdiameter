@@ -12,6 +12,7 @@
 #import "UMDiameterPeer.h"
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterRoute.h"
+#import "UMDiameterAvpFTSRouteSelector.h"
 
 @implementation UMDiameterRouter_RouteTask
 
@@ -63,8 +64,22 @@
         }
         if(nextHop==NULL)
         {
+            
             UMDiameterRoute *route=NULL;
-            route = [_router findRouteForRealm:_realm];
+
+            UMDiameterAvpFTSRouteSelector *routeSelect = (UMDiameterAvpFTSRouteSelector *)[_packet getAvpByCode:[UMDiameterAvpFTSRouteSelector avpCode]];
+            if(routeSelect)
+            {
+                NSNumber *n = [routeSelect numberValue];
+                if(n)
+                {
+                    route = [_router findRouteForRouteSelector:n];
+                }
+            }
+            if(route==NULL)
+            {
+                route = [_router findRouteForRealm:_realm];
+            }
             if(route==NULL)
             {
                 route = [_router findRouteForHost:_host];

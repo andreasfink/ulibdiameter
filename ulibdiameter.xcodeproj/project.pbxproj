@@ -1220,6 +1220,9 @@
 		A6F2C914203B8A1F00DA49BF /* UMDiameterAvpFloat32.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F2C912203B8A1F00DA49BF /* UMDiameterAvpFloat32.m */; };
 		A6F2C917203B8A3000DA49BF /* UMDiameterAvpFloat64.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F2C915203B8A3000DA49BF /* UMDiameterAvpFloat64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6F2C918203B8A3000DA49BF /* UMDiameterAvpFloat64.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F2C916203B8A3000DA49BF /* UMDiameterAvpFloat64.m */; };
+		A6FAAEAA25ECBD11001F6332 /* UMDiameterAvp_fts_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6FAAE9525ECBCE2001F6332 /* UMDiameterAvp_fts_includes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6FAAEB925ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FAAEB725ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.m */; };
+		A6FAAEBA25ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = A6FAAEB825ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6FCEF3B245AF241002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.bnf in Resources */ = {isa = PBXBuildFile; fileRef = A6FCEF39245AF240002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.bnf */; };
 		A6FCEF3E245AF25C002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.h in Headers */ = {isa = PBXBuildFile; fileRef = A6FCEF3C245AF25B002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6FCEF3F245AF25C002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FCEF3D245AF25B002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.m */; };
@@ -2768,6 +2771,13 @@
 		A6F2C912203B8A1F00DA49BF /* UMDiameterAvpFloat32.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpFloat32.m; sourceTree = "<group>"; };
 		A6F2C915203B8A3000DA49BF /* UMDiameterAvpFloat64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpFloat64.h; sourceTree = "<group>"; };
 		A6F2C916203B8A3000DA49BF /* UMDiameterAvpFloat64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpFloat64.m; sourceTree = "<group>"; };
+		A6FAAE9525ECBCE2001F6332 /* UMDiameterAvp_fts_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvp_fts_includes.h; sourceTree = "<group>"; };
+		A6FAAE9625ECBCE3001F6332 /* avp-table.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "avp-table.txt"; sourceTree = "<group>"; };
+		A6FAAE9825ECBCE3001F6332 /* avp-group-defs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "avp-group-defs"; sourceTree = "<group>"; };
+		A6FAAE9A25ECBCE3001F6332 /* avp-gen.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "avp-gen.sh"; sourceTree = "<group>"; };
+		A6FAAE9B25ECBCE3001F6332 /* UMDiameterAvp_fts_list.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = UMDiameterAvp_fts_list.inc; sourceTree = "<group>"; };
+		A6FAAEB725ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpFTSRouteSelector.m; sourceTree = "<group>"; };
+		A6FAAEB825ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpFTSRouteSelector.h; sourceTree = "<group>"; };
 		A6FCEF33245ADD8F002D5FE4 /* UMDiameterAvpMSC_SM_Delivery_Outcome.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpMSC_SM_Delivery_Outcome.bnf; sourceTree = "<group>"; };
 		A6FCEF34245ADD8F002D5FE4 /* UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.bnf; sourceTree = "<group>"; };
 		A6FCEF35245ADD8F002D5FE4 /* UMDiameterAvpSM_Delivery_Outcome.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpSM_Delivery_Outcome.bnf; sourceTree = "<group>"; };
@@ -4489,6 +4499,7 @@
 		A6A58CB3203CE9FF00D0C2BE /* AVP */ = {
 			isa = PBXGroup;
 			children = (
+				A6FAAE9425ECBAF2001F6332 /* fts */,
 				A6FCEF44245C12AD002D5FE4 /* UMDiameterAvpENUMS.h */,
 				A6C9F2BA22CB698C00778583 /* draft-ietf-dime-load */,
 				A6C9F28F22CB670B00778583 /* rfc7683 */,
@@ -4610,6 +4621,20 @@
 				A6C9F2C022CB69C800778583 /* UMDiameterAvpLoad.bnf */,
 			);
 			path = "avp-group-defs";
+			sourceTree = "<group>";
+		};
+		A6FAAE9425ECBAF2001F6332 /* fts */ = {
+			isa = PBXGroup;
+			children = (
+				A6FAAE9A25ECBCE3001F6332 /* avp-gen.sh */,
+				A6FAAE9825ECBCE3001F6332 /* avp-group-defs */,
+				A6FAAE9625ECBCE3001F6332 /* avp-table.txt */,
+				A6FAAE9525ECBCE2001F6332 /* UMDiameterAvp_fts_includes.h */,
+				A6FAAE9B25ECBCE3001F6332 /* UMDiameterAvp_fts_list.inc */,
+				A6FAAEB825ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.h */,
+				A6FAAEB725ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.m */,
+			);
+			path = fts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5082,6 +5107,7 @@
 				A638465922CF8D5C00D62749 /* UMDiameterPacketReset_Answer.h in Headers */,
 				A6E24E5C235061F000742DCA /* UMDiameterAvpEPS_Location_Information.h in Headers */,
 				A6E24CAD235061EF00742DCA /* UMDiameterAvpCSG_ID.h in Headers */,
+				A6FAAEAA25ECBD11001F6332 /* UMDiameterAvp_fts_includes.h in Headers */,
 				A6FCEF9E245C2E42002D5FE4 /* UMDiameterAvpMIP_Home_Agent_Address.h in Headers */,
 				A6E24C29235061EF00742DCA /* UMDiameterAvpLocal_Time_Zone_Indication.h in Headers */,
 				A6E24C11235061EF00742DCA /* UMDiameterAvpPrioritized_List_Indicator.h in Headers */,
@@ -5104,6 +5130,7 @@
 				A6E24C02235061EF00742DCA /* UMDiameterAvpRestoration_Priority.h in Headers */,
 				A6E24DC3235061F000742DCA /* UMDiameterAvpSupported_Monitoring_Events.h in Headers */,
 				A6E24CF3235061F000742DCA /* UMDiameterAvpVelocity_Estimate.h in Headers */,
+				A6FAAEBA25ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.h in Headers */,
 				A6E24C20235061EF00742DCA /* UMDiameterAvpArea_Type.h in Headers */,
 				A6E24CED235061F000742DCA /* UMDiameterAvpMax_Requested_Bandwidth_DL.h in Headers */,
 				A6E24E69235061F000742DCA /* UMDiameterAvpSupported_Services.h in Headers */,
@@ -5733,6 +5760,7 @@
 				A67FCA9922CA80B1007A28AB /* UMDiameterPacketRAR.m in Sources */,
 				A6E24DC4235061F000742DCA /* UMDiameterAvpV2X_Permission.m in Sources */,
 				A6E24D4B235061F000742DCA /* UMDiameterAvpSecondary_Event_Charging_Function_Name.m in Sources */,
+				A6FAAEB925ECC14F001F6332 /* UMDiameterAvpFTSRouteSelector.m in Sources */,
 				A6E24CC3235061EF00742DCA /* UMDiameterAvpReporting_Duration.m in Sources */,
 				A6C9EE9222CB625300778583 /* UMDiameterAvpAuth_Application_Id.m in Sources */,
 				A6E24C37235061EF00742DCA /* UMDiameterAvpSIPTO_Local_Network_Permission.m in Sources */,
