@@ -74,6 +74,8 @@ typedef enum UMDiameterCommandCode
     UMDiameterCommandCode_Re_Auth = 258,
     UMDiameterCommandCode_Session_Termination = 275,
 
+    /* RFC 6737 */
+    UMDiameterCommandCode_Capabilities_Update = 328,
 
     /* TS29.338  S6c*/
     /* The Diameter application identifier assigned to the S6c Diameter application is 16777312 (allocated by IANA). */

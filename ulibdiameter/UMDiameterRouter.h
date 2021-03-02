@@ -42,6 +42,7 @@
 
     NSMutableArray<NSNumber *>      *_supportedVendorIds;
     NSMutableArray<NSDictionary *>  *_vendorSpecificIds;
+    NSMutableArray<NSDictionary *>  *_wantedVendorSpecificIds;
     NSMutableArray<NSNumber *>      *_inbandSecurityIds;
     NSMutableArray<NSNumber *>      *_authApplicationIds;
     NSMutableArray<NSNumber *>      *_acctApplicationIds;
@@ -65,6 +66,7 @@
 @property(readwrite,strong,atomic)  NSNumber    *firmwareRevision;
 @property(readonly,copy,atomic)     NSArray<NSNumber *> *supportedVendorIds;
 @property(readonly,copy,atomic)     NSArray<NSDictionary *> *vendorSpecificIds;
+@property(readonly,copy,atomic)     NSArray<NSDictionary *> *wantedVendorSpecificIds;
 @property(readonly,copy,atomic)     NSArray<NSNumber *> *inbandSecurityIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *authApplicationIds;
 @property(readonly,copy,atomic)     NSMutableArray<NSNumber *>  *acctApplicationIds;

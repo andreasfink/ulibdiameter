@@ -1,0 +1,6 @@
+ <CUA> ::= < Diameter Header: 328 >
+	{ Origin-Host }
+	{ Origin-Realm }
+	{ Result-Code }
+	[ Error-Message ]
+	* [ AVP ]

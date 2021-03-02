@@ -12,5 +12,6 @@ UMDiameterPacketDPR
 UMDiameterPacketDPA
 UMDiameterPacketASA
 UMDiameterPacketASR
-
+UMDiameterPacketCUR
+UMDiameterPacketCUA
 

@@ -682,6 +682,155 @@
 }
 
 
+- (UMDiameterPacket *)createCUR
+{
+    UMDiameterPacketCUR *packet = [[UMDiameterPacketCUR alloc]init];
+    packet.version = 1;
+    packet.commandFlags = UMDiameterCommandFlag_Request;
+    packet.commandCode = UMDiameterCommandCode_Capabilities_Update;
+    packet.applicationId = UMDiameterApplicationId_Diameter_Common_Messages;
+    packet.hopByHopIdentifier = [self nextHopByHopIdentifier];
+    packet.endToEndIdentifier = [_router nextEndToEndIdentifier];
+
+    /*
+     * [ Auth-Application-Id ]
+     * [ Inband-Security-Id ]
+     * [ Acct-Application-Id ]
+     * [ Vendor-Specific-Application-Id ]
+     [ Firmware-Revision ]
+     * [ AVP ]
+     */
+
+
+    //      { Origin-Host }
+    if(_router.localHostName.length > 0)
+    {
+        packet.var_origin_host = [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
+    }
+    //      { Origin-Realm }
+    if(_router.localRealm.length > 0)
+    {
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
+    }
+
+    //     1* { Host-IP-Address }
+    NSArray *addrs = _configuredLocalAddresses;
+    NSMutableArray<UMDiameterAvpHost_IP_Address *> *hosts = [[NSMutableArray alloc]init];
+    for (NSString *addr in addrs)
+    {
+        UMDiameterAvpHost_IP_Address *avp =  [[UMDiameterAvpHost_IP_Address alloc]initWithString:addr];
+        [hosts addObject:avp];
+    }
+    packet.var_host_ip_address = hosts;
+
+
+    //      { Vendor-Id }
+    if(_router.vendorId)
+    {
+        packet.var_vendor_id = [[UMDiameterAvpVendor_Id alloc]initWithObject:@(_router.vendorId)];
+    }
+
+    //     { Product-Name }
+    if(_router.productName.length>0)
+    {
+        packet.var_product_name = [[UMDiameterAvpProduct_Name alloc]initWithString:_router.productName];
+    }
+
+    //      [ Origin-State-Id ]
+    if(_originStateId!=NULL)
+    {
+        packet.var_origin_state_id =  [[UMDiameterAvpOrigin_State_Id alloc]initWithObject:_originStateId];
+    }
+
+    //      * [ Supported-Vendor-Id ]
+    if([_router.supportedVendorIds count] > 0)
+    {
+        NSMutableArray<UMDiameterAvpSupported_Vendor_Id *>*arr =  [[NSMutableArray alloc]init];
+        for(NSNumber *n in _router.supportedVendorIds)
+        {
+            UMDiameterAvpSupported_Vendor_Id *avp =  [[UMDiameterAvpSupported_Vendor_Id alloc]initWithObject:n];
+            [arr addObject:avp];
+        }
+        packet.var_supported_vendor_id = arr;
+    }
+
+    //      * [ Auth-Application-Id ]
+    if([_router.authApplicationIds count] > 0)
+    {
+        NSMutableArray<UMDiameterAvpAuth_Application_Id *> *arr = [[NSMutableArray alloc]init];
+        for(NSNumber *n in _router.authApplicationIds)
+        {
+            UMDiameterAvpAuth_Application_Id *avp =  [[UMDiameterAvpAuth_Application_Id alloc]initWithObject:n];
+            [arr addObject:avp];
+        }
+        packet.var_auth_application_id = arr;
+    }
+
+    //         [ Inband-Security-Id ]
+    if([_router.inbandSecurityIds count] > 0)
+    {
+        NSMutableArray<UMDiameterAvpInband_Security_Id *>*arr =   [[NSMutableArray alloc]init];
+        for(NSNumber *n in _router.inbandSecurityIds)
+        {
+            UMDiameterAvpInband_Security_Id *avp =  [[UMDiameterAvpInband_Security_Id alloc]initWithObject:n];
+            [arr addObject:avp];
+        }
+        packet.var_inband_security_id = arr;
+    }
+
+    //      * [ Acct-Application-Id ]
+
+    NSArray<NSNumber *> *auths = [_router.authApplicationIds copy];
+    if(auths.count>0)
+    {
+        NSMutableArray<UMDiameterAvpAcct_Application_Id *> *entries = [[NSMutableArray alloc]init];
+        for(NSNumber *auth_id in auths)
+        {
+            UMDiameterAvpAcct_Application_Id *aid = [[UMDiameterAvpAcct_Application_Id alloc]initWithObject:auth_id];
+            [entries addObject:aid];
+        }
+        packet.var_acct_application_id = entries;
+    }
+
+    //      * [ Vendor-Specific-Application-Id ]
+    _vendorSpecificIds =  [_router.vendorSpecificIds copy];
+    NSArray<NSDictionary *>*vids = _vendorSpecificIds;
+    if(vids.count>0)
+    {
+        NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *> *entries = [[NSMutableArray alloc]init];
+        for(NSDictionary *vid in vids)
+        {
+            NSNumber *vendor = vid[@"vendor"];
+            NSNumber *application = vid[@"application"];
+            NSNumber *acc_application = vid[@"acc-application"];
+
+           UMDiameterAvpVendor_Specific_Application_Id *aid = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
+            if(vendor != NULL)
+            {
+                aid.var_vendor_id = [[UMDiameterAvpVendor_Id alloc]initWithObject:vendor];
+            }
+            if(application != NULL)
+            {
+                aid.var_auth_application_id =  [[UMDiameterAvpAuth_Application_Id alloc]initWithObject:application];
+            }
+            if(acc_application!= NULL)
+            {
+                aid.var_acct_application_id =  [[UMDiameterAvpAcct_Application_Id alloc]initWithObject:acc_application];
+            }
+            [entries addObject:aid];
+        }
+        packet.var_vendor_specific_application_id = entries;
+    }
+
+    // [ Firmware-Revision ]
+    if(_router.firmwareRevision!=NULL)
+    {
+        packet.var_firmware_revision =  [[UMDiameterAvpFirmware_Revision alloc]initWithObject:_router.firmwareRevision];
+    }
+    return packet;
+}
+
+
 - (UMDiameterPacket *)createDWR
 {
     UMDiameterPacketDWR *packet = [[UMDiameterPacketDWR alloc]init];
@@ -1143,6 +1292,60 @@
     _failedVendorSpecificIds = vidsFailed;
 }
 
+/* Process-CEA:  The CEA response is processed */
+- (void)actionProcess_CEA:(UMDiameterPacket *)message
+{
+    if(_logLevel <= UMLOG_DEBUG)
+    {
+        [self logDebug:message.objectValue.jsonString];
+    }
+
+    UMDiameterPacketCEA *cea = [[UMDiameterPacketCEA alloc]initWithPacket:message];
+    
+    _peer_vendor_id = cea.var_vendor_id;
+    _peer_product_name = cea.var_product_name;
+    _peer_supported_vendor_id = cea.var_supported_vendor_id;
+    _peer_auth_application_id = cea.var_auth_application_id;
+    _peer_inband_security_id = cea.var_inband_security_id;
+    _peer_acct_application_id = cea.var_acct_application_id;
+    _peer_vendor_specific_application_id = cea.var_vendor_specific_application_id;
+    _peer_firmware_revision = cea.var_firmware_revision;
+    
+    NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *>*missingIds = [[NSMutableArray alloc]init];
+    for(UMDiameterAvpVendor_Specific_Application_Id *a in _peer_vendor_specific_application_id)
+    {
+        NSNumber *their_vendor = a.var_vendor_id.numberValue;
+        NSNumber *their_app    = a.var_auth_application_id.numberValue;
+        //NSNumber *their_acct   = a.var_acct_application_id.numberValue;
+        BOOL found=NO;
+        for(NSDictionary *b in _wantedVendorSpecificIds)
+        {
+            NSNumber *our_vendor = b[@"vendor"];
+            NSNumber *our_app    = b[@"application"];
+            //NSNumber *our_acct   = b[@"acct"];
+            if([our_vendor isEqualToNumber:their_vendor])
+            {
+                if([our_app isEqualToNumber:their_app])
+                {
+                    found = YES;
+                    break;
+                }
+            }
+        }
+        if(found==NO)
+        {
+            [missingIds addObject:a];
+        }
+    }
+    
+    
+    if(missingIds.count > 0)
+    {
+        [self createCER];
+        
+    }
+}
+
 - (void)actionI_Snd_CER:(UMDiameterPacket *)message
 {
     if(message==NULL)
@@ -1193,15 +1396,6 @@
 }
 
 
-/* Process-CEA    A received CEA is processed. */
-- (void)actionProcess_CEA:(UMDiameterPacket *)message
-{
-    if(_logLevel <= UMLOG_DEBUG)
-    {
-        [self logDebug:message.objectValue.jsonString];
-    }
-    /* FIXME: do something useful here */
-}
 
 
 /* Snd-DPR A DPR message is sent to the peer. */

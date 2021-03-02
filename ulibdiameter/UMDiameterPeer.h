@@ -97,6 +97,7 @@
     NSMutableArray<NSNumber *>                              *_authApplicationIds;
     NSMutableArray<NSNumber *>                              *_acctApplicationIds;
     NSArray<NSDictionary *>                                 *_vendorSpecificIds;
+    NSArray<NSDictionary *>                                 *_wantedVendorSpecificIds;
     NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *_failedVendorSpecificIds;
 }
 
@@ -121,6 +122,7 @@
 @property(readwrite,strong,atomic)  NSMutableArray<NSNumber *>  *authApplicationIds;
 @property(readwrite,strong,atomic)  NSMutableArray<NSNumber *>  *acctApplicationIds;
 @property(readwrite,copy,atomic)    NSArray<NSDictionary *>     *vendorSpecificIds;
+@property(readwrite,copy,atomic)    NSArray<NSDictionary *>     *wantedVendorSpecificIds;
 @property(readwrite,copy,atomic)    NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *failedVendorSpecificIds;
 
 
@@ -148,6 +150,7 @@
 
 /* Process-CER:  The CER associated with the R-Conn-CER is processed. */
 - (void)actionProcess_CER:(UMDiameterPacket *)message;
+- (void)actionProcess_CEA:(UMDiameterPacket *)message;
 
 /* Snd-CER        A CER message is sent to the peer. */
 - (void)actionI_Snd_CER:(UMDiameterPacket *)message;
