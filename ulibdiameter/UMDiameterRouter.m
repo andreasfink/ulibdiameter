@@ -783,6 +783,21 @@
     return route;
 }
 
+- (UMDiameterRoute *)findRouteForRouteSelector:(NSNumber *)sel
+{
+    NSArray *allKeys = [_routes allKeys];
+    for(NSString *key in allKeys)
+    {
+        UMDiameterRoute *thisRoute =     _routes[key];
+        if([thisRoute.routeSelector isEqualTo:sel])
+        {
+            return thisRoute;
+        }
+    }
+    return NULL;
+}
+
+
 
 - (UMDiameterRoute *)findRouteForHost:(NSString *)hostname
 {

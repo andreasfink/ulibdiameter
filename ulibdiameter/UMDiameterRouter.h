@@ -123,6 +123,8 @@
 - (void)addRoute:(UMDiameterRoute *)route;
 - (void)addRouteFromConfig:(NSDictionary *)config;
 
+
+- (UMDiameterRoute *)findRouteForRouteSelector:(NSNumber *)sel;
 - (UMDiameterRoute *)findRouteForRealm:(NSString *)realm;
 - (UMDiameterRoute *)findRouteForHost:(NSString *)host;
 - (UMDiameterRoute *)findRouteForDefault;

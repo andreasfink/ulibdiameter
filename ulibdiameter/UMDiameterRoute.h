@@ -19,6 +19,7 @@
     NSString *_sessionId;
     NSNumber *_weight;
     NSNumber *_priority;
+    NSNumber *_routeSelector;
     UMDiameterPeer *_peer;
     BOOL    _oneTimeRoute;
     BOOL    _local;
@@ -35,6 +36,7 @@
 @property(readwrite,strong,atomic)     NSString *sessionId;
 @property(readwrite,strong,atomic)     NSNumber   *weight;
 @property(readwrite,strong,atomic)     NSNumber   *priority;
+@property(readwrite,strong,atomic)     NSNumber   *routeSelector;
 @property(readwrite,strong,atomic)     UMDiameterPeer   *peer;
 @property(readwrite,assign,atomic)     BOOL     oneTimeRoute;
 @property(readwrite,assign,atomic)     BOOL     local;

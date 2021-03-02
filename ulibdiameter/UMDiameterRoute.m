@@ -77,6 +77,15 @@
         {
             _local = NO;
         }
+        id rs = conf[@"route-selector"];
+        if([rs isKindOfClass:[NSString class]])
+        {
+            _routeSelector = @([rs intValue]);
+        }
+        else if([rs isKindOfClass:[NSNumber class]])
+        {
+            _routeSelector = @([rs intValue]);
+        }
         [self updateIdentifier];
     }
     return self;
@@ -152,6 +161,7 @@
     }
     return NO;
 }
+
 
 - (BOOL)matchesHost:(NSString *)host
 {
@@ -249,6 +259,10 @@
     if(_defaultRoute)
     {
         d[@"defaultRoute"] = @(YES);
+    }
+    if(_routeSelector)
+    {
+        d[@"route-selector"] = @([_routeSelector intValue]);
     }
     return d;
 }
