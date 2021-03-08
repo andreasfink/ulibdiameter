@@ -166,9 +166,6 @@
 /* Error: The transport layer connection is disconnected, either politely or abortively, in response to, an error condition.  Local resources are freed. */
 - (void)actionError:(UMDiameterPacket *)message;
 
-/* Process-CEA    A received CEA is processed. */
-- (void)actionProcess_CEA:(UMDiameterPacket *)message;
-
 /* Snd-DPR A DPR message is sent to the peer. */
 - (void)actionR_Snd_DPR:(UMDiameterPacket *)message;
 - (void)actionI_Snd_DPR:(UMDiameterPacket *)message;

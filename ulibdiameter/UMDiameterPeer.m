@@ -18,6 +18,8 @@
 #import "UMDiameterPacketDWA.h"
 #import "UMDiameterPacketDPR.h"
 #import "UMDiameterPacketDPA.h"
+#import "UMDiameterPacketCUR.h"
+#import "UMDiameterPacketCUA.h"
 #import "UMDiameterAvpAll.h"
 #import "UMDiameterRouter.h"
 
@@ -764,18 +766,6 @@
             [arr addObject:avp];
         }
         packet.var_auth_application_id = arr;
-    }
-
-    //         [ Inband-Security-Id ]
-    if([_router.inbandSecurityIds count] > 0)
-    {
-        NSMutableArray<UMDiameterAvpInband_Security_Id *>*arr =   [[NSMutableArray alloc]init];
-        for(NSNumber *n in _router.inbandSecurityIds)
-        {
-            UMDiameterAvpInband_Security_Id *avp =  [[UMDiameterAvpInband_Security_Id alloc]initWithObject:n];
-            [arr addObject:avp];
-        }
-        packet.var_inband_security_id = arr;
     }
 
     //      * [ Acct-Application-Id ]

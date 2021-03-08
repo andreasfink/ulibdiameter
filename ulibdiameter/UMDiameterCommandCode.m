@@ -24,6 +24,11 @@ NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL req
         case UMDiameterCommandCode_Capabilities_Exchange:
             s = @"CE";
             break;
+            
+        case UMDiameterCommandCode_Capabilities_Update:
+            s = @"CU";
+            break;
+
         case UMDiameterCommandCode_Device_Watchdog:
             s = @"DW";
             break;
