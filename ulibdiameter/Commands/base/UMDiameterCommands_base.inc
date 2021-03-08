@@ -15,3 +15,4 @@ COMMAND(UMDiameterPacketASA)
 COMMAND(UMDiameterPacketASR)
 COMMAND(UMDiameterPacketCUR)
 COMMAND(UMDiameterPacketCUA)
+ 

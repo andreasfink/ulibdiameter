@@ -21,6 +21,8 @@
 #import "UMDiameterPacketDWR.h"
 #import "UMDiameterPacketRAR.h"
 #import "UMDiameterPacketSTR.h"
+#import "UMDiameterPacketCUR.h"
+#import "UMDiameterPacketCUA.h"
 #import "UMDiameterPacketAuthentication_Information_Answer.h"
 #import "UMDiameterPacketInsert_Subscriber_Data_Answer.h"
 #import "UMDiameterPacketReset_Answer.h"
