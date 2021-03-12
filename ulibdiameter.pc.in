@@ -11,6 +11,6 @@ Libs: -L${libdir} -l:libulibdiameter.@SHARED_LIBRARY_EXTENSION@.@MAJORVER@.@MINO
 
 Description: universal Diameter library
 Version: @VERSION@
-Requires: ulibsctp
+Requires: ulibsctp, ulibdb
 
 
