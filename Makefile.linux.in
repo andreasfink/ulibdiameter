@@ -36,10 +36,11 @@ INCLUDEDIRS = -I Classes \
 	-I @PROJECT_NAME@/AVP/base \
 	-I @PROJECT_NAME@/AVP/rfc7683 \
 	-I @PROJECT_NAME@/AVP/draft-ietf-dime-load \
+        -I @PROJECT_NAME@/AVP/fts \
 	-I @PROJECT_NAME@/Commands \
 	-I @PROJECT_NAME@/Commands/3GPP \
-	-I @PROJECT_NAME@/Commands/base 
-	
+	-I @PROJECT_NAME@/Commands/base \
+        -I @PROJECT_NAME@/Commands/fts	
 
 DEBUG_RELEASE = -DCONFIGURATION_${CONFIGURATION}=1 -DCONFIGURATION=${CONFIGURATION}
 
