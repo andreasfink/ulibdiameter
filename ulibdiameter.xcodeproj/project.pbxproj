@@ -385,9 +385,9 @@
 		A6DB9C1B233A5CAE0022B63F /* UMDiameterPacketLocation_Report_Answer.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DB9C13233A5CAD0022B63F /* UMDiameterPacketLocation_Report_Answer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6DB9C1C233A5CAE0022B63F /* UMDiameterPacketProvide_Location_Answer.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DB9C14233A5CAE0022B63F /* UMDiameterPacketProvide_Location_Answer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6DBA1C4233A65330022B63F /* UMDiameterAvp_3GPP_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DB9EBE233A65010022B63F /* UMDiameterAvp_3GPP_includes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6DCCE6F25FB51200030CBC5 /* UMDiameterStatisticDbRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DCCE6D25FB51200030CBC5 /* UMDiameterStatisticDbRecord.h */; };
+		A6DCCE6F25FB51200030CBC5 /* UMDiameterStatisticDbRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DCCE6D25FB51200030CBC5 /* UMDiameterStatisticDbRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6DCCE7025FB51200030CBC5 /* UMDiameterStatisticDbRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DCCE6E25FB51200030CBC5 /* UMDiameterStatisticDbRecord.m */; };
-		A6DCCE7925FB512D0030CBC5 /* UMDiameterStatisticDb.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DCCE7725FB512D0030CBC5 /* UMDiameterStatisticDb.h */; };
+		A6DCCE7925FB512D0030CBC5 /* UMDiameterStatisticDb.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DCCE7725FB512D0030CBC5 /* UMDiameterStatisticDb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6DCCE7A25FB512D0030CBC5 /* UMDiameterStatisticDb.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DCCE7825FB512D0030CBC5 /* UMDiameterStatisticDb.m */; };
 		A6DCCE8825FB54B90030CBC5 /* ulibdb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DCCE8725FB54B90030CBC5 /* ulibdb.framework */; };
 		A6DE5FEF2045453A00F08DCD /* UMDiameterAVP_Options.h in Headers */ = {isa = PBXBuildFile; fileRef = A6DE5FED2045453A00F08DCD /* UMDiameterAVP_Options.h */; settings = {ATTRIBUTES = (Public, ); }; };

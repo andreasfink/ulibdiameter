@@ -171,7 +171,8 @@
     return success;
 }
 
-- (void)increasePacketCount:(int)packetCount byteCount:(int)byteCount
+- (void)increasePacketCount:(int)packetCount
+                  byteCount:(int)byteCount
 {
     [_lock lock];
     _packetCount += packetCount;

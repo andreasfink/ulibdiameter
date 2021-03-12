@@ -12,11 +12,14 @@
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterTcpConnectionAuthorisationProtocol.h"
 #import "UMDiameterLocalUserProtocol.h"
+
 @class UMDiameterRouterReceiver;
 
 @class UMDiameterRoute;
+@class UMDiameterStatisticDb;
 
 @protocol UMDiameterRouterAppDelegateProtocol
+- (UMSynchronizedDictionary *)dbPools;
 @end
 
 @interface UMDiameterRouter : UMLayer
@@ -57,6 +60,7 @@
     uint32_t _sid_int2;
     UMMutex *_sid_lock;
     UMMutex *_listenerLock;
+    UMDiameterStatisticDb  *_statisticDb;
 }
 
 @property(readwrite,strong,atomic)  NSString    *localHostName;
@@ -77,6 +81,9 @@
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *peers;
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *sessions;
 @property(readwrite,strong,atomic) UMSynchronizedDictionary *routes;
+
+@property(readwrite,strong,atomic) UMDiameterStatisticDb  *statisticDb;
+
 - (NSArray *)getListeners;
 - (NSArray *)getReceivignSockets;
 - (void)startReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer;

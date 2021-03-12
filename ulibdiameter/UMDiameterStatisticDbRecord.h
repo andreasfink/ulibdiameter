@@ -50,7 +50,8 @@
                commandCode:(int)commandCode
                   instance:(NSString *)instance;
 
-- (void)increasePacletCount:(int)msuCount byteCount:(int)byteCount;
+- (void)increasePacketCount:(int)msuCount
+                  byteCount:(int)byteCount;
 - (void)flushToPool:(UMDbPool *)pool table:(UMDbTable *)table;
 
 
