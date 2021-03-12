@@ -161,4 +161,8 @@
                                    endToEnd:(uint32_t)endToEnd
                            incomingPeerName:(NSString *)peerName;
 
+- (void)addPacketStatistic:(UMDiameterPacket *)packet
+              incomingPeer:(NSString *)incomingPeer
+              outgoingPeer:(NSString *)outgoingPeer;
+
 @end

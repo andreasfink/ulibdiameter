@@ -28,14 +28,15 @@
                                instance:(NSString *)instance;
 
 - (void)addByteCount:(int)byteCount
-        incomingPeer:(NSString *)incomingLinkset
-        outgoingPeer:(NSString *)outgoingLinkset
+        incomingPeer:(NSString *)incomingPeer
+        outgoingPeer:(NSString *)outgoingPeer
              srcHost:(NSString *)srcHost
             srcRealm:(NSString *)srcRealm
              dstHost:(NSString *)dstHost
             dstRealm:(NSString *)dstRealm
          commandCode:(int)commandCode
          commandName:(NSString *)commandName;
+
 - (void)doAutocreate;
 - (void)flush;
 
