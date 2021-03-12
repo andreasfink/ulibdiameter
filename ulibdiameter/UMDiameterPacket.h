@@ -40,7 +40,6 @@
     UMDiameterAvpDestination_Realm *_destinationRealm;
 }
 
-
 @property(readwrite,assign,atomic)  uint8_t     version;
 @property(readwrite,assign,atomic)  uint8_t     commandFlags;
 @property(readwrite,assign,atomic)  uint32_t    commandCode;
@@ -53,7 +52,6 @@
 @property(readwrite,strong,atomic)  UMDiameterAvpOrigin_Realm *originRealm;
 @property(readwrite,strong,atomic)  UMDiameterAvpDestination_Host *destinationHost;
 @property(readwrite,strong,atomic)  UMDiameterAvpDestination_Realm *destinationRealm;
-
 
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;

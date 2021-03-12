@@ -42,6 +42,7 @@
 {
     @autoreleasepool
     {
+        NSString *ougoingPeerName = @"";
         UMDiameterPeer *nextHop=NULL;        
         UMDiameterRouterSession *session = [_router findSessionForPacket:_packet fromPeer:sender];
         BOOL isRequest = _packet.flagRequest;
@@ -52,14 +53,17 @@
             if(session.initiator == _sender)
             {
                 nextHop = session.responder;
+                ougoingPeerName = nextHop.layerName;
             }
             else if(session.responder == _sender)
             {
                 nextHop = session.initiator;
+                ougoingPeerName = nextHop.layerName;
             }
             else
             {
                 NSLog(@"we dont know which direction this session is supposed to be used");
+                ougoingPeerName = @"dropped";
             }
         }
         if(nextHop==NULL)
@@ -91,16 +95,19 @@
             if(route.peer)
             {
                 nextHop = route.peer;
+                ougoingPeerName = nextHop.layerName;
             }
             else if(route.destination)
             {
                 nextHop = [_router findPeer:route.destination];
                 route.peer = nextHop;
+                ougoingPeerName = nextHop.layerName;
             }
         }
         if(nextHop==NULL)
         {
             NSLog(@"No route found for realm %@ host %@",_realm,_host);
+            ougoingPeerName = @"no-route-found";
         }
         else
         {
@@ -141,7 +148,9 @@
                 }
             }
         }
-        
+        [_router addPacketStatistic:_packet
+                       incomingPeer:_sender.layerName
+                       outgoingPeer:ougoingPeerName];
     }
 }
 

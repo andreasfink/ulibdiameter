@@ -16,6 +16,11 @@
 #import "UMDiameterPacketsAll.h"
 #import "UMDiameterRouterReceiver.h"
 #import "UMDiameterStatisticDb.h"
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpDestination_Host.h"
+#import "UMDiameterAvpDestination_Realm.h"
 
 #include <poll.h>
 
@@ -1294,5 +1299,21 @@
     }
     return dict;
 }
-@end
 
+- (void)addPacketStatistic:(UMDiameterPacket *)packet
+              incomingPeer:(NSString *)incomingPeer
+              outgoingPeer:(NSString *)outgoingPeer
+{
+    int byteCount = [[packet packedData] length];
+
+    [_statisticDb addByteCount:byteCount
+                  incomingPeer:incomingPeer
+                  outgoingPeer:outgoingPeer
+                       srcHost:[packet.originHost stringValue]
+                      srcRealm:[packet.originRealm stringValue]
+                       dstHost:[packet.destinationHost stringValue]
+                      dstRealm:[packet.destinationRealm stringValue]
+                   commandCode:packet.commandCode
+                   commandName:UMDiameterCommandCode_description(packet.commandCode, packet.flagRequest)];
+}
+@end
