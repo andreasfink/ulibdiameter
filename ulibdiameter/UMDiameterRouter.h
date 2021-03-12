@@ -7,6 +7,7 @@
 //
 
 #import <ulib/ulib.h>
+#import <ulibdb/ulibdb.h>
 #import "UMDiameterMessage.h"
 #import "UMDiameterPeer.h"
 #import "UMDiameterRouterSession.h"
@@ -61,6 +62,11 @@
     UMMutex *_sid_lock;
     UMMutex *_listenerLock;
     UMDiameterStatisticDb  *_statisticDb;
+    NSString *_statisticDbPool;
+    NSString *_statisticDbTable;
+    NSString *_statisticDbInstance;
+    NSNumber *_statisticDbAutoCreate;
+    id<UMDiameterRouterAppDelegateProtocol> _appContext;
 }
 
 @property(readwrite,strong,atomic)  NSString    *localHostName;

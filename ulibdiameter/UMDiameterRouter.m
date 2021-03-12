@@ -401,6 +401,7 @@
             [session expire];
             [self removeSession:session];
         }
+        [_statisticDb flush];
         [_housekeepingLock unlock];
     }
 }
@@ -613,7 +614,8 @@
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterRouterAppDelegateProtocol>)appContext
 {
-
+    _appContext = appContext;
+    
     [self readLayerConfig:cfg];
 
     if(cfg[@"name"])
@@ -629,6 +631,28 @@
         self.localRealm = [cfg[@"local-realm"] stringValue];
     }
     _vendorId = 54013; /* fink telecom services vendor ID */
+    
+    
+    if(cfg[@"statistic-db-instance"])
+    {
+        _statisticDbInstance       = [cfg[@"statistic-db-instance"] stringValue];
+    }
+    if(cfg[@"statistic-db-pool"])
+    {
+        _statisticDbPool        = [cfg[@"statistic-db-pool"] stringValue];
+    }
+    if(cfg[@"statistic-db-table"])
+    {
+        _statisticDbTable       = [cfg[@"statistic-db-table"] stringValue];
+    }
+    if(cfg[@"statistic-db-autocreate"])
+    {
+        _statisticDbAutoCreate  = @([cfg[@"statistic-db-autocreate"] boolValue]);
+    }
+    else
+    {
+        _statisticDbAutoCreate=@(YES);
+    }
 }
 
 - (void)stopDetachAndDestroy
@@ -652,6 +676,24 @@
         UMDiameterPeer *peer = _peers[name];
         peer.router = self;
         [peer powerOn];
+    }
+
+    if(_statisticDbPool && _statisticDbTable)
+    {
+        if(_statisticDbInstance==NULL)
+        {
+            _statisticDbInstance = _layerName;
+        }
+        _statisticDb = [[UMDiameterStatisticDb alloc]initWithPoolName:_statisticDbPool
+                                                            tableName:_statisticDbTable
+                                                           appContext:_appContext
+                                                           autocreate:_statisticDbAutoCreate.boolValue
+                                                             instance:_statisticDbInstance];
+        if(_statisticDbAutoCreate.boolValue)
+        {
+            [_statisticDb doAutocreate];
+        }
+        [_housekeepingTimer start];
     }
 }
 
