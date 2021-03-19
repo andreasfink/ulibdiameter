@@ -25,6 +25,8 @@
 
 @interface UMDiameterRouter : UMLayer
 {
+    time_t _startupTime;
+    NSUInteger _nextSeqNumber;
 	UMSynchronizedDictionary *_peers;
     UMSynchronizedDictionary *_sessions;
     UMSynchronizedDictionary *_routes;
@@ -35,6 +37,7 @@
     NSTimeInterval      _defaultSessionTimeout;
     UMTimer *_housekeepingTimer;
     UMMutex *_housekeepingLock;
+    UMMutex *_sequenceNumberLock;
     NSString    *_localHostName;
     NSString    *_localRealm;
     uint32_t    _vendorId;

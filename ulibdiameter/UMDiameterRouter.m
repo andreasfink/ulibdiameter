@@ -21,7 +21,7 @@
 #import "UMDiameterAvpOrigin_Realm.h"
 #import "UMDiameterAvpDestination_Host.h"
 #import "UMDiameterAvpDestination_Realm.h"
-
+#include <time.h>
 #include <poll.h>
 
 @implementation UMDiameterRouter
@@ -42,6 +42,9 @@
     self = [super initWithTaskQueueMulti:tq name:name];
     if(self)
     {
+        
+        time(&_startupTime);
+        _nextSeqNumber = 1;
 		_peers = [[UMSynchronizedDictionary alloc]init];
         _sessions = [[UMSynchronizedDictionary alloc]init];
         _routes = [[UMSynchronizedDictionary alloc]init];
@@ -53,6 +56,8 @@
         _housekeepingTimer = [[UMTimer alloc]initWithTarget:self selector:@selector(housekeeping) object:NULL seconds:30 name:@"housekeeping-timer" repeats:YES];
         _housekeepingLock = [[UMMutex alloc]initWithName:@"housekeeping-timer-lock"];
         _listenerLock     = [[UMMutex alloc]initWithName:@"listener-lock"];
+        _sequenceNumberLock = [[UMMutex alloc]initWithName:@"sequence-number-lock"];
+
         _sid_lock = [[UMMutex alloc]initWithName:@"diameter-router-sid-lock"];
 
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
@@ -1346,8 +1351,7 @@
               incomingPeer:(NSString *)incomingPeer
               outgoingPeer:(NSString *)outgoingPeer
 {
-    int byteCount = [[packet packedData] length];
-
+    int byteCount = (int)[[packet packedData] length];
     [_statisticDb addByteCount:byteCount
                   incomingPeer:incomingPeer
                   outgoingPeer:outgoingPeer
@@ -1357,5 +1361,24 @@
                       dstRealm:[packet.destinationRealm stringValue]
                    commandCode:packet.commandCode
                    commandName:UMDiameterCommandCode_description(packet.commandCode, packet.flagRequest)];
+}
+
+- (NSString *)sessionIdForHost:(NSString *)host
+{
+    NSUInteger seq;
+    if(host.length == 0)
+    {
+        host = _localHostName;
+    }
+    UMMUTEX_LOCK(_sequenceNumberLock);
+    seq = _nextSeqNumber;
+    _nextSeqNumber++;
+    if(_nextSeqNumber >= 0xFFFFFF00)
+    {
+        _nextSeqNumber = 1;
+    }
+    UMMUTEX_UNLOCK(_sequenceNumberLock);
+    NSString *s = [NSString stringWithFormat:@"%@;%@;%@",host,@(_startupTime),@(_nextSeqNumber)];
+    return s;
 }
 @end

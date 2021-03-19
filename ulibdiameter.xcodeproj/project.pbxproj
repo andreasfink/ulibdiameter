@@ -137,6 +137,7 @@
 		A6835BB822CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h in Headers */ = {isa = PBXBuildFile; fileRef = A6835BB622CCBEAF00FC7F0C /* UMDiameterAvp_rfc7683_includes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A684F78622C1FED9004F77C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F78522C1FED9004F77C0 /* main.m */; };
 		A684F78A22C20540004F77C0 /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
+		A685ADCC2603A6DB007A631F /* UMDiameterPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6506EB62211B32B006665A9 /* UMDiameterPeer.m */; };
 		A68CFD4722A854C100F94967 /* UMDiameterPacketsAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A68CFD4522A854C100F94967 /* UMDiameterPacketsAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68FC4A322A5B8B1006351C3 /* UMDiameterResultCode.h in Headers */ = {isa = PBXBuildFile; fileRef = A68FC4A122A5B8B1006351C3 /* UMDiameterResultCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68FC4A722A5C098006351C3 /* UMDiameterLocalUserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A68FC4A522A5C098006351C3 /* UMDiameterLocalUserProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -5579,6 +5580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A685ADCC2603A6DB007A631F /* UMDiameterPeer.m in Sources */,
 				A6260C59228C004F00C94036 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
