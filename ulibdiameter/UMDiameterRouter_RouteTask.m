@@ -70,7 +70,6 @@
         {
             
             UMDiameterRoute *route=NULL;
-
             UMDiameterAvpFTSRouteSelector *routeSelect = (UMDiameterAvpFTSRouteSelector *)[_packet getAvpByCode:[UMDiameterAvpFTSRouteSelector avpCode]];
             if(routeSelect)
             {

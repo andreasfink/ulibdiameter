@@ -141,23 +141,26 @@
     {
         return YES;
     }
-    if([_realm isEqualToStringCaseInsensitive:realm])
+    if(_realm != NULL)
     {
-        return YES;
-    }
-    if(exactOnly)
-    {
-        return NO;
-    }
-    if(_realm.length >= realm.length)
-    {
-        return NO;
-    }
-    NSInteger pos = realm.length - _realm.length;
-    NSString *s = [realm substringFromIndex:pos];
-    if([_realm isEqualToStringCaseInsensitive:s])
-    {
-        return YES;
+       if([_realm isEqualToStringCaseInsensitive:realm])
+       {
+           return YES;
+       }
+        if(exactOnly)
+        {
+            return NO;
+        }
+        if(_realm.length >= realm.length)
+        {
+            return NO;
+        }
+        NSInteger pos = realm.length - _realm.length;
+        NSString *s = [realm substringFromIndex:pos];
+        if([_realm isEqualToStringCaseInsensitive:s])
+        {
+            return YES;
+        }
     }
     return NO;
 }
