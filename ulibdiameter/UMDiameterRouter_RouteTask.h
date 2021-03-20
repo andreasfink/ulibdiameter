@@ -11,9 +11,10 @@
 @class UMDiameterPacket;
 @class UMDiameterPeer;
 @class UMDiameterRouter;
-
+@class UMDiameterRouterSession;
 @interface UMDiameterRouter_RouteTask : UMLayerTask
 {
+    UMDiameterRouterSession *_session;
     UMDiameterPacket *_packet;
     UMDiameterPeer   *_sender;
     UMDiameterRouter *_router;
@@ -24,6 +25,7 @@
 @property(readwrite,strong,atomic)  UMDiameterPacket *packet;
 
 - (UMDiameterRouter_RouteTask *)initWithRouter:(UMDiameterRouter *)router
+                                       session:(UMDiameterRouterSession *)session
                                         sender:(UMDiameterPeer *)sender
                                         packet:(UMDiameterPacket *)packet
                                          realm:(NSString *)realm

@@ -412,12 +412,13 @@
 }
 
 - (void)queuePacketForRouting:(UMDiameterPacket *)pkt
+                      session:(UMDiameterRouterSession *)session
                        source:(UMDiameterPeer *)peer
                         realm:(NSString *)realm
                          host:(NSString *)host
 {
-
     UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
+                                                                                 session:session
                                                                                   sender:peer
                                                                                   packet:pkt
                                                                                    realm:realm
@@ -426,6 +427,7 @@
 }
 
 - (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt
+                              session:(UMDiameterRouterSession *)session
                                source:(UMDiameterPeer *)peer
                                 realm:(NSString *)realm
                                  host:(NSString *)host
@@ -433,6 +435,7 @@
 {
 
     UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
+                                                                                 session:session
                                                                                   sender:peer
                                                                                   packet:pkt
                                                                                    realm:realm
@@ -532,12 +535,14 @@
     return _sessions[sid];
 }
 
+
 - (UMDiameterRouterSession *)findSessionForPacket:(UMDiameterPacket *)pkt fromPeer:(UMDiameterPeer *)peer
 {
     NSString *sid = [UMDiameterRouter internalSessionIdFromHopByHop:pkt.hopByHopIdentifier
                                                            endToEnd:pkt.endToEndIdentifier
                                                   incomingPeerName:peer.layerName];
-    return [self findSessionByInternalSessionId:sid];
+    UMDiameterRouterSession *session = [self findSessionByInternalSessionId:sid];
+    return session;
 }
 
 + (NSString *)internalSessionIdFromHopByHop:(uint32_t)hopByHop
@@ -744,31 +749,60 @@
     return YES;
 }
 
+
+/* we receive a packet from the local uppser layer */
+- (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet
+{
+    [self queuePacketForRouting:packet
+                        session:NULL
+                         source:NULL
+                          realm:packet.destinationRealm.stringValue
+                           host:packet.destinationHost.stringValue];
+}
+
+/* we receive a packet from a peer */
 - (void)processIncomingPacket:(UMDiameterPacket *)packet
                      fromPeer:(UMDiameterPeer *)peer
                         realm:(NSString *)realm
                          host:(NSString *)host
 {
-    UMDiameterRouterSession *session = [self findSessionForPacket:packet fromPeer:peer];
-    if(session == NULL)
+    if(packet.flagRequest)
     {
-        session = [[UMDiameterRouterSession alloc]initWithTimeout:_defaultSessionTimeout];
-        session.initiator = peer;
-    }
-    
-    if(session.initiator_is_local)
-    {
-        /* if we have a session, we use the same route back */
-        [session processIncomingPacket:packet forRouter:self fromPeer:peer];
-        [session touch];
-        return;
-    }
-    else
-    {
+        UMDiameterRouterSession *session = [[UMDiameterRouterSession alloc]initWithTimeout:_defaultSessionTimeout];
+        if(peer == NULL)
+        {
+            session.initiator_is_local = YES;
+        }
+        else
+        {
+            session.initiator = peer;
+        }
+        [self addSession:session];
         [self queuePacketForRouting:packet
+                            session:session
                              source:peer
                               realm:realm
                                host:host];
+    }
+    else
+    {
+        /* if we have a response, we use the same route back */
+        UMDiameterRouterSession *session = [self findSessionForPacket:packet fromPeer:peer];
+        if(session.initiator_is_local)
+        {
+            [session processIncomingPacket:packet
+                                 forRouter:self
+                                  fromPeer:peer];
+        }
+        else
+        {
+            [self queuePacketForRouting:packet
+                                session:session
+                                 source:peer
+                                  realm:realm
+                                   host:host];
+        }
+        [self removeSession:session];
     }
 }
 
