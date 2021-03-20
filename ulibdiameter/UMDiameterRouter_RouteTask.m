@@ -18,6 +18,7 @@
 
 
 - (UMDiameterRouter_RouteTask *)initWithRouter:(UMDiameterRouter *)router
+                                       session:(UMDiameterRouterSession *)session
                                         sender:(UMDiameterPeer *)sender
                                         packet:(UMDiameterPacket *)packet
                                          realm:(NSString *)realm
@@ -29,6 +30,7 @@
        requiresSynchronisation:NO];
     if(self)
     {
+        _session = session;
         _packet = packet;
         _sender = sender;
         _router = router;
@@ -43,21 +45,20 @@
     @autoreleasepool
     {
         NSString *ougoingPeerName = @"";
-        UMDiameterPeer *nextHop=NULL;        
-        UMDiameterRouterSession *session = [_router findSessionForPacket:_packet fromPeer:sender];
+        UMDiameterPeer *nextHop=NULL;
         BOOL isRequest = _packet.flagRequest;
-        if(session)
+        if(_session)
         {
             /* if we have a session, we use the same route back */
-            [session touch];
-            if(session.initiator == _sender)
+            [_session touch];
+            if(_session.initiator == _sender)
             {
-                nextHop = session.responder;
+                nextHop = _session.responder;
                 ougoingPeerName = nextHop.layerName;
             }
-            else if(session.responder == _sender)
+            else if(_session.responder == _sender)
             {
-                nextHop = session.initiator;
+                nextHop = _session.initiator;
                 ougoingPeerName = nextHop.layerName;
             }
             else
@@ -66,6 +67,7 @@
                 ougoingPeerName = @"dropped";
             }
         }
+        else
         if(nextHop==NULL)
         {
             
@@ -112,28 +114,32 @@
         {
             if(isRequest)
             {
-                if(session == NULL)
+                if(_session == NULL)
                 {
-                    session = [[UMDiameterRouterSession alloc]init];
-                    session.initiator = _sender;
-                    session.initiator_hop_by_hop_identifier = _packet.hopByHopIdentifier;
-                    session.initiator_end_to_end_identifier = _packet.endToEndIdentifier;
-                    session.responder = nextHop;
+                    _session = [[UMDiameterRouterSession alloc]init];
+                    _session.initiator = _sender;
+                    if(_sender == NULL)
+                    {
+                        _session.initiator_is_local = YES;
+                    }
+                    _session.initiator_hop_by_hop_identifier = _packet.hopByHopIdentifier;
+                    _session.initiator_end_to_end_identifier = _packet.endToEndIdentifier;
+                    _session.responder = nextHop;
                     _packet.hopByHopIdentifier = [nextHop nextHopByHopIdentifier];
-                    session.responder_hop_by_hop_identifier = _packet.hopByHopIdentifier;
-                    session.responder_end_to_end_identifier = _packet.endToEndIdentifier;
-                    [_router addSession:session];
+                    _session.responder_hop_by_hop_identifier = _packet.hopByHopIdentifier;
+                    _session.responder_end_to_end_identifier = _packet.endToEndIdentifier;
+                    [_router addSession:_session];
                     [nextHop sendMessage:_packet];
                 }
                 else
                 {
-                    NSString *s = [NSString stringWithFormat:@"Dropping request packed for an existing session: %@ / %@\n",session.sid1,session.sid2];
+                    NSString *s = [NSString stringWithFormat:@"Dropping request packed for an existing session: %@ / %@\n",_session.sid1,_session.sid2];
                     [_router logMinorError:s];
                 }
             }
             else /* its a response */
             {
-                if(session==NULL)
+                if(_session==NULL)
                 {
                     NSString *s = [NSString stringWithFormat:@"Dropping response packed from %@ for a unknown hop-by-hop 0x%08x end-to-end 0x%08x",
                     _sender.layerName,_packet.hopByHopIdentifier,_packet.endToEndIdentifier ];
@@ -141,9 +147,9 @@
                 }
                 else
                 {
-                    _packet.hopByHopIdentifier = session.initiator_hop_by_hop_identifier;
+                    _packet.hopByHopIdentifier = _session.initiator_hop_by_hop_identifier;
                     [nextHop sendMessage:_packet];
-                    [_router removeSession:session];
+                    [_router removeSession:_session];
                 }
             }
         }

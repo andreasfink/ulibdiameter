@@ -108,11 +108,13 @@
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq name:(NSString *)name;
 
 - (void)queuePacketForRouting:(UMDiameterPacket *)pkt
+                      session:(UMDiameterRouterSession *)session
                        source:(UMDiameterPeer *)peer
                         realm:(NSString *)realm
                          host:(NSString *)host;
 
 - (void)queuePriorityPacketForRouting:(UMDiameterPacket *)pkt
+                              session:(UMDiameterRouterSession *)session
                                source:(UMDiameterPeer *)peer
                                 realm:(NSString *)realm
                                  host:(NSString *)host;
@@ -173,5 +175,7 @@
 - (void)addPacketStatistic:(UMDiameterPacket *)packet
               incomingPeer:(NSString *)incomingPeer
               outgoingPeer:(NSString *)outgoingPeer;
+
+- (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet;
 
 @end

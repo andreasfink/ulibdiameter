@@ -46,7 +46,9 @@
     return NO;
 }
 
-- (void)processIncomingPacket:(UMDiameterPacket *)packet forRouter:(UMDiameterRouter *)router fromPeer:(UMDiameterPeer *)peer
+- (void)processIncomingPacket:(UMDiameterPacket *)packet
+                    forRouter:(UMDiameterRouter *)router
+                     fromPeer:(UMDiameterPeer *)peer
 {
 #define COMMAND(CMDNAME) \
     else if(packet.commandCode ==  [CMDNAME commandCode]) \
