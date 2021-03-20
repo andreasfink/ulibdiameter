@@ -15,5 +15,18 @@
     return @"Enumerated";
 }
 
-
+- (UMDiameterAvpEnumerated *)initWithEnumDef:(NSDictionary *)dict value:(NSString *)val
+{
+    if((dict == NULL) || (val.length == 0))
+    {
+        return NULL;
+    }
+    NSNumber *n = dict[val];
+    if(![n isKindOfClass:[NSNumber class]])
+    {
+        return NULL;
+    }
+    self = [super initWithNumber:n];
+    return self;
+}
 @end

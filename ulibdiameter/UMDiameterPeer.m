@@ -1115,7 +1115,10 @@
     }
     if((err==UMSocketError_no_error) || (err==UMSocketError_in_progress))
     {
-        [_router startReceivingOnSocket:_initiator_socket forPeer:self];
+        if(_initiator_socket)
+        {
+            [_router startReceivingOnSocket:_initiator_socket forPeer:self];
+        }
     }
     return err;
 }

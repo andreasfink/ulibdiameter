@@ -10,4 +10,5 @@
 
 @interface UMDiameterAvpEnumerated : UMDiameterAvpInteger32
 
+- (UMDiameterAvpEnumerated *)initWithEnumDef:(NSDictionary *)dict value:(NSString *)val;
 @end

@@ -1168,10 +1168,13 @@
                     if(listenerKeys[sdup]==NULL)
                     {
                         UMSocketSCTP *socket = [[UMSocketSCTP alloc] initWithType:UMSOCKET_TYPE_SCTP_STREAM];
-                        socket.requestedLocalPort = peer.responderPort;
-                        socket.requestedLocalAddresses = localIpAddresses;
-                        listenerKeys[sdup] = socket;
-                        [_listeners addObject:socket];
+                        if(socket != NULL)
+                        {
+                            socket.requestedLocalPort = peer.responderPort;
+                            socket.requestedLocalAddresses = localIpAddresses;
+                            listenerKeys[sdup] = socket;
+                            [_listeners addObject:socket];
+                        }
                     }
                 }
             }

@@ -41,7 +41,6 @@
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(NO);
-
     return avpDef;
 }
 
