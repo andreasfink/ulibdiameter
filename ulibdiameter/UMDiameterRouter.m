@@ -768,16 +768,6 @@
 {
     if(packet.flagRequest)
     {
-        UMDiameterRouterSession *session = [[UMDiameterRouterSession alloc]initWithTimeout:_defaultSessionTimeout];
-        if(peer == NULL)
-        {
-            session.initiator_is_local = YES;
-        }
-        else
-        {
-            session.initiator = peer;
-        }
-        [self addSession:session];
         [self queuePacketForRouting:packet
                             session:session
                              source:peer
