@@ -177,5 +177,6 @@
               outgoingPeer:(NSString *)outgoingPeer;
 
 - (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet;
+- (void)dumpRoutes;
 
 @end

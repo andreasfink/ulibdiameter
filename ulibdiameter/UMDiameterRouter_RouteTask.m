@@ -109,6 +109,10 @@
         {
             NSLog(@"No route found for realm %@ host %@",_realm,_host);
             ougoingPeerName = @"no-route-found";
+            if(_router.logLevel <= UMLOG_DEBUG)
+            {
+                [_router dumpRoutes];
+            }
         }
         else
         {

@@ -964,6 +964,13 @@
     return r;
 }
 
+- (void)dumpRoutes
+{
+    NSArray *a = [self listRoutes];
+    NSString *s = [a jsonString];
+    NSLog(@"----Routing-table-dump---\n%@",s);
+}
+
 - (UMDiameterPeer *)findPeer:(NSString *)peerName
 {
     return _peers[peerName];
