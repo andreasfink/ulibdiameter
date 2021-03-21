@@ -48,7 +48,7 @@
         UMDiameterPeer *nextHop=NULL;
         BOOL isRequest = _packet.flagRequest;
         UMDiameterRoute *route=NULL;
-        if(_session)
+        if((_session) && (!isRequest))
         {
             /* if we have a session, we use the same route back */
             [_session touch];
