@@ -925,24 +925,25 @@
     for(NSString *key in allKeys)
     {
         UMDiameterRoute *thisRoute = _routes[key];
-        if(thisRoute.defaultRoute == YES)
+        if(thisRoute.defaultRoute != YES)
         {
-            if(route==NULL)
+            continue;
+        }
+        if(route==NULL)
+        {
+            route = thisRoute;
+        }
+        else
+        {
+            if(thisRoute.priority < route.priority)
             {
                 route = thisRoute;
             }
-            else
+            else if(thisRoute.priority == route.priority)
             {
-                if(thisRoute.priority < route.priority)
+                if(thisRoute.weight > route.weight)
                 {
                     route = thisRoute;
-                }
-                else if(thisRoute.priority == route.priority)
-                {
-                    if(thisRoute.weight > route.weight)
-                    {
-                        route = thisRoute;
-                    }
                 }
             }
         }

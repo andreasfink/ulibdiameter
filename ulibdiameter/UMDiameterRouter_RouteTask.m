@@ -47,6 +47,7 @@
         NSString *ougoingPeerName = @"";
         UMDiameterPeer *nextHop=NULL;
         BOOL isRequest = _packet.flagRequest;
+        UMDiameterRoute *route=NULL;
         if(_session)
         {
             /* if we have a session, we use the same route back */
@@ -67,11 +68,8 @@
                 ougoingPeerName = @"dropped";
             }
         }
-        else
-        if(nextHop==NULL)
+        else if(nextHop==NULL)
         {
-            
-            UMDiameterRoute *route=NULL;
             UMDiameterAvpFTSRouteSelector *routeSelect = (UMDiameterAvpFTSRouteSelector *)[_packet getAvpByCode:[UMDiameterAvpFTSRouteSelector avpCode]];
             if(routeSelect)
             {
@@ -88,10 +86,10 @@
             if(route==NULL)
             {
                 route = [_router findRouteForHost:_host];
-                if(route==NULL)
-                {
-                    route = [_router findRouteForDefault];
-                }
+            }
+            if(route==NULL)
+            {
+                route = [_router findRouteForDefault];
             }
             if(route.peer)
             {
@@ -112,6 +110,10 @@
             if(_router.logLevel <= UMLOG_DEBUG)
             {
                 [_router dumpRoutes];
+            }
+            if(route)
+            {
+                NSLog(@"choosen-route: %@",route);
             }
         }
         else
