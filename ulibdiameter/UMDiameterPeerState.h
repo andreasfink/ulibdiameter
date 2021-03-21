@@ -20,7 +20,7 @@
 /*  R-Conn-CER An acknowledgement is received stating that the transport connection has been established, and the associated CER has arrived. */
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 
-/* Rcv-Conn-Ack   A positive acknowledgement is received confirming that the transport connection is established. */
+/* Rcv-Conn-Ack   A positive acknowledgement is received confirming that the transport connection is established outbound. */
 - (UMDiameterPeerState *)eventI_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 - (UMDiameterPeerState *)eventR_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;
 

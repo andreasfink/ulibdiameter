@@ -123,6 +123,10 @@
     {
         _identifier = [NSString stringWithFormat:@"application:%@",_applicationId.stringValue];
     }
+    else if(_defaultRoute == YES)
+    {
+        _identifier = @"default";
+    }
     else
     {
         NSLog(@"Can't handle combined routes yet");

@@ -1785,7 +1785,10 @@ typedef enum ElectionResult
     if(_tcpPeer)
     {
         e = [socket receiveEverythingTo:&input];
-
+        if((e == UMSocketError_no_error) && (input.length > 0))
+        {
+            e = UMSocketError_has_data;
+        }
         if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
         {
             [_dataBuffersLock lock];
