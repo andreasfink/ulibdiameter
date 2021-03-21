@@ -769,7 +769,7 @@
     if(packet.flagRequest)
     {
         [self queuePacketForRouting:packet
-                            session:session
+                            session:NULL
                              source:peer
                               realm:realm
                                host:host];
