@@ -71,6 +71,7 @@ AVP_OBJECT(UMDiameterAvpService_Selection,UMDiameterAvpUTF8String,493,@"Service-
 AVP_OBJECT(UMDiameterAvpMIP6_Auth_Mode,UMDiameterAvpEnumerated,494,@"MIP6-Auth-Mode",Enumerated,YES,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpLine_Identifier,UMDiameterAvpOctetString,500,@"Line-Identifier",OctetString,YES,YES,13019,NO)
 AVP_OBJECT(UMDiameterAvpQoS_Resources,UMDiameterAvpGrouped,508,@"QoS-Resources",Grouped,YES,NO,0,YES)
+AVP_OBJECT(UMDiameterAvpFilter_Rule,UMDiameterAvp,509,@"Filter-Rule",,NO,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpTime_Of_Day_Start,UMDiameterAvpUnsigned32,561,@"Time-Of-Day-Start",Unsigned32,NO,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpTime_Of_Day_End,UMDiameterAvpUnsigned32,562,@"Time-Of-Day-End",Unsigned32,NO,NO,0,NO)
 AVP_OBJECT(UMDiameterAvpDay_Of_Week_Mask,UMDiameterAvpUnsigned32,563,@"Day-Of-Week-Mask",Unsigned32,NO,NO,0,NO)

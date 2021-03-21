@@ -74,6 +74,7 @@
 #import "UMDiameterAvpMIP6_Auth_Mode.h"
 #import "UMDiameterAvpLine_Identifier.h"
 #import "UMDiameterAvpQoS_Resources.h"
+#import "UMDiameterAvpFilter_Rule.h"
 #import "UMDiameterAvpTime_Of_Day_Start.h"
 #import "UMDiameterAvpTime_Of_Day_End.h"
 #import "UMDiameterAvpDay_Of_Week_Mask.h"

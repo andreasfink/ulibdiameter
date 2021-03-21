@@ -71,6 +71,7 @@
 494	MIP6-Auth-Mode	6.20	Enumerated	M	0
 500	Line-Identifier	-	OctetString	M,V	13019	0
 508	QoS-Resources	RFC5777	Grouped	M	0
+509	Filter-Rule	-		Grouped	M	0
 561	Time-Of-Day-Start	-	Unsigned32		0
 562	Time-Of-Day-End	-	Unsigned32		0
 563	Day-Of-Week-Mask	-	Unsigned32		0
