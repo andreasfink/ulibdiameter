@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -70,8 +70,46 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpCall_ID_SIP_Header  avpCode])
+        {
+            _var_call_id_sip_header = [[UMDiameterAvpCall_ID_SIP_Header alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_call_id_sip_header];
+        }
+        else if(avp.avpCode == [UMDiameterAvpTo_SIP_Header avpCode])
+        {
+            _var_to_sip_header = [[UMDiameterAvpTo_SIP_Header alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_to_sip_header];
+        }
+        else if(avp.avpCode == [UMDiameterAvpRecord_Route avpCode])
+        {
+            _var_record_route = [[UMDiameterAvpRecord_Route alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_record_route];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

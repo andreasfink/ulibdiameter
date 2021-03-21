@@ -2,7 +2,7 @@
 //  UMDiameterAvpAPN_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -94,8 +94,74 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpContext_Identifier  avpCode])
+        {
+            _var_context_identifier = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_context_identifier];
+        }
+        else if(avp.avpCode == [UMDiameterAvpServed_Party_IP_Address avpCode])
+        {
+            UMDiameterAvpServed_Party_IP_Address *avp2 = [[UMDiameterAvpServed_Party_IP_Address alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_served_party_ip_address == NULL)
+            {
+                _var_served_party_ip_address = @[avp2];
+            }
+            else
+            {
+                _var_served_party_ip_address = [_var_served_party_ip_address arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpPDN_Type avpCode])
+        {
+            _var_pdn_type = [[UMDiameterAvpPDN_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_pdn_type];
+        }
+        else if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
+        {
+            _var_service_selection = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_service_selection];
+        }
+        else if(avp.avpCode == [UMDiameterAvpEPS_Subscribed_QoS_Profile avpCode])
+        {
+            _var_eps_subscribed_qos_profile = [[UMDiameterAvpEPS_Subscribed_QoS_Profile alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_eps_subscribed_qos_profile];
+        }
+        else if(avp.avpCode == [UMDiameterAvpVPLMN_Dynamic_Address_Allowed avpCode])
+        {
+            _var_vplmn_dynamic_address_allowed = [[UMDiameterAvpVPLMN_Dynamic_Address_Allowed alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_vplmn_dynamic_address_allowed];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMIP6_Agent_Info avpCode])
+        {
+            _var_mip6_agent_info = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mip6_agent_info];
+        }
+        else if(avp.avpCode == [UMDiameterAvpVisited_Network_Identifier avpCode])
+        {
+            _var_visited_network_identifier = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_visited_network_identifier];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

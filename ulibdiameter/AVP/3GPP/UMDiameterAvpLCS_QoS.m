@@ -2,7 +2,7 @@
 //  UMDiameterAvpLCS_QoS.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -73,8 +73,51 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpLCS_QoS_Class  avpCode])
+        {
+            _var_lcs_qos_class = [[UMDiameterAvpLCS_QoS_Class alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_lcs_qos_class];
+        }
+        else if(avp.avpCode == [UMDiameterAvpHorizontal_Accuracy avpCode])
+        {
+            _var_horizontal_accuracy = [[UMDiameterAvpHorizontal_Accuracy alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_horizontal_accuracy];
+        }
+        else if(avp.avpCode == [UMDiameterAvpVertical_Accuracy avpCode])
+        {
+            _var_vertical_accuracy = [[UMDiameterAvpVertical_Accuracy alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_vertical_accuracy];
+        }
+        else if(avp.avpCode == [UMDiameterAvpVertical_Requested avpCode])
+        {
+            _var_vertical_requested = [[UMDiameterAvpVertical_Requested alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_vertical_requested];
+        }
+        else if(avp.avpCode == [UMDiameterAvpResponse_Time avpCode])
+        {
+            _var_response_time = [[UMDiameterAvpResponse_Time alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_response_time];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

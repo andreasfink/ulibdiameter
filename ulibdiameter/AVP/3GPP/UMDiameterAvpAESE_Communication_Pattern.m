@@ -2,7 +2,7 @@
 //  UMDiameterAvpAESE_Communication_Pattern.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -82,8 +82,67 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpSCEF_Reference_ID  avpCode])
+        {
+            _var_scef_reference_id = [[UMDiameterAvpSCEF_Reference_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_scef_reference_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSCEF_ID avpCode])
+        {
+            _var_scef_id = [[UMDiameterAvpSCEF_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_scef_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSCEF_Reference_ID_for_Deletion avpCode])
+        {
+            UMDiameterAvpSCEF_Reference_ID_for_Deletion *avp2 = [[UMDiameterAvpSCEF_Reference_ID_for_Deletion alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_scef_reference_id_for_deletion == NULL)
+            {
+                _var_scef_reference_id_for_deletion = @[avp2];
+            }
+            else
+            {
+                _var_scef_reference_id_for_deletion = [_var_scef_reference_id_for_deletion arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpCommunication_Pattern_Set avpCode])
+        {
+            UMDiameterAvpCommunication_Pattern_Set *avp2 = [[UMDiameterAvpCommunication_Pattern_Set alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_communication_pattern_set == NULL)
+            {
+                _var_communication_pattern_set = @[avp2];
+            }
+            else
+            {
+                _var_communication_pattern_set = [_var_communication_pattern_set arrayByAddingObject:avp2];
+            }
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

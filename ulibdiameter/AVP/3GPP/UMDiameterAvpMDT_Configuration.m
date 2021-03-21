@@ -2,7 +2,7 @@
 //  UMDiameterAvpMDT_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -178,8 +178,147 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpJob_Type  avpCode])
+        {
+            _var_job_type = [[UMDiameterAvpJob_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_job_type];
+        }
+        else if(avp.avpCode == [UMDiameterAvpArea_Scope avpCode])
+        {
+            _var_area_scope = [[UMDiameterAvpArea_Scope alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_area_scope];
+        }
+        else if(avp.avpCode == [UMDiameterAvpList_Of_Measurements avpCode])
+        {
+            _var_list_of_measurements = [[UMDiameterAvpList_Of_Measurements alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_list_of_measurements];
+        }
+        else if(avp.avpCode == [UMDiameterAvpReporting_Trigger avpCode])
+        {
+            _var_reporting_trigger = [[UMDiameterAvpReporting_Trigger alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_reporting_trigger];
+        }
+        else if(avp.avpCode == [UMDiameterAvpReport_Interval avpCode])
+        {
+            _var_report_interval = [[UMDiameterAvpReport_Interval alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_report_interval];
+        }
+        else if(avp.avpCode == [UMDiameterAvpReport_Amount avpCode])
+        {
+            _var_report_amount = [[UMDiameterAvpReport_Amount alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_report_amount];
+        }
+        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_RSRP avpCode])
+        {
+            _var_event_threshold_rsrp = [[UMDiameterAvpEvent_Threshold_RSRP alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_rsrp];
+        }
+        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_RSRQ avpCode])
+        {
+            _var_event_threshold_rsrq = [[UMDiameterAvpEvent_Threshold_RSRQ alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_rsrq];
+        }
+        else if(avp.avpCode == [UMDiameterAvpLogging_Interval avpCode])
+        {
+            _var_logging_interval = [[UMDiameterAvpLogging_Interval alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_logging_interval];
+        }
+        else if(avp.avpCode == [UMDiameterAvpLogging_Duration avpCode])
+        {
+            _var_logging_duration = [[UMDiameterAvpLogging_Duration alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_logging_duration];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMeasurement_Period_LTE avpCode])
+        {
+            _var_measurement_period_lte = [[UMDiameterAvpMeasurement_Period_LTE alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_measurement_period_lte];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMeasurement_Period_UMTS avpCode])
+        {
+            _var_measurement_period_umts = [[UMDiameterAvpMeasurement_Period_UMTS alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_measurement_period_umts];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCollection_Period_RRM_LTE avpCode])
+        {
+            _var_collection_period_rrm_lte = [[UMDiameterAvpCollection_Period_RRM_LTE alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_collection_period_rrm_lte];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCollection_Period_RRM_UMTS avpCode])
+        {
+            _var_collection_period_rrm_umts = [[UMDiameterAvpCollection_Period_RRM_UMTS alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_collection_period_rrm_umts];
+        }
+        else if(avp.avpCode == [UMDiameterAvpPositioning_Method avpCode])
+        {
+            _var_positioning_method = [[UMDiameterAvpPositioning_Method alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_positioning_method];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMeasurement_Quantity avpCode])
+        {
+            _var_measurement_quantity = [[UMDiameterAvpMeasurement_Quantity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_measurement_quantity];
+        }
+        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_Event_1F avpCode])
+        {
+            _var_event_threshold_event_1f = [[UMDiameterAvpEvent_Threshold_Event_1F alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_event_1f];
+        }
+        else if(avp.avpCode == [UMDiameterAvpEvent_Threshold_Event_1I avpCode])
+        {
+            _var_event_threshold_event_1i = [[UMDiameterAvpEvent_Threshold_Event_1I alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_event_threshold_event_1i];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMDT_Allowed_PLMN_Id avpCode])
+        {
+            UMDiameterAvpMDT_Allowed_PLMN_Id *avp2 = [[UMDiameterAvpMDT_Allowed_PLMN_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_mdt_allowed_plmn_id == NULL)
+            {
+                _var_mdt_allowed_plmn_id = @[avp2];
+            }
+            else
+            {
+                _var_mdt_allowed_plmn_id = [_var_mdt_allowed_plmn_id arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpMBSFN_Area avpCode])
+        {
+            UMDiameterAvpMBSFN_Area *avp2 = [[UMDiameterAvpMBSFN_Area alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_mbsfn_area == NULL)
+            {
+                _var_mbsfn_area = @[avp2];
+            }
+            else
+            {
+                _var_mbsfn_area = [_var_mbsfn_area arrayByAddingObject:avp2];
+            }
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

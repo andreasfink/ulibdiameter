@@ -2,7 +2,7 @@
 //  UMDiameterAvpUTRAN_Vector.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -88,8 +88,61 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpItem_Number  avpCode])
+        {
+            _var_item_number = [[UMDiameterAvpItem_Number alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_item_number];
+        }
+        else if(avp.avpCode == [UMDiameterAvpRAND avpCode])
+        {
+            _var_rand = [[UMDiameterAvpRAND alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_rand];
+        }
+        else if(avp.avpCode == [UMDiameterAvpXRES avpCode])
+        {
+            _var_xres = [[UMDiameterAvpXRES alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_xres];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAUTN avpCode])
+        {
+            _var_autn = [[UMDiameterAvpAUTN alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_autn];
+        }
+        else if(avp.avpCode == [UMDiameterAvpConfidentiality_Key avpCode])
+        {
+            _var_confidentiality_key = [[UMDiameterAvpConfidentiality_Key alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_confidentiality_key];
+        }
+        else if(avp.avpCode == [UMDiameterAvpIntegrity_Key avpCode])
+        {
+            _var_integrity_key = [[UMDiameterAvpIntegrity_Key alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_integrity_key];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

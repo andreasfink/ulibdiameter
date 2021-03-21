@@ -2,7 +2,7 @@
 //  UMDiameterAvpCommunication_Pattern_Set.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -91,8 +91,69 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpPeriodic_Communication_Indicator  avpCode])
+        {
+            _var_periodic_communication_indicator = [[UMDiameterAvpPeriodic_Communication_Indicator alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_periodic_communication_indicator];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCommunication_Duration_Time avpCode])
+        {
+            _var_communication_duration_time = [[UMDiameterAvpCommunication_Duration_Time alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_communication_duration_time];
+        }
+        else if(avp.avpCode == [UMDiameterAvpPeriodic_Time avpCode])
+        {
+            _var_periodic_time = [[UMDiameterAvpPeriodic_Time alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_periodic_time];
+        }
+        else if(avp.avpCode == [UMDiameterAvpScheduled_Communication_Time avpCode])
+        {
+            UMDiameterAvpScheduled_Communication_Time *avp2 = [[UMDiameterAvpScheduled_Communication_Time alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_scheduled_communication_time == NULL)
+            {
+                _var_scheduled_communication_time = @[avp2];
+            }
+            else
+            {
+                _var_scheduled_communication_time = [_var_scheduled_communication_time arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpStationary_Indication avpCode])
+        {
+            _var_stationary_indication = [[UMDiameterAvpStationary_Indication alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_stationary_indication];
+        }
+        else if(avp.avpCode == [UMDiameterAvpReference_ID_Validity_Time avpCode])
+        {
+            _var_reference_id_validity_time = [[UMDiameterAvpReference_ID_Validity_Time alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_reference_id_validity_time];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

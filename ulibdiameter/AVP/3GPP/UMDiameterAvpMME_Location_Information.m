@@ -2,7 +2,7 @@
 //  UMDiameterAvpMME_Location_Information.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -106,8 +106,76 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpE_UTRAN_Cell_Global_Identity  avpCode])
+        {
+            _var_e_utran_cell_global_identity = [[UMDiameterAvpE_UTRAN_Cell_Global_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_e_utran_cell_global_identity];
+        }
+        else if(avp.avpCode == [UMDiameterAvpTracking_Area_Identity avpCode])
+        {
+            _var_tracking_area_identity = [[UMDiameterAvpTracking_Area_Identity alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_tracking_area_identity];
+        }
+        else if(avp.avpCode == [UMDiameterAvpGeographical_Information avpCode])
+        {
+            _var_geographical_information = [[UMDiameterAvpGeographical_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_geographical_information];
+        }
+        else if(avp.avpCode == [UMDiameterAvpGeodetic_Information avpCode])
+        {
+            _var_geodetic_information = [[UMDiameterAvpGeodetic_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_geodetic_information];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCurrent_Location_Retrieved avpCode])
+        {
+            _var_current_location_retrieved = [[UMDiameterAvpCurrent_Location_Retrieved alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_current_location_retrieved];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAge_Of_Location_Information avpCode])
+        {
+            _var_age_of_location_information = [[UMDiameterAvpAge_Of_Location_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_age_of_location_information];
+        }
+        else if(avp.avpCode == [UMDiameterAvpUser_CSG_Information avpCode])
+        {
+            _var_user_csg_information = [[UMDiameterAvpUser_CSG_Information alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_user_csg_information];
+        }
+        else if(avp.avpCode == [UMDiameterAvpeNodeB_ID avpCode])
+        {
+            _var_enodeb_id = [[UMDiameterAvpeNodeB_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_enodeb_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpExtended_eNodeB_ID avpCode])
+        {
+            _var_extended_enodeb_id = [[UMDiameterAvpExtended_eNodeB_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_extended_enodeb_id];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

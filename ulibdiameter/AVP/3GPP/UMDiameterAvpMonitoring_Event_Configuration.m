@@ -2,7 +2,7 @@
 //  UMDiameterAvpMonitoring_Event_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -115,8 +115,89 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpSCEF_Reference_ID  avpCode])
+        {
+            _var_scef_reference_id = [[UMDiameterAvpSCEF_Reference_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_scef_reference_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSCEF_ID avpCode])
+        {
+            _var_scef_id = [[UMDiameterAvpSCEF_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_scef_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMonitoring_Type avpCode])
+        {
+            _var_monitoring_type = [[UMDiameterAvpMonitoring_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_monitoring_type];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSCEF_Reference_ID_for_Deletion avpCode])
+        {
+            UMDiameterAvpSCEF_Reference_ID_for_Deletion *avp2 = [[UMDiameterAvpSCEF_Reference_ID_for_Deletion alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_scef_reference_id_for_deletion == NULL)
+            {
+                _var_scef_reference_id_for_deletion = @[avp2];
+            }
+            else
+            {
+                _var_scef_reference_id_for_deletion = [_var_scef_reference_id_for_deletion arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpMaximum_Number_of_Reports avpCode])
+        {
+            _var_maximum_number_of_reports = [[UMDiameterAvpMaximum_Number_of_Reports alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_maximum_number_of_reports];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMonitoring_Duration avpCode])
+        {
+            _var_monitoring_duration = [[UMDiameterAvpMonitoring_Duration alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_monitoring_duration];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCharged_Party avpCode])
+        {
+            _var_charged_party = [[UMDiameterAvpCharged_Party alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_charged_party];
+        }
+        else if(avp.avpCode == [UMDiameterAvpUE_Reachability_Configuration avpCode])
+        {
+            _var_ue_reachability_configuration = [[UMDiameterAvpUE_Reachability_Configuration alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_ue_reachability_configuration];
+        }
+        else if(avp.avpCode == [UMDiameterAvpLocation_Information_Configuration avpCode])
+        {
+            _var_location_information_configuration = [[UMDiameterAvpLocation_Information_Configuration alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_location_information_configuration];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSCEF_Realm avpCode])
+        {
+            _var_scef_realm = [[UMDiameterAvpSCEF_Realm alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_scef_realm];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

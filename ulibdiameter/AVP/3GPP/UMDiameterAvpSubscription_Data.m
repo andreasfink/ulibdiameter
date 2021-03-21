@@ -2,7 +2,7 @@
 //  UMDiameterAvpSubscription_Data.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:43:54.586398
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -322,8 +322,300 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpSubscriber_Status  avpCode])
+        {
+            _var_subscriber_status = [[UMDiameterAvpSubscriber_Status alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_subscriber_status];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMSISDN avpCode])
+        {
+            _var_msisdn = [[UMDiameterAvpMSISDN alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_msisdn];
+        }
+        else if(avp.avpCode == [UMDiameterAvpA_MSISDN avpCode])
+        {
+            _var_a_msisdn = [[UMDiameterAvpA_MSISDN alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_a_msisdn];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSTN_SR avpCode])
+        {
+            _var_stn_sr = [[UMDiameterAvpSTN_SR alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_stn_sr];
+        }
+        else if(avp.avpCode == [UMDiameterAvpICS_Indicator avpCode])
+        {
+            _var_ics_indicator = [[UMDiameterAvpICS_Indicator alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_ics_indicator];
+        }
+        else if(avp.avpCode == [UMDiameterAvpNetwork_Access_Mode avpCode])
+        {
+            _var_network_access_mode = [[UMDiameterAvpNetwork_Access_Mode alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_network_access_mode];
+        }
+        else if(avp.avpCode == [UMDiameterAvpOperator_Determined_Barring avpCode])
+        {
+            _var_operator_determined_barring = [[UMDiameterAvpOperator_Determined_Barring alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_operator_determined_barring];
+        }
+        else if(avp.avpCode == [UMDiameterAvpHPLMN_ODB avpCode])
+        {
+            _var_hplmn_odb = [[UMDiameterAvpHPLMN_ODB alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_hplmn_odb];
+        }
+        else if(avp.avpCode == [UMDiameterAvpRegional_Subscription_Zone_Code avpCode])
+        {
+            UMDiameterAvpRegional_Subscription_Zone_Code *avp2 = [[UMDiameterAvpRegional_Subscription_Zone_Code alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_regional_subscription_zone_code == NULL)
+            {
+                _var_regional_subscription_zone_code = @[avp2];
+            }
+            else
+            {
+                _var_regional_subscription_zone_code = [_var_regional_subscription_zone_code arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpAccess_Restriction_Data avpCode])
+        {
+            _var_access_restriction_data = [[UMDiameterAvpAccess_Restriction_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_access_restriction_data];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAPN_OI_Replacement avpCode])
+        {
+            _var_apn_oi_replacement = [[UMDiameterAvpAPN_OI_Replacement alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_apn_oi_replacement];
+        }
+        else if(avp.avpCode == [UMDiameterAvpLCS_Info avpCode])
+        {
+            _var_lcs_info = [[UMDiameterAvpLCS_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_lcs_info];
+        }
+        else if(avp.avpCode == [UMDiameterAvpTeleservice_List avpCode])
+        {
+            _var_teleservice_list = [[UMDiameterAvpTeleservice_List alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_teleservice_list];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCall_Barring_Info avpCode])
+        {
+            UMDiameterAvpCall_Barring_Info *avp2 = [[UMDiameterAvpCall_Barring_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_call_barring_info == NULL)
+            {
+                _var_call_barring_info = @[avp2];
+            }
+            else
+            {
+                _var_call_barring_info = [_var_call_barring_info arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvp3GPP_Charging_Characteristics avpCode])
+        {
+            _var_3gpp_charging_characteristics = [[UMDiameterAvp3GPP_Charging_Characteristics alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_3gpp_charging_characteristics];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAMBR avpCode])
+        {
+            _var_ambr = [[UMDiameterAvpAMBR alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_ambr];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAPN_Configuration_Profile avpCode])
+        {
+            _var_apn_configuration_profile = [[UMDiameterAvpAPN_Configuration_Profile alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_apn_configuration_profile];
+        }
+        else if(avp.avpCode == [UMDiameterAvpRAT_Frequency_Selection_Priority_ID avpCode])
+        {
+            _var_rat_frequency_selection_priority_id = [[UMDiameterAvpRAT_Frequency_Selection_Priority_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_rat_frequency_selection_priority_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpTrace_Data avpCode])
+        {
+            _var_trace_data = [[UMDiameterAvpTrace_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_trace_data];
+        }
+        else if(avp.avpCode == [UMDiameterAvpGPRS_Subscription_Data avpCode])
+        {
+            _var_gprs_subscription_data = [[UMDiameterAvpGPRS_Subscription_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_gprs_subscription_data];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCSG_Subscription_Data avpCode])
+        {
+            UMDiameterAvpCSG_Subscription_Data *avp2 = [[UMDiameterAvpCSG_Subscription_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_csg_subscription_data == NULL)
+            {
+                _var_csg_subscription_data = @[avp2];
+            }
+            else
+            {
+                _var_csg_subscription_data = [_var_csg_subscription_data arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature avpCode])
+        {
+            _var_roaming_restricted_due_to_unsupported_feature = [[UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_roaming_restricted_due_to_unsupported_feature];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer avpCode])
+        {
+            _var_subscribed_periodic_rau_tau_timer = [[UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_subscribed_periodic_rau_tau_timer];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMPS_Priority avpCode])
+        {
+            _var_mps_priority = [[UMDiameterAvpMPS_Priority alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mps_priority];
+        }
+        else if(avp.avpCode == [UMDiameterAvpVPLMN_LIPA_Allowed avpCode])
+        {
+            _var_vplmn_lipa_allowed = [[UMDiameterAvpVPLMN_LIPA_Allowed alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_vplmn_lipa_allowed];
+        }
+        else if(avp.avpCode == [UMDiameterAvpRelay_Node_Indicator avpCode])
+        {
+            _var_relay_node_indicator = [[UMDiameterAvpRelay_Node_Indicator alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_relay_node_indicator];
+        }
+        else if(avp.avpCode == [UMDiameterAvpMDT_User_Consent avpCode])
+        {
+            _var_mdt_user_consent = [[UMDiameterAvpMDT_User_Consent alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mdt_user_consent];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSubscribed_VSRVCC avpCode])
+        {
+            _var_subscribed_vsrvcc = [[UMDiameterAvpSubscribed_VSRVCC alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_subscribed_vsrvcc];
+        }
+        else if(avp.avpCode == [UMDiameterAvpProSe_Subscription_Data avpCode])
+        {
+            _var_prose_subscription_data = [[UMDiameterAvpProSe_Subscription_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_prose_subscription_data];
+        }
+        else if(avp.avpCode == [UMDiameterAvpSubscription_Data_Flags avpCode])
+        {
+            _var_subscription_data_flags = [[UMDiameterAvpSubscription_Data_Flags alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_subscription_data_flags];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAdjacent_Access_Restriction_Data avpCode])
+        {
+            UMDiameterAvpAdjacent_Access_Restriction_Data *avp2 = [[UMDiameterAvpAdjacent_Access_Restriction_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_adjacent_access_restriction_data == NULL)
+            {
+                _var_adjacent_access_restriction_data = @[avp2];
+            }
+            else
+            {
+                _var_adjacent_access_restriction_data = [_var_adjacent_access_restriction_data arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpDL_Buffering_Suggested_Packet_Count avpCode])
+        {
+            _var_dl_buffering_suggested_packet_count = [[UMDiameterAvpDL_Buffering_Suggested_Packet_Count alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_dl_buffering_suggested_packet_count];
+        }
+        else if(avp.avpCode == [UMDiameterAvpIMSI_Group_Id avpCode])
+        {
+            UMDiameterAvpIMSI_Group_Id *avp2 = [[UMDiameterAvpIMSI_Group_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_imsi_group_id == NULL)
+            {
+                _var_imsi_group_id = @[avp2];
+            }
+            else
+            {
+                _var_imsi_group_id = [_var_imsi_group_id arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpUE_Usage_Type avpCode])
+        {
+            _var_ue_usage_type = [[UMDiameterAvpUE_Usage_Type alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_ue_usage_type];
+        }
+        else if(avp.avpCode == [UMDiameterAvpAESE_Communication_Pattern avpCode])
+        {
+            UMDiameterAvpAESE_Communication_Pattern *avp2 = [[UMDiameterAvpAESE_Communication_Pattern alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_aese_communication_pattern == NULL)
+            {
+                _var_aese_communication_pattern = @[avp2];
+            }
+            else
+            {
+                _var_aese_communication_pattern = [_var_aese_communication_pattern arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpMonitoring_Event_Configuration avpCode])
+        {
+            UMDiameterAvpMonitoring_Event_Configuration *avp2 = [[UMDiameterAvpMonitoring_Event_Configuration alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_monitoring_event_configuration == NULL)
+            {
+                _var_monitoring_event_configuration = @[avp2];
+            }
+            else
+            {
+                _var_monitoring_event_configuration = [_var_monitoring_event_configuration arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpEmergency_Info avpCode])
+        {
+            _var_emergency_info = [[UMDiameterAvpEmergency_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_emergency_info];
+        }
+        else if(avp.avpCode == [UMDiameterAvpV2X_Subscription_Data avpCode])
+        {
+            _var_v2x_subscription_data = [[UMDiameterAvpV2X_Subscription_Data alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_v2x_subscription_data];
+        }
+        else if(avp.avpCode == [UMDiameterAvpeDRX_Cycle_Length avpCode])
+        {
+            UMDiameterAvpeDRX_Cycle_Length *avp2 = [[UMDiameterAvpeDRX_Cycle_Length alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_edrx_cycle_length == NULL)
+            {
+                _var_edrx_cycle_length = @[avp2];
+            }
+            else
+            {
+                _var_edrx_cycle_length = [_var_edrx_cycle_length arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpExternal_Identifier avpCode])
+        {
+            _var_external_identifier = [[UMDiameterAvpExternal_Identifier alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_external_identifier];
+        }
+        else if(avp.avpCode == [UMDiameterAvpActive_Time avpCode])
+        {
+            _var_active_time = [[UMDiameterAvpActive_Time alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_active_time];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

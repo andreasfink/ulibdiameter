@@ -2,7 +2,7 @@
 //  UMDiameterAvpExperimental_Result.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:43:54.490810
+//  Created by afink on 2021-03-21 13:35:20.301913
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -54,8 +54,36 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpVendor_Id  avpCode])
+        {
+            _var_vendor_id = [[UMDiameterAvpVendor_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_vendor_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpExperimental_Result_Code avpCode])
+        {
+            _var_experimental_result_code = [[UMDiameterAvpExperimental_Result_Code alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_experimental_result_code];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

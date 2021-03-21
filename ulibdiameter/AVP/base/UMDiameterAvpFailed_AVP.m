@@ -2,7 +2,7 @@
 //  UMDiameterAvpFailed_AVP.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:43:54.490810
+//  Created by afink on 2021-03-21 13:35:20.301913
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -51,8 +51,20 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

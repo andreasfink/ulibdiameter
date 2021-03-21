@@ -2,7 +2,7 @@
 //  UMDiameterAvpSupported_Applications.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -79,8 +79,70 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpAuth_Application_Id  avpCode])
+        {
+            UMDiameterAvpAuth_Application_Id *avp2 = [[UMDiameterAvpAuth_Application_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_auth_application_id == NULL)
+            {
+                _var_auth_application_id = @[avp2];
+            }
+            else
+            {
+                _var_auth_application_id = [_var_auth_application_id arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpAcct_Application_Id avpCode])
+        {
+            UMDiameterAvpAcct_Application_Id *avp2 = [[UMDiameterAvpAcct_Application_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_acct_application_id == NULL)
+            {
+                _var_acct_application_id = @[avp2];
+            }
+            else
+            {
+                _var_acct_application_id = [_var_acct_application_id arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
+        {
+            UMDiameterAvpVendor_Specific_Application_Id *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_vendor_specific_application_id == NULL)
+            {
+                _var_vendor_specific_application_id = @[avp2];
+            }
+            else
+            {
+                _var_vendor_specific_application_id = [_var_vendor_specific_application_id arrayByAddingObject:avp2];
+            }
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

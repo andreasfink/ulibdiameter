@@ -2,7 +2,7 @@
 //  UMDiameterAvpAuth_Session_State.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:43:54.490810
+//  Created by afink on 2021-03-21 13:35:20.301913
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -41,6 +41,7 @@
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(NO);
+
     return avpDef;
 }
 

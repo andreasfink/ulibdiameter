@@ -2,7 +2,7 @@
 //  UMDiameterAvpMBSFN_Area.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -64,8 +64,41 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpMBSFN_Area_ID  avpCode])
+        {
+            _var_mbsfn_area_id = [[UMDiameterAvpMBSFN_Area_ID alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_mbsfn_area_id];
+        }
+        else if(avp.avpCode == [UMDiameterAvpCarrier_Frequency avpCode])
+        {
+            _var_carrier_frequency = [[UMDiameterAvpCarrier_Frequency alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_carrier_frequency];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

@@ -2,7 +2,7 @@
 //  UMDiameterAvpSCSCF_Restoration_Info.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:42:39.527659
+//  Created by afink on 2021-03-21 13:35:20.533812
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -73,8 +73,54 @@
 }
 
 
-//- (void)afterDecode
-/* skipped as there's no properties to decode */
+- (void)afterDecode
+{
+    NSArray *avps = [self array];
+
+    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
+    NSMutableArray *unknownAVPs;
+
+    for(UMDiameterAvp *avp in avps)
+    {
+        if(avp.avpCode == [UMDiameterAvpUser_Name  avpCode])
+        {
+            _var_user_name = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_user_name];
+        }
+        else if(avp.avpCode == [UMDiameterAvpRestoration_Info avpCode])
+        {
+            UMDiameterAvpRestoration_Info *avp2 = [[UMDiameterAvpRestoration_Info alloc]initWithAvp:avp];
+            [knownAVPs addObject:avp2];
+            if(_var_restoration_info == NULL)
+            {
+                _var_restoration_info = @[avp2];
+            }
+            else
+            {
+                _var_restoration_info = [_var_restoration_info arrayByAddingObject:avp2];
+            }
+        }
+        else if(avp.avpCode == [UMDiameterAvpSIP_Authentication_Scheme avpCode])
+        {
+            _var_sip_authentication_scheme = [[UMDiameterAvpSIP_Authentication_Scheme alloc]initWithAvp:avp];
+            [knownAVPs addObject:_var_sip_authentication_scheme];
+        }
+        else
+        {
+             if(unknownAVPs==NULL)
+             {
+                 unknownAVPs = [[NSMutableArray alloc]init];
+             }
+             [unknownAVPs addObject:avp];
+        }
+    }
+    if(unknownAVPs.count>0)
+    {
+        _var_avp = unknownAVPs;
+        [knownAVPs addObject:[_var_avp copy]];
+    }
+    [self setArray:knownAVPs];
+}
 
 + (void)appendWebDiameterParameters:(NSMutableString *)s webName:(NSString *)webName  comment:(NSString *)webComment css:(NSString *)cssClass
 {

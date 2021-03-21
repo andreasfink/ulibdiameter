@@ -375,7 +375,7 @@
     [s appendString:@"\n"];
     [s appendString:@"\n"];
 
-    if(_avps.count> 0)
+    if(_avps.count == 0)
     {
         [s appendString:@"//- (void)afterDecode\n"];
         [s appendString:@"/* skipped as there's no properties to decode */\n"];
