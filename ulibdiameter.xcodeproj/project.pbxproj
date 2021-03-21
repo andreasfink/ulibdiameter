@@ -59,6 +59,7 @@
 		A638465C22CF8D5C00D62749 /* UMDiameterPacketPurge_UE_Answer.h in Headers */ = {isa = PBXBuildFile; fileRef = A638463C22CF8D5C00D62749 /* UMDiameterPacketPurge_UE_Answer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A638465D22CF8D5C00D62749 /* UMDiameterPacketInsert_Subscriber_Data_Request.h in Headers */ = {isa = PBXBuildFile; fileRef = A638463D22CF8D5C00D62749 /* UMDiameterPacketInsert_Subscriber_Data_Request.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A638465E22CF8D5C00D62749 /* UMDiameterPacketInsert_Subscriber_Data_Answer.h in Headers */ = {isa = PBXBuildFile; fileRef = A638463E22CF8D5C00D62749 /* UMDiameterPacketInsert_Subscriber_Data_Answer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A64B215526070BAB00E54CF6 /* ulibgsmmap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64B215426070BAB00E54CF6 /* ulibgsmmap.framework */; };
 		A6506EB72211B32B006665A9 /* UMDiameterPeer.h in Headers */ = {isa = PBXBuildFile; fileRef = A6506EB52211B32B006665A9 /* UMDiameterPeer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6506EB82211B32B006665A9 /* UMDiameterPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6506EB62211B32B006665A9 /* UMDiameterPeer.m */; };
 		A6506EBF2211B727006665A9 /* UMDiameterPeerState.h in Headers */ = {isa = PBXBuildFile; fileRef = A6506EBD2211B727006665A9 /* UMDiameterPeerState.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1420,6 +1421,7 @@
 		A638463C22CF8D5C00D62749 /* UMDiameterPacketPurge_UE_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketPurge_UE_Answer.h; sourceTree = "<group>"; };
 		A638463D22CF8D5C00D62749 /* UMDiameterPacketInsert_Subscriber_Data_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketInsert_Subscriber_Data_Request.h; sourceTree = "<group>"; };
 		A638463E22CF8D5C00D62749 /* UMDiameterPacketInsert_Subscriber_Data_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketInsert_Subscriber_Data_Answer.h; sourceTree = "<group>"; };
+		A64B215426070BAB00E54CF6 /* ulibgsmmap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibgsmmap.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulibgsmmap.framework"; sourceTree = "<absolute>"; };
 		A6506EB52211B32B006665A9 /* UMDiameterPeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeer.h; sourceTree = "<group>"; };
 		A6506EB62211B32B006665A9 /* UMDiameterPeer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeer.m; sourceTree = "<group>"; };
 		A6506EBD2211B727006665A9 /* UMDiameterPeerState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeerState.h; sourceTree = "<group>"; };
@@ -2911,6 +2913,7 @@
 				A6798A0422BB6F3A0019806C /* ulibpcap.framework in Frameworks */,
 				A6DCCE8825FB54B90030CBC5 /* ulibdb.framework in Frameworks */,
 				A67989F422BB6D960019806C /* ulib.framework in Frameworks */,
+				A64B215526070BAB00E54CF6 /* ulibgsmmap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4517,6 +4520,7 @@
 		A6A58BA2203A678600D0C2BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A64B215426070BAB00E54CF6 /* ulibgsmmap.framework */,
 				A6DCCE8725FB54B90030CBC5 /* ulibdb.framework */,
 				A6798A0322BB6F3A0019806C /* ulibpcap.framework */,
 				A67989F722BB6D9E0019806C /* ulibsctp.framework */,
@@ -6489,6 +6493,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = ./AVP/3GPP;
@@ -6516,6 +6521,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",

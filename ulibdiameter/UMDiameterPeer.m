@@ -1019,7 +1019,7 @@
     {
         packet.var_error_message = [[UMDiameterAvpError_Message alloc]initWithString:errorMessage];
     }
-    if(failedAvp)
+    if(failedAvp.count > 0)
     {
         packet.var_failed_avp =  [[UMDiameterAvpFailed_AVP alloc]init];
         [packet.var_failed_avp setArray:failedAvp];

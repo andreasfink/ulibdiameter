@@ -12,7 +12,7 @@
 
 - (id)objectValue
 {
-    return [self stringValue];
+    return [self msisdn];
 }
 
 @end
