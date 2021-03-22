@@ -2,7 +2,7 @@
 //  UMDiameterPacketCUA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:40:59.418902
+//  Created by afink on 2021-03-22 08:49:57.386898
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -173,27 +173,23 @@
     {
         if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
+            UMDiameterAvpResult_Code *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
             _var_result_code = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpError_Message avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpError_Message alloc]initWithAvp:avp];
+            UMDiameterAvpError_Message *avp2 = [[UMDiameterAvpError_Message alloc]initWithAvp:avp];
             _var_error_message = avp2;
-            [knownAVPs addObject:avp2]
         }
         else
         {

@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:40:59.254112
+//  Created by afink on 2021-03-22 08:49:57.223394
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -155,21 +155,18 @@
     {
         if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpDisconnect_Cause avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpDisconnect_Cause alloc]initWithAvp:avp];
+            UMDiameterAvpDisconnect_Cause *avp2 = [[UMDiameterAvpDisconnect_Cause alloc]initWithAvp:avp];
             _var_disconnect_cause = avp2;
-            [knownAVPs addObject:avp2]
         }
         else
         {

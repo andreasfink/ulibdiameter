@@ -2,7 +2,7 @@
 //  UMDiameterPacketProvide_Location_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:41:00.070258
+//  Created by afink on 2021-03-22 08:49:58.056478
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -644,139 +644,117 @@
     {
         if(avp.avpCode == [UMDiameterAvpSession_Id avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
+            UMDiameterAvpSession_Id *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
             _var_session_id = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
+            UMDiameterAvpVendor_Specific_Application_Id *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
             _var_vendor_specific_application_id = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
+            UMDiameterAvpResult_Code *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
             _var_result_code = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpExperimental_Result avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpExperimental_Result alloc]initWithAvp:avp];
+            UMDiameterAvpExperimental_Result *avp2 = [[UMDiameterAvpExperimental_Result alloc]initWithAvp:avp];
             _var_experimental_result = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpAuth_Session_State avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
+            UMDiameterAvpAuth_Session_State *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
             _var_auth_session_state = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpLocation_Estimate avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpLocation_Estimate alloc]initWithAvp:avp];
+            UMDiameterAvpLocation_Estimate *avp2 = [[UMDiameterAvpLocation_Estimate alloc]initWithAvp:avp];
             _var_location_estimate = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpAccuracy_Fulfilment_Indicator avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpAccuracy_Fulfilment_Indicator alloc]initWithAvp:avp];
+            UMDiameterAvpAccuracy_Fulfilment_Indicator *avp2 = [[UMDiameterAvpAccuracy_Fulfilment_Indicator alloc]initWithAvp:avp];
             _var_accuracy_fulfilment_indicator = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpAge_Of_Location_Estimate avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpAge_Of_Location_Estimate alloc]initWithAvp:avp];
+            UMDiameterAvpAge_Of_Location_Estimate *avp2 = [[UMDiameterAvpAge_Of_Location_Estimate alloc]initWithAvp:avp];
             _var_age_of_location_estimate = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpVelocity_Estimate avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpVelocity_Estimate alloc]initWithAvp:avp];
+            UMDiameterAvpVelocity_Estimate *avp2 = [[UMDiameterAvpVelocity_Estimate alloc]initWithAvp:avp];
             _var_velocity_estimate = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpEUTRAN_Positioning_Data avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpEUTRAN_Positioning_Data alloc]initWithAvp:avp];
+            UMDiameterAvpEUTRAN_Positioning_Data *avp2 = [[UMDiameterAvpEUTRAN_Positioning_Data alloc]initWithAvp:avp];
             _var_eutran_positioning_data = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpECGI avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpECGI alloc]initWithAvp:avp];
+            UMDiameterAvpECGI *avp2 = [[UMDiameterAvpECGI alloc]initWithAvp:avp];
             _var_ecgi = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpGERAN_Positioning_Info avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpGERAN_Positioning_Info alloc]initWithAvp:avp];
+            UMDiameterAvpGERAN_Positioning_Info *avp2 = [[UMDiameterAvpGERAN_Positioning_Info alloc]initWithAvp:avp];
             _var_geran_positioning_info = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpCell_Global_Identity avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
+            UMDiameterAvpCell_Global_Identity *avp2 = [[UMDiameterAvpCell_Global_Identity alloc]initWithAvp:avp];
             _var_cell_global_identity = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpUTRAN_Positioning_Info avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpUTRAN_Positioning_Info alloc]initWithAvp:avp];
+            UMDiameterAvpUTRAN_Positioning_Info *avp2 = [[UMDiameterAvpUTRAN_Positioning_Info alloc]initWithAvp:avp];
             _var_utran_positioning_info = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpService_Area_Identity avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpService_Area_Identity alloc]initWithAvp:avp];
+            UMDiameterAvpService_Area_Identity *avp2 = [[UMDiameterAvpService_Area_Identity alloc]initWithAvp:avp];
             _var_service_area_identity = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpServing_Node avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpServing_Node alloc]initWithAvp:avp];
+            UMDiameterAvpServing_Node *avp2 = [[UMDiameterAvpServing_Node alloc]initWithAvp:avp];
             _var_serving_node = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpPLA_Flags avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpPLA_Flags alloc]initWithAvp:avp];
+            UMDiameterAvpPLA_Flags *avp2 = [[UMDiameterAvpPLA_Flags alloc]initWithAvp:avp];
             _var_pla_flags = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpESMLC_Cell_Info avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpESMLC_Cell_Info alloc]initWithAvp:avp];
+            UMDiameterAvpESMLC_Cell_Info *avp2 = [[UMDiameterAvpESMLC_Cell_Info alloc]initWithAvp:avp];
             _var_esmlc_cell_info = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpCivic_Address avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpCivic_Address alloc]initWithAvp:avp];
+            UMDiameterAvpCivic_Address *avp2 = [[UMDiameterAvpCivic_Address alloc]initWithAvp:avp];
             _var_civic_address = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpBarometric_Pressure avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpBarometric_Pressure alloc]initWithAvp:avp];
+            UMDiameterAvpBarometric_Pressure *avp2 = [[UMDiameterAvpBarometric_Pressure alloc]initWithAvp:avp];
             _var_barometric_pressure = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpSupported_Features avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpSupported_Features alloc]initWithAvp:avp];
+            UMDiameterAvpSupported_Features *avp2 = [[UMDiameterAvpSupported_Features alloc]initWithAvp:avp];
             if(_var_supported_features == NULL)
             {
                 _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp2];
@@ -788,13 +766,12 @@
         }
         if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
+            UMDiameterAvpFailed_AVP *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
             _var_failed_avp = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
+            UMDiameterAvpProxy_Info *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
             if(_var_proxy_info == NULL)
             {
                 _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp2];
@@ -806,7 +783,7 @@
         }
         if(avp.avpCode == [UMDiameterAvpRoute_Record avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpRoute_Record alloc]initWithAvp:avp];
+            UMDiameterAvpRoute_Record *avp2 = [[UMDiameterAvpRoute_Record alloc]initWithAvp:avp];
             if(_var_route_record == NULL)
             {
                 _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp2];

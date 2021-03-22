@@ -2,7 +2,7 @@
 //  UMDiameterPacketNotify_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:40:59.879881
+//  Created by afink on 2021-03-22 08:49:57.866117
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -651,67 +651,57 @@
     {
         if(avp.avpCode == [UMDiameterAvpSession_Id avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
+            UMDiameterAvpSession_Id *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
             _var_session_id = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
+            UMDiameterAvpVendor_Specific_Application_Id *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
             _var_vendor_specific_application_id = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpDRMP avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpDRMP alloc]initWithAvp:avp];
+            UMDiameterAvpDRMP *avp2 = [[UMDiameterAvpDRMP alloc]initWithAvp:avp];
             _var_drmp = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpAuth_Session_State avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
+            UMDiameterAvpAuth_Session_State *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
             _var_auth_session_state = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpDestination_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpDestination_Host alloc]initWithAvp:avp];
+            UMDiameterAvpDestination_Host *avp2 = [[UMDiameterAvpDestination_Host alloc]initWithAvp:avp];
             _var_destination_host = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpDestination_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpDestination_Realm alloc]initWithAvp:avp];
+            UMDiameterAvpDestination_Realm *avp2 = [[UMDiameterAvpDestination_Realm alloc]initWithAvp:avp];
             _var_destination_realm = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpUser_Name avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
+            UMDiameterAvpUser_Name *avp2 = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
             _var_user_name = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpOC_Supported_Features avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpOC_Supported_Features alloc]initWithAvp:avp];
+            UMDiameterAvpOC_Supported_Features *avp2 = [[UMDiameterAvpOC_Supported_Features alloc]initWithAvp:avp];
             _var_oc_supported_features = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpSupported_Features avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpSupported_Features alloc]initWithAvp:avp];
+            UMDiameterAvpSupported_Features *avp2 = [[UMDiameterAvpSupported_Features alloc]initWithAvp:avp];
             if(_var_supported_features == NULL)
             {
                 _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp2];
@@ -723,67 +713,57 @@
         }
         if(avp.avpCode == [UMDiameterAvpTerminal_Information avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpTerminal_Information alloc]initWithAvp:avp];
+            UMDiameterAvpTerminal_Information *avp2 = [[UMDiameterAvpTerminal_Information alloc]initWithAvp:avp];
             _var_terminal_information = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpMIP6_Agent_Info avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
+            UMDiameterAvpMIP6_Agent_Info *avp2 = [[UMDiameterAvpMIP6_Agent_Info alloc]initWithAvp:avp];
             _var_mip6_agent_info = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpVisited_Network_Identifier avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
+            UMDiameterAvpVisited_Network_Identifier *avp2 = [[UMDiameterAvpVisited_Network_Identifier alloc]initWithAvp:avp];
             _var_visited_network_identifier = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpContext_Identifier avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
+            UMDiameterAvpContext_Identifier *avp2 = [[UMDiameterAvpContext_Identifier alloc]initWithAvp:avp];
             _var_context_identifier = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpService_Selection avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
+            UMDiameterAvpService_Selection *avp2 = [[UMDiameterAvpService_Selection alloc]initWithAvp:avp];
             _var_service_selection = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpAlert_Reason avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpAlert_Reason alloc]initWithAvp:avp];
+            UMDiameterAvpAlert_Reason *avp2 = [[UMDiameterAvpAlert_Reason alloc]initWithAvp:avp];
             _var_alert_reason = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpUE_SRVCC_Capability avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpUE_SRVCC_Capability alloc]initWithAvp:avp];
+            UMDiameterAvpUE_SRVCC_Capability *avp2 = [[UMDiameterAvpUE_SRVCC_Capability alloc]initWithAvp:avp];
             _var_ue_srvcc_capability = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpNOR_Flags avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpNOR_Flags alloc]initWithAvp:avp];
+            UMDiameterAvpNOR_Flags *avp2 = [[UMDiameterAvpNOR_Flags alloc]initWithAvp:avp];
             _var_nor_flags = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions alloc]initWithAvp:avp];
+            UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions *avp2 = [[UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions alloc]initWithAvp:avp];
             _var_homogeneous_support_of_ims_voice_over_ps_sessions = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpMaximum_UE_Availability_Time avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpMaximum_UE_Availability_Time alloc]initWithAvp:avp];
+            UMDiameterAvpMaximum_UE_Availability_Time *avp2 = [[UMDiameterAvpMaximum_UE_Availability_Time alloc]initWithAvp:avp];
             _var_maximum_ue_availability_time = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpMonitoring_Event_Config_Status avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpMonitoring_Event_Config_Status alloc]initWithAvp:avp];
+            UMDiameterAvpMonitoring_Event_Config_Status *avp2 = [[UMDiameterAvpMonitoring_Event_Config_Status alloc]initWithAvp:avp];
             if(_var_monitoring_event_config_status == NULL)
             {
                 _var_monitoring_event_config_status = (NSArray<UMDiameterAvpMonitoring_Event_Config_Status *>*)@[avp2];
@@ -795,13 +775,12 @@
         }
         if(avp.avpCode == [UMDiameterAvpEmergency_Services avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpEmergency_Services alloc]initWithAvp:avp];
+            UMDiameterAvpEmergency_Services *avp2 = [[UMDiameterAvpEmergency_Services alloc]initWithAvp:avp];
             _var_emergency_services = avp2;
-            [knownAVPs addObject:avp2]
         }
         if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
+            UMDiameterAvpProxy_Info *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
             if(_var_proxy_info == NULL)
             {
                 _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp2];
@@ -813,7 +792,7 @@
         }
         if(avp.avpCode == [UMDiameterAvpRoute_Record avpCode])
         {
-                UMDiameterAvp *avp2 = [[UMDiameterAvpRoute_Record alloc]initWithAvp:avp];
+            UMDiameterAvpRoute_Record *avp2 = [[UMDiameterAvpRoute_Record alloc]initWithAvp:avp];
             if(_var_route_record == NULL)
             {
                 _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp2];
