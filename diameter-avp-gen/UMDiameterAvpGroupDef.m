@@ -382,7 +382,6 @@
     }
     else
     {
-
         [s appendString:@"- (void)afterDecode\n"];
         [s appendString:@"{\n"];
         [s appendString:@"    [super afterDecode];\n"];

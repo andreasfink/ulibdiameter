@@ -2,7 +2,7 @@
 //  UMDiameterAvpQoS_Resources.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-21 13:36:20.640598
+//  Created by afink on 2021-03-22 10:09:01.722780
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -62,6 +62,7 @@
 
 - (void)afterDecode
 {
+    [super afterDecode];
     NSArray *avps = [self array];
 
     NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];

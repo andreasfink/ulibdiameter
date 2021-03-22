@@ -2,7 +2,7 @@
 //  UMDiameterAvpLocation_Information_Configuration.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-21 13:35:20.533812
+//  Created by afink on 2021-03-22 10:09:01.764546
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -66,6 +66,7 @@
 
 - (void)afterDecode
 {
+    [super afterDecode];
     NSArray *avps = [self array];
 
     NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
