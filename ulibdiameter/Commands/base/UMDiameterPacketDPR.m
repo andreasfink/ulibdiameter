@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPR.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:25:22.506497
+//  Created by afink on 2021-03-22 08:49:57.223394
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -153,17 +153,20 @@
 {
     for(UMDiameterAvp *avp in _packet_avps)
     {
-        if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+            UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            _var_origin_host = avp2;
         }
-        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+            UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            _var_origin_realm = avp2;
         }
-        else if([avp isKindOfClass:[UMDiameterAvpDisconnect_Cause class]])
+        if(avp.avpCode == [UMDiameterAvpDisconnect_Cause avpCode])
         {
-            _var_disconnect_cause = (UMDiameterAvpDisconnect_Cause *)avp;
+            UMDiameterAvpDisconnect_Cause *avp2 = [[UMDiameterAvpDisconnect_Cause alloc]initWithAvp:avp];
+            _var_disconnect_cause = avp2;
         }
         else
         {

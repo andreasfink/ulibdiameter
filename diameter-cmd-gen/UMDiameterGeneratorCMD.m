@@ -593,29 +593,33 @@
         {
             continue;
         }
-        if(firstAvp)
+        
+        if(firstAvp == YES )
         {
-            firstAvp=NO;
-            [s appendFormat:@"        if([avp isKindOfClass:[%@%@ class]])\n",avpPrefix,avp.objectName];
+            [s appendString:@"        if(avp.avpCode == ["];
+            firstAvp = NO;
         }
         else
         {
-            [s appendFormat:@"        else if([avp isKindOfClass:[%@%@ class]])\n",avpPrefix,avp.objectName];
+            [s appendString:@"        else if(avp.avpCode == ["];
         }
+        [s appendFormat:@"%@%@ avpCode])\n",avpPrefix,avp.objectName];
         [s appendString:@"        {\n"];
+        [s appendFormat:@"            %@%@ *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
+
         if(!avp.multiple)
         {
-            [s appendFormat:@"            %@ = (%@%@ *)avp;\n",avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"            %@ = avp2;\n",avp.variableName];
         }
         else
         {
             [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
             [s appendFormat:@"            {\n"];
-            [s appendFormat:@"                %@ = (NSArray<%@%@ *>*)@[avp];\n",avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"                %@ = (NSArray<%@%@ *>*)@[avp2];\n",avp.variableName,avpPrefix,avp.objectName];
             [s appendFormat:@"            }\n"];
             [s appendFormat:@"            else\n"];
             [s appendFormat:@"            {\n"];
-            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:(%@%@ *)avp];\n",avp.variableName,avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n",avp.variableName,avp.variableName];
             [s appendFormat:@"            }\n"];
         }
         [s appendString:@"        }\n"];
