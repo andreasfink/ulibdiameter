@@ -2,7 +2,7 @@
 //  UMDiameterPacketDPA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:33:27.851552
+//  Created by afink on 2021-03-22 08:40:59.287387
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -189,34 +189,34 @@
 {
     for(UMDiameterAvp *avp in _packet_avps)
     {
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_result_codeUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
+            _var_result_code = avp2;
             [knownAVPs addObject:avp2]
         }
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            _var_origin_host = avp2;
             [knownAVPs addObject:avp2]
         }
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            _var_origin_realm = avp2;
             [knownAVPs addObject:avp2]
         }
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpError_Message avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_error_messageUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpError_Message alloc]initWithAvp:avp];
+            _var_error_message = avp2;
             [knownAVPs addObject:avp2]
         }
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_failed_avpUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
+            _var_failed_avp = avp2;
             [knownAVPs addObject:avp2]
         }
         else

@@ -2,7 +2,7 @@
 //  UMDiameterPacketInsert_Subscriber_Data_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-05-01 08:25:22.811800
+//  Created by afink on 2021-03-22 08:40:59.586791
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -620,127 +620,166 @@
 {
     for(UMDiameterAvp *avp in _packet_avps)
     {
-        if([avp isKindOfClass:[UMDiameterAvpSession_Id class]])
+        if(avp.avpCode == [UMDiameterAvpSession_Id avpCode])
         {
-            _var_session_id = (UMDiameterAvpSession_Id *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
+            _var_session_id = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpDRMP class]])
+        if(avp.avpCode == [UMDiameterAvpDRMP avpCode])
         {
-            _var_drmp = (UMDiameterAvpDRMP *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpDRMP alloc]initWithAvp:avp];
+            _var_drmp = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
+        if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
         {
-            _var_vendor_specific_application_id = (UMDiameterAvpVendor_Specific_Application_Id *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
+            _var_vendor_specific_application_id = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpSupported_Features class]])
+        if(avp.avpCode == [UMDiameterAvpSupported_Features avpCode])
         {
+                UMDiameterAvp *avp2 = [[UMDiameterAvpSupported_Features alloc]initWithAvp:avp];
             if(_var_supported_features == NULL)
             {
-                _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp];
+                _var_supported_features = (NSArray<UMDiameterAvpSupported_Features *>*)@[avp2];
             }
             else
             {
-                _var_supported_features = [_var_supported_features arrayByAddingObject:(UMDiameterAvpSupported_Features *)avp];
+                _var_supported_features = [_var_supported_features arrayByAddingObject:avp2];
             }
         }
-        else if([avp isKindOfClass:[UMDiameterAvpResult_Code class]])
+        if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
         {
-            _var_result_code = (UMDiameterAvpResult_Code *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
+            _var_result_code = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpExperimental_Result class]])
+        if(avp.avpCode == [UMDiameterAvpExperimental_Result avpCode])
         {
-            _var_experimental_result = (UMDiameterAvpExperimental_Result *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpExperimental_Result alloc]initWithAvp:avp];
+            _var_experimental_result = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpAuth_Session_State class]])
+        if(avp.avpCode == [UMDiameterAvpAuth_Session_State avpCode])
         {
-            _var_auth_session_state = (UMDiameterAvpAuth_Session_State *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
+            _var_auth_session_state = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            _var_origin_host = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            _var_origin_realm = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported class]])
+        if(avp.avpCode == [UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported avpCode])
         {
-            _var_ims_voice_over_ps_sessions_supported = (UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported alloc]initWithAvp:avp];
+            _var_ims_voice_over_ps_sessions_supported = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpLast_UE_Activity_Time class]])
+        if(avp.avpCode == [UMDiameterAvpLast_UE_Activity_Time avpCode])
         {
-            _var_last_ue_activity_time = (UMDiameterAvpLast_UE_Activity_Time *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpLast_UE_Activity_Time alloc]initWithAvp:avp];
+            _var_last_ue_activity_time = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpRAT_Type class]])
+        if(avp.avpCode == [UMDiameterAvpRAT_Type avpCode])
         {
-            _var_rat_type = (UMDiameterAvpRAT_Type *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpRAT_Type alloc]initWithAvp:avp];
+            _var_rat_type = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpIDA_Flags class]])
+        if(avp.avpCode == [UMDiameterAvpIDA_Flags avpCode])
         {
-            _var_ida_flags = (UMDiameterAvpIDA_Flags *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpIDA_Flags alloc]initWithAvp:avp];
+            _var_ida_flags = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpEPS_User_State class]])
+        if(avp.avpCode == [UMDiameterAvpEPS_User_State avpCode])
         {
-            _var_eps_user_state = (UMDiameterAvpEPS_User_State *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpEPS_User_State alloc]initWithAvp:avp];
+            _var_eps_user_state = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpEPS_Location_Information class]])
+        if(avp.avpCode == [UMDiameterAvpEPS_Location_Information avpCode])
         {
-            _var_eps_location_information = (UMDiameterAvpEPS_Location_Information *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpEPS_Location_Information alloc]initWithAvp:avp];
+            _var_eps_location_information = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpLocal_Time_Zone class]])
+        if(avp.avpCode == [UMDiameterAvpLocal_Time_Zone avpCode])
         {
-            _var_local_time_zone = (UMDiameterAvpLocal_Time_Zone *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpLocal_Time_Zone alloc]initWithAvp:avp];
+            _var_local_time_zone = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpSupported_Services class]])
+        if(avp.avpCode == [UMDiameterAvpSupported_Services avpCode])
         {
-            _var_supported_services = (UMDiameterAvpSupported_Services *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpSupported_Services alloc]initWithAvp:avp];
+            _var_supported_services = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpMonitoring_Event_Report class]])
+        if(avp.avpCode == [UMDiameterAvpMonitoring_Event_Report avpCode])
         {
+                UMDiameterAvp *avp2 = [[UMDiameterAvpMonitoring_Event_Report alloc]initWithAvp:avp];
             if(_var_monitoring_event_report == NULL)
             {
-                _var_monitoring_event_report = (NSArray<UMDiameterAvpMonitoring_Event_Report *>*)@[avp];
+                _var_monitoring_event_report = (NSArray<UMDiameterAvpMonitoring_Event_Report *>*)@[avp2];
             }
             else
             {
-                _var_monitoring_event_report = [_var_monitoring_event_report arrayByAddingObject:(UMDiameterAvpMonitoring_Event_Report *)avp];
+                _var_monitoring_event_report = [_var_monitoring_event_report arrayByAddingObject:avp2];
             }
         }
-        else if([avp isKindOfClass:[UMDiameterAvpMonitoring_Event_Config_Status class]])
+        if(avp.avpCode == [UMDiameterAvpMonitoring_Event_Config_Status avpCode])
         {
+                UMDiameterAvp *avp2 = [[UMDiameterAvpMonitoring_Event_Config_Status alloc]initWithAvp:avp];
             if(_var_monitoring_event_config_status == NULL)
             {
-                _var_monitoring_event_config_status = (NSArray<UMDiameterAvpMonitoring_Event_Config_Status *>*)@[avp];
+                _var_monitoring_event_config_status = (NSArray<UMDiameterAvpMonitoring_Event_Config_Status *>*)@[avp2];
             }
             else
             {
-                _var_monitoring_event_config_status = [_var_monitoring_event_config_status arrayByAddingObject:(UMDiameterAvpMonitoring_Event_Config_Status *)avp];
+                _var_monitoring_event_config_status = [_var_monitoring_event_config_status arrayByAddingObject:avp2];
             }
         }
-        else if([avp isKindOfClass:[UMDiameterAvpFailed_AVP class]])
+        if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
-            _var_failed_avp = (UMDiameterAvpFailed_AVP *)avp;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
+            _var_failed_avp = avp2;
+            [knownAVPs addObject:avp2]
         }
-        else if([avp isKindOfClass:[UMDiameterAvpProxy_Info class]])
+        if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
         {
+                UMDiameterAvp *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
             if(_var_proxy_info == NULL)
             {
-                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp];
+                _var_proxy_info = (NSArray<UMDiameterAvpProxy_Info *>*)@[avp2];
             }
             else
             {
-                _var_proxy_info = [_var_proxy_info arrayByAddingObject:(UMDiameterAvpProxy_Info *)avp];
+                _var_proxy_info = [_var_proxy_info arrayByAddingObject:avp2];
             }
         }
-        else if([avp isKindOfClass:[UMDiameterAvpRoute_Record class]])
+        if(avp.avpCode == [UMDiameterAvpRoute_Record avpCode])
         {
+                UMDiameterAvp *avp2 = [[UMDiameterAvpRoute_Record alloc]initWithAvp:avp];
             if(_var_route_record == NULL)
             {
-                _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp];
+                _var_route_record = (NSArray<UMDiameterAvpRoute_Record *>*)@[avp2];
             }
             else
             {
-                _var_route_record = [_var_route_record arrayByAddingObject:(UMDiameterAvpRoute_Record *)avp];
+                _var_route_record = [_var_route_record arrayByAddingObject:avp2];
             }
         }
         else

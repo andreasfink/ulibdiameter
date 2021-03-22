@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWR.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:33:27.564743
+//  Created by afink on 2021-03-22 08:40:58.991672
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -153,22 +153,22 @@
 {
     for(UMDiameterAvp *avp in _packet_avps)
     {
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
+            _var_origin_host = avp2;
             [knownAVPs addObject:avp2]
         }
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            _var_origin_realm = avp2;
             [knownAVPs addObject:avp2]
         }
-        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        if(avp.avpCode == [UMDiameterAvpOrigin_State_Id avpCode])
         {
-                UMDiameterAvp *avp2 = [[_var_origin_state_idUMDiameterAvp alloc]initWithAvp:avp];
-            (null) = avp2;
+                UMDiameterAvp *avp2 = [[UMDiameterAvpOrigin_State_Id alloc]initWithAvp:avp];
+            _var_origin_state_id = avp2;
             [knownAVPs addObject:avp2]
         }
         else
