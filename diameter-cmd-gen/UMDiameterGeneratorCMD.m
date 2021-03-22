@@ -606,6 +606,7 @@
         if(!avp.multiple)
         {
             [s appendFormat:@"            %@ = (%@%@ *)avp;\n",avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"            [%@ afterDecode];\n",avp.variableName];
         }
         else
         {
