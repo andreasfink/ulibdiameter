@@ -605,12 +605,11 @@
         }
         [s appendFormat:@"%@%@ avpCode])\n",avpPrefix,avp.objectName];
         [s appendString:@"        {\n"];
-        [s appendFormat:@"                UMDiameterAvp *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName];
+        [s appendFormat:@"            %@%@ *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName,avpPrefix,avp.objectName];
 
         if(!avp.multiple)
         {
             [s appendFormat:@"            %@ = avp2;\n",avp.variableName];
-            [s appendFormat:@"            [knownAVPs addObject:avp2]\n"];
         }
         else
         {
