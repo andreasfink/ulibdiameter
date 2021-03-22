@@ -407,7 +407,7 @@
                 }
                 continue;
             }
-            if(first)
+            if(first==YES)
             {
                 [s appendString:@"    for(UMDiameterAvp *avp in avps)\n"];
                 [s appendString:@"    {\n"];
