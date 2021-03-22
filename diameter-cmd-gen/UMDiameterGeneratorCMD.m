@@ -593,30 +593,34 @@
         {
             continue;
         }
-        if(firstAvp)
+        
+        if(firstAvp == YES )
         {
-            firstAvp=NO;
-            [s appendFormat:@"        if([avp isKindOfClass:[%@%@ class]])\n",avpPrefix,avp.objectName];
+            [s appendString:@"                if(avp.avpCode == ["];
         }
         else
         {
-            [s appendFormat:@"        else if([avp isKindOfClass:[%@%@ class]])\n",avpPrefix,avp.objectName];
+            [s appendString:@"                else if(avp.avpCode == ["];
+            firstAvp = NO;
         }
+        [s appendFormat:@"%@@ avpCode])\n",avpPrefix,avp.objectName];
         [s appendString:@"        {\n"];
+        [s appendFormat:@"            UMDiameterAvp *avp2 = [[U%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
+
         if(!avp.multiple)
         {
-            [s appendFormat:@"            %@ = (%@%@ *)avp;\n",avp.variableName,avpPrefix,avp.objectName];
-            [s appendFormat:@"            [%@ afterDecode];\n",avp.variableName];
+            [s appendFormat:@"            %@ = avp2;\n"];
+            [s appendFormat:@"            [knownAVPs addObject:avp2]\n"];
         }
         else
         {
             [s appendFormat:@"            if(%@ == NULL)\n",avp.variableName];
             [s appendFormat:@"            {\n"];
-            [s appendFormat:@"                %@ = (NSArray<%@%@ *>*)@[avp];\n",avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"                %@ = (NSArray<%@%@ *>*)@[avp2];\n",avp.variableName,avpPrefix,avp.objectName];
             [s appendFormat:@"            }\n"];
             [s appendFormat:@"            else\n"];
             [s appendFormat:@"            {\n"];
-            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:(%@%@ *)avp];\n",avp.variableName,avp.variableName,avpPrefix,avp.objectName];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n"];
             [s appendFormat:@"            }\n"];
         }
         [s appendString:@"        }\n"];
