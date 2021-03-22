@@ -2,7 +2,7 @@
 //  UMDiameterPacketLCS_Routing_Info_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:49:57.992133
+//  Created by afink on 2021-03-22 09:02:26.355545
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -546,37 +546,37 @@
             UMDiameterAvpSession_Id *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
             _var_session_id = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
+        else if(avp.avpCode == [UMDiameterAvpVendor_Specific_Application_Id avpCode])
         {
             UMDiameterAvpVendor_Specific_Application_Id *avp2 = [[UMDiameterAvpVendor_Specific_Application_Id alloc]initWithAvp:avp];
             _var_vendor_specific_application_id = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
+        else if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
         {
             UMDiameterAvpResult_Code *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
             _var_result_code = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpExperimental_Result avpCode])
+        else if(avp.avpCode == [UMDiameterAvpExperimental_Result avpCode])
         {
             UMDiameterAvpExperimental_Result *avp2 = [[UMDiameterAvpExperimental_Result alloc]initWithAvp:avp];
             _var_experimental_result = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpAuth_Session_State avpCode])
+        else if(avp.avpCode == [UMDiameterAvpAuth_Session_State avpCode])
         {
             UMDiameterAvpAuth_Session_State *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
             _var_auth_session_state = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
             UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
             UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpSupported_Features avpCode])
+        else if(avp.avpCode == [UMDiameterAvpSupported_Features avpCode])
         {
             UMDiameterAvpSupported_Features *avp2 = [[UMDiameterAvpSupported_Features alloc]initWithAvp:avp];
             if(_var_supported_features == NULL)
@@ -588,27 +588,27 @@
                 _var_supported_features = [_var_supported_features arrayByAddingObject:avp2];
             }
         }
-        if(avp.avpCode == [UMDiameterAvpUser_Name avpCode])
+        else if(avp.avpCode == [UMDiameterAvpUser_Name avpCode])
         {
             UMDiameterAvpUser_Name *avp2 = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
             _var_user_name = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpMSISDN avpCode])
+        else if(avp.avpCode == [UMDiameterAvpMSISDN avpCode])
         {
             UMDiameterAvpMSISDN *avp2 = [[UMDiameterAvpMSISDN alloc]initWithAvp:avp];
             _var_msisdn = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpLMSI avpCode])
+        else if(avp.avpCode == [UMDiameterAvpLMSI avpCode])
         {
             UMDiameterAvpLMSI *avp2 = [[UMDiameterAvpLMSI alloc]initWithAvp:avp];
             _var_lmsi = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpServing_Node avpCode])
+        else if(avp.avpCode == [UMDiameterAvpServing_Node avpCode])
         {
             UMDiameterAvpServing_Node *avp2 = [[UMDiameterAvpServing_Node alloc]initWithAvp:avp];
             _var_serving_node = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpAdditional_Serving_Node avpCode])
+        else if(avp.avpCode == [UMDiameterAvpAdditional_Serving_Node avpCode])
         {
             UMDiameterAvpAdditional_Serving_Node *avp2 = [[UMDiameterAvpAdditional_Serving_Node alloc]initWithAvp:avp];
             if(_var_additional_serving_node == NULL)
@@ -620,27 +620,27 @@
                 _var_additional_serving_node = [_var_additional_serving_node arrayByAddingObject:avp2];
             }
         }
-        if(avp.avpCode == [UMDiameterAvpGMLC_Address avpCode])
+        else if(avp.avpCode == [UMDiameterAvpGMLC_Address avpCode])
         {
             UMDiameterAvpGMLC_Address *avp2 = [[UMDiameterAvpGMLC_Address alloc]initWithAvp:avp];
             _var_gmlc_address = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpPPR_Address avpCode])
+        else if(avp.avpCode == [UMDiameterAvpPPR_Address avpCode])
         {
             UMDiameterAvpPPR_Address *avp2 = [[UMDiameterAvpPPR_Address alloc]initWithAvp:avp];
             _var_ppr_address = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpRIA_Flags avpCode])
+        else if(avp.avpCode == [UMDiameterAvpRIA_Flags avpCode])
         {
             UMDiameterAvpRIA_Flags *avp2 = [[UMDiameterAvpRIA_Flags alloc]initWithAvp:avp];
             _var_ria_flags = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
+        else if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
             UMDiameterAvpFailed_AVP *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
             _var_failed_avp = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
+        else if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
         {
             UMDiameterAvpProxy_Info *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
             if(_var_proxy_info == NULL)
@@ -652,7 +652,7 @@
                 _var_proxy_info = [_var_proxy_info arrayByAddingObject:avp2];
             }
         }
-        if(avp.avpCode == [UMDiameterAvpRoute_Record avpCode])
+        else if(avp.avpCode == [UMDiameterAvpRoute_Record avpCode])
         {
             UMDiameterAvpRoute_Record *avp2 = [[UMDiameterAvpRoute_Record alloc]initWithAvp:avp];
             if(_var_route_record == NULL)

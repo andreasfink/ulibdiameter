@@ -2,7 +2,7 @@
 //  UMDiameterPacketASA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:49:57.288197
+//  Created by afink on 2021-03-22 09:02:25.659132
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -388,47 +388,47 @@
             UMDiameterAvpSession_Id *avp2 = [[UMDiameterAvpSession_Id alloc]initWithAvp:avp];
             _var_session_id = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
+        else if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
         {
             UMDiameterAvpResult_Code *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
             _var_result_code = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
             UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
             UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpUser_Name avpCode])
+        else if(avp.avpCode == [UMDiameterAvpUser_Name avpCode])
         {
             UMDiameterAvpUser_Name *avp2 = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
             _var_user_name = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_State_Id avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_State_Id avpCode])
         {
             UMDiameterAvpOrigin_State_Id *avp2 = [[UMDiameterAvpOrigin_State_Id alloc]initWithAvp:avp];
             _var_origin_state_id = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpError_Message avpCode])
+        else if(avp.avpCode == [UMDiameterAvpError_Message avpCode])
         {
             UMDiameterAvpError_Message *avp2 = [[UMDiameterAvpError_Message alloc]initWithAvp:avp];
             _var_error_message = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpError_Reporting_Host avpCode])
+        else if(avp.avpCode == [UMDiameterAvpError_Reporting_Host avpCode])
         {
             UMDiameterAvpError_Reporting_Host *avp2 = [[UMDiameterAvpError_Reporting_Host alloc]initWithAvp:avp];
             _var_error_reporting_host = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
+        else if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
             UMDiameterAvpFailed_AVP *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
             _var_failed_avp = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpRedirect_Host avpCode])
+        else if(avp.avpCode == [UMDiameterAvpRedirect_Host avpCode])
         {
             UMDiameterAvpRedirect_Host *avp2 = [[UMDiameterAvpRedirect_Host alloc]initWithAvp:avp];
             if(_var_redirect_host == NULL)
@@ -440,17 +440,17 @@
                 _var_redirect_host = [_var_redirect_host arrayByAddingObject:avp2];
             }
         }
-        if(avp.avpCode == [UMDiameterAvpRedirect_Host_Usage avpCode])
+        else if(avp.avpCode == [UMDiameterAvpRedirect_Host_Usage avpCode])
         {
             UMDiameterAvpRedirect_Host_Usage *avp2 = [[UMDiameterAvpRedirect_Host_Usage alloc]initWithAvp:avp];
             _var_redirect_host_usage = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpRedirect_Max_Cache_Time avpCode])
+        else if(avp.avpCode == [UMDiameterAvpRedirect_Max_Cache_Time avpCode])
         {
             UMDiameterAvpRedirect_Max_Cache_Time *avp2 = [[UMDiameterAvpRedirect_Max_Cache_Time alloc]initWithAvp:avp];
             _var_redirect_max_cache_time = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
+        else if(avp.avpCode == [UMDiameterAvpProxy_Info avpCode])
         {
             UMDiameterAvpProxy_Info *avp2 = [[UMDiameterAvpProxy_Info alloc]initWithAvp:avp];
             if(_var_proxy_info == NULL)

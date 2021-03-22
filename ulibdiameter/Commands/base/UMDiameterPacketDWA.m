@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 08:49:56.989920
+//  Created by afink on 2021-03-22 09:02:25.355298
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -212,27 +212,27 @@
             UMDiameterAvpResult_Code *avp2 = [[UMDiameterAvpResult_Code alloc]initWithAvp:avp];
             _var_result_code = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_Host avpCode])
         {
             UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
             UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpError_Message avpCode])
+        else if(avp.avpCode == [UMDiameterAvpError_Message avpCode])
         {
             UMDiameterAvpError_Message *avp2 = [[UMDiameterAvpError_Message alloc]initWithAvp:avp];
             _var_error_message = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
+        else if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
             UMDiameterAvpFailed_AVP *avp2 = [[UMDiameterAvpFailed_AVP alloc]initWithAvp:avp];
             _var_failed_avp = avp2;
         }
-        if(avp.avpCode == [UMDiameterAvpOrigin_State_Id avpCode])
+        else if(avp.avpCode == [UMDiameterAvpOrigin_State_Id avpCode])
         {
             UMDiameterAvpOrigin_State_Id *avp2 = [[UMDiameterAvpOrigin_State_Id alloc]initWithAvp:avp];
             _var_origin_state_id = avp2;
