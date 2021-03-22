@@ -385,6 +385,7 @@
 
         [s appendString:@"- (void)afterDecode\n"];
         [s appendString:@"{\n"];
+        [s appendString:@"    [super afterDecode];\n"];
         [s appendString:@"    NSArray *avps = [self array];\n"];
         [s appendString:@"\n"];
         [s appendString:@"    NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];\n"];

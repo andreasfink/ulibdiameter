@@ -583,6 +583,7 @@
 
     [s appendString:@"- (void)afterDecode\n"];
     [s appendString:@"{\n"];
+    [s appendString:@"    [super afterDecode];\n"];
     [s appendString:@"    for(UMDiameterAvp *avp in _packet_avps)\n"];
     [s appendString:@"    {\n"];
 

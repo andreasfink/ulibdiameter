@@ -62,6 +62,7 @@
 
 - (void)afterDecode
 {
+    [super afterDecode];
     NSArray *avps = [self array];
 
     NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
