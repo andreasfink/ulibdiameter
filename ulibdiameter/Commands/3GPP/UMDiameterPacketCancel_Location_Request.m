@@ -2,7 +2,7 @@
 //  UMDiameterPacketCancel_Location_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 09:25:10.807574
+//  Created by afink on 2021-03-22 10:04:58.213860
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -424,6 +424,7 @@
 
 - (void)afterDecode
 {
+    [super afterDecode];
     for(UMDiameterAvp *avp in _packet_avps)
     {
         if(avp.avpCode == [UMDiameterAvpSession_Id avpCode])

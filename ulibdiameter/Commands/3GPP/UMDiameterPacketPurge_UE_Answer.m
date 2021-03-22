@@ -2,7 +2,7 @@
 //  UMDiameterPacketPurge_UE_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 09:25:10.861593
+//  Created by afink on 2021-03-22 10:04:58.381883
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -485,6 +485,7 @@
 
 - (void)afterDecode
 {
+    [super afterDecode];
     for(UMDiameterAvp *avp in _packet_avps)
     {
         if(avp.avpCode == [UMDiameterAvpSession_Id avpCode])
