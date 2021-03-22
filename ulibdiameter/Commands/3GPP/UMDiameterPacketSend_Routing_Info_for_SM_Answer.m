@@ -1,52 +1,54 @@
 //
-//  UMDiameterPacketUpdate_Location_Answer.m
+//  UMDiameterPacketSend_Routing_Info_for_SM_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 09:25:10.722697
+//  Created by afink on 2021-03-22 09:25:11.108366
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 
-#import "UMDiameterPacketUpdate_Location_Answer.h"
+#import "UMDiameterPacketSend_Routing_Info_for_SM_Answer.h"
 #import "UMDiameterAvpSession_Id.h"
 #import "UMDiameterAvpDRMP.h"
 #import "UMDiameterAvpVendor_Specific_Application_Id.h"
 #import "UMDiameterAvpResult_Code.h"
 #import "UMDiameterAvpExperimental_Result.h"
-#import "UMDiameterAvpError_Diagnostic.h"
 #import "UMDiameterAvpAuth_Session_State.h"
 #import "UMDiameterAvpOrigin_Host.h"
 #import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpOC_Supported_Features.h"
-#import "UMDiameterAvpOC_OLR.h"
-#import "UMDiameterAvpLoad.h"
+#import "UMDiameterAvpUser_Name.h"
 #import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpULA_Flags.h"
-#import "UMDiameterAvpSubscription_Data.h"
-#import "UMDiameterAvpReset_ID.h"
+#import "UMDiameterAvpServing_Node.h"
+#import "UMDiameterAvpAdditional_Serving_Node.h"
+#import "UMDiameterAvpLMSI.h"
+#import "UMDiameterAvpUser_Id.h"
+#import "UMDiameterAvpMWD_Status.h"
+#import "UMDiameterAvpMME_Absent_User_Diagnostic_SM.h"
+#import "UMDiameterAvpMSC_Absent_User_Diagnostic_SM.h"
+#import "UMDiameterAvpSGSN_Absent_User_Diagnostic_SM.h"
 #import "UMDiameterAvpAVP.h"
 #import "UMDiameterAvpFailed_AVP.h"
 #import "UMDiameterAvpProxy_Info.h"
 #import "UMDiameterAvpRoute_Record.h"
 
-@implementation UMDiameterPacketUpdate_Location_Answer
+@implementation UMDiameterPacketSend_Routing_Info_for_SM_Answer
 
 
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    self.commandCode = 316;
+    self.commandCode = 8388647;
     self.commandFlags = DIAMETER_COMMAND_FLAG_PROXIABLE;
 }
 
 + (uint32_t)commandCode
 {
-    return 316;
+    return 8388647;
 }
 
 + (uint32_t)defaultApplicationId
 {
-    return 16777251;
+    return 16777312;
 }
 
 - (void)beforeEncode
@@ -78,11 +80,6 @@
         [_var_experimental_result beforeEncode];
         [arr addObject:_var_experimental_result];
     }
-    if(_var_error_diagnostic)
-    {
-        [_var_error_diagnostic beforeEncode];
-        [arr addObject:_var_error_diagnostic];
-    }
     if(_var_auth_session_state)
     {
         [_var_auth_session_state beforeEncode];
@@ -98,23 +95,10 @@
         [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
-    if(_var_oc_supported_features)
+    if(_var_user_name)
     {
-        [_var_oc_supported_features beforeEncode];
-        [arr addObject:_var_oc_supported_features];
-    }
-    if(_var_oc_olr)
-    {
-        [_var_oc_olr beforeEncode];
-        [arr addObject:_var_oc_olr];
-    }
-    if(_var_load.count > 0)
-    {
-        for(UMDiameterAvpLoad *o in _var_load)
-        {
-            [o beforeEncode];
-            [arr addObject:o];
-        }
+        [_var_user_name beforeEncode];
+        [arr addObject:_var_user_name];
     }
     if(_var_supported_features.count > 0)
     {
@@ -124,23 +108,45 @@
             [arr addObject:o];
         }
     }
-    if(_var_ula_flags)
+    if(_var_serving_node)
     {
-        [_var_ula_flags beforeEncode];
-        [arr addObject:_var_ula_flags];
+        [_var_serving_node beforeEncode];
+        [arr addObject:_var_serving_node];
     }
-    if(_var_subscription_data)
+    if(_var_additional_serving_node)
     {
-        [_var_subscription_data beforeEncode];
-        [arr addObject:_var_subscription_data];
+        [_var_additional_serving_node beforeEncode];
+        [arr addObject:_var_additional_serving_node];
     }
-    if(_var_reset_id.count > 0)
+    if(_var_lmsi)
     {
-        for(UMDiameterAvpReset_ID *o in _var_reset_id)
-        {
-            [o beforeEncode];
-            [arr addObject:o];
-        }
+        [_var_lmsi beforeEncode];
+        [arr addObject:_var_lmsi];
+    }
+    if(_var_user_id)
+    {
+        [_var_user_id beforeEncode];
+        [arr addObject:_var_user_id];
+    }
+    if(_var_mwd_status)
+    {
+        [_var_mwd_status beforeEncode];
+        [arr addObject:_var_mwd_status];
+    }
+    if(_var_mme_absent_user_diagnostic_sm)
+    {
+        [_var_mme_absent_user_diagnostic_sm beforeEncode];
+        [arr addObject:_var_mme_absent_user_diagnostic_sm];
+    }
+    if(_var_msc_absent_user_diagnostic_sm)
+    {
+        [_var_msc_absent_user_diagnostic_sm beforeEncode];
+        [arr addObject:_var_msc_absent_user_diagnostic_sm];
+    }
+    if(_var_sgsn_absent_user_diagnostic_sm)
+    {
+        [_var_sgsn_absent_user_diagnostic_sm beforeEncode];
+        [arr addObject:_var_sgsn_absent_user_diagnostic_sm];
     }
     if(_var_avp.count > 0)
     {
@@ -208,12 +214,6 @@
         _var_experimental_result.objectValue = dict[@"experimental-result"];
     }
 
-    if(dict[@"error-diagnostic"])
-    {
-        _var_error_diagnostic = [[UMDiameterAvpError_Diagnostic alloc]init];
-        _var_error_diagnostic.objectValue = dict[@"error-diagnostic"];
-    }
-
     if(dict[@"auth-session-state"])
     {
         _var_auth_session_state = [[UMDiameterAvpAuth_Session_State alloc]init];
@@ -232,41 +232,12 @@
         _var_origin_realm.objectValue = dict[@"origin-realm"];
     }
 
-    if(dict[@"oc-supported-features"])
+    if(dict[@"user-name"])
     {
-        _var_oc_supported_features = [[UMDiameterAvpOC_Supported_Features alloc]init];
-        _var_oc_supported_features.objectValue = dict[@"oc-supported-features"];
+        _var_user_name = [[UMDiameterAvpUser_Name alloc]init];
+        _var_user_name.objectValue = dict[@"user-name"];
     }
 
-    if(dict[@"oc-olr"])
-    {
-        _var_oc_olr = [[UMDiameterAvpOC_OLR alloc]init];
-        _var_oc_olr.objectValue = dict[@"oc-olr"];
-    }
-
-    if(dict[@"load"])
-    {
-        id obj = dict[@"load"];
-        if([obj isKindOfClass:[NSArray class]])
-        {
-            NSMutableArray *arr = [[NSMutableArray alloc]init];
-            for(id entry in (NSArray *)obj)
-            {
-                UMDiameterAvpLoad *o = [[UMDiameterAvpLoad alloc]init];
-                o.objectValue = entry;
-                [arr addObject:o];
-            }
-            _var_load = arr;
-        }
-        else
-        {
-            NSMutableArray *arr = [[NSMutableArray alloc]init];
-            UMDiameterAvpLoad *o = [[UMDiameterAvpLoad alloc]init];
-            o.objectValue = obj;
-            [arr addObject:o];
-            _var_load = arr;
-        }
-    }
     if(dict[@"supported-features"])
     {
         id obj = dict[@"supported-features"];
@@ -290,41 +261,54 @@
             _var_supported_features = arr;
         }
     }
-    if(dict[@"ula-flags"])
+    if(dict[@"serving-node"])
     {
-        _var_ula_flags = [[UMDiameterAvpULA_Flags alloc]init];
-        _var_ula_flags.objectValue = dict[@"ula-flags"];
+        _var_serving_node = [[UMDiameterAvpServing_Node alloc]init];
+        _var_serving_node.objectValue = dict[@"serving-node"];
     }
 
-    if(dict[@"subscription-data"])
+    if(dict[@"additional-serving-node"])
     {
-        _var_subscription_data = [[UMDiameterAvpSubscription_Data alloc]init];
-        _var_subscription_data.objectValue = dict[@"subscription-data"];
+        _var_additional_serving_node = [[UMDiameterAvpAdditional_Serving_Node alloc]init];
+        _var_additional_serving_node.objectValue = dict[@"additional-serving-node"];
     }
 
-    if(dict[@"reset-id"])
+    if(dict[@"lmsi"])
     {
-        id obj = dict[@"reset-id"];
-        if([obj isKindOfClass:[NSArray class]])
-        {
-            NSMutableArray *arr = [[NSMutableArray alloc]init];
-            for(id entry in (NSArray *)obj)
-            {
-                UMDiameterAvpReset_ID *o = [[UMDiameterAvpReset_ID alloc]init];
-                o.objectValue = entry;
-                [arr addObject:o];
-            }
-            _var_reset_id = arr;
-        }
-        else
-        {
-            NSMutableArray *arr = [[NSMutableArray alloc]init];
-            UMDiameterAvpReset_ID *o = [[UMDiameterAvpReset_ID alloc]init];
-            o.objectValue = obj;
-            [arr addObject:o];
-            _var_reset_id = arr;
-        }
+        _var_lmsi = [[UMDiameterAvpLMSI alloc]init];
+        _var_lmsi.objectValue = dict[@"lmsi"];
     }
+
+    if(dict[@"user-id"])
+    {
+        _var_user_id = [[UMDiameterAvpUser_Id alloc]init];
+        _var_user_id.objectValue = dict[@"user-id"];
+    }
+
+    if(dict[@"mwd-status"])
+    {
+        _var_mwd_status = [[UMDiameterAvpMWD_Status alloc]init];
+        _var_mwd_status.objectValue = dict[@"mwd-status"];
+    }
+
+    if(dict[@"mme-absent-user-diagnostic-sm"])
+    {
+        _var_mme_absent_user_diagnostic_sm = [[UMDiameterAvpMME_Absent_User_Diagnostic_SM alloc]init];
+        _var_mme_absent_user_diagnostic_sm.objectValue = dict[@"mme-absent-user-diagnostic-sm"];
+    }
+
+    if(dict[@"msc-absent-user-diagnostic-sm"])
+    {
+        _var_msc_absent_user_diagnostic_sm = [[UMDiameterAvpMSC_Absent_User_Diagnostic_SM alloc]init];
+        _var_msc_absent_user_diagnostic_sm.objectValue = dict[@"msc-absent-user-diagnostic-sm"];
+    }
+
+    if(dict[@"sgsn-absent-user-diagnostic-sm"])
+    {
+        _var_sgsn_absent_user_diagnostic_sm = [[UMDiameterAvpSGSN_Absent_User_Diagnostic_SM alloc]init];
+        _var_sgsn_absent_user_diagnostic_sm.objectValue = dict[@"sgsn-absent-user-diagnostic-sm"];
+    }
+
     if(dict[@"avp"])
     {
         id obj = dict[@"avp"];
@@ -425,10 +409,6 @@
     {
         dict[@"experimental-result"] = _var_experimental_result.objectValue;
     }
-    if(_var_error_diagnostic)
-    {
-        dict[@"error-diagnostic"] = _var_error_diagnostic.objectValue;
-    }
     if(_var_auth_session_state)
     {
         dict[@"auth-session-state"] = _var_auth_session_state.objectValue;
@@ -441,22 +421,9 @@
     {
         dict[@"origin-realm"] = _var_origin_realm.objectValue;
     }
-    if(_var_oc_supported_features)
+    if(_var_user_name)
     {
-        dict[@"oc-supported-features"] = _var_oc_supported_features.objectValue;
-    }
-    if(_var_oc_olr)
-    {
-        dict[@"oc-olr"] = _var_oc_olr.objectValue;
-    }
-    if(_var_load)
-    {
-        NSMutableArray *arr = [[NSMutableArray alloc]init];
-        for(id entry in _var_load)
-        {
-            [arr addObject:[entry objectValue]];
-        }
-        dict[@"load"] = arr;
+        dict[@"user-name"] = _var_user_name.objectValue;
     }
     if(_var_supported_features)
     {
@@ -467,22 +434,37 @@
         }
         dict[@"supported-features"] = arr;
     }
-    if(_var_ula_flags)
+    if(_var_serving_node)
     {
-        dict[@"ula-flags"] = _var_ula_flags.objectValue;
+        dict[@"serving-node"] = _var_serving_node.objectValue;
     }
-    if(_var_subscription_data)
+    if(_var_additional_serving_node)
     {
-        dict[@"subscription-data"] = _var_subscription_data.objectValue;
+        dict[@"additional-serving-node"] = _var_additional_serving_node.objectValue;
     }
-    if(_var_reset_id)
+    if(_var_lmsi)
     {
-        NSMutableArray *arr = [[NSMutableArray alloc]init];
-        for(id entry in _var_reset_id)
-        {
-            [arr addObject:[entry objectValue]];
-        }
-        dict[@"reset-id"] = arr;
+        dict[@"lmsi"] = _var_lmsi.objectValue;
+    }
+    if(_var_user_id)
+    {
+        dict[@"user-id"] = _var_user_id.objectValue;
+    }
+    if(_var_mwd_status)
+    {
+        dict[@"mwd-status"] = _var_mwd_status.objectValue;
+    }
+    if(_var_mme_absent_user_diagnostic_sm)
+    {
+        dict[@"mme-absent-user-diagnostic-sm"] = _var_mme_absent_user_diagnostic_sm.objectValue;
+    }
+    if(_var_msc_absent_user_diagnostic_sm)
+    {
+        dict[@"msc-absent-user-diagnostic-sm"] = _var_msc_absent_user_diagnostic_sm.objectValue;
+    }
+    if(_var_sgsn_absent_user_diagnostic_sm)
+    {
+        dict[@"sgsn-absent-user-diagnostic-sm"] = _var_sgsn_absent_user_diagnostic_sm.objectValue;
     }
     if(_var_avp)
     {
@@ -532,27 +514,31 @@
 
     [UMDiameterAvpExperimental_Result appendWebDiameterParameters:s webName:@"experimental-result"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpError_Diagnostic appendWebDiameterParameters:s webName:@"error-diagnostic"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpAuth_Session_State appendWebDiameterParameters:s webName:@"auth-session-state"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
 
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
 
-    [UMDiameterAvpOC_Supported_Features appendWebDiameterParameters:s webName:@"oc-supported-features"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpOC_OLR appendWebDiameterParameters:s webName:@"oc-olr"  comment:@"" css:@"optional"];
-
-    [UMDiameterAvpLoad appendWebDiameterParameters:s webName:@"load[]"  comment:@"" css:@"optional"];
+    [UMDiameterAvpUser_Name appendWebDiameterParameters:s webName:@"user-name"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpULA_Flags appendWebDiameterParameters:s webName:@"ula-flags"  comment:@"" css:@"optional"];
+    [UMDiameterAvpServing_Node appendWebDiameterParameters:s webName:@"serving-node"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpSubscription_Data appendWebDiameterParameters:s webName:@"subscription-data"  comment:@"" css:@"optional"];
+    [UMDiameterAvpAdditional_Serving_Node appendWebDiameterParameters:s webName:@"additional-serving-node"  comment:@"" css:@"optional"];
 
-    [UMDiameterAvpReset_ID appendWebDiameterParameters:s webName:@"reset-id[]"  comment:@"" css:@"optional"];
+    [UMDiameterAvpLMSI appendWebDiameterParameters:s webName:@"lmsi"  comment:@"" css:@"optional"];
+
+    [UMDiameterAvpUser_Id appendWebDiameterParameters:s webName:@"user-id"  comment:@"" css:@"optional"];
+
+    [UMDiameterAvpMWD_Status appendWebDiameterParameters:s webName:@"mwd-status"  comment:@"" css:@"optional"];
+
+    [UMDiameterAvpMME_Absent_User_Diagnostic_SM appendWebDiameterParameters:s webName:@"mme-absent-user-diagnostic-sm"  comment:@"" css:@"optional"];
+
+    [UMDiameterAvpMSC_Absent_User_Diagnostic_SM appendWebDiameterParameters:s webName:@"msc-absent-user-diagnostic-sm"  comment:@"" css:@"optional"];
+
+    [UMDiameterAvpSGSN_Absent_User_Diagnostic_SM appendWebDiameterParameters:s webName:@"sgsn-absent-user-diagnostic-sm"  comment:@"" css:@"optional"];
 
     [UMDiameterAvpFailed_AVP appendWebDiameterParameters:s webName:@"failed-avp"  comment:@"" css:@"optional"];
 
@@ -591,11 +577,6 @@
             UMDiameterAvpExperimental_Result *avp2 = [[UMDiameterAvpExperimental_Result alloc]initWithAvp:avp];
             _var_experimental_result = avp2;
         }
-        else if(avp.avpCode == [UMDiameterAvpError_Diagnostic avpCode])
-        {
-            UMDiameterAvpError_Diagnostic *avp2 = [[UMDiameterAvpError_Diagnostic alloc]initWithAvp:avp];
-            _var_error_diagnostic = avp2;
-        }
         else if(avp.avpCode == [UMDiameterAvpAuth_Session_State avpCode])
         {
             UMDiameterAvpAuth_Session_State *avp2 = [[UMDiameterAvpAuth_Session_State alloc]initWithAvp:avp];
@@ -611,27 +592,10 @@
             UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
             _var_origin_realm = avp2;
         }
-        else if(avp.avpCode == [UMDiameterAvpOC_Supported_Features avpCode])
+        else if(avp.avpCode == [UMDiameterAvpUser_Name avpCode])
         {
-            UMDiameterAvpOC_Supported_Features *avp2 = [[UMDiameterAvpOC_Supported_Features alloc]initWithAvp:avp];
-            _var_oc_supported_features = avp2;
-        }
-        else if(avp.avpCode == [UMDiameterAvpOC_OLR avpCode])
-        {
-            UMDiameterAvpOC_OLR *avp2 = [[UMDiameterAvpOC_OLR alloc]initWithAvp:avp];
-            _var_oc_olr = avp2;
-        }
-        else if(avp.avpCode == [UMDiameterAvpLoad avpCode])
-        {
-            UMDiameterAvpLoad *avp2 = [[UMDiameterAvpLoad alloc]initWithAvp:avp];
-            if(_var_load == NULL)
-            {
-                _var_load = (NSArray<UMDiameterAvpLoad *>*)@[avp2];
-            }
-            else
-            {
-                _var_load = [_var_load arrayByAddingObject:avp2];
-            }
+            UMDiameterAvpUser_Name *avp2 = [[UMDiameterAvpUser_Name alloc]initWithAvp:avp];
+            _var_user_name = avp2;
         }
         else if(avp.avpCode == [UMDiameterAvpSupported_Features avpCode])
         {
@@ -645,27 +609,45 @@
                 _var_supported_features = [_var_supported_features arrayByAddingObject:avp2];
             }
         }
-        else if(avp.avpCode == [UMDiameterAvpULA_Flags avpCode])
+        else if(avp.avpCode == [UMDiameterAvpServing_Node avpCode])
         {
-            UMDiameterAvpULA_Flags *avp2 = [[UMDiameterAvpULA_Flags alloc]initWithAvp:avp];
-            _var_ula_flags = avp2;
+            UMDiameterAvpServing_Node *avp2 = [[UMDiameterAvpServing_Node alloc]initWithAvp:avp];
+            _var_serving_node = avp2;
         }
-        else if(avp.avpCode == [UMDiameterAvpSubscription_Data avpCode])
+        else if(avp.avpCode == [UMDiameterAvpAdditional_Serving_Node avpCode])
         {
-            UMDiameterAvpSubscription_Data *avp2 = [[UMDiameterAvpSubscription_Data alloc]initWithAvp:avp];
-            _var_subscription_data = avp2;
+            UMDiameterAvpAdditional_Serving_Node *avp2 = [[UMDiameterAvpAdditional_Serving_Node alloc]initWithAvp:avp];
+            _var_additional_serving_node = avp2;
         }
-        else if(avp.avpCode == [UMDiameterAvpReset_ID avpCode])
+        else if(avp.avpCode == [UMDiameterAvpLMSI avpCode])
         {
-            UMDiameterAvpReset_ID *avp2 = [[UMDiameterAvpReset_ID alloc]initWithAvp:avp];
-            if(_var_reset_id == NULL)
-            {
-                _var_reset_id = (NSArray<UMDiameterAvpReset_ID *>*)@[avp2];
-            }
-            else
-            {
-                _var_reset_id = [_var_reset_id arrayByAddingObject:avp2];
-            }
+            UMDiameterAvpLMSI *avp2 = [[UMDiameterAvpLMSI alloc]initWithAvp:avp];
+            _var_lmsi = avp2;
+        }
+        else if(avp.avpCode == [UMDiameterAvpUser_Id avpCode])
+        {
+            UMDiameterAvpUser_Id *avp2 = [[UMDiameterAvpUser_Id alloc]initWithAvp:avp];
+            _var_user_id = avp2;
+        }
+        else if(avp.avpCode == [UMDiameterAvpMWD_Status avpCode])
+        {
+            UMDiameterAvpMWD_Status *avp2 = [[UMDiameterAvpMWD_Status alloc]initWithAvp:avp];
+            _var_mwd_status = avp2;
+        }
+        else if(avp.avpCode == [UMDiameterAvpMME_Absent_User_Diagnostic_SM avpCode])
+        {
+            UMDiameterAvpMME_Absent_User_Diagnostic_SM *avp2 = [[UMDiameterAvpMME_Absent_User_Diagnostic_SM alloc]initWithAvp:avp];
+            _var_mme_absent_user_diagnostic_sm = avp2;
+        }
+        else if(avp.avpCode == [UMDiameterAvpMSC_Absent_User_Diagnostic_SM avpCode])
+        {
+            UMDiameterAvpMSC_Absent_User_Diagnostic_SM *avp2 = [[UMDiameterAvpMSC_Absent_User_Diagnostic_SM alloc]initWithAvp:avp];
+            _var_msc_absent_user_diagnostic_sm = avp2;
+        }
+        else if(avp.avpCode == [UMDiameterAvpSGSN_Absent_User_Diagnostic_SM avpCode])
+        {
+            UMDiameterAvpSGSN_Absent_User_Diagnostic_SM *avp2 = [[UMDiameterAvpSGSN_Absent_User_Diagnostic_SM alloc]initWithAvp:avp];
+            _var_sgsn_absent_user_diagnostic_sm = avp2;
         }
         else if(avp.avpCode == [UMDiameterAvpFailed_AVP avpCode])
         {
@@ -715,23 +697,10 @@
 	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
 	dict[@"Result-Code"] = [_var_result_code objectValue];
 	dict[@"Experimental-Result"] = [_var_experimental_result objectValue];
-	dict[@"Error-Diagnostic"] = [_var_error_diagnostic objectValue];
 	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
 	dict[@"Origin-Host"] = [_var_origin_host objectValue];
 	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
-	dict[@"OC-Supported-Features"] = [_var_oc_supported_features objectValue];
-	dict[@"OC-OLR"] = [_var_oc_olr objectValue];
-	{
-		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		if(_var_load.count>0)
-		{
-			for(UMDiameterAvp *avp in _var_load)
-			{
-				[arr addObject:[avp objectValue]];
-			}
-			dict[@"Load"] = arr;
-		}
-	}
+	dict[@"User-Name"] = [_var_user_name objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
 		if(_var_supported_features.count>0)
@@ -743,19 +712,14 @@
 			dict[@"Supported-Features"] = arr;
 		}
 	}
-	dict[@"ULA-Flags"] = [_var_ula_flags objectValue];
-	dict[@"Subscription-Data"] = [_var_subscription_data objectValue];
-	{
-		NSMutableArray *arr = [[NSMutableArray alloc]init];
-		if(_var_reset_id.count>0)
-		{
-			for(UMDiameterAvp *avp in _var_reset_id)
-			{
-				[arr addObject:[avp objectValue]];
-			}
-			dict[@"Reset-ID"] = arr;
-		}
-	}
+	dict[@"Serving-Node"] = [_var_serving_node objectValue];
+	dict[@"Additional-Serving-Node"] = [_var_additional_serving_node objectValue];
+	dict[@"LMSI"] = [_var_lmsi objectValue];
+	dict[@"User-Id"] = [_var_user_id objectValue];
+	dict[@"MWD-Status"] = [_var_mwd_status objectValue];
+	dict[@"MME-Absent-User-Diagnostic-SM"] = [_var_mme_absent_user_diagnostic_sm objectValue];
+	dict[@"MSC-Absent-User-Diagnostic-SM"] = [_var_msc_absent_user_diagnostic_sm objectValue];
+	dict[@"SGSN-Absent-User-Diagnostic-SM"] = [_var_sgsn_absent_user_diagnostic_sm objectValue];
 	dict[@"Failed-AVP"] = [_var_failed_avp objectValue];
 	{
 		NSMutableArray *arr = [[NSMutableArray alloc]init];
@@ -816,12 +780,6 @@
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpError_Diagnostic definition];
-        def[@"multiple"]=@(NO);
-        def[@"mandatory"]=@(NO);
-        [arr addObject:def];
-    }
-    {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAuth_Session_State definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
@@ -840,20 +798,8 @@
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOC_Supported_Features definition];
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Name definition];
         def[@"multiple"]=@(NO);
-        def[@"mandatory"]=@(NO);
-        [arr addObject:def];
-    }
-    {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOC_OLR definition];
-        def[@"multiple"]=@(NO);
-        def[@"mandatory"]=@(NO);
-        [arr addObject:def];
-    }
-    {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLoad definition];
-        def[@"multiple"]=@(YES);
         def[@"mandatory"]=@(NO);
         [arr addObject:def];
     }
@@ -864,20 +810,50 @@
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpULA_Flags definition];
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpServing_Node definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSubscription_Data definition];
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpAdditional_Serving_Node definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
         [arr addObject:def];
     }
     {
-        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpReset_ID definition];
-        def[@"multiple"]=@(YES);
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpLMSI definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Id definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMWD_Status definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMME_Absent_User_Diagnostic_SM definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpMSC_Absent_User_Diagnostic_SM definition];
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpSGSN_Absent_User_Diagnostic_SM definition];
+        def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(NO);
         [arr addObject:def];
     }
@@ -901,10 +877,10 @@
     }
 
     UMSynchronizedSortedDictionary *commandDef = [[UMSynchronizedSortedDictionary alloc]init];
-    commandDef[@"command-name"] = @"Update-Location-Answer";
-    commandDef[@"web-name"] = @"update-location-answer";
-    commandDef[@"command-number"] = @(316);
-    commandDef[@"application-id"] = @(16777251);
+    commandDef[@"command-name"] = @"Send-Routing-Info-for-SM-Answer";
+    commandDef[@"web-name"] = @"send-routing-info-for-sm-answer";
+    commandDef[@"command-number"] = @(8388647);
+    commandDef[@"application-id"] = @(16777312);
     commandDef[@"rbit"] = @(NO);
     commandDef[@"ebit"] = @(NO);
     commandDef[@"pbit"] = @(YES);
