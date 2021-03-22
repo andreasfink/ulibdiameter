@@ -30,7 +30,7 @@
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    _avpFlags = UMDiameterAvpFlag_Mandatory;
+    _avpFlags = UMDiameterAvpFlag_Mandatory | UMDiameterAvpFlag_Vendor;
 }
 
 + (id)definition
@@ -39,7 +39,7 @@
     avpDef[@"name"] = @"idr-flags";
     avpDef[@"type"] = @"Unsigned32";
     avpDef[@"mandatory"] = @(YES);
-    avpDef[@"vendor"] = @(NO);
+    avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
 
     return avpDef;
