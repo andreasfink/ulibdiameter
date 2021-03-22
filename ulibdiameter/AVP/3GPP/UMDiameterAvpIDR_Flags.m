@@ -31,6 +31,7 @@
 {
     [super genericInitialisation];
     _avpFlags = UMDiameterAvpFlag_Mandatory | UMDiameterAvpFlag_Vendor;
+    _avpVendorId = 10415;
 }
 
 + (id)definition

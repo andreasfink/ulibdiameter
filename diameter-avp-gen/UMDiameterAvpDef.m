@@ -294,7 +294,6 @@
     }
     [s appendString:@"}\n"];
 
-
     [s appendString:@"\n"];
 
     if((_groupDef) && (_isGroup))
@@ -305,9 +304,6 @@
                                            directory:dir
                                            mandatory:_mandatoryFlag]];
     }
-
-
-
 
     [s appendString:@"+ (id)definition\n"];
     [s appendString:@"{\n"];

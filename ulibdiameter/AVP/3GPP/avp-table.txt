@@ -184,7 +184,7 @@
 1487	TS-Code	7.3.0	OctetString	M,V
 1488	Call-Barring-Info	7.3.1	Grouped	M,V
 1489	SGSN-Number	7.3.2	OctetString	M,V
-1490	IDR-Flags	7.3.3	Unsigned32	M,V
+1490	IDR-Flags	7.3.3	Unsigned32	M,V	10415
 1491	ICS-Indicator	7.3.4	Enumerated	V
 1492	IMS-Voice-Over-PS-Sessions-Supported	7.3.6	Enumerated	V
 1493	Homogeneous-Support-of-IMS-Voice-Over-PS-Sessions	7.3.7	Enumerated	V
