@@ -597,11 +597,11 @@
         if(firstAvp == YES )
         {
             [s appendString:@"        if(avp.avpCode == ["];
+            firstAvp = NO;
         }
         else
         {
             [s appendString:@"        else if(avp.avpCode == ["];
-            firstAvp = NO;
         }
         [s appendFormat:@"%@%@ avpCode])\n",avpPrefix,avp.objectName];
         [s appendString:@"        {\n"];
