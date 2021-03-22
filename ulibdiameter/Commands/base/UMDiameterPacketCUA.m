@@ -2,7 +2,7 @@
 //  UMDiameterPacketCUA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-02 21:30:27.351539
+//  Created by afink on 2021-03-22 08:14:54.930320
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -171,21 +171,2735 @@
 {
     for(UMDiameterAvp *avp in _packet_avps)
     {
-        if([avp isKindOfClass:[UMDiameterAvpOrigin_Host class]])
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
         {
-            _var_origin_host = (UMDiameterAvpOrigin_Host *)avp;
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
         }
-        else if([avp isKindOfClass:[UMDiameterAvpOrigin_Realm class]])
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
         {
-            _var_origin_realm = (UMDiameterAvpOrigin_Realm *)avp;
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
         }
-        else if([avp isKindOfClass:[UMDiameterAvpResult_Code class]])
+        else
         {
-            _var_result_code = (UMDiameterAvpResult_Code *)avp;
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
         }
-        else if([avp isKindOfClass:[UMDiameterAvpError_Message class]])
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
         {
-            _var_error_message = (UMDiameterAvpError_Message *)avp;
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_result_codeUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_result_codeUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_error_messageUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_result_codeUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+            //
+//  UMDiameterPacketCUA.m
+//  ulibdiameter
+//
+//  Created by afink on 2021-03-22 08:14:54.930320
+//  Copyright © 2019 Andreas Fink. All rights reserved.
+//
+
+
+#import "UMDiameterPacketCUA.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpAVP.h"
+
+@implementation UMDiameterPacketCUA
+
+
+- (void)genericInitialisation
+{
+    [super genericInitialisation];
+    self.commandCode = 328;
+    self.commandFlags = 0;
+}
+
++ (uint32_t)commandCode
+{
+    return 328;
+}
+
++ (uint32_t)defaultApplicationId
+{
+    return 0;
+}
+
+- (void)beforeEncode
+{
+    [super beforeEncode];
+    NSMutableArray<UMDiameterAvp *> *arr = [[NSMutableArray alloc]init];
+    if(_var_origin_host)
+    {
+        [_var_origin_host beforeEncode];
+        [arr addObject:_var_origin_host];
+    }
+    if(_var_origin_realm)
+    {
+        [_var_origin_realm beforeEncode];
+        [arr addObject:_var_origin_realm];
+    }
+    if(_var_result_code)
+    {
+        [_var_result_code beforeEncode];
+        [arr addObject:_var_result_code];
+    }
+    if(_var_error_message)
+    {
+        [_var_error_message beforeEncode];
+        [arr addObject:_var_error_message];
+    }
+    if(_var_avp.count > 0)
+    {
+        for(UMDiameterAvpAVP *o in _var_avp)
+        {
+            [o beforeEncode];
+            [arr addObject:o];
+        }
+    }
+    [self setAvps:arr];
+}
+
+
+- (void)setDictionaryValue:(NSDictionary *)dict
+{
+
+    if(dict[@"origin-host"])
+    {
+        _var_origin_host = [[UMDiameterAvpOrigin_Host alloc]init];
+        _var_origin_host.objectValue = dict[@"origin-host"];
+    }
+
+    if(dict[@"origin-realm"])
+    {
+        _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+
+    if(dict[@"result-code"])
+    {
+        _var_result_code = [[UMDiameterAvpResult_Code alloc]init];
+        _var_result_code.objectValue = dict[@"result-code"];
+    }
+
+    if(dict[@"error-message"])
+    {
+        _var_error_message = [[UMDiameterAvpError_Message alloc]init];
+        _var_error_message.objectValue = dict[@"error-message"];
+    }
+
+    if(dict[@"avp"])
+    {
+        id obj = dict[@"avp"];
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            for(id entry in (NSArray *)obj)
+            {
+                UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+                o.objectValue = entry;
+                [arr addObject:o];
+            }
+            _var_avp = arr;
+        }
+        else
+        {
+            NSMutableArray *arr = [[NSMutableArray alloc]init];
+            UMDiameterAvpAVP *o = [[UMDiameterAvpAVP alloc]init];
+            o.objectValue = obj;
+            [arr addObject:o];
+            _var_avp = arr;
+        }
+    }
+}
+
+- (UMSynchronizedSortedDictionary *)dictionaryValue
+{
+    UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    if(_var_origin_host)
+    {
+        dict[@"origin-host"] = _var_origin_host.objectValue;
+    }
+    if(_var_origin_realm)
+    {
+        dict[@"origin-realm"] = _var_origin_realm.objectValue;
+    }
+    if(_var_result_code)
+    {
+        dict[@"result-code"] = _var_result_code.objectValue;
+    }
+    if(_var_error_message)
+    {
+        dict[@"error-message"] = _var_error_message.objectValue;
+    }
+    if(_var_avp)
+    {
+        NSMutableArray *arr = [[NSMutableArray alloc]init];
+        for(id entry in _var_avp)
+        {
+            [arr addObject:[entry objectValue]];
+        }
+        dict[@"avp"] = arr;
+    }
+    return dict;
+}
+
++ (void)webDiameterParameters:(NSMutableString *)s
+{
+
+
+    [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpResult_Code appendWebDiameterParameters:s webName:@"result-code"  comment:@"" css:@"mandatory"];
+
+    [UMDiameterAvpError_Message appendWebDiameterParameters:s webName:@"error-message"  comment:@"" css:@"optional"];
+
+}
+
+- (void)afterDecode
+{
+    for(UMDiameterAvp *avp in _packet_avps)
+    {
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_hostUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_origin_realmUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_result_codeUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
+        }
+        if(avp.avpCode == [UMDiameterAvp@ avpCode])
+        {
+                UMDiameterAvp *avp2 = [[_var_error_messageUMDiameterAvp alloc]initWithAvp:avp];
+             = avp2;
+            [knownAVPs addObject:avp2]
         }
         else
         {

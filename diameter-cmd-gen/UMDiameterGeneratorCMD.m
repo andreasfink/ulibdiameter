@@ -596,16 +596,17 @@
         
         if(firstAvp == YES )
         {
-            [s appendString:@"                if(avp.avpCode == ["];
+            [s appendString:@"        if(avp.avpCode == ["];
         }
         else
         {
-            [s appendString:@"                else if(avp.avpCode == ["];
+            [s appendString:@"        else if(avp.avpCode == ["];
             firstAvp = NO;
         }
         [s appendFormat:@"%@@ avpCode])\n",avpPrefix,avp.objectName];
+
         [s appendString:@"        {\n"];
-        [s appendFormat:@"            UMDiameterAvp *avp2 = [[U%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
+        [s appendFormat:@"                UMDiameterAvp *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
 
         if(!avp.multiple)
         {
