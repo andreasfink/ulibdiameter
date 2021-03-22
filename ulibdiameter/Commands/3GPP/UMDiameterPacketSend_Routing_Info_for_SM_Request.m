@@ -527,6 +527,7 @@
         else if([avp isKindOfClass:[UMDiameterAvpVendor_Specific_Application_Id class]])
         {
             _var_vendor_specific_application_id = (UMDiameterAvpVendor_Specific_Application_Id *)avp;
+            [_var_vendor_specific_application_id afterDecode];
         }
         else if([avp isKindOfClass:[UMDiameterAvpAuth_Session_State class]])
         {

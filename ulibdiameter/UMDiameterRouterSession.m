@@ -50,19 +50,7 @@
                     forRouter:(UMDiameterRouter *)router
                      fromPeer:(UMDiameterPeer *)peer
 {
-#define COMMAND(CMDNAME) \
-    else if(packet.commandCode ==  [CMDNAME commandCode]) \
-    {  \
-        packet = [[CMDNAME alloc]initWithPacket:packet]; \
-    }
-
-    if(0)
-    {
-    }
-#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
-#include "Commands/base/UMDiameterCommands_base.inc"
-
-#undef COMMAND
+    packet = [packet decodeCommand];
 
     if(packet.commandFlags & DIAMETER_COMMAND_FLAG_REQUEST)
     {
