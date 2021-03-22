@@ -16,6 +16,7 @@
 #import "UMDiameterAvpOrigin_Realm.h"
 #import "UMDiameterAvpDestination_Host.h"
 #import "UMDiameterAvpDestination_Realm.h"
+#import "UMDiameterPacketsAll.h"
 
 @implementation UMDiameterPacket
 
@@ -81,6 +82,25 @@
 
 - (void)afterDecode
 {
+}
+
+- (UMDiameterPacket *)decodeCommand
+{
+    UMDiameterPacket *packet = self;
+#define COMMAND(CMDNAME) \
+    else if(packet.commandCode ==  [CMDNAME commandCode]) \
+    {  \
+        packet = [[CMDNAME alloc]initWithPacket:packet]; \
+    }
+    if(0)
+    {
+    }
+#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
+#include "Commands/base/UMDiameterCommands_base.inc"
+
+#undef COMMAND
+    [packet afterDecode];
+    return packet;
 }
 
 - (void)beforeEncode

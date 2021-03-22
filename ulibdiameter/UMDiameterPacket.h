@@ -94,4 +94,6 @@
 - (void)setDictionaryValue:(NSDictionary *)dict;
 - (UMSynchronizedSortedDictionary *)dictionaryValue;
 
+- (UMDiameterPacket *)decodeCommand;
+
 @end
