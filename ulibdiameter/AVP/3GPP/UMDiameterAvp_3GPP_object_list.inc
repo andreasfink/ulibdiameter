@@ -184,7 +184,7 @@ AVP_OBJECT(UMDiameterAvpTeleservice_List,UMDiameterAvpGrouped,1486,@"Teleservice
 AVP_OBJECT(UMDiameterAvpTS_Code,UMDiameterAvpOctetString,1487,@"TS-Code",OctetString,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpCall_Barring_Info,UMDiameterAvpGrouped,1488,@"Call-Barring-Info",Grouped,YES,YES,10415,YES)
 AVP_OBJECT(UMDiameterAvpSGSN_Number,UMDiameterAvpOctetString,1489,@"SGSN-Number",OctetString,YES,YES,10415,NO)
-AVP_OBJECT(UMDiameterAvpIDR_Flags,UMDiameterAvpUnsigned32,1490,@"IDR-Flags",Unsigned32,YES,NO,10415,NO)
+AVP_OBJECT(UMDiameterAvpIDR_Flags,UMDiameterAvpUnsigned32,1490,@"IDR-Flags",Unsigned32,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpICS_Indicator,UMDiameterAvpEnumerated,1491,@"ICS-Indicator",Enumerated,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported,UMDiameterAvpEnumerated,1492,@"IMS-Voice-Over-PS-Sessions-Supported",Enumerated,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions,UMDiameterAvpEnumerated,1493,@"Homogeneous-Support-of-IMS-Voice-Over-PS-Sessions",Enumerated,NO,YES,10415,NO)

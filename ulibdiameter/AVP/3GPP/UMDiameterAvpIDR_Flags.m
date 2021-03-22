@@ -1,30 +1,30 @@
 //
-//  UMDiameterAvpUser_Data.m
+//  UMDiameterAvpIDR_Flags.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 14:39:08.900931
+//  Created by afink on 2021-03-22 14:38:56.701143
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpUser_Data.h"
+#import "UMDiameterAvpIDR_Flags.h"
 
-@implementation UMDiameterAvpUser_Data
+@implementation UMDiameterAvpIDR_Flags
 
 
 - (NSString *)avpType
 {
-    return @"User-Data";
+    return @"IDR-Flags";
 }
 
 - (uint32_t)avpCode
 {
-    return 702;
+    return 1490;
 }
 
 + (uint32_t)avpCode
 {
-    return 702;
+    return 1490;
 }
 
 - (void)genericInitialisation
@@ -37,8 +37,8 @@
 + (id)definition
 {
     UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
-    avpDef[@"name"] = @"user-data";
-    avpDef[@"type"] = @"OctetString";
+    avpDef[@"name"] = @"idr-flags";
+    avpDef[@"type"] = @"Unsigned32";
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
