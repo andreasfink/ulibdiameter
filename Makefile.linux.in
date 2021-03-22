@@ -27,7 +27,7 @@ DIAMETER_CMD_GEN_M_FILES=$(wildcard diameter-cmd-gen/*.m)
 DIAMETER_CMD_GEN_O_FILES=$(DIAMETER_CMD_GEN_M_FILES:.m=.m.o)
 
 DIAMETER_AVP_GEN_M_FILES=$(wildcard diameter-avp-gen/*.m) 
-DIAMETER_AVP_GEN_O_FILES=$(DIAMETER_CMD_GEN_M_FILES:.m=.m.o)
+DIAMETER_AVP_GEN_O_FILES=$(DIAMETER_AVP_GEN_M_FILES:.m=.m.o)
 
 INCLUDEDIRS = -I Classes \
 	-I @PROJECT_NAME@ \
@@ -81,6 +81,7 @@ build/diameter-avp-gen: $(DIAMETER_AVP_GEN_O_FILES)
 
 clean:
 	rm -f $(LIB) $(OFILES) $(SLIB)
+	rm -rf build/
 
 .SUFFIXES: .m.o .o .m .c
 
