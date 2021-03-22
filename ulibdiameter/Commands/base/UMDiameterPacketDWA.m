@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 09:02:25.355298
+//  Created by afink on 2021-03-22 10:04:57.309020
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -205,6 +205,7 @@
 
 - (void)afterDecode
 {
+    [super afterDecode];
     for(UMDiameterAvp *avp in _packet_avps)
     {
         if(avp.avpCode == [UMDiameterAvpResult_Code avpCode])
