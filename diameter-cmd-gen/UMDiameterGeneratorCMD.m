@@ -603,14 +603,13 @@
             [s appendString:@"        else if(avp.avpCode == ["];
             firstAvp = NO;
         }
-        [s appendFormat:@"%@@ avpCode])\n",avpPrefix,avp.objectName];
-
+        [s appendFormat:@"%@%@ avpCode])\n",avpPrefix,avp.objectName];
         [s appendString:@"        {\n"];
-        [s appendFormat:@"                UMDiameterAvp *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avp.variableName,avpPrefix,avp.objectName];
+        [s appendFormat:@"                UMDiameterAvp *avp2 = [[%@%@ alloc]initWithAvp:avp];\n",avpPrefix,avp.objectName];
 
         if(!avp.multiple)
         {
-            [s appendFormat:@"            %@ = avp2;\n"];
+            [s appendFormat:@"            %@ = avp2;\n",avp.variableName];
             [s appendFormat:@"            [knownAVPs addObject:avp2]\n"];
         }
         else
@@ -621,7 +620,7 @@
             [s appendFormat:@"            }\n"];
             [s appendFormat:@"            else\n"];
             [s appendFormat:@"            {\n"];
-            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n"];
+            [s appendFormat:@"                %@ = [%@ arrayByAddingObject:avp2];\n",avp.variableName,avp.variableName];
             [s appendFormat:@"            }\n"];
         }
         [s appendString:@"        }\n"];

@@ -71,13 +71,13 @@ install: ${LIB} ${SLIB} build/diameter-cmd-gen build/diameter-avp-gen
 	ldconfig
 
 
-build/diameter-cmd-gen: $(DIAMETER_CMD_GEN_O_FILES) lib@PROJECT_NAME@.so
+build/diameter-cmd-gen: $(DIAMETER_CMD_GEN_O_FILES)
 	mkdir -p build
-	${CC} -o build/decode-sms  -L. -l@PROJECT_NAME@ ${LDFLAGS} $(DIAMETER_CMD_GEN_O_FILES)
+	${CC} -o build/diameter-cmd-gen  -L. -l@PROJECT_NAME@ ${LDFLAGS} $(DIAMETER_CMD_GEN_O_FILES)
 
-build/diameter-avp-gen: $(DIAMETER_AVP_GEN_O_FILES) lib@PROJECT_NAME@.so
+build/diameter-avp-gen: $(DIAMETER_AVP_GEN_O_FILES)
 	mkdir -p build
-	${CC} -o build/decode-sms  -L. -l@PROJECT_NAME@ ${LDFLAGS} $(DIAMETER_AVP_GEN_O_FILES)
+	${CC} -o build/diameter-avp-gen  -L. -l@PROJECT_NAME@ ${LDFLAGS} $(DIAMETER_AVP_GEN_O_FILES)
 
 clean:
 	rm -f $(LIB) $(OFILES) $(SLIB)
