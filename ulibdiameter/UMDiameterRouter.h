@@ -178,5 +178,7 @@
 
 - (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet;
 - (void)dumpRoutes;
+- (uint32_t)startupIdentifier;
+
 
 @end

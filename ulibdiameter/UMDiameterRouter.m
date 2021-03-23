@@ -718,6 +718,16 @@
     }
 }
 
+- (uint32_t)startupIdentifier;
+{
+    time_t t;
+    if(t==0)
+    {
+        time(&t);
+    }
+    return (uint32_t) t;
+}
+
 - (uint32_t)nextEndToEndIdentifier;
 {
     uint32_t r;
