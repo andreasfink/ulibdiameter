@@ -1413,7 +1413,7 @@
         _nextSeqNumber = 1;
     }
     UMMUTEX_UNLOCK(_sequenceNumberLock);
-    NSString *s = [NSString stringWithFormat:@"%@;%@;%@",host,@(_startupTime),@(_nextSeqNumber)];
+    NSString *s = [NSString stringWithFormat:@"%@;%@;%@",host,@(_startupTime),@(seq)];
     return s;
 }
 @end
