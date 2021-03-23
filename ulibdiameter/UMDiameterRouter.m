@@ -61,7 +61,7 @@
         _sid_lock = [[UMMutex alloc]initWithName:@"diameter-router-sid-lock"];
 
         _endToEndIdentifierLock = [[UMMutex alloc]initWithName:@"end-to-end-identifier-lock"];
-        _vendorId = 54013; /* fts */
+        _vendorId = 10415;//54013; /* fts */
         _productName = @"Fink Telecom Services ulibdiameter";
         
         NSString *s = @"2020-01-01 00:00:00.000000";
