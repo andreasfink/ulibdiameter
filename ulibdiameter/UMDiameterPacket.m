@@ -76,10 +76,6 @@
 {
 	_packet_avps = [[UMSynchronizedArray alloc]init];
     _version = 1;
-    if([self respondsToSelector:@selector(defaultApplicationId)])
-    {
-        _applicationId = [self defaultApplicationId];
-    }
 }
 
 - (uint32_t)defaultApplicationId
