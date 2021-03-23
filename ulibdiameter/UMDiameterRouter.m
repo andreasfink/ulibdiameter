@@ -720,7 +720,7 @@
 
 - (uint32_t)startupIdentifier;
 {
-    time_t t;
+    static time_t t=0;
     if(t==0)
     {
         time(&t);
