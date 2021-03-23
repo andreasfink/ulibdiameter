@@ -37,6 +37,7 @@
     [super genericInitialisation];
     self.commandCode = 8388647;
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST | DIAMETER_COMMAND_FLAG_PROXIABLE;
+    self.applicationId = 16777312;
 }
 
 + (uint32_t)commandCode

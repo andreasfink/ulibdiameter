@@ -71,12 +71,21 @@
     }
     return self;
 }
+
 - (void)genericInitialisation
 {
 	_packet_avps = [[UMSynchronizedArray alloc]init];
     _version = 1;
+    if([self respondsToSelector:@selector(defaultApplicationId)])
+    {
+        _applicationId = [self defaultApplicationId];
+    }
 }
 
+- (uint32_t)defaultApplicationId
+{
+    return 0;
+}
 
 #define PADDING_TO_4(a)  (((a + 3) / 4) * 4)
 
@@ -238,20 +247,18 @@
         [avp packetData]; /* forces the packetLength to be updated */
         _messageLength += avp.packetLength;
     }
-    uint32_t cmdCode = [self commandCode];
-    uint32_t appId = [self applicationId];
     header[0] = _version & 0xFF;
     header[1] = (_messageLength  & 0x00FF0000) >> 16;
     header[2] = (_messageLength  & 0x0000FF00) >> 8;
     header[3] = (_messageLength  & 0x000000FF) >> 0;
     header[4] = (_commandFlags   & 0x000000FF) >> 0;
-    header[5] = (cmdCode    & 0x00FF0000) >> 16;
-    header[6] = (cmdCode    & 0x0000FF00) >> 8;
-    header[7] = (cmdCode    & 0x000000FF) >> 0;
-    header[8] = (appId  & 0xFF000000) >> 24;
-    header[9] = (appId  & 0x00FF0000) >> 16;
-    header[10] = (appId & 0x0000FF00) >> 8;
-    header[11] = (appId & 0x000000FF) >> 0;
+    header[5] = (_commandCode    & 0x00FF0000) >> 16;
+    header[6] = (_commandCode    & 0x0000FF00) >> 8;
+    header[7] = (_commandCode    & 0x000000FF) >> 0;
+    header[8] = (_applicationId  & 0xFF000000) >> 24;
+    header[9] = (_applicationId  & 0x00FF0000) >> 16;
+    header[10] = (_applicationId & 0x0000FF00) >> 8;
+    header[11] = (_applicationId & 0x000000FF) >> 0;
     header[12] = (_hopByHopIdentifier & 0xFF000000) >> 24;
     header[13] = (_hopByHopIdentifier & 0x00FF0000) >> 16;
     header[14] = (_hopByHopIdentifier & 0x0000FF00) >> 8;

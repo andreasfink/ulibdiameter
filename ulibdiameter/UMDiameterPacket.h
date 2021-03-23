@@ -53,6 +53,7 @@
 @property(readwrite,strong,atomic)  UMDiameterAvpDestination_Host *destinationHost;
 @property(readwrite,strong,atomic)  UMDiameterAvpDestination_Realm *destinationRealm;
 
+- (uint32_t)defaultApplicationId;
 - (UMDiameterPacket *)init;
 - (UMDiameterPacket *)initWithData:(NSData *)packet;
 - (UMDiameterPacket *)initWithData:(NSData *)packet atPosition:(NSInteger *)posPtr;
