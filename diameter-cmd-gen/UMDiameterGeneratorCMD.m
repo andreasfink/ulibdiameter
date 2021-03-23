@@ -651,6 +651,13 @@
 
     [s appendString:@"\tUMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];\n"];
 
+    [s appendString:@"    dict[@\"Diameter-Version\"] = @(_version);\n"];
+    [s appendString:@"    dict[@\"Diameter-Command-Code\"] = @(_commandCode);\n"];
+    [s appendString:@"    dict[@\"Diameter-Command-Flags\"] = @(_commandFlags);\n"];
+    [s appendString:@"    dict[@\"Diameter-Application-Id\"] = @(_applicationId);\n"];
+    [s appendString:@"    dict[@\"Hop-by-Hop-Identifier\"] = @(_hopByHopIdentifier);\n"];
+    [s appendString:@"    dict[@\"End-to-End-Identifier\"] = @(_endToEndIdentifier);\n"];
+
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
         if([avp.standardsName isEqualToString:@"AVP"])

@@ -44,8 +44,18 @@
     NSInteger pos = 0;
     while(_avpData.length >= (pos+8))
     {
-        uint8_t avpheader[8];
+        uint8_t avpheader[12];
         memcpy(avpheader,&_avpData.bytes[pos],8);
+
+        int offset = 0;
+        if( avpheader[4] & 0x80) /* vendor ID is set */
+        {
+            if(_avpData.length >= (pos+12))
+            {
+                offset = 4;
+                memcpy(avpheader,&_avpData.bytes[pos],12);
+            }
+        }
 
         NSUInteger avplen = (avpheader[5] << 16)| (avpheader[6] << 8) | (avpheader[7]);
         if(_avpData.length < (pos+avplen))
@@ -54,6 +64,7 @@
         }
         NSData *subavpdata = [NSData dataWithBytes:&_avpData.bytes[pos] length:avplen];
         UMDiameterAvp *avp = [[UMDiameterAvp alloc]initWithData:subavpdata];
+        avplen = ((avplen + 3) /4) * 4; /* padding */
         if(avp)
         {
             [_grouped_avps addObject:avp];
