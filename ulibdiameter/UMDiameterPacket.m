@@ -244,7 +244,7 @@
     header[1] = (_messageLength  & 0x00FF0000) >> 16;
     header[2] = (_messageLength  & 0x0000FF00) >> 8;
     header[3] = (_messageLength  & 0x000000FF) >> 0;
-    header[4] = (cmdCode   & 0x000000FF) >> 0;
+    header[4] = (_commandFlags   & 0x000000FF) >> 0;
     header[5] = (cmdCode    & 0x00FF0000) >> 16;
     header[6] = (cmdCode    & 0x0000FF00) >> 8;
     header[7] = (cmdCode    & 0x000000FF) >> 0;
