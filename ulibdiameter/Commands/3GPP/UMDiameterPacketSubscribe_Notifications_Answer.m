@@ -2,7 +2,7 @@
 //  UMDiameterPacketSubscribe_Notifications_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 10:04:58.862599
+//  Created by afink on 2021-03-23 03:34:01.290745
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -37,6 +37,7 @@
     [super genericInitialisation];
     self.commandCode = 308;
     self.commandFlags = DIAMETER_COMMAND_FLAG_PROXIABLE;
+    self.applicationId = 16777217;
 }
 
 + (uint32_t)commandCode

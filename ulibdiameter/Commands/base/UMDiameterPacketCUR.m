@@ -2,7 +2,7 @@
 //  UMDiameterPacketCUR.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 10:04:57.755584
+//  Created by afink on 2021-03-23 03:34:00.423447
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -29,6 +29,7 @@
     [super genericInitialisation];
     self.commandCode = 328;
     self.commandFlags = DIAMETER_COMMAND_FLAG_REQUEST;
+    self.applicationId = 0;
 }
 
 + (uint32_t)commandCode

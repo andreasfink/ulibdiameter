@@ -2,7 +2,7 @@
 //  UMDiameterPacketDWA.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 10:04:57.309020
+//  Created by afink on 2021-03-23 03:34:00.106773
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -24,6 +24,7 @@
     [super genericInitialisation];
     self.commandCode = 280;
     self.commandFlags = 0;
+    self.applicationId = 0;
 }
 
 + (uint32_t)commandCode

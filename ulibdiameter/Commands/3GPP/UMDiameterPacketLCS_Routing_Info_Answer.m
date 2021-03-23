@@ -2,7 +2,7 @@
 //  UMDiameterPacketLCS_Routing_Info_Answer.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-22 10:04:58.486413
+//  Created by afink on 2021-03-23 03:34:00.987038
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -37,6 +37,7 @@
     [super genericInitialisation];
     self.commandCode = 8388622;
     self.commandFlags = DIAMETER_COMMAND_FLAG_PROXIABLE;
+    self.applicationId = 16777291;
 }
 
 + (uint32_t)commandCode
