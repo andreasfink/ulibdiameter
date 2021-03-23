@@ -155,18 +155,18 @@ static inline unsigned char    nibble2hex(unsigned char b)
     NSData *ad = [msisdn dataUsingEncoding:NSUTF8StringEncoding];
     NSUInteger len = ad.length;
     const uint8_t *bytes = ad.bytes;
-    int j=0;
+    int output_nibble_count=0;
     for(int i=0;i<len;i++)
     {
-        if( (j % 2) == 0)
+        if( (output_nibble_count % 2) == 0)
         {
             c1 = digit_to_nibble(bytes[i]);
-            if(c1 <0)
+            if(c1 < 0)
             {
                 /* we skip any non digits */
-                j++;
                 continue;
             }
+            output_nibble_count++;
         }
         else
         {
@@ -174,15 +174,14 @@ static inline unsigned char    nibble2hex(unsigned char b)
             if(c2 < 0)
             {
                 /* we skip any non digits */
-                j++;
                 continue;
             }
             c = (unsigned char)((c2 << 4) | c1);
             [data appendByte:c];
-            j++;
+            output_nibble_count++;
         }
     }
-    int odd = j % 2;
+    int odd = output_nibble_count % 2;
     if(odd)
     {
         c2 = 0x0F;
