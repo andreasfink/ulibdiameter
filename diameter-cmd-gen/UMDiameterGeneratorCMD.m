@@ -412,7 +412,7 @@
     {
         [s appendString:@";\n"];
     }
-    [s appendString:@"    self.applicationId = %ld;\n",_applicationId];
+    [s appendFormat:@"    self.applicationId = %ld;\n",_applicationId];
     [s appendString:@"}\n"];
 
     [s appendString:@"\n"];
