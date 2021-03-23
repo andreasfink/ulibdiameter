@@ -74,7 +74,7 @@
             if(routeSelect)
             {
                 NSNumber *n = [routeSelect numberValue];
-                if(n)
+                if([n integerValue]>0)
                 {
                     route = [_router findRouteForRouteSelector:n];
                 }

@@ -1166,7 +1166,7 @@
         {
             if([a.numberValue isEqualToNumber:b])
             {
-                if(b)
+                if(b != NULL)
                 {
                     [c addObject:b];
                 }
@@ -1183,7 +1183,7 @@
         {
             if([a.numberValue isEqualToNumber:b])
             {
-                if(b)
+                if(b !=NULL)
                 {
                     [c addObject:b];
                 }
@@ -1201,7 +1201,7 @@
         {
             if([a.numberValue isEqualToNumber:b])
             {
-                if(b)
+                if(b!=NULL)
                 {
                     [c addObject:b];
                 }

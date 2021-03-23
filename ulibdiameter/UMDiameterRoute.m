@@ -227,7 +227,7 @@
     {
         d[@"realm"] = _realm;
     }
-    if(_applicationId)
+    if(_applicationId!=NULL)
     {
         d[@"applicationId"] = _applicationId;
     }
@@ -239,11 +239,11 @@
     {
         d[@"sessionId"] = _sessionId;
     }
-    if(_weight)
+    if(_weight!=NULL)
     {
         d[@"weight"] = _weight;
     }
-    if(_priority)
+    if(_priority!=NULL)
     {
         d[@"priority"] = _priority;
     }
@@ -267,7 +267,7 @@
     {
         d[@"defaultRoute"] = @(YES);
     }
-    if(_routeSelector)
+    if(_routeSelector!=NULL)
     {
         d[@"route-selector"] = @([_routeSelector intValue]);
     }
