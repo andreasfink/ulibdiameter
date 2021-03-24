@@ -14,7 +14,7 @@
 
 @interface UMDiameterAvpEPS_Location_Information : UMDiameterAvpGrouped
 {
-	UMDiameterAvpUser_State	*_var_user_state;
+	UMDiameterAvpUser_State	    *_var_user_state;
 	NSArray<UMDiameterAvpAVP *>	*_var_avp;
 }
 

@@ -1,5 +1,4 @@
 MME-Location-Information ::= <AVP header: 1600 10415>
-
 [E-UTRAN-Cell-Global-Identity]
 [Tracking-Area-Identity]
 [Geographical-Information]
