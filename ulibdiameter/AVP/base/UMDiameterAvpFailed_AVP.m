@@ -54,7 +54,7 @@
 - (void)afterDecode
 {
     [super afterDecode];
-    NSArray *avps = [self array];
+    //NSArray *avps = [self array];
 
     NSMutableArray *knownAVPs  = [[NSMutableArray alloc]init];
     NSMutableArray *unknownAVPs;
@@ -95,7 +95,6 @@
     avpDef[@"group"] = @(YES);
     NSMutableArray *entries = [[NSMutableArray alloc]init];
     avpDef[@"members"] = entries;
-
     return avpDef;
 }
 
