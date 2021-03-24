@@ -134,6 +134,9 @@
 		A684F78622C1FED9004F77C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F78522C1FED9004F77C0 /* main.m */; };
 		A684F78A22C20540004F77C0 /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
 		A685ADCC2603A6DB007A631F /* UMDiameterPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6506EB62211B32B006665A9 /* UMDiameterPeer.m */; };
+		A685AF00260B6897007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.m in Sources */ = {isa = PBXBuildFile; fileRef = A685AEFF260B6896007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.m */; };
+		A685AF07260B6B04007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h in Headers */ = {isa = PBXBuildFile; fileRef = A685AF06260B6B03007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A685AF13260B6C4C007A631F /* ulibasn1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A685AF12260B6C4C007A631F /* ulibasn1.framework */; };
 		A68CFD4722A854C100F94967 /* UMDiameterPacketsAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A68CFD4522A854C100F94967 /* UMDiameterPacketsAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68FC4A322A5B8B1006351C3 /* UMDiameterResultCode.h in Headers */ = {isa = PBXBuildFile; fileRef = A68FC4A122A5B8B1006351C3 /* UMDiameterResultCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A68FC4A722A5C098006351C3 /* UMDiameterLocalUserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A68FC4A522A5C098006351C3 /* UMDiameterLocalUserProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1580,6 +1583,11 @@
 		A684F78322C1FED9004F77C0 /* diameter-cmd-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "diameter-cmd-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A684F78522C1FED9004F77C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A685AE0726088713007A631F /* diameter-cmd-gen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "diameter-cmd-gen.entitlements"; sourceTree = "<group>"; };
+		A685AEFF260B6896007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.m"; sourceTree = "<group>"; };
+		A685AF06260B6B03007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h"; sourceTree = "<group>"; };
+		A685AF12260B6C4C007A631F /* ulibasn1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibasn1.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulibasn1.framework"; sourceTree = "<absolute>"; };
+		A685AF25260B7726007A631F /* UMDiameterPacketUser_Data_Answer.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketUser_Data_Answer.bnf; sourceTree = "<group>"; };
+		A685AF26260B7726007A631F /* UMDiameterPacketUser_Data_Request.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketUser_Data_Request.bnf; sourceTree = "<group>"; };
 		A68CFD4522A854C100F94967 /* UMDiameterPacketsAll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketsAll.h; sourceTree = "<group>"; };
 		A68FC4A122A5B8B1006351C3 /* UMDiameterResultCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterResultCode.h; sourceTree = "<group>"; };
 		A68FC4A522A5C098006351C3 /* UMDiameterLocalUserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterLocalUserProtocol.h; sourceTree = "<group>"; };
@@ -2922,6 +2930,7 @@
 				A6DCCE8825FB54B90030CBC5 /* ulibdb.framework in Frameworks */,
 				A67989F422BB6D960019806C /* ulib.framework in Frameworks */,
 				A64B215526070BAB00E54CF6 /* ulibgsmmap.framework in Frameworks */,
+				A685AF13260B6C4C007A631F /* ulibasn1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3211,6 +3220,8 @@
 				A6E24A03235061AC00742DCA /* UMDiameterAvpDSR_Flags.m */,
 				A6E248912350616A00742DCA /* UMDiameterAvpE_UTRAN_Cell_Global_Identity.h */,
 				A6E249FB235061AA00742DCA /* UMDiameterAvpE_UTRAN_Cell_Global_Identity.m */,
+				A685AF06260B6B03007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h */,
+				A685AEFF260B6896007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.m */,
 				A6E24B3F235061ED00742DCA /* UMDiameterAvpE_UTRAN_Vector.h */,
 				A6E24A70235061C100742DCA /* UMDiameterAvpE_UTRAN_Vector.m */,
 				A6E249F7235061A900742DCA /* UMDiameterAvpECGI.h */,
@@ -4415,36 +4426,38 @@
 			children = (
 				A6967B08245A1A60000AC0CD /* UMDiameterPacketAlert_Service_Centre_Answer.bnf */,
 				A6967B09245A1A60000AC0CD /* UMDiameterPacketAlert_Service_Centre_Request.bnf */,
-				A6967B0B245A1A6F000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.bnf */,
-				A6967B0A245A1A6E000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.bnf */,
-				A67FC9E622CA7D22007A28AB /* UMDiameterPacketAuthentication_Information_Request.bnf */,
 				A67FC9E722CA7D22007A28AB /* UMDiameterPacketAuthentication_Information_Answer.bnf */,
-				A67FC9E822CA7D22007A28AB /* UMDiameterPacketUpdate_Location_Request.bnf */,
+				A67FC9E622CA7D22007A28AB /* UMDiameterPacketAuthentication_Information_Request.bnf */,
+				A67FC9F422CA7D22007A28AB /* UMDiameterPacketCancel_Location_Answer.bnf */,
 				A67FC9E922CA7D22007A28AB /* UMDiameterPacketCancel_Location_Request.bnf */,
 				A67FC9EA22CA7D22007A28AB /* UMDiameterPacketCancel_VCSG_Location_Answer.bnf */,
 				A67FC9EB22CA7D22007A28AB /* UMDiameterPacketCancel_VCSG_Location_Request.bnf */,
-				A67FC9EC22CA7D22007A28AB /* UMDiameterPacketNotify_Request.bnf */,
-				A67FC9ED22CA7D22007A28AB /* UMDiameterPacketUpdate_VCSG_Location_Answer.bnf */,
-				A67FC9EE22CA7D22007A28AB /* UMDiameterPacketPurge_UE_Answer.bnf */,
-				A67FC9EF22CA7D22007A28AB /* UMDiameterPacketInsert_Subscriber_Data_Request.bnf */,
-				A67FC9F022CA7D22007A28AB /* UMDiameterPacketUpdate_VCSG_Location_Request.bnf */,
-				A67FC9F122CA7D22007A28AB /* UMDiameterPacketUpdate_Location_Answer.bnf */,
-				A67FC9F222CA7D22007A28AB /* UMDiameterPacketPurge_UE_Request.bnf */,
-				A67FC9F322CA7D22007A28AB /* UMDiameterPacketME_Identity_Check_Request.bnf */,
-				A67FC9F422CA7D22007A28AB /* UMDiameterPacketCancel_Location_Answer.bnf */,
+				A67FC9FA22CA7D22007A28AB /* UMDiameterPacketDelete_Subscriber_Data_Answer.bnf */,
 				A67FC9F522CA7D22007A28AB /* UMDiameterPacketDelete_Subscriber_Data_Request.bnf */,
+				A67FC9F922CA7D22007A28AB /* UMDiameterPacketInsert_Subscriber_Data_Answer.bnf */,
+				A67FC9EF22CA7D22007A28AB /* UMDiameterPacketInsert_Subscriber_Data_Request.bnf */,
+				A69A2CE82327E6BE00F12046 /* UMDiameterPacketLCS_Routing_Info_Answer.bnf */,
+				A69A2CE72327E6BE00F12046 /* UMDiameterPacketLCS_Routing_Info_Request.bnf */,
+				A6DB9C0A233A5B7C0022B63F /* UMDiameterPacketLocation_Report_Answer.bnf */,
+				A6DB9C09233A5B7C0022B63F /* UMDiameterPacketLocation_Report_Request.bnf */,
+				A67FC9F822CA7D22007A28AB /* UMDiameterPacketME_Identity_Check_Answer.bnf */,
+				A67FC9F322CA7D22007A28AB /* UMDiameterPacketME_Identity_Check_Request.bnf */,
+				A67FC9FB22CA7D22007A28AB /* UMDiameterPacketNotify_Answer.bnf */,
+				A67FC9EC22CA7D22007A28AB /* UMDiameterPacketNotify_Request.bnf */,
+				A6DB9C06233A5B4B0022B63F /* UMDiameterPacketProvide_Location_Answer.bnf */,
+				A6DB9C05233A5B4B0022B63F /* UMDiameterPacketProvide_Location_Request.bnf */,
+				A67FC9EE22CA7D22007A28AB /* UMDiameterPacketPurge_UE_Answer.bnf */,
+				A67FC9F222CA7D22007A28AB /* UMDiameterPacketPurge_UE_Request.bnf */,
 				A67FC9F622CA7D22007A28AB /* UMDiameterPacketReset_Answer.bnf */,
 				A67FC9F722CA7D22007A28AB /* UMDiameterPacketReset_Request.bnf */,
-				A67FC9F822CA7D22007A28AB /* UMDiameterPacketME_Identity_Check_Answer.bnf */,
-				A67FC9F922CA7D22007A28AB /* UMDiameterPacketInsert_Subscriber_Data_Answer.bnf */,
-				A67FC9FA22CA7D22007A28AB /* UMDiameterPacketDelete_Subscriber_Data_Answer.bnf */,
-				A67FC9FB22CA7D22007A28AB /* UMDiameterPacketNotify_Answer.bnf */,
-				A69A2CE72327E6BE00F12046 /* UMDiameterPacketLCS_Routing_Info_Request.bnf */,
-				A69A2CE82327E6BE00F12046 /* UMDiameterPacketLCS_Routing_Info_Answer.bnf */,
-				A6DB9C05233A5B4B0022B63F /* UMDiameterPacketProvide_Location_Request.bnf */,
-				A6DB9C06233A5B4B0022B63F /* UMDiameterPacketProvide_Location_Answer.bnf */,
-				A6DB9C09233A5B7C0022B63F /* UMDiameterPacketLocation_Report_Request.bnf */,
-				A6DB9C0A233A5B7C0022B63F /* UMDiameterPacketLocation_Report_Answer.bnf */,
+				A6967B0B245A1A6F000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Answer.bnf */,
+				A6967B0A245A1A6E000AC0CD /* UMDiameterPacketSend_Routing_Info_for_SM_Request.bnf */,
+				A67FC9F122CA7D22007A28AB /* UMDiameterPacketUpdate_Location_Answer.bnf */,
+				A67FC9E822CA7D22007A28AB /* UMDiameterPacketUpdate_Location_Request.bnf */,
+				A67FC9ED22CA7D22007A28AB /* UMDiameterPacketUpdate_VCSG_Location_Answer.bnf */,
+				A67FC9F022CA7D22007A28AB /* UMDiameterPacketUpdate_VCSG_Location_Request.bnf */,
+				A685AF25260B7726007A631F /* UMDiameterPacketUser_Data_Answer.bnf */,
+				A685AF26260B7726007A631F /* UMDiameterPacketUser_Data_Request.bnf */,
 			);
 			path = "command-def";
 			sourceTree = "<group>";
@@ -4542,6 +4555,7 @@
 		A6A58BA2203A678600D0C2BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A685AF12260B6C4C007A631F /* ulibasn1.framework */,
 				A64B215426070BAB00E54CF6 /* ulibgsmmap.framework */,
 				A6DCCE8725FB54B90030CBC5 /* ulibdb.framework */,
 				A6798A0322BB6F3A0019806C /* ulibpcap.framework */,
@@ -5310,6 +5324,7 @@
 				A6E24B8B235061EF00742DCA /* UMDiameterAvpComplete_Data_List_Included_Indicator.h in Headers */,
 				A6A58CA3203CA1BA00D0C2BE /* UMDiameterAvpCodes.h in Headers */,
 				A6E24E7D235061F000742DCA /* UMDiameterAvpServing_Node_Indication.h in Headers */,
+				A685AF07260B6B04007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h in Headers */,
 				A6C9EE8C22CB625300778583 /* UMDiameterAvpDestination_Realm.h in Headers */,
 				A6FCEF97245C1FA0002D5FE4 /* UMDiameterAvpSGSN_Absent_User_Diagnostic_SM.h in Headers */,
 				A6FCEF77245C1762002D5FE4 /* UMDiameterAvpMSC_SM_Delivery_Outcome.h in Headers */,
@@ -5923,6 +5938,7 @@
 				A6C9F32722CB7EA100778583 /* UMDiameterAvpMIP_MAC_Mobility_Data.m in Sources */,
 				A6FCEF65245C1688002D5FE4 /* UMDiameterAvpAbsent_User_Diagnostic_SM.m in Sources */,
 				A6E24CEB235061F000742DCA /* UMDiameterAvpTS_Code.m in Sources */,
+				A685AF00260B6897007A631F /* UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.m in Sources */,
 				A6E24E19235061F000742DCA /* UMDiameterAvpeNodeB_ID.m in Sources */,
 				A6E24EF823547AC400742DCA /* UMDiameterAvpMSISDN+diameter.m in Sources */,
 				A67FCA9522CA80B1007A28AB /* UMDiameterPacketACA.m in Sources */,
@@ -6483,6 +6499,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = ./AVP/3GPP;
@@ -6511,6 +6528,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
