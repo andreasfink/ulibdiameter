@@ -2,7 +2,7 @@
 //  UMDiameterPacketAlert_Service_Centre_Request.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-23 03:34:01.384817
+//  Created by afink on 2021-03-23 23:12:21.185567
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -602,6 +602,12 @@
 - (id)objectValue
 {
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
+    dict[@"Diameter-Version"] = @(_version);
+    dict[@"Diameter-Command-Code"] = @(_commandCode);
+    dict[@"Diameter-Command-Flags"] = @(_commandFlags);
+    dict[@"Diameter-Application-Id"] = @(_applicationId);
+    dict[@"Hop-by-Hop-Identifier"] = @(_hopByHopIdentifier);
+    dict[@"End-to-End-Identifier"] = @(_endToEndIdentifier);
 	dict[@"Session-Id"] = [_var_session_id objectValue];
 	dict[@"DRMP"] = [_var_drmp objectValue];
 	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
