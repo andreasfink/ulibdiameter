@@ -366,6 +366,7 @@
 2563	Reporting-Duration	07.04.68	Unsigned32	V
 2564	Reporting-Location-Requirements	07.04.69	Unsigned32	V
 2565	Additional-Area	07.04.70	Grouped	V
+3102	User-Identifier	-	Grouped	M,V
 3111	External-Identifier	-	UTF8String	M,V
 3113	AESE-Communication-Pattern	-	Grouped	M,V
 3114	Communication-Pattern-Set	-	Grouped	M,V

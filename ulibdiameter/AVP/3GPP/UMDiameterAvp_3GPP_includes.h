@@ -369,6 +369,7 @@
 #import "UMDiameterAvpReporting_Duration.h"
 #import "UMDiameterAvpReporting_Location_Requirements.h"
 #import "UMDiameterAvpAdditional_Area.h"
+#import "UMDiameterAvpUser_Identifier.h"
 #import "UMDiameterAvpExternal_Identifier.h"
 #import "UMDiameterAvpAESE_Communication_Pattern.h"
 #import "UMDiameterAvpCommunication_Pattern_Set.h"

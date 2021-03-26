@@ -2,7 +2,7 @@
 //  UMDiameterAvpE_UTRAN_Cell_Global_Identity.m
 //  ulibdiameter
 //
-//  Created by afink on 2020-12-28 14:28:35.115196
+//  Created by afink on 2021-03-26 21:07:51.067649
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
@@ -15,7 +15,6 @@
 - (NSString *)avpType
 {
     return @"E-UTRAN-Cell-Global-Identity";
-    
 }
 
 - (uint32_t)avpCode
@@ -46,8 +45,6 @@
 
     return avpDef;
 }
-
-
 
 
 @end

@@ -366,6 +366,7 @@ AVP_OBJECT(UMDiameterAvpSampling_Interval,UMDiameterAvpUnsigned32,2562,@"Samplin
 AVP_OBJECT(UMDiameterAvpReporting_Duration,UMDiameterAvpUnsigned32,2563,@"Reporting-Duration",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpReporting_Location_Requirements,UMDiameterAvpUnsigned32,2564,@"Reporting-Location-Requirements",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpAdditional_Area,UMDiameterAvpGrouped,2565,@"Additional-Area",Grouped,NO,YES,10415,YES)
+AVP_OBJECT(UMDiameterAvpUser_Identifier,UMDiameterAvpGrouped,3102,@"User-Identifier",Grouped,YES,YES,10415,YES)
 AVP_OBJECT(UMDiameterAvpExternal_Identifier,UMDiameterAvpUTF8String,3111,@"External-Identifier",UTF8String,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpAESE_Communication_Pattern,UMDiameterAvpGrouped,3113,@"AESE-Communication-Pattern",Grouped,YES,YES,10415,YES)
 AVP_OBJECT(UMDiameterAvpCommunication_Pattern_Set,UMDiameterAvpGrouped,3114,@"Communication-Pattern-Set",Grouped,YES,YES,10415,YES)
