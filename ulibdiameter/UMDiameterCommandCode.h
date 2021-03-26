@@ -57,6 +57,8 @@ typedef enum UMDiameterCommandCode
     UMDiameterCommandCode_3GPP_Notify = 323, /* NOR NOA */
     UMDiameterCommandCode_3GPP_ME_Identity_Check = 324, /* ECR ECA */
 
+    UMDiameterCommandCode_3GPP_SubscriberInformation = 8388641;
+    
     UMDiameterCommandCode_3GPP_LCS_PL = 8388620,
     UMDiameterCommandCode_3GPP_LCS_RI = 8388622,
     UMDiameterCommandCode_AM = 260,

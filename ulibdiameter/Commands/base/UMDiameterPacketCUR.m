@@ -542,7 +542,11 @@
 		{
 			for(UMDiameterAvp *avp in _var_host_ip_address)
 			{
-				[arr addObject:[avp objectValue]];
+                id a = [avp objectValue];
+                if(a!= NULL)
+                {
+                    [arr addObject:a];
+                }
 			}
 			dict[@"Host-IP-Address"] = arr;
 		}
@@ -556,7 +560,11 @@
 		{
 			for(UMDiameterAvp *avp in _var_supported_vendor_id)
 			{
-				[arr addObject:[avp objectValue]];
+                id a = [avp objectValue];
+                if(a!= NULL)
+                {
+                    [arr addObject:a];
+                }
 			}
 			dict[@"Supported-Vendor-Id"] = arr;
 		}
@@ -567,7 +575,11 @@
 		{
 			for(UMDiameterAvp *avp in _var_auth_application_id)
 			{
-				[arr addObject:[avp objectValue]];
+                id a = [avp objectValue];
+                if(a!= NULL)
+                {
+                    [arr addObject:a];
+                }
 			}
 			dict[@"Auth-Application-Id"] = arr;
 		}
@@ -578,7 +590,11 @@
 		{
 			for(UMDiameterAvp *avp in _var_acct_application_id)
 			{
-				[arr addObject:[avp objectValue]];
+                id a = [avp objectValue];
+                if(a!= NULL)
+                {
+                    [arr addObject:a];
+                }
 			}
 			dict[@"Acct-Application-Id"] = arr;
 		}
@@ -589,7 +605,11 @@
 		{
 			for(UMDiameterAvp *avp in _var_vendor_specific_application_id)
 			{
-				[arr addObject:[avp objectValue]];
+                id a = [avp objectValue];
+                if(a!= NULL)
+                {
+                    [arr addObject:a];
+                }
 			}
 			dict[@"Vendor-Specific-Application-Id"] = arr;
 		}
