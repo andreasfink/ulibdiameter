@@ -1,0 +1,17 @@
+< Subscriber-Information-Answer> ::=< Diameter Header: 8388641, PXY, 16777310 > < Session-Id >
+[ DRMP ]
+[ Result-Code ]
+[ Experimental-Result ]
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+[ OC-Supported-Features ] 
+[ OC-OLR ]
+*[ Load ]
+*[ Supported-Features ]
+*[ User-Identifier ]
+[ Service-Data ]
+[ Failed-AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]
+*[ AVP ]
