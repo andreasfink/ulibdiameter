@@ -370,6 +370,7 @@
 #import "UMDiameterAvpReporting_Location_Requirements.h"
 #import "UMDiameterAvpAdditional_Area.h"
 #import "UMDiameterAvpPriority_Indication.h"
+#import "UMDiameterAvpApplication_Port_Identifier.h"
 #import "UMDiameterAvpIP_SM_GW_Number.h"
 #import "UMDiameterAvpIP_SM_GW_Name.h"
 #import "UMDiameterAvpUser_Identifier.h"
