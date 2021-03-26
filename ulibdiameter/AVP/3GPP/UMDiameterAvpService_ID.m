@@ -1,30 +1,30 @@
 //
-//  UMDiameterAvpUser_Data.m
+//  UMDiameterAvpService_ID.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-26 21:24:05.223965
+//  Created by afink on 2021-03-26 21:21:03.403903
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpUser_Data.h"
+#import "UMDiameterAvpService_ID.h"
 
-@implementation UMDiameterAvpUser_Data
+@implementation UMDiameterAvpService_ID
 
 
 - (NSString *)avpType
 {
-    return @"User-Data";
+    return @"Service-ID";
 }
 
 - (uint32_t)avpCode
 {
-    return 702;
+    return 3103;
 }
 
 + (uint32_t)avpCode
 {
-    return 702;
+    return 3103;
 }
 
 - (void)genericInitialisation
@@ -37,8 +37,8 @@
 + (id)definition
 {
     UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
-    avpDef[@"name"] = @"user-data";
-    avpDef[@"type"] = @"OctetString";
+    avpDef[@"name"] = @"service-id";
+    avpDef[@"type"] = @"Enumerated";
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);

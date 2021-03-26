@@ -1,30 +1,30 @@
 //
-//  UMDiameterAvpUser_Data.m
+//  UMDiameterAvpIP_SM_GW_Name.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-26 21:24:05.223965
+//  Created by afink on 2021-03-26 21:21:03.403903
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpUser_Data.h"
+#import "UMDiameterAvpIP_SM_GW_Name.h"
 
-@implementation UMDiameterAvpUser_Data
+@implementation UMDiameterAvpIP_SM_GW_Name
 
 
 - (NSString *)avpType
 {
-    return @"User-Data";
+    return @"IP-SM-GW-Name";
 }
 
 - (uint32_t)avpCode
 {
-    return 702;
+    return 3101;
 }
 
 + (uint32_t)avpCode
 {
-    return 702;
+    return 3101;
 }
 
 - (void)genericInitialisation
@@ -37,8 +37,8 @@
 + (id)definition
 {
     UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
-    avpDef[@"name"] = @"user-data";
-    avpDef[@"type"] = @"OctetString";
+    avpDef[@"name"] = @"ip-sm-gw-name";
+    avpDef[@"type"] = @"DiameterIdentity";
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
