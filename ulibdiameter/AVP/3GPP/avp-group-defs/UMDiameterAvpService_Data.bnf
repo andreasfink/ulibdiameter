@@ -1,0 +1,5 @@
+Service-Data ::= <AVP header: 3107 10415>
+	[ T4-Data ]
+	*[AVP]
+
+

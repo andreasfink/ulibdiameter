@@ -1442,6 +1442,9 @@
 		A63C25C6260E827700AB7C6F /* UMDiameterPacketSubscriber_Information_Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketSubscriber_Information_Answer.h; sourceTree = "<group>"; };
 		A63C25D0260E828800AB7C6F /* UMDiameterPacketSubscriber_Information_Answer.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketSubscriber_Information_Answer.bnf; sourceTree = "<group>"; };
 		A63C25D1260E828800AB7C6F /* UMDiameterPacketSubscriber_Information_Request.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketSubscriber_Information_Request.bnf; sourceTree = "<group>"; };
+		A63C25D8260E855500AB7C6F /* UMDiameterAvpUser_Identifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpUser_Identifier.m; sourceTree = "<group>"; };
+		A63C25D9260E855500AB7C6F /* UMDiameterAvpUser_Identifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpUser_Identifier.h; sourceTree = "<group>"; };
+		A63C25DA260E856A00AB7C6F /* UMDiameterAvpUser_Identifier.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterAvpUser_Identifier.bnf; sourceTree = "<group>"; };
 		A64B215426070BAB00E54CF6 /* ulibgsmmap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibgsmmap.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulibgsmmap.framework"; sourceTree = "<absolute>"; };
 		A6506EB52211B32B006665A9 /* UMDiameterPeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPeer.h; sourceTree = "<group>"; };
 		A6506EB62211B32B006665A9 /* UMDiameterPeer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterPeer.m; sourceTree = "<group>"; };
@@ -2996,6 +2999,8 @@
 			isa = PBXGroup;
 			children = (
 				A6C9F2D222CB6BA600778583 /* avp-gen.sh */,
+				A63C25D9260E855500AB7C6F /* UMDiameterAvpUser_Identifier.h */,
+				A63C25D8260E855500AB7C6F /* UMDiameterAvpUser_Identifier.m */,
 				A628E77022C9DCFE00D5BD91 /* avp-group-defs */,
 				A61E1AEF22C8F8D200025026 /* avp-table.txt */,
 				A6FCEFB4245C3286002D5FE4 /* UMDiameterAvpDestination_SIP_URI.h */,
@@ -3901,6 +3906,7 @@
 		A628E77022C9DCFE00D5BD91 /* avp-group-defs */ = {
 			isa = PBXGroup;
 			children = (
+				A63C25DA260E856A00AB7C6F /* UMDiameterAvpUser_Identifier.bnf */,
 				A6FCEF39245AF240002D5FE4 /* UMDiameterAvpSM_Delivery_Failure_Cause.bnf */,
 				A6FCEF38245AF240002D5FE4 /* UMDiameterAvpSMSMI_Correlation_ID.bnf */,
 				A6FCEF34245ADD8F002D5FE4 /* UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.bnf */,

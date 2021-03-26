@@ -1,0 +1,6 @@
+T4-Data ::= <AVP header: 3108 10415>
+	[ HSS-Cause ]
+	[ Serving-Node ]
+	*[ Additional-Serving-Node ]
+	*[AVP]
+
