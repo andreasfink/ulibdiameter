@@ -366,6 +366,7 @@ AVP_OBJECT(UMDiameterAvpSampling_Interval,UMDiameterAvpUnsigned32,2562,@"Samplin
 AVP_OBJECT(UMDiameterAvpReporting_Duration,UMDiameterAvpUnsigned32,2563,@"Reporting-Duration",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpReporting_Location_Requirements,UMDiameterAvpUnsigned32,2564,@"Reporting-Location-Requirements",Unsigned32,NO,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpAdditional_Area,UMDiameterAvpGrouped,2565,@"Additional-Area",Grouped,NO,YES,10415,YES)
+AVP_OBJECT(UMDiameterAvpPriority_Indication,UMDiameterAvpEnumerated,3006,@"Priority-Indication",Enumerated,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpIP_SM_GW_Number,UMDiameterAvpOctetString,3100,@"IP-SM-GW-Number",OctetString,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpIP_SM_GW_Name,UMDiameterAvpDiameterIdentity,3101,@"IP-SM-GW-Name",DiameterIdentity,YES,YES,10415,NO)
 AVP_OBJECT(UMDiameterAvpUser_Identifier,UMDiameterAvpGrouped,3102,@"User-Identifier",Grouped,YES,YES,10415,YES)

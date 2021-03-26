@@ -366,6 +366,7 @@
 2563	Reporting-Duration	07.04.68	Unsigned32	V
 2564	Reporting-Location-Requirements	07.04.69	Unsigned32	V
 2565	Additional-Area	07.04.70	Grouped	V
+3006	Priority-Indication	-	Enumerated	M,V
 3100	IP-SM-GW-Number	-	OctetString	M,V
 3101	IP-SM-GW-Name	-	DiameterIdentity	M,V
 3102	User-Identifier	-	Grouped	M,V

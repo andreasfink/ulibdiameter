@@ -1,5 +1,5 @@
 //
-//  UMDiameterAvpUser_Data.m
+//  UMDiameterAvpPriority_Indication.m
 //  ulibdiameter
 //
 //  Created by afink on 2021-03-26 21:31:27.211657
@@ -7,24 +7,24 @@
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpUser_Data.h"
+#import "UMDiameterAvpPriority_Indication.h"
 
-@implementation UMDiameterAvpUser_Data
+@implementation UMDiameterAvpPriority_Indication
 
 
 - (NSString *)avpType
 {
-    return @"User-Data";
+    return @"Priority-Indication";
 }
 
 - (uint32_t)avpCode
 {
-    return 702;
+    return 3006;
 }
 
 + (uint32_t)avpCode
 {
-    return 702;
+    return 3006;
 }
 
 - (void)genericInitialisation
@@ -37,8 +37,8 @@
 + (id)definition
 {
     UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
-    avpDef[@"name"] = @"user-data";
-    avpDef[@"type"] = @"OctetString";
+    avpDef[@"name"] = @"priority-indication";
+    avpDef[@"type"] = @"Enumerated";
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
