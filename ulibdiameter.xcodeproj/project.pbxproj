@@ -1588,6 +1588,8 @@
 		A685AF12260B6C4C007A631F /* ulibasn1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ulibasn1.framework; path = "/Library/Application Support/FinkTelecomServices/frameworks/ulibasn1.framework"; sourceTree = "<absolute>"; };
 		A685AF25260B7726007A631F /* UMDiameterPacketUser_Data_Answer.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketUser_Data_Answer.bnf; sourceTree = "<group>"; };
 		A685AF26260B7726007A631F /* UMDiameterPacketUser_Data_Request.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketUser_Data_Request.bnf; sourceTree = "<group>"; };
+		A685AF78260E0A2C007A631F /* UMDiameterPacketCUA.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketCUA.bnf; sourceTree = "<group>"; };
+		A685AF79260E0A2C007A631F /* UMDiameterPacketCUR.bnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = UMDiameterPacketCUR.bnf; sourceTree = "<group>"; };
 		A68CFD4522A854C100F94967 /* UMDiameterPacketsAll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterPacketsAll.h; sourceTree = "<group>"; };
 		A68FC4A122A5B8B1006351C3 /* UMDiameterResultCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterResultCode.h; sourceTree = "<group>"; };
 		A68FC4A522A5C098006351C3 /* UMDiameterLocalUserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterLocalUserProtocol.h; sourceTree = "<group>"; };
@@ -4522,6 +4524,8 @@
 				A67FCA2622CA7D23007A28AB /* UMDiameterPacketRAR.bnf */,
 				A67FCA2322CA7D23007A28AB /* UMDiameterPacketSTA.bnf */,
 				A67FCA2022CA7D23007A28AB /* UMDiameterPacketSTR.bnf */,
+				A685AF78260E0A2C007A631F /* UMDiameterPacketCUA.bnf */,
+				A685AF79260E0A2C007A631F /* UMDiameterPacketCUR.bnf */,
 			);
 			path = "command-def";
 			sourceTree = "<group>";
