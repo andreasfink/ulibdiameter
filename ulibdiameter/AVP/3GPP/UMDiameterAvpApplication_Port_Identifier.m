@@ -1,45 +1,45 @@
 //
-//  UMDiameterAvpE_UTRAN_Cell_Global_Identity.m
+//  UMDiameterAvpApplication_Port_Identifier.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-26 21:07:51.067649
+//  Created by afink on 2021-03-26 22:38:32.093081
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h"
+#import "UMDiameterAvpApplication_Port_Identifier.h"
 
-@implementation UMDiameterAvpE_UTRAN_Cell_Global_Identity
+@implementation UMDiameterAvpApplication_Port_Identifier
 
 
 - (NSString *)avpType
 {
-    return @"E-UTRAN-Cell-Global-Identity";
+    return @"Application-Port-Identifier";
 }
 
 - (uint32_t)avpCode
 {
-    return 1602;
+    return 3010;
 }
 
 + (uint32_t)avpCode
 {
-    return 1602;
+    return 3010;
 }
 
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
     _avpVendorId = 10415;
 }
 
 + (id)definition
 {
     UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
-    avpDef[@"name"] = @"e-utran-cell-global-identity";
-    avpDef[@"type"] = @"OctetString";
-    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"name"] = @"application-port-identifier";
+    avpDef[@"type"] = @"Unsigned32";
+    avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
 

@@ -1,45 +1,45 @@
 //
-//  UMDiameterAvpE_UTRAN_Cell_Global_Identity.m
+//  UMDiameterAvpPriority_Indication.m
 //  ulibdiameter
 //
-//  Created by afink on 2021-03-26 21:07:51.067649
+//  Created by afink on 2021-03-26 21:31:27.211657
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvp.h"
-#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h"
+#import "UMDiameterAvpPriority_Indication.h"
 
-@implementation UMDiameterAvpE_UTRAN_Cell_Global_Identity
+@implementation UMDiameterAvpPriority_Indication
 
 
 - (NSString *)avpType
 {
-    return @"E-UTRAN-Cell-Global-Identity";
+    return @"Priority-Indication";
 }
 
 - (uint32_t)avpCode
 {
-    return 1602;
+    return 3006;
 }
 
 + (uint32_t)avpCode
 {
-    return 1602;
+    return 3006;
 }
 
 - (void)genericInitialisation
 {
     [super genericInitialisation];
-    _avpFlags = UMDiameterAvpFlag_Vendor;
+    _avpFlags = UMDiameterAvpFlag_Vendor | UMDiameterAvpFlag_Mandatory;
     _avpVendorId = 10415;
 }
 
 + (id)definition
 {
     UMSynchronizedSortedDictionary *avpDef = [[UMSynchronizedSortedDictionary alloc]init];
-    avpDef[@"name"] = @"e-utran-cell-global-identity";
-    avpDef[@"type"] = @"OctetString";
-    avpDef[@"mandatory"] = @(NO);
+    avpDef[@"name"] = @"priority-indication";
+    avpDef[@"type"] = @"Enumerated";
+    avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(YES);
     avpDef[@"group"] = @(NO);
 

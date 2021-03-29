@@ -193,7 +193,9 @@ NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL req
         case UMDiameterCommandCode_3GPP_Location_Request:
             s = @"3GPP Location Request";
             break;
-
+        case UMDiameterCommandCode_3GPP_SubscriberInformation:
+            s = @ "3GPP Subscriber Information";
+            break;
     }
     if(request)
     {
