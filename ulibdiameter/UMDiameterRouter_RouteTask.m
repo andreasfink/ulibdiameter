@@ -23,6 +23,7 @@
                                         packet:(UMDiameterPacket *)packet
                                          realm:(NSString *)realm
                                           host:(NSString *)host
+                                          peer:(NSString *)peer
 {
     self = [super initWithName:[[self class]description]
                       receiver:router
@@ -36,6 +37,7 @@
         _router = router;
         _realm = realm;
         _host = host;
+        _peer = peer;
     }
     return self;
 }
@@ -48,59 +50,68 @@
         UMDiameterPeer *nextHop=NULL;
         BOOL isRequest = _packet.flagRequest;
         UMDiameterRoute *route=NULL;
-        if((_session) && (!isRequest))
+
+        if(_peer)
         {
-            /* if we have a session, we use the same route back */
-            [_session touch];
-            if(_session.initiator == _sender)
-            {
-                nextHop = _session.responder;
-                ougoingPeerName = nextHop.layerName;
-            }
-            else if(_session.responder == _sender)
-            {
-                nextHop = _session.initiator;
-                ougoingPeerName = nextHop.layerName;
-            }
-            else
-            {
-                NSLog(@"we dont know which direction this session is supposed to be used");
-                ougoingPeerName = @"dropped";
-            }
+            ougoingPeerName = _peer;
+            nextHop = [_router findPeer:ougoingPeerName];
         }
-        else if(nextHop==NULL)
+        else
         {
-            UMDiameterAvpFTSRouteSelector *routeSelect = (UMDiameterAvpFTSRouteSelector *)[_packet getAvpByCode:[UMDiameterAvpFTSRouteSelector avpCode]];
-            if(routeSelect)
+            if((_session) && (!isRequest))
             {
-                NSNumber *n = [routeSelect numberValue];
-                if([n integerValue]>0)
+                /* if we have a session, we use the same route back */
+                [_session touch];
+                if(_session.initiator == _sender)
                 {
-                    route = [_router findRouteForRouteSelector:n];
+                    nextHop = _session.responder;
+                    ougoingPeerName = nextHop.layerName;
+                }
+                else if(_session.responder == _sender)
+                {
+                    nextHop = _session.initiator;
+                    ougoingPeerName = nextHop.layerName;
+                }
+                else
+                {
+                    NSLog(@"we dont know which direction this session is supposed to be used");
+                    ougoingPeerName = @"dropped";
                 }
             }
-            if(route==NULL)
+            else if(nextHop==NULL)
             {
-                route = [_router findRouteForRealm:_realm];
-            }
-            if(route==NULL)
-            {
-                route = [_router findRouteForHost:_host];
-            }
-            if(route==NULL)
-            {
-                route = [_router findRouteForDefault];
-            }
-            if(route.peer)
-            {
-                nextHop = route.peer;
-                ougoingPeerName = nextHop.layerName;
-            }
-            else if(route.destination)
-            {
-                nextHop = [_router findPeer:route.destination];
-                route.peer = nextHop;
-                ougoingPeerName = nextHop.layerName;
+                UMDiameterAvpFTSRouteSelector *routeSelect = (UMDiameterAvpFTSRouteSelector *)[_packet getAvpByCode:[UMDiameterAvpFTSRouteSelector avpCode]];
+                if(routeSelect)
+                {
+                    NSNumber *n = [routeSelect numberValue];
+                    if([n integerValue]>0)
+                    {
+                        route = [_router findRouteForRouteSelector:n];
+                    }
+                }
+                if(route==NULL)
+                {
+                    route = [_router findRouteForRealm:_realm];
+                }
+                if(route==NULL)
+                {
+                    route = [_router findRouteForHost:_host];
+                }
+                if(route==NULL)
+                {
+                    route = [_router findRouteForDefault];
+                }
+                if(route.peer)
+                {
+                    nextHop = route.peer;
+                    ougoingPeerName = nextHop.layerName;
+                }
+                else if(route.destination)
+                {
+                    nextHop = [_router findPeer:route.destination];
+                    route.peer = nextHop;
+                    ougoingPeerName = nextHop.layerName;
+                }
             }
         }
         if(nextHop==NULL)

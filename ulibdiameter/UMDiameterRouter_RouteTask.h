@@ -20,6 +20,7 @@
     UMDiameterRouter *_router;
     NSString *_realm;
     NSString *_host;
+    NSString *_peer;
 }
 
 @property(readwrite,strong,atomic)  UMDiameterPacket *packet;
@@ -29,8 +30,8 @@
                                         sender:(UMDiameterPeer *)sender
                                         packet:(UMDiameterPacket *)packet
                                          realm:(NSString *)realm
-                                          host:(NSString *)host;
-
+                                          host:(NSString *)host
+                                          peer:(NSString *)peer;
 - (void)main;
 
 @end

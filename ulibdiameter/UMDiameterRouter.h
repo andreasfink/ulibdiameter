@@ -177,6 +177,7 @@
               outgoingPeer:(NSString *)outgoingPeer;
 
 - (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet;
+- (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet toPeer:(NSString *)peer;
 - (void)dumpRoutes;
 - (uint32_t)startupIdentifier;
 

@@ -422,7 +422,26 @@
                                                                                   sender:peer
                                                                                   packet:pkt
                                                                                    realm:realm
-                                                                                    host:host];
+                                                                                    host:host
+                                                                                    peer:NULL];
+    [self queueFromLower:task];
+}
+
+
+- (void)queuePacketForRouting:(UMDiameterPacket *)pkt
+                      session:(UMDiameterRouterSession *)session
+                       source:(UMDiameterPeer *)source
+                        realm:(NSString *)realm
+                         host:(NSString *)host
+                         peer:(NSString *)peer
+{
+    UMDiameterRouter_RouteTask *task = [[UMDiameterRouter_RouteTask alloc]initWithRouter:self
+                                                                                 session:session
+                                                                                  sender:source
+                                                                                  packet:pkt
+                                                                                   realm:realm
+                                                                                    host:host
+                                                                                    peer:peer];
     [self queueFromLower:task];
 }
 
@@ -439,7 +458,8 @@
                                                                                   sender:peer
                                                                                   packet:pkt
                                                                                    realm:realm
-                                                                                    host:host];
+                                                                                    host:host
+                                                                                    peer:NULL];
     [self queueFromLowerWithPriority:task];
 }
 
@@ -769,6 +789,17 @@
                           realm:packet.destinationRealm.stringValue
                            host:packet.destinationHost.stringValue];
 }
+
+- (void)processLocalOutgoingRequest:(UMDiameterPacket *)packet toPeer:(NSString *)peer
+{
+    [self queuePacketForRouting:packet
+                        session:NULL
+                         source:NULL
+                          realm:packet.destinationRealm.stringValue
+                           host:packet.destinationHost.stringValue
+                           peer:peer];
+}
+
 
 /* we receive a packet from a peer */
 - (void)processIncomingPacket:(UMDiameterPacket *)packet
