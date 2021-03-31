@@ -101,6 +101,7 @@
 		A6506ED82211C107006665A9 /* UMDiameterRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6506ED62211C107006665A9 /* UMDiameterRouter.m */; };
 		A651AAA422CA073700F2A479 /* UMDiameterAvpAVP.h in Headers */ = {isa = PBXBuildFile; fileRef = A651AAA222CA073700F2A479 /* UMDiameterAvpAVP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A651AAA522CA073700F2A479 /* UMDiameterAvpAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = A651AAA322CA073700F2A479 /* UMDiameterAvpAVP.m */; };
+		A65944C42614528500EE5BD4 /* UMDiameterAvpService_Data.h in Headers */ = {isa = PBXBuildFile; fileRef = A63C2822260E9FBE00AB7C6F /* UMDiameterAvpService_Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
 		A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */; };
 		A6609EBA203A66A600C25C7B /* ulibdiameter.h in Headers */ = {isa = PBXBuildFile; fileRef = A6609EAC203A66A600C25C7B /* ulibdiameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -4955,6 +4956,7 @@
 				A6C9EE7522CB625300778583 /* UMDiameterAvpOrigin_Host.h in Headers */,
 				A6FCEF5D245C1630002D5FE4 /* UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause.h in Headers */,
 				A6E24C28235061EF00742DCA /* UMDiameterAvpAPN_Configuration.h in Headers */,
+				A65944C42614528500EE5BD4 /* UMDiameterAvpService_Data.h in Headers */,
 				A6E24DBB235061F000742DCA /* UMDiameterAvpDeregistration_Reason.h in Headers */,
 				A661A52B22A1728B00CCEE02 /* UMDiameterNetworkOrder.h in Headers */,
 				A6E24C7F235061EF00742DCA /* UMDiameterAvpeDRX_Cycle_Length.h in Headers */,
