@@ -103,6 +103,34 @@
     [_housekeepingTimer start];
 }
 
+-(NSString *)localHostName
+{
+    if(_localHostName == NULL)
+    {
+        return _router.localHostName;
+    }
+    return _localHostName;
+}
+
+- (void)setLocalHostName:(NSString *)localHostName
+{
+    _localHostName = localHostName;
+}
+
+-(NSString *)localRealm
+{
+    if(_localRealm == NULL)
+    {
+        return _router.localRealm;
+    }
+    return _localRealm;
+}
+
+- (void)setLocalRealm:(NSString *)localRealm
+{
+    _localRealm = localRealm;
+}
+
 #pragma mark -
 #pragma mark Event Background tasks
 
@@ -454,6 +482,24 @@
     {
         _watchdog_timer_value = [cfg[@"watchdog-timer"] doubleValue];
     }
+    
+    if (cfg[@"local-hostname"])
+    {
+        [self setLocalHostName:[cfg[@"local-hostname"] stringValue]];
+    }
+    if (cfg[@"local-realm"])
+    {
+        [self setLocalRealm:[cfg[@"local-realm"] stringValue]];
+    }
+    if (cfg[@"peer-hostname"])
+    {
+        [self setPeerHostName:[cfg[@"peer-hostname"] stringValue]];
+    }
+    if (cfg[@"peer-realm"])
+    {
+        [self setPeerRealm:[cfg[@"peer-realm"] stringValue]];
+    }
+
     if(_tcpPeer)
     {
         _initiator_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
@@ -556,14 +602,16 @@
 
 
     //      { Origin-Host }
-    if(_router.localHostName.length > 0)
+    NSString *lh = [self localHostName];
+    if(lh.length > 0)
     {
-        packet.var_origin_host = [[UMDiameterAvpOrigin_Host alloc]initWithString:_router.localHostName];
+        packet.var_origin_host = [[UMDiameterAvpOrigin_Host alloc]initWithString:lh];
     }
     //      { Origin-Realm }
-    if(_router.localRealm.length > 0)
+    NSString *lr = [self localRealm];
+    if(lr.length > 0)
     {
-        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:_router.localRealm];
+        packet.var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]initWithString:lr];
     }
 
     //     1* { Host-IP-Address }

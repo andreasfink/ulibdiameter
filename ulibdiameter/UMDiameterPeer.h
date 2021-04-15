@@ -44,6 +44,12 @@
     UMSocket                *_initiator_socket; /* initiator */
     UMSocket                *_responder_socket; /* responder */
     UMDiameterRouter        *_router;
+
+    NSString                *_localHostName;
+    NSString                *_localRealm;
+    NSString                *_peerHostName;
+    NSString                *_peerRealm;
+
     UMDiameterPeerState     *_peerState;
     BOOL                    _isIncoming;
     BOOL                    _isConnected;
@@ -104,6 +110,10 @@
 @property(readwrite,assign,atomic)  BOOL					tcpPeer;
 @property(readwrite,strong,atomic)  NSArray<NSString *>     *configuredLocalAddresses;
 @property(readwrite,strong,atomic)  NSArray<NSString *>     *configuredRemoteAddresses;
+@property(readwrite,strong,atomic)  NSString                *localHostName;
+@property(readwrite,strong,atomic)  NSString                *localRealm;
+@property(readwrite,strong,atomic)  NSString                *peerHostName;
+@property(readwrite,strong,atomic)  NSString                *peerRealm;
 @property(readwrite,strong,atomic)  UMSocket                *initiator_socket; /* initiator */
 @property(readwrite,strong,atomic)  UMSocket                *responder_socket; /* responder */
 @property(readwrite,assign,atomic)  int                     initiatorPort;
