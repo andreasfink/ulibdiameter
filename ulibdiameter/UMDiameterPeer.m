@@ -694,8 +694,8 @@
     }
 
     //      * [ Vendor-Specific-Application-Id ]
-    _vendorSpecificIds =  [_router.vendorSpecificIds copy];
-    NSArray<NSDictionary *>*vids = _vendorSpecificIds;
+    _wantedVendorSpecificIds =  [_router.wantedVendorSpecificIds copy];
+    NSArray<NSDictionary *>*vids = _wantedVendorSpecificIds;
     if(vids.count>0)
     {
         NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *> *entries = [[NSMutableArray alloc]init];
@@ -704,7 +704,6 @@
             NSNumber *vendor = vid[@"vendor"];
             NSNumber *application = vid[@"application"];
             NSNumber *acc_application = vid[@"acc-application"];
-
            UMDiameterAvpVendor_Specific_Application_Id *aid = [[UMDiameterAvpVendor_Specific_Application_Id alloc]init];
             if(vendor != NULL)
             {
@@ -792,7 +791,7 @@
         packet.var_origin_state_id =  [[UMDiameterAvpOrigin_State_Id alloc]initWithObject:_originStateId];
     }
 
-    //      * [ Supported-Vendor-Id ]
+    // * [ Supported-Vendor-Id ]
     if([_router.supportedVendorIds count] > 0)
     {
         NSMutableArray<UMDiameterAvpSupported_Vendor_Id *>*arr =  [[NSMutableArray alloc]init];
@@ -804,7 +803,7 @@
         packet.var_supported_vendor_id = arr;
     }
 
-    //      * [ Auth-Application-Id ]
+    // * [ Auth-Application-Id ]
     if([_router.authApplicationIds count] > 0)
     {
         NSMutableArray<UMDiameterAvpAuth_Application_Id *> *arr = [[NSMutableArray alloc]init];
@@ -816,8 +815,7 @@
         packet.var_auth_application_id = arr;
     }
 
-    //      * [ Acct-Application-Id ]
-
+    // * [ Acct-Application-Id ]
     NSArray<NSNumber *> *auths = [_router.authApplicationIds copy];
     if(auths.count>0)
     {
@@ -830,9 +828,9 @@
         packet.var_acct_application_id = entries;
     }
 
-    //      * [ Vendor-Specific-Application-Id ]
-    _vendorSpecificIds =  [_router.vendorSpecificIds copy];
-    NSArray<NSDictionary *>*vids = _vendorSpecificIds;
+    // * [ Vendor-Specific-Application-Id ]
+    _wantedVendorSpecificIds =  [_router.wantedVendorSpecificIds copy];
+    NSArray<NSDictionary *>*vids = [_router.wantedVendorSpecificIds copy];
     if(vids.count>0)
     {
         NSMutableArray<UMDiameterAvpVendor_Specific_Application_Id *> *entries = [[NSMutableArray alloc]init];
@@ -1268,7 +1266,7 @@
 
     if(_vendorSpecificIds.count == 0)
     {
-        _vendorSpecificIds = [_router.vendorSpecificIds mutableCopy];
+        _vendorSpecificIds = [_router.wantedVendorSpecificIds mutableCopy];
     }
 
     for(UMDiameterAvpVendor_Specific_Application_Id *a in _peer_vendor_specific_application_id)
@@ -1278,7 +1276,7 @@
         NSNumber *their_app    = a.var_auth_application_id.numberValue;
         NSNumber *their_acct   = a.var_acct_application_id.numberValue;
         BOOL found=NO;
-        for(NSDictionary *b in _vendorSpecificIds) /* this is*/
+        for(NSDictionary *b in _router.wantedVendorSpecificIds) /* this is*/
         {
             /* we loop through what we support */
             NSNumber *our_vendor = b[@"vendor"];

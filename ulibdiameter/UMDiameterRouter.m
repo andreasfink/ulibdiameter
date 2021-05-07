@@ -381,7 +381,7 @@
                                      @"vendor":@(UMDiameterVendorId_FinkTelecomServices) ,
                                      @"application": @(UMDiameterApplicationId_FTS_Tracing)
                                    }];
-}
+    }
     return self;
 }
 
