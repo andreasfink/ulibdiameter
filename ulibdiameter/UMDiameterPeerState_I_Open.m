@@ -158,6 +158,12 @@
                                errorMessage:NULL
                                   failedAvp:peer.failedVendorSpecificIds];
     [peer actionI_Snd_CEA:pkt];
+    if((peer.sendReverseCER) && (peer.reverseCERSent == NO))
+    {
+        message = [peer createCER];
+        [peer actionI_Snd_CER:message];
+        peer.reverseCERSent = YES;
+    }
     return self;
 }
 
@@ -169,6 +175,10 @@
         [peer logDebug:s];
     }
     [peer actionProcess_CEA:message];
+    if(peer.sendCUR)
+    {
+        [peer actionI_Snd_CUR:NULL];
+    }
     return self;
 }
 

@@ -500,6 +500,23 @@
         [self setPeerRealm:[cfg[@"peer-realm"] stringValue]];
     }
 
+    if (cfg[@"reverse-cer"])
+    {
+        _sendReverseCER = [cfg[@"reverse-cer"] boolValue];
+    }
+    else
+    {
+        _sendReverseCER = NO;
+    }
+
+    if (cfg[@"send-cur"])
+    {
+        _sendCUR = [cfg[@"send-cur"] boolValue];
+    }
+    else
+    {
+        _sendCUR = NO;
+    }
     if(_tcpPeer)
     {
         _initiator_socket = [[UMSocket alloc]initWithType:UMSOCKET_TYPE_TCP];
@@ -1392,6 +1409,24 @@
         message = [self createCER];
     }
     [self actionI_Snd_Message:message];
+}
+
+- (void)actionI_Snd_CUR:(UMDiameterPacket *)message
+{
+    if(message==NULL)
+    {
+        message = [self createCUR];
+    }
+    [self actionI_Snd_Message:message];
+}
+
+- (void)actionR_Snd_CUR:(UMDiameterPacket *)message
+{
+    if(message==NULL)
+    {
+        message = [self createCUR];
+    }
+    [self actionR_Snd_Message:message];
 }
 
 

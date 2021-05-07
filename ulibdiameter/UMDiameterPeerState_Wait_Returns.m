@@ -39,6 +39,12 @@
     }
     [peer actionI_Disc:NULL];
     [peer actionR_Snd_CEA:NULL];
+    if((peer.sendReverseCER) && (peer.reverseCERSent == NO))
+    {
+        message = [peer createCER];
+        [peer actionR_Snd_CER:message];
+        peer.reverseCERSent = YES;
+    }
     return [[UMDiameterPeerState_R_Open alloc]init];
 }
 
@@ -51,6 +57,12 @@
     }
     [peer actionI_Disc:NULL];
     [peer actionR_Snd_CEA:NULL];
+    if((peer.sendReverseCER) && (peer.reverseCERSent == NO))
+    {
+        message = [peer createCER];
+        [peer actionR_Snd_CER:message];
+        peer.reverseCERSent = YES;
+    }
     return [[UMDiameterPeerState_R_Open alloc]init];
 }
 

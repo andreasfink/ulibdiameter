@@ -105,6 +105,10 @@
     NSArray<NSDictionary *>                                 *_vendorSpecificIds;
     NSArray<NSDictionary *>                                 *_wantedVendorSpecificIds;
     NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *_failedVendorSpecificIds;
+    
+    BOOL _sendReverseCER;
+    BOOL _sendCUR;
+    BOOL _reverseCERSent;
 }
 
 @property(readwrite,assign,atomic)  BOOL					tcpPeer;
@@ -134,6 +138,9 @@
 @property(readwrite,copy,atomic)    NSArray<NSDictionary *>     *vendorSpecificIds;
 @property(readwrite,copy,atomic)    NSArray<NSDictionary *>     *wantedVendorSpecificIds;
 @property(readwrite,copy,atomic)    NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *failedVendorSpecificIds;
+@property(readwrite,assign,atomic)  BOOL sendReverseCER;
+@property(readwrite,assign,atomic)  BOOL sendCUR;
+@property(readwrite,assign,atomic)  BOOL reverseCERSent;
 
 
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterPeerAppDelegateProtocol>)appContext;
@@ -169,6 +176,9 @@
 /* Snd-CEA        A CEA message is sent to the peer. */
 - (void)actionI_Snd_CEA:(UMDiameterPacket *)message;
 - (void)actionR_Snd_CEA:(UMDiameterPacket *)message;
+
+- (void)actionI_Snd_CUR:(UMDiameterPacket *)message;
+- (void)actionR_Snd_CUR:(UMDiameterPacket *)message;
 
 /* Cleanup: If necessary, the connection is shut down, and any local resources are freed. */
 - (void)actionCleanup:(UMDiameterPacket *)message;

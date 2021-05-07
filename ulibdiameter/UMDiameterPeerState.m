@@ -23,6 +23,7 @@
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer
                             message:(UMDiameterPacket *)message
 {
+    peer.reverseCERSent = NO;
     if(peer.logLevel <= UMLOG_DEBUG)
     {
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStart",self.currentState];

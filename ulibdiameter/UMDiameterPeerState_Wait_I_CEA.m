@@ -39,6 +39,10 @@ Wait-I-CEA       I-Rcv-CEA        Process-CEA      I-Open
         [peer logDebug:s];
     }
     [peer actionProcess_CEA:message];
+    if(peer.sendCUR)
+    {
+        [peer actionI_Snd_CUR:NULL];
+    }
     return [[UMDiameterPeerState_I_Open alloc]init];
 }
 

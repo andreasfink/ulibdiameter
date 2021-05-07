@@ -27,6 +27,7 @@
         [peer logDebug:s];
     }
 
+    peer.reverseCERSent = NO;
     peer.supportedVendorIds = peer.router.supportedVendorIds;
     peer.authApplicationIds = [peer.router.authApplicationIds mutableCopy];
     peer.acctApplicationIds = [peer.router.acctApplicationIds mutableCopy];
@@ -64,6 +65,12 @@
                                     errorMessage:NULL
                                        failedAvp:peer.failedVendorSpecificIds];
     [peer actionR_Snd_CEA:response];
+    if((peer.sendReverseCER) && (peer.reverseCERSent == NO))
+    {
+        message = [peer createCER];
+        [peer actionR_Snd_CER:message];
+        peer.reverseCERSent = YES;
+    }
     return [[UMDiameterPeerState_R_Open alloc]init];
 }
 
