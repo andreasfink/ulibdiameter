@@ -2954,6 +2954,7 @@ typedef enum ElectionResult
             [a addObject:avp.objectValue];
         }
         dict[@"peer-auth-application-id"] = a;
+        
     }
     if(_peer_auth_application_id)
     {

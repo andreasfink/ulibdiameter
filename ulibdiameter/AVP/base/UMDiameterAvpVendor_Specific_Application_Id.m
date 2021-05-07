@@ -11,6 +11,8 @@
 #import "UMDiameterAvpVendor_Id.h"
 #import "UMDiameterAvpAuth_Application_Id.h"
 #import "UMDiameterAvpAcct_Application_Id.h"
+#import "UMDiameterVendorIdString.h"
+#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterAvpVendor_Specific_Application_Id
 
@@ -125,7 +127,23 @@
 {
 	UMSynchronizedSortedDictionary *dict = [[UMSynchronizedSortedDictionary alloc]init];
 	dict[@"Vendor-Id"] = [_var_vendor_id objectValue];
+    NSNumber *n = [_var_vendor_id numberValue];
+    NSString *s = DiameterVendorName([n intValue]);
+    if(s)
+    {
+        dict[@"Vendor-Id-Name"] = s;
+    }
 	dict[@"Auth-Application-Id"] = [_var_auth_application_id objectValue];
+    if([n intValue]==10415) /* 3GPP */
+    {
+        NSNumber *ai = [_var_auth_application_id numberValue];
+        uint32_t i = (uint32_t)[ai unsignedIntValue];
+        NSString *s = umdiameter_application_id_string(i);
+        if(s)
+        {
+            dict[@"Auth-Application-Id-Name"] = s;
+        }
+    }
 	dict[@"Acct-Application-Id"] = [_var_acct_application_id objectValue];
 	return dict;
 }

@@ -8,6 +8,7 @@
 
 #import "UMDiameterAvp.h"
 #import "UMDiameterAvpAuth_Application_Id.h"
+#import "UMDiameterApplicationId.h"
 
 @implementation UMDiameterAvpAuth_Application_Id
 
@@ -45,6 +46,19 @@
     return avpDef;
 }
 
+-(id)objectValue
+{
+    NSNumber *n = [super numberValue];
+    uint32_t    i = [n unsignedIntValue];
+    UMSynchronizedSortedDictionary *d = [[UMSynchronizedSortedDictionary alloc]init];
+    d[@"id"] = n;
+    NSString *s = umdiameter_application_id_string(i);
+    if(s)
+    {
+        d[@"name"] = s;
+    }
+    return d;
+}
 
 @end
 
