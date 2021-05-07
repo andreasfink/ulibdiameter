@@ -134,15 +134,12 @@
         dict[@"Vendor-Id-Name"] = s;
     }
 	dict[@"Auth-Application-Id"] = [_var_auth_application_id objectValue];
-    if([n intValue]==10415) /* 3GPP */
+    NSNumber *ai = [_var_auth_application_id numberValue];
+    uint32_t i = (uint32_t)[ai unsignedIntValue];
+    s = umdiameter_application_id_string(i);
+    if(s)
     {
-        NSNumber *ai = [_var_auth_application_id numberValue];
-        uint32_t i = (uint32_t)[ai unsignedIntValue];
-        NSString *s = umdiameter_application_id_string(i);
-        if(s)
-        {
-            dict[@"Auth-Application-Id-Name"] = s;
-        }
+        dict[@"Auth-Application-Id-Name"] = s;
     }
 	dict[@"Acct-Application-Id"] = [_var_acct_application_id objectValue];
 	return dict;
