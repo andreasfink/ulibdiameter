@@ -763,6 +763,13 @@
         [arr addObject:def];
     }
     {
+        UMSynchronizedSortedDictionary *def =  [UMDiameterAvpOrigin_Realm definition];
+        def[@"name"] = @"origin-realm2";
+        def[@"multiple"]=@(NO);
+        def[@"mandatory"]=@(NO);
+        [arr addObject:def];
+    }
+    {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpDestination_Host definition];
         def[@"multiple"]=@(NO);
         def[@"mandatory"]=@(YES);
@@ -774,6 +781,7 @@
         def[@"mandatory"]=@(YES);
         [arr addObject:def];
     }
+    
     {
         UMSynchronizedSortedDictionary *def =  [UMDiameterAvpUser_Name definition];
         def[@"multiple"]=@(NO);
