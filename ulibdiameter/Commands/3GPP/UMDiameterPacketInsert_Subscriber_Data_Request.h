@@ -33,7 +33,8 @@
 	UMDiameterAvpVendor_Specific_Application_Id	*_var_vendor_specific_application_id;
 	UMDiameterAvpAuth_Session_State	*_var_auth_session_state;
 	UMDiameterAvpOrigin_Host	*_var_origin_host;
-	UMDiameterAvpOrigin_Realm	*_var_origin_realm;
+    UMDiameterAvpOrigin_Realm    *_var_origin_realm;
+    UMDiameterAvpOrigin_Realm    *_var_origin_realm2;
 	UMDiameterAvpDestination_Host	*_var_destination_host;
 	UMDiameterAvpDestination_Realm	*_var_destination_realm;
 	UMDiameterAvpUser_Name	*_var_user_name;
@@ -54,7 +55,8 @@
 @property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Host	*var_origin_host;
 @property(readwrite,strong,atomic)	UMDiameterAvpOrigin_Realm	*var_origin_realm;
 @property(readwrite,strong,atomic)	UMDiameterAvpDestination_Host	*var_destination_host;
-@property(readwrite,strong,atomic)	UMDiameterAvpDestination_Realm	*var_destination_realm;
+@property(readwrite,strong,atomic)  UMDiameterAvpDestination_Realm    *var_destination_realm;
+@property(readwrite,strong,atomic)  UMDiameterAvpDestination_Realm    *var_destination_realm2;
 @property(readwrite,strong,atomic)	UMDiameterAvpUser_Name	*var_user_name;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpSupported_Features *>	*var_supported_features;
 @property(readwrite,strong,atomic)	NSArray<UMDiameterAvpVPLMN_CSG_Subscription_Data *>	*var_vplmn_csg_subscription_data;

@@ -81,6 +81,11 @@
         [_var_origin_realm beforeEncode];
         [arr addObject:_var_origin_realm];
     }
+    if(_var_origin_realm2)
+    {
+        [_var_origin_realm2 beforeEncode];
+        [arr addObject:_var_origin_realm2];
+    }
     if(_var_destination_host)
     {
         [_var_destination_host beforeEncode];
@@ -195,6 +200,11 @@
     {
         _var_origin_realm = [[UMDiameterAvpOrigin_Realm alloc]init];
         _var_origin_realm.objectValue = dict[@"origin-realm"];
+    }
+    if(dict[@"origin-realm2"])
+    {
+        _var_origin_realm2 = [[UMDiameterAvpOrigin_Realm alloc]init];
+        _var_origin_realm2.objectValue = dict[@"origin-realm2"];
     }
 
     if(dict[@"destination-host"])
@@ -394,6 +404,10 @@
     {
         dict[@"origin-realm"] = _var_origin_realm.objectValue;
     }
+    if(_var_origin_realm2)
+    {
+        dict[@"origin-realm2"] = _var_origin_realm2.objectValue;
+    }
     if(_var_destination_host)
     {
         dict[@"destination-host"] = _var_destination_host.objectValue;
@@ -476,37 +490,22 @@
 
 
     [UMDiameterAvpSession_Id appendWebDiameterParameters:s webName:@"session-id"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpDRMP appendWebDiameterParameters:s webName:@"drmp"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpVendor_Specific_Application_Id appendWebDiameterParameters:s webName:@"vendor-specific-application-id"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpAuth_Session_State appendWebDiameterParameters:s webName:@"auth-session-state"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpOrigin_Host appendWebDiameterParameters:s webName:@"origin-host"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm"  comment:@"" css:@"mandatory"];
-
+    [UMDiameterAvpOrigin_Realm appendWebDiameterParameters:s webName:@"origin-realm2"  comment:@"" css:@"mandatory"];
     [UMDiameterAvpDestination_Host appendWebDiameterParameters:s webName:@"destination-host"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpDestination_Realm appendWebDiameterParameters:s webName:@"destination-realm"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpUser_Name appendWebDiameterParameters:s webName:@"user-name"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpSupported_Features appendWebDiameterParameters:s webName:@"supported-features[]"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpVPLMN_CSG_Subscription_Data appendWebDiameterParameters:s webName:@"vplmn-csg-subscription-data[]"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpSubscription_Data appendWebDiameterParameters:s webName:@"subscription-data"  comment:@"" css:@"mandatory"];
-
     [UMDiameterAvpIDR_Flags appendWebDiameterParameters:s webName:@"idr-flags"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpReset_ID appendWebDiameterParameters:s webName:@"reset-id[]"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpProxy_Info appendWebDiameterParameters:s webName:@"proxy-info[]"  comment:@"" css:@"optional"];
-
     [UMDiameterAvpRoute_Record appendWebDiameterParameters:s webName:@"route-record[]"  comment:@"" css:@"optional"];
-
 }
 
 - (void)afterDecode
@@ -538,6 +537,11 @@
         {
             UMDiameterAvpOrigin_Host *avp2 = [[UMDiameterAvpOrigin_Host alloc]initWithAvp:avp];
             _var_origin_host = avp2;
+        }
+        else if((avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode]) && (_var_origin_realm != NULL))
+        {
+            UMDiameterAvpOrigin_Realm *avp2 = [[UMDiameterAvpOrigin_Realm alloc]initWithAvp:avp];
+            _var_origin_realm2 = avp2;
         }
         else if(avp.avpCode == [UMDiameterAvpOrigin_Realm avpCode])
         {
@@ -654,7 +658,8 @@
 	dict[@"Vendor-Specific-Application-Id"] = [_var_vendor_specific_application_id objectValue];
 	dict[@"Auth-Session-State"] = [_var_auth_session_state objectValue];
 	dict[@"Origin-Host"] = [_var_origin_host objectValue];
-	dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+    dict[@"Origin-Realm"] = [_var_origin_realm objectValue];
+    dict[@"Origin-Realm2"] = [_var_origin_realm2 objectValue];
 	dict[@"Destination-Host"] = [_var_destination_host objectValue];
 	dict[@"Destination-Realm"] = [_var_destination_realm objectValue];
 	dict[@"User-Name"] = [_var_user_name objectValue];
