@@ -1467,6 +1467,7 @@
     [_initiator_socket close];
     [_responder_socket close];
     _peerState = [[UMDiameterPeerState_Closed alloc]init];
+    [self startReopenTimer1];
 }
 
 
@@ -3141,7 +3142,7 @@ typedef enum ElectionResult
     }
     _peerState = [[UMDiameterPeerState_Closed alloc]init];
     [_eventLock unlock];
-    [_reopenTimer1 start];
+    [self startReopenTimer1];
 }
 
 - (void)watchdogTimerEvent:(id)dummy
