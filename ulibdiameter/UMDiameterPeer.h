@@ -105,7 +105,7 @@
     NSArray<NSDictionary *>                                 *_vendorSpecificIds;
     NSArray<NSDictionary *>                                 *_wantedVendorSpecificIds;
     NSArray<UMDiameterAvpVendor_Specific_Application_Id *>  *_failedVendorSpecificIds;
-    
+
     BOOL _sendReverseCER;
     BOOL _sendCUR;
     BOOL _reverseCERSent;

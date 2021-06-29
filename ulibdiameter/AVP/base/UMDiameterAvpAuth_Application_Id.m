@@ -42,11 +42,10 @@
     avpDef[@"mandatory"] = @(YES);
     avpDef[@"vendor"] = @(NO);
     avpDef[@"group"] = @(NO);
-
     return avpDef;
 }
 
--(id)objectValue
+-(id) objectValue
 {
     NSNumber *n = [super numberValue];
     uint32_t    i = [n unsignedIntValue];
