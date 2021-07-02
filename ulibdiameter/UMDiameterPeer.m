@@ -51,7 +51,7 @@
 
 - (UMLayer *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq
 {
-    self =[super initWithTaskQueueMulti:tq];
+    self =[super initWithTaskQueueMulti:tq name:@"diameter-peer"];
     if(self)
     {
         [self genericInitialisation];
