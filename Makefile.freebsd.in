@@ -59,14 +59,14 @@ install: ${LIB} ${SLIB} build/diameter-cmd-gen build/diameter-avp-gen
 	rm -f "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}.${MINORVER}"
 	rm -f "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}"
 	rm -f "${DESTDIR}/usr/local/lib/${LIB}"
-	install -b -g root -o root -m 644 "${LIB}" "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}.${MINORVER}.${REVISION}"
-	install -b -g root -o root -m 644 "${SLIB}" "${DESTDIR}/usr/local/lib/${SLIB}"
+	install -b -g bin -o root -m 644 "${LIB}" "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}.${MINORVER}.${REVISION}"
+	install -b -g bin -o root -m 644 "${SLIB}" "${DESTDIR}/usr/local/lib/${SLIB}"
 	ln -s "${LIB}.${MAJORVER}.${MINORVER}.${REVISION}" "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}.${MINORVER}"
 	ln -s "${LIB}.${MAJORVER}.${MINORVER}"             "${DESTDIR}/usr/local/lib/${LIB}.${MAJORVER}"
 	ln -s "${LIB}.${MAJORVER}"                         "${DESTDIR}/usr/local/lib/${LIB}"
-	-install -b -g root -o root -m 644 ${PKGCONFIGFILE} ${DESTDIR}/usr/local/lib/pkgconfig/
-	-install -b -g root -o root -m 755 build/diameter-cmd-gen ${DESTDIR}/usr/local/bin/diameter-cmd-gen
-	-install -b -g root -o root -m 755 build/diameter-avp-gen ${DESTDIR}/usr/local/bin/diameter-avp-gen
+	-install -b -g bin -o root -m 644 ${PKGCONFIGFILE} ${DESTDIR}/usr/local/lib/pkgconfig/
+	-install -b -g bin -o root -m 755 build/diameter-cmd-gen ${DESTDIR}/usr/local/bin/diameter-cmd-gen
+	-install -b -g bin -o root -m 755 build/diameter-avp-gen ${DESTDIR}/usr/local/bin/diameter-avp-gen
 	-mkdir -p ${DESTDIR}/usr/local/include/ulibdiameter
 	cp $(HFILES) ${DESTDIR}/usr/local/include/ulibdiameter
 	ldconfig
