@@ -59,7 +59,6 @@
     else if(packet.commandFlags & DIAMETER_COMMAND_FLAG_ERROR)
     {
         [router processIncomingErrorPacket:packet fromPeer:peer];
-
     }
     else
     {
