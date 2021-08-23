@@ -1230,6 +1230,21 @@
 {
     UMSocketError returnValue = UMSocketError_no_error;
 
+    if(revent & (POLLHUP | POLLERR))
+    {
+        if(socket.customUser)
+        {
+            UMDiameterPeer *peer = (UMDiameterPeer *)socket.customUser;
+            if((peer.initiator_socket == socket) || (peer.responder_socket == socket))
+            {
+                returnValue = [peer handlePollResult:revent
+                                              socket:socket
+                                           poll_time:poll_time
+                                           initiator:YES];
+                return returnValue;
+            }
+        }
+    }
     if(revent & (POLLIN | POLLPRI))
     {
         if(socket.customUser)
