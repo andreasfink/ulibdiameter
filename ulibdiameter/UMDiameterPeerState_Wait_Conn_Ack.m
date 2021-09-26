@@ -40,6 +40,7 @@
     }
 
     [peer actionCleanup:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -67,6 +68,7 @@
     }
 
     [peer actionError:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 

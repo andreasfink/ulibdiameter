@@ -95,6 +95,7 @@
         [peer.initiator_socket close];
 
     }
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -193,6 +194,7 @@
         [peer logDebug:s];
     }
     //[peer actionI_Disc:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 

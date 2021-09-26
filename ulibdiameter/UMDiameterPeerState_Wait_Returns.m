@@ -108,6 +108,7 @@
         [peer logDebug:s];
     }
     [peer actionError:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
