@@ -38,6 +38,7 @@
         [peer logDebug:s];
     }
     [peer actionI_Disc:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -49,6 +50,7 @@
         [peer logDebug:s];
     }
     [peer actionI_Disc:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -60,6 +62,7 @@
         [peer logDebug:s];
     }
     [peer actionR_Disc:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -71,6 +74,7 @@
         [peer logDebug:s];
     }
     [peer actionError:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 

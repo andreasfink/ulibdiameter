@@ -69,6 +69,7 @@ Wait-I-CEA       I-Rcv-CEA        Process-CEA      I-Open
         [peer logDebug:s];
     }
     [peer actionI_Disc:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -81,6 +82,7 @@ Wait-I-CEA       I-Rcv-CEA        Process-CEA      I-Open
         [peer logDebug:s];
     }
     [peer actionError:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
@@ -93,6 +95,7 @@ Wait-I-CEA       I-Rcv-CEA        Process-CEA      I-Open
         [peer logDebug:s];
     }
     [peer actionError:NULL];
+    [peer startReopenTimer1];
     return [[UMDiameterPeerState_Closed alloc]init];
 }
 
