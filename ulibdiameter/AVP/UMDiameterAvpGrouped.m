@@ -47,12 +47,10 @@
         uint8_t avpheader[12];
         memcpy(avpheader,&_avpData.bytes[pos],8);
 
-        int offset = 0;
         if( avpheader[4] & 0x80) /* vendor ID is set */
         {
             if(_avpData.length >= (pos+12))
             {
-                offset = 4;
                 memcpy(avpheader,&_avpData.bytes[pos],12);
             }
         }
