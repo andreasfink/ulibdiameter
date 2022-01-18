@@ -3112,17 +3112,20 @@ typedef enum ElectionResult
 
 - (void)reopenTimer1Event:(id)dummy
 {
-    
+    [_eventLock lock]; 
     if([_peerState isKindOfClass:[UMDiameterPeerState_Wait_Conn_Ack class]])
     {
         [self _eventStopTask:NULL];
-        [self powerOn];
+		[self powerOn];
+		[self startReopenTimer2];
     }
     else if([_peerState isKindOfClass:[UMDiameterPeerState_Closed class]])
     {
         [self _eventStopTask:NULL];
-        [self powerOn];
+		[self powerOn];
+		[self startReopenTimer2];
     }
+	[_eventLock unlock];
 }
 
 - (void)reopenTimer2Event:(id)dummy
@@ -3133,10 +3136,9 @@ typedef enum ElectionResult
     {
         [_initiator_socket close];
         [_responder_socket close];
-    }
-    _peerState = [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
+    	_peerState = [[UMDiameterPeerState_Closed alloc]initWithPeer:self];
+	}
     [_eventLock unlock];
-    [self startReopenTimer1];
 }
 
 - (void)watchdogTimerEvent:(id)dummy
