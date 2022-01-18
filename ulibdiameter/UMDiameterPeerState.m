@@ -13,6 +13,16 @@
 
 @implementation UMDiameterPeerState
 
+- (UMDiameterPeerState *) initWithPeer:(UMDiameterPeer *)peer;
+{
+    self = [super init];
+    if(self)
+    {
+        _peer = peer;
+    }
+    return self;
+}
+
 - (NSString *)currentState
 {
     return @"undefined";
@@ -79,8 +89,7 @@
         [peer.router stopReceivingOnSocket:peer.initiator_socket forPeer:peer];
         [peer.initiator_socket close];
     }
-    [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Rcv_Conn_Nack:(UMDiameterPeer *)peer
@@ -95,10 +104,8 @@
         [peer.initiator_socket close];
 
     }
-    [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
-
 
 /*  Timeout:An application-defined timer has expired while waiting for some event.*/
 - (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
@@ -193,9 +200,7 @@
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventI_Peer_Disc. Choosing closing",self.currentState];
         [peer logDebug:s];
     }
-    //[peer actionI_Disc:NULL];
-    [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer
@@ -361,11 +366,7 @@
         NSString *s = [NSString stringWithFormat:@"Unhandled Event in STATE=%@: eventStop",self.currentState];
         [peer logDebug:s];
     }
-
-    [peer.initiator_socket close];
-    [peer.responder_socket close];
-    [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 

@@ -69,9 +69,10 @@
     return self;
 }
 
+
 -(void)genericInitialisation
 {
-    _peerState = [[UMDiameterPeerState_Closed alloc]init];
+    _peerState = [[UMDiameterPeerState_Closed alloc]initWithPeer:self];
     _isConnected = NO;
     _isActive = NO;
     _isConnecting = NO;
@@ -1464,13 +1465,7 @@
 
 - (void)actionError:(UMDiameterPacket *)message
 {
-    [_initiator_socket close];
-    [_responder_socket close];
-    _peerState = [[UMDiameterPeerState_Closed alloc]init];
-    [self startReopenTimer1];
 }
-
-
 
 
 /* Snd-DPR A DPR message is sent to the peer. */
@@ -3136,11 +3131,10 @@ typedef enum ElectionResult
     if (  !([_peerState isKindOfClass:[UMDiameterPeerState_I_Open class]])
        && !([_peerState isKindOfClass:[UMDiameterPeerState_R_Open class]]))
     {
-
         [_initiator_socket close];
         [_responder_socket close];
     }
-    _peerState = [[UMDiameterPeerState_Closed alloc]init];
+    _peerState = [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
     [_eventLock unlock];
     [self startReopenTimer1];
 }

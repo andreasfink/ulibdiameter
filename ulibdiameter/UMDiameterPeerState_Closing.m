@@ -39,7 +39,7 @@
     }
     [peer actionI_Disc:NULL];
     [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -51,7 +51,7 @@
     }
     [peer actionI_Disc:NULL];
     [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -63,10 +63,11 @@
     }
     [peer actionR_Disc:NULL];
     [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
-- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
+- (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
+                              message:(UMDiameterPacket *)message
 {
     if(peer.logLevel <= UMLOG_DEBUG)
     {
@@ -75,7 +76,7 @@
     }
     [peer actionError:NULL];
     [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 @end

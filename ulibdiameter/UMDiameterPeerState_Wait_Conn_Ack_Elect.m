@@ -38,7 +38,7 @@
     }
     [peer actionI_Snd_CER:NULL];
     [peer actionElect:NULL];
-    return [[UMDiameterPeerState_Wait_Returns alloc]init];
+    return [[UMDiameterPeerState_Wait_Returns alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer
@@ -56,7 +56,7 @@
         [peer actionR_Snd_CER:message];
         peer.reverseCERSent = YES;
     }
-    return [[UMDiameterPeerState_R_Open alloc]init];
+    return [[UMDiameterPeerState_R_Open alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Peer_Disc:(UMDiameterPeer *)peer
@@ -68,7 +68,7 @@
         [peer logDebug:s];
     }
     [peer actionR_Disc:NULL];
-    return [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+    return [[UMDiameterPeerState_Wait_Conn_Ack alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
@@ -80,7 +80,7 @@
         [peer logDebug:s];
     }
     [peer actionR_Reject:NULL];
-    return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]init];
+    return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
@@ -93,7 +93,7 @@
     }
     [peer actionError:NULL];
     [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 

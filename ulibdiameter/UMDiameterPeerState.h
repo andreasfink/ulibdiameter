@@ -12,7 +12,13 @@
 @class UMDiameterPacket;
 
 @interface UMDiameterPeerState : UMObject
+{
+    UMDiameterPeer *_peer;
+}
+
 - (NSString *)currentState;
+
+- (UMDiameterPeerState *) initWithPeer:(UMDiameterPeer *)peer;
 
 /*  eventStart: The Diameter application has signaled that a connection should be initiated with the peer. */
 - (UMDiameterPeerState *)eventStart:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message;

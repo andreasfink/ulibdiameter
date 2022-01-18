@@ -14,6 +14,20 @@
 
 @implementation UMDiameterPeerState_Closed
 
+- (UMDiameterPeerState *) initWithPeer:(UMDiameterPeer *)peer
+{
+    self = [super initWithPeer:peer];
+    if(self)
+    {
+        /* in case they are not yet closed */
+        [_peer.initiator_socket close];
+        [_peer.responder_socket close];
+        [_peer actionCleanup:NULL];
+        [_peer startReopenTimer1];
+    }
+    return self;
+}
+
 - (NSString *)currentState
 {
     return @"Closed";
@@ -39,11 +53,11 @@
 
     if(err==UMSocketError_in_progress)
     {
-        newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+        newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]initWithPeer:peer];
     }
     else if(err == UMSocketError_no_error)
     {
-        newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]init];
+        newState = [[UMDiameterPeerState_Wait_Conn_Ack alloc]initWithPeer:peer];
         newState = [newState eventI_Rcv_Conn_Ack:peer message:NULL];
     }
     return newState;
@@ -71,7 +85,7 @@
         [peer actionR_Snd_CER:message];
         peer.reverseCERSent = YES;
     }
-    return [[UMDiameterPeerState_R_Open alloc]init];
+    return [[UMDiameterPeerState_R_Open alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Rcv_Conn_Ack:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message

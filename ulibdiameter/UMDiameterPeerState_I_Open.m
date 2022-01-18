@@ -112,7 +112,7 @@
     }
     UMDiameterPacket *pkt = [peer createDPRwithDisconnectCause:@(UMDiameterAvpDisconnect_Cause_REBOOTING)];
     [peer actionI_Snd_DPR:pkt];
-    return [[UMDiameterPeerState_Closing alloc]init];
+    return [[UMDiameterPeerState_Closing alloc]initWithPeer:peer];
     return self;
 }
 
@@ -129,7 +129,7 @@
                                errorMessage:NULL
                                   failedAvp:NULL];
     [peer actionI_Snd_DPA:pkt];
-    return [[UMDiameterPeerState_Closing alloc]init];
+    return [[UMDiameterPeerState_Closing alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventI_Peer_Disc:(UMDiameterPeer *)peer message:(UMDiameterPacket *)message
@@ -141,7 +141,7 @@
     }
     [peer actionI_Disc:NULL];
     [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 

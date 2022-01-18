@@ -11,5 +11,7 @@
 
 @interface UMDiameterPeerState_Closed : UMDiameterPeerState
 
+- (UMDiameterPeerState *) initWithPeer:(UMDiameterPeer *)peer;
+
 @end
 

@@ -25,9 +25,8 @@
         NSString *s = [NSString stringWithFormat:@"%@: eventI_Rcv_Conn_Ack:\n%@",self.currentState,message];
         [peer logDebug:s];
     }
-
     [peer actionI_Snd_CER:NULL];
-    return [[UMDiameterPeerState_Wait_I_CEA alloc]init];
+    return [[UMDiameterPeerState_Wait_I_CEA alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventI_Rcv_Conn_Nack:(UMDiameterPeer *)peer
@@ -39,9 +38,7 @@
         [peer logDebug:s];
     }
 
-    [peer actionCleanup:NULL];
-    [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventR_Conn_CER:(UMDiameterPeer *)peer
@@ -55,7 +52,7 @@
 
     [peer actionR_Accept:NULL];
     [peer actionProcess_CER:message];
-    return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]init];
+    return [[UMDiameterPeerState_Wait_Conn_Ack_Elect alloc]initWithPeer:peer];
 }
 
 - (UMDiameterPeerState *)eventTimeout:(UMDiameterPeer *)peer
@@ -66,10 +63,7 @@
         NSString *s = [NSString stringWithFormat:@"%@: eventTimeout:\n%@",self.currentState,message];
         [peer logDebug:s];
     }
-
-    [peer actionError:NULL];
-    [peer startReopenTimer1];
-    return [[UMDiameterPeerState_Closed alloc]init];
+    return [[UMDiameterPeerState_Closed alloc]initWithPeer:peer];
 }
 
 @end
