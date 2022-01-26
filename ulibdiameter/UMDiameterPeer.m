@@ -456,21 +456,24 @@
              }
              _configuredRemoteAddresses = [arr copy];
          }
-     }
+    }
 
-     if (cfg[@"remote-port"])
-     {
-         _initiatorPort = [cfg[@"remote-port"] intValue];
-     }
-     if (cfg[@"heartbeat"])
-     {
+    if (cfg[@"remote-port"])
+    {
+        _initiatorPort = [cfg[@"remote-port"] intValue];
+    }
+    if (cfg[@"heartbeat"])
+    {
          _heartbeatSeconds = [cfg[@"heartbeat"] doubleValue];
-     }
-     if (cfg[@"mtu"])
-     {
+    }
+    if (cfg[@"mtu"])
+    {
          _mtu = [cfg[@"mtu"] intValue];
-     }
-
+    }
+    else
+    {
+        _mtu = 1416; /* usually safer default  than 1500 due to ipsec */
+    }
     if (cfg[@"reopen-timer1"])
     {
         _reopen_timer1_value = [cfg[@"reopen-timer1"] doubleValue];
