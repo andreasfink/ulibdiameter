@@ -37,8 +37,8 @@
 	BOOL					_tcpPeer;
     NSArray                 *_configuredLocalAddresses;
     NSArray                 *_configuredRemoteAddresses;
-    uint32_t                _i_assoc;
-    uint32_t                _r_assoc;
+    NSNumber                *_i_assoc;
+    NSNumber                *_r_assoc;
     int                     _initiatorPort;
     int                     _responderPort;
     UMSocket                *_initiator_socket; /* initiator */

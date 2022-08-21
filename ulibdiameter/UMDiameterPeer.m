@@ -1175,10 +1175,12 @@
     }
     else
     {
+        NSNumber *tmp = NULL;
         UMSocketSCTP *sctp = (UMSocketSCTP *)_initiator_socket;
         err = [sctp connectToAddresses:_configuredRemoteAddresses
                                   port:_initiatorPort
-                                 assoc:&_i_assoc];
+                                 assoc:&tmp];
+        _i_assoc = tmp;
     }
     if((err==UMSocketError_no_error) || (err==UMSocketError_in_progress))
     {
