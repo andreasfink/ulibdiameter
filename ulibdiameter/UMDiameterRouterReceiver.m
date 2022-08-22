@@ -104,13 +104,7 @@
     NSAssert(pollfds !=0,@"can not allocate memory for poll()");
     memset(pollfds, 0x00,sockets_count+1  * sizeof(struct pollfd));
     int events = POLLIN | POLLPRI | POLLERR | POLLHUP | POLLNVAL;
-#ifdef POLLRDBAND
-    events |= POLLRDBAND;
-#endif
-    
-#ifdef POLLRDHUP
-    events |= POLLRDHUP;
-#endif
+
     //nfds_t j=0;
 
     for(NSUInteger i=0;i<sockets_count;i++)
