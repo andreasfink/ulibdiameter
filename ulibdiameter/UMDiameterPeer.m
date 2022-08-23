@@ -1179,7 +1179,8 @@
         UMSocketSCTP *sctp = (UMSocketSCTP *)_initiator_socket;
         err = [sctp connectToAddresses:_configuredRemoteAddresses
                                   port:_initiatorPort
-                                 assoc:&tmp];
+                              assocPtr:&tmp
+                                 layer:self];
         _i_assoc = tmp;
     }
     if((err==UMSocketError_no_error) || (err==UMSocketError_in_progress))
@@ -1646,7 +1647,7 @@ typedef enum ElectionResult
     {
         UMSocketSCTP *sctp = (UMSocketSCTP *)s;
         UMSocketError err = UMSocketError_no_error;
-        NSNumber        *tmp_assocPtr;
+        NSNumber        *tmp_assocPtr = NULL;
         if(s == _initiator_socket )
         {
             tmp_assocPtr = _i_assoc;
@@ -1657,10 +1658,10 @@ typedef enum ElectionResult
         }
         /* ssize_t sent_packets = */ [sctp sendToAddresses:_configuredRemoteAddresses
                                                       port:s.connectedRemotePort
-                                                  assocPtr:tmp_assocPtr
+                                                  assocPtr:&tmp_assocPtr
                                                       data:data
-                                                    stream:0
-                                                  protocol:DIAMETER_SCTP_PPID_CLEAR
+                                                    stream:@(0)
+                                                  protocol:@(DIAMETER_SCTP_PPID_CLEAR)
                                                      error:&err];
         if(s == _initiator_socket )
         {
@@ -1973,8 +1974,8 @@ typedef enum ElectionResult
 
 
 -(void) handleEvent:(NSData *)event
-           streamId:(uint32_t)streamId
-         protocolId:(uint16_t)protocolId
+           streamId:(NSNumber *)streamId
+         protocolId:(NSNumber *)protocolId
           initiator:(BOOL)initiator
 {
 
@@ -2020,8 +2021,8 @@ typedef enum ElectionResult
 
         default:
             [self.logFeed majorErrorText:[NSString stringWithFormat:@"SCTP unknown event type: %hu", snp->sn_header.sn_type]];
-            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-STREAM: %d",streamId]];
-            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-PROTO: %d", protocolId]];
+            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-STREAM: %@",streamId]];
+            [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-PROTO: %@", protocolId]];
             [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-DATA: %@",event.description]];
     }
 }
@@ -2224,8 +2225,8 @@ typedef enum ElectionResult
 
 
 -(void) handleAssocChange:(NSData *)event
-                 streamId:(uint32_t)streamId
-               protocolId:(uint16_t)protocolId
+                 streamId:(NSNumber *)streamId
+               protocolId:(NSNumber *)protocolId
                 initiator:(BOOL)initiator
 {
     const union sctp_notification *snp;
@@ -2280,14 +2281,14 @@ typedef enum ElectionResult
     {
         if(initiator)
         {
-            _i_assoc = snp->sn_assoc_change.sac_assoc_id;
+            _i_assoc = @(snp->sn_assoc_change.sac_assoc_id);
             [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Initiator SCTP_ASSOC_CHANGE: SCTP_COMM_UP(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
             [self connectionUpForSocket:_initiator_socket];
 
         }
         else
         {
-            _r_assoc = snp->sn_assoc_change.sac_assoc_id;
+            _r_assoc = @(snp->sn_assoc_change.sac_assoc_id);
             [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Responder SCTP_ASSOC_CHANGE: SCTP_COMM_UP(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
             [self connectionUpForSocket:_responder_socket];
         }
@@ -2296,14 +2297,14 @@ typedef enum ElectionResult
     {
         if(initiator)
         {
-            _i_assoc = snp->sn_assoc_change.sac_assoc_id;
+            _i_assoc = @(snp->sn_assoc_change.sac_assoc_id);
             [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Initiator SCTP_ASSOC_CHANGE: SCTP_COMM_LOST(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
             [self connectionDownForSocket:_initiator_socket];
 
         }
         else
         {
-            _r_assoc = snp->sn_assoc_change.sac_assoc_id;
+            _r_assoc = @(snp->sn_assoc_change.sac_assoc_id);
             [self.logFeed infoText:[NSString stringWithFormat:@"DiameterPeer %@ Responder SCTP_ASSOC_CHANGE: SCTP_COMM_LOST(assocID=%ld)",_layerName,(long)snp->sn_assoc_change.sac_assoc_id]];
             [self connectionDownForSocket:_responder_socket];
         }
@@ -2339,8 +2340,8 @@ typedef enum ElectionResult
 
 
 -(void) handlePeerAddrChange:(NSData *)event
-                    streamId:(uint32_t)streamId
-                  protocolId:(uint16_t)protocolId
+                    streamId:(NSNumber *)streamId
+                  protocolId:(NSNumber *)protocolId
                    initiator:(BOOL)initiator
 {
     const union sctp_notification *snp;
@@ -2408,8 +2409,8 @@ typedef enum ElectionResult
 }
 
 -(void) handleRemoteError:(NSData *)event
-                 streamId:(uint32_t)streamId
-               protocolId:(uint16_t)protocolId
+                 streamId:(NSNumber *)streamId
+               protocolId:(NSNumber *)protocolId
                 initiator:(BOOL)initiator
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
@@ -2448,8 +2449,8 @@ typedef enum ElectionResult
 
 
 -(int) handleSendFailed:(NSData *)event
-               streamId:(uint32_t)streamId
-             protocolId:(uint16_t)protocolId
+               streamId:(NSNumber *)streamId
+             protocolId:(NSNumber *)protocolId
               initiator:(BOOL)initiator
 {
     const union sctp_notification *snp;
@@ -2502,8 +2503,8 @@ typedef enum ElectionResult
 
 
 -(int) handleShutdownEvent:(NSData *)event
-                  streamId:(uint32_t)streamId
-                protocolId:(uint16_t)protocolId
+                  streamId:(NSNumber *)streamId
+                protocolId:(NSNumber *)protocolId
                  initiator:(BOOL)initiator
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
@@ -2545,8 +2546,8 @@ typedef enum ElectionResult
 
 
 -(int) handleAdaptionIndication:(NSData *)event
-                       streamId:(uint32_t)streamId
-                     protocolId:(uint16_t)protocolId
+                       streamId:(NSNumber *)streamId
+                     protocolId:(NSNumber *)protocolId
                       initiator:(BOOL)initiator
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
@@ -2619,8 +2620,8 @@ typedef enum ElectionResult
 }
 
 -(int) handleAuthenticationEvent:(NSData *)event
-                        streamId:(uint32_t)streamId
-                      protocolId:(uint16_t)protocolId
+                        streamId:(NSNumber *)streamId
+                      protocolId:(NSNumber *)protocolId
                        initiator:(BOOL)initiator
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
@@ -2668,8 +2669,8 @@ typedef enum ElectionResult
 
 #if defined(SCTP_STREAM_RESET_EVENT)
 -(int) handleStreamResetEvent:(NSData *)event
-                     streamId:(uint32_t)streamId
-                   protocolId:(uint16_t)protocolId
+                     streamId:(NSNumber *)streamId
+                   protocolId:(NSNumber *)protocolId
                     initiator:(BOOL)initiator
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
@@ -2703,8 +2704,8 @@ typedef enum ElectionResult
 #endif
 
 -(int) handleSenderDryEvent:(NSData *)event
-                   streamId:(uint32_t)streamId
-                 protocolId:(uint16_t)protocolId
+                   streamId:(NSNumber *)streamId
+                 protocolId:(NSNumber *)protocolId
                   initiator:(BOOL)initiator
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
@@ -2738,8 +2739,8 @@ typedef enum ElectionResult
 
 
 - (void) handleData:(NSData *)data
-           streamId:(uint32_t)streamId
-         protocolId:(uint16_t)protocolId
+           streamId:(NSNumber *)streamId
+         protocolId:(NSNumber *)protocolId
           initiator:(BOOL)initiator
 {
     if(data.length == 0)
@@ -2749,13 +2750,13 @@ typedef enum ElectionResult
     UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:data];
      if(!packet)
      {
-         NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%d\n\tprotocol:%d\n\tpacket: %@",(int)streamId, (int)protocolId, [data hexString]];
+         NSString *s = [NSString stringWithFormat:@"can not decode SCTP packet\n\tstream:%@\n\tprotocol:%@\n\tpacket: %@",streamId, protocolId, [data hexString]];
          [self.logFeed majorErrorText:s];
          [self actionError:NULL];
      }
-     else if((protocolId!=0) && (protocolId!=DIAMETER_SCTP_PPID_CLEAR))
+     else if((protocolId.unsignedIntValue!=0) && (protocolId.unsignedIntValue!=DIAMETER_SCTP_PPID_CLEAR))
      {
-         NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%d", (int)protocolId];
+         NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%@", protocolId];
          [self.logFeed majorError:0 withText:s];
          [self actionError:NULL];
      }
