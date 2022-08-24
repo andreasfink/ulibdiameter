@@ -1660,11 +1660,7 @@ typedef enum ElectionResult
                                                       port:s.connectedRemotePort
                                                   assocPtr:&tmp_assocPtr
                                                       data:data
-<<<<<<< HEAD
-                                                    stream:0
-=======
                                                     stream:@(0)
->>>>>>> afcba980ceca583e64e98ec4359768348ae5b034
                                                   protocol:@(DIAMETER_SCTP_PPID_CLEAR)
                                                      error:&err];
         if(s == _initiator_socket )
@@ -2758,11 +2754,7 @@ typedef enum ElectionResult
          [self.logFeed majorErrorText:s];
          [self actionError:NULL];
      }
-<<<<<<< HEAD
      else if((protocolId!=NULL) && (protocolId.unsignedIntValue!=DIAMETER_SCTP_PPID_CLEAR) && (protocolId.unsignedIntValue!=0))
-=======
-     else if((protocolId.unsignedIntValue!=0) && (protocolId.unsignedIntValue!=DIAMETER_SCTP_PPID_CLEAR))
->>>>>>> afcba980ceca583e64e98ec4359768348ae5b034
      {
          NSString *s = [NSString stringWithFormat:@"Unsupported protocol ID for Diameter. PID=%@", protocolId];
          [self.logFeed majorError:0 withText:s];
