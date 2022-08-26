@@ -84,9 +84,10 @@
     _eventLock = [[UMMutex alloc]initWithName:@"diameter-event-lock"];
     _dataBuffersLock = [[UMMutex alloc]initWithName:@"diameter-data-buffers-lock"];
 
-    _reopen_timer1_value = DIAMETER_LINK_REOPEN_TIME1_DEFAULT;
-    _reopen_timer2_value = DIAMETER_LINK_REOPEN_TIME2_DEFAULT;
-    _watchdog_timer_value = DIAMETER_WATCHDOG_TIMER_DEFAULT;
+    _reopen_timer1_value  = [UMUtil randomFrom:DIAMETER_LINK_REOPEN_TIME1_DEFAULT to:DIAMETER_LINK_REOPEN_TIME1_DEFAULT+3];;
+    _reopen_timer2_value  = [UMUtil randomFrom:DIAMETER_LINK_REOPEN_TIME2_DEFAULT to:DIAMETER_LINK_REOPEN_TIME2_DEFAULT+3];
+    _watchdog_timer_value = [UMUtil randomFrom:DIAMETER_WATCHDOG_TIMER_DEFAULT to:DIAMETER_WATCHDOG_TIMER_DEFAULT+3];
+
     _failedVendorSpecificIds = NULL;
     _watchdogTimer = [[UMTimer alloc]initWithTarget:self
                                            selector:@selector(watchdogTimerEvent)
