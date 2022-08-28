@@ -1787,12 +1787,12 @@ typedef enum ElectionResult
     if(_isIncoming)
     {
         [s appendString:@":responder"];
-        status = _responder_socket.status;
+        status = _responder_socket._status;
     }
     else
     {
         [s appendString:@":initiator"];
-        status = _initiator_socket.status;
+        status = _initiator_socket._status;
     }
     [s appendString:@":"];
     [s appendString:[UMSocket statusDescription:status]];
@@ -2959,11 +2959,11 @@ typedef enum ElectionResult
     {
         if(_initiator_socket)
         {
-            dict[@"initiator-sctp-socket-status"] = [UMSocket statusDescription:_initiator_socket.status];
+            dict[@"initiator-sctp-socket-status"] = [UMSocket statusDescription:_initiator_socket._status];
         }
         if(_responder_socket)
         {
-            dict[@"responder-sctp-socket-status"] = [UMSocket statusDescription:_responder_socket.status];
+            dict[@"responder-sctp-socket-status"] = [UMSocket statusDescription:_responder_socket._status];
         }
     }
     dict[@"peer-state"] = _peerState.currentState;
