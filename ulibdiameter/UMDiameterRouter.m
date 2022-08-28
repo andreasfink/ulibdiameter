@@ -609,9 +609,9 @@
 		{
 			continue;
 		}
-		if((socket._type== UMSOCKET_TYPE_TCP)
-		   || (socket._type==UMSOCKET_TYPE_TCP4ONLY)
-		   || (socket._type==UMSOCKET_TYPE_TCP6ONLY))
+		if((socket.type== UMSOCKET_TYPE_TCP)
+		   || (socket.type==UMSOCKET_TYPE_TCP4ONLY)
+		   || (socket.type==UMSOCKET_TYPE_TCP6ONLY))
 		{
             if(peer.configuredRemoteAddresses.count<1)
             {
@@ -625,7 +625,7 @@
                 }
             }
 		}
-        else if(UMSOCKET_IS_SCTP_TYPE(socket._type))
+        else if(UMSOCKET_IS_SCTP_TYPE(socket.type))
         {
             for(NSString *socketIP in peer.configuredRemoteAddresses)
             {
@@ -1150,7 +1150,7 @@
             if(sErr)
             {
                 NSString *s = [NSString stringWithFormat:@"can not listen on %@ port %d, %d %@",
-                                     [UMSocket socketTypeDescription:socket._type],
+                                     [UMSocket socketTypeDescription:socket.type],
                                      socket.requestedLocalPort,
                                      sErr,[UMSocket getSocketErrorString:sErr]];
                 [self logMajorError:s];
@@ -1276,7 +1276,7 @@
             }
             /* NEW INCOMING CONNECTIONS */
             UMSocket *nsock;
-            if(UMSOCKET_IS_SCTP_TYPE(socket._type))
+            if(UMSOCKET_IS_SCTP_TYPE(socket.type))
             {
                 UMSocketSCTP *rs = (UMSocketSCTP *)socket;
                 rs = [rs acceptSCTP:&returnValue];
