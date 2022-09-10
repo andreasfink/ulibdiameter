@@ -1996,38 +1996,38 @@ typedef enum ElectionResult
     switch(snp->sn_header.sn_type)
     {
         case SCTP_ASSOC_CHANGE:
-            [self handleAssocChange:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleAssocChange:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
         case SCTP_PEER_ADDR_CHANGE:
-            [self handlePeerAddrChange:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handlePeerAddrChange:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
         case SCTP_SEND_FAILED:
-            [self handleSendFailed:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleSendFailed:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
         case SCTP_REMOTE_ERROR:
-            [self handleRemoteError:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleRemoteError:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
         case SCTP_SHUTDOWN_EVENT:
-            [self handleShutdownEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleShutdownEvent:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
         case SCTP_PARTIAL_DELIVERY_EVENT:
-            [self handleAdaptionIndication:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleAdaptionIndication:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
         case SCTP_ADAPTATION_INDICATION:
-            [self handleAdaptionIndication:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleAdaptionIndication:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
 #if defined SCTP_AUTHENTICATION_EVENT
         case SCTP_AUTHENTICATION_EVENT:
-            [self handleAuthenticationEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleAuthenticationEvent:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
 #endif
         case SCTP_SENDER_DRY_EVENT:
-            [self handleSenderDryEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleSenderDryEvent:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
 
 #if defined SCTP_STREAM_RESET_EVENT
         case  SCTP_STREAM_RESET_EVENT:
-            [self handleStreamResetEvent:event streamId:streamId protocolId:protocolId initiator:initiator];
+            [self handleStreamResetEvent:event streamId:streamId protocolId:protocolId initiator:initiator socket:socketNumber];
             break;
 #endif
 
