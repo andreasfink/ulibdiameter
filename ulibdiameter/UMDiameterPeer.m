@@ -1942,14 +1942,16 @@ typedef enum ElectionResult
                 [self handleEvent:rx.data
                          streamId:rx.streamId
                        protocolId:rx.protocolId
-                        initiator:initiator];
+                        initiator:initiator
+                           socket:rx.socket];
             }
             else
             {
                 [self handleData:rx.data
                          streamId:rx.streamId
                        protocolId:rx.protocolId
-                        initiator:initiator];
+                        initiator:initiator
+                           socket:rx.socket];
             }
         }
     }
@@ -1989,6 +1991,7 @@ typedef enum ElectionResult
            streamId:(NSNumber *)streamId
          protocolId:(NSNumber *)protocolId
           initiator:(BOOL)initiator
+             socket:(NSNumber *)socketNumber
 {
 
     const union sctp_notification *snp;
@@ -2240,6 +2243,7 @@ typedef enum ElectionResult
                  streamId:(NSNumber *)streamId
                protocolId:(NSNumber *)protocolId
                 initiator:(BOOL)initiator
+                   socket:(NSNumber *)socket
 {
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2355,6 +2359,7 @@ typedef enum ElectionResult
                     streamId:(NSNumber *)streamId
                   protocolId:(NSNumber *)protocolId
                    initiator:(BOOL)initiator
+                      socket:(NSNumber *)socket
 {
     const union sctp_notification *snp;
 
@@ -2424,6 +2429,7 @@ typedef enum ElectionResult
                  streamId:(NSNumber *)streamId
                protocolId:(NSNumber *)protocolId
                 initiator:(BOOL)initiator
+                   socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2464,6 +2470,7 @@ typedef enum ElectionResult
                streamId:(NSNumber *)streamId
              protocolId:(NSNumber *)protocolId
               initiator:(BOOL)initiator
+                 socket:(NSNumber *)socket
 {
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2518,6 +2525,7 @@ typedef enum ElectionResult
                   streamId:(NSNumber *)streamId
                 protocolId:(NSNumber *)protocolId
                  initiator:(BOOL)initiator
+                    socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2561,6 +2569,7 @@ typedef enum ElectionResult
                        streamId:(NSNumber *)streamId
                      protocolId:(NSNumber *)protocolId
                       initiator:(BOOL)initiator
+                         socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2596,6 +2605,7 @@ typedef enum ElectionResult
                          streamId:(NSNumber *)streamId
                        protocolId:(NSNumber *)protocolId
                         initiator:(BOOL)initiator
+                           socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2635,6 +2645,7 @@ typedef enum ElectionResult
                         streamId:(NSNumber *)streamId
                       protocolId:(NSNumber *)protocolId
                        initiator:(BOOL)initiator
+                          socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2684,6 +2695,7 @@ typedef enum ElectionResult
                      streamId:(NSNumber *)streamId
                    protocolId:(NSNumber *)protocolId
                     initiator:(BOOL)initiator
+                       socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2719,6 +2731,7 @@ typedef enum ElectionResult
                    streamId:(NSNumber *)streamId
                  protocolId:(NSNumber *)protocolId
                   initiator:(BOOL)initiator
+                     socket:(NSNumber *)socket
 {
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
@@ -2754,6 +2767,7 @@ typedef enum ElectionResult
            streamId:(NSNumber *)streamId
          protocolId:(NSNumber *)protocolId
           initiator:(BOOL)initiator
+             socket:(NSNumber *)s
 {
     if(data.length == 0)
     {
