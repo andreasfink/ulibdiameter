@@ -715,7 +715,7 @@ Internet-Draft              Abbreviated Title             September 2016
 8.  Security Considerations
 
    Load information may be sensitive information in some cases.
-   Depending on the mechanism, an unauthorized recipient might be able
+   Depending on the mechanism, an unauthorised recipient might be able
    to infer the topology of a Diameter network from load information.
    Load information might be useful in identifying targets for Denial of
    Service (DoS) attacks, where a node known to be already heavily
@@ -724,7 +724,7 @@ Internet-Draft              Abbreviated Title             September 2016
 
    Any load information conveyance mechanism will need to allow
    operators to avoid sending load information to nodes that are not
-   authorized to receive it.  Since Diameter currently only offers
+   authorised to receive it.  Since Diameter currently only offers
    authentication of nodes at the transport level, any solution that
    sends load information to non-peer nodes might require a transitive-
    trust model.

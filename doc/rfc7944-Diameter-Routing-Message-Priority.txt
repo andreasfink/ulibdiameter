@@ -845,7 +845,7 @@ RFC 7944                          DOIC                       August 2016
 
 
    When agents are involved, this presents an effectively transitive
-   trust model.  That is, a Diameter Client or Server can authorize an
+   trust model.  That is, a Diameter Client or Server can authorise an
    agent for certain actions, but it must trust that agent to make
    appropriate authorization decisions about its peers, and so on.
    Since confidentiality and integrity protection occurs at the

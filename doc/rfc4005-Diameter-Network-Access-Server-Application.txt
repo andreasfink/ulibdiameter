@@ -378,7 +378,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
 2.2.  Diameter Session Reauthentication or Reauthorization
 
    The Diameter Base protocol allows users to be periodically
-   reauthenticated and/or reauthorized.  In such instances, the
+   reauthenticated and/or reauthorised.  In such instances, the
    Session-Id AVP in the AAR message MUST be the same as the one present
    in the original authentication/authorization message.
 
@@ -392,8 +392,8 @@ RFC 4005       Diameter Network Access Server Application    August 2005
 
    A Diameter server informs the NAS of the maximum time allowed before
    reauthentication or reauthorization via the Authorization-Lifetime
-   AVP [BASE].  A NAS MAY reauthenticate and/or reauthorize before the
-   end, but A NAS MUST reauthenticate and/or reauthorize at the end of
+   AVP [BASE].  A NAS MAY reauthenticate and/or reauthorise before the
+   end, but A NAS MUST reauthenticate and/or reauthorise at the end of
    the period provided by the Authorization-Lifetime AVP.  The failure
    of a reauthentication exchange will terminate the service.
 
@@ -491,7 +491,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
    A request for authorization will include some AVPs defined in section
    6.
 
-   It is possible for a single session to be authorized first and then
+   It is possible for a single session to be authorised first and then
    for an authentication request to follow.
 
 
@@ -687,7 +687,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
    Request (RAR) message [BASE].
 
    For example, for pre-paid services, the Diameter server that
-   originally authorized a session may need some confirmation that the
+   originally authorised a session may need some confirmation that the
    user is still using the services.
 
    If a NAS receives an RAR message with Session-Id equal to a currently
@@ -786,7 +786,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
 
    The Session-Termination-Request (STR) message [BASE] is sent by the
    NAS to inform the Diameter Server that an authenticated and/or
-   authorized session is being terminated.
+   authorised session is being terminated.
 
    Message Format
 
@@ -1703,7 +1703,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
       14  Modem Relay
       15  IAPP-Register   [IEEE 802.11f]
       16  IAPP-AP-Check   [IEEE 802.11f]
-      17  Authorize Only  [RADDynAuth]
+      17  Authorise Only  [RADDynAuth]
 
    The following values are further qualified:
 
@@ -2370,7 +2370,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
 
    The Login-LAT-Group AVP (AVP Code 36) is of type OctetString and
    contains a string identifying the LAT group codes this user is
-   authorized to use.  It MAY be used in an authorization request as a
+   authorised to use.  It MAY be used in an authorization request as a
    hint to the server that a specific group is desired, but the server
    is not required to honor the hint in the corresponding response.
    This AVP MUST only be present in a response if the Login-Service-Type
@@ -2382,7 +2382,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
    Administrators can assign one or more of the group code bits at the
    LAT service provider; it will only accept LAT connections that have
    these group codes set in the bitmap.  The administrators assign a
-   bitmap of authorized group codes to each user.  LAT gets these from
+   bitmap of authorised group codes to each user.  LAT gets these from
    the operating system and uses them in its requests to the service
    providers.
 
@@ -3271,7 +3271,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
 
    The RADIUS CoA-Request message only supports a change of
    authorization attributes, and the received CoA-Request SHOULD include
-   a Service-Type of "Authorize-Only".  This indicates an extended
+   a Service-Type of "Authorise-Only".  This indicates an extended
    exchange request by the rules given in [RADDynAuth] section 3.2, note
    6.  This is the only type of exchange supported by Diameter [BASE].
 
@@ -3443,7 +3443,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
    Answer (RAA) message.
 
    If the gateway receives a RADIUS CoA-NAK response containing a
-   Service-Type Attribute with value "Authorize Only" and an Error-Cause
+   Service-Type Attribute with value "Authorise Only" and an Error-Cause
    Attribute with value "Request Initiated", this indicates an extended
    exchange request per [RADDynAuth] section 3.2, note 6.
 
@@ -3451,7 +3451,7 @@ RFC 4005       Diameter Network Access Server Application    August 2005
    Result-Code AVP of "DIAMETER_LIMITED_SUCCESS" sent to the AAA server.
 
    Subsequently, the gateway should receive a RADIUS Access-Request from
-   the NAS, with a Service-Type of "Authorize Only".  This is translated
+   the NAS, with a Service-Type of "Authorise Only".  This is translated
    into a Diameter AA-Request with an Auth-Request-Type AVP of
    AUTHORIZE_ONLY and sent to the AAA server.  The AAA server will then
    reply with a Diameter AA-Answer, which is translated into a RADIUS
@@ -3474,13 +3474,13 @@ RFC 4005       Diameter Network Access Server Application    August 2005
    translate into an Abort-Session-Answer (ASA) message.
 
    If the gateway receives a RADIUS Disconnect-NAK response containing a
-   Service-Type Attribute with value "Authorize Only" and an Error-Cause
+   Service-Type Attribute with value "Authorise Only" and an Error-Cause
    Attribute with value "Request Initiated", the Disconnect-NAK response
    is translated into a Diameter Abort-Session-Answer (ASA) with a
    Result-Code AVP of "DIAMETER_LIMITED_SUCCESS" sent to the AAA server.
 
    Subsequently, the gateway should receive a RADIUS Access-Request from
-   the NAS, with a Service-Type of "Authorize Only".  This is translated
+   the NAS, with a Service-Type of "Authorise Only".  This is translated
    into a Diameter AA-Request with an Auth-Request-Type AVP of
    AUTHORIZE_ONLY and sent to the AAA server.  The AAA server will then
    reply with a Diameter AA-Answer, which is translated into a RADIUS

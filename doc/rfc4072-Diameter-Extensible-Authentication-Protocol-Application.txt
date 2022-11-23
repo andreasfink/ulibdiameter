@@ -901,13 +901,13 @@ RFC 4072                Diameter EAP Application             August 2005
 
 
    2.  The EAP client has been successfully authenticated and
-       authorized, in which case the message MUST include the
+       authorised, in which case the message MUST include the
        Result-Code AVP indicating success, and SHOULD include an
        EAP-Payload of type EAP-Success.  This event MUST cause the
        access device to provide service to the EAP client.
 
    3.  The EAP client has not been successfully authenticated and/or
-       authorized, and the Result-Code AVP is set to indicate failure.
+       authorised, and the Result-Code AVP is set to indicate failure.
        This message SHOULD include an EAP-Payload, but this AVP is not
        used to determine whether service is to be provided.
 
@@ -1336,7 +1336,7 @@ RFC 4072                Diameter EAP Application             August 2005
 
    Diameter peer-to-peer connections can be protected with IPsec or TLS.
    These mechanisms are believed to provide sufficient protection under
-   the normal Internet threat model, that is, assuming the authorized
+   the normal Internet threat model, that is, assuming the authorised
    nodes engaging in the protocol have not been compromised, but the
    attacker has complete control over the communication channels between
    them.  This includes eavesdropping, message modification, insertion,
@@ -1356,11 +1356,11 @@ RFC 4072                Diameter EAP Application             August 2005
    Diameter message received from an authenticated Diameter peer should
    be accepted (and not authorization of users requesting network access
    from a NAS).  In other words, when a Diameter server receives a
-   Diameter-EAP-Request, it has to decide if the client is authorized to
+   Diameter-EAP-Request, it has to decide if the client is authorised to
    act as a NAS for the specific user, service type, and so on.
    Correspondingly, when a NAS contacts a server to send a
    Diameter-EAP-Request, it has to determine whether the server is
-   authorized to act as home server for the realm in question.
+   authorised to act as home server for the realm in question.
 
    Authorization can involve local Access Control Lists (ACLs),
    information contained in certificates, or some other means.  See
@@ -1370,14 +1370,14 @@ RFC 4072                Diameter EAP Application             August 2005
    which have access to the contents of Diameter messages, a compromised
    Diameter agent may not supply the right home server's address.  If
    the Diameter client is unable to tell whether this particular server
-   is authorized to act as the home server for this particular user, the
+   is authorised to act as the home server for this particular user, the
    security of the communications rests on the redirect agent.
 
    The hop-by-hop security mechanisms (IPsec and TLS) combined with
    proper authorization provide good protection against "outside"
    attackers, except for denial-of-service attacks.  The remaining part
    of this section deals with attacks by nodes that have been properly
-   authorized (to function as a NAS, Diameter agent, or Diameter
+   authorised (to function as a NAS, Diameter agent, or Diameter
    server), but abuse their authorization or have been compromised.  In
    general, it is not possible to completely protect against attacks by
    compromised nodes, but this section offers advice on limiting the
@@ -1413,9 +1413,9 @@ RFC 4072                Diameter EAP Application             August 2005
    include a different set of AVPs than expected.
 
    Therefore, the question is what an attacker who compromises an
-   authorized NAS, agent, or server can do using Diameter EAP messages.
+   authorised NAS, agent, or server can do using Diameter EAP messages.
    Some of the consequences are rather obvious.  For instance, a
-   Diameter agent can give access to unauthorized users by changing the
+   Diameter agent can give access to unauthorised users by changing the
    Result-Code to DIAMETER_SUCCESS.  Other consequences are less obvious
    and are discussed below and authentication method negotiation attacks
    are discussed in the next section.
@@ -1424,17 +1424,17 @@ RFC 4072                Diameter EAP Application             August 2005
    messages, an attacker may be able (depending on implementation and
    configuration details) to:
 
-   o  Give unauthorized users access, or deny access to authorized users
+   o  Give unauthorised users access, or deny access to authorised users
       (Result-Code).
 
    o  Give an attacker a login session to a host otherwise protected by
-      firewalls, or redirect an authorized user's login session to a
+      firewalls, or redirect an authorised user's login session to a
       host controlled by the attacker (Login-Host).
 
-   o  Route an authorized user's traffic through a host controlled by
+   o  Route an authorised user's traffic through a host controlled by
       the attacker (various tunneling AVPs).
 
-   o  Redirect an authorized user's DNS requests to a malicious DNS
+   o  Redirect an authorised user's DNS requests to a malicious DNS
       server (various vendor-specific AVPs).
 
    o  Modify routing tables at the NAS and thus redirect packets
@@ -1532,7 +1532,7 @@ RFC 4072                Diameter EAP Application             August 2005
    trusted to keep the keys secret.
 
    In environments where agents are present, several factors should be
-   considered when deciding whether the agents that are authorized (and
+   considered when deciding whether the agents that are authorised (and
    considered "trustworthy enough") to grant access to users and specify
    various authorization and tunneling AVPs are also "trustworthy
    enough" to handle the session keys.  These factors include (but are
@@ -1590,7 +1590,7 @@ RFC 4072                Diameter EAP Application             August 2005
    different values to the client.
 
    Therefore, the NAS's possession of the session keys proves that the
-   user is talking to an authorized NAS, but a compromised NAS can lie
+   user is talking to an authorised NAS, but a compromised NAS can lie
    about its exact identity.  See [EAPKey] for discussion on how
    individual EAP methods can provide authentication of NAS service
    parameters and identities.

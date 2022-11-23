@@ -154,7 +154,7 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
    following additional terms are either borrowed from [RFC4640] or
    [RFC5026] or are introduced in this document:
 
-   Access Service Authorizer (ASA):
+   Access Service Authoriser (ASA):
 
       A network operator that authenticates an MN and establishes the
       MN's authorization to receive Internet service.
@@ -171,25 +171,25 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
       A network operator that provides direct IP packet-forwarding to
       and from the MN.
 
-   Mobility Service Authorizer (MSA):
+   Mobility Service Authoriser (MSA):
 
-      A service provider that authorizes MIPv6 service.
+      A service provider that authorises MIPv6 service.
 
    Mobility Service Provider (MSP):
 
       A service provider that provides MIPv6 service.  In order to
-      obtain such service, the MN must be authenticated and authorized
+      obtain such service, the MN must be authenticated and authorised
       to do so.
 
    Split Scenario:
 
       A scenario where the mobility service and the network access
-      service are authorized by different entities.
+      service are authorised by different entities.
 
    Integrated Scenario:
 
       A scenario where the mobility service and the network access
-      service are authorized by the same entity.
+      service are authorised by the same entity.
 
    Network Access Server (NAS):
 
@@ -280,7 +280,7 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
 
    When the Diameter server performs the authentication and
    authorization for network access, it also determines whether the user
-   is authorized for the MIPv6 service.  Based on the MIPv6 service
+   is authorised for the MIPv6 service.  Based on the MIPv6 service
    authorization and the user's policy profile, the Diameter server may
    return several MIPv6 bootstrapping-related parameters to the NAS.
    The NAS-to-HAAA interface described in this document is not tied to
@@ -353,7 +353,7 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
    Diameter server as a hint of a locally assigned HA.  This AVP MAY
    also be attached by the intermediating Diameter proxies in a reply
    message from the Diameter server, if locally assigned HAs are
-   authorized by the Diameter server.  There MAY be multiple instances
+   authorised by the Diameter server.  There MAY be multiple instances
    of the MIP6-Agent-Info AVP in Diameter messages, for example, in
    cases where the NAS receives HA information from an MN's home network
    and locally allocated HA information from the visited network.  See
@@ -428,7 +428,7 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
    to the Diameter server.  For example, the NAS may indicate that a
    local HA can be provided.  Similarly, the Diameter server MAY include
    this AVP to inform the NAS/ASP about which of the NAS/ASP indicated
-   capabilities are supported or authorized by the ASA/MSA(/MSP).
+   capabilities are supported or authorised by the ASA/MSA(/MSP).
 
    The following capabilities are defined in this document:
 
@@ -459,7 +459,7 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
       When this flag is set in the request message, a local home agent
       outside the home realm is requested and may be assigned to the MN.
       When this flag is set by the Diameter server in the answer
-      message, then the assignment of local HAs is authorized by the
+      message, then the assignment of local HAs is authorised by the
       Diameter server.
 
       A local HA may be assigned by the NAS, LAAA, or VAAA depending on
@@ -602,7 +602,7 @@ RFC 5447         Diameter MIPv6 NAS-to-HAAA Interaction    February 2009
    This section shows another message flow for the MIPv6 integrated
    scenario bootstrapping where the NAS informs the Diameter server that
    it is able to locally assign an HA to the MN.  The Diameter server is
-   able to provide an HA to the MN but also authorizes the assignment of
+   able to provide an HA to the MN but also authorises the assignment of
    the local HA.  The Diameter server then replies to the NAS with
    HA-related bootstrapping information.
 

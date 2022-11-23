@@ -1653,7 +1653,7 @@ RFC 7683                          DOIC                      October 2015
    Overload reports may contain information about the topology and
    current status of a Diameter network.  This information is
    potentially sensitive.  Network operators may wish to control
-   disclosure of overload reports to unauthorized parties to avoid their
+   disclosure of overload reports to unauthorised parties to avoid their
    use for competitive intelligence or to target attacks.
 
    Diameter does not include features to provide end-to-end
@@ -1684,7 +1684,7 @@ RFC 7683                          DOIC                      October 2015
 
 
    When agents are involved, this presents an effectively transitive
-   trust model.  That is, a Diameter client or server can authorize an
+   trust model.  That is, a Diameter client or server can authorise an
    agent for certain actions, but it must trust that agent to make
    appropriate authorization decisions about its peers, and so on.
    Since confidentiality and integrity protection occur at the transport
@@ -1692,7 +1692,7 @@ RFC 7683                          DOIC                      October 2015
    message, including an overload report.
 
    There are several ways an attacker might attempt to exploit the
-   overload control mechanism.  An unauthorized third party might inject
+   overload control mechanism.  An unauthorised third party might inject
    an overload report into the network.  If this third party is upstream
    of an agent, and that agent fails to apply proper authorization
    policies, downstream nodes may mistakenly trust the report.  This
@@ -1706,7 +1706,7 @@ RFC 7683                          DOIC                      October 2015
    request prior to acting on the overload report, and that the answer
    was received via an appropriate transport connection.
 
-   A similar attack involves a compromised but otherwise authorized node
+   A similar attack involves a compromised but otherwise authorised node
    that sends an inappropriate overload report.  For example, a server
    for the realm "example.com" might send an overload report indicating
    that a competitor's realm "example.net" is overloaded.  If other
@@ -1805,11 +1805,11 @@ RFC 7683                          DOIC                      October 2015
    Diameter Agent in the path of an overload report can view the
    contents of that report.  In addition to the requirement to select
    which peers are trusted to send overload reports, operators MUST be
-   able to select which peers are authorized to receive reports.  A node
-   MUST NOT send an overload report to a peer not authorized to receive
+   able to select which peers are authorised to receive reports.  A node
+   MUST NOT send an overload report to a peer not authorised to receive
    it.  Furthermore, an agent MUST remove any overload reports that
    might have been inserted by other nodes before forwarding a Diameter
-   message to a peer that is not authorized to receive overload reports.
+   message to a peer that is not authorised to receive overload reports.
 
       A DOIC node cannot always automatically detect that a peer also
       supports DOIC.  For example, a node might have a peer that is a

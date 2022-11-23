@@ -315,7 +315,7 @@ RFC 4740                Diameter SIP Application           November 2006
    This document assumes a general architecture where a Home Realm is
    composed of one or more nodes implementing Diameter or SIP functions.
    Users are issuing SIP requests to access SIP resources.  For each
-   particular user, the Home Realm needs to authenticate and authorize
+   particular user, the Home Realm needs to authenticate and authorise
    the usage of those resources and/or the route to the appropriate
    node.  We assume that the database containing the user-related data
    is located outside the SIP node that requires authorization.  Data
@@ -370,7 +370,7 @@ RFC 4740                Diameter SIP Application           November 2006
 
    The Diameter SIP application can be used in a SIP environment where
    an interface to a AAA infrastructure is required to authenticate and
-   authorize the usage of SIP resources.  This application provides
+   authorise the usage of SIP resources.  This application provides
    support for SIP User Agents and proxies that implement and use HTTP
    Digest authentication [RFC2617], which is the authentication
    mechanism mandated by SIP [RFC3261].  The application is extensible
@@ -524,7 +524,7 @@ RFC 4740                Diameter SIP Application           November 2006
                          |                   |<------------------|
                          |                   |      6. MAA       |
                          |                   |------------------>|
-                         |         7. SIP 401 (Unauthorized)     |
+                         |         7. SIP 401 (Unauthorised)     |
     8. SIP 401 (Unauth.) |<--------------------------------------|
     <--------------------|                   |                   |
     9. SIP REGISTER      |                   |                   |
@@ -581,7 +581,7 @@ RFC 4740                Diameter SIP Application           November 2006
    Result-Code AVP set to the value DIAMETER_MULTI_ROUND_AUTH.  The
    Diameter server also generates a nonce and includes a challenge in
    the MAA message.  SIP server 2 uses that challenge to map into the
-   WWW-Authenticate header in the SIP 401 (Unauthorized) response (step
+   WWW-Authenticate header in the SIP 401 (Unauthorised) response (step
    7), which is sent back to SIP server 1 and then to the SIP UAC (step
    8).
 
@@ -692,7 +692,7 @@ RFC 4740                Diameter SIP Application           November 2006
                          |                   |<------------------|
                          |                   |      6. MAA       |
                          |                   |------------------>|
-                         |         7. SIP 401 (Unauthorized)     |
+                         |         7. SIP 401 (Unauthorised)     |
     8. SIP 401 (Unauth.) |<--------------------------------------|
     <--------------------|                   |                   |
     9. SIP REGISTER      |                   |                   |
@@ -736,7 +736,7 @@ RFC 4740                Diameter SIP Application           November 2006
    message includes, among other Attribute-Value-Pairs (AVPs), the SIP
    Address-Of-Record (AOR) that is included in the SIP REGISTER request.
    The Diameter server verifies the SIP AOR and, if it is a valid
-   defined user in the home network, authorizes the registration to
+   defined user in the home network, authorises the registration to
    proceed.  The Diameter server responds with a Diameter
    User-Authorization-Answer (UAA) message (step 3), which informs the
    Diameter client/SIP server about the result of the user
@@ -764,7 +764,7 @@ RFC 4740                Diameter SIP Application           November 2006
    indicates that authentication and authorization take place in the
    Diameter server, as per the scenario described in Section 6.2.
 
-   SIP server 2 creates a SIP 401 (Unauthorized) SIP response (step 7)
+   SIP server 2 creates a SIP 401 (Unauthorised) SIP response (step 7)
    based on the challenge included in the MAA message, including the
    authentication material needed by the SIP User Agent Client (UAC) to
    include the appropriate credentials.  SIP server 1 forwards the SIP
@@ -824,7 +824,7 @@ RFC 4740                Diameter SIP Application           November 2006
    request (see step 1), but it could be any other SIP request.  We
    assume that this SIP request does not contain any credentials at this
    time.  The outbound SIP proxy server needs to authenticate and
-   authorize the proxy services offered to the user.  The Diameter
+   authorise the proxy services offered to the user.  The Diameter
    client in the SIP server sends a Multimedia-Auth-Request (MAR)
    message (step 2).  The Diameter server generates a nonce and sends a
    Multimedia-Auth-Answer (MAA) message (step 3) that includes the nonce
@@ -844,7 +844,7 @@ Garcia-Martin, et al.       Standards Track                    [Page 15]
 RFC 4740                Diameter SIP Application           November 2006
 
 
-   authorize the SIP transaction in a Diameter MAA message (step 7).
+   authorise the SIP transaction in a Diameter MAA message (step 7).
    The SIP server forwards the SIP INVITE request to its destination
    (step 8) as per regular SIP procedures.  Eventually, the session
    setup is confirmed with a SIP 200 (OK) response (step 9) that is
@@ -1218,7 +1218,7 @@ RFC 4740                Diameter SIP Application           November 2006
    Because the SIP REGISTER request implicitly carries a permission to
    bind an AOR to a contact address, the Diameter client uses the
    Diameter UAR as a first authorization request towards the Diameter
-   server to authorize the registration.  For instance, the Diameter
+   server to authorise the registration.  For instance, the Diameter
    server can verify that the AOR is a legitimate user of the realm.
 
    The Diameter client in the SIP server requests authorization for one
@@ -1309,7 +1309,7 @@ RFC 4740                Diameter SIP Application           November 2006
    it in a Diameter UAA message.  Upon reception of this Diameter UAA
    message with the Result-Code AVP value set to
    DIAMETER_USER_NAME_REQUIRED, the SIP server typically requests
-   authentication by sending a SIP 401 (Unauthorized) or SIP 407 (Proxy
+   authentication by sending a SIP 401 (Unauthorised) or SIP 407 (Proxy
    Authentication Required) response back to the originator.
 
    When the authorization procedure succeeds, the Diameter server
@@ -1349,7 +1349,7 @@ RFC 4740                Diameter SIP Application           November 2006
 
 
    If a User-Name AVP is present in the Diameter UAR message, then the
-   Diameter server MUST authorize that User-Name AVP value is able to
+   Diameter server MUST authorise that User-Name AVP value is able to
    register the SIP or SIPS URI included in the SIP-AOR AVP.  If this
    authorization fails, the Diameter server must set the Result-Code AVP
    to DIAMETER_ERROR_IDENTITIES_DONT_MATCH and send it in a Diameter
@@ -1372,8 +1372,8 @@ RFC 4740                Diameter SIP Application           November 2006
    If the SIP-User-Authorization-Type AVP value received in the Diameter
    UAR message is set to REGISTRATION or REGISTRATION&CAPABILITIES, then
    the Diameter server SHOULD verify whether the SIP-AOR AVP value is
-   authorized to register in the Home Realm.  Where the SIP AOR is not
-   authorized to register in the Home Realm, the Diameter server MUST
+   authorised to register in the Home Realm.  Where the SIP AOR is not
+   authorised to register in the Home Realm, the Diameter server MUST
    set the Result-Code AVP to DIAMETER_AUTHORIZATION_REJECTED and send
    it in a Diameter UAA message.
 
@@ -1609,7 +1609,7 @@ RFC 4740                Diameter SIP Application           November 2006
    it in a Diameter SAA message.  Upon reception of this Diameter SAA
    message with the Result-Code AVP value set to
    DIAMETER_USER_NAME_REQUIRED, the SIP server typically requests
-   authentication by generating a SIP 401 (Unauthorized) or SIP 407
+   authentication by generating a SIP 401 (Unauthorised) or SIP 407
    (Proxy Authentication Required) response back to the originator.
 
    If the User-Name AVP is included in the Diameter SAR message, upon
@@ -1628,7 +1628,7 @@ Garcia-Martin, et al.       Standards Track                    [Page 29]
 RFC 4740                Diameter SIP Application           November 2006
 
 
-   Then the Diameter server MUST authorize that User-Name AVP value is a
+   Then the Diameter server MUST authorise that User-Name AVP value is a
    valid authentication name for the SIP or SIPS URI included in the
    SIP-AOR AVP of the Diameter SAR message.  If this authorization
    fails, the Diameter server must set the Result-Code AVP to
@@ -1927,7 +1927,7 @@ RFC 4740                Diameter SIP Application           November 2006
    The Multimedia-Auth-Request (MAR) command is indicated by the
    Command-Code set to 286 and the Command Flags' 'R' bit set.  The
    Diameter client in a SIP server sends this command to the Diameter
-   server to request that the Diameter server authenticate and authorize
+   server to request that the Diameter server authenticate and authorise
    a user attempt to use some SIP service (in this context, SIP service
    can be something as simple as a SIP subscription or using the proxy
    services for a SIP request).
@@ -1942,7 +1942,7 @@ RFC 4740                Diameter SIP Application           November 2006
 
    The SIP-Method AVP MUST include the SIP method name of the SIP
    request that triggered this Diameter MAR message.  The Diameter
-   server can use this AVP to authorize some SIP requests depending on
+   server can use this AVP to authorise some SIP requests depending on
    the method.
 
    The Diameter MAR message MUST include a SIP-AOR AVP.  The SIP-AOR AVP
@@ -2022,7 +2022,7 @@ RFC 4740                Diameter SIP Application           November 2006
 
    of this Diameter MAA message with the Result-Code AVP value set to
    DIAMETER_USER_NAME_REQUIRED, the SIP server typically requests
-   authentication by generating a SIP 401 (Unauthorized) or SIP 407
+   authentication by generating a SIP 401 (Unauthorised) or SIP 407
    (Proxy Authentication Required) response back to the originator.
 
    If the User-Name AVP is present in the Diameter MAR message, the
@@ -2035,7 +2035,7 @@ RFC 4740                Diameter SIP Application           November 2006
 
    If the SIP-Methods AVP value of the Diameter MAR message is set to
    REGISTER and a User-Name AVP is present, then the Diameter server
-   MUST authorize that User-Name AVP value is able to use the URI
+   MUST authorise that User-Name AVP value is able to use the URI
    included in the SIP-AOR AVP.  If this authorization fails, the
    Diameter server must set the Result-Code AVP to
    DIAMETER_ERROR_IDENTITIES_DONT_MATCH and send it in a Diameter
@@ -2094,7 +2094,7 @@ RFC 4740                Diameter SIP Application           November 2006
        challenge.
 
    2.  DIAMETER_SUCCESS_SERVER_NAME_NOT_STORED, if the Diameter server
-       successfully authenticated the user and authorized the SIP server
+       successfully authenticated the user and authorised the SIP server
        to proceed with the SIP request.
 
    Otherwise, the Diameter server MUST set the Result-Code AVP value to
@@ -2590,7 +2590,7 @@ RFC 4740                Diameter SIP Application           November 2006
 
    The SIP-Credit-Control-Server-URI AVP (AVP Code 370) is of type
    DiameterURI.  This AVP contains the address of a Diameter server that
-   is able to authorize real-time credit control usage.  The Diameter
+   is able to authorise real-time credit control usage.  The Diameter
    Credit-Control Application [RFC4006] may be used for this purpose.
 
 9.2.  SIP-Server-URI AVP
@@ -3120,7 +3120,7 @@ RFC 4740                Diameter SIP Application           November 2006
    The SIP-Visited-Network-Id AVP (AVP Code 386) is of type UTF8String.
    This AVP contains an identifier that helps the home network identify
    the visited network (e.g., the visited network domain name), in order
-   to authorize roaming to that visited network.
+   to authorise roaming to that visited network.
 
 9.10.  SIP-User-Authorization-Type AVP
 
@@ -3281,11 +3281,11 @@ RFC 4740                Diameter SIP Application           November 2006
 
    o  DIAMETER_FIRST_REGISTRATION 2003
       The user was not previously registered.  The Diameter server has
-      now authorized the registration.
+      now authorised the registration.
 
    o  DIAMETER_SUBSEQUENT_REGISTRATION 2004
       The user is already registered.  The Diameter server has now
-      authorized the re-registration.
+      authorised the re-registration.
 
    o  DIAMETER_UNREGISTERED_SERVICE 2005
       The user is not currently registered, but the requested service
@@ -3297,7 +3297,7 @@ RFC 4740                Diameter SIP Application           November 2006
       to the user.
 
    o  DIAMETER_SERVER_SELECTION 2007
-      The Diameter server has authorized the registration.  The user has
+      The Diameter server has authorised the registration.  The user has
       already been assigned a SIP server, but it may be necessary to
       select a new SIP server for the user.
 

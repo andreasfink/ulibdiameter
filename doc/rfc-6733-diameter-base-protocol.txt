@@ -882,8 +882,8 @@ RFC 6733                 Diameter Base Protocol             October 2012
    Stateful Agent
 
       A stateful agent is one that maintains session state information,
-      by keeping track of all authorized active sessions.  Each
-      authorized session is bound to a particular service, and its state
+      by keeping track of all authorised active sessions.  Each
+      authorised session is bound to a particular service, and its state
       is considered active either until it is notified otherwise or
       until expiration.
 
@@ -1126,7 +1126,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
    Session state (associated with a Session-Id) MUST be freed upon
    receipt of the Session-Termination-Request, Session-Termination-
-   Answer, expiration of authorized service time in the Session-Timeout
+   Answer, expiration of authorised service time in the Session-Timeout
    AVP, and according to rules established in a particular Diameter
    application.
 
@@ -1592,10 +1592,10 @@ RFC 6733                 Diameter Base Protocol             October 2012
    require that agents maintain a copy of pending requests.
 
    A stateful agent is one that maintains session state information by
-   keeping track of all authorized active sessions.  Each authorized
+   keeping track of all authorised active sessions.  Each authorised
    session is bound to a particular service, and its state is considered
    active until either the agent is notified otherwise or the session
-   expires.  Each authorized session has an expiration, which is
+   expires.  Each authorised session has an expiration, which is
    communicated by Diameter servers via the Session-Timeout AVP.
 
    Maintaining session state may be useful in certain applications, such
@@ -1603,7 +1603,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
    o  Protocol translation (e.g., RADIUS <-> Diameter)
 
-   o  Limiting resources authorized to a particular user
+   o  Limiting resources authorised to a particular user
 
    o  Per-user or per-transaction auditing
 
@@ -1766,7 +1766,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    systems to be migrated at a slower pace.
 
    Given that the Diameter protocol introduces the concept of long-lived
-   authorized sessions, translation agents MUST be session stateful and
+   authorised sessions, translation agents MUST be session stateful and
    MUST maintain transaction state.
 
    Translation of messages can only occur if the agent recognizes the
@@ -1798,17 +1798,17 @@ RFC 6733                 Diameter Base Protocol             October 2012
    protected.
 
    In addition to authenticating each connection, the entire session
-   MUST also be authorized.  Before initiating a connection, a Diameter
-   peer MUST check that its peers are authorized to act in their roles.
+   MUST also be authorised.  Before initiating a connection, a Diameter
+   peer MUST check that its peers are authorised to act in their roles.
    For example, a Diameter peer may be authentic, but that does not mean
-   that it is authorized to act as a Diameter server advertising a set
+   that it is authorised to act as a Diameter server advertising a set
    of Diameter applications.
 
    Prior to bringing up a connection, authorization checks are performed
    at each connection along the path.  Diameter capabilities negotiation
    (CER/CEA) also MUST be carried out, in order to determine what
    Diameter applications are supported by each peer.  Diameter sessions
-   MUST be routed only through authorized nodes that have advertised
+   MUST be routed only through authorised nodes that have advertised
    support for the Diameter application required by the session.
 
    As noted in Section 6.1.9, a relay or proxy agent MUST append a
@@ -3318,12 +3318,12 @@ RFC 6733                 Diameter Base Protocol             October 2012
    the result of an attack.
 
    Also, the Diameter peer MUST check to make sure that the discovered
-   peers are authorized to act in its role.  Authentication via IKE or
+   peers are authorised to act in its role.  Authentication via IKE or
    TLS/TCP and DTLS/SCTP, or validation of DNS RRs via DNSSEC is not
    sufficient to conclude this.  For example, a web server may have
    obtained a valid TLS/TCP and DTLS/SCTP certificate, and secured RRs
    may be included in the DNS, but this does not imply that it is
-   authorized to act as a Diameter server.
+   authorised to act as a Diameter server.
 
    Authorization can be achieved, for example, by the configuration of a
    Diameter server Certification Authority (CA).  The server CA issues a
@@ -5163,7 +5163,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
    DIAMETER_AUTHORIZATION_REJECTED 5003
 
-      A request was received for which the user could not be authorized.
+      A request was received for which the user could not be authorised.
       This error could occur if the service requested is not permitted
       to the user.
 
@@ -5184,7 +5184,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
    DIAMETER_RESOURCES_EXCEEDED 5006
 
-      A request was received that cannot be authorized because the user
+      A request was received that cannot be authorised because the user
       has already expended allowed resources.  An example of this error
       condition is when a user that is restricted to one dial-up PPP
       port attempts to establish a second PPP connection.
@@ -5447,7 +5447,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    for the client and servers to correlate a Diameter message with a
    user session.
 
-   When a Diameter server authorizes a user to implement network
+   When a Diameter server authorises a user to implement network
    resources for a finite amount of time, and it is willing to extend
    the authorization via a future request, it MUST add the
    Authorization- Lifetime AVP to the answer message.  The
@@ -5665,25 +5665,25 @@ RFC 6733                 Diameter Base Protocol             October 2012
       ---------------------------------------------------------------
       Idle      Service-specific authorization Send         Open
                 request received, and          successful
-                user is authorized             service-
+                user is authorised             service-
                                                specific
                                                answer
 
       Idle      Service-specific authorization Send         Idle
                 request received, and          failed
-                user is not authorized         service-
+                user is not authorised         service-
                                                specific
                                                answer
 
       Open      Service-specific authorization Send         Open
                 request received, and user     successful
-                is authorized                  service-
+                is authorised                  service-
                                                specific
                                                answer
 
       Open      Service-specific authorization Send         Idle
                 request received, and user     failed
-                is not authorized              service-
+                is not authorised              service-
                                                specific
                                                answer,
                                                Clean up
@@ -6109,7 +6109,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    Request (RAR).
 
    For example, for prepaid services, the Diameter server that
-   originally authorized a session may need some confirmation that the
+   originally authorised a session may need some confirmation that the
    user is still using the services.
 
    An access device that receives an RAR message with the Session-Id
@@ -6124,7 +6124,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    The Re-Auth-Request (RAR), indicated by the Command Code set to 258
    and the message flags' 'R' bit set, may be sent by any server to the
    access device that is providing session service, to request that the
-   user be re-authenticated and/or re-authorized.
+   user be re-authenticated and/or re-authorised.
 
 
     Message Format
@@ -6181,7 +6181,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
 8.4.  Session Termination
 
-   It is necessary for a Diameter server that authorized a session, for
+   It is necessary for a Diameter server that authorised a session, for
    which it is maintaining state, to be notified when that session is no
    longer active, both for tracking purposes as well as to allow
    stateful agents to release any resources that they may have provided
@@ -6191,20 +6191,20 @@ RFC 6733                 Diameter Base Protocol             October 2012
    When a user session that required Diameter authorization terminates,
    the access device that provided the service MUST issue a Session-
    Termination-Request (STR) message to the Diameter server that
-   authorized the service, to notify it that the session is no longer
+   authorised the service, to notify it that the session is no longer
    active.  An STR MUST be issued when a user session terminates for any
    reason, including user logoff, expiration of Session-Timeout,
    administrative action, termination upon receipt of an Abort-Session-
    Request (see below), orderly shutdown of the access device, etc.
 
    The access device also MUST issue an STR for a session that was
-   authorized but never actually started.  This could occur, for
+   authorised but never actually started.  This could occur, for
    example, due to a sudden resource shortage in the access device, or
    because the access device is unwilling to provide the type of service
    requested in the authorization, or because the access device does not
    support a mandatory AVP returned in the authorization, etc.
 
-   It is also possible that a session that was authorized is never
+   It is also possible that a session that was authorised is never
    actually started due to action of a proxy.  For example, a proxy may
 
 
@@ -6217,10 +6217,10 @@ RFC 6733                 Diameter Base Protocol             October 2012
    modify an authorization answer, converting the result from success to
    failure, prior to forwarding the message to the access device.  If
    the answer did not contain an Auth-Session-State AVP with the value
-   NO_STATE_MAINTAINED, a proxy that causes an authorized session not to
-   be started MUST issue an STR to the Diameter server that authorized
+   NO_STATE_MAINTAINED, a proxy that causes an authorised session not to
+   be started MUST issue an STR to the Diameter server that authorised
    the session, since the access device has no way of knowing that the
-   session had been authorized.
+   session had been authorised.
 
    A Diameter server that receives an STR message MUST clean up
    resources (e.g., session state) associated with the Session-Id
@@ -6240,7 +6240,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    The Session-Termination-Request (STR), indicated by the Command Code
    set to 275 and the Command Flags' 'R' bit set, is sent by a Diameter
    client or by a Diameter proxy to inform the Diameter server that an
-   authenticated and/or authorized session is being terminated.
+   authenticated and/or authorised session is being terminated.
 
     Message Format
 
@@ -6308,10 +6308,10 @@ RFC 6733                 Diameter Base Protocol             October 2012
    service for a particular session by issuing an Abort-Session-Request
    (ASR).
 
-   For example, the Diameter server that originally authorized the
+   For example, the Diameter server that originally authorised the
    session may be required to cause that session to be stopped for lack
    of credit or other reasons that were not anticipated when the session
-   was first authorized.
+   was first authorised.
 
    An access device that receives an ASR with Session-ID equal to a
    currently active session MAY stop the session.  Whether the access
@@ -6426,7 +6426,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    prior to detection of a client restart have been terminated.  The
    Diameter server MAY clean up all session state associated with such
    lost sessions, and it MAY also issue STRs for all such lost sessions
-   that were authorized on upstream servers, to allow session state to
+   that were authorised on upstream servers, to allow session state to
    be cleaned up globally.
 
 
@@ -6442,7 +6442,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
    The Auth-Request-Type AVP (AVP Code 274) is of type Enumerated and is
    included in application-specific auth requests to inform the peers
-   whether a user is to be authenticated only, authorized only, or both.
+   whether a user is to be authenticated only, authorised only, or both.
    Note any value other than both MAY cause RADIUS interoperability
    issues.  The following values are defined:
 
@@ -6533,7 +6533,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
    The Authorization-Lifetime AVP (AVP Code 291) is of type Unsigned32
    and contains the maximum number of seconds of service to be provided
    to the user before the user is to be re-authenticated and/or re-
-   authorized.  Care should be taken when the Authorization-Lifetime
+   authorised.  Care should be taken when the Authorization-Lifetime
    value is determined, since a low, non-zero value could create
    significant Diameter traffic, which could congest both the network
    and the agents.
@@ -6556,7 +6556,7 @@ RFC 6733                 Diameter Base Protocol             October 2012
 
    An Authorization-Lifetime AVP MAY be present in re-authorization
    messages, and it contains the number of seconds the user is
-   authorized to receive service from the time the re-auth answer
+   authorised to receive service from the time the re-auth answer
    message is received by the access device.
 
    This AVP MAY be provided by the client as a hint of the maximum

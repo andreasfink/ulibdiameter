@@ -585,7 +585,7 @@
 }
 
 
-- (UMDiameterTcpConnectionAuthorisationResult)authorizeIncomingDiameterTcpConnection:(UMSocket *)socket
+- (UMDiameterTcpConnectionAuthorisationResult)authoriseIncomingDiameterTcpConnection:(UMSocket *)socket
 {
     /* FIXME: check list of peers */
 

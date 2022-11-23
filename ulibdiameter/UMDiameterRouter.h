@@ -103,7 +103,7 @@
 - (void) setConfig:(NSDictionary *)cfg applicationContext:(id<UMDiameterRouterAppDelegateProtocol>)appContext;
 - (void)stopDetachAndDestroy;
 
-- (UMDiameterTcpConnectionAuthorisationResult)authorizeIncomingDiameterTcpConnection:(UMSocket *)socket;
+- (UMDiameterTcpConnectionAuthorisationResult)authoriseIncomingDiameterTcpConnection:(UMSocket *)socket;
 
 - (UMDiameterRouter *)initWithTaskQueueMulti:(UMTaskQueueMulti *)tq name:(NSString *)name;
 

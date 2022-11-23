@@ -1533,7 +1533,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
     (1): QoS-Available
     (2): QoS-Delivered
     (3): Minimum-QoS
-    (4): QoS-Authorized
+    (4): QoS-Authorised
 
    The semantics of the QoS parameters depend on the information
    provided in the list above.  The semantics of the different values
@@ -1555,8 +1555,8 @@ RFC 5777               QoS Attributes for Diameter         February 2010
                               QoS that is lower than the indicated QoS.
    Minimum-QoS     C<-S       Client must not provide QoS guarantees
                               lower than the indicated QoS.
-   QoS-Authorized  C->S       NA
-   QoS-Authorized  C<-S       Server authorizes the indicated QoS.
+   QoS-Authorised  C->S       NA
+   QoS-Authorised  C<-S       Server authorises the indicated QoS.
 
    Legend:
 
@@ -1575,7 +1575,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
    Notes:
 
     (1) QoS-Available in this direction indicates to the server that
-        any QoS-Authorized or Minimum-QoS must be less than this
+        any QoS-Authorised or Minimum-QoS must be less than this
         indicated QoS.
 
     (2) QoS-Available in this direction is only useful when the AAA
@@ -1651,7 +1651,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
    included into the DER message and as part of the access
    authentication procedure.  Upon completion of the EAP exchange, the
    Diameter server provides a pre-provisioned QoS profile with the QoS-
-   Semantics in the Filter-Rule AVP set to 'QoS-Authorized', to the NAS
+   Semantics in the Filter-Rule AVP set to 'QoS-Authorised', to the NAS
    in the final Diameter-EAP-Answer (DEA) message.
 
 
@@ -1714,7 +1714,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
      |                               |   Result-Code=DIAMETER_SUCCESS |
      |                               |       EAP-Payload(EAP Success) |
      |                               |           (authorization AVPs) |
-     |                               |  QoS-Resources(QoS-Authorized) |
+     |                               |  QoS-Resources(QoS-Authorised) |
      |                               |<-------------------------------|
      |                               |                                |
      |                   EAP Success |                                |
@@ -1778,7 +1778,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
        |                  |                     AA-Answer|
        |                  |  Result-Code=DIAMETER_SUCCESS|
        |                  |          (authorization AVPs)|
-       |                  | QoS-Resources(QoS-Authorized)|
+       |                  | QoS-Resources(QoS-Authorised)|
        |                  |<-----------------------------+
        |                  |                              |
        | Success          |                              |
@@ -1801,7 +1801,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
    Figure 4 shows an example of authorization-only QoS signaling as part
    of the NASREQ message exchange.  The NAS provides the Diameter server
    with the "QoS-Desired" QoS-Semantics AVP included in the QoS-
-   Resources AVP.  The Diameter server then either authorizes the
+   Resources AVP.  The Diameter server then either authorises the
    indicated QoS or rejects the request and informs the NAS about the
    result.  In this scenario, the NAS does not need to include the QoS-
    Capability AVP in the AAR message as the QoS-Resources AVP implicitly
@@ -1823,7 +1823,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
         |                  |                              |
         |                  |                     AA-Answer|
         |                  |       NASREQ-Payload(Success)|
-        |                  | QoS-Resources(QoS-Authorized)|
+        |                  | QoS-Resources(QoS-Authorised)|
         |                  |<-----------------------------+
         |  Accept          |                              |
         |<-----------------+                              |
@@ -1881,7 +1881,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
        |                  |                     AA-Answer|
        |                  |  Result-Code=DIAMETER_SUCCESS|
        |                  |          (authorization AVPs)|
-       |                  | QoS-Resources(QoS-Authorized)|
+       |                  | QoS-Resources(QoS-Authorised)|
        |                  |<-----------------------------+
        |                  |                              |
 
@@ -1892,8 +1892,8 @@ RFC 5777               QoS Attributes for Diameter         February 2010
    In this example, the CC client includes a QoS authorization request
    (QoS-Semantics=QoS-Desired) in the initial Credit Control Request
    (CCR).  The CC server responds with a Credit Control Answer (CCA),
-   which includes the granted resources with an authorized QoS
-   definition (QoS-Semantics=QoS-Authorized) and the CC client proceeds
+   which includes the granted resources with an authorised QoS
+   definition (QoS-Semantics=QoS-Authorised) and the CC client proceeds
    to deliver service with the specified QoS.
 
    At the end of service, the CC client reports the units used and the
@@ -1909,7 +1909,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
 
 
    successfully delivered or the service was terminated, e.g., because
-   the Service Element could not deliver the service at the authorized
+   the Service Element could not deliver the service at the authorised
    QoS level.
 
                            Service Element
@@ -1921,7 +1921,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
         |                     |    QoS-Resources(QoS-Desired))   |
         |                     |--------------------------------->|
         |                     |(3) CCA (Granted-Units,           |
-        |                     |    QoS-Resources(QoS-Authorized))|
+        |                     |    QoS-Resources(QoS-Authorised))|
         |                     |<---------------------------------|
         |(4) Service Delivery |                                  |
         |<------------------->|                                  |
@@ -2179,7 +2179,7 @@ RFC 5777               QoS Attributes for Diameter         February 2010
                (1): QoS-Available
                (2): QoS-Delivered
                (3): Minimum-QoS
-               (4): QoS-Authorized
+               (4): QoS-Authorised
 
 
 

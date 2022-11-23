@@ -371,7 +371,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    control server.  The Diameter credit-control server is the entity
    responsible for credit authorization for prepaid subscribers.
 
-   A service element may authenticate and authorize the end user with
+   A service element may authenticate and authorise the end user with
    the AAA server by using AAA protocols; e.g., RADIUS or a Diameter
    base protocol with a possible Diameter application.
 
@@ -413,7 +413,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    end user; however, a commercial agreement must exist between the
    visited domain and the home domain.  Network access is an example of
    a service offered in the visited domain where the NAS, through an AAA
-   infrastructure, authenticates and authorizes the user with the user's
+   infrastructure, authenticates and authorises the user with the user's
    home network.
 
                    Service Element   AAA and CC
@@ -969,7 +969,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    further aggregation of credit allocation.  It is also possible to
    request and allocate quotas on a per service basis.  Where quotas are
    allocated to a pool by means of the Multiple-Services-Credit-Control
-   AVP, the quotas remain independent objects that can be re-authorized
+   AVP, the quotas remain independent objects that can be re-authorised
    independently at any time.  Quotas can also be given independent
    result codes, validity times, and Final-Unit-Indications.
 
@@ -982,7 +982,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    Service-Identifiers are IP 5-tuple and HTTP URL.) Service-Identifiers
    enable authorization on a per-service based credit as well as
    itemized reporting of service usage.  It is up to the credit-control
-   server whether to authorize credit for one or more services or for
+   server whether to authorise credit for one or more services or for
    the whole rating-group.  However, the client SHOULD always report
    used units at the finest supported level of granularity.  Where quota
    is allocated to a rating-group, all the services belonging to that
@@ -1270,7 +1270,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    registration/access to the network and is not executed for every
    service event requested by the subscriber).  In these environments,
    it is more appropriate to perform the first interrogation after the
-   user has been authenticated and authorized.  The first, the
+   user has been authenticated and authorised.  The first, the
    intermediate, and the final interrogations are executed with credit-
    control commands defined in this specification.
 
@@ -1361,7 +1361,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    Application-Id is set to the appropriate value, as defined in the
    relevant service specific authorization/authentication application
    document (e.g., [NASREQ], [DIAMMIP]).  The home Diameter AAA server
-   authenticates/authorizes the subscriber and determines whether
+   authenticates/authorises the subscriber and determines whether
    credit-control is required.
 
    If credit-control is not required for the subscriber, the home
@@ -1686,7 +1686,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
 
    Section 5.1.2 defines the feature to enable credit-control for
    multiple services within a single (sub-)session where the server can
-   authorize credit usage at a different level of granularity.  Further,
+   authorise credit usage at a different level of granularity.  Further,
    the server may provide credit resources to multiple services or
    rating groups as a pool (see section 5.1.2 for details and
    definitions).  Therefore, the server, based on its service logic and
@@ -2265,7 +2265,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    The one-time event is used when there is no need to maintain any
    state in the Diameter credit-control server; for example, enquiring
    about the price of the service.  The use of a one-time event implies
-   that the user has been authenticated and authorized beforehand.
+   that the user has been authenticated and authorised beforehand.
 
    The one time event can be used when the credit-control client wants
    to know the cost of the service event or to check the account balance
@@ -4956,7 +4956,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    The Diameter base protocol [DIAMBASE] requires that each Diameter
    implementation use underlying security; i.e., IPsec or TLS.  These
    mechanisms are believed to provide sufficient protection under the
-   normal Internet threat model; that is, assuming that the authorized
+   normal Internet threat model; that is, assuming that the authorised
    nodes engaging in the protocol have not been compromised, but that
    the attacker has complete control over the communication channels
    between them.  This includes eavesdropping, message modification,
@@ -5033,7 +5033,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    is expired.
 
    There are some authorization issues even with redirects.  There may
-   be attacks toward nodes that have been properly authorized, but that
+   be attacks toward nodes that have been properly authorised, but that
    abuse their authorization or have been compromised.  These issues are
    discussed more widely in [DIAMEAP], section 8.
 
@@ -5617,7 +5617,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    the SDP, and a button to accept/not accept the charges.  (There may
    be many other ways to deliver AoC information; however, this flow
    focuses on the use of the credit-control messages.)  The user has
-   been authenticated and authorized prior to initiating the call and
+   been authenticated and authorised prior to initiating the call and
    subscribed to AoC service.
 
    UA A sends an INVITE with SDP to B (1).  The SIP controller
@@ -6122,7 +6122,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    Id/Rating-Group and updates the existing reservation by requesting
    more credit.  Suppose that the server reserves $5 more (now the
    reservation is $10) and determines that the cost is $0.1/minute.  The
-   server authorizes the whole Rating-Group.  It then returns to the
+   server authorises the whole Rating-Group.  It then returns to the
    service element a Credit-Control-Answer message that includes the
    Multiple-Services-Credit-Control AVP with a quota of 50min.
    associated to the Rating-Group 1, to a multiplier value of 1, and to
@@ -6130,11 +6130,11 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    for pool 1 according the received quota, which gives S for Pool 1 =
    100.
 
-   The user uses Service 2, which belongs to the authorized Rating-
+   The user uses Service 2, which belongs to the authorised Rating-
    Group, 1 (7).  Resources are then consumed from the pool 1.
 
    The user now requests Services 3 and 4 as well, which are not
-   authorized (8).  The service element sends a Diameter Credit-
+   authorised (8).  The service element sends a Diameter Credit-
    Control-Request with CC-Request-Type set to UPDATE_REQUEST to the
    credit-control server in order to perform credit authorization for
    Services 3 and 4 (9).  This message includes two instances of the
@@ -6147,7 +6147,7 @@ RFC 4006          Diameter Credit-Control Application        August 2005
    request.  Then it reserves credit from pool 2.
 
    For example, the server reserves $5 and determines that Service 3
-   costs $0.2/MB and Service 4 costs $0.5/MB.  The server authorizes
+   costs $0.2/MB and Service 4 costs $0.5/MB.  The server authorises
    only Services 3 and 4.  It returns to the service element a Credit-
    Control-Answer message that includes two instances of the Multiple-
    Services-Credit-Control AVP (10).  One instance grants a quota of
