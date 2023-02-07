@@ -2773,6 +2773,14 @@ typedef enum ElectionResult
     {
         return;
     }
+    if(protocolId && (protocolId.intValue == DIAMETER_SCTP_PPID_CLEAR))
+    {
+        _wrongPid=YES;
+    }
+    else
+    {
+        _wrongPid=NO;
+    }
     UMDiameterPacket *packet = [[UMDiameterPacket alloc]initWithData:data];
      if(!packet)
      {

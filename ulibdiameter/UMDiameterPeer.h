@@ -110,6 +110,7 @@
     BOOL _sendCUR;
     BOOL _reverseCERSent;
     BOOL _doRestart;
+    BOOL _wrongPid;
 }
 
 @property(readwrite,assign,atomic)  BOOL					tcpPeer;
