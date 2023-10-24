@@ -20,13 +20,13 @@
                   R-Peer-Disc      R-Disc           Closed
 
  */
-#import <ulibdiameter/UMDiameterPeerState_R_Open.h>
-#import <ulibdiameter/UMDiameterPeerState_all.h>
-#import <ulibdiameter/UMDiameterPacket.h>
-#import <ulibdiameter/UMDiameterPeer.h>
-#import <ulibdiameter/UMDiameterResultCode.h>
-#import <ulibdiameter/UMDiameterAvpDisconnect_Cause.h>
-#import <ulibdiameter/UMDiameterAvpENUMS.h>
+#import "UMDiameterPeerState_R_Open.h"
+#import "UMDiameterPeerState_all.h"
+#import "UMDiameterPacket.h"
+#import "UMDiameterPeer.h"
+#import "UMDiameterResultCode.h"
+#import "UMDiameterAvpDisconnect_Cause.h"
+#import "UMDiameterAvpENUMS.h"
 
 @implementation UMDiameterPeerState_R_Open
 
