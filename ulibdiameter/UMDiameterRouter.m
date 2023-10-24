@@ -6,21 +6,21 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterRouter.h>
-#import <ulibdiameter/UMDiameterRouter_RouteTask.h>
-#import <ulibdiameter/UMDiameterRouterSession.h>
-#import <ulibdiameter/UMDiameterPacket.h>
-#import <ulibdiameter/UMDiameterApplicationId.h>
-#import <ulibdiameter/UMDiameterVendorId.h>
-#import <ulibdiameter/UMDiameterRoute.h>
-#import <ulibdiameter/UMDiameterPacketsAll.h>
-#import <ulibdiameter/UMDiameterRouterReceiver.h>
-#import <ulibdiameter/UMDiameterStatisticDb.h>
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import "UMDiameterRouter.h"
+#import "UMDiameterRouter_RouteTask.h"
+#import "UMDiameterRouterSession.h"
+#import "UMDiameterPacket.h"
+#import "UMDiameterApplicationId.h"
+#import "UMDiameterVendorId.h"
+#import "UMDiameterRoute.h"
+#import "UMDiameterPacketsAll.h"
+#import "UMDiameterRouterReceiver.h"
+#import "UMDiameterStatisticDb.h"
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpDestination_Host.h"
+#import "UMDiameterAvpDestination_Realm.h"
 #include <time.h>
 #include <poll.h>
 
