@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRe_Synchronization_Info.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpRe_Synchronization_Info.h"
 
 @implementation UMDiameterAvpRe_Synchronization_Info
 

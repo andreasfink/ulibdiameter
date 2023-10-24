@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import "UMDiameterAvpGrouped.h"
 
 @class UMDiameterAvpPLMN_ID_List;
 @class UMDiameterAvpPrioritized_List_Indicator;

@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEPS_User_State.h>
-#import <ulibdiameter/UMDiameterAvpMME_User_State.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_User_State.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpEPS_User_State.h"
+#import "UMDiameterAvpMME_User_State.h"
+#import "UMDiameterAvpSGSN_User_State.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpEPS_User_State
 

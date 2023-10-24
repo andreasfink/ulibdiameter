@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRestoration_Info.h>
-#import <ulibdiameter/UMDiameterAvpPath.h>
-#import <ulibdiameter/UMDiameterAvpContact.h>
-#import <ulibdiameter/UMDiameterAvpInitial_CSeq_Sequence_Number.h>
-#import <ulibdiameter/UMDiameterAvpSubscription_Info.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpRestoration_Info.h"
+#import "UMDiameterAvpPath.h"
+#import "UMDiameterAvpContact.h"
+#import "UMDiameterAvpInitial_CSeq_Sequence_Number.h"
+#import "UMDiameterAvpSubscription_Info.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpRestoration_Info
 

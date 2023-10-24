@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import "UMDiameterAvpGrouped.h"
 
 @implementation UMDiameterAvpGrouped
 

@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEPS_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpMME_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpEPS_Location_Information.h"
+#import "UMDiameterAvpMME_Location_Information.h"
+#import "UMDiameterAvpSGSN_Location_Information.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpEPS_Location_Information
 

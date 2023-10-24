@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import "UMDiameterAvpGrouped.h"
 
 @class UMDiameterAvpNumber_Of_Requested_Vectors;
 @class UMDiameterAvpImmediate_Response_Preferred;

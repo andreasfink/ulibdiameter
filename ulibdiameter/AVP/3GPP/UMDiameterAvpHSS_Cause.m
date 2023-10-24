@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpHSS_Cause.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpHSS_Cause.h"
 
 @implementation UMDiameterAvpHSS_Cause
 

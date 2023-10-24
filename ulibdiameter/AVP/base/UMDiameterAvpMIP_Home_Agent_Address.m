@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Home_Agent_Address.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP_Home_Agent_Address.h"
 
 @implementation UMDiameterAvpMIP_Home_Agent_Address
 

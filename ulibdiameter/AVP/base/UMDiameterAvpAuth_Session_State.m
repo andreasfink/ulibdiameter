@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAuth_Session_State.h"
 
 @implementation UMDiameterAvpAuth_Session_State
 

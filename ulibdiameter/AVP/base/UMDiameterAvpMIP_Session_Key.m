@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Session_Key.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP_Session_Key.h"
 
 @implementation UMDiameterAvpMIP_Session_Key
 

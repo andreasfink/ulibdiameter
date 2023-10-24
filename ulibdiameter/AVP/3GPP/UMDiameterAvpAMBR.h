@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import "UMDiameterAvpGrouped.h"
 
 @class UMDiameterAvpMax_Requested_Bandwidth_UL;
 @class UMDiameterAvpMax_Requested_Bandwidth_DL;

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDL_Buffering_Suggested_Packet_Count.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpDL_Buffering_Suggested_Packet_Count.h"
 
 @implementation UMDiameterAvpDL_Buffering_Suggested_Packet_Count
 

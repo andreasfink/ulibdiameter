@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMBSFN_Area.h>
-#import <ulibdiameter/UMDiameterAvpMBSFN_Area_ID.h>
-#import <ulibdiameter/UMDiameterAvpCarrier_Frequency.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMBSFN_Area.h"
+#import "UMDiameterAvpMBSFN_Area_ID.h"
+#import "UMDiameterAvpCarrier_Frequency.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpMBSFN_Area
 

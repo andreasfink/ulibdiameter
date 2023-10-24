@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpXRES.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpXRES.h"
 
 @implementation UMDiameterAvpXRES
 

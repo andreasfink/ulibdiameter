@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDigest_Algorithm.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpDigest_Algorithm.h"
 
 @implementation UMDiameterAvpDigest_Algorithm
 

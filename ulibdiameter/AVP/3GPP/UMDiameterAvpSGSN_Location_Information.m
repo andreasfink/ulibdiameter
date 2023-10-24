@@ -6,18 +6,18 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpCell_Global_Identity.h>
-#import <ulibdiameter/UMDiameterAvpLocation_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpService_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpRouting_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpGeographical_Information.h>
-#import <ulibdiameter/UMDiameterAvpGeodetic_Information.h>
-#import <ulibdiameter/UMDiameterAvpCurrent_Location_Retrieved.h>
-#import <ulibdiameter/UMDiameterAvpAge_Of_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpUser_CSG_Information.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSGSN_Location_Information.h"
+#import "UMDiameterAvpCell_Global_Identity.h"
+#import "UMDiameterAvpLocation_Area_Identity.h"
+#import "UMDiameterAvpService_Area_Identity.h"
+#import "UMDiameterAvpRouting_Area_Identity.h"
+#import "UMDiameterAvpGeographical_Information.h"
+#import "UMDiameterAvpGeodetic_Information.h"
+#import "UMDiameterAvpCurrent_Location_Retrieved.h"
+#import "UMDiameterAvpAge_Of_Location_Information.h"
+#import "UMDiameterAvpUser_CSG_Information.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpSGSN_Location_Information
 

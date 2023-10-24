@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpFilter_Rule.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpFilter_Rule.h"
 
 @implementation UMDiameterAvpFilter_Rule
 

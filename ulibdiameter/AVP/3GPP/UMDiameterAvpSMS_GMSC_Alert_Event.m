@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSMS_GMSC_Alert_Event.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSMS_GMSC_Alert_Event.h"
 
 @implementation UMDiameterAvpSMS_GMSC_Alert_Event
 

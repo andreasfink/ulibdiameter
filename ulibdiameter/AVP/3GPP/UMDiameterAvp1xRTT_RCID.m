@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvp1xRTT_RCID.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvp1xRTT_RCID.h"
 
 @implementation UMDiameterAvp1xRTT_RCID
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpFloat32.h>
+#import "UMDiameterAvpFloat32.h"
 
 @implementation UMDiameterAvpFloat32
 

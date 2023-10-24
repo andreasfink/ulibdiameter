@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Home_Link_Prefix.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP6_Home_Link_Prefix.h"
 
 @implementation UMDiameterAvpMIP6_Home_Link_Prefix
 

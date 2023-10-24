@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpConfidentiality_Key.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpConfidentiality_Key.h"
 
 @implementation UMDiameterAvpConfidentiality_Key
 

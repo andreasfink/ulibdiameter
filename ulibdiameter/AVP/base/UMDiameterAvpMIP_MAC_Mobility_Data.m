@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_MAC_Mobility_Data.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP_MAC_Mobility_Data.h"
 
 @implementation UMDiameterAvpMIP_MAC_Mobility_Data
 

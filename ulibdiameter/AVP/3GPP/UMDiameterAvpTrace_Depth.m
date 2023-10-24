@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Depth.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpTrace_Depth.h"
 
 @implementation UMDiameterAvpTrace_Depth
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvp3GPP_Charging_Characteristics.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvp3GPP_Charging_Characteristics.h"
 
 @implementation UMDiameterAvp3GPP_Charging_Characteristics
 

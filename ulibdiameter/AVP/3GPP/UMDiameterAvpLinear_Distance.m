@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLinear_Distance.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpLinear_Distance.h"
 
 @implementation UMDiameterAvpLinear_Distance
 

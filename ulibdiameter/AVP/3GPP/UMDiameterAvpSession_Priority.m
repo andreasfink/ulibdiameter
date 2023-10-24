@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSession_Priority.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSession_Priority.h"
 
 @implementation UMDiameterAvpSession_Priority
 

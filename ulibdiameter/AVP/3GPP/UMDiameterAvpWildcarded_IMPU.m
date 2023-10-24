@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpWildcarded_IMPU.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpWildcarded_IMPU.h"
 
 @implementation UMDiameterAvpWildcarded_IMPU
 

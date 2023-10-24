@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpLCS_Privacy_Check.h"
 
 @implementation UMDiameterAvpLCS_Privacy_Check
 

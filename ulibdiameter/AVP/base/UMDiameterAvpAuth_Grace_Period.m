@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Grace_Period.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAuth_Grace_Period.h"
 
 @implementation UMDiameterAvpAuth_Grace_Period
 

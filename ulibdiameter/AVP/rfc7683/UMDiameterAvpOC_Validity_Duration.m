@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Validity_Duration.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOC_Validity_Duration.h"
 
 @implementation UMDiameterAvpOC_Validity_Duration
 

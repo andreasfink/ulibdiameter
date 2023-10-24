@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpT4_Parameters.h>
-#import <ulibdiameter/UMDiameterAvpPriority_Indication.h>
-#import <ulibdiameter/UMDiameterAvpSM_RP_SMEA.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpT4_Parameters.h"
+#import "UMDiameterAvpPriority_Indication.h"
+#import "UMDiameterAvpSM_RP_SMEA.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpT4_Parameters
 

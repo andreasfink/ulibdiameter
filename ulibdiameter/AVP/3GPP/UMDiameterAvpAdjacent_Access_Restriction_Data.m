@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAdjacent_Access_Restriction_Data.h>
-#import <ulibdiameter/UMDiameterAvpVisited_PLMN_Id.h>
-#import <ulibdiameter/UMDiameterAvpAccess_Restriction_Data.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAdjacent_Access_Restriction_Data.h"
+#import "UMDiameterAvpVisited_PLMN_Id.h"
+#import "UMDiameterAvpAccess_Restriction_Data.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpAdjacent_Access_Restriction_Data
 

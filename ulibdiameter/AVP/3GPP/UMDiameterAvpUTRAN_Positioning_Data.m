@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Positioning_Data.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpUTRAN_Positioning_Data.h"
 
 @implementation UMDiameterAvpUTRAN_Positioning_Data
 

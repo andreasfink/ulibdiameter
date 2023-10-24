@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpService_Report.h>
-#import <ulibdiameter/UMDiameterAvpService_Result.h>
-#import <ulibdiameter/UMDiameterAvpNode_Type.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpService_Report.h"
+#import "UMDiameterAvpService_Result.h"
+#import "UMDiameterAvpNode_Type.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpService_Report
 

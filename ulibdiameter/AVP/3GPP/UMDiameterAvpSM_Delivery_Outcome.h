@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import "UMDiameterAvpGrouped.h"
 
 @class UMDiameterAvpMME_SM_Delivery_Outcome;
 @class UMDiameterAvpMSC_SM_Delivery_Outcome;

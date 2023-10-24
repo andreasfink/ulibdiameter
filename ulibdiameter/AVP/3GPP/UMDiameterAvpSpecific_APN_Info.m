@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSpecific_APN_Info.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
-#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSpecific_APN_Info.h"
+#import "UMDiameterAvpService_Selection.h"
+#import "UMDiameterAvpMIP6_Agent_Info.h"
+#import "UMDiameterAvpVisited_Network_Identifier.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpSpecific_APN_Info
 

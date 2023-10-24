@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVPLMN_LIPA_Allowed.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpVPLMN_LIPA_Allowed.h"
 
 @implementation UMDiameterAvpVPLMN_LIPA_Allowed
 

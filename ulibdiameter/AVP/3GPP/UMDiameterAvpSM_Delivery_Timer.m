@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSM_Delivery_Timer.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSM_Delivery_Timer.h"
 
 @implementation UMDiameterAvpSM_Delivery_Timer
 

@@ -7,27 +7,27 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketSend_Routing_Info_for_SM_Request.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
-#import <ulibdiameter/UMDiameterAvpDRMP.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
-#import <ulibdiameter/UMDiameterAvpMSISDN.h>
-#import <ulibdiameter/UMDiameterAvpUser_Name.h>
-#import <ulibdiameter/UMDiameterAvpSMSMI_Correlation_ID.h>
-#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
-#import <ulibdiameter/UMDiameterAvpSC_Address.h>
-#import <ulibdiameter/UMDiameterAvpSM_RP_MTI.h>
-#import <ulibdiameter/UMDiameterAvpSM_RP_SMEA.h>
-#import <ulibdiameter/UMDiameterAvpSRR_Flags.h>
-#import <ulibdiameter/UMDiameterAvpSM_Delivery_Not_Intended.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
-#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
-#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
+#import "UMDiameterPacketSend_Routing_Info_for_SM_Request.h"
+#import "UMDiameterAvpSession_Id.h"
+#import "UMDiameterAvpDRMP.h"
+#import "UMDiameterAvpVendor_Specific_Application_Id.h"
+#import "UMDiameterAvpAuth_Session_State.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpDestination_Host.h"
+#import "UMDiameterAvpDestination_Realm.h"
+#import "UMDiameterAvpMSISDN.h"
+#import "UMDiameterAvpUser_Name.h"
+#import "UMDiameterAvpSMSMI_Correlation_ID.h"
+#import "UMDiameterAvpSupported_Features.h"
+#import "UMDiameterAvpSC_Address.h"
+#import "UMDiameterAvpSM_RP_MTI.h"
+#import "UMDiameterAvpSM_RP_SMEA.h"
+#import "UMDiameterAvpSRR_Flags.h"
+#import "UMDiameterAvpSM_Delivery_Not_Intended.h"
+#import "UMDiameterAvpAVP.h"
+#import "UMDiameterAvpProxy_Info.h"
+#import "UMDiameterAvpRoute_Record.h"
 
 @implementation UMDiameterPacketSend_Routing_Info_for_SM_Request
 

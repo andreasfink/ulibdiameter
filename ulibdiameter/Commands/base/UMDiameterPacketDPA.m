@@ -7,13 +7,13 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketDPA.h>
-#import <ulibdiameter/UMDiameterAvpResult_Code.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpError_Message.h>
-#import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterPacketDPA.h"
+#import "UMDiameterAvpResult_Code.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpError_Message.h"
+#import "UMDiameterAvpFailed_AVP.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterPacketDPA
 

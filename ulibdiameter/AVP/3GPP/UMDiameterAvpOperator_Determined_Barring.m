@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOperator_Determined_Barring.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOperator_Determined_Barring.h"
 
 @implementation UMDiameterAvpOperator_Determined_Barring
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPseudonym_Indicator.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpPseudonym_Indicator.h"
 
 @implementation UMDiameterAvpPseudonym_Indicator
 

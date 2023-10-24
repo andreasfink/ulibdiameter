@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpProSe_Permission.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpProSe_Permission.h"
 
 @implementation UMDiameterAvpProSe_Permission
 

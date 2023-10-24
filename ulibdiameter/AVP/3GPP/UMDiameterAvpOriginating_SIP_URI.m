@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOriginating_SIP_URI.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOriginating_SIP_URI.h"
 
 @implementation UMDiameterAvpOriginating_SIP_URI
 

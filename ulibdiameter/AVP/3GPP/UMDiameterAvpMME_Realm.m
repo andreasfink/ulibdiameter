@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMME_Realm.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMME_Realm.h"
 
 @implementation UMDiameterAvpMME_Realm
 

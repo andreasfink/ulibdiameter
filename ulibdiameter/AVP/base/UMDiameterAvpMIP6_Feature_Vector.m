@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Feature_Vector.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP6_Feature_Vector.h"
 
 @implementation UMDiameterAvpMIP6_Feature_Vector
 

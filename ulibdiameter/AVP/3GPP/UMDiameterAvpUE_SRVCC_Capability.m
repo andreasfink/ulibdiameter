@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUE_SRVCC_Capability.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpUE_SRVCC_Capability.h"
 
 @implementation UMDiameterAvpUE_SRVCC_Capability
 

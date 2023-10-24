@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpServer_Assignment_Type.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpServer_Assignment_Type.h"
 
 @implementation UMDiameterAvpServer_Assignment_Type
 

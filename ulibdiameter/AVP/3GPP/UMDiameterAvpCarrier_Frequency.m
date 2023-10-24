@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCarrier_Frequency.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpCarrier_Frequency.h"
 
 @implementation UMDiameterAvpCarrier_Frequency
 

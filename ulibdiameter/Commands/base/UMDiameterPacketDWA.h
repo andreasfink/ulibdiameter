@@ -7,7 +7,7 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacket.h>
+#import "UMDiameterPacket.h"
 
 @class UMDiameterAvpResult_Code;
 @class UMDiameterAvpOrigin_Host;

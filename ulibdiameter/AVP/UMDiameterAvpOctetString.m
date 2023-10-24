@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpOctetString.h>
+#import "UMDiameterAvpOctetString.h"
 
 
 static int digit_to_nibble(int digit);

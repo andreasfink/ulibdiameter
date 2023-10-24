@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVertical_Requested.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpVertical_Requested.h"
 
 @implementation UMDiameterAvpVertical_Requested
 

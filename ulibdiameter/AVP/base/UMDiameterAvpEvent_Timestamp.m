@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEvent_Timestamp.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpEvent_Timestamp.h"
 
 @implementation UMDiameterAvpEvent_Timestamp
 

@@ -6,26 +6,26 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Context.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Type.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Address.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Subscribed.h>
-#import <ulibdiameter/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
-#import <ulibdiameter/UMDiameterAvp3GPP_Charging_Characteristics.h>
-#import <ulibdiameter/UMDiameterAvpExt_PDP_Type.h>
-#import <ulibdiameter/UMDiameterAvpExt_PDP_Address.h>
-#import <ulibdiameter/UMDiameterAvpAMBR.h>
-#import <ulibdiameter/UMDiameterAvpAPN_OI_Replacement.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Permission.h>
-#import <ulibdiameter/UMDiameterAvpLIPA_Permission.h>
-#import <ulibdiameter/UMDiameterAvpRestoration_Priority.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Local_Network_Permission.h>
-#import <ulibdiameter/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpPDP_Context.h"
+#import "UMDiameterAvpContext_Identifier.h"
+#import "UMDiameterAvpPDP_Type.h"
+#import "UMDiameterAvpPDP_Address.h"
+#import "UMDiameterAvpQoS_Subscribed.h"
+#import "UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h"
+#import "UMDiameterAvpService_Selection.h"
+#import "UMDiameterAvp3GPP_Charging_Characteristics.h"
+#import "UMDiameterAvpExt_PDP_Type.h"
+#import "UMDiameterAvpExt_PDP_Address.h"
+#import "UMDiameterAvpAMBR.h"
+#import "UMDiameterAvpAPN_OI_Replacement.h"
+#import "UMDiameterAvpSIPTO_Permission.h"
+#import "UMDiameterAvpLIPA_Permission.h"
+#import "UMDiameterAvpRestoration_Priority.h"
+#import "UMDiameterAvpSIPTO_Local_Network_Permission.h"
+#import "UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h"
+#import "UMDiameterAvpSCEF_ID.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpPDP_Context
 

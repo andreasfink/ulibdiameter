@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpESMLC_Cell_Info.h>
-#import <ulibdiameter/UMDiameterAvpECGI.h>
-#import <ulibdiameter/UMDiameterAvpCell_Portion_ID.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpESMLC_Cell_Info.h"
+#import "UMDiameterAvpECGI.h"
+#import "UMDiameterAvpCell_Portion_ID.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpESMLC_Cell_Info
 

@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Home_Agent_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP_Home_Agent_Host.h"
+#import "UMDiameterAvpDestination_Realm.h"
+#import "UMDiameterAvpDestination_Host.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpMIP_Home_Agent_Host
 

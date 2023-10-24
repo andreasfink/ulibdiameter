@@ -6,9 +6,9 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpFailed_AVP.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpFailed_AVP
 

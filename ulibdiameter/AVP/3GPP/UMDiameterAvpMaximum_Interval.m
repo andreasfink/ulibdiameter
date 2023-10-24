@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_Interval.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMaximum_Interval.h"
 
 @implementation UMDiameterAvpMaximum_Interval
 

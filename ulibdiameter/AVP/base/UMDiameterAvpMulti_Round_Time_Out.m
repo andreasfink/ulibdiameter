@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMulti_Round_Time_Out.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMulti_Round_Time_Out.h"
 
 @implementation UMDiameterAvpMulti_Round_Time_Out
 

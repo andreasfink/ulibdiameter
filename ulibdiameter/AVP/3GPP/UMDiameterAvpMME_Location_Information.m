@@ -6,18 +6,18 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMME_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
-#import <ulibdiameter/UMDiameterAvpTracking_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpGeographical_Information.h>
-#import <ulibdiameter/UMDiameterAvpGeodetic_Information.h>
-#import <ulibdiameter/UMDiameterAvpCurrent_Location_Retrieved.h>
-#import <ulibdiameter/UMDiameterAvpAge_Of_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpUser_CSG_Information.h>
-#import <ulibdiameter/UMDiameterAvpeNodeB_ID.h>
-#import <ulibdiameter/UMDiameterAvpExtended_eNodeB_ID.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMME_Location_Information.h"
+#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h"
+#import "UMDiameterAvpTracking_Area_Identity.h"
+#import "UMDiameterAvpGeographical_Information.h"
+#import "UMDiameterAvpGeodetic_Information.h"
+#import "UMDiameterAvpCurrent_Location_Retrieved.h"
+#import "UMDiameterAvpAge_Of_Location_Information.h"
+#import "UMDiameterAvpUser_CSG_Information.h"
+#import "UMDiameterAvpeNodeB_ID.h"
+#import "UMDiameterAvpExtended_eNodeB_ID.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpMME_Location_Information
 

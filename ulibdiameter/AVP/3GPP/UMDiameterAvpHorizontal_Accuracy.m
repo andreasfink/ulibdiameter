@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpHorizontal_Accuracy.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpHorizontal_Accuracy.h"
 
 @implementation UMDiameterAvpHorizontal_Accuracy
 

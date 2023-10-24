@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h"
 
 @implementation UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported
 

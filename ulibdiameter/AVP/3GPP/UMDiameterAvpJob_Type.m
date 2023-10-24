@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpJob_Type.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpJob_Type.h"
 
 @implementation UMDiameterAvpJob_Type
 

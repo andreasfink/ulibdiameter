@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Item_Number.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSIP_Item_Number.h"
 
 @implementation UMDiameterAvpSIP_Item_Number
 

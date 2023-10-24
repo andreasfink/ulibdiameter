@@ -6,19 +6,19 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Auth_Data_Item.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Item_Number.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authentication_Scheme.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authorization.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authentication_Context.h>
-#import <ulibdiameter/UMDiameterAvpIntegrity_Key.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Digest_Authenticate.h>
-#import <ulibdiameter/UMDiameterAvpFramed_IP_Address.h>
-#import <ulibdiameter/UMDiameterAvpFramed_IPv6_Prefix.h>
-#import <ulibdiameter/UMDiameterAvpFramed_Interface_Id.h>
-#import <ulibdiameter/UMDiameterAvpLine_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSIP_Auth_Data_Item.h"
+#import "UMDiameterAvpSIP_Item_Number.h"
+#import "UMDiameterAvpSIP_Authentication_Scheme.h"
+#import "UMDiameterAvpSIP_Authorization.h"
+#import "UMDiameterAvpSIP_Authentication_Context.h"
+#import "UMDiameterAvpIntegrity_Key.h"
+#import "UMDiameterAvpSIP_Digest_Authenticate.h"
+#import "UMDiameterAvpFramed_IP_Address.h"
+#import "UMDiameterAvpFramed_IPv6_Prefix.h"
+#import "UMDiameterAvpFramed_Interface_Id.h"
+#import "UMDiameterAvpLine_Identifier.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpSIP_Auth_Data_Item
 

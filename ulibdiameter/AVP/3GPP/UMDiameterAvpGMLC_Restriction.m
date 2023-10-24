@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGMLC_Restriction.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpGMLC_Restriction.h"
 
 @implementation UMDiameterAvpGMLC_Restriction
 

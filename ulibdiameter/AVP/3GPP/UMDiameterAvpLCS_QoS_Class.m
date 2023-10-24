@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_QoS_Class.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpLCS_QoS_Class.h"
 
 @implementation UMDiameterAvpLCS_QoS_Class
 

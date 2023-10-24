@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Supported_Features.h>
-#import <ulibdiameter/UMDiameterAvpOC_Feature_Vector.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOC_Supported_Features.h"
+#import "UMDiameterAvpOC_Feature_Vector.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpOC_Supported_Features
 

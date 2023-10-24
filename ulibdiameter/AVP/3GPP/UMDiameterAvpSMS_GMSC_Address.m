@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSMS_GMSC_Address.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSMS_GMSC_Address.h"
 
 @implementation UMDiameterAvpSMS_GMSC_Address
 

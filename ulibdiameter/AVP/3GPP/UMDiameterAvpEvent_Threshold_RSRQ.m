@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEvent_Threshold_RSRQ.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpEvent_Threshold_RSRQ.h"
 
 @implementation UMDiameterAvpEvent_Threshold_RSRQ
 

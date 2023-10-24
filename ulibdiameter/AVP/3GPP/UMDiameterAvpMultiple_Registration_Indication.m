@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMultiple_Registration_Indication.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMultiple_Registration_Indication.h"
 
 @implementation UMDiameterAvpMultiple_Registration_Indication
 

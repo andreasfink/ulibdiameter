@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLogging_Duration.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpLogging_Duration.h"
 
 @implementation UMDiameterAvpLogging_Duration
 

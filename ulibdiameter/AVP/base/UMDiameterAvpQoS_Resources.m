@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Resources.h>
-#import <ulibdiameter/UMDiameterAvpFilter_Rule.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpQoS_Resources.h"
+#import "UMDiameterAvpFilter_Rule.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpQoS_Resources
 

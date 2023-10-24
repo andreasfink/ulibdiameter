@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGeographical_Information.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpGeographical_Information.h"
 
 @implementation UMDiameterAvpGeographical_Information
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Report_Type.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOC_Report_Type.h"
 
 @implementation UMDiameterAvpOC_Report_Type
 

@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAPN_Configuration_Profile.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAdditional_Context_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAll_APN_Configurations_Included_Indicator.h>
-#import <ulibdiameter/UMDiameterAvpAPN_Configuration.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAPN_Configuration_Profile.h"
+#import "UMDiameterAvpContext_Identifier.h"
+#import "UMDiameterAvpAdditional_Context_Identifier.h"
+#import "UMDiameterAvpAll_APN_Configurations_Included_Indicator.h"
+#import "UMDiameterAvpAPN_Configuration.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpAPN_Configuration_Profile
 

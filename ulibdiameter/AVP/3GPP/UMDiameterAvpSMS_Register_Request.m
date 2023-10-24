@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSMS_Register_Request.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSMS_Register_Request.h"
 
 @implementation UMDiameterAvpSMS_Register_Request
 

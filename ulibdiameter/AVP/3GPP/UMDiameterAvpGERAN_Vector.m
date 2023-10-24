@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGERAN_Vector.h>
-#import <ulibdiameter/UMDiameterAvpItem_Number.h>
-#import <ulibdiameter/UMDiameterAvpRAND.h>
-#import <ulibdiameter/UMDiameterAvpSRES.h>
-#import <ulibdiameter/UMDiameterAvpKc.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpGERAN_Vector.h"
+#import "UMDiameterAvpItem_Number.h"
+#import "UMDiameterAvpRAND.h"
+#import "UMDiameterAvpSRES.h"
+#import "UMDiameterAvpKc.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpGERAN_Vector
 

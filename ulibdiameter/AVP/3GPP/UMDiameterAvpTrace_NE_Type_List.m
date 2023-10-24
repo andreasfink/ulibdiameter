@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTrace_NE_Type_List.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpTrace_NE_Type_List.h"
 
 @implementation UMDiameterAvpTrace_NE_Type_List
 

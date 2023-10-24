@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSM_RP_SMEA.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSM_RP_SMEA.h"
 
 @implementation UMDiameterAvpSM_RP_SMEA
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_UE_Availabilit.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMaximum_UE_Availabilit.h"
 
 @implementation UMDiameterAvpMaximum_UE_Availabilit
 

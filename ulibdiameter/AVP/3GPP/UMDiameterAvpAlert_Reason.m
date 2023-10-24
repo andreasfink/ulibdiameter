@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAlert_Reason.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAlert_Reason.h"
 
 @implementation UMDiameterAvpAlert_Reason
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Local_Network_Permission.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSIPTO_Local_Network_Permission.h"
 
 @implementation UMDiameterAvpSIPTO_Local_Network_Permission
 

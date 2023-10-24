@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Replay_Mode.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP_Replay_Mode.h"
 
 @implementation UMDiameterAvpMIP_Replay_Mode
 

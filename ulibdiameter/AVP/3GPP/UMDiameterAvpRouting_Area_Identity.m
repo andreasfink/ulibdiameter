@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRouting_Area_Identity.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpRouting_Area_Identity.h"
 
 @implementation UMDiameterAvpRouting_Area_Identity
 

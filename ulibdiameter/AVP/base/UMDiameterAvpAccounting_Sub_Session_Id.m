@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAccounting_Sub_Session_Id.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAccounting_Sub_Session_Id.h"
 
 @implementation UMDiameterAvpAccounting_Sub_Session_Id
 

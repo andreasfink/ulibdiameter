@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSubscription_Info.h>
-#import <ulibdiameter/UMDiameterAvpCall_ID_SIP_Header.h>
-#import <ulibdiameter/UMDiameterAvpTo_SIP_Header.h>
-#import <ulibdiameter/UMDiameterAvpRecord_Route.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpSubscription_Info.h"
+#import "UMDiameterAvpCall_ID_SIP_Header.h"
+#import "UMDiameterAvpTo_SIP_Header.h"
+#import "UMDiameterAvpRecord_Route.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpSubscription_Info
 

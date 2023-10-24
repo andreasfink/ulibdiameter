@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCancellation_Type.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpCancellation_Type.h"
 
 @implementation UMDiameterAvpCancellation_Type
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRedirect_Host_Usage.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpRedirect_Host_Usage.h"
 
 @implementation UMDiameterAvpRedirect_Host_Usage
 

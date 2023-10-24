@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Auth_Mode.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpMIP6_Auth_Mode.h"
 
 @implementation UMDiameterAvpMIP6_Auth_Mode
 

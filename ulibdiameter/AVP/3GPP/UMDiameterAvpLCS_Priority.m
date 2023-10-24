@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Priority.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpLCS_Priority.h"
 
 @implementation UMDiameterAvpLCS_Priority
 

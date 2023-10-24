@@ -7,11 +7,11 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketDPR.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDisconnect_Cause.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterPacketDPR.h"
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpDisconnect_Cause.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterPacketDPR
 

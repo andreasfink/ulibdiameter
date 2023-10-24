@@ -7,7 +7,7 @@
 //
 
 #import <ulib/ulib.h>
-#import <ulibdiameter/UMDiameterAvpCodes.h>
+#import "UMDiameterAvpCodes.h"
 
 
 NSString *umdiameter_avp_code_string (UMDiameterAvpCode code)

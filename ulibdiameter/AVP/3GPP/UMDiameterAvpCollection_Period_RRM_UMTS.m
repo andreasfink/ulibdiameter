@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCollection_Period_RRM_UMTS.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpCollection_Period_RRM_UMTS.h"
 
 @implementation UMDiameterAvpCollection_Period_RRM_UMTS
 

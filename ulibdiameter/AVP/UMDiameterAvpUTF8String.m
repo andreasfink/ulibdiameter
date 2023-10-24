@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpUTF8String.h>
+#import "UMDiameterAvpUTF8String.h"
 
 @implementation UMDiameterAvpUTF8String
 

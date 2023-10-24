@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuthorization_Lifetime.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAuthorization_Lifetime.h"
 
 @implementation UMDiameterAvpAuthorization_Lifetime
 

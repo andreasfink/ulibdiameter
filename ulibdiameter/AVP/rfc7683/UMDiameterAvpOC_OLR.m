@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_OLR.h>
-#import <ulibdiameter/UMDiameterAvpOC_Sequence_Number.h>
-#import <ulibdiameter/UMDiameterAvpOC_Report_Type.h>
-#import <ulibdiameter/UMDiameterAvpOC_Reduction_Percentage.h>
-#import <ulibdiameter/UMDiameterAvpOC_Validity_Duration.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpOC_OLR.h"
+#import "UMDiameterAvpOC_Sequence_Number.h"
+#import "UMDiameterAvpOC_Report_Type.h"
+#import "UMDiameterAvpOC_Reduction_Percentage.h"
+#import "UMDiameterAvpOC_Validity_Duration.h"
+#import "UMDiameterAvpAVP.h"
 
 @implementation UMDiameterAvpOC_OLR
 

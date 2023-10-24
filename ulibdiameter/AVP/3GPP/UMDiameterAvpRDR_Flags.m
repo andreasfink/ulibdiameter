@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRDR_Flags.h>
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpRDR_Flags.h"
 
 @implementation UMDiameterAvpRDR_Flags
 
