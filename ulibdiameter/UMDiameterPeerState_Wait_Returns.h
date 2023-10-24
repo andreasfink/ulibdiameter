@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterPeerState.h>
+#import "UMDiameterPeerState.h"
 
 @interface UMDiameterPeerState_Wait_Returns : UMDiameterPeerState
 

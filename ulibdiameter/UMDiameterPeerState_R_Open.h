@@ -6,7 +6,7 @@
 //  Copyright © 2020 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterPeerState.h>
+#import "UMDiameterPeerState.h"
 
 
 @interface UMDiameterPeerState_R_Open : UMDiameterPeerState
