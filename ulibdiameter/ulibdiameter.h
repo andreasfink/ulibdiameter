@@ -21,8 +21,8 @@ FOUNDATION_EXPORT const unsigned char ulibdiameterVersionString[];
 #import <ulibdiameter/UMDiameterCommandFlags.h>
 #import <ulibdiameter/UMDiameterCommandCode.h>
 #import <ulibdiameter/UMDiameterAvpFlags.h>
-#import "AVP/UMDiameterAvp.h"
-#import "AVP/UMDiameterAvpAll.h"
+#import "UMDiameterAvp.h"
+#import "UMDiameterAvpAll.h"
 #import <ulibdiameter/UMDiameterAvpMSISDN+diameter.h>
 #import <ulibdiameter/UMDiameterPacket.h>
 #import <ulibdiameter/UMDiameterPeer.h>
@@ -50,7 +50,6 @@ FOUNDATION_EXPORT const unsigned char ulibdiameterVersionString[];
 #import <ulibdiameter/UMDiameterPeerState_Wait_Returns.h>
 #import <ulibdiameter/UMDiameterPeerState_Closing.h>
 #import <ulibdiameter/UMDiameterPeerState_I_Open.h>
-//#import <ulibdiameter/UMDiameterApplicationProtocol.h>
 #import <ulibdiameter/UMDiameterRouterReceiver.h>
 #import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h>
 #import <ulibdiameter/UMDiameterPeerState_Wait_I_CEA.h>
