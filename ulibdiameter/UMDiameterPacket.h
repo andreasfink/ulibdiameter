@@ -10,7 +10,7 @@
 
 #import <ulibdiameter/UMDiameterCommandFlags.h>
 #import <ulibdiameter/UMDiameterCommandCode.h>
-//#import <ulibdiameter/UMDiameterAvpFTSRouteSelector.h>
+#import "UMDiameterAvpFTSRouteSelector.h"
 
 #define DIAMETER_COMMAND_FLAG_REQUEST				0x80
 #define DIAMETER_COMMAND_FLAG_PROXIABLE				0x40

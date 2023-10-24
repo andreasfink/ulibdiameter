@@ -6,17 +6,17 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterPacket.h>
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterCommandFlags.h>
-#import <ulibdiameter/UMDiameterApplicationId.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterPacket.h"
+#import "UMDiameterAvp.h"
+#import "UMDiameterCommandFlags.h"
+#import "UMDiameterApplicationId.h"
+#import "UMDiameterAvpSession_Id.h"
 
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
-#import <ulibdiameter/UMDiameterPacketsAll.h>
+#import "UMDiameterAvpOrigin_Host.h"
+#import "UMDiameterAvpOrigin_Realm.h"
+#import "UMDiameterAvpDestination_Host.h"
+#import "UMDiameterAvpDestination_Realm.h"
+#import "UMDiameterPacketsAll.h"
 
 @implementation UMDiameterPacket
 
