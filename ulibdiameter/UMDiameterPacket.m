@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterPacket.h"
+#import "UMDiameterPacket.h"
 #import "UMDiameterAvp.h"
 #import "UMDiameterCommandFlags.h"
 #import "UMDiameterApplicationId.h"
