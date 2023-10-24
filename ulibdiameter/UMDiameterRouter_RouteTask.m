@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterRouter_RouteTask.h>
-#import <ulibdiameter/UMDiameterRouter.h>
-#import <ulibdiameter/UMDiameterPacket.h>
-#import <ulibdiameter/UMDiameterPeer.h>
-#import <ulibdiameter/UMDiameterRouterSession.h>
-#import <ulibdiameter/UMDiameterRoute.h>
-#import <ulibdiameter/UMDiameterAvpFTSRouteSelector.h>
+#import "UMDiameterRouter_RouteTask.h"
+#import "UMDiameterRouter.h"
+#import "UMDiameterPacket.h"
+#import "UMDiameterPeer.h"
+#import "UMDiameterRouterSession.h"
+#import "UMDiameterRoute.h"
+#import "UMDiameterAvpFTSRouteSelector.h"
 
 @implementation UMDiameterRouter_RouteTask
 

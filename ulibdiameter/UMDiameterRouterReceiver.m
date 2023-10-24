@@ -6,9 +6,9 @@
 //  Copyright © 2020 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterRouterReceiver.h>
-#import <ulibdiameter/UMDiameterPeer.h>
-#import <ulibdiameter/UMDiameterRouter.h>
+#import "UMDiameterRouterReceiver.h"
+#import "UMDiameterPeer.h"
+#import "UMDiameterRouter.h"
 
 #include <poll.h>
 
