@@ -42,7 +42,7 @@ FOUNDATION_EXPORT const unsigned char ulibdiameterVersionString[];
 #import <ulibdiameter/UMDiameterNetworkOrder.h>
 #import <ulibdiameter/UMDiameterPeerState_Wait_Conn_Ack.h>
 #import <ulibdiameter/UMDiameterPeerState_Closed.h>
-#import <ulibdiameter/UMDiameterGeneratorCMD.h>
+#import "UMDiameterGeneratorCMD.h"
 #import <ulibdiameter/UMDiameterPeerState.h>
 #import <ulibdiameter/UMDiameterRouter_RouteTask.h>
 #import <ulibdiameter/UMDiameterAvpDiameterIdentity+diameter.h>
