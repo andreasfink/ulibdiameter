@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpSIP_Authenticate.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpSIP_Authenticate.h>
 
 @implementation UMDiameterAvpSIP_Authenticate
 

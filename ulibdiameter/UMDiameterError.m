@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterError.h"
+#import <ulibdiameter/UMDiameterError.h>
 
 
 NSString *umdiameter_error_string (UMDiameterError err)

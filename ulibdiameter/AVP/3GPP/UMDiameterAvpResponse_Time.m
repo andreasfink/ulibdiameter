@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpResponse_Time.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpResponse_Time.h>
 
 @implementation UMDiameterAvpResponse_Time
 

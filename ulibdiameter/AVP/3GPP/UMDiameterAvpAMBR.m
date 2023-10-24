@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAMBR.h"
-#import "UMDiameterAvpMax_Requested_Bandwidth_UL.h"
-#import "UMDiameterAvpMax_Requested_Bandwidth_DL.h"
-#import "UMDiameterAvpExtended_Max_Requested_BW_UL.h"
-#import "UMDiameterAvpExtended_Max_Requested_BW_DL.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAMBR.h>
+#import <ulibdiameter/UMDiameterAvpMax_Requested_Bandwidth_UL.h>
+#import <ulibdiameter/UMDiameterAvpMax_Requested_Bandwidth_DL.h>
+#import <ulibdiameter/UMDiameterAvpExtended_Max_Requested_BW_UL.h>
+#import <ulibdiameter/UMDiameterAvpExtended_Max_Requested_BW_DL.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAMBR
 

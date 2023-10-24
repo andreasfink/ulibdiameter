@@ -6,7 +6,7 @@
 //  Copyright © 2021 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterVendorIdString.h"
+#import <ulibdiameter/UMDiameterVendorIdString.h>
 
 // returns company name based on vendor id
 // Data source https://www.iana.org/assignments/enterprise-numbers/enterprise-numbers

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpLCS_Format_Indicator.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Format_Indicator.h>
 
 @implementation UMDiameterAvpLCS_Format_Indicator
 

@@ -6,22 +6,22 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterPeer.h"
-#import "UMDiameterPacket.h"
-#import "UMDiameterPeerState_all.h"
-#import "UMDiameterApplicationId.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterResultCode.h"
-#import "UMDiameterPacketCEA.h"
-#import "UMDiameterPacketCER.h"
-#import "UMDiameterPacketDWR.h"
-#import "UMDiameterPacketDWA.h"
-#import "UMDiameterPacketDPR.h"
-#import "UMDiameterPacketDPA.h"
-#import "UMDiameterPacketCUR.h"
-#import "UMDiameterPacketCUA.h"
-#import "UMDiameterAvpAll.h"
-#import "UMDiameterRouter.h"
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterPacket.h>
+#import <ulibdiameter/UMDiameterPeerState_all.h>
+#import <ulibdiameter/UMDiameterApplicationId.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterResultCode.h>
+#import <ulibdiameter/UMDiameterPacketCEA.h>
+#import <ulibdiameter/UMDiameterPacketCER.h>
+#import <ulibdiameter/UMDiameterPacketDWR.h>
+#import <ulibdiameter/UMDiameterPacketDWA.h>
+#import <ulibdiameter/UMDiameterPacketDPR.h>
+#import <ulibdiameter/UMDiameterPacketDPA.h>
+#import <ulibdiameter/UMDiameterPacketCUR.h>
+#import <ulibdiameter/UMDiameterPacketCUA.h>
+#import <ulibdiameter/UMDiameterAvpAll.h>
+#import <ulibdiameter/UMDiameterRouter.h>
 
 #import <ulibsctp/ulibsctp.h>
 #include <poll.h>

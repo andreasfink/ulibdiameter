@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterMessage.h"
+#import <ulibdiameter/UMDiameterMessage.h>
 
 
 @implementation UMDiameterMessage

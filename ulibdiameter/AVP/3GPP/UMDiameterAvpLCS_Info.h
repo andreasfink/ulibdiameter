@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpGrouped.h"
+#import <ulibdiameter/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpGMLC_Number;
 @class UMDiameterAvpLCS_PrivacyException;

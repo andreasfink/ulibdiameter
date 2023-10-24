@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.h"
-#import "UMDiameterAvpNumber_Of_Requested_Vectors.h"
-#import "UMDiameterAvpImmediate_Response_Preferred.h"
-#import "UMDiameterAvpRe_Synchronization_Info.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.h>
+#import <ulibdiameter/UMDiameterAvpNumber_Of_Requested_Vectors.h>
+#import <ulibdiameter/UMDiameterAvpImmediate_Response_Preferred.h>
+#import <ulibdiameter/UMDiameterAvpRe_Synchronization_Info.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpGrouped.h"
+#import <ulibdiameter/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpPriority_Level;
 @class UMDiameterAvpPre_emption_Capability;

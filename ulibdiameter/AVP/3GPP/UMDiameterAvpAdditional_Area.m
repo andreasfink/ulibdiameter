@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAdditional_Area.h"
-#import "UMDiameterAvpArea_Type.h"
-#import "UMDiameterAvpArea_Identification.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAdditional_Area.h>
+#import <ulibdiameter/UMDiameterAvpArea_Type.h>
+#import <ulibdiameter/UMDiameterAvpArea_Identification.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAdditional_Area
 

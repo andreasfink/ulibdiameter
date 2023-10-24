@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpImmediate_Response_Preferred.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpImmediate_Response_Preferred.h>
 
 @implementation UMDiameterAvpImmediate_Response_Preferred
 

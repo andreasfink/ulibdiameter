@@ -7,7 +7,7 @@
 //
 
 
-#import "UMDiameterApplicationId.h"
+#import <ulibdiameter/UMDiameterApplicationId.h>
 
 NSString *umdiameter_application_id_string(uint32_t ai) 
 {

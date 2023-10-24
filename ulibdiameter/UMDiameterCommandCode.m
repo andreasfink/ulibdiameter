@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 #import <ulib/ulib.h>
-#import "UMDiameterCommandCode.h"
+#import <ulibdiameter/UMDiameterCommandCode.h>
 
 NSString *UMDiameterCommandCode_description(UMDiameterCommandCode code, BOOL request)
 {

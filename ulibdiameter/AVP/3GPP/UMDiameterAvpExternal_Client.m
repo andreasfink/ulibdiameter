@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpExternal_Client.h"
-#import "UMDiameterAvpClient_Identity.h"
-#import "UMDiameterAvpGMLC_Restriction.h"
-#import "UMDiameterAvpNotification_To_UE_User.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpExternal_Client.h>
+#import <ulibdiameter/UMDiameterAvpClient_Identity.h>
+#import <ulibdiameter/UMDiameterAvpGMLC_Restriction.h>
+#import <ulibdiameter/UMDiameterAvpNotification_To_UE_User.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpExternal_Client
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpeDRX_Cycle_Length_Value.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpeDRX_Cycle_Length_Value.h>
 
 @implementation UMDiameterAvpeDRX_Cycle_Length_Value
 

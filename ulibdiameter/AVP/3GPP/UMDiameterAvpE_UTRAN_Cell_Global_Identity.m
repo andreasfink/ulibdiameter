@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
 
 @implementation UMDiameterAvpE_UTRAN_Cell_Global_Identity
 

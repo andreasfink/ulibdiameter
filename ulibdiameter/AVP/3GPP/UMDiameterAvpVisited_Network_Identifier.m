@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpVisited_Network_Identifier.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
 
 @implementation UMDiameterAvpVisited_Network_Identifier
 

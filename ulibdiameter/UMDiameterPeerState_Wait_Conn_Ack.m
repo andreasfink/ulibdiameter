@@ -6,9 +6,9 @@
 //  Copyright © 2020 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterPeerState_Wait_Conn_Ack.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterPeerState_all.h"
+#import <ulibdiameter/UMDiameterPeerState_Wait_Conn_Ack.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterPeerState_all.h>
 
 @implementation UMDiameterPeerState_Wait_Conn_Ack
 

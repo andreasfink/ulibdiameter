@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpTime_Of_Day_Start.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpTime_Of_Day_Start.h>
 
 @implementation UMDiameterAvpTime_Of_Day_Start
 

@@ -7,9 +7,9 @@
 //
 
 #import <ulib/ulib.h>
-#import "UMDiameterAvpCodes.h"
-#import "UMDiameterAvpFlags.h"
-#import "UMDiameterVendorId.h"
+#import <ulibdiameter/UMDiameterAvpCodes.h>
+#import <ulibdiameter/UMDiameterAvpFlags.h>
+#import <ulibdiameter/UMDiameterVendorId.h>
 
 @interface UMDiameterAvp : UMObject
 {

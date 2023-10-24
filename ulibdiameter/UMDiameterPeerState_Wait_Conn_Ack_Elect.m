@@ -16,9 +16,9 @@
                                                     Elect
                   Timeout          Error            Closed
  */
-#import "UMDiameterPeerState_Wait_Conn_Ack_Elect.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterPeerState_all.h"
+#import <ulibdiameter/UMDiameterPeerState_Wait_Conn_Ack_Elect.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterPeerState_all.h>
 
 @implementation UMDiameterPeerState_Wait_Conn_Ack_Elect
 

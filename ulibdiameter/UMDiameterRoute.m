@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterRoute.h"
-#import "UMDiameterPeer.h"
+#import <ulibdiameter/UMDiameterRoute.h>
+#import <ulibdiameter/UMDiameterPeer.h>
 @implementation UMDiameterRoute
 
 - (UMDiameterRoute *)initWithConfig:(NSDictionary *)conf

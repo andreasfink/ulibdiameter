@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpRAT_Frequency_Selection_Priority_ID.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpRAT_Frequency_Selection_Priority_ID.h>
 
 @implementation UMDiameterAvpRAT_Frequency_Selection_Priority_ID
 

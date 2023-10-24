@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpSupported_GAD_Shapes.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpSupported_GAD_Shapes.h>
 
 @implementation UMDiameterAvpSupported_GAD_Shapes
 

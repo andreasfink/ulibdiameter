@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpEPS_Subscribed_QoS_Profile.h"
-#import "UMDiameterAvpQoS_Class_Identifier.h"
-#import "UMDiameterAvpAllocation_Retention_Priority.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpEPS_Subscribed_QoS_Profile.h>
+#import <ulibdiameter/UMDiameterAvpQoS_Class_Identifier.h>
+#import <ulibdiameter/UMDiameterAvpAllocation_Retention_Priority.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpEPS_Subscribed_QoS_Profile
 

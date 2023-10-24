@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterPeerState_all.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterPacket.h"
-#import "UMDiameterResultCode.h"
-#import "UMDiameterRouter.h"
+#import <ulibdiameter/UMDiameterPeerState_all.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterPacket.h>
+#import <ulibdiameter/UMDiameterResultCode.h>
+#import <ulibdiameter/UMDiameterRouter.h>
 
 @implementation UMDiameterPeerState_Closed
 

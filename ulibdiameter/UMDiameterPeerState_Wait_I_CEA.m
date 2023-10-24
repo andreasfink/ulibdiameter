@@ -18,9 +18,9 @@ Wait-I-CEA       I-Rcv-CEA        Process-CEA      I-Open
                  Timeout          Error            Closed
 */
 
-#import "UMDiameterPeerState_Wait_I_CEA.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterPeerState_all.h"
+#import <ulibdiameter/UMDiameterPeerState_Wait_I_CEA.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterPeerState_all.h>
 
 @implementation UMDiameterPeerState_Wait_I_CEA
 

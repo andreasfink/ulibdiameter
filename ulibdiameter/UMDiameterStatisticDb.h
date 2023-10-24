@@ -6,7 +6,7 @@
 //  Copyright © 2021 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterRouter.h"
+#import <ulibdiameter/UMDiameterRouter.h>
 #import <ulib/ulib.h>
 #import <ulibdb/ulibdb.h>
 

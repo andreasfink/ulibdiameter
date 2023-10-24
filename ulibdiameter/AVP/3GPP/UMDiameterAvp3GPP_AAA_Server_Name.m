@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvp3GPP_AAA_Server_Name.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvp3GPP_AAA_Server_Name.h>
 
 @implementation UMDiameterAvp3GPP_AAA_Server_Name
 

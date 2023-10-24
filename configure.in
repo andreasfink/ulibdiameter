@@ -17,7 +17,7 @@ VERSION=`head -n 1 VERSION`
 MAJORVER=`echo $VERSION | cut -f1 -d.`
 MINORVER=`echo $VERSION | cut -f2 -d.`
 REVISION=`echo $VERSION | cut -f3 -d.`
-CONFIG_HEADER=ulibdiameter_config.h
+CONFIG_HEADER=${PROJECT_NAME}/ulibdiameter_config.h
 DEPENDENT_PKGCONFIGS="ulib ulibsctp ulibdb ulibasn1 ulibgsmmap"
 PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export PKG_CONFIG_PATH
@@ -209,7 +209,6 @@ AC_CONFIG_FILES([Makefile.osx])
 AC_CONFIG_FILES([Makefile.linux])
 AC_CONFIG_FILES([Makefile.freebsd])
 AC_CONFIG_FILES([ulibdiameter.pc])
-AC_CONFIG_FILES([ulibdiameter/ulibdiameter_config.h])
 AC_CONFIG_FILES([make_buildnr.sh])
 AC_OUTPUT
 

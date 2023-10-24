@@ -6686,6 +6686,7 @@
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = ./AVP/3GPP;
 				INFOPLIST_FILE = ulibdiameter/Info.plist;
+				INSTALL_PATH = /FinkTelecomServices/frameworks;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -6724,6 +6725,7 @@
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = ./AVP/3GPP;
 				INFOPLIST_FILE = ulibdiameter/Info.plist;
+				INSTALL_PATH = /FinkTelecomServices/frameworks;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

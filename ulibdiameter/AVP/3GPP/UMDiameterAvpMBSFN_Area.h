@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpGrouped.h"
+#import <ulibdiameter/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpMBSFN_Area_ID;
 @class UMDiameterAvpCarrier_Frequency;

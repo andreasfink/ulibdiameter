@@ -7,34 +7,34 @@
 //
 
 
-#import "UMDiameterPacketProvide_Location_Answer.h"
-#import "UMDiameterAvpSession_Id.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpResult_Code.h"
-#import "UMDiameterAvpExperimental_Result.h"
-#import "UMDiameterAvpAuth_Session_State.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpLocation_Estimate.h"
-#import "UMDiameterAvpAccuracy_Fulfilment_Indicator.h"
-#import "UMDiameterAvpAge_Of_Location_Estimate.h"
-#import "UMDiameterAvpVelocity_Estimate.h"
-#import "UMDiameterAvpEUTRAN_Positioning_Data.h"
-#import "UMDiameterAvpECGI.h"
-#import "UMDiameterAvpGERAN_Positioning_Info.h"
-#import "UMDiameterAvpCell_Global_Identity.h"
-#import "UMDiameterAvpUTRAN_Positioning_Info.h"
-#import "UMDiameterAvpService_Area_Identity.h"
-#import "UMDiameterAvpServing_Node.h"
-#import "UMDiameterAvpPLA_Flags.h"
-#import "UMDiameterAvpESMLC_Cell_Info.h"
-#import "UMDiameterAvpCivic_Address.h"
-#import "UMDiameterAvpBarometric_Pressure.h"
-#import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpAVP.h"
-#import "UMDiameterAvpFailed_AVP.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpRoute_Record.h"
+#import <ulibdiameter/UMDiameterPacketProvide_Location_Answer.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpResult_Code.h>
+#import <ulibdiameter/UMDiameterAvpExperimental_Result.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpLocation_Estimate.h>
+#import <ulibdiameter/UMDiameterAvpAccuracy_Fulfilment_Indicator.h>
+#import <ulibdiameter/UMDiameterAvpAge_Of_Location_Estimate.h>
+#import <ulibdiameter/UMDiameterAvpVelocity_Estimate.h>
+#import <ulibdiameter/UMDiameterAvpEUTRAN_Positioning_Data.h>
+#import <ulibdiameter/UMDiameterAvpECGI.h>
+#import <ulibdiameter/UMDiameterAvpGERAN_Positioning_Info.h>
+#import <ulibdiameter/UMDiameterAvpCell_Global_Identity.h>
+#import <ulibdiameter/UMDiameterAvpUTRAN_Positioning_Info.h>
+#import <ulibdiameter/UMDiameterAvpService_Area_Identity.h>
+#import <ulibdiameter/UMDiameterAvpServing_Node.h>
+#import <ulibdiameter/UMDiameterAvpPLA_Flags.h>
+#import <ulibdiameter/UMDiameterAvpESMLC_Cell_Info.h>
+#import <ulibdiameter/UMDiameterAvpCivic_Address.h>
+#import <ulibdiameter/UMDiameterAvpBarometric_Pressure.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
 
 @implementation UMDiameterPacketProvide_Location_Answer
 

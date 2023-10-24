@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpLCS_EPS_Client_Name.h"
-#import "UMDiameterAvpLCS_Name_String.h"
-#import "UMDiameterAvpLCS_Format_Indicator.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpLCS_EPS_Client_Name.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Name_String.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Format_Indicator.h>
 
 @implementation UMDiameterAvpLCS_EPS_Client_Name
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
+#import <ulibdiameter/UMDiameterAvp.h>
 
 @interface UMDiameterAvpUnsigned64 : UMDiameterAvp
 

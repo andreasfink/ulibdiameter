@@ -18,9 +18,9 @@
                   R-Peer-Disc      R-Disc           Closed
 
  */
-#import "UMDiameterPeerState_Closing.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterPeerState_all.h"
+#import <ulibdiameter/UMDiameterPeerState_Closing.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterPeerState_all.h>
 
 
 @implementation UMDiameterPeerState_Closing

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpOC_Reduction_Percentage.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpOC_Reduction_Percentage.h>
 
 @implementation UMDiameterAvpOC_Reduction_Percentage
 

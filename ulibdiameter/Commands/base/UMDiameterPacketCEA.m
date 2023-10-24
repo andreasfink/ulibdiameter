@@ -7,23 +7,23 @@
 //
 
 
-#import "UMDiameterPacketCEA.h"
-#import "UMDiameterAvpResult_Code.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpHost_IP_Address.h"
-#import "UMDiameterAvpVendor_Id.h"
-#import "UMDiameterAvpProduct_Name.h"
-#import "UMDiameterAvpOrigin_State_Id.h"
-#import "UMDiameterAvpError_Message.h"
-#import "UMDiameterAvpFailed_AVP.h"
-#import "UMDiameterAvpSupported_Vendor_Id.h"
-#import "UMDiameterAvpAuth_Application_Id.h"
-#import "UMDiameterAvpInband_Security_Id.h"
-#import "UMDiameterAvpAcct_Application_Id.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpFirmware_Revision.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterPacketCEA.h>
+#import <ulibdiameter/UMDiameterAvpResult_Code.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpHost_IP_Address.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/UMDiameterAvpProduct_Name.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
+#import <ulibdiameter/UMDiameterAvpError_Message.h>
+#import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Vendor_Id.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpInband_Security_Id.h>
+#import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpFirmware_Revision.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketCEA
 

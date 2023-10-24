@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpTerminal_Information.h"
-#import "UMDiameterAvpIMEI.h"
-#import "UMDiameterAvp3GPP2_MEID.h"
-#import "UMDiameterAvpSoftware_Version.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpTerminal_Information.h>
+#import <ulibdiameter/UMDiameterAvpIMEI.h>
+#import <ulibdiameter/UMDiameterAvp3GPP2_MEID.h>
+#import <ulibdiameter/UMDiameterAvpSoftware_Version.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpTerminal_Information
 

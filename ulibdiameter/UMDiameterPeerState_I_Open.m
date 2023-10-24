@@ -23,13 +23,13 @@
                   I-Peer-Disc      I-Disc           Closed
 
  */
-#import "UMDiameterPeerState_I_Open.h"
-#import "UMDiameterPeerState_all.h"
-#import "UMDiameterPacket.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterAvpDisconnect_Cause.h"
-#import "UMDiameterAvpENUMS.h"
-#import "UMDiameterResultCode.h"
+#import <ulibdiameter/UMDiameterPeerState_I_Open.h>
+#import <ulibdiameter/UMDiameterPeerState_all.h>
+#import <ulibdiameter/UMDiameterPacket.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterAvpDisconnect_Cause.h>
+#import <ulibdiameter/UMDiameterAvpENUMS.h>
+#import <ulibdiameter/UMDiameterResultCode.h>
 
 @implementation UMDiameterPeerState_I_Open
 

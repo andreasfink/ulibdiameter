@@ -7,27 +7,27 @@
 //
 
 
-#import "UMDiameterPacketACR.h"
-#import "UMDiameterAvpSession_Id.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpDestination_Realm.h"
-#import "UMDiameterAvpAccounting_Record_Type.h"
-#import "UMDiameterAvpAccounting_Record_Number.h"
-#import "UMDiameterAvpAcct_Application_Id.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpUser_Name.h"
-#import "UMDiameterAvpDestination_Host.h"
-#import "UMDiameterAvpAccounting_Sub_Session_Id.h"
-#import "UMDiameterAvpAcct_Session_Id.h"
-#import "UMDiameterAvpAcct_Multi_Session_Id.h"
-#import "UMDiameterAvpAcct_Interim_Interval.h"
-#import "UMDiameterAvpAccounting_Realtime_Required.h"
-#import "UMDiameterAvpOrigin_State_Id.h"
-#import "UMDiameterAvpEvent_Timestamp.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpRoute_Record.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterPacketACR.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/UMDiameterAvpAccounting_Record_Type.h>
+#import <ulibdiameter/UMDiameterAvpAccounting_Record_Number.h>
+#import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpUser_Name.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/UMDiameterAvpAccounting_Sub_Session_Id.h>
+#import <ulibdiameter/UMDiameterAvpAcct_Session_Id.h>
+#import <ulibdiameter/UMDiameterAvpAcct_Multi_Session_Id.h>
+#import <ulibdiameter/UMDiameterAvpAcct_Interim_Interval.h>
+#import <ulibdiameter/UMDiameterAvpAccounting_Realtime_Required.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
+#import <ulibdiameter/UMDiameterAvpEvent_Timestamp.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketACR
 

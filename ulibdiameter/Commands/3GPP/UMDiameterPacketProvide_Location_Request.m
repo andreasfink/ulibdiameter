@@ -7,36 +7,36 @@
 //
 
 
-#import "UMDiameterPacketProvide_Location_Request.h"
-#import "UMDiameterAvpSession_Id.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpAuth_Session_State.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpDestination_Host.h"
-#import "UMDiameterAvpDestination_Realm.h"
-#import "UMDiameterAvpSLg_Location_Type.h"
-#import "UMDiameterAvpUser_Name.h"
-#import "UMDiameterAvpMSISDN.h"
-#import "UMDiameterAvpIMEI.h"
-#import "UMDiameterAvpLCS_EPS_Client_Name.h"
-#import "UMDiameterAvpLCS_Client_Type.h"
-#import "UMDiameterAvpLCS_Requestor_Name.h"
-#import "UMDiameterAvpLCS_Priority.h"
-#import "UMDiameterAvpLCS_QoS.h"
-#import "UMDiameterAvpVelocity_Requested.h"
-#import "UMDiameterAvpLCS_Supported_GAD_Shapes.h"
-#import "UMDiameterAvpLCS_Service_Type_ID.h"
-#import "UMDiameterAvpLCS_Codeword.h"
-#import "UMDiameterAvpLCS_Privacy_Check_Non_Session.h"
-#import "UMDiameterAvpLCS_Privacy_Check_Session.h"
-#import "UMDiameterAvpService_Selection.h"
-#import "UMDiameterAvpDeferred_Location_Type.h"
-#import "UMDiameterAvpPLR_Flags.h"
-#import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpAVP.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpRoute_Record.h"
+#import <ulibdiameter/UMDiameterPacketProvide_Location_Request.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/UMDiameterAvpSLg_Location_Type.h>
+#import <ulibdiameter/UMDiameterAvpUser_Name.h>
+#import <ulibdiameter/UMDiameterAvpMSISDN.h>
+#import <ulibdiameter/UMDiameterAvpIMEI.h>
+#import <ulibdiameter/UMDiameterAvpLCS_EPS_Client_Name.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Client_Type.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Requestor_Name.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Priority.h>
+#import <ulibdiameter/UMDiameterAvpLCS_QoS.h>
+#import <ulibdiameter/UMDiameterAvpVelocity_Requested.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Supported_GAD_Shapes.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Service_Type_ID.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Codeword.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check_Non_Session.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check_Session.h>
+#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/UMDiameterAvpDeferred_Location_Type.h>
+#import <ulibdiameter/UMDiameterAvpPLR_Flags.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
 
 @implementation UMDiameterPacketProvide_Location_Request
 

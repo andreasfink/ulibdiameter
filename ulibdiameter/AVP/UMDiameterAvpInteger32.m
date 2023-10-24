@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpInteger32.h"
+#import <ulibdiameter/UMDiameterAvpInteger32.h>
 #include <arpa/inet.h>
 
 @implementation UMDiameterAvpInteger32

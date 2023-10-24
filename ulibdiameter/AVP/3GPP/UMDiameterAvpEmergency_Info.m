@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpEmergency_Info.h"
-#import "UMDiameterAvpMIP6_Agent_Info.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpEmergency_Info.h>
+#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpEmergency_Info
 

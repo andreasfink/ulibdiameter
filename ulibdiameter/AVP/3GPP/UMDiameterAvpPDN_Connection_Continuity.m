@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpPDN_Connection_Continuity.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpPDN_Connection_Continuity.h>
 
 @implementation UMDiameterAvpPDN_Connection_Continuity
 

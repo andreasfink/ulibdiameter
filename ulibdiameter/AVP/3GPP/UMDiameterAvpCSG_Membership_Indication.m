@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpCSG_Membership_Indication.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpCSG_Membership_Indication.h>
 
 @implementation UMDiameterAvpCSG_Membership_Indication
 

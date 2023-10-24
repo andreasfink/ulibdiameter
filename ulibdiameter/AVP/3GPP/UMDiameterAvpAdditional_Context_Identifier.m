@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAdditional_Context_Identifier.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAdditional_Context_Identifier.h>
 
 @implementation UMDiameterAvpAdditional_Context_Identifier
 

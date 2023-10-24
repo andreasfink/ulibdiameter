@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAll_APN_Configurations_Included_Indicator.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAll_APN_Configurations_Included_Indicator.h>
 
 @implementation UMDiameterAvpAll_APN_Configurations_Included_Indicator
 

@@ -8,11 +8,11 @@
 
 #import <ulib/ulib.h>
 #import <ulibdb/ulibdb.h>
-#import "UMDiameterMessage.h"
-#import "UMDiameterPeer.h"
-#import "UMDiameterRouterSession.h"
-#import "UMDiameterTcpConnectionAuthorisationProtocol.h"
-#import "UMDiameterLocalUserProtocol.h"
+#import <ulibdiameter/UMDiameterMessage.h>
+#import <ulibdiameter/UMDiameterPeer.h>
+#import <ulibdiameter/UMDiameterRouterSession.h>
+#import <ulibdiameter/UMDiameterTcpConnectionAuthorisationProtocol.h>
+#import <ulibdiameter/UMDiameterLocalUserProtocol.h>
 
 @class UMDiameterRouterReceiver;
 

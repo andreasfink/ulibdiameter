@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
 
 @implementation UMDiameterAvpVPLMN_Dynamic_Address_Allowed
 

@@ -7,30 +7,30 @@
 //
 
 
-#import "UMDiameterPacketInsert_Subscriber_Data_Answer.h"
-#import "UMDiameterAvpSession_Id.h"
-#import "UMDiameterAvpDRMP.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpResult_Code.h"
-#import "UMDiameterAvpExperimental_Result.h"
-#import "UMDiameterAvpAuth_Session_State.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h"
-#import "UMDiameterAvpLast_UE_Activity_Time.h"
-#import "UMDiameterAvpRAT_Type.h"
-#import "UMDiameterAvpIDA_Flags.h"
-#import "UMDiameterAvpEPS_User_State.h"
-#import "UMDiameterAvpEPS_Location_Information.h"
-#import "UMDiameterAvpLocal_Time_Zone.h"
-#import "UMDiameterAvpSupported_Services.h"
-#import "UMDiameterAvpMonitoring_Event_Report.h"
-#import "UMDiameterAvpMonitoring_Event_Config_Status.h"
-#import "UMDiameterAvpAVP.h"
-#import "UMDiameterAvpFailed_AVP.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpRoute_Record.h"
+#import <ulibdiameter/UMDiameterPacketInsert_Subscriber_Data_Answer.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpDRMP.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
+#import <ulibdiameter/UMDiameterAvpResult_Code.h>
+#import <ulibdiameter/UMDiameterAvpExperimental_Result.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h>
+#import <ulibdiameter/UMDiameterAvpLast_UE_Activity_Time.h>
+#import <ulibdiameter/UMDiameterAvpRAT_Type.h>
+#import <ulibdiameter/UMDiameterAvpIDA_Flags.h>
+#import <ulibdiameter/UMDiameterAvpEPS_User_State.h>
+#import <ulibdiameter/UMDiameterAvpEPS_Location_Information.h>
+#import <ulibdiameter/UMDiameterAvpLocal_Time_Zone.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Services.h>
+#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Report.h>
+#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Config_Status.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
 
 @implementation UMDiameterPacketInsert_Subscriber_Data_Answer
 

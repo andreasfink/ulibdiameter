@@ -6,9 +6,9 @@
 //  Copyright © 2021 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterStatisticDb.h"
-#import "UMDiameterStatisticDbRecord.h"
-#import "UMDiameterRouter.h"
+#import <ulibdiameter/UMDiameterStatisticDb.h>
+#import <ulibdiameter/UMDiameterStatisticDbRecord.h>
+#import <ulibdiameter/UMDiameterRouter.h>
 
 @implementation UMDiameterStatisticDb
 

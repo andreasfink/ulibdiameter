@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpProxy_Host.h"
-#import "UMDiameterAvpProxy_State.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Host.h>
+#import <ulibdiameter/UMDiameterAvpProxy_State.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpProxy_Info
 

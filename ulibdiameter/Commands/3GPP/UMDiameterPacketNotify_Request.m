@@ -7,33 +7,33 @@
 //
 
 
-#import "UMDiameterPacketNotify_Request.h"
-#import "UMDiameterAvpSession_Id.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpDRMP.h"
-#import "UMDiameterAvpAuth_Session_State.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpDestination_Host.h"
-#import "UMDiameterAvpDestination_Realm.h"
-#import "UMDiameterAvpUser_Name.h"
-#import "UMDiameterAvpOC_Supported_Features.h"
-#import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpTerminal_Information.h"
-#import "UMDiameterAvpMIP6_Agent_Info.h"
-#import "UMDiameterAvpVisited_Network_Identifier.h"
-#import "UMDiameterAvpContext_Identifier.h"
-#import "UMDiameterAvpService_Selection.h"
-#import "UMDiameterAvpAlert_Reason.h"
-#import "UMDiameterAvpUE_SRVCC_Capability.h"
-#import "UMDiameterAvpNOR_Flags.h"
-#import "UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions.h"
-#import "UMDiameterAvpMaximum_UE_Availability_Time.h"
-#import "UMDiameterAvpMonitoring_Event_Config_Status.h"
-#import "UMDiameterAvpEmergency_Services.h"
-#import "UMDiameterAvpAVP.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpRoute_Record.h"
+#import <ulibdiameter/UMDiameterPacketNotify_Request.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpDRMP.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/UMDiameterAvpUser_Name.h>
+#import <ulibdiameter/UMDiameterAvpOC_Supported_Features.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
+#import <ulibdiameter/UMDiameterAvpTerminal_Information.h>
+#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
+#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
+#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/UMDiameterAvpAlert_Reason.h>
+#import <ulibdiameter/UMDiameterAvpUE_SRVCC_Capability.h>
+#import <ulibdiameter/UMDiameterAvpNOR_Flags.h>
+#import <ulibdiameter/UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions.h>
+#import <ulibdiameter/UMDiameterAvpMaximum_UE_Availability_Time.h>
+#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Config_Status.h>
+#import <ulibdiameter/UMDiameterAvpEmergency_Services.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
 
 @implementation UMDiameterPacketNotify_Request
 

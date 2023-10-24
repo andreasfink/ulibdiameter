@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpDeferred_MT_LR_Data.h"
-#import "UMDiameterAvpDeferred_Location_Type.h"
-#import "UMDiameterAvpTermination_Cause.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpDeferred_MT_LR_Data.h>
+#import <ulibdiameter/UMDiameterAvpDeferred_Location_Type.h>
+#import <ulibdiameter/UMDiameterAvpTermination_Cause.h>
 
 @implementation UMDiameterAvpDeferred_MT_LR_Data
 

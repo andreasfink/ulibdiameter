@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpIMSI_Group_Id.h"
-#import "UMDiameterAvpGroup_Service_Id.h"
-#import "UMDiameterAvpGroup_PLMN_Id.h"
-#import "UMDiameterAvpLocal_Group_Id.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpIMSI_Group_Id.h>
+#import <ulibdiameter/UMDiameterAvpGroup_Service_Id.h>
+#import <ulibdiameter/UMDiameterAvpGroup_PLMN_Id.h>
+#import <ulibdiameter/UMDiameterAvpLocal_Group_Id.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpIMSI_Group_Id
 

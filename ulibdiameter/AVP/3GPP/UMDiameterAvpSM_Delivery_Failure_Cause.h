@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpGrouped.h"
+#import <ulibdiameter/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause;
 @class UMDiameterAvpSM_Diagnostic_Info;

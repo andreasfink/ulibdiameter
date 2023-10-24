@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpDeregistration_Reason.h"
-#import "UMDiameterAvpReason_Code.h"
-#import "UMDiameterAvpReason_Info.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpDeregistration_Reason.h>
+#import <ulibdiameter/UMDiameterAvpReason_Code.h>
+#import <ulibdiameter/UMDiameterAvpReason_Info.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpDeregistration_Reason
 

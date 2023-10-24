@@ -8,7 +8,7 @@
 
 #import <ulibdb/ulibdb.h>
 
-#import "UMDiameterStatisticDbRecord.h"
+#import <ulibdiameter/UMDiameterStatisticDbRecord.h>
 
 @implementation UMDiameterStatisticDbRecord
 

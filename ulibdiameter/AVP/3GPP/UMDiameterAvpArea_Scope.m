@@ -6,14 +6,14 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpArea_Scope.h"
-#import "UMDiameterAvpCell_Global_Identity.h"
-#import "UMDiameterAvpE_UTRAN_Cell_Global_Identity.h"
-#import "UMDiameterAvpRouting_Area_Identity.h"
-#import "UMDiameterAvpLocation_Area_Identity.h"
-#import "UMDiameterAvpTracking_Area_Identity.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpArea_Scope.h>
+#import <ulibdiameter/UMDiameterAvpCell_Global_Identity.h>
+#import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
+#import <ulibdiameter/UMDiameterAvpRouting_Area_Identity.h>
+#import <ulibdiameter/UMDiameterAvpLocation_Area_Identity.h>
+#import <ulibdiameter/UMDiameterAvpTracking_Area_Identity.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpArea_Scope
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpNon_IP_PDN_Type_Indicator.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpNon_IP_PDN_Type_Indicator.h>
 
 @implementation UMDiameterAvpNon_IP_PDN_Type_Indicator
 
