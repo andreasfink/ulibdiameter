@@ -21,8 +21,8 @@ FOUNDATION_EXPORT const unsigned char ulibdiameterVersionString[];
 #import <ulibdiameter/UMDiameterCommandFlags.h>
 #import <ulibdiameter/UMDiameterCommandCode.h>
 #import <ulibdiameter/UMDiameterAvpFlags.h>
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAll.h>
+#import "AVP/UMDiameterAvp.h"
+#import "AVP/UMDiameterAvpAll.h"
 #import <ulibdiameter/UMDiameterAvpMSISDN+diameter.h>
 #import <ulibdiameter/UMDiameterPacket.h>
 #import <ulibdiameter/UMDiameterPeer.h>
