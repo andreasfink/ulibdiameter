@@ -13,6 +13,7 @@ config.status
 stamp-h1
 autom4te.cache
 ulibdiameter/ulibdiameter_config.h
+ulibdiameter.pc
 version.h
 BUILDNR
 make_buildnr.sh
