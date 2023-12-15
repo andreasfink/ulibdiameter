@@ -6671,6 +6671,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 2GSNWPNR77;
+				DSTROOT = "/Library/Application Support";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "$(DSTROOT)/$(INSTALL_PATH)";
@@ -6687,7 +6688,7 @@
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = ./AVP/3GPP;
 				INFOPLIST_FILE = ulibdiameter/Info.plist;
-				INSTALL_PATH = /FinkTelecomServices/frameworks;
+				INSTALL_PATH = FinkTelecomServices/frameworks;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -6711,6 +6712,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 38L827M334;
+				DSTROOT = "/Library/Application Support";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "$(DSTROOT)/$(INSTALL_PATH)";
@@ -6727,7 +6729,7 @@
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = ./AVP/3GPP;
 				INFOPLIST_FILE = ulibdiameter/Info.plist;
-				INSTALL_PATH = /FinkTelecomServices/frameworks;
+				INSTALL_PATH = FinkTelecomServices/frameworks;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
