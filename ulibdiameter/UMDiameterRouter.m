@@ -1108,7 +1108,6 @@
 
 - (void)stopListening
 {
-
     [_listenerLock lock];
     for(UMSocket *socket in _listeners)
     {
