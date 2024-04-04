@@ -8,15 +8,6 @@
 
 #import <ulib/ulib.h>
 
-//! Project version number for ulibdiameter.
-FOUNDATION_EXPORT double ulibdiameterVersionNumber;
-
-//! Project version string for ulibdiameter.
-FOUNDATION_EXPORT const unsigned char ulibdiameterVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <ulibdiameter/PublicHeader.h>
-
-
 
 #import <ulibdiameter/UMDiameterCommandFlags.h>
 #import <ulibdiameter/UMDiameterCommandCode.h>
