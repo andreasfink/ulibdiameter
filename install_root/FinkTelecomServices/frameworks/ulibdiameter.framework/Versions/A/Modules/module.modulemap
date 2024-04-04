@@ -1,0 +1,6 @@
+framework module ulibdiameter {
+  umbrella header "ulibdiameter.h"
+  export *
+
+  module * { export * }
+}

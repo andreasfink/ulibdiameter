@@ -45,3 +45,4 @@
 #import <ulibdiameter/UMDiameterPeerState_Wait_I_CEA.h>
 #import <ulibdiameter/UMDiameterError.h>
 #import <ulibdiameter/UMDiameterApplicationProtocol.h>
+#import <ulibdiameter/UMDiameterGeneratorCMD.h>
