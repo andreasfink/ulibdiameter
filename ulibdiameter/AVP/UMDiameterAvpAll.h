@@ -16,7 +16,7 @@
 #import "UMDiameterAvpFlags.h"
 #import "UMDiameterAvpFloat32.h"
 #import "UMDiameterAvpFloat64.h"
-#import "UMDiameterAvpGrouped.h"
+#import <ulibdiameter/UMDiameterAvpGrouped.h>
 #import "UMDiameterAvpInteger32.h"
 #import "UMDiameterAvpInteger64.h"
 #import "UMDiameterAvpOctetString.h"

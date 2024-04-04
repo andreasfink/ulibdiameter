@@ -8,7 +8,7 @@
 
 #import "UMDiameterRouter_RouteTask.h"
 #import "UMDiameterRouter.h"
-#import "UMDiameterPacket.h"
+#import <ulibdiameter/UMDiameterPacket.h>
 #import "UMDiameterPeer.h"
 #import "UMDiameterRouterSession.h"
 #import "UMDiameterRoute.h"

@@ -25,7 +25,7 @@
  */
 #import "UMDiameterPeerState_I_Open.h"
 #import "UMDiameterPeerState_all.h"
-#import "UMDiameterPacket.h"
+#import <ulibdiameter/UMDiameterPacket.h>
 #import "UMDiameterPeer.h"
 #import "UMDiameterAvpDisconnect_Cause.h"
 #import "UMDiameterAvpENUMS.h"

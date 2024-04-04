@@ -7,7 +7,7 @@
 //
 
 #import "UMDiameterPeer.h"
-#import "UMDiameterPacket.h"
+#import <ulibdiameter/UMDiameterPacket.h>
 #import "UMDiameterPeerState_all.h"
 #import "UMDiameterApplicationId.h"
 #import "UMDiameterAvpVendor_Specific_Application_Id.h"
