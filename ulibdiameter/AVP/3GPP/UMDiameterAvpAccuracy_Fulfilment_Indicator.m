@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAccuracy_Fulfilment_Indicator.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAccuracy_Fulfilment_Indicator.h>
 
 @implementation UMDiameterAvpAccuracy_Fulfilment_Indicator
 

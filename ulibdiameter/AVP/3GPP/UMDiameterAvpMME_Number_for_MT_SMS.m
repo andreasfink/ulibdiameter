@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMME_Number_for_MT_SMS.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMME_Number_for_MT_SMS.h>
 
 @implementation UMDiameterAvpMME_Number_for_MT_SMS
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpDay_Of_Week_Mask.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpDay_Of_Week_Mask.h>
 
 @implementation UMDiameterAvpDay_Of_Week_Mask
 

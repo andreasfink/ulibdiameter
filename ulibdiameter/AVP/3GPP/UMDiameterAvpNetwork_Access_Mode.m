@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpNetwork_Access_Mode.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpNetwork_Access_Mode.h>
 
 @implementation UMDiameterAvpNetwork_Access_Mode
 

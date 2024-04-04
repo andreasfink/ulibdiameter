@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpRedirect_Max_Cache_Time.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpRedirect_Max_Cache_Time.h>
 
 @implementation UMDiameterAvpRedirect_Max_Cache_Time
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpCollection_Period_RRM_LTE.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpCollection_Period_RRM_LTE.h>
 
 @implementation UMDiameterAvpCollection_Period_RRM_LTE
 

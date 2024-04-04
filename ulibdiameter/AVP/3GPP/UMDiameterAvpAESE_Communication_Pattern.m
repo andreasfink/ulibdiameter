@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAESE_Communication_Pattern.h"
-#import "UMDiameterAvpSCEF_Reference_ID.h"
-#import "UMDiameterAvpSCEF_ID.h"
-#import "UMDiameterAvpSCEF_Reference_ID_for_Deletion.h"
-#import "UMDiameterAvpCommunication_Pattern_Set.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAESE_Communication_Pattern.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID_for_Deletion.h>
+#import <ulibdiameter/UMDiameterAvpCommunication_Pattern_Set.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAESE_Communication_Pattern
 

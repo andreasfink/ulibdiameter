@@ -6,8 +6,8 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpFloat64.h"
-#import "UMDiameterNetworkOrder.h"
+#import <ulibdiameter/UMDiameterAvpFloat64.h>
+#import <ulibdiameter/UMDiameterNetworkOrder.h>
 /*
  
  [FLOATPOINT]

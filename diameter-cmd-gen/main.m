@@ -8,7 +8,7 @@
 
 #import <ulib/ulib.h>
 #import "../version.h"
-#import "UMDiameterGeneratorCMD.h"
+#import <ulibdiameter/UMDiameterGeneratorCMD.h>
 BOOL linesAreDifferent(NSString *a, NSString *b, int skipStart);
 
 

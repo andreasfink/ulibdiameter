@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpDiameterIdentity.h"
+#import <ulibdiameter/UMDiameterAvpDiameterIdentity.h>
 
 @implementation UMDiameterAvpDiameterIdentity
 

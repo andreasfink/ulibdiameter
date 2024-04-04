@@ -6,19 +6,19 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMonitoring_Event_Configuration.h"
-#import "UMDiameterAvpSCEF_Reference_ID.h"
-#import "UMDiameterAvpSCEF_ID.h"
-#import "UMDiameterAvpMonitoring_Type.h"
-#import "UMDiameterAvpSCEF_Reference_ID_for_Deletion.h"
-#import "UMDiameterAvpMaximum_Number_of_Reports.h"
-#import "UMDiameterAvpMonitoring_Duration.h"
-#import "UMDiameterAvpCharged_Party.h"
-#import "UMDiameterAvpUE_Reachability_Configuration.h"
-#import "UMDiameterAvpLocation_Information_Configuration.h"
-#import "UMDiameterAvpSCEF_Realm.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Configuration.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/UMDiameterAvpMonitoring_Type.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID_for_Deletion.h>
+#import <ulibdiameter/UMDiameterAvpMaximum_Number_of_Reports.h>
+#import <ulibdiameter/UMDiameterAvpMonitoring_Duration.h>
+#import <ulibdiameter/UMDiameterAvpCharged_Party.h>
+#import <ulibdiameter/UMDiameterAvpUE_Reachability_Configuration.h>
+#import <ulibdiameter/UMDiameterAvpLocation_Information_Configuration.h>
+#import <ulibdiameter/UMDiameterAvpSCEF_Realm.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMonitoring_Event_Configuration
 

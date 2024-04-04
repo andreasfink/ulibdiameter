@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpPDN_GW_Allocation_Type.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpPDN_GW_Allocation_Type.h>
 
 @implementation UMDiameterAvpPDN_GW_Allocation_Type
 

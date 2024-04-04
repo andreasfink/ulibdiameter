@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpTime.h"
+#import <ulibdiameter/UMDiameterAvpTime.h>
 
 @implementation UMDiameterAvpTime
 

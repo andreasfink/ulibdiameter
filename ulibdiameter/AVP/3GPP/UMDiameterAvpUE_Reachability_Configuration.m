@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpUE_Reachability_Configuration.h"
-#import "UMDiameterAvpReachability_Type.h"
-#import "UMDiameterAvpMaximum_Response_Time.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpUE_Reachability_Configuration.h>
+#import <ulibdiameter/UMDiameterAvpReachability_Type.h>
+#import <ulibdiameter/UMDiameterAvpMaximum_Response_Time.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpUE_Reachability_Configuration
 

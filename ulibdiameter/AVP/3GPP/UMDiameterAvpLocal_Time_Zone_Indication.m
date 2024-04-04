@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpLocal_Time_Zone_Indication.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpLocal_Time_Zone_Indication.h>
 
 @implementation UMDiameterAvpLocal_Time_Zone_Indication
 

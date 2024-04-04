@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMax_Requested_Bandwidth_DL.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMax_Requested_Bandwidth_DL.h>
 
 @implementation UMDiameterAvpMax_Requested_Bandwidth_DL
 

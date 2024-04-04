@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpRequested_Retransmission_Time.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpRequested_Retransmission_Time.h>
 
 @implementation UMDiameterAvpRequested_Retransmission_Time
 

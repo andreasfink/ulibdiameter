@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpGPRS_Subscription_Data.h"
-#import "UMDiameterAvpComplete_Data_List_Included_Indicator.h"
-#import "UMDiameterAvpPDP_Context.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpGPRS_Subscription_Data.h>
+#import <ulibdiameter/UMDiameterAvpComplete_Data_List_Included_Indicator.h>
+#import <ulibdiameter/UMDiameterAvpPDP_Context.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpGPRS_Subscription_Data
 

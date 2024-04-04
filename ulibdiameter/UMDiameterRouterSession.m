@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterRouterSession.h"
-#import "UMDiameterPeer.h"
+#import <ulibdiameter/UMDiameterRouterSession.h>
+#import <ulibdiameter/UMDiameterPeer.h>
 #import <ulibdiameter/UMDiameterPacket.h>
-#import "UMDiameterPacketsAll.h"
-#import "UMDiameterRouter.h"
+#import <ulibdiameter/UMDiameterPacketsAll.h>
+#import <ulibdiameter/UMDiameterRouter.h>
 
 @implementation UMDiameterRouterSession
 

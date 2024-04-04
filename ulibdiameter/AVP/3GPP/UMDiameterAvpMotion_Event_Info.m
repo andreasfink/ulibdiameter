@@ -6,16 +6,16 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMotion_Event_Info.h"
-#import "UMDiameterAvpLinear_Distance.h"
-#import "UMDiameterAvpOccurrence_Info.h"
-#import "UMDiameterAvpInterval_Time.h"
-#import "UMDiameterAvpMaximum_Interval.h"
-#import "UMDiameterAvpSampling_Interval.h"
-#import "UMDiameterAvpReporting_Duration.h"
-#import "UMDiameterAvpReporting_Location_Requirements.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMotion_Event_Info.h>
+#import <ulibdiameter/UMDiameterAvpLinear_Distance.h>
+#import <ulibdiameter/UMDiameterAvpOccurrence_Info.h>
+#import <ulibdiameter/UMDiameterAvpInterval_Time.h>
+#import <ulibdiameter/UMDiameterAvpMaximum_Interval.h>
+#import <ulibdiameter/UMDiameterAvpSampling_Interval.h>
+#import <ulibdiameter/UMDiameterAvpReporting_Duration.h>
+#import <ulibdiameter/UMDiameterAvpReporting_Location_Requirements.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMotion_Event_Info
 

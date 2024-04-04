@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpUE_PC5_AMBR.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpUE_PC5_AMBR.h>
 
 @implementation UMDiameterAvpUE_PC5_AMBR
 

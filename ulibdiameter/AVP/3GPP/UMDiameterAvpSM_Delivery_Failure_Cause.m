@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpSM_Delivery_Failure_Cause.h"
-#import "UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause.h"
-#import "UMDiameterAvpSM_Diagnostic_Info.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpSM_Delivery_Failure_Cause.h>
+#import <ulibdiameter/UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause.h>
+#import <ulibdiameter/UMDiameterAvpSM_Diagnostic_Info.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSM_Delivery_Failure_Cause
 

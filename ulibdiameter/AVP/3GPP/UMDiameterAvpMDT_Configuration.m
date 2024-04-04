@@ -6,29 +6,29 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMDT_Configuration.h"
-#import "UMDiameterAvpJob_Type.h"
-#import "UMDiameterAvpArea_Scope.h"
-#import "UMDiameterAvpList_Of_Measurements.h"
-#import "UMDiameterAvpReporting_Trigger.h"
-#import "UMDiameterAvpReport_Interval.h"
-#import "UMDiameterAvpReport_Amount.h"
-#import "UMDiameterAvpEvent_Threshold_RSRP.h"
-#import "UMDiameterAvpEvent_Threshold_RSRQ.h"
-#import "UMDiameterAvpLogging_Interval.h"
-#import "UMDiameterAvpLogging_Duration.h"
-#import "UMDiameterAvpMeasurement_Period_LTE.h"
-#import "UMDiameterAvpMeasurement_Period_UMTS.h"
-#import "UMDiameterAvpCollection_Period_RRM_LTE.h"
-#import "UMDiameterAvpCollection_Period_RRM_UMTS.h"
-#import "UMDiameterAvpPositioning_Method.h"
-#import "UMDiameterAvpMeasurement_Quantity.h"
-#import "UMDiameterAvpEvent_Threshold_Event_1F.h"
-#import "UMDiameterAvpEvent_Threshold_Event_1I.h"
-#import "UMDiameterAvpMDT_Allowed_PLMN_Id.h"
-#import "UMDiameterAvpMBSFN_Area.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMDT_Configuration.h>
+#import <ulibdiameter/UMDiameterAvpJob_Type.h>
+#import <ulibdiameter/UMDiameterAvpArea_Scope.h>
+#import <ulibdiameter/UMDiameterAvpList_Of_Measurements.h>
+#import <ulibdiameter/UMDiameterAvpReporting_Trigger.h>
+#import <ulibdiameter/UMDiameterAvpReport_Interval.h>
+#import <ulibdiameter/UMDiameterAvpReport_Amount.h>
+#import <ulibdiameter/UMDiameterAvpEvent_Threshold_RSRP.h>
+#import <ulibdiameter/UMDiameterAvpEvent_Threshold_RSRQ.h>
+#import <ulibdiameter/UMDiameterAvpLogging_Interval.h>
+#import <ulibdiameter/UMDiameterAvpLogging_Duration.h>
+#import <ulibdiameter/UMDiameterAvpMeasurement_Period_LTE.h>
+#import <ulibdiameter/UMDiameterAvpMeasurement_Period_UMTS.h>
+#import <ulibdiameter/UMDiameterAvpCollection_Period_RRM_LTE.h>
+#import <ulibdiameter/UMDiameterAvpCollection_Period_RRM_UMTS.h>
+#import <ulibdiameter/UMDiameterAvpPositioning_Method.h>
+#import <ulibdiameter/UMDiameterAvpMeasurement_Quantity.h>
+#import <ulibdiameter/UMDiameterAvpEvent_Threshold_Event_1F.h>
+#import <ulibdiameter/UMDiameterAvpEvent_Threshold_Event_1I.h>
+#import <ulibdiameter/UMDiameterAvpMDT_Allowed_PLMN_Id.h>
+#import <ulibdiameter/UMDiameterAvpMBSFN_Area.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMDT_Configuration
 

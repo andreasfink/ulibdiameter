@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMaximum_Number_of_Reports.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMaximum_Number_of_Reports.h>
 
 @implementation UMDiameterAvpMaximum_Number_of_Reports
 

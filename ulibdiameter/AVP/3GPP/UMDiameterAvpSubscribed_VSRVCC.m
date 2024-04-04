@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpSubscribed_VSRVCC.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpSubscribed_VSRVCC.h>
 
 @implementation UMDiameterAvpSubscribed_VSRVCC
 

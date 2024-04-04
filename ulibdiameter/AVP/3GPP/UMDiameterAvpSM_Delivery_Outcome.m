@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpSM_Delivery_Outcome.h"
-#import "UMDiameterAvpMME_SM_Delivery_Outcome.h"
-#import "UMDiameterAvpMSC_SM_Delivery_Outcome.h"
-#import "UMDiameterAvpSGSN_SM_Delivery_Outcome.h"
-#import "UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpSM_Delivery_Outcome.h>
+#import <ulibdiameter/UMDiameterAvpMME_SM_Delivery_Outcome.h>
+#import <ulibdiameter/UMDiameterAvpMSC_SM_Delivery_Outcome.h>
+#import <ulibdiameter/UMDiameterAvpSGSN_SM_Delivery_Outcome.h>
+#import <ulibdiameter/UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSM_Delivery_Outcome
 

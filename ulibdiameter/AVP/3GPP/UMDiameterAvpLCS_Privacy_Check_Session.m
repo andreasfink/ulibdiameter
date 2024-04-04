@@ -6,9 +6,9 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpLCS_Privacy_Check_Session.h"
-#import "UMDiameterAvpLCS_Privacy_Check.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check_Session.h>
+#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check.h>
 
 @implementation UMDiameterAvpLCS_Privacy_Check_Session
 

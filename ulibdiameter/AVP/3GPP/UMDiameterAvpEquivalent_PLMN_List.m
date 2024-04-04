@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpEquivalent_PLMN_List.h"
-#import "UMDiameterAvpVisited_PLMN_Id.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpEquivalent_PLMN_List.h>
+#import <ulibdiameter/UMDiameterAvpVisited_PLMN_Id.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpEquivalent_PLMN_List
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMIP_Mobile_Node_Address.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMIP_Mobile_Node_Address.h>
 
 @implementation UMDiameterAvpMIP_Mobile_Node_Address
 

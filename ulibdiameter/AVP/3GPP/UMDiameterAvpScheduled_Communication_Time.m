@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpScheduled_Communication_Time.h"
-#import "UMDiameterAvpDay_Of_Week_Mask.h"
-#import "UMDiameterAvpTime_Of_Day_Start.h"
-#import "UMDiameterAvpTime_Of_Day_End.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpScheduled_Communication_Time.h>
+#import <ulibdiameter/UMDiameterAvpDay_Of_Week_Mask.h>
+#import <ulibdiameter/UMDiameterAvpTime_Of_Day_Start.h>
+#import <ulibdiameter/UMDiameterAvpTime_Of_Day_End.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpScheduled_Communication_Time
 

@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpPeriodic_LDR_Information.h"
-#import "UMDiameterAvpReporting_Amount.h"
-#import "UMDiameterAvpReporting_Interval.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpPeriodic_LDR_Information.h>
+#import <ulibdiameter/UMDiameterAvpReporting_Amount.h>
+#import <ulibdiameter/UMDiameterAvpReporting_Interval.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpPeriodic_LDR_Information
 

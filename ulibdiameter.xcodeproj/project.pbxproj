@@ -17,6 +17,10 @@
 		A60B2CC0240ED606000932FB /* UMDiameterRouterReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CBE240ED606000932FB /* UMDiameterRouterReceiver.m */; };
 		A60C6458260EA5F100BDEE69 /* UMDiameterAvpT4_Data.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E317ED260EA25F0052AC38 /* UMDiameterAvpT4_Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A60C6466260EA64900BDEE69 /* UMDiameterAvpHSS_Cause.m in Sources */ = {isa = PBXBuildFile; fileRef = A60C6464260EA64900BDEE69 /* UMDiameterAvpHSS_Cause.m */; };
+		A60FBB772BBF4FBD00C34D40 /* ulibasn1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A685AF12260B6C4C007A631F /* ulibasn1.framework */; };
+		A60FBB782BBF4FBE00C34D40 /* ulibasn1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A685AF12260B6C4C007A631F /* ulibasn1.framework */; };
+		A60FBB792BBF4FBE00C34D40 /* ulibasn1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A685AF12260B6C4C007A631F /* ulibasn1.framework */; };
+		A60FBB852BBF4FD400C34D40 /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
 		A61BFEC2203CF52400072EB4 /* UMDiameterAvpDiameterURI.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFEC1203CF52400072EB4 /* UMDiameterAvpDiameterURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A61BFED1203D685F00072EB4 /* UMDiameterAvpAll.h in Headers */ = {isa = PBXBuildFile; fileRef = A61BFECF203D685F00072EB4 /* UMDiameterAvpAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A61E1B0322C8F93F00025026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A61E1B0222C8F93E00025026 /* main.m */; };
@@ -110,11 +114,7 @@
 		A67989F422BB6D960019806C /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
 		A67989F622BB6D960019806C /* ulib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F322BB6D960019806C /* ulib.framework */; };
 		A67989F822BB6D9E0019806C /* ulibsctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F722BB6D9E0019806C /* ulibsctp.framework */; };
-		A67989FA22BB6D9E0019806C /* ulibsctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F722BB6D9E0019806C /* ulibsctp.framework */; };
-		A6798A0222BB6EEE0019806C /* ulibsctp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67989F722BB6D9E0019806C /* ulibsctp.framework */; };
 		A6798A0422BB6F3A0019806C /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6798A0322BB6F3A0019806C /* ulibpcap.framework */; };
-		A6798A0522BB6F3A0019806C /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6798A0322BB6F3A0019806C /* ulibpcap.framework */; };
-		A6798A0722BB6F3A0019806C /* ulibpcap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6798A0322BB6F3A0019806C /* ulibpcap.framework */; };
 		A67FCA9322CA80B1007A28AB /* UMDiameterPacketASA.m in Sources */ = {isa = PBXBuildFile; fileRef = A67FCA7722CA8085007A28AB /* UMDiameterPacketASA.m */; };
 		A67FCA9422CA80B1007A28AB /* UMDiameterPacketCER.m in Sources */ = {isa = PBXBuildFile; fileRef = A67FCA7822CA8086007A28AB /* UMDiameterPacketCER.m */; };
 		A67FCA9522CA80B1007A28AB /* UMDiameterPacketACA.m in Sources */ = {isa = PBXBuildFile; fileRef = A67FCA7922CA8088007A28AB /* UMDiameterPacketACA.m */; };
@@ -2998,6 +2998,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A61E1B0C22C937AE00025026 /* ulib.framework in Frameworks */,
+				A60FBB792BBF4FBE00C34D40 /* ulibasn1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3005,10 +3006,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A67989FA22BB6D9E0019806C /* ulibsctp.framework in Frameworks */,
 				A67989F622BB6D960019806C /* ulib.framework in Frameworks */,
-				A6798A0722BB6F3A0019806C /* ulibpcap.framework in Frameworks */,
 				A6260C60228C019700C94036 /* ulibdiameter.framework in Frameworks */,
+				A60FBB772BBF4FBD00C34D40 /* ulibasn1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3029,8 +3029,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6798A0222BB6EEE0019806C /* ulibsctp.framework in Frameworks */,
-				A6798A0522BB6F3A0019806C /* ulibpcap.framework in Frameworks */,
+				A60FBB852BBF4FD400C34D40 /* ulib.framework in Frameworks */,
 				A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3040,6 +3039,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A684F78A22C20540004F77C0 /* ulib.framework in Frameworks */,
+				A60FBB782BBF4FBE00C34D40 /* ulibasn1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5664,11 +5664,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A684F78222C1FED9004F77C0 /* diameter-cmd-gen */,
+				A61E1AFF22C8F93E00025026 /* diameter-avp-gen */,
 				A6609EA8203A66A600C25C7B /* ulibdiameter */,
 				A6609EB1203A66A600C25C7B /* ulibdiameterTests */,
 				A6260C55228C004F00C94036 /* decode-diameter-pdu */,
-				A684F78222C1FED9004F77C0 /* diameter-cmd-gen */,
-				A61E1AFF22C8F93E00025026 /* diameter-avp-gen */,
 			);
 		};
 /* End PBXProject section */
@@ -6457,6 +6457,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -6478,6 +6483,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -6502,6 +6512,9 @@
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -6523,6 +6536,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
@@ -6591,7 +6607,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = /FinkTelecomServices/bin;
+				INSTALL_PATH = FinkTelecomServices/bin;
+				LD_RUNPATH_SEARCH_PATHS = "\"/Library/Application Support/FinkTelecomServices/frameworks\"";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = macosx;
@@ -6652,7 +6669,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = /FinkTelecomServices/bin;
+				INSTALL_PATH = FinkTelecomServices/bin;
+				LD_RUNPATH_SEARCH_PATHS = "\"/Library/Application Support/FinkTelecomServices/frameworks\"";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -6755,6 +6773,8 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				INFOPLIST_FILE = ulibdiameterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -6777,6 +6797,8 @@
 				DEVELOPMENT_TEAM = 38L827M334;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
@@ -6805,6 +6827,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/Application\\\\ Support/FinkTelecomServices/frameworks\"",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -6828,6 +6855,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/Application\\\\ Support/FinkTelecomServices/frameworks\"",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;

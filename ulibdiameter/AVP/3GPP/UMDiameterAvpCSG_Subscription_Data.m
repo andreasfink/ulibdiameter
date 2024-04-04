@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpCSG_Subscription_Data.h"
-#import "UMDiameterAvpCSG_ID.h"
-#import "UMDiameterAvpExpiration_Date.h"
-#import "UMDiameterAvpService_Selection.h"
-#import "UMDiameterAvpVisited_PLMN_Id.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpCSG_Subscription_Data.h>
+#import <ulibdiameter/UMDiameterAvpCSG_ID.h>
+#import <ulibdiameter/UMDiameterAvpExpiration_Date.h>
+#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/UMDiameterAvpVisited_PLMN_Id.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpCSG_Subscription_Data
 

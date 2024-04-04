@@ -6,16 +6,16 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAPN_Configuration.h"
-#import "UMDiameterAvpContext_Identifier.h"
-#import "UMDiameterAvpServed_Party_IP_Address.h"
-#import "UMDiameterAvpPDN_Type.h"
-#import "UMDiameterAvpService_Selection.h"
-#import "UMDiameterAvpEPS_Subscribed_QoS_Profile.h"
-#import "UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h"
-#import "UMDiameterAvpMIP6_Agent_Info.h"
-#import "UMDiameterAvpVisited_Network_Identifier.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAPN_Configuration.h>
+#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/UMDiameterAvpServed_Party_IP_Address.h>
+#import <ulibdiameter/UMDiameterAvpPDN_Type.h>
+#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/UMDiameterAvpEPS_Subscribed_QoS_Profile.h>
+#import <ulibdiameter/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
+#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
+#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
 
 @implementation UMDiameterAvpAPN_Configuration
 

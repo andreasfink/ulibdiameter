@@ -6,15 +6,15 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpCommunication_Pattern_Set.h"
-#import "UMDiameterAvpPeriodic_Communication_Indicator.h"
-#import "UMDiameterAvpCommunication_Duration_Time.h"
-#import "UMDiameterAvpPeriodic_Time.h"
-#import "UMDiameterAvpScheduled_Communication_Time.h"
-#import "UMDiameterAvpStationary_Indication.h"
-#import "UMDiameterAvpReference_ID_Validity_Time.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpCommunication_Pattern_Set.h>
+#import <ulibdiameter/UMDiameterAvpPeriodic_Communication_Indicator.h>
+#import <ulibdiameter/UMDiameterAvpCommunication_Duration_Time.h>
+#import <ulibdiameter/UMDiameterAvpPeriodic_Time.h>
+#import <ulibdiameter/UMDiameterAvpScheduled_Communication_Time.h>
+#import <ulibdiameter/UMDiameterAvpStationary_Indication.h>
+#import <ulibdiameter/UMDiameterAvpReference_ID_Validity_Time.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpCommunication_Pattern_Set
 

@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpLCS_QoS.h"
-#import "UMDiameterAvpLCS_QoS_Class.h"
-#import "UMDiameterAvpHorizontal_Accuracy.h"
-#import "UMDiameterAvpVertical_Accuracy.h"
-#import "UMDiameterAvpVertical_Requested.h"
-#import "UMDiameterAvpResponse_Time.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpLCS_QoS.h>
+#import <ulibdiameter/UMDiameterAvpLCS_QoS_Class.h>
+#import <ulibdiameter/UMDiameterAvpHorizontal_Accuracy.h>
+#import <ulibdiameter/UMDiameterAvpVertical_Accuracy.h>
+#import <ulibdiameter/UMDiameterAvpVertical_Requested.h>
+#import <ulibdiameter/UMDiameterAvpResponse_Time.h>
 
 @implementation UMDiameterAvpLCS_QoS
 

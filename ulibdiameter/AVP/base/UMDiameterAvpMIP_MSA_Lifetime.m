@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpMIP_MSA_Lifetime.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpMIP_MSA_Lifetime.h>
 
 @implementation UMDiameterAvpMIP_MSA_Lifetime
 

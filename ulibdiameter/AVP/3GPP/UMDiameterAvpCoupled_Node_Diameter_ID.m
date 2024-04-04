@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpCoupled_Node_Diameter_ID.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpCoupled_Node_Diameter_ID.h>
 
 @implementation UMDiameterAvpCoupled_Node_Diameter_ID
 

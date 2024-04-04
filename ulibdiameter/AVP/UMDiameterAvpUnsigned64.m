@@ -6,9 +6,9 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvpUnsigned64.h"
+#import <ulibdiameter/UMDiameterAvpUnsigned64.h>
 
-#import "UMDiameterNetworkOrder.h"
+#import <ulibdiameter/UMDiameterNetworkOrder.h>
 
 @implementation UMDiameterAvpUnsigned64
 

@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpService_Parameters.h"
-#import "UMDiameterAvpT4_Parameters.h"
-#import "UMDiameterAvpApplication_Port_Identifier.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpService_Parameters.h>
+#import <ulibdiameter/UMDiameterAvpT4_Parameters.h>
+#import <ulibdiameter/UMDiameterAvpApplication_Port_Identifier.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpService_Parameters
 

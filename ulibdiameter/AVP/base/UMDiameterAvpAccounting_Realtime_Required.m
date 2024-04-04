@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpAccounting_Realtime_Required.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAccounting_Realtime_Required.h>
 
 @implementation UMDiameterAvpAccounting_Realtime_Required
 

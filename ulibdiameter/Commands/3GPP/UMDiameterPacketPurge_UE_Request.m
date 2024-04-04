@@ -7,23 +7,23 @@
 //
 
 
-#import "UMDiameterPacketPurge_UE_Request.h"
-#import "UMDiameterAvpSession_Id.h"
-#import "UMDiameterAvpDRMP.h"
-#import "UMDiameterAvpVendor_Specific_Application_Id.h"
-#import "UMDiameterAvpAuth_Session_State.h"
-#import "UMDiameterAvpOrigin_Host.h"
-#import "UMDiameterAvpOrigin_Realm.h"
-#import "UMDiameterAvpDestination_Host.h"
-#import "UMDiameterAvpDestination_Realm.h"
-#import "UMDiameterAvpUser_Name.h"
-#import "UMDiameterAvpOC_Supported_Features.h"
-#import "UMDiameterAvpPUR_Flags.h"
-#import "UMDiameterAvpSupported_Features.h"
-#import "UMDiameterAvpEPS_Location_Information.h"
-#import "UMDiameterAvpAVP.h"
-#import "UMDiameterAvpProxy_Info.h"
-#import "UMDiameterAvpRoute_Record.h"
+#import <ulibdiameter/UMDiameterPacketPurge_UE_Request.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpDRMP.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/UMDiameterAvpUser_Name.h>
+#import <ulibdiameter/UMDiameterAvpOC_Supported_Features.h>
+#import <ulibdiameter/UMDiameterAvpPUR_Flags.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
+#import <ulibdiameter/UMDiameterAvpEPS_Location_Information.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/UMDiameterAvpProxy_Info.h>
+#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
 
 @implementation UMDiameterPacketPurge_UE_Request
 

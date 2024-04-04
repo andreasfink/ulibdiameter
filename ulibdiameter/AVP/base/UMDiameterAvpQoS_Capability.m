@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import "UMDiameterAvp.h"
-#import "UMDiameterAvpQoS_Capability.h"
-#import "UMDiameterAvpQoS_Profile_Template.h"
-#import "UMDiameterAvpAVP.h"
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpQoS_Capability.h>
+#import <ulibdiameter/UMDiameterAvpQoS_Profile_Template.h>
+#import <ulibdiameter/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpQoS_Capability
 
