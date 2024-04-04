@@ -379,7 +379,7 @@ int main(int argc, const char * argv[])
             for(UMDiameterAvpDef *avpdef in avpDefs)
             {
                 NSString *objectName = [avpdef objectNameWithPrefix:prefix];
-                [inc appendFormat:@"#import \"%@.h\"\n",objectName];
+                [inc appendFormat:@"#import <ulibdiameter/%@.h>\n",objectName];
             }
             [inc appendString:@"\n"];
 

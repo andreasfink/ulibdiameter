@@ -282,7 +282,7 @@
     [s appendString:@"//\n"];
     [s appendString:@"\n"];
     [s appendString:@"\n"];
-    [s appendString:@"#import \"UMDiameterPacket.h\"\n"];
+    [s appendString:@"#import <ulibdiameter/UMDiameterPacket.h>\n"];
     [s appendString:@"\n"];
 
     for(UMDiameterGeneratorAVP *avp in _avps)
@@ -344,10 +344,10 @@
     [s appendString:@"//\n"];
     [s appendString:@"\n"];
     [s appendString:@"\n"];
-    [s appendFormat:@"#import \"%@%@.h\"\n",prefix,_objectName];
+    [s appendFormat:@"#import <ulibdiameter/%@%@.h>\n",prefix,_objectName];
     for(UMDiameterGeneratorAVP *avp in _avps)
     {
-        [s appendFormat:@"#import \"%@%@.h\"\n",avpPrefix,avp.objectName];
+        [s appendFormat:@"#import <ulibdiameter/%@%@.h>\n",avpPrefix,avp.objectName];
     }
     [s appendString:@"\n"];
     [s appendFormat:@"@implementation %@%@\n",prefix,_objectName];
