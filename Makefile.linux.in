@@ -40,7 +40,7 @@ INCLUDEDIRS = -I . \
 	-I @PROJECT_NAME@/Commands \
 	-I @PROJECT_NAME@/Commands/3GPP \
 	-I @PROJECT_NAME@/Commands/base \
-        -I @PROJECT_NAME@/Commands/fts	
+	-I @PROJECT_NAME@/Commands/fts	
 
 DEBUG_RELEASE = -DCONFIGURATION_${CONFIGURATION}=1 -DCONFIGURATION=${CONFIGURATION}
 
@@ -51,6 +51,10 @@ ${LIB}: ${OFILES}
 ${SLIB}: ${OFILES}
 	ar rcs ${SLIB} ${OFILES}
 	ranlib ${SLIB}
+
+install_headers:
+	-mkdir -p ${DESTDIR}/usr/local/include/ulibdiameter
+	cp $(HFILES) ${DESTDIR}/usr/local/include/ulibdiameter
 
 install: ${LIB} ${SLIB} build/diameter-cmd-gen build/diameter-avp-gen
 	-mkdir -p ${DESTDIR}/usr/local/lib/pkgconfig
