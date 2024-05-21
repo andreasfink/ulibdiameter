@@ -8,11 +8,12 @@
 
 #import <ulib/ulib.h>
 #import "../version.h"
-#import <ulibdiameter/UMDiameterGeneratorCMD.h>
+#import "UMDiameterGeneratorCMD.h"
 BOOL linesAreDifferent(NSString *a, NSString *b, int skipStart);
 
+static	NSString *getFirst(id param);
 
-NSString *getFirst(id param)
+static NSString *getFirst(id param)
 {
     if([param isKindOfClass:[NSString class]])
     {

@@ -7,7 +7,11 @@ includedir=${prefix}/include
 
 Name: ulibdiameter
 Cflags: -I${includedir}
+<<<<<<< HEAD
 Libs: -L${libdir} -l:libulibdiameter.so.2.0
+=======
+Libs: -L${libdir} -l:libulibdiameter..2.0
+>>>>>>> b7bd95428c08c8a7c60181c80343349916be3b06
 
 Description: universal Diameter library
 Version: 2.0.0
