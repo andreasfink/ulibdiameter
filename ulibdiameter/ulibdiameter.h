@@ -44,4 +44,3 @@
 #import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h>
 #import <ulibdiameter/UMDiameterPeerState_Wait_I_CEA.h>
 #import <ulibdiameter/UMDiameterError.h>
-#import <ulibdiameter/UMDiameterGeneratorCMD.h>
