@@ -138,158 +138,158 @@
 
 - (void) _watchdogTimerEventTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventWatchdogTimer:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 
 }
 
 - (void) _eventI_Rcv_Conn_NackTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_Conn_NackTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_Conn_AckTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_Conn_AckTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_CERTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_CER:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_CERTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_CER:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_DPRTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_DPR:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_DPRTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_DPR:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_DWRTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_DWR:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_DWRTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_DWR:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_CEATask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_CEA:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_CEATask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_CEA:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_DPATask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_DPA:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_DPATask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_DPA:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_DWATask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_DWA:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_DWATask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_DWA:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventI_Rcv_MessageTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventI_Rcv_Message:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void) _eventR_Rcv_MessageTask:(id)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventR_Rcv_Message:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 
 - (void)_eventSend_MessageTask:(UMDiameterPacket *)packet
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventSend_Message:self message:packet];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void)_eventStopTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventStop:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void)_eventStartTask:(id)obj
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState =[_peerState eventStart:self message:obj];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 
@@ -602,9 +602,9 @@
 
 {
     uint32_t r;
-    UMMUTEX_LOCK(_nextHopIdentifierLock);
+    ummutex_lock(_nextHopIdentifierLock);
     r = ++_lastHopByHopIdentifier;
-    UMMUTEX_UNLOCK(_nextHopIdentifierLock);
+    ummutex_unlock(_nextHopIdentifierLock);
     return r;
 }
 
@@ -1894,7 +1894,7 @@ typedef enum ElectionResult
         }
         if((e == UMSocketError_has_data) || (e == UMSocketError_has_data_and_hup))
         {
-            UMMUTEX_LOCK(_dataBuffersLock);
+            ummutex_lock(_dataBuffersLock);
             if(initiator)
             {
                 if(_initiator_receive_buffer ==NULL)
@@ -1917,7 +1917,7 @@ typedef enum ElectionResult
                     [_responder_receive_buffer appendData:input];
                 }
             }
-            UMMUTEX_UNLOCK(_dataBuffersLock);
+            ummutex_unlock(_dataBuffersLock);
             if(e == UMSocketError_has_data)
             {
                 e = UMSocketError_no_error;
@@ -1959,7 +1959,7 @@ typedef enum ElectionResult
 
 - (void)checkForPackets:(BOOL)initiator
 {
-    UMMUTEX_LOCK(_dataBuffersLock);
+    ummutex_lock(_dataBuffersLock);
     NSInteger pos=0;
     UMDiameterPacket *packet;
     NSMutableData *buffer;
@@ -1978,7 +1978,7 @@ typedef enum ElectionResult
         [buffer replaceBytesInRange:NSMakeRange(0,pos) withBytes:"" length:0];
         [self handlePacket:packet initiator:initiator];
     }
-    UMMUTEX_UNLOCK(_dataBuffersLock);
+    ummutex_unlock(_dataBuffersLock);
 }
 
 
@@ -2152,15 +2152,15 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventI_Rcv_Conn_Ack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
     }
     else if (sock == _responder_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventR_Rcv_Conn_Ack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
     }
 }
 
@@ -2168,17 +2168,17 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
 
 
     }
     else if (sock == _responder_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
     }
 }
 
@@ -2187,17 +2187,17 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
 
 
     }
     else if (sock == _responder_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
     }
 }
 
@@ -2205,17 +2205,17 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventI_Rcv_Conn_Nack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
 
 
     }
     else if (sock == _responder_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventR_Rcv_Conn_Nack:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
     }
 }
 
@@ -2223,17 +2223,17 @@ typedef enum ElectionResult
 {
     if(sock == _initiator_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventI_Peer_Disc:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
 
 
     }
     else if (sock == _responder_socket)
     {
-        UMMUTEX_LOCK(_eventLock);
+        ummutex_lock(_eventLock);
         _peerState = [_peerState eventR_Peer_Disc:self message:NULL];
-        UMMUTEX_UNLOCK(_eventLock);
+        ummutex_unlock(_eventLock);
     }
 }
 
@@ -3159,7 +3159,7 @@ typedef enum ElectionResult
 
 - (void)reopenTimer1Event:(id)dummy
 {
-    UMMUTEX_LOCK(_eventLock); 
+    ummutex_lock(_eventLock); 
     if([_peerState isKindOfClass:[UMDiameterPeerState_Wait_Conn_Ack class]])
     {
         [self _eventStopTask:NULL];
@@ -3172,12 +3172,12 @@ typedef enum ElectionResult
 		[self powerOn];
 		[self startReopenTimer2];
     }
-	UMMUTEX_UNLOCK(_eventLock);
+	ummutex_unlock(_eventLock);
 }
 
 - (void)reopenTimer2Event:(id)dummy
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     if (  !([_peerState isKindOfClass:[UMDiameterPeerState_I_Open class]])
        && !([_peerState isKindOfClass:[UMDiameterPeerState_R_Open class]]))
     {
@@ -3185,14 +3185,14 @@ typedef enum ElectionResult
         [_responder_socket close];
     	_peerState = [[UMDiameterPeerState_Closed alloc]initWithPeer:self];
 	}
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 - (void)watchdogTimerEvent:(id)dummy
 {
-    UMMUTEX_LOCK(_eventLock);
+    ummutex_lock(_eventLock);
     _peerState = [_peerState eventWatchdogTimer:self message:NULL];
-    UMMUTEX_UNLOCK(_eventLock);
+    ummutex_unlock(_eventLock);
 }
 
 @end

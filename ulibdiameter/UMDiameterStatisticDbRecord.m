@@ -67,7 +67,7 @@
     {
         @try
         {
-            UMMUTEX_LOCK(_lock);
+            ummutex_lock(_lock);
             UMDbQuery *query = [UMDbQuery queryForFile:__FILE__ line: __LINE__];
             if(!query.isInCache)
             {
@@ -117,7 +117,7 @@
         }
         @finally
         {
-            UMMUTEX_UNLOCK(_lock);
+            ummutex_unlock(_lock);
         }
     }
     return success;
@@ -130,7 +130,7 @@
     {
         @try
         {
-            UMMUTEX_LOCK(_lock);
+            ummutex_lock(_lock);
 
             UMDbQuery *query = [UMDbQuery queryForFile:__FILE__ line: __LINE__];
             if(!query.isInCache)
@@ -165,7 +165,7 @@
         }
         @finally
         {
-            UMMUTEX_UNLOCK(_lock);
+            ummutex_unlock(_lock);
         }
     }
     return success;
@@ -174,15 +174,15 @@
 - (void)increasePacketCount:(int)packetCount
                   byteCount:(int)byteCount
 {
-    UMMUTEX_LOCK(_lock);
+    ummutex_lock(_lock);
     _packetCount += packetCount;
     _bytesCount += byteCount;
-    UMMUTEX_UNLOCK(_lock);
+    ummutex_unlock(_lock);
 }
 
 - (void)flushToPool:(UMDbPool *)pool table:(UMDbTable *)table
 {
-    UMMUTEX_LOCK(_lock);
+    ummutex_lock(_lock);
     if([self updateDb:pool table:table] == NO)
     {
         if([self insertIntoDb:pool table:table])
@@ -191,7 +191,7 @@
             _bytesCount = 0;
         }
     }
-    UMMUTEX_UNLOCK(_lock);
+    ummutex_unlock(_lock);
 }
 
 @end

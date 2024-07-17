@@ -387,9 +387,7 @@
 
 - (void)housekeeping
 {
-    int result;
-    UMMUTEX_TRYLOCK1(_housekeepingLock,result);
-    if(result==0)
+    if(ummutex_trylock(_housekeepingLock)==0)
     {
         NSMutableArray *expiredSessions = [[NSMutableArray alloc]init];
         [_sessions lockDictionary];
@@ -409,7 +407,7 @@
             [self removeSession:session];
         }
         [_statisticDb flush];
-        UMMUTEX_UNLOCK(_housekeepingLock);
+        ummutex_unlock(_housekeepingLock);
     }
 }
 
@@ -467,7 +465,7 @@
 
 - (NSString *)newSessionIdentifier
 {
-    UMMUTEX_LOCK(_sid_lock);
+    ummutex_lock(_sid_lock);
     if(_sid_int1 == 0)
     {
         _sid_int1 = (uint32_t)time(NULL);
@@ -483,7 +481,7 @@
         _sid_int2++;
     }
     NSString *sid = [NSString stringWithFormat:@"%@;%u;%u", _localHostName,_sid_int1,_sid_int2];
-    UMMUTEX_UNLOCK(_sid_lock);
+    ummutex_unlock(_sid_lock);
     return sid;
 }
 
@@ -752,9 +750,9 @@
 - (uint32_t)nextEndToEndIdentifier;
 {
     uint32_t r;
-    UMMUTEX_LOCK(_endToEndIdentifierLock);
+    ummutex_lock(_endToEndIdentifierLock);
     r = ++_lastEndToEndIdentifier;
-    UMMUTEX_UNLOCK(_endToEndIdentifierLock);
+    ummutex_unlock(_endToEndIdentifierLock);
     return r;
 }
 
@@ -1027,7 +1025,7 @@
                     localAddress:(NSString *)address
                       socketType:(UMSocketType )socketType
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     NSString *key = [NSString stringWithFormat:@"%@/%@/%d",[UMSocket socketTypeDescription:socketType],address,port];
     UMSocket *sock = _listeners[key];
     if(sock==NULL)
@@ -1060,7 +1058,7 @@
             }
         }
     }
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
     return sock;
 }
 #endif
@@ -1068,53 +1066,53 @@
 
 - (NSArray *)getListeners
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     NSArray *a = [_listeners copy];
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
     return a;
 }
 
 - (NSArray *)getReceivignSockets
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     NSArray *a = [_establishedSockets copy];
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
     return a;
 }
 
 - (void)startReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     socket.customUser = peer;
     [_establishedSockets addObject:socket];
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
 }
 
 - (void)stopReceivingOnSocket:(UMSocket *)socket forPeer:(UMDiameterPeer *)peer
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     [_establishedSockets removeObject:socket];
     socket.customUser = NULL;
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
 }
 
 
 - (NSArray *)getReceivers
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     NSArray *a = [_establishedSockets copy];
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
     return a;
 }
 
 - (void)stopListening
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     for(UMSocket *socket in _listeners)
     {
         [socket close];
     }
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
     _listenersStarted = NO;
 }
 
@@ -1124,7 +1122,7 @@
     {
         return;
     }
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     for(UMSocket *socket in _listeners)
     {
         UMSocketError sErr = UMSocketError_no_error;
@@ -1163,13 +1161,13 @@
     }
     [_receiver startBackgroundTask];
     _listenersStarted = YES;
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
 }
 
 
 - (void)updateListeners
 {
-    UMMUTEX_LOCK(_listenerLock);
+    ummutex_lock(_listenerLock);
     [self stopListening];
     NSMutableDictionary *listenerKeys = [[NSMutableDictionary alloc]init];
     _listeners = [[NSMutableArray alloc]init];
@@ -1220,7 +1218,7 @@
         }
     }
     [self startListening];
-    UMMUTEX_UNLOCK(_listenerLock);
+    ummutex_unlock(_listenerLock);
 }
 
 - (UMSocketError)handlePollResult:(int)revent
@@ -1461,14 +1459,14 @@
     {
         host = _localHostName;
     }
-    UMMUTEX_LOCK(_sequenceNumberLock);
+    ummutex_lock(_sequenceNumberLock);
     seq = _nextSeqNumber;
     _nextSeqNumber++;
     if(_nextSeqNumber >= 0xFFFFFF00)
     {
         _nextSeqNumber = 1;
     }
-    UMMUTEX_UNLOCK(_sequenceNumberLock);
+    ummutex_unlock(_sequenceNumberLock);
     NSString *s = [NSString stringWithFormat:@"%@;%@;%@",host,@(_startupTime),@(seq)];
     return s;
 }

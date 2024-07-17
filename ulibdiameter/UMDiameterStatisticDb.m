@@ -142,7 +142,7 @@ static dbFieldDef UMDiameterStatisticDb_fields[] =
                                                           dstHost:dstHost dstRealm:dstRealm
                                                       commandCode:commandCode
                                                          instance:_instance];
-        UMMUTEX_LOCK(_lock);
+        ummutex_lock(_lock);
         UMDiameterStatisticDbRecord *rec = _entries[key];
         if(rec == NULL)
         {
@@ -158,7 +158,7 @@ static dbFieldDef UMDiameterStatisticDb_fields[] =
             rec.instance = _instance;
             _entries[key] = rec;
         }
-        UMMUTEX_UNLOCK(_lock);
+        ummutex_unlock(_lock);
         [rec increasePacketCount:1 byteCount:byteCount];
     }
 }
@@ -167,10 +167,10 @@ static dbFieldDef UMDiameterStatisticDb_fields[] =
 {
     @autoreleasepool
     {
-        UMMUTEX_LOCK(_lock);
+        ummutex_lock(_lock);
         UMSynchronizedDictionary *tmp = _entries;
         _entries = [[UMSynchronizedDictionary alloc]init];
-        UMMUTEX_UNLOCK(_lock);
+        ummutex_unlock(_lock);
 
         NSArray *keys = [tmp allKeys];
         for(NSString *key in keys)
