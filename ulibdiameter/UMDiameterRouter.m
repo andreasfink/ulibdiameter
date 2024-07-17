@@ -388,7 +388,7 @@
 - (void)housekeeping
 {
     int result;
-    UMMUTEX_TRYLOCK(_housekeepingLock,1,1,result);
+    UMMUTEX_TRYLOCK1(_housekeepingLock,result);
     if(result==0)
     {
         NSMutableArray *expiredSessions = [[NSMutableArray alloc]init];
