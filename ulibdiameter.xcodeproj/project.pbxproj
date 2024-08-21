@@ -1921,6 +1921,8 @@
 		A6C9F36422CBA20A00778583 /* UMDiameterAvpAccounting_Record_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMDiameterAvpAccounting_Record_Type.h; path = ulibdiameter/AVP/base/UMDiameterAvpAccounting_Record_Type.h; sourceTree = SOURCE_ROOT; };
 		A6C9F36722CBA2B200778583 /* UMDiameterAvpAccounting_Realtime_Required.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpAccounting_Realtime_Required.m; sourceTree = "<group>"; };
 		A6C9F36822CBA2B200778583 /* UMDiameterAvpAccounting_Realtime_Required.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpAccounting_Realtime_Required.h; sourceTree = "<group>"; };
+		A6D789D92C7627B100387176 /* decode-diameter-pdu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "decode-diameter-pdu.entitlements"; sourceTree = "<group>"; };
+		A6D789DA2C7627B700387176 /* diameter-avp-gen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "diameter-avp-gen.entitlements"; sourceTree = "<group>"; };
 		A6D8F0F022CBF23F00CB9399 /* UMDiameterAvpFramed_IP_Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpFramed_IP_Address.m; sourceTree = "<group>"; };
 		A6D8F0F122CBF23F00CB9399 /* UMDiameterAvpFramed_IP_Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpFramed_IP_Address.h; sourceTree = "<group>"; };
 		A6D8F0FC22CBF45700CB9399 /* UMDiameterAvpFramed_IPv6_Prefix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpFramed_IPv6_Prefix.m; sourceTree = "<group>"; };
@@ -3057,6 +3059,7 @@
 		A61E1B0122C8F93E00025026 /* diameter-avp-gen */ = {
 			isa = PBXGroup;
 			children = (
+				A6D789DA2C7627B700387176 /* diameter-avp-gen.entitlements */,
 				A628E76F22C9DBCD00D5BD91 /* avp-group-defs */,
 				A61E1B1022C9518C00025026 /* output */,
 				A61E1B0F22C94A4000025026 /* test.sh */,
@@ -3996,6 +3999,7 @@
 		A6260C57228C004F00C94036 /* decode-diameter-pdu */ = {
 			isa = PBXGroup;
 			children = (
+				A6D789D92C7627B100387176 /* decode-diameter-pdu.entitlements */,
 				A6260C58228C004F00C94036 /* main.m */,
 			);
 			path = "decode-diameter-pdu";
@@ -5626,7 +5630,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = "Andreas Fink";
 				TargetAttributes = {
 					A61E1AFF22C8F93E00025026 = {
@@ -6449,11 +6453,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "diameter-avp-gen/diameter-avp-gen.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 38L827M334;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
@@ -6476,11 +6481,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "diameter-avp-gen/diameter-avp-gen.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 38L827M334;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
@@ -6502,11 +6508,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "decode-diameter-pdu/decode-diameter-pdu.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 38L827M334;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
@@ -6529,11 +6536,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "decode-diameter-pdu/decode-diameter-pdu.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 38L827M334;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
@@ -6684,6 +6692,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -6725,6 +6734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -6824,7 +6834,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 38L827M334;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/Application\\\\ Support/FinkTelecomServices/frameworks\"",
@@ -6852,7 +6862,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 38L827M334;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/Application\\\\ Support/FinkTelecomServices/frameworks\"",
