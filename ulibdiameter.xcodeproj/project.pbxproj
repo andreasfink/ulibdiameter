@@ -6619,7 +6619,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "\"/Library/Application Support/FinkTelecomServices/frameworks\"";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				SDKROOT = macosx15.4;
+				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WARNING_CFLAGS = "-Wimplicit-fallthrough";
@@ -6681,7 +6681,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "\"/Library/Application Support/FinkTelecomServices/frameworks\"";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = macosx15.4;
+				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WARNING_CFLAGS = "-Wimplicit-fallthrough";
