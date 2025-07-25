@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <ulib/ulib.h>
 
 typedef enum UMDiameterTcpConnectionAuthorisationResult
 {
