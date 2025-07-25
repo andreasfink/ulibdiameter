@@ -7,7 +7,7 @@
 //
 
 /* see also https://www.iana.org/assignments/aaa-parameters/aaa-parameters.xml */
-#import <Foundation/Foundation.h>
+#import <ulib/ulib.h>
 
 NSString *umdiameter_application_id_string(uint32_t ai);
 
