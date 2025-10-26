@@ -1,7 +1,7 @@
 ##
 # File: Makefile
 # Project "ulibdiameter"
-# (c) 2002 -2018 Andreas Fink
+# (c) 2002 -2025 Andreas Fink
 # Create: Andreas Fink (andreas@fink.org)
 #
 #
@@ -10,23 +10,27 @@ PROJECT_NAME=@PROJECT_NAME@
 VERSION=`cat VERSION`
 PROJECT_ID=me.fink.@PROJECT_NAME@
 
-
 CC=@CC@
 
 all:
 	./codesign_environment.sh
-	xcodebuild ${XCODESIGN}
+	xcodebuild ${XCODESIGN} -target ulibdiameter
+	xcodebuild ${XCODESIGN} -target diameter-cmd-gen
+	xcodebuild ${XCODESIGN} -target diameter-avp-gen
 	
 unlock:
 	security unlock-keychain ~/Library/Keychains/login.keychain
 
 clean:
 	./codesign_environment.sh
-	xcodebuild ${XCODESIGN} clean
-
+	xcodebuild ${XCODESIGN} clean -target ulibdiameter
+	xcodebuild ${XCODESIGN} clean -target diameter-cmd-gen
+	xcodebuild ${XCODESIGN} clean -target diameter-avp-gen
 install:
 	./codesign_environment.sh
-	xcodebuild ${XCODESIGN} install
+	xcodebuild ${XCODESIGN} install -target ulibdiameter
+	xcodebuild ${XCODESIGN} install -target diameter-cmd-gen
+	xcodebuild ${XCODESIGN} install -target diameter-avp-gen
 
 install_for_pkg: 
 	xcodebuild DSTROOT="install_root" install
@@ -34,7 +38,9 @@ install_for_pkg:
 install_root_prepare:
 	-rm -rf install_root
 	mkdir -p install_root
-	xcodebuild DSTROOT="install_root" install
+	xcodebuild DSTROOT="install_root" install -target ulibdiameter
+	xcodebuild DSTROOT="install_root" install -target diameter-cmd-gen
+	xcodebuild DSTROOT="install_root" install -target diameter-avp-gen
 
 
 pkg:	install_root_prepare
