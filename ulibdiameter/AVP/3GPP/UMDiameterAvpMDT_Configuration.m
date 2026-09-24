@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpMDT_Configuration.h>
 #import <ulibdiameter/UMDiameterAvpJob_Type.h>
 #import <ulibdiameter/UMDiameterAvpArea_Scope.h>
@@ -28,7 +28,7 @@
 #import <ulibdiameter/UMDiameterAvpEvent_Threshold_Event_1I.h>
 #import <ulibdiameter/UMDiameterAvpMDT_Allowed_PLMN_Id.h>
 #import <ulibdiameter/UMDiameterAvpMBSFN_Area.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMDT_Configuration
 

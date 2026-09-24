@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpPreferred_Data_Mode.h>
 
 @implementation UMDiameterAvpPreferred_Data_Mode

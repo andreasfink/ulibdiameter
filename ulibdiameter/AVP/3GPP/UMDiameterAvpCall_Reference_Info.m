@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpCall_Reference_Info.h>
 #import <ulibdiameter/UMDiameterAvpCall_Reference_Number.h>
 #import <ulibdiameter/UMDiameterAvpAS_Number.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpCall_Reference_Info
 

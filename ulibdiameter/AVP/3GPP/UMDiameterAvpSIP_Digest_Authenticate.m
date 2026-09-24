@@ -6,13 +6,13 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSIP_Digest_Authenticate.h>
 #import <ulibdiameter/UMDiameterAvpDigest_Realm.h>
 #import <ulibdiameter/UMDiameterAvpDigest_Algorithm.h>
 #import <ulibdiameter/UMDiameterAvpDigest_QoP.h>
 #import <ulibdiameter/UMDiameterAvpDigest_HA1.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSIP_Digest_Authenticate
 

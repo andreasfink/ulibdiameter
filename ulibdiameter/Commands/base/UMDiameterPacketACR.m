@@ -7,17 +7,17 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketACR.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/Commands/base/UMDiameterPacketACR.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Realm.h>
 #import <ulibdiameter/UMDiameterAvpAccounting_Record_Type.h>
 #import <ulibdiameter/UMDiameterAvpAccounting_Record_Number.h>
 #import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
 #import <ulibdiameter/UMDiameterAvpUser_Name.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Host.h>
 #import <ulibdiameter/UMDiameterAvpAccounting_Sub_Session_Id.h>
 #import <ulibdiameter/UMDiameterAvpAcct_Session_Id.h>
 #import <ulibdiameter/UMDiameterAvpAcct_Multi_Session_Id.h>
@@ -27,7 +27,7 @@
 #import <ulibdiameter/UMDiameterAvpEvent_Timestamp.h>
 #import <ulibdiameter/UMDiameterAvpProxy_Info.h>
 #import <ulibdiameter/UMDiameterAvpRoute_Record.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketACR
 

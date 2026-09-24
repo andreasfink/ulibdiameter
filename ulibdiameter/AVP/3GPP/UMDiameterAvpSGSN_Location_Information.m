@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSGSN_Location_Information.h>
 #import <ulibdiameter/UMDiameterAvpCell_Global_Identity.h>
 #import <ulibdiameter/UMDiameterAvpLocation_Area_Identity.h>
@@ -17,7 +17,7 @@
 #import <ulibdiameter/UMDiameterAvpCurrent_Location_Retrieved.h>
 #import <ulibdiameter/UMDiameterAvpAge_Of_Location_Information.h>
 #import <ulibdiameter/UMDiameterAvpUser_CSG_Information.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSGSN_Location_Information
 

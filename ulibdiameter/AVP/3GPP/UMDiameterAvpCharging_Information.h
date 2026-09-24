@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import <ulibdiameter/AVP/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpPrimary_Event_Charging_Function_Name;
 @class UMDiameterAvpSecondary_Event_Charging_Function_Name;

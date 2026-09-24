@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpLCS_PrivacyException.h>
 #import <ulibdiameter/UMDiameterAvpSS_Code.h>
 #import <ulibdiameter/UMDiameterAvpSS_Status.h>
@@ -14,7 +14,7 @@
 #import <ulibdiameter/UMDiameterAvpExternal_Client.h>
 #import <ulibdiameter/UMDiameterAvpPLMN_Client.h>
 #import <ulibdiameter/UMDiameterAvpService_Type.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpLCS_PrivacyException
 

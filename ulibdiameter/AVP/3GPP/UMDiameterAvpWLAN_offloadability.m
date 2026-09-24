@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpWLAN_offloadability.h>
 #import <ulibdiameter/UMDiameterAvpWLAN_offloadability_EUTRAN.h>
 #import <ulibdiameter/UMDiameterAvpWLAN_offloadability_UTRAN.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpWLAN_offloadability
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import <ulibdiameter/AVP/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpGroup_Service_Id;
 @class UMDiameterAvpGroup_PLMN_Id;

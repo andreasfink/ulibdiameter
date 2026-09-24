@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSCSCF_Restoration_Info.h>
 #import <ulibdiameter/UMDiameterAvpUser_Name.h>
 #import <ulibdiameter/UMDiameterAvpRestoration_Info.h>
 #import <ulibdiameter/UMDiameterAvpSIP_Authentication_Scheme.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSCSCF_Restoration_Info
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpOctetString.h>
+#import <ulibdiameter/AVP/UMDiameterAvpOctetString.h>
 
 @interface UMDiameterAvpDiameterURI : UMDiameterAvpOctetString
 

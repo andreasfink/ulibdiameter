@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpMonitoring_Event_Report.h>
 #import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
 #import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
@@ -14,7 +14,7 @@
 #import <ulibdiameter/UMDiameterAvpEPS_Location_Information.h>
 #import <ulibdiameter/UMDiameterAvpMonitoring_Type.h>
 #import <ulibdiameter/UMDiameterAvpLoss_Of_Connectivity_Reason.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMonitoring_Event_Report
 

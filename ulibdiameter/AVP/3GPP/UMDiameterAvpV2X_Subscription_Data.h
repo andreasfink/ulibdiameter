@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
+#import <ulibdiameter/AVP/UMDiameterAvpGrouped.h>
 
 @class UMDiameterAvpV2X_Permission;
 @class UMDiameterAvpUE_PC5_AMBR;

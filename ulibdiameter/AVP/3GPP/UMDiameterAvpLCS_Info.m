@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpLCS_Info.h>
 #import <ulibdiameter/UMDiameterAvpGMLC_Number.h>
 #import <ulibdiameter/UMDiameterAvpLCS_PrivacyException.h>
 #import <ulibdiameter/UMDiameterAvpMO_LR.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpLCS_Info
 

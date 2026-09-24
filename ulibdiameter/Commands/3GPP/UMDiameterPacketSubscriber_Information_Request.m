@@ -8,13 +8,13 @@
 
 
 #import <ulibdiameter/UMDiameterPacketSubscriber_Information_Request.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
 #import <ulibdiameter/UMDiameterAvpDRMP.h>
 #import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Realm.h>
 #import <ulibdiameter/UMDiameterAvpUser_Identifier.h>
 #import <ulibdiameter/UMDiameterAvpService_ID.h>
 #import <ulibdiameter/UMDiameterAvpSCS_Identity.h>
@@ -24,7 +24,7 @@
 #import <ulibdiameter/UMDiameterAvpSupported_Features.h>
 #import <ulibdiameter/UMDiameterAvpProxy_Info.h>
 #import <ulibdiameter/UMDiameterAvpRoute_Record.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketSubscriber_Information_Request
 

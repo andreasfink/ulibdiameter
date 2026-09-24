@@ -6,8 +6,8 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
 
 @implementation UMDiameterAvpOrigin_Host
 

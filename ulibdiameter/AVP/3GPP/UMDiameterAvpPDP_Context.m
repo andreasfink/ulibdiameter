@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpPDP_Context.h>
 #import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
 #import <ulibdiameter/UMDiameterAvpPDP_Type.h>
@@ -25,7 +25,7 @@
 #import <ulibdiameter/UMDiameterAvpSIPTO_Local_Network_Permission.h>
 #import <ulibdiameter/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
 #import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpPDP_Context
 

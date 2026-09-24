@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpMSISDN+diameter.h>
+#import <ulibdiameter/AVP/UMDiameterAvpMSISDN+diameter.h>
 
 @implementation UMDiameterAvpMSISDN(diameter)
 

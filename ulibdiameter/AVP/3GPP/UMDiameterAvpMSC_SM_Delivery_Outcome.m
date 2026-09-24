@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpMSC_SM_Delivery_Outcome.h>
 #import <ulibdiameter/UMDiameterAvpSM_Delivery_Cause.h>
 #import <ulibdiameter/UMDiameterAvpAbsent_User_Diagnostic_SM.h>

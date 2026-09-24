@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpUser_Identity.h>
 #import <ulibdiameter/UMDiameterAvpPublic_Identity.h>
-#import <ulibdiameter/UMDiameterAvpMSISDN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>
 #import <ulibdiameter/UMDiameterAvpExternal_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpUser_Identity
 
