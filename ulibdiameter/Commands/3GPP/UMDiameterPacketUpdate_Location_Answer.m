@@ -8,15 +8,15 @@
 
 
 #import <ulibdiameter/UMDiameterPacketUpdate_Location_Answer.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
 #import <ulibdiameter/UMDiameterAvpDRMP.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpResult_Code.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpResult_Code.h>
 #import <ulibdiameter/UMDiameterAvpExperimental_Result.h>
 #import <ulibdiameter/UMDiameterAvpError_Diagnostic.h>
 #import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
 #import <ulibdiameter/UMDiameterAvpOC_Supported_Features.h>
 #import <ulibdiameter/UMDiameterAvpOC_OLR.h>
 #import <ulibdiameter/UMDiameterAvpLoad.h>
@@ -24,7 +24,7 @@
 #import <ulibdiameter/UMDiameterAvpULA_Flags.h>
 #import <ulibdiameter/UMDiameterAvpSubscription_Data.h>
 #import <ulibdiameter/UMDiameterAvpReset_ID.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 #import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
 #import <ulibdiameter/UMDiameterAvpProxy_Info.h>
 #import <ulibdiameter/UMDiameterAvpRoute_Record.h>

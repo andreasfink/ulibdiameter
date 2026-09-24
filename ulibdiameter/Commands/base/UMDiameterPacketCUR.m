@@ -7,9 +7,9 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketCUR.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/Commands/base/UMDiameterPacketCUR.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
 #import <ulibdiameter/UMDiameterAvpHost_IP_Address.h>
 #import <ulibdiameter/UMDiameterAvpVendor_Id.h>
 #import <ulibdiameter/UMDiameterAvpProduct_Name.h>
@@ -17,9 +17,9 @@
 #import <ulibdiameter/UMDiameterAvpSupported_Vendor_Id.h>
 #import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
 #import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
 #import <ulibdiameter/UMDiameterAvpFirmware_Revision.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketCUR
 

@@ -6,12 +6,12 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSMSMI_Correlation_ID.h>
 #import <ulibdiameter/UMDiameterAvpHSS_ID.h>
 #import <ulibdiameter/UMDiameterAvpOriginating_SIP_URI.h>
 #import <ulibdiameter/UMDiameterAvpDestination_SIP_URI.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSMSMI_Correlation_ID
 

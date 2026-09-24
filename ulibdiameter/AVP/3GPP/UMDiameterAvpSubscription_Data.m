@@ -6,10 +6,10 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSubscription_Data.h>
 #import <ulibdiameter/UMDiameterAvpSubscriber_Status.h>
-#import <ulibdiameter/UMDiameterAvpMSISDN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>
 #import <ulibdiameter/UMDiameterAvpA_MSISDN.h>
 #import <ulibdiameter/UMDiameterAvpSTN_SR.h>
 #import <ulibdiameter/UMDiameterAvpICS_Indicator.h>
@@ -49,7 +49,7 @@
 #import <ulibdiameter/UMDiameterAvpeDRX_Cycle_Length.h>
 #import <ulibdiameter/UMDiameterAvpExternal_Identifier.h>
 #import <ulibdiameter/UMDiameterAvpActive_Time.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSubscription_Data
 

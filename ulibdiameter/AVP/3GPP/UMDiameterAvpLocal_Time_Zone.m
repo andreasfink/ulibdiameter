@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpLocal_Time_Zone.h>
 #import <ulibdiameter/UMDiameterAvpTime_Zone.h>
 #import <ulibdiameter/UMDiameterAvpDaylight_Saving_Time.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpLocal_Time_Zone
 

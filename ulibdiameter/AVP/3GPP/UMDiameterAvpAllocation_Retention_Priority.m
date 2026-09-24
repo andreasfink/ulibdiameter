@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpAllocation_Retention_Priority.h>
 #import <ulibdiameter/UMDiameterAvpPriority_Level.h>
 #import <ulibdiameter/UMDiameterAvpPre_emption_Capability.h>

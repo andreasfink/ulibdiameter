@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSubscription_Data_Deletion.h>
 #import <ulibdiameter/UMDiameterAvpDSR_Flags.h>
 #import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
@@ -14,7 +14,7 @@
 #import <ulibdiameter/UMDiameterAvpTrace_Reference.h>
 #import <ulibdiameter/UMDiameterAvpTS_Code.h>
 #import <ulibdiameter/UMDiameterAvpSS_Code.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSubscription_Data_Deletion
 

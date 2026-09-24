@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSecondary_Charging_Collection_Function_Name.h>
 
 @implementation UMDiameterAvpSecondary_Charging_Collection_Function_Name

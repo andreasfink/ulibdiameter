@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpEnumerated.h>
+#import <ulibdiameter/AVP/UMDiameterAvpEnumerated.h>
 
 @implementation UMDiameterAvpEnumerated
 

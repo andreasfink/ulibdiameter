@@ -7,29 +7,26 @@
 //
 
 
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
-#import <ulibdiameter/UMDiameterAvpCodes.h>
-#import <ulibdiameter/UMDiameterAvpDiameterIdentity.h>
-#import <ulibdiameter/UMDiameterAvpDiameterURI.h>
-#import <ulibdiameter/UMDiameterAvpEnumerated.h>
-#import <ulibdiameter/UMDiameterAvpFlags.h>
-#import <ulibdiameter/UMDiameterAvpFloat32.h>
-#import <ulibdiameter/UMDiameterAvpFloat64.h>
-#import <ulibdiameter/UMDiameterAvpGrouped.h>
-#import <ulibdiameter/UMDiameterAvpInteger32.h>
-#import <ulibdiameter/UMDiameterAvpInteger64.h>
-#import <ulibdiameter/UMDiameterAvpOctetString.h>
-#import <ulibdiameter/UMDiameterAvpTime.h>
-#import <ulibdiameter/UMDiameterAvpUnsigned32.h>
-#import <ulibdiameter/UMDiameterAvpUTF8String.h>
-#import <ulibdiameter/UMDiameterAvpAddress+diameter.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpCodes.h>
+#import <ulibdiameter/AVP/UMDiameterAvpDiameterIdentity.h>
+#import <ulibdiameter/AVP/UMDiameterAvpDiameterURI.h>
+#import <ulibdiameter/AVP/UMDiameterAvpEnumerated.h>
+#import <ulibdiameter/AVP/UMDiameterAvpFlags.h>
+#import <ulibdiameter/AVP/UMDiameterAvpFloat32.h>
+#import <ulibdiameter/AVP/UMDiameterAvpFloat64.h>
+#import <ulibdiameter/AVP/UMDiameterAvpGrouped.h>
+#import <ulibdiameter/AVP/UMDiameterAvpInteger32.h>
+#import <ulibdiameter/AVP/UMDiameterAvpInteger64.h>
+#import <ulibdiameter/AVP/UMDiameterAvpOctetString.h>
+#import <ulibdiameter/AVP/UMDiameterAvpTime.h>
+#import <ulibdiameter/AVP/UMDiameterAvpUnsigned32.h>
+#import <ulibdiameter/AVP/UMDiameterAvpUTF8String.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAddress+diameter.h>
 
-
-/* from AVP subdirectories  */
-#import <ulibdiameter/UMDiameterAvp_base_includes.h>
-#import <ulibdiameter/UMDiameterAvp_3GPP_includes.h>
-#import <ulibdiameter/UMDiameterAvp_rfc7683_includes.h>
-#import <ulibdiameter/UMDiameterAvp_draft_ietf_dime_load_includes.h>
-#import <ulibdiameter/UMDiameterAvp_fts_includes.h>
-
+#import <ulibdiameter/AVP/base/UMDiameterAvp_base_includes.h>
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvp_rfc7683_includes.h>
+#import <ulibdiameter/AVP/draft-ietf-dime-load/UMDiameterAvp_draft_ietf_dime_load_includes.h>
+#import <ulibdiameter/AVP/fts/UMDiameterAvp_fts_includes.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp_3GPP_includes.h>

@@ -2318,7 +2318,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 COPYRIGHT="Copyright 2026 Andreas Fink"
 PROJECT_NAME="ulibdiameter"
 AUTHOR="Andreas Fink <andreas@fink.org>"
-CONFIG_DEFINE="ULIBDIAMETERCONFIG"
+CONFIG_DEFINE="ULIBDIAMETER_CONFIG"
 
 ./make_version
 VERSION=`head -n 1 VERSION`

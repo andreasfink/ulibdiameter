@@ -13,14 +13,14 @@
 #import <ulibdiameter/UMDiameterApplicationId.h>
 #import <ulibdiameter/UMDiameterVendorId.h>
 #import <ulibdiameter/UMDiameterRoute.h>
-#import <ulibdiameter/UMDiameterPacketsAll.h>
+#import <ulibdiameter/Commands/UMDiameterPacketsAll.h>
 #import <ulibdiameter/UMDiameterRouterReceiver.h>
 #import <ulibdiameter/UMDiameterStatisticDb.h>
-#import <ulibdiameter/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Realm.h>
 #include <time.h>
 #include <poll.h>
 

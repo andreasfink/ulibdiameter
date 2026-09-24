@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature.h>
 
 @implementation UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature

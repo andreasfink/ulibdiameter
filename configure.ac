@@ -28,7 +28,7 @@ dnl -----------------------------------------
 COPYRIGHT="Copyright 2026 Andreas Fink"
 PROJECT_NAME="ulibdiameter"
 AUTHOR="Andreas Fink <andreas@fink.org>"
-CONFIG_DEFINE="ULIBDIAMETERCONFIG"
+CONFIG_DEFINE="ULIBDIAMETER_CONFIG"
 
 dnl -----------------------------------------
 dnl Check version number

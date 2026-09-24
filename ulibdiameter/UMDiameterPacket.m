@@ -7,16 +7,16 @@
 //
 
 #import <ulibdiameter/UMDiameterPacket.h>
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterCommandFlags.h>
 #import <ulibdiameter/UMDiameterApplicationId.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
 
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
-#import <ulibdiameter/UMDiameterPacketsAll.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/Commands/UMDiameterPacketsAll.h>
 
 @implementation UMDiameterPacket
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
 
 @implementation UMDiameterAvpNon_IP_Data_Delivery_Mechanism

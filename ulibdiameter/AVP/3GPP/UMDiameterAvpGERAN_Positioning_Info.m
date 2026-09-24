@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpGERAN_Positioning_Info.h>
 #import <ulibdiameter/UMDiameterAvpGERAN_Positioning_Data.h>
 #import <ulibdiameter/UMDiameterAvpGERAN_GANSS_Positioning_Data.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpGERAN_Positioning_Info
 

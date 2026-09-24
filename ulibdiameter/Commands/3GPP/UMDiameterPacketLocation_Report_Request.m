@@ -8,17 +8,17 @@
 
 
 #import <ulibdiameter/UMDiameterPacketLocation_Report_Request.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
 #import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Realm.h>
 #import <ulibdiameter/UMDiameterAvpLocation_Event.h>
 #import <ulibdiameter/UMDiameterAvpLCS_EPS_Client_Name.h>
 #import <ulibdiameter/UMDiameterAvpUser_Name.h>
-#import <ulibdiameter/UMDiameterAvpMSISDN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>
 #import <ulibdiameter/UMDiameterAvpIMEI.h>
 #import <ulibdiameter/UMDiameterAvpLocation_Estimate.h>
 #import <ulibdiameter/UMDiameterAvpAccuracy_Fulfilment_Indicator.h>
@@ -46,7 +46,7 @@
 #import <ulibdiameter/UMDiameterAvpCivic_Address.h>
 #import <ulibdiameter/UMDiameterAvpBarometric_Pressure.h>
 #import <ulibdiameter/UMDiameterAvpSupported_Features.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 #import <ulibdiameter/UMDiameterAvpProxy_Info.h>
 #import <ulibdiameter/UMDiameterAvpRoute_Record.h>
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpServing_Node.h>
 #import <ulibdiameter/UMDiameterAvpSGSN_Number.h>
 #import <ulibdiameter/UMDiameterAvpSGSN_Name.h>
@@ -17,7 +17,7 @@
 #import <ulibdiameter/UMDiameterAvp3GPP_AAA_Server_Name.h>
 #import <ulibdiameter/UMDiameterAvpLCS_Capabilities_Sets.h>
 #import <ulibdiameter/UMDiameterAvpGMLC_Address.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpServing_Node
 

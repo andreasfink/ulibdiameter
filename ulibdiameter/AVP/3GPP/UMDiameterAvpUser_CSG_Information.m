@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpUser_CSG_Information.h>
 #import <ulibdiameter/UMDiameterAvpCSG_ID.h>
 #import <ulibdiameter/UMDiameterAvpCSG_Access_Mode.h>

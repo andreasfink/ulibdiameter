@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpDeferred_MT_LR_Data.h>
 #import <ulibdiameter/UMDiameterAvpDeferred_Location_Type.h>
 #import <ulibdiameter/UMDiameterAvpTermination_Cause.h>

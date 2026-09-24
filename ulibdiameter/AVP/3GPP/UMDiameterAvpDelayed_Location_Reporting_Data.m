@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpDelayed_Location_Reporting_Data.h>
 #import <ulibdiameter/UMDiameterAvpTermination_Cause.h>
 #import <ulibdiameter/UMDiameterAvpServing_Node.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpDelayed_Location_Reporting_Data
 

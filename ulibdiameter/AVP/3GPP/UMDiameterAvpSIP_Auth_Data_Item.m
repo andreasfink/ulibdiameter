@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpSIP_Auth_Data_Item.h>
 #import <ulibdiameter/UMDiameterAvpSIP_Item_Number.h>
 #import <ulibdiameter/UMDiameterAvpSIP_Authentication_Scheme.h>
@@ -18,7 +18,7 @@
 #import <ulibdiameter/UMDiameterAvpFramed_IPv6_Prefix.h>
 #import <ulibdiameter/UMDiameterAvpFramed_Interface_Id.h>
 #import <ulibdiameter/UMDiameterAvpLine_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSIP_Auth_Data_Item
 

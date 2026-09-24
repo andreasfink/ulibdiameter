@@ -8,23 +8,23 @@
 
 
 #import <ulibdiameter/UMDiameterPacketLCS_Routing_Info_Answer.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpResult_Code.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpResult_Code.h>
 #import <ulibdiameter/UMDiameterAvpExperimental_Result.h>
 #import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
 #import <ulibdiameter/UMDiameterAvpSupported_Features.h>
 #import <ulibdiameter/UMDiameterAvpUser_Name.h>
-#import <ulibdiameter/UMDiameterAvpMSISDN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>
 #import <ulibdiameter/UMDiameterAvpLMSI.h>
 #import <ulibdiameter/UMDiameterAvpServing_Node.h>
 #import <ulibdiameter/UMDiameterAvpAdditional_Serving_Node.h>
 #import <ulibdiameter/UMDiameterAvpGMLC_Address.h>
 #import <ulibdiameter/UMDiameterAvpPPR_Address.h>
 #import <ulibdiameter/UMDiameterAvpRIA_Flags.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 #import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
 #import <ulibdiameter/UMDiameterAvpProxy_Info.h>
 #import <ulibdiameter/UMDiameterAvpRoute_Record.h>

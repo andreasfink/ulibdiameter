@@ -7,20 +7,20 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketCER.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/UMDiameterAvpHost_IP_Address.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
-#import <ulibdiameter/UMDiameterAvpProduct_Name.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
-#import <ulibdiameter/UMDiameterAvpSupported_Vendor_Id.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpInband_Security_Id.h>
-#import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpFirmware_Revision.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/Commands/base/UMDiameterPacketCER.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpHost_IP_Address.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpProduct_Name.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_State_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSupported_Vendor_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpInband_Security_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAcct_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFirmware_Revision.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketCER
 

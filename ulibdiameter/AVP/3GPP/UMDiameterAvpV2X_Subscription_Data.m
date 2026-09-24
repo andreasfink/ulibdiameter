@@ -6,11 +6,11 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterAvpV2X_Subscription_Data.h>
 #import <ulibdiameter/UMDiameterAvpV2X_Permission.h>
 #import <ulibdiameter/UMDiameterAvpUE_PC5_AMBR.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpV2X_Subscription_Data
 

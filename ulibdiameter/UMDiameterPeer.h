@@ -7,8 +7,8 @@
 //
 
 #import <ulib/ulib.h>
-#import <ulibsctp/ulibsctp.h>
 #import <ulibpcap/ulibpcap.h>
+#import <ulibpcap/UMPCAPFile.h>
 
 #define DIAMETER_SCTP_PPID_CLEAR 46
 #define DIAMETER_SCTP_PPID_DTLS  47
@@ -124,7 +124,6 @@
 @property(readwrite,strong,atomic)  UMSocket                *responder_socket; /* responder */
 @property(readwrite,assign,atomic)  int                     initiatorPort;
 @property(readwrite,assign,atomic)  int                     responderPort;
-@property(readwrite,strong,atomic)  UMDiameterTcpConnection	*tcpConnection;
 @property(readwrite,strong,atomic)  UMDiameterRouter        *router;
 @property(readwrite,strong,atomic)  UMDiameterPeerState     *peerState;
 @property(readwrite,assign,atomic)  BOOL                    isConnected;

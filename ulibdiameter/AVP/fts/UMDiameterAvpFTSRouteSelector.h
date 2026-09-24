@@ -6,8 +6,7 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdiameter/UMDiameterAvpUnsigned32.h>
-
+#import <ulibdiameter/AVP/UMDiameterAvpUnsigned32.h>
 @interface UMDiameterAvpFTSRouteSelector : UMDiameterAvpUnsigned32
 {
 }

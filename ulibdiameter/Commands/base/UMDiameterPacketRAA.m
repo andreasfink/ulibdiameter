@@ -7,21 +7,21 @@
 //
 
 
-#import <ulibdiameter/UMDiameterPacketRAA.h>
-#import <ulibdiameter/UMDiameterAvpSession_Id.h>
-#import <ulibdiameter/UMDiameterAvpResult_Code.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/Commands/UMDiameterPacketRAA.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpResult_Code.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
 #import <ulibdiameter/UMDiameterAvpUser_Name.h>
 #import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
-#import <ulibdiameter/UMDiameterAvpError_Message.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpError_Message.h>
 #import <ulibdiameter/UMDiameterAvpError_Reporting_Host.h>
 #import <ulibdiameter/UMDiameterAvpFailed_AVP.h>
 #import <ulibdiameter/UMDiameterAvpRedirect_Host.h>
 #import <ulibdiameter/UMDiameterAvpRedirect_Host_Usage.h>
 #import <ulibdiameter/UMDiameterAvpRedirect_Max_Cache_Time.h>
 #import <ulibdiameter/UMDiameterAvpProxy_Info.h>
-#import <ulibdiameter/UMDiameterAvpAVP.h>
+#import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterPacketRAA
 
