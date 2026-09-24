@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCell_Portion_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCell_Portion_ID.h>
 
 @implementation UMDiameterAvpCell_Portion_ID
 

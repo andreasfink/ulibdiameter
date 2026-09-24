@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpResponse_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpResponse_Time.h>
 
 @implementation UMDiameterAvpResponse_Time
 

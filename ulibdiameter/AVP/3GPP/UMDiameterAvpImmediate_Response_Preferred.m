@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpImmediate_Response_Preferred.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpImmediate_Response_Preferred.h>
 
 @implementation UMDiameterAvpImmediate_Response_Preferred
 

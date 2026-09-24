@@ -7,17 +7,17 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Auth_Data_Item.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Item_Number.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authentication_Scheme.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authorization.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authentication_Context.h>
-#import <ulibdiameter/UMDiameterAvpIntegrity_Key.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Digest_Authenticate.h>
-#import <ulibdiameter/UMDiameterAvpFramed_IP_Address.h>
-#import <ulibdiameter/UMDiameterAvpFramed_IPv6_Prefix.h>
-#import <ulibdiameter/UMDiameterAvpFramed_Interface_Id.h>
-#import <ulibdiameter/UMDiameterAvpLine_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Auth_Data_Item.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Item_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Authentication_Scheme.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Authorization.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Authentication_Context.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpIntegrity_Key.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Digest_Authenticate.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFramed_IP_Address.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFramed_IPv6_Prefix.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFramed_Interface_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpLine_Identifier.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSIP_Auth_Data_Item

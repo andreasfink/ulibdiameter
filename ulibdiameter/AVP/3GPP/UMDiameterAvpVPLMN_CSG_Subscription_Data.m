@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVPLMN_CSG_Subscription_Data.h>
-#import <ulibdiameter/UMDiameterAvpCSG_ID.h>
-#import <ulibdiameter/UMDiameterAvpExpiration_Date.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVPLMN_CSG_Subscription_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCSG_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExpiration_Date.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpVPLMN_CSG_Subscription_Data

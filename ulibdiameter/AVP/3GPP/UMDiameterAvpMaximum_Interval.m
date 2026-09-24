@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_Interval.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMaximum_Interval.h>
 
 @implementation UMDiameterAvpMaximum_Interval
 

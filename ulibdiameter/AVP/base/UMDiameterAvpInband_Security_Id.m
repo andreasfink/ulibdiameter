@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpInband_Security_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpInband_Security_Id.h>
 
 @implementation UMDiameterAvpInband_Security_Id
 

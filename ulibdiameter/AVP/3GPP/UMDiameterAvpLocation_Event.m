@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLocation_Event.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLocation_Event.h>
 
 @implementation UMDiameterAvpLocation_Event
 

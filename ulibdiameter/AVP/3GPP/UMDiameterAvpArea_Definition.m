@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpArea_Definition.h>
-#import <ulibdiameter/UMDiameterAvpArea.h>
-#import <ulibdiameter/UMDiameterAvpAdditional_Area.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpArea_Definition.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpArea.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Area.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpArea_Definition

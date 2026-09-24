@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRequested_Nodes.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRequested_Nodes.h>
 
 @implementation UMDiameterAvpRequested_Nodes
 

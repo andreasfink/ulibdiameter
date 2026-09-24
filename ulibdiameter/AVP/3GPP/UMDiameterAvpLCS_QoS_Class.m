@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_QoS_Class.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_QoS_Class.h>
 
 @implementation UMDiameterAvpLCS_QoS_Class
 

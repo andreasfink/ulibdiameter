@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Careof_Address.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_Careof_Address.h>
 
 @implementation UMDiameterAvpMIP_Careof_Address
 

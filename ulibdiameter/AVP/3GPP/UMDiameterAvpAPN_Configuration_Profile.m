@@ -7,11 +7,11 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAPN_Configuration_Profile.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAdditional_Context_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpAll_APN_Configurations_Included_Indicator.h>
-#import <ulibdiameter/UMDiameterAvpAPN_Configuration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAPN_Configuration_Profile.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Context_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAll_APN_Configurations_Included_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAPN_Configuration.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAPN_Configuration_Profile

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpWildcarded_Public_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpWildcarded_Public_Identity.h>
 
 @implementation UMDiameterAvpWildcarded_Public_Identity
 

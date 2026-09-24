@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpT4_Data.h>
-#import <ulibdiameter/UMDiameterAvpHSS_Cause.h>
-#import <ulibdiameter/UMDiameterAvpServing_Node.h>
-#import <ulibdiameter/UMDiameterAvpAdditional_Serving_Node.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpT4_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpHSS_Cause.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpServing_Node.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Serving_Node.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpT4_Data

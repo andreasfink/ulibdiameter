@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGERAN_Positioning_Info.h>
-#import <ulibdiameter/UMDiameterAvpGERAN_Positioning_Data.h>
-#import <ulibdiameter/UMDiameterAvpGERAN_GANSS_Positioning_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGERAN_Positioning_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGERAN_Positioning_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGERAN_GANSS_Positioning_Data.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpGERAN_Positioning_Info

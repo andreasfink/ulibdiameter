@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpServed_Party_IP_Address.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpServed_Party_IP_Address.h>
 
 @implementation UMDiameterAvpServed_Party_IP_Address
 

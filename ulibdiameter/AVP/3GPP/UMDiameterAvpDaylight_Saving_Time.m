@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDaylight_Saving_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDaylight_Saving_Time.h>
 
 @implementation UMDiameterAvpDaylight_Saving_Time
 

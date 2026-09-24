@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSession_Binding.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Binding.h>
 
 @implementation UMDiameterAvpSession_Binding
 

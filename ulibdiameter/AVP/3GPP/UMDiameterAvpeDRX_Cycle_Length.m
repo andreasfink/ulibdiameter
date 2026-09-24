@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpeDRX_Cycle_Length.h>
-#import <ulibdiameter/UMDiameterAvpRAT_Type.h>
-#import <ulibdiameter/UMDiameterAvpeDRX_Cycle_Length_Value.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpeDRX_Cycle_Length.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRAT_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpeDRX_Cycle_Length_Value.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpeDRX_Cycle_Length

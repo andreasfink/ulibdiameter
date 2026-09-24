@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPeriodic_Location_Support_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPeriodic_Location_Support_Indicator.h>
 
 @implementation UMDiameterAvpPeriodic_Location_Support_Indicator
 

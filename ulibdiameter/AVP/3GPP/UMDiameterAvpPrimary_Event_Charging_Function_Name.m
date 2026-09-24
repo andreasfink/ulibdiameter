@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPrimary_Event_Charging_Function_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPrimary_Event_Charging_Function_Name.h>
 
 @implementation UMDiameterAvpPrimary_Event_Charging_Function_Name
 

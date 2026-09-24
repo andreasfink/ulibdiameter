@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_Response_Time.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMaximum_Response_Time.h>
 
 @implementation UMDiameterAvpMaximum_Response_Time
 

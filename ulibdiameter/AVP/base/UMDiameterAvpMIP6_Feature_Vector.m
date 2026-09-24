@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Feature_Vector.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Feature_Vector.h>
 
 @implementation UMDiameterAvpMIP6_Feature_Vector
 

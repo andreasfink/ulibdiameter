@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUE_Reachability_Configuration.h>
-#import <ulibdiameter/UMDiameterAvpReachability_Type.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_Response_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUE_Reachability_Configuration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReachability_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMaximum_Response_Time.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpUE_Reachability_Configuration

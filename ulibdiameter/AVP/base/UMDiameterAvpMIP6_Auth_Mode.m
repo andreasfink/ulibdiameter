@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Auth_Mode.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Auth_Mode.h>
 
 @implementation UMDiameterAvpMIP6_Auth_Mode
 

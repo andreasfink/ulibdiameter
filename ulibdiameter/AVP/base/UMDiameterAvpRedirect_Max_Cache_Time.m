@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRedirect_Max_Cache_Time.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpRedirect_Max_Cache_Time.h>
 
 @implementation UMDiameterAvpRedirect_Max_Cache_Time
 

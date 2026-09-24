@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpWLAN_offloadability_EUTRAN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpWLAN_offloadability_EUTRAN.h>
 
 @implementation UMDiameterAvpWLAN_offloadability_EUTRAN
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCarrier_Frequency.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCarrier_Frequency.h>
 
 @implementation UMDiameterAvpCarrier_Frequency
 

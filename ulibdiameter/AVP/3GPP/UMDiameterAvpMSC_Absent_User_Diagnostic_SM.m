@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMSC_Absent_User_Diagnostic_SM.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSC_Absent_User_Diagnostic_SM.h>
 
 @implementation UMDiameterAvpMSC_Absent_User_Diagnostic_SM
 

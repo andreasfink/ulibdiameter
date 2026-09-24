@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLine_Identifier.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpLine_Identifier.h>
 
 @implementation UMDiameterAvpLine_Identifier
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUE_PC5_AMBR.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUE_PC5_AMBR.h>
 
 @implementation UMDiameterAvpUE_PC5_AMBR
 

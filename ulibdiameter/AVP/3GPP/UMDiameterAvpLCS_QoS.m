@@ -7,12 +7,12 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_QoS.h>
-#import <ulibdiameter/UMDiameterAvpLCS_QoS_Class.h>
-#import <ulibdiameter/UMDiameterAvpHorizontal_Accuracy.h>
-#import <ulibdiameter/UMDiameterAvpVertical_Accuracy.h>
-#import <ulibdiameter/UMDiameterAvpVertical_Requested.h>
-#import <ulibdiameter/UMDiameterAvpResponse_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_QoS.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_QoS_Class.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpHorizontal_Accuracy.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVertical_Accuracy.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVertical_Requested.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpResponse_Time.h>
 
 @implementation UMDiameterAvpLCS_QoS
 

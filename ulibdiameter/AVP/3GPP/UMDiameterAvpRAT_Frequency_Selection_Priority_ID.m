@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRAT_Frequency_Selection_Priority_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRAT_Frequency_Selection_Priority_ID.h>
 
 @implementation UMDiameterAvpRAT_Frequency_Selection_Priority_ID
 

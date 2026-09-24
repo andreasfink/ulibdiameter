@@ -7,11 +7,11 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAMBR.h>
-#import <ulibdiameter/UMDiameterAvpMax_Requested_Bandwidth_UL.h>
-#import <ulibdiameter/UMDiameterAvpMax_Requested_Bandwidth_DL.h>
-#import <ulibdiameter/UMDiameterAvpExtended_Max_Requested_BW_UL.h>
-#import <ulibdiameter/UMDiameterAvpExtended_Max_Requested_BW_DL.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAMBR.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMax_Requested_Bandwidth_UL.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMax_Requested_Bandwidth_DL.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExtended_Max_Requested_BW_UL.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExtended_Max_Requested_BW_DL.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAMBR

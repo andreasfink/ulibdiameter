@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Session_Key.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_Session_Key.h>
 
 @implementation UMDiameterAvpMIP_Session_Key
 

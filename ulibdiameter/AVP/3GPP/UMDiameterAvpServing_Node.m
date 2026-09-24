@@ -7,16 +7,16 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpServing_Node.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Number.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Name.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Realm.h>
-#import <ulibdiameter/UMDiameterAvpMME_Name.h>
-#import <ulibdiameter/UMDiameterAvpMME_Realm.h>
-#import <ulibdiameter/UMDiameterAvpMSC_Number.h>
-#import <ulibdiameter/UMDiameterAvp3GPP_AAA_Server_Name.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Capabilities_Sets.h>
-#import <ulibdiameter/UMDiameterAvpGMLC_Address.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpServing_Node.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSGSN_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSGSN_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSGSN_Realm.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_Realm.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSC_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_AAA_Server_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Capabilities_Sets.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGMLC_Address.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpServing_Node

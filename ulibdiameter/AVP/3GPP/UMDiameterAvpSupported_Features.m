@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSupported_Features.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
-#import <ulibdiameter/UMDiameterAvpFeature_List_ID.h>
-#import <ulibdiameter/UMDiameterAvpFeature_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSupported_Features.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpFeature_List_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpFeature_List.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSupported_Features

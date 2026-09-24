@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDigest_QoP.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDigest_QoP.h>
 
 @implementation UMDiameterAvpDigest_QoP
 

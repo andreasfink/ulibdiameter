@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Duration.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMonitoring_Duration.h>
 
 @implementation UMDiameterAvpMonitoring_Duration
 

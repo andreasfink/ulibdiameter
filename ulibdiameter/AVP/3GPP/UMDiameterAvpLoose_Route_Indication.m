@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLoose_Route_Indication.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLoose_Route_Indication.h>
 
 @implementation UMDiameterAvpLoose_Route_Indication
 

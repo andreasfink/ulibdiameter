@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Request_Type.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Request_Type.h>
 
 @implementation UMDiameterAvpAuth_Request_Type
 

@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMSC_SM_Delivery_Outcome.h>
-#import <ulibdiameter/UMDiameterAvpSM_Delivery_Cause.h>
-#import <ulibdiameter/UMDiameterAvpAbsent_User_Diagnostic_SM.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSC_SM_Delivery_Outcome.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSM_Delivery_Cause.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAbsent_User_Diagnostic_SM.h>
 
 @implementation UMDiameterAvpMSC_SM_Delivery_Outcome
 

@@ -7,11 +7,11 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRestoration_Info.h>
-#import <ulibdiameter/UMDiameterAvpPath.h>
-#import <ulibdiameter/UMDiameterAvpContact.h>
-#import <ulibdiameter/UMDiameterAvpInitial_CSeq_Sequence_Number.h>
-#import <ulibdiameter/UMDiameterAvpSubscription_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRestoration_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPath.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContact.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpInitial_CSeq_Sequence_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSubscription_Info.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpRestoration_Info

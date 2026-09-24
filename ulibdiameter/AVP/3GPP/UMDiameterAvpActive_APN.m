@@ -7,12 +7,12 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpActive_APN.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
-#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpSpecific_APN_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpActive_APN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Agent_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVisited_Network_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSpecific_APN_Info.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpActive_APN

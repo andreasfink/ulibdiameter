@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAdjacent_PLMNs.h>
-#import <ulibdiameter/UMDiameterAvpVisited_PLMN_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAdjacent_PLMNs.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVisited_PLMN_Id.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAdjacent_PLMNs

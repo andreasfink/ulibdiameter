@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDay_Of_Week_Mask.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDay_Of_Week_Mask.h>
 
 @implementation UMDiameterAvpDay_Of_Week_Mask
 

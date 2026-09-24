@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVelocity_Estimate.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVelocity_Estimate.h>
 
 @implementation UMDiameterAvpVelocity_Estimate
 

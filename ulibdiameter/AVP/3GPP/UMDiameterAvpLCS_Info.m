@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Info.h>
-#import <ulibdiameter/UMDiameterAvpGMLC_Number.h>
-#import <ulibdiameter/UMDiameterAvpLCS_PrivacyException.h>
-#import <ulibdiameter/UMDiameterAvpMO_LR.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGMLC_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_PrivacyException.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMO_LR.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpLCS_Info

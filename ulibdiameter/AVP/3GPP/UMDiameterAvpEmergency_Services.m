@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEmergency_Services.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpEmergency_Services.h>
 
 @implementation UMDiameterAvpEmergency_Services
 

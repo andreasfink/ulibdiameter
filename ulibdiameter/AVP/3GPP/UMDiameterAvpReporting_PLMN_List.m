@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpReporting_PLMN_List.h>
-#import <ulibdiameter/UMDiameterAvpPLMN_ID_List.h>
-#import <ulibdiameter/UMDiameterAvpPrioritized_List_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReporting_PLMN_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPLMN_ID_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPrioritized_List_Indicator.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpReporting_PLMN_List

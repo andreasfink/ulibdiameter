@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check_Non_Session.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Privacy_Check_Non_Session.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Privacy_Check.h>
 
 @implementation UMDiameterAvpLCS_Privacy_Check_Non_Session
 

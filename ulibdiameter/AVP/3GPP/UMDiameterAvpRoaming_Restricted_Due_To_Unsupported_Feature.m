@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature.h>
 
 @implementation UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature
 

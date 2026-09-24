@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuthentication_Info.h>
-#import <ulibdiameter/UMDiameterAvpE_UTRAN_Vector.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Vector.h>
-#import <ulibdiameter/UMDiameterAvpGERAN_Vector.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAuthentication_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpE_UTRAN_Vector.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_Vector.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGERAN_Vector.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAuthentication_Info

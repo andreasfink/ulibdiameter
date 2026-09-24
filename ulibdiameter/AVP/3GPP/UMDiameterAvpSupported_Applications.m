@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSupported_Applications.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSupported_Applications.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAcct_Application_Id.h>
 #import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLocation_Estimate.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLocation_Estimate.h>
 
 @implementation UMDiameterAvpLocation_Estimate
 

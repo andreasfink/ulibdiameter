@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRequested_Retransmission_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRequested_Retransmission_Time.h>
 
 @implementation UMDiameterAvpRequested_Retransmission_Time
 

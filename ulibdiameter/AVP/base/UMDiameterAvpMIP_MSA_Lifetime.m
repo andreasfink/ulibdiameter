@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_MSA_Lifetime.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_MSA_Lifetime.h>
 
 @implementation UMDiameterAvpMIP_MSA_Lifetime
 

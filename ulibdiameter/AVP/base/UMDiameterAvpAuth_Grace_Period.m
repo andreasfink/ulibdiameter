@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Grace_Period.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Grace_Period.h>
 
 @implementation UMDiameterAvpAuth_Grace_Period
 

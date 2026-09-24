@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpExperimental_Result.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
-#import <ulibdiameter/UMDiameterAvpExperimental_Result_Code.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpExperimental_Result.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpExperimental_Result_Code.h>
 
 @implementation UMDiameterAvpExperimental_Result
 

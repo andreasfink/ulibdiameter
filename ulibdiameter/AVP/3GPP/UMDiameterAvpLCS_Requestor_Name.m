@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Requestor_Name.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Requestor_Id_String.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Format_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Requestor_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Requestor_Id_String.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Format_Indicator.h>
 
 @implementation UMDiameterAvpLCS_Requestor_Name
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAcct_Interim_Interval.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAcct_Interim_Interval.h>
 
 @implementation UMDiameterAvpAcct_Interim_Interval
 

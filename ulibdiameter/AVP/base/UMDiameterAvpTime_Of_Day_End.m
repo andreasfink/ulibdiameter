@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTime_Of_Day_End.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpTime_Of_Day_End.h>
 
 @implementation UMDiameterAvpTime_Of_Day_End
 

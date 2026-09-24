@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTracking_Area_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTracking_Area_Identity.h>
 
 @implementation UMDiameterAvpTracking_Area_Identity
 

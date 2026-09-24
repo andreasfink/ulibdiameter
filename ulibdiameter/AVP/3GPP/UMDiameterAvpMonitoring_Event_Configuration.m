@@ -7,17 +7,17 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Configuration.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Type.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID_for_Deletion.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_Number_of_Reports.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Duration.h>
-#import <ulibdiameter/UMDiameterAvpCharged_Party.h>
-#import <ulibdiameter/UMDiameterAvpUE_Reachability_Configuration.h>
-#import <ulibdiameter/UMDiameterAvpLocation_Information_Configuration.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Realm.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMonitoring_Event_Configuration.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSCEF_Reference_ID.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMonitoring_Type.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSCEF_Reference_ID_for_Deletion.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMaximum_Number_of_Reports.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMonitoring_Duration.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpCharged_Party.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpUE_Reachability_Configuration.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpLocation_Information_Configuration.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSCEF_Realm.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMonitoring_Event_Configuration

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMONTE_Location_Type.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMONTE_Location_Type.h>
 
 @implementation UMDiameterAvpMONTE_Location_Type
 

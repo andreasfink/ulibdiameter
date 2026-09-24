@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSM_Delivery_Not_Intended.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSM_Delivery_Not_Intended.h>
 
 @implementation UMDiameterAvpSM_Delivery_Not_Intended
 

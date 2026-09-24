@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEvent_Threshold_RSRQ.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpEvent_Threshold_RSRQ.h>
 
 @implementation UMDiameterAvpEvent_Threshold_RSRQ
 

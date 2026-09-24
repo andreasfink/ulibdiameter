@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPriority_Indication.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPriority_Indication.h>
 
 @implementation UMDiameterAvpPriority_Indication
 

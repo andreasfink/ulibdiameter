@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPre_paging_Supported.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPre_paging_Supported.h>
 
 @implementation UMDiameterAvpPre_paging_Supported
 

@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDelayed_Location_Reporting_Data.h>
-#import <ulibdiameter/UMDiameterAvpTermination_Cause.h>
-#import <ulibdiameter/UMDiameterAvpServing_Node.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDelayed_Location_Reporting_Data.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpTermination_Cause.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpServing_Node.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpDelayed_Location_Reporting_Data

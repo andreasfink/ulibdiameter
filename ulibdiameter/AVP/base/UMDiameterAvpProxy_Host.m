@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpProxy_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpProxy_Host.h>
 
 @implementation UMDiameterAvpProxy_Host
 

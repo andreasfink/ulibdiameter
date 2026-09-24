@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpFramed_IP_Address.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFramed_IP_Address.h>
 
 @implementation UMDiameterAvpFramed_IP_Address
 

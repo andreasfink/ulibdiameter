@@ -7,11 +7,11 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSM_Delivery_Outcome.h>
-#import <ulibdiameter/UMDiameterAvpMME_SM_Delivery_Outcome.h>
-#import <ulibdiameter/UMDiameterAvpMSC_SM_Delivery_Outcome.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_SM_Delivery_Outcome.h>
-#import <ulibdiameter/UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSM_Delivery_Outcome.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_SM_Delivery_Outcome.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSC_SM_Delivery_Outcome.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSGSN_SM_Delivery_Outcome.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSM_Delivery_Outcome

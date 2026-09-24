@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvp1xRTT_RCID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp1xRTT_RCID.h>
 
 @implementation UMDiameterAvp1xRTT_RCID
 

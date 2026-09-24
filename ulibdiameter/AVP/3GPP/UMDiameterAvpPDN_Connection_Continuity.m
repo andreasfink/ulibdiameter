@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPDN_Connection_Continuity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDN_Connection_Continuity.h>
 
 @implementation UMDiameterAvpPDN_Connection_Continuity
 

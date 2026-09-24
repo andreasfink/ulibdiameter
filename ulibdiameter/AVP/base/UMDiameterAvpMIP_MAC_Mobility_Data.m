@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_MAC_Mobility_Data.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_MAC_Mobility_Data.h>
 
 @implementation UMDiameterAvpMIP_MAC_Mobility_Data
 

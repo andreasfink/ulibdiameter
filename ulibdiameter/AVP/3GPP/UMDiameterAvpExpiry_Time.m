@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpExpiry_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExpiry_Time.h>
 
 @implementation UMDiameterAvpExpiry_Time
 

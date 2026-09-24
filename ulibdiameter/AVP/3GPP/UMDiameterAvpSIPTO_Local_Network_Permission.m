@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Local_Network_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIPTO_Local_Network_Permission.h>
 
 @implementation UMDiameterAvpSIPTO_Local_Network_Permission
 

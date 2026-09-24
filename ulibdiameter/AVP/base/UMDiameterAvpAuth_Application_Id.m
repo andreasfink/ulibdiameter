@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
-#import <ulibdiameter/UMDiameterApplicationId.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterApplicationId.h>
 
 @implementation UMDiameterAvpAuth_Application_Id
 

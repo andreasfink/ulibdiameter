@@ -7,13 +7,13 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Report.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
-#import <ulibdiameter/UMDiameterAvpReachability_Information.h>
-#import <ulibdiameter/UMDiameterAvpEPS_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Type.h>
-#import <ulibdiameter/UMDiameterAvpLoss_Of_Connectivity_Reason.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMonitoring_Event_Report.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_Reference_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReachability_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpEPS_Location_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMonitoring_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLoss_Of_Connectivity_Reason.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMonitoring_Event_Report

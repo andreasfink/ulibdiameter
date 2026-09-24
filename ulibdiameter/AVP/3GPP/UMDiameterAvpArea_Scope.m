@@ -7,12 +7,12 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpArea_Scope.h>
-#import <ulibdiameter/UMDiameterAvpCell_Global_Identity.h>
-#import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
-#import <ulibdiameter/UMDiameterAvpRouting_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpLocation_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpTracking_Area_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpArea_Scope.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCell_Global_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRouting_Area_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLocation_Area_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTracking_Area_Identity.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpArea_Scope

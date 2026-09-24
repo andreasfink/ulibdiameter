@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpScheduled_Communication_Time.h>
-#import <ulibdiameter/UMDiameterAvpDay_Of_Week_Mask.h>
-#import <ulibdiameter/UMDiameterAvpTime_Of_Day_Start.h>
-#import <ulibdiameter/UMDiameterAvpTime_Of_Day_End.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpScheduled_Communication_Time.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpDay_Of_Week_Mask.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpTime_Of_Day_Start.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpTime_Of_Day_End.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpScheduled_Communication_Time

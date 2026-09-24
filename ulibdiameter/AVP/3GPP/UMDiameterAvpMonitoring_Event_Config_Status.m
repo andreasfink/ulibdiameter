@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMonitoring_Event_Config_Status.h>
-#import <ulibdiameter/UMDiameterAvpService_Report.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMonitoring_Event_Config_Status.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpService_Report.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_Reference_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_ID.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMonitoring_Event_Config_Status

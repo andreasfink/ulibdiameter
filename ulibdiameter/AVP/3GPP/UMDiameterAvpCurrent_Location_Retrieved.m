@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCurrent_Location_Retrieved.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCurrent_Location_Retrieved.h>
 
 @implementation UMDiameterAvpCurrent_Location_Retrieved
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDL_Buffering_Suggested_Packet_Count.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDL_Buffering_Suggested_Packet_Count.h>
 
 @implementation UMDiameterAvpDL_Buffering_Suggested_Packet_Count
 

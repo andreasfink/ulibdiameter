@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAge_Of_Location_Estimate.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAge_Of_Location_Estimate.h>
 
 @implementation UMDiameterAvpAge_Of_Location_Estimate
 

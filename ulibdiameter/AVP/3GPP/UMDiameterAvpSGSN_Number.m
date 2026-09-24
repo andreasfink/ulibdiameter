@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSGSN_Number.h>
 
 @implementation UMDiameterAvpSGSN_Number
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUser_Data_Already_Available.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUser_Data_Already_Available.h>
 
 @implementation UMDiameterAvpUser_Data_Already_Available
 

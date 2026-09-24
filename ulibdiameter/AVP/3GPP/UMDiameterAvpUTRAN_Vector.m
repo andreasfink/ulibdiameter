@@ -7,13 +7,13 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Vector.h>
-#import <ulibdiameter/UMDiameterAvpItem_Number.h>
-#import <ulibdiameter/UMDiameterAvpRAND.h>
-#import <ulibdiameter/UMDiameterAvpXRES.h>
-#import <ulibdiameter/UMDiameterAvpAUTN.h>
-#import <ulibdiameter/UMDiameterAvpConfidentiality_Key.h>
-#import <ulibdiameter/UMDiameterAvpIntegrity_Key.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_Vector.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpItem_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRAND.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpXRES.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAUTN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpConfidentiality_Key.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpIntegrity_Key.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpUTRAN_Vector

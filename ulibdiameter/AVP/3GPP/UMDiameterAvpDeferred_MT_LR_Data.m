@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDeferred_MT_LR_Data.h>
-#import <ulibdiameter/UMDiameterAvpDeferred_Location_Type.h>
-#import <ulibdiameter/UMDiameterAvpTermination_Cause.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDeferred_MT_LR_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDeferred_Location_Type.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpTermination_Cause.h>
 
 @implementation UMDiameterAvpDeferred_MT_LR_Data
 

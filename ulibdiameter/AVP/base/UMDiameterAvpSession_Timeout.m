@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSession_Timeout.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Timeout.h>
 
 @implementation UMDiameterAvpSession_Timeout
 

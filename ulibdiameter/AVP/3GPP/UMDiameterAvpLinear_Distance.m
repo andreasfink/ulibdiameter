@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLinear_Distance.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLinear_Distance.h>
 
 @implementation UMDiameterAvpLinear_Distance
 

@@ -7,13 +7,13 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCommunication_Pattern_Set.h>
-#import <ulibdiameter/UMDiameterAvpPeriodic_Communication_Indicator.h>
-#import <ulibdiameter/UMDiameterAvpCommunication_Duration_Time.h>
-#import <ulibdiameter/UMDiameterAvpPeriodic_Time.h>
-#import <ulibdiameter/UMDiameterAvpScheduled_Communication_Time.h>
-#import <ulibdiameter/UMDiameterAvpStationary_Indication.h>
-#import <ulibdiameter/UMDiameterAvpReference_ID_Validity_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCommunication_Pattern_Set.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPeriodic_Communication_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCommunication_Duration_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPeriodic_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpScheduled_Communication_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpStationary_Indication.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReference_ID_Validity_Time.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpCommunication_Pattern_Set

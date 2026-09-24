@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_State_Id.h>
 
 @implementation UMDiameterAvpOrigin_State_Id
 

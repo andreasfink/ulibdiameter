@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Subscribed.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpQoS_Subscribed.h>
 
 @implementation UMDiameterAvpQoS_Subscribed
 

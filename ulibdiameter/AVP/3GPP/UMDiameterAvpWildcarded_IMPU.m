@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpWildcarded_IMPU.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpWildcarded_IMPU.h>
 
 @implementation UMDiameterAvpWildcarded_IMPU
 

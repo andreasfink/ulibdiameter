@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvp3GPP_Charging_Characteristics.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_Charging_Characteristics.h>
 
 @implementation UMDiameterAvp3GPP_Charging_Characteristics
 

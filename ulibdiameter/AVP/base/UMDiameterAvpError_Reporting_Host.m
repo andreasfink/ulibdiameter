@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpError_Reporting_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpError_Reporting_Host.h>
 
 @implementation UMDiameterAvpError_Reporting_Host
 

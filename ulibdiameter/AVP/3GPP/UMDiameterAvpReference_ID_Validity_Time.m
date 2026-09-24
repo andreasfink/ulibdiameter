@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpReference_ID_Validity_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReference_ID_Validity_Time.h>
 
 @implementation UMDiameterAvpReference_ID_Validity_Time
 

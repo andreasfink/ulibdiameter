@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGMLC_Restriction.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGMLC_Restriction.h>
 
 @implementation UMDiameterAvpGMLC_Restriction
 

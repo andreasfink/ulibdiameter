@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCancellation_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCancellation_Type.h>
 
 @implementation UMDiameterAvpCancellation_Type
 

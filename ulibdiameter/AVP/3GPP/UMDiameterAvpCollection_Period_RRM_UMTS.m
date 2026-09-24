@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCollection_Period_RRM_UMTS.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCollection_Period_RRM_UMTS.h>
 
 @implementation UMDiameterAvpCollection_Period_RRM_UMTS
 

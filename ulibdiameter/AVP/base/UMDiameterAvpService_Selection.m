@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpService_Selection.h>
 
 @implementation UMDiameterAvpService_Selection
 

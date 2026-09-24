@@ -7,14 +7,14 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMotion_Event_Info.h>
-#import <ulibdiameter/UMDiameterAvpLinear_Distance.h>
-#import <ulibdiameter/UMDiameterAvpOccurrence_Info.h>
-#import <ulibdiameter/UMDiameterAvpInterval_Time.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_Interval.h>
-#import <ulibdiameter/UMDiameterAvpSampling_Interval.h>
-#import <ulibdiameter/UMDiameterAvpReporting_Duration.h>
-#import <ulibdiameter/UMDiameterAvpReporting_Location_Requirements.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMotion_Event_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLinear_Distance.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpOccurrence_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpInterval_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMaximum_Interval.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSampling_Interval.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReporting_Duration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReporting_Location_Requirements.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMotion_Event_Info

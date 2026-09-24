@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSubs_Req_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSubs_Req_Type.h>
 
 @implementation UMDiameterAvpSubs_Req_Type
 

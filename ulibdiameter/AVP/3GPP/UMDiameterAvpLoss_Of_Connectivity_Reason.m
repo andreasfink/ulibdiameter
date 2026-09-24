@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLoss_Of_Connectivity_Reason.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLoss_Of_Connectivity_Reason.h>
 
 @implementation UMDiameterAvpLoss_Of_Connectivity_Reason
 

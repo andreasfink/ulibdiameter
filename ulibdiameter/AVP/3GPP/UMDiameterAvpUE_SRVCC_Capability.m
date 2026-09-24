@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUE_SRVCC_Capability.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUE_SRVCC_Capability.h>
 
 @implementation UMDiameterAvpUE_SRVCC_Capability
 

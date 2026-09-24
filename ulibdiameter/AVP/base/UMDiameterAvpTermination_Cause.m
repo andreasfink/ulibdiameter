@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTermination_Cause.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpTermination_Cause.h>
 
 @implementation UMDiameterAvpTermination_Cause
 

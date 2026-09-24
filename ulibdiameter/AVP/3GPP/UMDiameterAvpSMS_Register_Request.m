@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSMS_Register_Request.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSMS_Register_Request.h>
 
 @implementation UMDiameterAvpSMS_Register_Request
 

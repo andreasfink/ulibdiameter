@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpIMSI_Group_Id.h>
-#import <ulibdiameter/UMDiameterAvpGroup_Service_Id.h>
-#import <ulibdiameter/UMDiameterAvpGroup_PLMN_Id.h>
-#import <ulibdiameter/UMDiameterAvpLocal_Group_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpIMSI_Group_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGroup_Service_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGroup_PLMN_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLocal_Group_Id.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpIMSI_Group_Id

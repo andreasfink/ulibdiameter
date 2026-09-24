@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpFrom_SIP_Header.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpFrom_SIP_Header.h>
 
 @implementation UMDiameterAvpFrom_SIP_Header
 

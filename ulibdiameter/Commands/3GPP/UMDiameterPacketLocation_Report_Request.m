@@ -41,7 +41,7 @@
 #import <ulibdiameter/UMDiameterAvpReporting_Amount.h>
 #import <ulibdiameter/UMDiameterAvpPeriodic_LDR_Information.h>
 #import <ulibdiameter/UMDiameterAvpESMLC_Cell_Info.h>
-#import <ulibdiameter/UMDiameterAvp1xRTT_RCID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp1xRTT_RCID.h>
 #import <ulibdiameter/UMDiameterAvpDelayed_Location_Reporting_Data.h>
 #import <ulibdiameter/UMDiameterAvpCivic_Address.h>
 #import <ulibdiameter/UMDiameterAvpBarometric_Pressure.h>

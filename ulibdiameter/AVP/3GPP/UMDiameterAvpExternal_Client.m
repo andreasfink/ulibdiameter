@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpExternal_Client.h>
-#import <ulibdiameter/UMDiameterAvpClient_Identity.h>
-#import <ulibdiameter/UMDiameterAvpGMLC_Restriction.h>
-#import <ulibdiameter/UMDiameterAvpNotification_To_UE_User.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExternal_Client.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpClient_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGMLC_Restriction.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNotification_To_UE_User.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpExternal_Client

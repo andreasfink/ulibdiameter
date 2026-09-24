@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Positioning_Info.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Positioning_Data.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_GANSS_Positioning_Data.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Additional_Positioning_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_Positioning_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_Positioning_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_GANSS_Positioning_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_Additional_Positioning_Data.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpUTRAN_Positioning_Info

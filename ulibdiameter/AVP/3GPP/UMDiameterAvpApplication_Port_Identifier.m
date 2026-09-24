@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpApplication_Port_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpApplication_Port_Identifier.h>
 
 @implementation UMDiameterAvpApplication_Port_Identifier
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOriginating_Request.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpOriginating_Request.h>
 
 @implementation UMDiameterAvpOriginating_Request
 

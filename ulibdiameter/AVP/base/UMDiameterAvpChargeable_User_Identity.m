@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpChargeable_User_Identity.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpChargeable_User_Identity.h>
 
 @implementation UMDiameterAvpChargeable_User_Identity
 

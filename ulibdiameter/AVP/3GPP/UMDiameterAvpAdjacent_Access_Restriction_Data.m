@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAdjacent_Access_Restriction_Data.h>
-#import <ulibdiameter/UMDiameterAvpVisited_PLMN_Id.h>
-#import <ulibdiameter/UMDiameterAvpAccess_Restriction_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAdjacent_Access_Restriction_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVisited_PLMN_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAccess_Restriction_Data.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAdjacent_Access_Restriction_Data

@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGPRS_Subscription_Data.h>
-#import <ulibdiameter/UMDiameterAvpComplete_Data_List_Included_Indicator.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Context.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGPRS_Subscription_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpComplete_Data_List_Included_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDP_Context.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpGPRS_Subscription_Data

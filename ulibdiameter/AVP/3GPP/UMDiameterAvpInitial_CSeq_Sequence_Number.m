@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpInitial_CSeq_Sequence_Number.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpInitial_CSeq_Sequence_Number.h>
 
 @implementation UMDiameterAvpInitial_CSeq_Sequence_Number
 

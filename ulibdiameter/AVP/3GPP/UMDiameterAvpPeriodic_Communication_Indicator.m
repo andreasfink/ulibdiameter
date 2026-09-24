@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPeriodic_Communication_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPeriodic_Communication_Indicator.h>
 
 @implementation UMDiameterAvpPeriodic_Communication_Indicator
 

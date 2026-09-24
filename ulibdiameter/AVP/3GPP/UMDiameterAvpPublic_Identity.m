@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPublic_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPublic_Identity.h>
 
 @implementation UMDiameterAvpPublic_Identity
 

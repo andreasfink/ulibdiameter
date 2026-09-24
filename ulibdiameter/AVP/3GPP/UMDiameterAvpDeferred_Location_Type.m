@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDeferred_Location_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDeferred_Location_Type.h>
 
 @implementation UMDiameterAvpDeferred_Location_Type
 

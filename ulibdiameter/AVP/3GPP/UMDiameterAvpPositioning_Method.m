@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPositioning_Method.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPositioning_Method.h>
 
 @implementation UMDiameterAvpPositioning_Method
 

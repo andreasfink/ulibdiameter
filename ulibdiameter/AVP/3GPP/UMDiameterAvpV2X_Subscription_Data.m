@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpV2X_Subscription_Data.h>
-#import <ulibdiameter/UMDiameterAvpV2X_Permission.h>
-#import <ulibdiameter/UMDiameterAvpUE_PC5_AMBR.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpV2X_Subscription_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpV2X_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUE_PC5_AMBR.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpV2X_Subscription_Data

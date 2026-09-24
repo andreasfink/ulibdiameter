@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOperator_Determined_Barring.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpOperator_Determined_Barring.h>
 
 @implementation UMDiameterAvpOperator_Determined_Barring
 

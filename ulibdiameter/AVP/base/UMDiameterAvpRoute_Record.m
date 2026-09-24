@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRoute_Record.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpRoute_Record.h>
 
 @implementation UMDiameterAvpRoute_Record
 

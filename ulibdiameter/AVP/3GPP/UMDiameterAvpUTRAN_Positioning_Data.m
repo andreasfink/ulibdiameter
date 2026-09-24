@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpUTRAN_Positioning_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUTRAN_Positioning_Data.h>
 
 @implementation UMDiameterAvpUTRAN_Positioning_Data
 

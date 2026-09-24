@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRecord_Route.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRecord_Route.h>
 
 @implementation UMDiameterAvpRecord_Route
 

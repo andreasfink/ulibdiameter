@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAccounting_Record_Type.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAccounting_Record_Type.h>
 
 @implementation UMDiameterAvpAccounting_Record_Type
 

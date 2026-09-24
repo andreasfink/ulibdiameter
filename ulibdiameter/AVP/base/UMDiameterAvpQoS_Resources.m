@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Resources.h>
-#import <ulibdiameter/UMDiameterAvpFilter_Rule.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpQoS_Resources.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFilter_Rule.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpQoS_Resources

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVisited_Network_Identifier.h>
 
 @implementation UMDiameterAvpVisited_Network_Identifier
 

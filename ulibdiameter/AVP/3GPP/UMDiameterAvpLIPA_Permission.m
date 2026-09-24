@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLIPA_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLIPA_Permission.h>
 
 @implementation UMDiameterAvpLIPA_Permission
 

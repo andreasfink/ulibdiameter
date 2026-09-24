@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Authenticator.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_Authenticator.h>
 
 @implementation UMDiameterAvpMIP_Authenticator
 

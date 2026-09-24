@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMulti_Round_Time_Out.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMulti_Round_Time_Out.h>
 
 @implementation UMDiameterAvpMulti_Round_Time_Out
 

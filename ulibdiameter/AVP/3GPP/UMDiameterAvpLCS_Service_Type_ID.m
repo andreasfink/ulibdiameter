@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Service_Type_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Service_Type_ID.h>
 
 @implementation UMDiameterAvpLCS_Service_Type_ID
 

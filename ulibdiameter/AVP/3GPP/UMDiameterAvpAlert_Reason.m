@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAlert_Reason.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAlert_Reason.h>
 
 @implementation UMDiameterAvpAlert_Reason
 

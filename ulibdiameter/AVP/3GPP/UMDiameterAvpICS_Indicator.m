@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpICS_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpICS_Indicator.h>
 
 @implementation UMDiameterAvpICS_Indicator
 

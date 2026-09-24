@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Profile_Template.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Profile_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpQoS_Profile_Template.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpQoS_Profile_Id.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpQoS_Profile_Template

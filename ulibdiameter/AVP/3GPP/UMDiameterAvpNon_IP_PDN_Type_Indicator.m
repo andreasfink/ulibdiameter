@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpNon_IP_PDN_Type_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNon_IP_PDN_Type_Indicator.h>
 
 @implementation UMDiameterAvpNon_IP_PDN_Type_Indicator
 

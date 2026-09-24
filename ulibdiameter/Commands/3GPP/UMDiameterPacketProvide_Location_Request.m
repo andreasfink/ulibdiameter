@@ -30,7 +30,7 @@
 #import <ulibdiameter/UMDiameterAvpLCS_Codeword.h>
 #import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check_Non_Session.h>
 #import <ulibdiameter/UMDiameterAvpLCS_Privacy_Check_Session.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpService_Selection.h>
 #import <ulibdiameter/UMDiameterAvpDeferred_Location_Type.h>
 #import <ulibdiameter/UMDiameterAvpPLR_Flags.h>
 #import <ulibdiameter/UMDiameterAvpSupported_Features.h>

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMaximum_UE_Availability_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMaximum_UE_Availability_Time.h>
 
 @implementation UMDiameterAvpMaximum_UE_Availability_Time
 

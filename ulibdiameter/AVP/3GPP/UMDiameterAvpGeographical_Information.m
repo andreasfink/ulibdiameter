@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpGeographical_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGeographical_Information.h>
 
 @implementation UMDiameterAvpGeographical_Information
 

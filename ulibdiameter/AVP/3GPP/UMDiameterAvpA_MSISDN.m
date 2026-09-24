@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpA_MSISDN.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpA_MSISDN.h>
 
 @implementation UMDiameterAvpA_MSISDN
 

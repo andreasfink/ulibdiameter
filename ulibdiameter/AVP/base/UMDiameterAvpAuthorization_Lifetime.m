@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuthorization_Lifetime.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuthorization_Lifetime.h>
 
 @implementation UMDiameterAvpAuthorization_Lifetime
 

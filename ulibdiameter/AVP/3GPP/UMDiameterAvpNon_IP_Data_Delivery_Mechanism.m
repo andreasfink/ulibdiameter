@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
 
 @implementation UMDiameterAvpNon_IP_Data_Delivery_Mechanism
 

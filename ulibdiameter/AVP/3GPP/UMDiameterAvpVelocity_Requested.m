@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVelocity_Requested.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVelocity_Requested.h>
 
 @implementation UMDiameterAvpVelocity_Requested
 

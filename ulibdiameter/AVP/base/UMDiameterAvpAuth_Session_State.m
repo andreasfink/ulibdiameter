@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Session_State.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Session_State.h>
 
 @implementation UMDiameterAvpAuth_Session_State
 

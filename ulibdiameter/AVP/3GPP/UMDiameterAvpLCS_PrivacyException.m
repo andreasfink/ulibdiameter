@@ -7,13 +7,13 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_PrivacyException.h>
-#import <ulibdiameter/UMDiameterAvpSS_Code.h>
-#import <ulibdiameter/UMDiameterAvpSS_Status.h>
-#import <ulibdiameter/UMDiameterAvpNotification_To_UE_User.h>
-#import <ulibdiameter/UMDiameterAvpExternal_Client.h>
-#import <ulibdiameter/UMDiameterAvpPLMN_Client.h>
-#import <ulibdiameter/UMDiameterAvpService_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_PrivacyException.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSS_Code.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSS_Status.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNotification_To_UE_User.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExternal_Client.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPLMN_Client.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpService_Type.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpLCS_PrivacyException

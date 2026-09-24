@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAccounting_Realtime_Required.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAccounting_Realtime_Required.h>
 
 @implementation UMDiameterAvpAccounting_Realtime_Required
 

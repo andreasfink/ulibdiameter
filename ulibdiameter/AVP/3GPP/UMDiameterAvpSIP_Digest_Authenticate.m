@@ -7,11 +7,11 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Digest_Authenticate.h>
-#import <ulibdiameter/UMDiameterAvpDigest_Realm.h>
-#import <ulibdiameter/UMDiameterAvpDigest_Algorithm.h>
-#import <ulibdiameter/UMDiameterAvpDigest_QoP.h>
-#import <ulibdiameter/UMDiameterAvpDigest_HA1.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Digest_Authenticate.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDigest_Realm.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDigest_Algorithm.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDigest_QoP.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDigest_HA1.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSIP_Digest_Authenticate

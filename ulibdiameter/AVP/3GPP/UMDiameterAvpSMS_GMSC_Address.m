@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSMS_GMSC_Address.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSMS_GMSC_Address.h>
 
 @implementation UMDiameterAvpSMS_GMSC_Address
 

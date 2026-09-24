@@ -65,7 +65,7 @@
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpSession_Priority.h>
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpInitial_CSeq_Sequence_Number.h>
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpUser_Identity.h>
-#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpUser_Data.h>
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpData_Reference.h>
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpService_Indication.h>

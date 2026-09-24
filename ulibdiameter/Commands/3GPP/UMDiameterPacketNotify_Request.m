@@ -23,7 +23,7 @@
 #import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
 #import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
 #import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpService_Selection.h>
 #import <ulibdiameter/UMDiameterAvpAlert_Reason.h>
 #import <ulibdiameter/UMDiameterAvpUE_SRVCC_Capability.h>
 #import <ulibdiameter/UMDiameterAvpNOR_Flags.h>

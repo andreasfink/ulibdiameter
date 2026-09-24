@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpService_Data.h>
-#import <ulibdiameter/UMDiameterAvpT4_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpService_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpT4_Data.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpService_Data

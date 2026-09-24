@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Home_Link_Prefix.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Home_Link_Prefix.h>
 
 @implementation UMDiameterAvpMIP6_Home_Link_Prefix
 

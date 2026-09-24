@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpDeregistration_Reason.h>
-#import <ulibdiameter/UMDiameterAvpReason_Code.h>
-#import <ulibdiameter/UMDiameterAvpReason_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDeregistration_Reason.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReason_Code.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReason_Info.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpDeregistration_Reason

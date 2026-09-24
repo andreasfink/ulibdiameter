@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRe_Synchronization_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRe_Synchronization_Info.h>
 
 @implementation UMDiameterAvpRe_Synchronization_Info
 

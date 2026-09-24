@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpKASME.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpKASME.h>
 
 @implementation UMDiameterAvpKASME
 

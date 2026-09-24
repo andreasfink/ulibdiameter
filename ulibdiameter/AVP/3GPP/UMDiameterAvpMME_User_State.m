@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMME_User_State.h>
-#import <ulibdiameter/UMDiameterAvpMME_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpSGSN_Location_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_User_State.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_Location_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSGSN_Location_Information.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMME_User_State

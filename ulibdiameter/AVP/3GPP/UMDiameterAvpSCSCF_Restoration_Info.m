@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSCSCF_Restoration_Info.h>
-#import <ulibdiameter/UMDiameterAvpUser_Name.h>
-#import <ulibdiameter/UMDiameterAvpRestoration_Info.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authentication_Scheme.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCSCF_Restoration_Info.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpUser_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRestoration_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Authentication_Scheme.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSCSCF_Restoration_Info

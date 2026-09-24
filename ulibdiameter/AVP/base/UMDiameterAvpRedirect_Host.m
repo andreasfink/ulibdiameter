@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRedirect_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpRedirect_Host.h>
 
 @implementation UMDiameterAvpRedirect_Host
 

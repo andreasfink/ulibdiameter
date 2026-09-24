@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSession_Server_Failover.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Server_Failover.h>
 
 @implementation UMDiameterAvpSession_Server_Failover
 

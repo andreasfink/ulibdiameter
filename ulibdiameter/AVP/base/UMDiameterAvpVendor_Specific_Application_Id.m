@@ -8,11 +8,11 @@
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Specific_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
-#import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
-#import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
-#import <ulibdiameter/UMDiameterVendorIdString.h>
-#import <ulibdiameter/UMDiameterApplicationId.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAcct_Application_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterVendorIdString.h>
+#import <ulibdiameter/AVP/base/UMDiameterApplicationId.h>
 
 @implementation UMDiameterAvpVendor_Specific_Application_Id
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSubscribed_VSRVCC.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSubscribed_VSRVCC.h>
 
 @implementation UMDiameterAvpSubscribed_VSRVCC
 

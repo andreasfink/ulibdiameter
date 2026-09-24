@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMME_Number_for_MT_SMS.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_Number_for_MT_SMS.h>
 
 @implementation UMDiameterAvpMME_Number_for_MT_SMS
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAccounting_Sub_Session_Id.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpAccounting_Sub_Session_Id.h>
 
 @implementation UMDiameterAvpAccounting_Sub_Session_Id
 

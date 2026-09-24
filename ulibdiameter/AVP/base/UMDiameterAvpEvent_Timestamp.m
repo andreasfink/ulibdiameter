@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEvent_Timestamp.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpEvent_Timestamp.h>
 
 @implementation UMDiameterAvpEvent_Timestamp
 

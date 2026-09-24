@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMultiple_Registration_Indication.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMultiple_Registration_Indication.h>
 
 @implementation UMDiameterAvpMultiple_Registration_Indication
 

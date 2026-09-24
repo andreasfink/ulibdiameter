@@ -3,7 +3,7 @@
 //  diameter-avp-gen
 //
 //  Created by Andreas Fink on 30.06.19.
-//  Copyright © 2019 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import "UMDiameterAvpDef.h"
@@ -194,7 +194,7 @@
     [s appendString:@"//  ulibdiameter\n"];
     [s appendString:@"//\n"];
     [s appendFormat:@"//  Created by %@ on %@\n",user,date];
-    [s appendString:@"//  Copyright © 2019 Andreas Fink. All rights reserved.\n"];
+    [s appendString:@"//  Copyright (c) 2026 Andreas Fink <andreas@fink.org> All rights reserved.\n"];
     [s appendString:@"//\n"];
     [s appendString:@"\n"];
     [s appendFormat:@"#import \"%@.h\"\n",objectType];
@@ -243,7 +243,7 @@
     [s appendString:@"//  ulibdiameter\n"];
     [s appendString:@"//\n"];
     [s appendFormat:@"//  Created by %@ on %@\n",user,date];
-    [s appendFormat:@"//  Copyright © 2019 Andreas Fink. All rights reserved.\n"];
+    [s appendString:@"//  Copyright (c) 2026 Andreas Fink <andreas@fink.org> All rights reserved.\n"];
     [s appendString:@"//\n"];
     [s appendString:@"\n"];
     [s appendString:@"#import \"UMDiameterAvp.h\"\n"];

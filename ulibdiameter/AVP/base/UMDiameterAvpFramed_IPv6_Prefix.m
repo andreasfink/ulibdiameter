@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpFramed_IPv6_Prefix.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFramed_IPv6_Prefix.h>
 
 @implementation UMDiameterAvpFramed_IPv6_Prefix
 

@@ -7,15 +7,15 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Data.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Reference.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Depth.h>
-#import <ulibdiameter/UMDiameterAvpTrace_NE_Type_List.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Interface_List.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Event_List.h>
-#import <ulibdiameter/UMDiameterAvpOMC_Id.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Collection_Entity.h>
-#import <ulibdiameter/UMDiameterAvpMDT_Configuration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Reference.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Depth.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_NE_Type_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Interface_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Event_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpOMC_Id.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Collection_Entity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMDT_Configuration.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpTrace_Data

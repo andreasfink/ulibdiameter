@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpConfidentiality_Key.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpConfidentiality_Key.h>
 
 @implementation UMDiameterAvpConfidentiality_Key
 

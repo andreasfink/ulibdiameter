@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLogging_Duration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLogging_Duration.h>
 
 @implementation UMDiameterAvpLogging_Duration
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpEvent_Threshold_Event_1F.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpEvent_Threshold_Event_1F.h>
 
 @implementation UMDiameterAvpEvent_Threshold_Event_1F
 

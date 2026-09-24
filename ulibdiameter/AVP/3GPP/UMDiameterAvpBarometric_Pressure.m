@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpBarometric_Pressure.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpBarometric_Pressure.h>
 
 @implementation UMDiameterAvpBarometric_Pressure
 

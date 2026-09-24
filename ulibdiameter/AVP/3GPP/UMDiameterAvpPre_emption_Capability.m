@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPre_emption_Capability.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpPre_emption_Capability.h>
 
 @implementation UMDiameterAvpPre_emption_Capability
 

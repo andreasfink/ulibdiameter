@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCell_Global_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCell_Global_Identity.h>
 
 @implementation UMDiameterAvpCell_Global_Identity
 

@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAllocation_Retention_Priority.h>
-#import <ulibdiameter/UMDiameterAvpPriority_Level.h>
-#import <ulibdiameter/UMDiameterAvpPre_emption_Capability.h>
-#import <ulibdiameter/UMDiameterAvpPre_emption_Vulnerability.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAllocation_Retention_Priority.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPriority_Level.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPre_emption_Capability.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPre_emption_Vulnerability.h>
 
 @implementation UMDiameterAvpAllocation_Retention_Priority
 

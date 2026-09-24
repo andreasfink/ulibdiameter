@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpService_Parameters.h>
-#import <ulibdiameter/UMDiameterAvpT4_Parameters.h>
-#import <ulibdiameter/UMDiameterAvpApplication_Port_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpService_Parameters.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpT4_Parameters.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpApplication_Port_Identifier.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpService_Parameters

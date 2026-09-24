@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpCSG_Membership_Indication.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCSG_Membership_Indication.h>
 
 @implementation UMDiameterAvpCSG_Membership_Indication
 

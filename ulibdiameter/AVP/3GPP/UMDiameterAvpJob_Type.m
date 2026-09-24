@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpJob_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpJob_Type.h>
 
 @implementation UMDiameterAvpJob_Type
 

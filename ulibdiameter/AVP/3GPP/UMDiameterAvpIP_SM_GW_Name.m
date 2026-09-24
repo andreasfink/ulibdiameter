@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpIP_SM_GW_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpIP_SM_GW_Name.h>
 
 @implementation UMDiameterAvpIP_SM_GW_Name
 

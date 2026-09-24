@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpT4_Parameters.h>
-#import <ulibdiameter/UMDiameterAvpPriority_Indication.h>
-#import <ulibdiameter/UMDiameterAvpSM_RP_SMEA.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpT4_Parameters.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPriority_Indication.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSM_RP_SMEA.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpT4_Parameters

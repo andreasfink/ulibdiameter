@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSupported_GAD_Shapes.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSupported_GAD_Shapes.h>
 
 @implementation UMDiameterAvpSupported_GAD_Shapes
 

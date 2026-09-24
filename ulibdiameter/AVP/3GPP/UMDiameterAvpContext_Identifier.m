@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContext_Identifier.h>
 
 @implementation UMDiameterAvpContext_Identifier
 

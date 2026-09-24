@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLCS_Priority.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLCS_Priority.h>
 
 @implementation UMDiameterAvpLCS_Priority
 

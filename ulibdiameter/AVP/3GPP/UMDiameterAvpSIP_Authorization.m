@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIP_Authorization.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIP_Authorization.h>
 
 @implementation UMDiameterAvpSIP_Authorization
 

@@ -7,16 +7,16 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMME_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
-#import <ulibdiameter/UMDiameterAvpTracking_Area_Identity.h>
-#import <ulibdiameter/UMDiameterAvpGeographical_Information.h>
-#import <ulibdiameter/UMDiameterAvpGeodetic_Information.h>
-#import <ulibdiameter/UMDiameterAvpCurrent_Location_Retrieved.h>
-#import <ulibdiameter/UMDiameterAvpAge_Of_Location_Information.h>
-#import <ulibdiameter/UMDiameterAvpUser_CSG_Information.h>
-#import <ulibdiameter/UMDiameterAvpeNodeB_ID.h>
-#import <ulibdiameter/UMDiameterAvpExtended_eNodeB_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMME_Location_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpE_UTRAN_Cell_Global_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTracking_Area_Identity.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGeographical_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpGeodetic_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCurrent_Location_Retrieved.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAge_Of_Location_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpUser_CSG_Information.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpeNodeB_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExtended_eNodeB_ID.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMME_Location_Information

@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpESMLC_Cell_Info.h>
-#import <ulibdiameter/UMDiameterAvpECGI.h>
-#import <ulibdiameter/UMDiameterAvpCell_Portion_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpESMLC_Cell_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpECGI.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCell_Portion_ID.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpESMLC_Cell_Info

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP_MN_AAA_SPI.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_MN_AAA_SPI.h>
 
 @implementation UMDiameterAvpMIP_MN_AAA_SPI
 

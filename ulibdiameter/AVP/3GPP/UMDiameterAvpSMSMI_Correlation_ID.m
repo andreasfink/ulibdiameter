@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSMSMI_Correlation_ID.h>
-#import <ulibdiameter/UMDiameterAvpHSS_ID.h>
-#import <ulibdiameter/UMDiameterAvpOriginating_SIP_URI.h>
-#import <ulibdiameter/UMDiameterAvpDestination_SIP_URI.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSMSMI_Correlation_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpHSS_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpOriginating_SIP_URI.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDestination_SIP_URI.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSMSMI_Correlation_ID

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Interface_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Interface_List.h>
 
 @implementation UMDiameterAvpTrace_Interface_List
 

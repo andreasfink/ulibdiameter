@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAccuracy_Fulfilment_Indicator.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAccuracy_Fulfilment_Indicator.h>
 
 @implementation UMDiameterAvpAccuracy_Fulfilment_Indicator
 

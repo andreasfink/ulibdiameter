@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAPN_OI_Replacement.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAPN_OI_Replacement.h>
 
 @implementation UMDiameterAvpAPN_OI_Replacement
 

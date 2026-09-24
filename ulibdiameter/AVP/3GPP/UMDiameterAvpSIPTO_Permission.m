@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIPTO_Permission.h>
 
 @implementation UMDiameterAvpSIPTO_Permission
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.h>
 
 @implementation UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer
 

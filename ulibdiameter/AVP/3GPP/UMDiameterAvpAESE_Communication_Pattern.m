@@ -7,11 +7,11 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAESE_Communication_Pattern.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Reference_ID_for_Deletion.h>
-#import <ulibdiameter/UMDiameterAvpCommunication_Pattern_Set.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAESE_Communication_Pattern.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_Reference_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_Reference_ID_for_Deletion.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpCommunication_Pattern_Set.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpAESE_Communication_Pattern

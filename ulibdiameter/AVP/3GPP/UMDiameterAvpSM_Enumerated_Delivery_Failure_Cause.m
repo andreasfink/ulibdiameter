@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause.h>
 
 @implementation UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause
 

@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTeleservice_List.h>
-#import <ulibdiameter/UMDiameterAvpTS_Code.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTeleservice_List.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTS_Code.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpTeleservice_List

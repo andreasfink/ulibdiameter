@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpNOR_Flags.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNOR_Flags.h>
 
 @implementation UMDiameterAvpNOR_Flags
 

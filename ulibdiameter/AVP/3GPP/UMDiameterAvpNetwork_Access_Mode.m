@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpNetwork_Access_Mode.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNetwork_Access_Mode.h>
 
 @implementation UMDiameterAvpNetwork_Access_Mode
 

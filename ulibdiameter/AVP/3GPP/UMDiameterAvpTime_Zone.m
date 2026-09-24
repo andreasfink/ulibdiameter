@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpTime_Zone.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTime_Zone.h>
 
 @implementation UMDiameterAvpTime_Zone
 

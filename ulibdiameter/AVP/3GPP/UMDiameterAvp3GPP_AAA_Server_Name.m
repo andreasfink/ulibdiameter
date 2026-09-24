@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvp3GPP_AAA_Server_Name.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_AAA_Server_Name.h>
 
 @implementation UMDiameterAvp3GPP_AAA_Server_Name
 

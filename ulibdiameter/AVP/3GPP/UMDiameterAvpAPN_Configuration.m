@@ -7,15 +7,15 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpAPN_Configuration.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpServed_Party_IP_Address.h>
-#import <ulibdiameter/UMDiameterAvpPDN_Type.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
-#import <ulibdiameter/UMDiameterAvpEPS_Subscribed_QoS_Profile.h>
-#import <ulibdiameter/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
-#import <ulibdiameter/UMDiameterAvpVisited_Network_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAPN_Configuration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpServed_Party_IP_Address.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDN_Type.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpEPS_Subscribed_QoS_Profile.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Agent_Info.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVisited_Network_Identifier.h>
 
 @implementation UMDiameterAvpAPN_Configuration
 

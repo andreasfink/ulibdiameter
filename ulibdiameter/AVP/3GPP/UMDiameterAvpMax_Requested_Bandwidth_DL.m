@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMax_Requested_Bandwidth_DL.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMax_Requested_Bandwidth_DL.h>
 
 @implementation UMDiameterAvpMax_Requested_Bandwidth_DL
 

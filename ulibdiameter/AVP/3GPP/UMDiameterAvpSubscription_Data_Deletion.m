@@ -7,13 +7,13 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSubscription_Data_Deletion.h>
-#import <ulibdiameter/UMDiameterAvpDSR_Flags.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpTrace_Reference.h>
-#import <ulibdiameter/UMDiameterAvpTS_Code.h>
-#import <ulibdiameter/UMDiameterAvpSS_Code.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSubscription_Data_Deletion.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDSR_Flags.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTrace_Reference.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTS_Code.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSS_Code.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpSubscription_Data_Deletion

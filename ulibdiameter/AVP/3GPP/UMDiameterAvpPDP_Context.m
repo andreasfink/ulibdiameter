@@ -7,24 +7,24 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Context.h>
-#import <ulibdiameter/UMDiameterAvpContext_Identifier.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Type.h>
-#import <ulibdiameter/UMDiameterAvpPDP_Address.h>
-#import <ulibdiameter/UMDiameterAvpQoS_Subscribed.h>
-#import <ulibdiameter/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
-#import <ulibdiameter/UMDiameterAvpService_Selection.h>
-#import <ulibdiameter/UMDiameterAvp3GPP_Charging_Characteristics.h>
-#import <ulibdiameter/UMDiameterAvpExt_PDP_Type.h>
-#import <ulibdiameter/UMDiameterAvpExt_PDP_Address.h>
-#import <ulibdiameter/UMDiameterAvpAMBR.h>
-#import <ulibdiameter/UMDiameterAvpAPN_OI_Replacement.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Permission.h>
-#import <ulibdiameter/UMDiameterAvpLIPA_Permission.h>
-#import <ulibdiameter/UMDiameterAvpRestoration_Priority.h>
-#import <ulibdiameter/UMDiameterAvpSIPTO_Local_Network_Permission.h>
-#import <ulibdiameter/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_ID.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDP_Context.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContext_Identifier.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDP_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDP_Address.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpQoS_Subscribed.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpService_Selection.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_Charging_Characteristics.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExt_PDP_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpExt_PDP_Address.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAMBR.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpAPN_OI_Replacement.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIPTO_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLIPA_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRestoration_Priority.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSIPTO_Local_Network_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_ID.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpPDP_Context

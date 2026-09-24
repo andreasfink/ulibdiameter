@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h>
 
 @implementation UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported
 

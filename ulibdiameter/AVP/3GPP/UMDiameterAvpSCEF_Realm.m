@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpSCEF_Realm.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpSCEF_Realm.h>
 
 @implementation UMDiameterAvpSCEF_Realm
 

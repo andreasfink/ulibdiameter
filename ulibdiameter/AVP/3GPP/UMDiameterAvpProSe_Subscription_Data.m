@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpProSe_Subscription_Data.h>
-#import <ulibdiameter/UMDiameterAvpProSe_Permission.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpProSe_Subscription_Data.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpProSe_Permission.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpProSe_Subscription_Data

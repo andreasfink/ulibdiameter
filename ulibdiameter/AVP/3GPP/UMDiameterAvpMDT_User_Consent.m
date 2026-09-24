@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMDT_User_Consent.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMDT_User_Consent.h>
 
 @implementation UMDiameterAvpMDT_User_Consent
 

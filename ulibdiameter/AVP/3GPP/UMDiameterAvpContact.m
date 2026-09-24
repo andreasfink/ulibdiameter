@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpContact.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpContact.h>
 
 @implementation UMDiameterAvpContact
 

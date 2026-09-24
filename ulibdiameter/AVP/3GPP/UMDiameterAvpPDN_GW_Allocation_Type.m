@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPDN_GW_Allocation_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPDN_GW_Allocation_Type.h>
 
 @implementation UMDiameterAvpPDN_GW_Allocation_Type
 

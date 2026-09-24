@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpRegional_Subscription_Zone_Code.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpRegional_Subscription_Zone_Code.h>
 
 @implementation UMDiameterAvpRegional_Subscription_Zone_Code
 

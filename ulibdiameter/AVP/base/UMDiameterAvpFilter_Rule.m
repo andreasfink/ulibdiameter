@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpFilter_Rule.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpFilter_Rule.h>
 
 @implementation UMDiameterAvpFilter_Rule
 

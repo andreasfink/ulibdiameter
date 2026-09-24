@@ -7,10 +7,10 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Agent_Info.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Home_Agent_Address.h>
-#import <ulibdiameter/UMDiameterAvpMIP_Home_Agent_Host.h>
-#import <ulibdiameter/UMDiameterAvpMIP6_Home_Link_Prefix.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Agent_Info.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_Home_Agent_Address.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP_Home_Agent_Host.h>
+#import <ulibdiameter/AVP/base/UMDiameterAvpMIP6_Home_Link_Prefix.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpMIP6_Agent_Info

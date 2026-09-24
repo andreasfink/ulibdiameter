@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpPreferred_Data_Mode.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPreferred_Data_Mode.h>
 
 @implementation UMDiameterAvpPreferred_Data_Mode
 

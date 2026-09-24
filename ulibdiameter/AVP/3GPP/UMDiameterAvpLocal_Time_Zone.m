@@ -7,9 +7,9 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLocal_Time_Zone.h>
-#import <ulibdiameter/UMDiameterAvpTime_Zone.h>
-#import <ulibdiameter/UMDiameterAvpDaylight_Saving_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLocal_Time_Zone.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpTime_Zone.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpDaylight_Saving_Time.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpLocal_Time_Zone

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h>
 
 @implementation UMDiameterAvpVPLMN_Dynamic_Address_Allowed
 
