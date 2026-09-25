@@ -1,4 +1,0 @@
- Proxy-Info ::= < AVP Header: 284 >
-                        { Proxy-Host }
-                        { Proxy-State }
-                      * [ AVP ]

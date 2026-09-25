@@ -1,5 +1,0 @@
-IMSI-Group-Id ::= <AVP header: 1675 10415>
-{ Group-Service-Id }
-{ Group-PLMN-Id }
-{ Local-Group-Id } 
-*[AVP]

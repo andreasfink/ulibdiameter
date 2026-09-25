@@ -1,5 +1,0 @@
-External-Client ::= <AVP header: 1479 10415>
-{ Client-Identity }
-[ GMLC-Restriction ]
-[ Notification-To-UE-User ]
-*[AVP]

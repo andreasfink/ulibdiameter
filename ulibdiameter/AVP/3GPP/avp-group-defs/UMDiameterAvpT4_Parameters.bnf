@@ -1,4 +1,0 @@
-T4-Parameters ::= <AVP header: 3106 10415> 
-	[ Priority-Indication ]
-	[ SM-RP-SMEA ]
-	 *[AVP]

@@ -1,4 +1,0 @@
-MIP-Home-Agent-Host ::= < AVP Header: 348 >
-	{ Destination-Realm }
-	{ Destination-Host }
-	* [ AVP ]

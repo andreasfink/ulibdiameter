@@ -1,3 +1,0 @@
-MSC-SM-Delivery-Outcome::= <AVP header: 3318 10415>
-	[ SM-Delivery-Cause ]
-	[ Absent-User-Diagnostic-SM ]

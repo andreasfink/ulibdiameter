@@ -1,4 +1,0 @@
-UE-Reachability-Configuration::= <AVP header: 3129 10415>
-[ Reachability-Type ]
-[ Maximum-Response-Time ]
-*[ AVP ]

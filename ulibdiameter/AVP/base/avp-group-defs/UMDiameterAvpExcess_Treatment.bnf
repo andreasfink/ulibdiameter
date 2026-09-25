@@ -1,5 +1,0 @@
-   Excess-Treatment ::= < AVP Header: 577 >
-                        { Treatment-Action }
-                        [ QoS-Profile-Template ]
-                        [ QoS-Parameters ]
-                      * [ AVP ]

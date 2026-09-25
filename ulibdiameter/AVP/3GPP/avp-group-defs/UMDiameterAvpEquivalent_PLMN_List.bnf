@@ -1,3 +1,0 @@
-Equivalent-PLMN-List ::= <AVP header: 1637 10415>
-1*{ Visited-PLMN-Id }
-*[AVP]

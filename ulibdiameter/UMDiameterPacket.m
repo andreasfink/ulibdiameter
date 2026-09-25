@@ -7,16 +7,16 @@
 //
 
 #import <ulibdiameter/UMDiameterPacket.h>
-#import <ulibdiameter/AVP/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvp.h>
 #import <ulibdiameter/UMDiameterCommandFlags.h>
 #import <ulibdiameter/UMDiameterApplicationId.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpSession_Id.h>
+#import <ulibdiameter/UMDiameterAvpSession_Id.h>
 
-#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Host.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpOrigin_Realm.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Host.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpDestination_Realm.h>
-#import <ulibdiameter/Commands/UMDiameterPacketsAll.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Host.h>
+#import <ulibdiameter/UMDiameterAvpDestination_Realm.h>
+#import <ulibdiameter/UMDiameterPacketsAll.h>
 
 @implementation UMDiameterPacket
 
@@ -100,8 +100,8 @@
     if(0)
     {
     }
-#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
-#include "Commands/base/UMDiameterCommands_base.inc"
+#include <ulibdiameter/UMDiameterCommands_3GPP.inc>
+#include <ulibdiameter/UMDiameterCommands_base.inc>
 
 #undef COMMAND
     [packet afterDecode];

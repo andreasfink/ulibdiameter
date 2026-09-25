@@ -1,3 +1,0 @@
-Service-Result ::= <AVP header:3146 10415>
-*[Vendor-Id]
-[Service-Result-Code]

@@ -1,4 +1,0 @@
-Server-Capabilities ::= <AVP header: 603 10415>
-*[Mandatory-Capability]
-*[Optional-Capability] *[Server-Name]
-*[AVP]

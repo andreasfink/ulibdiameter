@@ -1,3 +1,0 @@
-Deferred-MT-LR-Data ::= <AVP header: 2547 10415>
-	{ Deferred-Location-Type }
-	[ Termination-Cause ]

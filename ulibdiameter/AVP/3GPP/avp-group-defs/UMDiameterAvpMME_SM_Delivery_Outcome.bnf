@@ -1,3 +1,0 @@
-MME-SM-Delivery-Outcome::= <AVP header: 3317 10415>
-	[ SM-Delivery-Cause ]
-	[ Absent-User-Diagnostic-SM ]

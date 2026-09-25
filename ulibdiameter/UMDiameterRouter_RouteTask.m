@@ -12,7 +12,7 @@
 #import <ulibdiameter/UMDiameterPeer.h>
 #import <ulibdiameter/UMDiameterRouterSession.h>
 #import <ulibdiameter/UMDiameterRoute.h>
-#import <ulibdiameter/AVP/fts/UMDiameterAvpFTSRouteSelector.h>
+#import <ulibdiameter/UMDiameterAvpFTSRouteSelector.h>
 
 @implementation UMDiameterRouter_RouteTask
 

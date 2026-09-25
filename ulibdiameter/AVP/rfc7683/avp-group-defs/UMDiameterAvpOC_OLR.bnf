@@ -1,6 +1,0 @@
-      OC-OLR ::= < AVP Header: 623 >
-                 < OC-Sequence-Number >
-                 < OC-Report-Type >
-                 [ OC-Reduction-Percentage ]
-                 [ OC-Validity-Duration ]
-               * [ AVP ]
