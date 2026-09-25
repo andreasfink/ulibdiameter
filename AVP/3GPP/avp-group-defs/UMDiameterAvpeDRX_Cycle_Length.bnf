@@ -1,0 +1,4 @@
+eDRX-Cycle-Length ::= <AVP header: 1691 10415>
+{ RAT-Type }
+{ eDRX-Cycle-Length-Value }
+ *[ AVP ]

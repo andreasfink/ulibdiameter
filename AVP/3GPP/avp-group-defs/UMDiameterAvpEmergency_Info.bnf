@@ -1,0 +1,3 @@
+Emergency-Info ::= <AVP header: 1687 10415>
+[ MIP6-Agent-Info ]
+*[ AVP ]

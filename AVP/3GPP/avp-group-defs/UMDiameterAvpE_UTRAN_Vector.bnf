@@ -1,0 +1,7 @@
+E-UTRAN-Vector ::= <AVP header: 1414 10415>
+[ Item-Number ] 
+{ RAND }
+{ XRES }
+{ AUTN }
+{ KASME }
+*[ AVP ]

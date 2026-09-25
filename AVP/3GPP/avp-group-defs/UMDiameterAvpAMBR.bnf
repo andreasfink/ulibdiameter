@@ -1,0 +1,6 @@
+AMBR ::= <AVP header: 1435 10415>
+{ Max-Requested-Bandwidth-UL }
+{ Max-Requested-Bandwidth-DL }
+[ Extended-Max-Requested-BW-UL ]
+[ Extended-Max-Requested-BW-DL ]
+*[AVP]

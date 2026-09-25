@@ -1,0 +1,4 @@
+Allocation-Retention-Priority ::= <AVP header: 1034 10415>
+{ Priority-Level }
+[ Pre-emption-Capability ]
+[ Pre-emption-Vulnerability ]

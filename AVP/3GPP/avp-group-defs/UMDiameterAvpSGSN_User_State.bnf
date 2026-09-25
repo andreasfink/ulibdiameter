@@ -1,0 +1,3 @@
+SGSN-User-State ::= <AVP header: 1498 10415>
+[User-State]
+*[AVP]

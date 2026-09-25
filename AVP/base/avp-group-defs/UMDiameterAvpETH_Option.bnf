@@ -1,0 +1,5 @@
+ETH-Option ::= < AVP Header: 548 >
+                  { ETH-Proto-Type }
+                * [ VLAN-ID-Range ]
+                * [ User-Priority-Range ]
+                * [ AVP ]

@@ -1,0 +1,4 @@
+Delayed-Location-Reporting-Data ::= <AVP header: 2555 10415>
+	[ Termination-Cause ]
+	[ Serving-Node ]
+	*[ AVP ]

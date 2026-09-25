@@ -1,0 +1,5 @@
+Service-Type ::= <AVP header: 1483 10415>
+{ ServiceTypeIdentity }
+[ GMLC-Restriction ]
+[ Notification-To-UE-User ]
+*[AVP]

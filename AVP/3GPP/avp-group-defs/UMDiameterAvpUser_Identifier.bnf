@@ -1,0 +1,7 @@
+User-Identifier ::= <AVP header: 3102 10415>
+	[ User-Name ]
+	[ MSISDN ]
+	[ External-Identifier ]
+	[ LMSI ]
+	*[AVP]
+

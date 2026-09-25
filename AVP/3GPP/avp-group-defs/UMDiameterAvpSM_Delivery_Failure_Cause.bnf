@@ -1,0 +1,4 @@
+SM-Delivery-Failure-Cause ::= <AVP header: 3304 10415>
+	{ SM-Enumerated-Delivery-Failure-Cause }
+	[ SM-Diagnostic-Info ]
+	*[ AVP ]

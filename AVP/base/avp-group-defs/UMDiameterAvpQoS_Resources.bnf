@@ -1,0 +1,3 @@
+ QoS-Resources ::= < AVP Header: 508 >
+                   1*{ Filter-Rule }
+                   * [ AVP ]

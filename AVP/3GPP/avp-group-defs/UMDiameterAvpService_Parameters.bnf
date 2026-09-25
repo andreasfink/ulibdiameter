@@ -1,0 +1,4 @@
+Service-Parameters ::= <AVP header: 3105 10415>
+	[ T4-Parameters ]
+	[ Application-Port-Identifier ]
+	*[AVP]

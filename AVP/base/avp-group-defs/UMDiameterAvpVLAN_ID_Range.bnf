@@ -1,0 +1,6 @@
+VLAN-ID-Range ::= < AVP Header: 552 >
+                     [ S-VID-Start ]
+                     [ S-VID-End ]
+                     [ C-VID-Start ]
+                     [ C-VID-End ]
+                   * [ AVP ]

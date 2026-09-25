@@ -1,0 +1,8 @@
+Communication-Pattern-Set ::= <AVP header: 3114 10415>
+ [ Periodic-Communication-Indicator ]
+[ Communication-Duration-Time ]
+[ Periodic-Time ]
+*[ Scheduled-Communication-Time ]
+[ Stationary-Indication ]
+[ Reference-ID-Validity-Time ]
+*[AVP]

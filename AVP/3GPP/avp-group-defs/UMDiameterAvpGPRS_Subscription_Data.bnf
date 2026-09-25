@@ -1,0 +1,4 @@
+GPRS-Subscription-Data ::= <AVP header: 1467 10415>
+{ Complete-Data-List-Included-Indicator }
+ 1*50{PDP-Context}
+*[AVP]

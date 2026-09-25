@@ -1,0 +1,3 @@
+LCS-Requestor-Name ::= <AVP header: 2502 10415>
+	[ LCS-Requestor-Id-String ]
+	[ LCS-Format-Indicator ]

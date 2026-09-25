@@ -1,0 +1,4 @@
+User-CSG-Information ::= <AVP header: 2319 10415>
+{ CSG-ID }
+{ CSG-Access-Mode }
+[ CSG-Membership-Indication ]

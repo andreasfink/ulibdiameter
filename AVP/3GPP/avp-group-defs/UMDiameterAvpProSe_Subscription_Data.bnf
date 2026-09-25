@@ -1,0 +1,3 @@
+ProSe_Subscription_Data ::= <AVP header: 3701 10415>
+* [ ProSe-Permission ]
+*[ AVP ]

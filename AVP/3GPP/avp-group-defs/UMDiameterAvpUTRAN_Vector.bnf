@@ -1,0 +1,8 @@
+UTRAN-Vector ::= <AVP header: 1415 10415> 
+[ Item-Number ]
+{ RAND }
+{ XRES }
+{ AUTN }
+{ Confidentiality-Key }
+{ Integrity-Key }
+*[AVP]

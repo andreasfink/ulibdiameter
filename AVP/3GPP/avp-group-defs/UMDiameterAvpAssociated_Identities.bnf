@@ -1,0 +1,3 @@
+Associated-Identities ::= < AVP header: 632, 10415 >
+*[ User-Name ] 
+*[ AVP ]

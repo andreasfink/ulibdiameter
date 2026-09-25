@@ -1,0 +1,7 @@
+Active-APN ::= <AVP header: 1612 10415>
+{ Context-Identifier }
+[ Service-Selection ]
+[ MIP6-Agent-Info ]
+[ Visited-Network-Identifier ]
+*[ Specific-APN-Info ]
+*[ AVP ]

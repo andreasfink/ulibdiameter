@@ -1,0 +1,5 @@
+IP-Option ::= < AVP Header: 537 >
+                 { IP-Option-Type }
+               * [ IP-Option-Value ]
+                 [ Negated ]
+               * [ AVP ]

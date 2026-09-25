@@ -1,0 +1,11 @@
+Additional-Serving-Node ::= <AVP header: 2406 10415>
+	[ SGSN-Number ]
+	[ MME-Name ]
+	[ SGSN-Name ]
+	[ SGSN-Realm ]
+	[ MME-Realm ]
+	[ MSC-Number ]
+	[ 3GPP-AAA-Server-Name ]
+	[ LCS-Capabilities-Sets ]
+	[ GMLC-Address ]
+	*[AVP]

@@ -1,0 +1,21 @@
+< Profile-Update-Answer > ::=< Diameter Header: 307, PXY, 16777217 > 
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id } 
+[ Result-Code ]
+[ Experimental-Result ]
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+[ Wildcarded-Public-Identity ]
+[ Wildcarded-IMPU ]
+[ Repository-Data-ID ]
+[ Data-Reference ]
+*[ Supported-Features ]
+[ OC-Supported-Features ]
+[ OC-OLR ]
+*[ Load ]
+*[ AVP ]
+[ Failed-AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]

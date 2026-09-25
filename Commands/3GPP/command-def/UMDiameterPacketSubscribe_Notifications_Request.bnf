@@ -1,0 +1,25 @@
+< Subscribe-Notifications-Request > ::= < Diameter Header: 308, REQ, PXY, 16777217 >
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id }
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+[ Destination-Host ]
+{ Destination-Realm }
+*[ Supported-Features ]
+{ User-Identity }
+[ Wildcarded-Public-Identity ] [ Wildcarded-IMPU ]
+*[ Service-Indication ]
+[ Send-Data-Indication ]
+[ Server-Name ]
+{ Subs-Req-Type }
+*{ Data-Reference }
+*[ Identity-Set ]
+[ Expiry-Time ]
+*[ DSAI-Tag ] [One-Time-Notification]
+[ User-Name ]
+[ OC-Supported-Features ]
+*[ AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]
