@@ -7,7 +7,7 @@ includedir=${prefix}/include
 
 Name: ulibdiameter
 Cflags: -I${includedir}
-Libs: -L${libdir} -l:libulibdiameter.@SHARED_LIBRARY_EXTENSION@.@MAJORVER@.@MINORVER@
+Libs: -L${libdir} -lulibdiameter
 
 Description: universal Diameter library
 Version: @VERSION@
