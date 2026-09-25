@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpPeriodic_Time.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpPeriodic_Time.h>
 
 @implementation UMDiameterAvpPeriodic_Time
 

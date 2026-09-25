@@ -7,5 +7,5 @@
 
 #import <ulibdiameter/AVP/UMDiameterAvpENUMS.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAddress.h>
-#import <ulibdiameter/AVP/UMDiameterAvpAVPs.h>
-
+#import <ulibdiameter/AVP/UMDiameterAvpAll.h>
+#import <ulibdiameter/AVP/UMDiameterAvpMSISDN+diameter.h>

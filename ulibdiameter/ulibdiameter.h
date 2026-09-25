@@ -14,7 +14,6 @@
 #import <ulibdiameter/UMDiameterAvpFlags.h>
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAll.h>
-#import <ulibdiameter/AVP/UMDiameterAvpMSISDN+diameter.h>
 #import <ulibdiameter/UMDiameterPacket.h>
 #import <ulibdiameter/UMDiameterPeer.h>
 #import <ulibdiameter/UMDiameterRouter.h>

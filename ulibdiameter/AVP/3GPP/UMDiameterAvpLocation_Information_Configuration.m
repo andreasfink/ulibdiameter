@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpLocation_Information_Configuration.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpMONTE_Location_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpLocation_Information_Configuration.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMONTE_Location_Type.h>
 #import <ulibdiameter/AVP/3GPP/UMDiameterAvpAccuracy.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 

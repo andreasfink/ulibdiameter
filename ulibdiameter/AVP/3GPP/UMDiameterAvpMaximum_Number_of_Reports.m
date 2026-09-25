@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpMaximum_Number_of_Reports.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMaximum_Number_of_Reports.h>
 
 @implementation UMDiameterAvpMaximum_Number_of_Reports
 

@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpMaximum_Latency.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpMaximum_Latency.h>
 
 @implementation UMDiameterAvpMaximum_Latency
 
