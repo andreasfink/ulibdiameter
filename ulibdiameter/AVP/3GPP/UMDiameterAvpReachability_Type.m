@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/AVP/base/UMDiameterAvpReachability_Type.h>
+#import <ulibdiameter/AVP/3GPP/UMDiameterAvpReachability_Type.h>
 
 @implementation UMDiameterAvpReachability_Type
 

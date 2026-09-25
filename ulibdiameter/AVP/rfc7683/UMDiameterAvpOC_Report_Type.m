@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Report_Type.h>
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvpOC_Report_Type.h>
 
 @implementation UMDiameterAvpOC_Report_Type
 

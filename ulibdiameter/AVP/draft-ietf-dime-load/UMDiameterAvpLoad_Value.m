@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpLoad_Value.h>
+#import <ulibdiameter/AVP/draft-ietf-dime-load/UMDiameterAvpLoad_Value.h>
 
 @implementation UMDiameterAvpLoad_Value
 

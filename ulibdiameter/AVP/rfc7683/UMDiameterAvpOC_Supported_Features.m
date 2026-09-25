@@ -7,8 +7,8 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Supported_Features.h>
-#import <ulibdiameter/UMDiameterAvpOC_Feature_Vector.h>
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvpOC_Supported_Features.h>
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvpOC_Feature_Vector.h>
 #import <ulibdiameter/AVP/UMDiameterAvpAVP.h>
 
 @implementation UMDiameterAvpOC_Supported_Features

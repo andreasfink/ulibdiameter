@@ -7,8 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Validity_Duration.h>
-
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvpOC_Validity_Duration.h>
 @implementation UMDiameterAvpOC_Validity_Duration
 
 

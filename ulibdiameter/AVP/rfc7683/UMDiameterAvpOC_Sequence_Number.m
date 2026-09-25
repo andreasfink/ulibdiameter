@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Sequence_Number.h>
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvpOC_Sequence_Number.h>
 
 @implementation UMDiameterAvpOC_Sequence_Number
 

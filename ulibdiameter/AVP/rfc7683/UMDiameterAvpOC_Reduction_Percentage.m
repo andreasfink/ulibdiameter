@@ -7,7 +7,7 @@
 //
 
 #import <ulibdiameter/AVP/UMDiameterAvp.h>
-#import <ulibdiameter/UMDiameterAvpOC_Reduction_Percentage.h>
+#import <ulibdiameter/AVP/rfc7683/UMDiameterAvpOC_Reduction_Percentage.h>
 
 @implementation UMDiameterAvpOC_Reduction_Percentage
 

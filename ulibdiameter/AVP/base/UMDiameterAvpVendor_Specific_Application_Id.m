@@ -11,8 +11,8 @@
 #import <ulibdiameter/AVP/base/UMDiameterAvpVendor_Id.h>
 #import <ulibdiameter/AVP/base/UMDiameterAvpAuth_Application_Id.h>
 #import <ulibdiameter/AVP/base/UMDiameterAvpAcct_Application_Id.h>
-#import <ulibdiameter/AVP/base/UMDiameterVendorIdString.h>
-#import <ulibdiameter/AVP/base/UMDiameterApplicationId.h>
+#import <ulibdiameter/UMDiameterVendorIdString.h>
+#import <ulibdiameter/UMDiameterApplicationId.h>
 
 @implementation UMDiameterAvpVendor_Specific_Application_Id
 
