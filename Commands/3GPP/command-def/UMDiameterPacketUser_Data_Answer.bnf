@@ -1,0 +1,19 @@
+< User-Data-Answer > ::= < Diameter Header: 306, PXY, 16777217 > 
+< Session-Id >
+[ DRMP ]
+{ Vendor-Specific-Application-Id }
+[ Result-Code ]
+[ Experimental-Result ]
+{ Auth-Session-State }
+{ Origin-Host }
+{ Origin-Realm }
+*[ Supported-Features ]
+[ Wildcarded-Public-Identity ] [ Wildcarded-IMPU ]
+[ User-Data ]
+[ OC-Supported-Features ]
+[ OC-OLR ]
+*[ Load ]
+*[ AVP ]
+[ Failed-AVP ]
+*[ Proxy-Info ]
+*[ Route-Record ]

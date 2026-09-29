@@ -1,4 +1,0 @@
-TCP-Flags ::= < AVP Header: 543 >
-                 { TCP-Flag-Type }
-                 [ Negated ]
-               * [ AVP ]

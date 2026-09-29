@@ -1,0 +1,2 @@
+   QoS-Parameters  ::= < AVP Header: 576 >
+                        * [ AVP ]

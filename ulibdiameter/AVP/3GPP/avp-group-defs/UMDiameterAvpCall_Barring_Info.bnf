@@ -1,4 +1,0 @@
-Call-Barring-Info ::= <AVP header: 1488 10415>
-{ SS-Code }
-{ SS-Status }
-* [ AVP ]

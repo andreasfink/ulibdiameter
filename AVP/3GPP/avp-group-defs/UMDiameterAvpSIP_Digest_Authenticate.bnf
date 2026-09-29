@@ -1,0 +1,6 @@
+SIP-Digest-Authenticate ::= < AVP Header: 635 10415>
+{ Digest-Realm }
+[ Digest-Algorithm ]
+{ Digest-QoP } 
+{ Digest-HA1} 
+*[ AVP ]

@@ -1,0 +1,4 @@
+Call-Reference-Info ::= <AVP header: 720 10415>
+{Call-Reference-Number}
+{AS-Number}
+*[AVP]

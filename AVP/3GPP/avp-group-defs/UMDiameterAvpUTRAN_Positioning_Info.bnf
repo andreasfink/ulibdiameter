@@ -1,0 +1,5 @@
+UTRAN-Positioning-Info ::= <AVP header: 2527 10415>
+	[ UTRAN-Positioning-Data ]
+	[ UTRAN-GANSS-Positioning-Data ]
+	[ UTRAN-Additional-Positioning-Data ]
+	*[ AVP ]

@@ -1,0 +1,6 @@
+APN-Configuration-Profile ::= <AVP header: 1429 10415>
+{ Context-Identifier }
+[ Additional-Context-Identifier ]
+{ All-APN-Configurations-Included-Indicator }
+1*{APN-Configuration}
+*[AVP]

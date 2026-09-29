@@ -1,5 +1,0 @@
-SCSCF-Restoration-Info ::= < AVP Header: 639, 10415>
-{ User-Name }
-1*{ Restoration-Info }
-[ SIP-Authentication-Scheme ]
-*[ AVP ]

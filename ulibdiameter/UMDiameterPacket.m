@@ -100,8 +100,8 @@
     if(0)
     {
     }
-#include "Commands/3GPP/UMDiameterCommands_3GPP.inc"
-#include "Commands/base/UMDiameterCommands_base.inc"
+#include <ulibdiameter/UMDiameterCommands_3GPP.inc>
+#include <ulibdiameter/UMDiameterCommands_base.inc>
 
 #undef COMMAND
     [packet afterDecode];

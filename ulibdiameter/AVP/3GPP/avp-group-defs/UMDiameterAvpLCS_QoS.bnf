@@ -1,6 +1,0 @@
-LCS-QoS ::= <AVP header: 2504 10415>
-	[ LCS-QoS-Class ]
-	[ Horizontal-Accuracy ]
-	[ Vertical-Accuracy ]
-	[ Vertical-Requested ]
-	[ Response-Time]

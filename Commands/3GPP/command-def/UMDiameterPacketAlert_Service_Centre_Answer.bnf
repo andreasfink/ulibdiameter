@@ -1,0 +1,14 @@
+< Alert-Service-Centre-Answer > ::= < Diameter Header: 8388648, PXY, 16777312 > 
+	< Session-Id >
+	[ DRMP ]
+	[ Vendor-Specific-Application-Id ]
+	 [ Result-Code ]
+	[ Experimental-Result ]
+	{ Auth-Session-State }
+	{ Origin-Host }
+	{ Origin-Realm }
+	*[ Supported-Features ] 
+	*[ AVP ]
+	[ Failed-AVP ]
+	*[ Proxy-Info ]
+	*[ Route-Record ]

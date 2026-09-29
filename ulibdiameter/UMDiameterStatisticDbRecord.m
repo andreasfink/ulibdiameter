@@ -6,8 +6,7 @@
 //  Copyright © 2021 Andreas Fink. All rights reserved.
 //
 
-#import <ulibdb/ulibdb.h>
-
+#import <ulib/ulib.h>
 #import <ulibdiameter/UMDiameterStatisticDbRecord.h>
 
 @implementation UMDiameterStatisticDbRecord

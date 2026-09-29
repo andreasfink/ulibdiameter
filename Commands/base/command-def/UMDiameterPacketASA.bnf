@@ -1,0 +1,15 @@
+ <ASA>  ::= < Diameter Header: 274, PXY >
+                    < Session-Id >
+                    { Result-Code }
+                    { Origin-Host }
+                    { Origin-Realm }
+                    [ User-Name ]
+                    [ Origin-State-Id ]
+                    [ Error-Message ]
+                    [ Error-Reporting-Host ]
+                    [ Failed-AVP ]
+                  * [ Redirect-Host ]
+                    [ Redirect-Host-Usage ]
+                    [ Redirect-Max-Cache-Time ]
+                  * [ Proxy-Info ]
+                  * [ AVP ]

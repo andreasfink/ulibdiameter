@@ -1,0 +1,12 @@
+Monitoring-Event-Configuration ::= <AVP header: 3122 10415>
+[ SCEF-Reference-ID ]
+{ SCEF-ID }
+{ Monitoring-Type }
+*[ SCEF-Reference-ID-for-Deletion ]
+[ Maximum-Number-of-Reports ]
+[ Monitoring-Duration ]
+[ Charged-Party ]
+[ UE-Reachability-Configuration ]
+[ Location-Information-Configuration ]
+[ SCEF-Realm ]
+*[ AVP ]

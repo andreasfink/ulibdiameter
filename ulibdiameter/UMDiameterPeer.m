@@ -6,8 +6,17 @@
 //  Copyright © 2019 Andreas Fink. All rights reserved.
 //
 
+#import <ulib/ulib_config.h>
+
+#if defined(HAVE_NETINET_SCTP_H)
+#include <netinet/sctp.h>
+#else
+#if defined(HAVE_SCTP_SCTP_H)
+#include <sctp/sctp.h>
+#endif
+#endif
+
 #import <ulibdiameter/UMDiameterPeer.h>
-#import <ulibdiameter/UMDiameterPacket.h>
 #import <ulibdiameter/UMDiameterPeerState_all.h>
 #import <ulibdiameter/UMDiameterApplicationId.h>
 #import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
@@ -21,17 +30,28 @@
 #import <ulibdiameter/UMDiameterPacketCUR.h>
 #import <ulibdiameter/UMDiameterPacketCUA.h>
 #import <ulibdiameter/UMDiameterAvpAll.h>
+
+#import <ulibdiameter/UMDiameterPeerState.h>
 #import <ulibdiameter/UMDiameterRouter.h>
+#import <ulibdiameter/UMDiameterPacket.h>
+#import <ulibdiameter/UMDiameterAvp.h>
+#import <ulibdiameter/UMDiameterAvpAll.h>
 
-#import <ulibsctp/ulibsctp.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Id.h>
+#import <ulibdiameter/UMDiameterAvpProduct_Name.h>
+#import <ulibdiameter/UMDiameterAvpSupported_Vendor_Id.h>
+#import <ulibdiameter/UMDiameterAvpAuth_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpInband_Security_Id.h>
+#import <ulibdiameter/UMDiameterAvpAcct_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpVendor_Specific_Application_Id.h>
+#import <ulibdiameter/UMDiameterAvpFirmware_Revision.h>
+
+#import <ulibdiameter/UMDiameterAvpOrigin_Host.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_Realm.h>
+#import <ulibdiameter/UMDiameterAvpHost_IP_Address.h>
+#import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
+
 #include <poll.h>
-
-#ifdef __APPLE__
-#import <sctp/sctp.h>
-#else
-#include "netinet/sctp.h"
-#endif
-#include <arpa/inet.h>
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 
@@ -1992,7 +2012,8 @@ typedef enum ElectionResult
           initiator:(BOOL)initiator
              socket:(NSNumber *)socketNumber
 {
-
+#if defined(HAVE_SCTP)
+    
     const union sctp_notification *snp;
     snp = event.bytes;
     switch(snp->sn_header.sn_type)
@@ -2039,6 +2060,7 @@ typedef enum ElectionResult
             [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-PROTO: %@", protocolId]];
             [self.logFeed majorErrorText:[NSString stringWithFormat:@" RX-DATA: %@",event.description]];
     }
+#endif
 }
 
 - (void)handlePacket:(UMDiameterPacket *)packet
@@ -2244,6 +2266,7 @@ typedef enum ElectionResult
                 initiator:(BOOL)initiator
                    socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
     const union sctp_notification *snp;
     snp = event.bytes;
     NSUInteger len = event.length;
@@ -2351,6 +2374,8 @@ typedef enum ElectionResult
             [self connectionErrorForSocket:_responder_socket];
         }
     }
+#endif /* HAVE_SCTP */
+
 }
 
 
@@ -2360,6 +2385,7 @@ typedef enum ElectionResult
                    initiator:(BOOL)initiator
                       socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
     const union sctp_notification *snp;
 
     char addrbuf[INET6_ADDRSTRLEN];
@@ -2422,6 +2448,7 @@ typedef enum ElectionResult
         }
     }
 #endif
+#endif /* HAVE_SCTP */
 }
 
 -(void) handleRemoteError:(NSData *)event
@@ -2430,6 +2457,8 @@ typedef enum ElectionResult
                 initiator:(BOOL)initiator
                    socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2462,6 +2491,7 @@ typedef enum ElectionResult
                         (int)snp->sn_remote_error.sre_data[3]]];
     }
 #endif
+#endif /* HAVE_SCTP */
 }
 
 
@@ -2471,6 +2501,8 @@ typedef enum ElectionResult
               initiator:(BOOL)initiator
                  socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
     const union sctp_notification *snp;
     snp = event.bytes;
     NSUInteger len = event.length;
@@ -2516,6 +2548,7 @@ typedef enum ElectionResult
     {
         [self connectionErrorForSocket:_responder_socket];
     }
+#endif
     return -1;
 }
 
@@ -2526,6 +2559,8 @@ typedef enum ElectionResult
                  initiator:(BOOL)initiator
                     socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2560,6 +2595,7 @@ typedef enum ElectionResult
     {
         [self connectionDownForSocket:_responder_socket];
     }
+#endif
     return -1;
 }
 
@@ -2570,6 +2606,8 @@ typedef enum ElectionResult
                       initiator:(BOOL)initiator
                          socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2597,6 +2635,7 @@ typedef enum ElectionResult
         [self logDebug:[NSString stringWithFormat:@"  sai_assoc_id: %d",       (int)snp->sn_adaptation_event.sai_assoc_id]];
     }
 #endif
+#endif /* HAVE_SCTP */
     return 0;
 }
 
@@ -2606,6 +2645,8 @@ typedef enum ElectionResult
                         initiator:(BOOL)initiator
                            socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2637,7 +2678,9 @@ typedef enum ElectionResult
         [self logDebug:[NSString stringWithFormat:@"  pdapi_assoc_id: %d",       (int)snp->sn_pdapi_event.pdapi_assoc_id]];
     }
 #endif
+#endif /* HAVE_SCTP */
     return UMSocketError_no_error;
+
 }
 
 -(int) handleAuthenticationEvent:(NSData *)event
@@ -2646,6 +2689,8 @@ typedef enum ElectionResult
                        initiator:(BOOL)initiator
                           socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2686,6 +2731,7 @@ typedef enum ElectionResult
 #endif
     }
 #endif
+#endif /* HAVE_SCTP */
     return UMSocketError_no_error;
 }
 
@@ -2732,6 +2778,8 @@ typedef enum ElectionResult
                   initiator:(BOOL)initiator
                      socket:(NSNumber *)socket
 {
+#if defined(HAVE_SCTP)
+
 #if defined(ULIBSCTP_CONFIG_DEBUG)
     const union sctp_notification *snp;
     snp = event.bytes;
@@ -2758,6 +2806,7 @@ typedef enum ElectionResult
         [self logDebug:[NSString stringWithFormat:@"  sender_dry_assoc_id: %d", (int)snp->sn_sender_dry_event.sender_dry_assoc_id]];
     }
 #endif
+#endif /* HAVE_SCTP */
     return UMSocketError_no_error;
 }
 

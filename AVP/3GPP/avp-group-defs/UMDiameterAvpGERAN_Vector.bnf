@@ -1,0 +1,6 @@
+GERAN-Vector ::= <AVP header: 1416 10415>
+[ Item-Number ]
+{ RAND }
+{ SRES }
+{ Kc }
+*[AVP]

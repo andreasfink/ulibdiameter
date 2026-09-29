@@ -1,0 +1,5 @@
+Specific-APN-Info ::= <AVP header: 1472 10415>
+{ Service-Selection }
+{ MIP6-Agent-Info }
+[ Visited-Network-Identifier ]
+*[ AVP ]

@@ -1,0 +1,3 @@
+LCS-EPS-Client-Name ::= <AVP header: 2501 10415>
+	[ LCS-Name-String ]
+	[ LCS-Format-Indicator ]

@@ -1,0 +1,5 @@
+Authentication-Info ::= <AVP header: 1413 10415>
+*[ E-UTRAN-Vector ]
+*[ UTRAN-Vector ]
+*[ GERAN-Vector ]
+*[ AVP ]

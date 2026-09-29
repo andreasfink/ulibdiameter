@@ -1,3 +1,0 @@
-Teleservice-List ::= <AVP header: 1486 10415>
-1 * { TS-Code }
-* [ AVP ]

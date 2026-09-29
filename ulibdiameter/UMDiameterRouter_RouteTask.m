@@ -19,7 +19,7 @@
 
 - (UMDiameterRouter_RouteTask *)initWithRouter:(UMDiameterRouter *)router
                                        session:(UMDiameterRouterSession *)session
-                                        sender:(UMDiameterPeer *)sender
+                                        sender:(UMDiameterPeer *)xsender
                                         packet:(UMDiameterPacket *)packet
                                          realm:(NSString *)realm
                                           host:(NSString *)host
@@ -27,13 +27,13 @@
 {
     self = [super initWithName:[[self class]description]
                       receiver:router
-                        sender:sender
+                        sender:xsender
        requiresSynchronisation:NO];
     if(self)
     {
         _session = session;
         _packet = packet;
-        _sender = sender;
+        _sender = xsender;
         _router = router;
         _realm = realm;
         _host = host;

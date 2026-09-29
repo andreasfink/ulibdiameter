@@ -1,0 +1,4 @@
+Periodic-LDR-Info ::= <AVP header: 2540 10415>
+	{ Reporting-Amount }
+	{ Reporting-Interval }
+	*[ AVP ]

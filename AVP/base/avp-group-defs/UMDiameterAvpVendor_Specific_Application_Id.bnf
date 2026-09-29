@@ -1,0 +1,4 @@
+<Vendor-Specific-Application-Id> ::= < AVP Header: 260 >
+                                           { Vendor-Id }
+                                           [ Auth-Application-Id ]
+                                           [ Acct-Application-Id ]

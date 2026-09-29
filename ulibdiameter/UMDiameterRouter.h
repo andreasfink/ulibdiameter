@@ -7,7 +7,6 @@
 //
 
 #import <ulib/ulib.h>
-#import <ulibdb/ulibdb.h>
 #import <ulibdiameter/UMDiameterMessage.h>
 #import <ulibdiameter/UMDiameterPeer.h>
 #import <ulibdiameter/UMDiameterRouterSession.h>

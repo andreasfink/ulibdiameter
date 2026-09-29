@@ -1,0 +1,3 @@
+Experimental-Result ::= < AVP Header: 297>
+                                 { Vendor-Id }
+                                 { Experimental-Result-Code }

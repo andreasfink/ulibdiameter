@@ -1,5 +1,0 @@
-User-Identity ::= <AVP header: 700 10415>
-[Public-Identity]
-[MSISDN]
-[External-Identifier]
-*[AVP]

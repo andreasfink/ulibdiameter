@@ -1,5 +1,0 @@
-Supported-Applications ::= < AVP header: 631 10415 >
-*[ Auth-Application-Id ]
-*[ Acct-Application-Id ]
-*[ Vendor-Specific-Application-Id ]
- *[ AVP ]

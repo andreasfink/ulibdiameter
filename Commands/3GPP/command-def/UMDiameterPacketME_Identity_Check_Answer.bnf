@@ -1,0 +1,14 @@
+< ME-Identity-Check-Answer> ::=  < Diameter Header: 324, PXY, 16777252 > 
+< Session-Id > 
+[ DRMP ] 
+[ Vendor-Specific-Application-Id ] 
+[ Result-Code ] 
+[ Experimental-Result ] 
+{ Auth-Session-State } 
+{ Origin-Host } 
+{ Origin-Realm } 
+[ Equipment-Status ] 
+*[ AVP ] 
+[ Failed-AVP ] 
+*[ Proxy-Info ] 
+*[ Route-Record ] 

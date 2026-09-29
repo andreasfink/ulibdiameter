@@ -1,5 +1,0 @@
-Requested-EUTRAN-Authentication-Info ::= <AVP header: 1408 10415>
-[ Number-Of-Requested-Vectors ] 
-[ Immediate-Response-Preferred ]
-[ Re-Synchronization-Info ]
-*[ AVP ]

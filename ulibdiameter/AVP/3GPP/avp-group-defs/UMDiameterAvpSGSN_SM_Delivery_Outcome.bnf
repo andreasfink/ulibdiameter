@@ -1,3 +1,0 @@
-SGSN-SM-Delivery-Outcome::= <AVP header: 3319 10415>
-	[ SM-Delivery-Cause ]
-	[ Absent-User-Diagnostic-SM ]

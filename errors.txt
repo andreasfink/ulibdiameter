@@ -1,0 +1,99 @@
+In file included from ulibdiameter/UMDiameterPeer.m:32:
+In file included from ./ulibdiameter/AVP/UMDiameterAvpAll.h:32:
+./ulibdiameter/AVP/3GPP/UMDiameterAvp_3GPP_includes.h:68:54: warning: extra tokens at end of #import directive [-Wextra-tokens]
+   68 | #import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>>
+      |                                                      ^
+      |                                                      //
+1 warning generated.
+In file included from ulibdiameter/UMDiameterPeer.m:32:
+In file included from ./ulibdiameter/AVP/UMDiameterAvpAll.h:32:
+./ulibdiameter/AVP/3GPP/UMDiameterAvp_3GPP_includes.h:68:54: warning: extra tokens at end of #import directive [-Wextra-tokens]
+   68 | #import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>>
+      |                                                      ^
+      |                                                      //
+In file included from ulibdiameter/AVP/UMDiameterAvp.m:12:
+In file included from ./ulibdiameter/AVP/UMDiameterAvpAll.h:32:
+./ulibdiameter/AVP/3GPP/UMDiameterAvp_3GPP_includes.h:68:54: warning: extra tokens at end of #import directive [-Wextra-tokens]
+   68 | #import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>>
+      |                                                      ^
+      |                                                      //
+1 warning generated.
+1 warning generated.
+In file included from ulibdiameter/AVP/UMDiameterAvp.m:12:
+In file included from ./ulibdiameter/AVP/UMDiameterAvpAll.h:32:
+./ulibdiameter/AVP/3GPP/UMDiameterAvp_3GPP_includes.h:68:54: warning: extra tokens at end of #import directive [-Wextra-tokens]
+   68 | #import <ulibdiameter/AVP/3GPP/UMDiameterAvpMSISDN.h>>
+      |                                                      ^
+      |                                                      //
+ulibdiameter/AVP/3GPP/UMDiameterAvpA_MSISDN.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpA_MSISDN.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpA_MSISDN.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_AAA_Server_Name.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvp3GPP_AAA_Server_Name.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvp3GPP_AAA_Server_Name.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_Charging_Characteristics.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvp3GPP_Charging_Characteristics.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvp3GPP_Charging_Characteristics.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+ulibdiameter/AVP/3GPP/UMDiameterAvp1xRTT_RCID.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvp1xRTT_RCID.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvp1xRTT_RCID.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ulibdiameter/AVP/3GPP/UMDiameterAvpAbsent_User_Diagnostic_SM.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAbsent_User_Diagnostic_SM.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAbsent_User_Diagnostic_SM.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+ulibdiameter/AVP/3GPP/UMDiameterAvpAccuracy_Fulfilment_Indicator.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAccuracy_Fulfilment_Indicator.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAccuracy_Fulfilment_Indi1 error generatedmake: .
+*** [ulibdiameter/AVP/3GPP/UMDiameterAvpA_MSISDN.m.o] Error 1
+cator.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** Waiting for unfinished jobs....
+ulibdiameter/AVP/3GPP/UMDiameterAvpActive_APN.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpActive_APN.h' file not found
+   10 | #import <ulibdiameter/UMDiameteulibdiameter/AVP/3GPP/UMDiameterAvp3GPP2_MEID.mrAvpActive_APN.h>
+:10:9: fatal error: 'ulibdiameter/UMDiameterAvp3GPP2_MEID.h' file not found
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   10 | #import <ulibdiameter/UMDiameterAvp3GPP2_MEID.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_AAA_Server_Name.m.o] Error 1
+ulibdiameter/AVP/3GPP/UMDiameterAvpAccess_Restriction_Data.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAccess_Restriction_Data.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAccess_Restriction_Data.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+ulibdiameter/AVP/3GPP/UMDiameterAvpAccuracy.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAccuracy.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAccuracy.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpActive_APN.m.o] Error 1
+1 error generated.
+ulibdiameter/AVP/3GPP/UMDiameterAvpActive_Time.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpActive_Time.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpActive_Time.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP_Charging_Characteristics.m.o] Error 1
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvp1xRTT_RCID.m.o] Error 1
+1 error generated.
+1 error generated.
+1 error generated.
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAccuracy_Fulfilment_Indicator.m.o] Error 1
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAbsent_User_Diagnostic_SM.m.o] Error 1
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvp3GPP2_MEID.m.o] Error 1
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAccuracy.m.o] Error 1
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAccess_Restriction_Data.m.o] Error 1
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpActive_Time.m.o] Error 1
+ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Area.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAdditional_Area.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAdditional_Area.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Area.m.o] Error 1
+ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Context_Identifier.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAdditional_Context_Identifier.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAdditional_Context_Identifier.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Context_Identifier.m.o] Error 1
+ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Serving_Node.m:10:9: fatal error: 'ulibdiameter/UMDiameterAvpAdditional_Serving_Node.h' file not found
+   10 | #import <ulibdiameter/UMDiameterAvpAdditional_Serving_Node.h>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+make: *** [ulibdiameter/AVP/3GPP/UMDiameterAvpAdditional_Serving_Node.m.o] Error 1

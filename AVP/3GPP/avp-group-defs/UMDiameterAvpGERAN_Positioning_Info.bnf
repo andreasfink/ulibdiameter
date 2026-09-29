@@ -1,0 +1,4 @@
+GERAN-Positioning-Info ::= <AVP header: 2524 10415>
+	[ GERAN-Positioning-Data ]
+	[ GERAN-GANSS-Positioning-Data ]
+	*[ AVP ]

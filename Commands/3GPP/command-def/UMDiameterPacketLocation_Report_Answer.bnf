@@ -1,0 +1,17 @@
+< Location-Report-Answer > ::=    < Diameter Header: 8388621, PXY, 16777255>
+    < Session-Id >
+    [ Vendor-Specific-Application-Id ]
+    [ Result-Code ]
+    [ Experimental-Result ]
+    { Auth-Session-State }
+    { Origin-Host }
+    { Origin-Realm }
+    [ GMLC-Address ]
+    [ LRA-Flags ]
+    [ Reporting-PLMN-List ]
+    [ LCS-Reference-Number ]
+    *[ Supported-Features ]
+    *[ AVP ]
+    [ Failed-AVP ]
+    *[ Proxy-Info ]
+    *[ Route-Record ]

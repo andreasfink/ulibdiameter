@@ -1,4 +1,0 @@
-MBSFN-Area ::= <AVP header: 1694 10415>
-[ MBSFN-Area-ID ]
-[ Carrier-Frequency ]
-*[ AVP ]

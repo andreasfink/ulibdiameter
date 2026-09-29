@@ -1,0 +1,10 @@
+Trace-Data ::= <AVP header: 1458 10415>
+{Trace-Reference}
+{Trace-Depth}
+{Trace-NE-Type-List}
+[Trace-Interface-List]
+{Trace-Event-List} 
+[OMC-Id]
+{Trace-Collection-Entity}
+[MDT-Configuration]
+*[AVP]

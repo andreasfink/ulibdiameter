@@ -1,5 +1,0 @@
-SMS-MI-Correlation-ID  ::= <AVP header: 3324 10415>
-	[ HSS-ID ]
-	[ Originating-SIP-URI ]
-	[ Destination-SIP-URI ]
-	*[ AVP ]

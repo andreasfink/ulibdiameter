@@ -1,0 +1,22 @@
+ <ACA> ::= < Diameter Header: 271, PXY >
+                   < Session-Id >
+                   { Result-Code }
+                   { Origin-Host }
+                   { Origin-Realm }
+                   { Accounting-Record-Type }
+                   { Accounting-Record-Number }
+                   [ Acct-Application-Id ]
+                   [ Vendor-Specific-Application-Id ]
+                   [ User-Name ]
+                   [ Accounting-Sub-Session-Id ]
+                   [ Acct-Session-Id ]
+                   [ Acct-Multi-Session-Id ]
+                   [ Error-Message ]
+                   [ Error-Reporting-Host ]
+                   [ Failed-AVP ]
+                   [ Acct-Interim-Interval ]
+                   [ Accounting-Realtime-Required ]
+                   [ Origin-State-Id ]
+                   [ Event-Timestamp ]
+                 * [ Proxy-Info ]
+                 * [ AVP ]
