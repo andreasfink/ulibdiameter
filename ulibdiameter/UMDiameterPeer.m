@@ -8,6 +8,8 @@
 
 #import <ulib/ulib_config.h>
 
+#import <netinet/in.h>
+
 #if defined(HAVE_NETINET_SCTP_H)
 #include <netinet/sctp.h>
 #else
@@ -52,6 +54,8 @@
 #import <ulibdiameter/UMDiameterAvpOrigin_State_Id.h>
 
 #include <poll.h>
+#include <arpa/inet.h>
+
 
 #define     SEND_ORIGIN_STATE_ID_IN_DWR 1
 
@@ -2416,7 +2420,6 @@ typedef enum ElectionResult
 #endif
     if (snp->sn_paddr_change.spc_aaddr.ss_family == AF_INET)
     {
-        //struct sockaddr_in *sin;
         sin = (struct sockaddr_in *)&snp->sn_paddr_change.spc_aaddr;
         ap = inet_ntop(AF_INET, &sin->sin_addr, addrbuf, INET6_ADDRSTRLEN);
         if(self.logLevel <= UMLOG_DEBUG)
