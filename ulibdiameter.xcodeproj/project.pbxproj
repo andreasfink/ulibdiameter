@@ -6,409 +6,779 @@
 	objectVersion = 70;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		A61E1B0322C8F93F00025026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A61E1B0222C8F93E00025026 /* main.m */; };
-		A61E1B0B22C934DF00025026 /* UMDiameterAvpDef.m in Sources */ = {isa = PBXBuildFile; fileRef = A61E1B0A22C934DF00025026 /* UMDiameterAvpDef.m */; };
-		A6260C59228C004F00C94036 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6260C58228C004F00C94036 /* main.m */; };
-		A6260C60228C019700C94036 /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
-		A628E77322C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m in Sources */ = {isa = PBXBuildFile; fileRef = A628E77222C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m */; };
-		A628E77722C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = A628E77622C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m */; };
-		A643D8AB3065399200F9798D /* libulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8AA3065399200F9798D /* libulib.a */; };
-		A643D8AC3065399200F9798D /* libulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8AA3065399200F9798D /* libulib.a */; };
-		A643D8AD3065399200F9798D /* libulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8AA3065399200F9798D /* libulib.a */; };
-		A643D8AE3065399200F9798D /* libulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8AA3065399200F9798D /* libulib.a */; };
-		A643D8AF3065399200F9798D /* libulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8AA3065399200F9798D /* libulib.a */; };
-		A643D8B7306539A700F9798D /* libulibpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8B6306539A700F9798D /* libulibpcap.a */; };
-		A643D8B8306539A700F9798D /* libulibpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8B6306539A700F9798D /* libulibpcap.a */; };
-		A643D8B9306539A700F9798D /* libulibpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8B6306539A700F9798D /* libulibpcap.a */; };
-		A643D8BA306539A700F9798D /* libulibpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8B6306539A700F9798D /* libulibpcap.a */; };
-		A643D8BB306539A700F9798D /* libulibpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8B6306539A700F9798D /* libulibpcap.a */; };
-		A643D8BD306539B600F9798D /* libulibgsmmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8BC306539B600F9798D /* libulibgsmmap.a */; };
-		A643D8BE306539B600F9798D /* libulibgsmmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8BC306539B600F9798D /* libulibgsmmap.a */; };
-		A643D8BF306539B600F9798D /* libulibgsmmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8BC306539B600F9798D /* libulibgsmmap.a */; };
-		A643D8C0306539B600F9798D /* libulibgsmmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8BC306539B600F9798D /* libulibgsmmap.a */; };
-		A643D8C1306539B600F9798D /* libulibgsmmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8BC306539B600F9798D /* libulibgsmmap.a */; };
-		A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
-		A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */; };
-		A684F78622C1FED9004F77C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F78522C1FED9004F77C0 /* main.m */; };
-		A6BE474A22C7462000A9353D /* UMDiameterGeneratorAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BE474922C7462000A9353D /* UMDiameterGeneratorAVP.m */; };
-		A6BE474D22C746ED00A9353D /* UMDiameterGeneratorCMD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BE474C22C746ED00A9353D /* UMDiameterGeneratorCMD.m */; };
-		A6BE474F22C7825700A9353D /* UMDiameterGeneratorCMD.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BE474B22C746ED00A9353D /* UMDiameterGeneratorCMD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A6609EB4203A66A600C25C7B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A6609EA0203A66A600C25C7B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A6609EA8203A66A600C25C7B;
-			remoteInfo = ulibdiameter;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A61E1AFE22C8F93E00025026 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		A6260C54228C004F00C94036 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		A684F78122C1FED9004F77C0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		A61E1AD822C8C7A000025026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A61E1B0022C8F93E00025026 /* diameter-avp-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "diameter-avp-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A61E1B0222C8F93E00025026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A61E1B0922C934DE00025026 /* UMDiameterAvpDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpDef.h; sourceTree = "<group>"; };
-		A61E1B0A22C934DF00025026 /* UMDiameterAvpDef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpDef.m; sourceTree = "<group>"; };
-		A61E1B0F22C94A4000025026 /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
-		A61E1B1022C9518C00025026 /* output */ = {isa = PBXFileReference; lastKnownFileType = folder; path = output; sourceTree = "<group>"; };
-		A6260C56228C004F00C94036 /* decode-diameter-pdu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "decode-diameter-pdu"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6260C58228C004F00C94036 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A628E76F22C9DBCD00D5BD91 /* avp-group-defs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "avp-group-defs"; sourceTree = "<group>"; };
-		A628E77122C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterAvpGroupDef.h; sourceTree = "<group>"; };
-		A628E77222C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterAvpGroupDef.m; sourceTree = "<group>"; };
-		A628E77522C9DF0400D5BD91 /* UMDiameterGeneratorAVP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMDiameterGeneratorAVP.h; sourceTree = "<group>"; };
-		A628E77622C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMDiameterGeneratorAVP.m; sourceTree = "<group>"; };
-		A634105C24B7238E0044A2B6 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
-		A643D8AA3065399200F9798D /* libulib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libulib.a; path = /usr/local/lib/libulib.a; sourceTree = "<absolute>"; };
-		A643D8B6306539A700F9798D /* libulibpcap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libulibpcap.a; path = /usr/local/lib/libulibpcap.a; sourceTree = "<absolute>"; };
-		A643D8BC306539B600F9798D /* libulibgsmmap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libulibgsmmap.a; path = /usr/local/lib/libulibgsmmap.a; sourceTree = "<absolute>"; };
-		A6609EA9203A66A600C25C7B /* ulibdiameter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ulibdiameter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ulibdiameterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ulibdiameterTests.m; sourceTree = "<group>"; };
-		A6609EB9203A66A600C25C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A684F78322C1FED9004F77C0 /* diameter-cmd-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "diameter-cmd-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A684F78522C1FED9004F77C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A685AE0726088713007A631F /* diameter-cmd-gen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "diameter-cmd-gen.entitlements"; sourceTree = "<group>"; };
-		A6BE474822C7462000A9353D /* UMDiameterGeneratorAVP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterGeneratorAVP.h; sourceTree = "<group>"; };
-		A6BE474922C7462000A9353D /* UMDiameterGeneratorAVP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterGeneratorAVP.m; sourceTree = "<group>"; };
-		A6BE474B22C746ED00A9353D /* UMDiameterGeneratorCMD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMDiameterGeneratorCMD.h; sourceTree = "<group>"; };
-		A6BE474C22C746ED00A9353D /* UMDiameterGeneratorCMD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMDiameterGeneratorCMD.m; sourceTree = "<group>"; };
-		A6BE475122C7853D00A9353D /* testfile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = testfile.txt; sourceTree = "<group>"; };
-		A6D789D92C7627B100387176 /* decode-diameter-pdu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "decode-diameter-pdu.entitlements"; sourceTree = "<group>"; };
-		A6D789DA2C7627B700387176 /* diameter-avp-gen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "diameter-avp-gen.entitlements"; sourceTree = "<group>"; };
-		A6F2C8FE203B7F8D00DA49BF /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
+		A62D9A963077D1A4004EBF39 /* libulibdiameter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libulibdiameter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62DA4E23077D215004EBF39 /* libulibgsmmap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libulibgsmmap.a; path = ../../../../../usr/local/lib/libulibgsmmap.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A62DA4F13077D4D1004EBF39 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				ulibdiameter.h,
+				UMDiameterApplicationId.h,
+				UMDiameterAvp_3GPP_includes.h,
+				UMDiameterAvp_3GPP_object_list.inc.h,
+				UMDiameterAvp_base_includes.h,
+				UMDiameterAvp_base_object_list.inc.h,
+				UMDiameterAvp_draft_ietf_dime_load_includes.h,
+				UMDiameterAvp_draft_ietf_dime_load_object_list.inc.h,
+				UMDiameterAvp_fts_includes.h,
+				UMDiameterAvp_fts_list.inc.h,
+				UMDiameterAVP_Options.h,
+				UMDiameterAvp_rfc7683_includes.h,
+				UMDiameterAvp_rfc7683_object_list.inc.h,
+				UMDiameterAvp.h,
+				UMDiameterAvp1xRTT_RCID.h,
+				UMDiameterAvp3GPP_AAA_Server_Name.h,
+				UMDiameterAvp3GPP_Charging_Characteristics.h,
+				UMDiameterAvp3GPP2_MEID.h,
+				UMDiameterAvpA_MSISDN.h,
+				UMDiameterAvpAbsent_User_Diagnostic_SM.h,
+				UMDiameterAvpAccess_Restriction_Data.h,
+				UMDiameterAvpAccounting_Realtime_Required.h,
+				UMDiameterAvpAccounting_Record_Number.h,
+				UMDiameterAvpAccounting_Record_Type.h,
+				UMDiameterAvpAccounting_Sub_Session_Id.h,
+				UMDiameterAvpAcct_Application_Id.h,
+				UMDiameterAvpAcct_Interim_Interval.h,
+				UMDiameterAvpAcct_Multi_Session_Id.h,
+				UMDiameterAvpAcct_Session_Id.h,
+				UMDiameterAvpAccuracy_Fulfilment_Indicator.h,
+				UMDiameterAvpAccuracy.h,
+				UMDiameterAvpActive_APN.h,
+				UMDiameterAvpActive_Time.h,
+				UMDiameterAvpAdditional_Area.h,
+				UMDiameterAvpAdditional_Context_Identifier.h,
+				UMDiameterAvpAdditional_Serving_Node.h,
+				UMDiameterAvpAddress.h,
+				"UMDiameterAvpAddress+diameter.h",
+				UMDiameterAvpAdjacent_Access_Restriction_Data.h,
+				UMDiameterAvpAdjacent_PLMNs.h,
+				UMDiameterAvpAESE_Communication_Pattern.h,
+				UMDiameterAvpAge_Of_Location_Estimate.h,
+				UMDiameterAvpAge_Of_Location_Information.h,
+				UMDiameterAvpAIR_Flags.h,
+				UMDiameterAvpAlert_Reason.h,
+				UMDiameterAvpAll_APN_Configurations_Included_Indicator.h,
+				UMDiameterAvpAll.h,
+				UMDiameterAvpAllocation_Retention_Priority.h,
+				UMDiameterAvpAMBR.h,
+				UMDiameterAvpAPN_Configuration_Profile.h,
+				UMDiameterAvpAPN_Configuration.h,
+				UMDiameterAvpAPN_OI_Replacement.h,
+				UMDiameterAvpApplication_Port_Identifier.h,
+				UMDiameterAvpArea_Definition.h,
+				UMDiameterAvpArea_Event_Info.h,
+				UMDiameterAvpArea_Identification.h,
+				UMDiameterAvpArea_Scope.h,
+				UMDiameterAvpArea_Type.h,
+				UMDiameterAvpArea.h,
+				UMDiameterAvpAS_Number.h,
+				UMDiameterAvpAssociated_Identities.h,
+				UMDiameterAvpAssociated_Registered_Identities.h,
+				UMDiameterAvpAuth_Application_Id.h,
+				UMDiameterAvpAuth_Grace_Period.h,
+				UMDiameterAvpAuth_Request_Type.h,
+				UMDiameterAvpAuth_Session_State.h,
+				UMDiameterAvpAuthentication_Info.h,
+				UMDiameterAvpAuthorization_Lifetime.h,
+				UMDiameterAvpAUTN.h,
+				UMDiameterAvpAVP.h,
+				UMDiameterAvpBarometric_Pressure.h,
+				UMDiameterAvpCall_Barring_Info.h,
+				UMDiameterAvpCall_ID_SIP_Header.h,
+				UMDiameterAvpCall_Reference_Info.h,
+				UMDiameterAvpCall_Reference_Number.h,
+				UMDiameterAvpCancellation_Type.h,
+				UMDiameterAvpCarrier_Frequency.h,
+				UMDiameterAvpCell_Global_Identity.h,
+				UMDiameterAvpCell_Portion_ID.h,
+				UMDiameterAvpChargeable_User_Identity.h,
+				UMDiameterAvpCharged_Party.h,
+				UMDiameterAvpCharging_Information.h,
+				UMDiameterAvpCivic_Address.h,
+				UMDiameterAvpClass.h,
+				UMDiameterAvpClient_Identity.h,
+				UMDiameterAvpCLR_Flags.h,
+				UMDiameterAvpCodes.h,
+				UMDiameterAvpCollection_Period_RRM_LTE.h,
+				UMDiameterAvpCollection_Period_RRM_UMTS.h,
+				UMDiameterAvpCommunication_Duration_Time.h,
+				UMDiameterAvpCommunication_Pattern_Set.h,
+				UMDiameterAvpComplete_Data_List_Included_Indicator.h,
+				UMDiameterAvpConfidentiality_Key.h,
+				UMDiameterAvpContact.h,
+				UMDiameterAvpContext_Identifier.h,
+				UMDiameterAvpCoupled_Node_Diameter_ID.h,
+				UMDiameterAvpCSG_Access_Mode.h,
+				UMDiameterAvpCSG_ID.h,
+				UMDiameterAvpCSG_Membership_Indication.h,
+				UMDiameterAvpCSG_Subscription_Data.h,
+				UMDiameterAvpCurrent_Location_Retrieved.h,
+				UMDiameterAvpCurrent_Location.h,
+				UMDiameterAvpData_Reference.h,
+				UMDiameterAvpDay_Of_Week_Mask.h,
+				UMDiameterAvpDaylight_Saving_Time.h,
+				UMDiameterAvpDeferred_Location_Type.h,
+				UMDiameterAvpDeferred_MT_LR_Data.h,
+				UMDiameterAvpDelayed_Location_Reporting_Data.h,
+				UMDiameterAvpDeregistration_Reason.h,
+				UMDiameterAvpDestination_Host.h,
+				UMDiameterAvpDestination_Realm.h,
+				UMDiameterAvpDestination_SIP_URI.h,
+				UMDiameterAvpDiameterIdentity.h,
+				"UMDiameterAvpDiameterIdentity+diameter.h",
+				UMDiameterAvpDiameterURI.h,
+				UMDiameterAvpDigest_Algorithm.h,
+				UMDiameterAvpDigest_HA1.h,
+				UMDiameterAvpDigest_QoP.h,
+				UMDiameterAvpDigest_Realm.h,
+				UMDiameterAvpDisconnect_Cause.h,
+				UMDiameterAvpDL_Buffering_Suggested_Packet_Count.h,
+				UMDiameterAvpDRMP.h,
+				UMDiameterAvpDSA_Flags.h,
+				UMDiameterAvpDSAI_Tag.h,
+				UMDiameterAvpDSR_Flags.h,
+				UMDiameterAvpE_UTRAN_Cell_Global_Identity.h,
+				"UMDiameterAvpE_UTRAN_Cell_Global_Identity+diameter.h",
+				UMDiameterAvpE_UTRAN_Vector.h,
+				UMDiameterAvpECGI.h,
+				UMDiameterAvpeDRX_Cycle_Length_Value.h,
+				UMDiameterAvpeDRX_Cycle_Length.h,
+				UMDiameterAvpEmergency_Info.h,
+				UMDiameterAvpEmergency_Services.h,
+				UMDiameterAvpeNodeB_ID.h,
+				UMDiameterAvpEnumerated.h,
+				UMDiameterAvpENUMS.h,
+				UMDiameterAvpEPS_Location_Information.h,
+				UMDiameterAvpEPS_Subscribed_QoS_Profile.h,
+				UMDiameterAvpEPS_User_State.h,
+				UMDiameterAvpEquipment_Status.h,
+				UMDiameterAvpEquivalent_PLMN_List.h,
+				UMDiameterAvpError_Diagnostic.h,
+				UMDiameterAvpError_Message.h,
+				UMDiameterAvpError_Reporting_Host.h,
+				UMDiameterAvpESMLC_Cell_Info.h,
+				UMDiameterAvpEUTRAN_Positioning_Data.h,
+				UMDiameterAvpEvent_Threshold_Event_1F.h,
+				UMDiameterAvpEvent_Threshold_Event_1I.h,
+				UMDiameterAvpEvent_Threshold_RSRP.h,
+				UMDiameterAvpEvent_Threshold_RSRQ.h,
+				UMDiameterAvpEvent_Timestamp.h,
+				UMDiameterAvpExperimental_Result_Code.h,
+				UMDiameterAvpExperimental_Result.h,
+				UMDiameterAvpExpiration_Date.h,
+				UMDiameterAvpExpiry_Time.h,
+				UMDiameterAvpExt_PDP_Address.h,
+				UMDiameterAvpExt_PDP_Type.h,
+				UMDiameterAvpExtended_eNodeB_ID.h,
+				UMDiameterAvpExtended_Max_Requested_BW_DL.h,
+				UMDiameterAvpExtended_Max_Requested_BW_UL.h,
+				UMDiameterAvpExternal_Client.h,
+				UMDiameterAvpExternal_Identifier.h,
+				UMDiameterAvpFailed_AVP.h,
+				UMDiameterAvpFeature_List_ID.h,
+				UMDiameterAvpFeature_List.h,
+				UMDiameterAvpFilter_Rule.h,
+				UMDiameterAvpFirmware_Revision.h,
+				UMDiameterAvpFlags.h,
+				UMDiameterAvpFloat32.h,
+				UMDiameterAvpFloat64.h,
+				UMDiameterAvpFramed_Interface_Id.h,
+				UMDiameterAvpFramed_IP_Address.h,
+				UMDiameterAvpFramed_IPv6_Prefix.h,
+				UMDiameterAvpFrom_SIP_Header.h,
+				UMDiameterAvpFTSRouteSelector.h,
+				UMDiameterAvpGeodetic_Information.h,
+				UMDiameterAvpGeographical_Information.h,
+				UMDiameterAvpGERAN_GANSS_Positioning_Data.h,
+				UMDiameterAvpGERAN_Positioning_Data.h,
+				UMDiameterAvpGERAN_Positioning_Info.h,
+				UMDiameterAvpGERAN_Vector.h,
+				UMDiameterAvpGMLC_Address.h,
+				UMDiameterAvpGMLC_Number.h,
+				UMDiameterAvpGMLC_Restriction.h,
+				UMDiameterAvpGPRS_Subscription_Data.h,
+				UMDiameterAvpGroup_PLMN_Id.h,
+				UMDiameterAvpGroup_Service_Id.h,
+				UMDiameterAvpGrouped.h,
+				UMDiameterAvpHomogeneous_Support_of_IMS_Voice_Over_PS_Sessions.h,
+				UMDiameterAvpHorizontal_Accuracy.h,
+				UMDiameterAvpHost_IP_Address.h,
+				UMDiameterAvpHPLMN_ODB.h,
+				UMDiameterAvpHSS_Cause.h,
+				UMDiameterAvpHSS_ID.h,
+				UMDiameterAvpICS_Indicator.h,
+				UMDiameterAvpIDA_Flags.h,
+				UMDiameterAvpIdentity_Set.h,
+				UMDiameterAvpIDR_Flags.h,
+				UMDiameterAvpIMEI.h,
+				UMDiameterAvpImmediate_Response_Preferred.h,
+				UMDiameterAvpIMS_Voice_Over_PS_Sessions_Supported.h,
+				UMDiameterAvpIMSI_Group_Id.h,
+				UMDiameterAvpInband_Security_Id.h,
+				UMDiameterAvpInitial_CSeq_Sequence_Number.h,
+				UMDiameterAvpInteger32.h,
+				UMDiameterAvpInteger64.h,
+				UMDiameterAvpIntegrity_Key.h,
+				UMDiameterAvpInterval_Time.h,
+				UMDiameterAvpIP_SM_GW_Name.h,
+				UMDiameterAvpIP_SM_GW_Number.h,
+				UMDiameterAvpIP_SM_GW_Realm.h,
+				UMDiameterAvpIP_SM_GW_SM_Delivery_Outcome.h,
+				UMDiameterAvpItem_Number.h,
+				UMDiameterAvpJob_Type.h,
+				UMDiameterAvpKASME.h,
+				UMDiameterAvpKc.h,
+				UMDiameterAvpLast_UE_Activity_Time.h,
+				UMDiameterAvpLCS_Capabilities_Sets.h,
+				UMDiameterAvpLCS_Client_Type.h,
+				UMDiameterAvpLCS_Codeword.h,
+				UMDiameterAvpLCS_EPS_Client_Name.h,
+				UMDiameterAvpLCS_Format_Indicator.h,
+				UMDiameterAvpLCS_Info.h,
+				UMDiameterAvpLCS_Name_String.h,
+				UMDiameterAvpLCS_Priority.h,
+				UMDiameterAvpLCS_Privacy_Check_Non_Session.h,
+				UMDiameterAvpLCS_Privacy_Check_Session.h,
+				UMDiameterAvpLCS_Privacy_Check.h,
+				UMDiameterAvpLCS_PrivacyException.h,
+				UMDiameterAvpLCS_QoS_Class.h,
+				UMDiameterAvpLCS_QoS.h,
+				UMDiameterAvpLCS_Reference_Number.h,
+				UMDiameterAvpLCS_Requestor_Id_String.h,
+				UMDiameterAvpLCS_Requestor_Name.h,
+				UMDiameterAvpLCS_Service_Type_ID.h,
+				UMDiameterAvpLCS_Supported_GAD_Shapes.h,
+				UMDiameterAvpLine_Identifier.h,
+				UMDiameterAvpLinear_Distance.h,
+				UMDiameterAvpLIPA_Permission.h,
+				UMDiameterAvpList_Of_Measurements.h,
+				UMDiameterAvpLMSI.h,
+				UMDiameterAvpLoad_Type.h,
+				UMDiameterAvpLoad_Value.h,
+				UMDiameterAvpLoad.h,
+				UMDiameterAvpLocal_Group_Id.h,
+				UMDiameterAvpLocal_Time_Zone_Indication.h,
+				UMDiameterAvpLocal_Time_Zone.h,
+				UMDiameterAvpLocation_Area_Identity.h,
+				UMDiameterAvpLocation_Estimate.h,
+				UMDiameterAvpLocation_Event.h,
+				UMDiameterAvpLocation_Information_Configuration.h,
+				UMDiameterAvpLogging_Duration.h,
+				UMDiameterAvpLogging_Interval.h,
+				UMDiameterAvpLoose_Route_Indication.h,
+				UMDiameterAvpLoss_Of_Connectivity_Reason.h,
+				UMDiameterAvpLRA_Flags.h,
+				UMDiameterAvpLRR_Flags.h,
+				UMDiameterAvpMandatory_Capability.h,
+				UMDiameterAvpMax_Requested_Bandwidth_DL.h,
+				UMDiameterAvpMax_Requested_Bandwidth_UL.h,
+				UMDiameterAvpMax_Supported_Bandwidth_DL.h,
+				UMDiameterAvpMax_Supported_Bandwidth_UL.h,
+				UMDiameterAvpMaximum_Interval.h,
+				UMDiameterAvpMaximum_Latency.h,
+				UMDiameterAvpMaximum_Number_of_Reports.h,
+				UMDiameterAvpMaximum_Response_Time.h,
+				UMDiameterAvpMaximum_Retransmission_Time.h,
+				UMDiameterAvpMaximum_UE_Availabilit.h,
+				UMDiameterAvpMaximum_UE_Availability_Time.h,
+				UMDiameterAvpMBSFN_Area_ID.h,
+				UMDiameterAvpMBSFN_Area.h,
+				UMDiameterAvpMDT_Allowed_PLMN_Id.h,
+				UMDiameterAvpMDT_Configuration.h,
+				UMDiameterAvpMDT_User_Consent.h,
+				UMDiameterAvpMeasurement_Period_LTE.h,
+				UMDiameterAvpMeasurement_Period_UMTS.h,
+				UMDiameterAvpMeasurement_Quantity.h,
+				UMDiameterAvpMIP_Authenticator.h,
+				UMDiameterAvpMIP_Careof_Address.h,
+				UMDiameterAvpMIP_Home_Agent_Address.h,
+				UMDiameterAvpMIP_Home_Agent_Host.h,
+				UMDiameterAvpMIP_MAC_Mobility_Data.h,
+				UMDiameterAvpMIP_MN_AAA_SPI.h,
+				UMDiameterAvpMIP_MN_HA_SPI.h,
+				UMDiameterAvpMIP_Mobile_Node_Address.h,
+				UMDiameterAvpMIP_MSA_Lifetime.h,
+				UMDiameterAvpMIP_Replay_Mode.h,
+				UMDiameterAvpMIP_Session_Key.h,
+				UMDiameterAvpMIP_Timestamp.h,
+				UMDiameterAvpMIP6_Agent_Info.h,
+				UMDiameterAvpMIP6_Auth_Mode.h,
+				UMDiameterAvpMIP6_Feature_Vector.h,
+				UMDiameterAvpMIP6_Home_Link_Prefix.h,
+				UMDiameterAvpMME_Absent_User_Diagnostic_SM.h,
+				UMDiameterAvpMME_Location_Information.h,
+				UMDiameterAvpMME_Name.h,
+				UMDiameterAvpMME_Number_for_MT_SMS.h,
+				UMDiameterAvpMME_Realm.h,
+				UMDiameterAvpMME_SM_Delivery_Outcome.h,
+				UMDiameterAvpMME_User_State.h,
+				UMDiameterAvpMO_LR.h,
+				UMDiameterAvpMonitoring_Duration.h,
+				UMDiameterAvpMonitoring_Event_Config_Status.h,
+				UMDiameterAvpMonitoring_Event_Configuration.h,
+				UMDiameterAvpMonitoring_Event_Report.h,
+				UMDiameterAvpMonitoring_Type.h,
+				UMDiameterAvpMONTE_Location_Type.h,
+				UMDiameterAvpMotion_Event_Info.h,
+				UMDiameterAvpMPS_Priority.h,
+				UMDiameterAvpMSC_Absent_User_Diagnostic_SM.h,
+				UMDiameterAvpMSC_Number.h,
+				UMDiameterAvpMSC_SM_Delivery_Outcome.h,
+				UMDiameterAvpMSISDN.h,
+				"UMDiameterAvpMSISDN+diameter.h",
+				UMDiameterAvpMulti_Round_Time_Out.h,
+				UMDiameterAvpMultiple_Registration_Indication.h,
+				UMDiameterAvpMWD_Status.h,
+				UMDiameterAvpNetwork_Access_Mode.h,
+				UMDiameterAvpNode_Type.h,
+				UMDiameterAvpNon_IP_Data_Delivery_Mechanism.h,
+				UMDiameterAvpNon_IP_PDN_Type_Indicator.h,
+				UMDiameterAvpNOR_Flags.h,
+				UMDiameterAvpNotification_To_UE_User.h,
+				UMDiameterAvpNumber_Of_Requested_Vectors.h,
+				UMDiameterAvpOC_Feature_Vector.h,
+				UMDiameterAvpOC_OLR.h,
+				UMDiameterAvpOC_Reduction_Percentage.h,
+				UMDiameterAvpOC_Report_Type.h,
+				UMDiameterAvpOC_Sequence_Number.h,
+				UMDiameterAvpOC_Supported_Features.h,
+				UMDiameterAvpOC_Validity_Duration.h,
+				UMDiameterAvpOccurrence_Info.h,
+				UMDiameterAvpOctetString.h,
+				UMDiameterAvpOFR_Flags.h,
+				UMDiameterAvpOMC_Id.h,
+				UMDiameterAvpOne_Time_Notification.h,
+				UMDiameterAvpOperator_Determined_Barring.h,
+				UMDiameterAvpOptional_Capability.h,
+				UMDiameterAvpOrigin_Host.h,
+				UMDiameterAvpOrigin_Realm.h,
+				UMDiameterAvpOrigin_State_Id.h,
+				UMDiameterAvpOriginating_Request.h,
+				UMDiameterAvpOriginating_SIP_URI.h,
+				UMDiameterAvpPath.h,
+				UMDiameterAvpPDN_Connection_Continuity.h,
+				UMDiameterAvpPDN_GW_Allocation_Type.h,
+				UMDiameterAvpPDN_Type.h,
+				UMDiameterAvpPDP_Address.h,
+				UMDiameterAvpPDP_Context.h,
+				UMDiameterAvpPDP_Type.h,
+				UMDiameterAvpPeriodic_Communication_Indicator.h,
+				UMDiameterAvpPeriodic_LDR_Information.h,
+				UMDiameterAvpPeriodic_Location_Support_Indicator.h,
+				UMDiameterAvpPeriodic_Time.h,
+				UMDiameterAvpPLA_Flags.h,
+				UMDiameterAvpPLMN_Client.h,
+				UMDiameterAvpPLMN_ID_List.h,
+				UMDiameterAvpPLR_Flags.h,
+				UMDiameterAvpPositioning_Method.h,
+				UMDiameterAvpPPR_Address.h,
+				UMDiameterAvpPre_emption_Capability.h,
+				UMDiameterAvpPre_emption_Vulnerability.h,
+				UMDiameterAvpPre_paging_Supported.h,
+				UMDiameterAvpPreferred_Data_Mode.h,
+				UMDiameterAvpPrimary_Charging_Collection_Function_Name.h,
+				UMDiameterAvpPrimary_Event_Charging_Function_Name.h,
+				UMDiameterAvpPrioritized_List_Indicator.h,
+				UMDiameterAvpPriority_Indication.h,
+				UMDiameterAvpPriority_Level.h,
+				UMDiameterAvpProduct_Name.h,
+				UMDiameterAvpProSe_Permission.h,
+				UMDiameterAvpProSe_Subscription_Data.h,
+				UMDiameterAvpProxy_Host.h,
+				UMDiameterAvpProxy_Info.h,
+				UMDiameterAvpProxy_State.h,
+				UMDiameterAvpPseudonym_Indicator.h,
+				UMDiameterAvpPUA_Flags.h,
+				UMDiameterAvpPublic_Identity.h,
+				UMDiameterAvpPUR_Flags.h,
+				UMDiameterAvpQoS_Capability.h,
+				UMDiameterAvpQoS_Class_Identifier.h,
+				UMDiameterAvpQoS_Profile_Id.h,
+				UMDiameterAvpQoS_Profile_Template.h,
+				UMDiameterAvpQoS_Resources.h,
+				UMDiameterAvpQoS_Subscribed.h,
+				UMDiameterAvpRAND.h,
+				UMDiameterAvpRAT_Frequency_Selection_Priority_ID.h,
+				UMDiameterAvpRAT_Type.h,
+				UMDiameterAvpRDR_Flags.h,
+				UMDiameterAvpRe_Auth_Request_Type.h,
+				UMDiameterAvpRe_Synchronization_Info.h,
+				UMDiameterAvpReachability_Information.h,
+				UMDiameterAvpReachability_Type.h,
+				UMDiameterAvpReason_Code.h,
+				UMDiameterAvpReason_Info.h,
+				UMDiameterAvpRecord_Route.h,
+				UMDiameterAvpRedirect_Host_Usage.h,
+				UMDiameterAvpRedirect_Host.h,
+				UMDiameterAvpRedirect_Max_Cache_Time.h,
+				UMDiameterAvpReference_ID_Validity_Time.h,
+				UMDiameterAvpRegional_Subscription_Zone_Code.h,
+				UMDiameterAvpRelay_Node_Indicator.h,
+				UMDiameterAvpReport_Amount.h,
+				UMDiameterAvpReport_Interval.h,
+				UMDiameterAvpReporting_Amount.h,
+				UMDiameterAvpReporting_Duration.h,
+				UMDiameterAvpReporting_Interval.h,
+				UMDiameterAvpReporting_Location_Requirements.h,
+				UMDiameterAvpReporting_PLMN_List.h,
+				UMDiameterAvpReporting_Trigger.h,
+				UMDiameterAvpRepository_Data_ID.h,
+				UMDiameterAvpRequested_Domain.h,
+				UMDiameterAvpRequested_EUTRAN_Authentication_Info.h,
+				UMDiameterAvpRequested_Nodes.h,
+				UMDiameterAvpRequested_Retransmission_Time.h,
+				UMDiameterAvpRequested_UTRAN_GERAN_Authentication_Info.h,
+				UMDiameterAvpReset_ID.h,
+				UMDiameterAvpResponse_Time.h,
+				UMDiameterAvpRestoration_Info.h,
+				UMDiameterAvpRestoration_Priority.h,
+				UMDiameterAvpResult_Code.h,
+				UMDiameterAvpRIA_Flags.h,
+				UMDiameterAvpRoaming_Restricted_Due_To_Unsupported_Feature.h,
+				UMDiameterAvpRoute_Record.h,
+				UMDiameterAvpRouting_Area_Identity.h,
+				UMDiameterAvpSampling_Interval.h,
+				UMDiameterAvpSC_Address.h,
+				UMDiameterAvpSCEF_ID.h,
+				UMDiameterAvpSCEF_Realm.h,
+				UMDiameterAvpSCEF_Reference_ID_for_Deletion.h,
+				UMDiameterAvpSCEF_Reference_ID.h,
+				UMDiameterAvpScheduled_Communication_Time.h,
+				UMDiameterAvpSCS_Identity.h,
+				UMDiameterAvpSCSCF_Restoration_Info.h,
+				UMDiameterAvpSecondary_Charging_Collection_Function_Name.h,
+				UMDiameterAvpSecondary_Event_Charging_Function_Name.h,
+				UMDiameterAvpSend_Data_Indication.h,
+				UMDiameterAvpSequence_Number.h,
+				UMDiameterAvpServed_Party_IP_Address.h,
+				UMDiameterAvpServer_Assignment_Type.h,
+				UMDiameterAvpServer_Capabilities.h,
+				UMDiameterAvpServer_Name.h,
+				UMDiameterAvpService_Area_Identity.h,
+				UMDiameterAvpService_Data.h,
+				UMDiameterAvpService_ID.h,
+				UMDiameterAvpService_Indication.h,
+				UMDiameterAvpService_Parameters.h,
+				UMDiameterAvpService_Report.h,
+				UMDiameterAvpService_Result_Code.h,
+				UMDiameterAvpService_Result.h,
+				UMDiameterAvpService_Selection.h,
+				UMDiameterAvpService_Type.h,
+				UMDiameterAvpServiceTypeIdentity.h,
+				UMDiameterAvpServing_Node_Indication.h,
+				UMDiameterAvpServing_Node.h,
+				UMDiameterAvpSession_Binding.h,
+				UMDiameterAvpSession_Id.h,
+				UMDiameterAvpSession_Priority.h,
+				UMDiameterAvpSession_Server_Failover.h,
+				UMDiameterAvpSession_Timeout.h,
+				UMDiameterAvpSGs_MME_Identity.h,
+				UMDiameterAvpSGSN_Absent_User_Diagnostic_SM.h,
+				UMDiameterAvpSGSN_Location_Information.h,
+				UMDiameterAvpSGSN_Name.h,
+				UMDiameterAvpSGSN_Number.h,
+				UMDiameterAvpSGSN_Realm.h,
+				UMDiameterAvpSGSN_SM_Delivery_Outcome.h,
+				UMDiameterAvpSGSN_User_State.h,
+				UMDiameterAvpSIP_Auth_Data_Item.h,
+				UMDiameterAvpSIP_Authenticate.h,
+				UMDiameterAvpSIP_Authentication_Context.h,
+				UMDiameterAvpSIP_Authentication_Scheme.h,
+				UMDiameterAvpSIP_Authorization.h,
+				UMDiameterAvpSIP_Digest_Authenticate.h,
+				UMDiameterAvpSIP_Item_Number.h,
+				UMDiameterAvpSIP_Number_Auth_Items.h,
+				UMDiameterAvpSIPTO_Local_Network_Permission.h,
+				UMDiameterAvpSIPTO_Permission.h,
+				UMDiameterAvpSIR_Flags.h,
+				UMDiameterAvpSLg_Location_Type.h,
+				UMDiameterAvpSM_Delivery_Cause.h,
+				UMDiameterAvpSM_Delivery_Failure_Cause.h,
+				UMDiameterAvpSM_Delivery_Not_Intended.h,
+				UMDiameterAvpSM_Delivery_Outcome.h,
+				UMDiameterAvpSM_Delivery_Start_Timer.h,
+				UMDiameterAvpSM_Delivery_Timer.h,
+				UMDiameterAvpSM_Diagnostic_Info.h,
+				UMDiameterAvpSM_Enumerated_Delivery_Failure_Cause.h,
+				UMDiameterAvpSM_RP_MTI.h,
+				UMDiameterAvpSM_RP_SMEA.h,
+				UMDiameterAvpSM_RP_UI.h,
+				UMDiameterAvpSMS_GMSC_Address.h,
+				UMDiameterAvpSMS_GMSC_Alert_Event.h,
+				UMDiameterAvpSMS_Register_Request.h,
+				UMDiameterAvpSMSMI_Correlation_ID.h,
+				UMDiameterAvpSoftware_Version.h,
+				UMDiameterAvpSourceID.h,
+				UMDiameterAvpSpecific_APN_Info.h,
+				UMDiameterAvpSRES.h,
+				UMDiameterAvpSRR_Flags.h,
+				UMDiameterAvpSS_Code.h,
+				UMDiameterAvpSS_Status.h,
+				UMDiameterAvpStationary_Indication.h,
+				UMDiameterAvpSTN_SR.h,
+				UMDiameterAvpSubs_Req_Type.h,
+				UMDiameterAvpSubscribed_Periodic_RAU_TAU_Timer.h,
+				UMDiameterAvpSubscribed_VSRVCC.h,
+				UMDiameterAvpSubscriber_Status.h,
+				UMDiameterAvpSubscription_Data_Deletion.h,
+				UMDiameterAvpSubscription_Data_Flags.h,
+				UMDiameterAvpSubscription_Data.h,
+				UMDiameterAvpSubscription_Info.h,
+				UMDiameterAvpSupported_Applications.h,
+				UMDiameterAvpSupported_Features.h,
+				UMDiameterAvpSupported_GAD_Shapes.h,
+				UMDiameterAvpSupported_Monitoring_Events.h,
+				UMDiameterAvpSupported_Services.h,
+				UMDiameterAvpSupported_Vendor_Id.h,
+				UMDiameterAvpT4_Data.h,
+				UMDiameterAvpT4_Parameters.h,
+				UMDiameterAvpTeleservice_List.h,
+				UMDiameterAvpTerminal_Information.h,
+				UMDiameterAvpTermination_Cause.h,
+				UMDiameterAvpTFR_Flags.h,
+				UMDiameterAvpTime_Of_Day_End.h,
+				UMDiameterAvpTime_Of_Day_Start.h,
+				UMDiameterAvpTime_Zone.h,
+				UMDiameterAvpTime.h,
+				UMDiameterAvpTo_SIP_Header.h,
+				UMDiameterAvpTrace_Collection_Entity.h,
+				UMDiameterAvpTrace_Data.h,
+				UMDiameterAvpTrace_Depth.h,
+				UMDiameterAvpTrace_Event_List.h,
+				UMDiameterAvpTrace_Interface_List.h,
+				UMDiameterAvpTrace_NE_Type_List.h,
+				UMDiameterAvpTrace_Reference.h,
+				UMDiameterAvpTracking_Area_Identity.h,
+				UMDiameterAvpTS_Code.h,
+				UMDiameterAvpUAR_Flags.h,
+				UMDiameterAvpUDR_Flags.h,
+				UMDiameterAvpUE_PC5_AMBR.h,
+				UMDiameterAvpUE_Reachability_Configuration.h,
+				UMDiameterAvpUE_SRVCC_Capability.h,
+				UMDiameterAvpUE_Usage_Type.h,
+				UMDiameterAvpULA_Flags.h,
+				UMDiameterAvpULR_Flags.h,
+				UMDiameterAvpUnsigned32.h,
+				UMDiameterAvpUnsigned64.h,
+				UMDiameterAvpUser_Authorization_Type.h,
+				UMDiameterAvpUser_CSG_Information.h,
+				UMDiameterAvpUser_Data_Already_Available.h,
+				UMDiameterAvpUser_Data.h,
+				UMDiameterAvpUser_Id.h,
+				UMDiameterAvpUser_Identifier.h,
+				UMDiameterAvpUser_Identity.h,
+				UMDiameterAvpUser_Name.h,
+				UMDiameterAvpUser_State.h,
+				UMDiameterAvpUTF8String.h,
+				UMDiameterAvpUTRAN_Additional_Positioning_Data.h,
+				UMDiameterAvpUTRAN_GANSS_Positioning_Data.h,
+				UMDiameterAvpUTRAN_Positioning_Data.h,
+				UMDiameterAvpUTRAN_Positioning_Info.h,
+				UMDiameterAvpUTRAN_Vector.h,
+				UMDiameterAvpUVA_Flags.h,
+				UMDiameterAvpUVR_Flags.h,
+				UMDiameterAvpV2X_Permission.h,
+				UMDiameterAvpV2X_Subscription_Data.h,
+				UMDiameterAvpVelocity_Estimate.h,
+				UMDiameterAvpVelocity_Requested.h,
+				UMDiameterAvpVendor_Id.h,
+				UMDiameterAvpVendor_Specific_Application_Id.h,
+				UMDiameterAvpVertical_Accuracy.h,
+				UMDiameterAvpVertical_Requested.h,
+				UMDiameterAvpVisited_Network_Identifier.h,
+				UMDiameterAvpVisited_PLMN_Id.h,
+				UMDiameterAvpVPLMN_CSG_Subscription_Data.h,
+				UMDiameterAvpVPLMN_Dynamic_Address_Allowed.h,
+				UMDiameterAvpVPLMN_LIPA_Allowed.h,
+				UMDiameterAvpWildcarded_IMPU.h,
+				UMDiameterAvpWildcarded_Public_Identity.h,
+				UMDiameterAvpWLAN_offloadability_EUTRAN.h,
+				UMDiameterAvpWLAN_offloadability_UTRAN.h,
+				UMDiameterAvpWLAN_offloadability.h,
+				UMDiameterAvpXRES.h,
+				UMDiameterCommandCode.h,
+				UMDiameterCommandFlags.h,
+				UMDiameterCommands_3GPP.inc.h,
+				UMDiameterCommands_base.inc.h,
+				UMDiameterError.h,
+				UMDiameterLocalUserProtocol.h,
+				UMDiameterMessage.h,
+				UMDiameterNetworkOrder.h,
+				UMDiameterPacket.h,
+				UMDiameterPacketACA.h,
+				UMDiameterPacketACR.h,
+				UMDiameterPacketAlert_Service_Centre_Answer.h,
+				UMDiameterPacketAlert_Service_Centre_Request.h,
+				UMDiameterPacketASA.h,
+				UMDiameterPacketASR.h,
+				UMDiameterPacketAuthentication_Information_Answer.h,
+				UMDiameterPacketAuthentication_Information_Request.h,
+				UMDiameterPacketCancel_Location_Answer.h,
+				UMDiameterPacketCancel_Location_Request.h,
+				UMDiameterPacketCEA.h,
+				UMDiameterPacketCER.h,
+				UMDiameterPacketCUA.h,
+				UMDiameterPacketCUR.h,
+				UMDiameterPacketDelete_Subscriber_Data_Answer.h,
+				UMDiameterPacketDelete_Subscriber_Data_Request.h,
+				UMDiameterPacketDPA.h,
+				UMDiameterPacketDPR.h,
+				UMDiameterPacketDWA.h,
+				UMDiameterPacketDWR.h,
+				UMDiameterPacketInsert_Subscriber_Data_Answer.h,
+				UMDiameterPacketInsert_Subscriber_Data_Request.h,
+				UMDiameterPacketLCS_Routing_Info_Answer.h,
+				UMDiameterPacketLCS_Routing_Info_Request.h,
+				UMDiameterPacketLocation_Report_Answer.h,
+				UMDiameterPacketLocation_Report_Request.h,
+				UMDiameterPacketNotify_Answer.h,
+				UMDiameterPacketNotify_Request.h,
+				UMDiameterPacketProfile_Update_Answer.h,
+				UMDiameterPacketProfile_Update_Request.h,
+				UMDiameterPacketProvide_Location_Answer.h,
+				UMDiameterPacketProvide_Location_Request.h,
+				UMDiameterPacketPurge_UE_Answer.h,
+				UMDiameterPacketPurge_UE_Request.h,
+				UMDiameterPacketPush_Notification_Answer.h,
+				UMDiameterPacketPush_Notification_Request.h,
+				UMDiameterPacketRAA.h,
+				UMDiameterPacketRAR.h,
+				UMDiameterPacketReset_Answer.h,
+				UMDiameterPacketReset_Request.h,
+				UMDiameterPacketsAll.h,
+				UMDiameterPacketSend_Routing_Info_for_SM_Answer.h,
+				UMDiameterPacketSend_Routing_Info_for_SM_Request.h,
+				UMDiameterPacketSTA.h,
+				UMDiameterPacketSTR.h,
+				UMDiameterPacketSubscribe_Notifications_Answer.h,
+				UMDiameterPacketSubscribe_Notifications_Request.h,
+				UMDiameterPacketSubscriber_Information_Answer.h,
+				UMDiameterPacketSubscriber_Information_Request.h,
+				UMDiameterPacketUpdate_Location_Answer.h,
+				UMDiameterPacketUpdate_Location_Request.h,
+				UMDiameterPacketUser_Data_Answer.h,
+				UMDiameterPacketUser_Data_Request.h,
+				UMDiameterPeer.h,
+				UMDiameterPeerState_all.h,
+				UMDiameterPeerState_Closed.h,
+				UMDiameterPeerState_Closing.h,
+				UMDiameterPeerState_I_Open.h,
+				UMDiameterPeerState_R_Open.h,
+				UMDiameterPeerState_Wait_Conn_Ack_Elect.h,
+				UMDiameterPeerState_Wait_Conn_Ack.h,
+				UMDiameterPeerState_Wait_I_CEA.h,
+				UMDiameterPeerState_Wait_Returns.h,
+				UMDiameterPeerState.h,
+				UMDiameterResultCode.h,
+				UMDiameterRoute.h,
+				UMDiameterRouter_RouteTask.h,
+				UMDiameterRouter.h,
+				UMDiameterRouterReceiver.h,
+				UMDiameterRouterSession.h,
+				UMDiameterStatisticDb.h,
+				UMDiameterStatisticDbRecord.h,
+				UMDiameterTcpConnectionAuthorisationProtocol.h,
+				UMDiameterVendorId.h,
+				UMDiameterVendorIdString.h,
+			);
+			target = A62D9A953077D1A4004EBF39 /* ulibdiameter */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A643E3A830664DB900F9798D /* AVP */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AVP; sourceTree = "<group>"; };
-		A643E3EC30664DB900F9798D /* Commands */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Commands; sourceTree = "<group>"; };
-		A643E91130664DD600F9798D /* ulibdiameter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ulibdiameter; sourceTree = "<group>"; };
+		A62D9A973077D1A4004EBF39 /* ulibdiameter */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A62DA4F13077D4D1004EBF39 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ulibdiameter; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A61E1AFD22C8F93E00025026 /* Frameworks */ = {
+		A62D9A943077D1A4004EBF39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A643D8BF306539B600F9798D /* libulibgsmmap.a in Frameworks */,
-				A643D8B9306539A700F9798D /* libulibpcap.a in Frameworks */,
-				A643D8AF3065399200F9798D /* libulib.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6260C53228C004F00C94036 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A643D8BB306539A700F9798D /* libulibpcap.a in Frameworks */,
-				A643D8AB3065399200F9798D /* libulib.a in Frameworks */,
-				A6260C60228C019700C94036 /* ulibdiameter.framework in Frameworks */,
-				A643D8C0306539B600F9798D /* libulibgsmmap.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6609EA5203A66A600C25C7B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A643D8C1306539B600F9798D /* libulibgsmmap.a in Frameworks */,
-				A643D8B7306539A700F9798D /* libulibpcap.a in Frameworks */,
-				A643D8AD3065399200F9798D /* libulib.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6609EAF203A66A600C25C7B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A643D8BD306539B600F9798D /* libulibgsmmap.a in Frameworks */,
-				A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */,
-				A643D8AE3065399200F9798D /* libulib.a in Frameworks */,
-				A643D8B8306539A700F9798D /* libulibpcap.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A684F78022C1FED9004F77C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A643D8BE306539B600F9798D /* libulibgsmmap.a in Frameworks */,
-				A643D8BA306539A700F9798D /* libulibpcap.a in Frameworks */,
-				A643D8AC3065399200F9798D /* libulib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A61E1AD722C8C7A000025026 /* diameter-test1 */ = {
+		000000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
-				A61E1AD822C8C7A000025026 /* main.m */,
-			);
-			path = "diameter-test1";
-			sourceTree = "<group>";
-		};
-		A61E1B0122C8F93E00025026 /* diameter-avp-gen */ = {
-			isa = PBXGroup;
-			children = (
-				A6D789DA2C7627B700387176 /* diameter-avp-gen.entitlements */,
-				A628E76F22C9DBCD00D5BD91 /* avp-group-defs */,
-				A61E1B1022C9518C00025026 /* output */,
-				A61E1B0F22C94A4000025026 /* test.sh */,
-				A61E1B0222C8F93E00025026 /* main.m */,
-				A61E1B0922C934DE00025026 /* UMDiameterAvpDef.h */,
-				A61E1B0A22C934DF00025026 /* UMDiameterAvpDef.m */,
-				A628E77122C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.h */,
-				A628E77222C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m */,
-				A628E77522C9DF0400D5BD91 /* UMDiameterGeneratorAVP.h */,
-				A628E77622C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m */,
-			);
-			path = "diameter-avp-gen";
-			sourceTree = "<group>";
-		};
-		A6260C57228C004F00C94036 /* decode-diameter-pdu */ = {
-			isa = PBXGroup;
-			children = (
-				A6D789D92C7627B100387176 /* decode-diameter-pdu.entitlements */,
-				A6260C58228C004F00C94036 /* main.m */,
-			);
-			path = "decode-diameter-pdu";
-			sourceTree = "<group>";
-		};
-		A643D8A93065390C00F9798D /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				A643D8BC306539B600F9798D /* libulibgsmmap.a */,
-				A643D8AA3065399200F9798D /* libulib.a */,
-				A643D8B6306539A700F9798D /* libulibpcap.a */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		A6609E9F203A66A600C25C7B = {
-			isa = PBXGroup;
-			children = (
-				A634105C24B7238E0044A2B6 /* VERSION */,
-				A6F2C8FE203B7F8D00DA49BF /* doc */,
-				A643E3A830664DB900F9798D /* AVP */,
-				A643E3EC30664DB900F9798D /* Commands */,
-				A643E91130664DD600F9798D /* ulibdiameter */,
-				A6609EB6203A66A600C25C7B /* ulibdiameterTests */,
-				A6260C57228C004F00C94036 /* decode-diameter-pdu */,
-				A684F78422C1FED9004F77C0 /* diameter-cmd-gen */,
-				A61E1B0122C8F93E00025026 /* diameter-avp-gen */,
-				A61E1AD722C8C7A000025026 /* diameter-test1 */,
-				A6609EAA203A66A600C25C7B /* Products */,
-				A643D8A93065390C00F9798D /* Libraries */,
+				A62D9A973077D1A4004EBF39 /* ulibdiameter */,
+				A62DA4E13077D215004EBF39 /* Frameworks */,
+				000000000000000000000020 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A6609EAA203A66A600C25C7B /* Products */ = {
+		000000000000000000000020 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6609EA9203A66A600C25C7B /* ulibdiameter.framework */,
-				A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */,
-				A6260C56228C004F00C94036 /* decode-diameter-pdu */,
-				A684F78322C1FED9004F77C0 /* diameter-cmd-gen */,
-				A61E1B0022C8F93E00025026 /* diameter-avp-gen */,
+				A62D9A963077D1A4004EBF39 /* libulibdiameter.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A6609EB6203A66A600C25C7B /* ulibdiameterTests */ = {
+		A62DA4E13077D215004EBF39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */,
-				A6609EB9203A66A600C25C7B /* Info.plist */,
+				A62DA4E23077D215004EBF39 /* libulibgsmmap.a */,
 			);
-			path = ulibdiameterTests;
-			sourceTree = "<group>";
-		};
-		A684F78422C1FED9004F77C0 /* diameter-cmd-gen */ = {
-			isa = PBXGroup;
-			children = (
-				A685AE0726088713007A631F /* diameter-cmd-gen.entitlements */,
-				A684F78522C1FED9004F77C0 /* main.m */,
-				A6BE474B22C746ED00A9353D /* UMDiameterGeneratorCMD.h */,
-				A6BE474C22C746ED00A9353D /* UMDiameterGeneratorCMD.m */,
-				A6BE474822C7462000A9353D /* UMDiameterGeneratorAVP.h */,
-				A6BE474922C7462000A9353D /* UMDiameterGeneratorAVP.m */,
-				A6BE475122C7853D00A9353D /* testfile.txt */,
-			);
-			path = "diameter-cmd-gen";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A6609EA6203A66A600C25C7B /* Headers */ = {
+		A62D9A923077D1A4004EBF39 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6BE474F22C7825700A9353D /* UMDiameterGeneratorCMD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A61E1AFF22C8F93E00025026 /* diameter-avp-gen */ = {
+		A62D9A953077D1A4004EBF39 /* ulibdiameter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A61E1B0422C8F93F00025026 /* Build configuration list for PBXNativeTarget "diameter-avp-gen" */;
+			buildConfigurationList = A62D9A9C3077D1A4004EBF39 /* Build configuration list for PBXNativeTarget "ulibdiameter" */;
 			buildPhases = (
-				A61E1AFC22C8F93E00025026 /* Sources */,
-				A61E1AFD22C8F93E00025026 /* Frameworks */,
-				A61E1AFE22C8F93E00025026 /* CopyFiles */,
-				A61E1B0D22C9492C00025026 /* ShellScript */,
+				A62D9A923077D1A4004EBF39 /* Headers */,
+				A62D9A933077D1A4004EBF39 /* Sources */,
+				A62D9A943077D1A4004EBF39 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "diameter-avp-gen";
-			productName = "diameter-avp-gen";
-			productReference = A61E1B0022C8F93E00025026 /* diameter-avp-gen */;
-			productType = "com.apple.product-type.tool";
-		};
-		A6260C55228C004F00C94036 /* decode-diameter-pdu */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A6260C5A228C004F00C94036 /* Build configuration list for PBXNativeTarget "decode-diameter-pdu" */;
-			buildPhases = (
-				A6260C52228C004F00C94036 /* Sources */,
-				A6260C53228C004F00C94036 /* Frameworks */,
-				A6260C54228C004F00C94036 /* CopyFiles */,
-				A67E7A8F22C61BF300B34DA3 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "decode-diameter-pdu";
-			productName = "decode-diameter-pdu";
-			productReference = A6260C56228C004F00C94036 /* decode-diameter-pdu */;
-			productType = "com.apple.product-type.tool";
-		};
-		A6609EA8203A66A600C25C7B /* ulibdiameter */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A6609EBD203A66A600C25C7B /* Build configuration list for PBXNativeTarget "ulibdiameter" */;
-			buildPhases = (
-				A6609EA4203A66A600C25C7B /* Sources */,
-				A6609EA5203A66A600C25C7B /* Frameworks */,
-				A6609EA6203A66A600C25C7B /* Headers */,
-				A6609EA7203A66A600C25C7B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
+			fileSystemSynchronizedGroups = (
+				A62D9A973077D1A4004EBF39 /* ulibdiameter */,
 			);
 			name = ulibdiameter;
+			packageProductDependencies = (
+			);
 			productName = ulibdiameter;
-			productReference = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		A6609EB1203A66A600C25C7B /* ulibdiameterTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A6609EC0203A66A600C25C7B /* Build configuration list for PBXNativeTarget "ulibdiameterTests" */;
-			buildPhases = (
-				A6609EAE203A66A600C25C7B /* Sources */,
-				A6609EAF203A66A600C25C7B /* Frameworks */,
-				A6609EB0203A66A600C25C7B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A6609EB5203A66A600C25C7B /* PBXTargetDependency */,
-			);
-			name = ulibdiameterTests;
-			productName = ulibdiameterTests;
-			productReference = A6609EB2203A66A600C25C7B /* ulibdiameterTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A684F78222C1FED9004F77C0 /* diameter-cmd-gen */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A684F78722C1FED9004F77C0 /* Build configuration list for PBXNativeTarget "diameter-cmd-gen" */;
-			buildPhases = (
-				A684F77F22C1FED9004F77C0 /* Sources */,
-				A684F78022C1FED9004F77C0 /* Frameworks */,
-				A684F78122C1FED9004F77C0 /* CopyFiles */,
-				A61E1B0E22C9494E00025026 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "diameter-cmd-gen";
-			productName = "avp-src-gen";
-			productReference = A684F78322C1FED9004F77C0 /* diameter-cmd-gen */;
-			productType = "com.apple.product-type.tool";
+			productReference = A62D9A963077D1A4004EBF39 /* libulibdiameter.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A6609EA0203A66A600C25C7B /* Project object */ = {
+		000000000000000000000000 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2610;
-				ORGANIZATIONNAME = "Andreas Fink";
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					A61E1AFF22C8F93E00025026 = {
-						CreatedOnToolsVersion = 10.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					A6260C55228C004F00C94036 = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-					};
-					A6609EA8203A66A600C25C7B = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					A6609EB1203A66A600C25C7B = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					A684F78222C1FED9004F77C0 = {
-						CreatedOnToolsVersion = 10.2.1;
-						ProvisioningStyle = Automatic;
+					A62D9A953077D1A4004EBF39 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
-			buildConfigurationList = A6609EA3203A66A600C25C7B /* Build configuration list for PBXProject "ulibdiameter" */;
+			buildConfigurationList = 000000000000000010000000 /* Build configuration list for PBXProject "ulibdiameter" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -416,269 +786,39 @@
 				en,
 				Base,
 			);
-			mainGroup = A6609E9F203A66A600C25C7B;
-			productRefGroup = A6609EAA203A66A600C25C7B /* Products */;
+			mainGroup = 000000000000000000000001;
+			minimizedProjectReferenceProxies = 1;
+			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A684F78222C1FED9004F77C0 /* diameter-cmd-gen */,
-				A61E1AFF22C8F93E00025026 /* diameter-avp-gen */,
-				A6609EA8203A66A600C25C7B /* ulibdiameter */,
-				A6609EB1203A66A600C25C7B /* ulibdiameterTests */,
-				A6260C55228C004F00C94036 /* decode-diameter-pdu */,
+				A62D9A953077D1A4004EBF39 /* ulibdiameter */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		A6609EA7203A66A600C25C7B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6609EB0203A66A600C25C7B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A61E1B0D22C9492C00025026 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nEXE=diameter-avp-gen\nmkdir -p /usr/local/bin\nif [ -f \"/usr/local/bin/$EXE\" ]\nthen\nrm -f \"/usr/local/bin/$EXE\"\nfi\nif [ -L \"/usr/local/bin/$EXE\" ]\nthen\nrm -f \"/usr/local/bin/$EXE\"\nfi\nln -s /Library/Application\\ Support/FinkTelecomServices/bin/$EXE /usr/local/bin/$EXE\n";
-		};
-		A61E1B0E22C9494E00025026 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nEXE=diameter-cmd-gen\nmkdir -p /usr/local/bin\nif [ -f \"/usr/local/bin/$EXE\" ]\nthen\nrm -f \"/usr/local/bin/$EXE\"\nfi\nif [ -L \"/usr/local/bin/$EXE\" ]\nthen\nrm -f \"/usr/local/bin/$EXE\"\nfi\nln -s /Library/Application\\ Support/FinkTelecomServices/bin/$EXE /usr/local/bin/$EXE\n";
-		};
-		A67E7A8F22C61BF300B34DA3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nEXE=decode-diameter-pdu\nmkdir -p /usr/local/bin\nif [ -f \"/usr/local/bin/$EXE\" ]\nthen\n    rm -f \"/usr/local/bin/$EXE\"\nfi\nif [ -L \"/usr/local/bin/$EXE\" ]\nthen\n    rm -f \"/usr/local/bin/$EXE\"\nfi\nln -s /Library/Application\\ Support/FinkTelecomServices/bin/$EXE /usr/local/bin/$EXE\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		A61E1AFC22C8F93E00025026 /* Sources */ = {
+		A62D9A933077D1A4004EBF39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A61E1B0B22C934DF00025026 /* UMDiameterAvpDef.m in Sources */,
-				A628E77322C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m in Sources */,
-				A61E1B0322C8F93F00025026 /* main.m in Sources */,
-				A628E77722C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6260C52228C004F00C94036 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6260C59228C004F00C94036 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6609EA4203A66A600C25C7B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6609EAE203A66A600C25C7B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A684F77F22C1FED9004F77C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6BE474A22C7462000A9353D /* UMDiameterGeneratorAVP.m in Sources */,
-				A6BE474D22C746ED00A9353D /* UMDiameterGeneratorCMD.m in Sources */,
-				A684F78622C1FED9004F77C0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		A6609EB5203A66A600C25C7B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A6609EA8203A66A600C25C7B /* ulibdiameter */;
-			targetProxy = A6609EB4203A66A600C25C7B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		A61E1B0522C8F93F00025026 /* Debug */ = {
+		000000000000000011000000 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "diameter-avp-gen/diameter-avp-gen.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.diameter-avp-gen";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A61E1B0622C8F93F00025026 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "diameter-avp-gen/diameter-avp-gen.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.diameter-avp-gen";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A6260C5B228C004F00C94036 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "decode-diameter-pdu/decode-diameter-pdu.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.decode-diameter-pdu";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A6260C5C228C004F00C94036 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "decode-diameter-pdu/decode-diameter-pdu.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.decode-diameter-pdu";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A6609EBB203A66A600C25C7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -701,19 +841,14 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 38L827M334;
-				DSTROOT = "/Library/Application Support/";
+				DRIVERKIT_DEPLOYMENT_TARGET = 27.0;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -727,39 +862,35 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					.,
-					/usr/local/include,
-				);
-				INSTALL_PATH = FinkTelecomServices/bin;
-				LD_RUNPATH_SEARCH_PATHS = "\"/Library/Application Support/FinkTelecomServices/frameworks\"";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = macosx;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROJECT_UNIQUE_VALUE = P2YBIK0Y;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = macosx;
-				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
-				USER_HEADER_SEARCH_PATHS = /usr/local/include;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WARNING_CFLAGS = "-Wimplicit-fallthrough";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Debug;
 		};
-		A6609EBC203A66A600C25C7B /* Release */ = {
+		000000000000000012000000 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -782,20 +913,14 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 38L827M334;
-				DSTROOT = "/Library/Application Support/";
+				DRIVERKIT_DEPLOYMENT_TARGET = 27.0;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -803,262 +928,70 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					.,
-					/usr/local/include,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = macosx;
+				MTL_FAST_MATH = YES;
+				PROJECT_UNIQUE_VALUE = P2YBIK0Y;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = macosx;
-				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
-				USER_HEADER_SEARCH_PATHS = /usr/local/include;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WARNING_CFLAGS = "-Wimplicit-fallthrough";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				TVOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Release;
 		};
-		A6609EBE203A66A600C25C7B /* Debug */ = {
+		A62D9A9D3077D1A4004EBF39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEFINES_MODULE = YES;
-				DSTROOT = "/Library/Application Support";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "$(DSTROOT)/$(INSTALL_PATH)";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ulibdiameter/Info.plist;
-				INSTALL_PATH = FinkTelecomServices/frameworks;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-					"\"/Library/Application Support/\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				MARKETING_VERSION = 1.16.3;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.signalmover.ulibdiameter";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				DEVELOPMENT_TEAM = SW34Y6YYW3;
+				EXECUTABLE_PREFIX = lib;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SKIP_INSTALL = NO;
-				SUPPORTED_PLATFORMS = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		A6609EBF203A66A600C25C7B /* Release */ = {
+		A62D9A9E3077D1A4004EBF39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEFINES_MODULE = YES;
-				DSTROOT = "/Library/Application Support";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "$(DSTROOT)/$(INSTALL_PATH)";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ulibdiameter/Info.plist;
-				INSTALL_PATH = FinkTelecomServices/frameworks;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-					"\"/Library/Application Support/\"",
-				);
+				DEVELOPMENT_TEAM = SW34Y6YYW3;
+				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 6.0.0;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.signalmover.ulibdiameter";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SKIP_INSTALL = NO;
-				SUPPORTED_PLATFORMS = macosx;
-			};
-			name = Release;
-		};
-		A6609EC1203A66A600C25C7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				INFOPLIST_FILE = ulibdiameterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.--PRODUCT-NAME-rfc1034identifier-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A6609EC2203A66A600C25C7B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				INFOPLIST_FILE = ulibdiameterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.--PRODUCT-NAME-rfc1034identifier-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A684F78822C1FED9004F77C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "diameter-cmd-gen/diameter-cmd-gen.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Application\\\\ Support/FinkTelecomServices/frameworks\"",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.diameter-cmd-gen";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = NO;
-				TVOS_DEPLOYMENT_TARGET = 18.0;
-			};
-			name = Debug;
-		};
-		A684F78922C1FED9004F77C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "diameter-cmd-gen/diameter-cmd-gen.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Application\\\\ Support/FinkTelecomServices/frameworks\"",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-					"$(LOCAL_LIBRARY_DIR)/Application\\ Support/FinkTelecomServices/frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fink-telecom.diameter-cmd-gen";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = NO;
-				TVOS_DEPLOYMENT_TARGET = 18.0;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A61E1B0422C8F93F00025026 /* Build configuration list for PBXNativeTarget "diameter-avp-gen" */ = {
+		000000000000000010000000 /* Build configuration list for PBXProject "ulibdiameter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A61E1B0522C8F93F00025026 /* Debug */,
-				A61E1B0622C8F93F00025026 /* Release */,
+				000000000000000011000000 /* Debug */,
+				000000000000000012000000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6260C5A228C004F00C94036 /* Build configuration list for PBXNativeTarget "decode-diameter-pdu" */ = {
+		A62D9A9C3077D1A4004EBF39 /* Build configuration list for PBXNativeTarget "ulibdiameter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A6260C5B228C004F00C94036 /* Debug */,
-				A6260C5C228C004F00C94036 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A6609EA3203A66A600C25C7B /* Build configuration list for PBXProject "ulibdiameter" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A6609EBB203A66A600C25C7B /* Debug */,
-				A6609EBC203A66A600C25C7B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A6609EBD203A66A600C25C7B /* Build configuration list for PBXNativeTarget "ulibdiameter" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A6609EBE203A66A600C25C7B /* Debug */,
-				A6609EBF203A66A600C25C7B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A6609EC0203A66A600C25C7B /* Build configuration list for PBXNativeTarget "ulibdiameterTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A6609EC1203A66A600C25C7B /* Debug */,
-				A6609EC2203A66A600C25C7B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A684F78722C1FED9004F77C0 /* Build configuration list for PBXNativeTarget "diameter-cmd-gen" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A684F78822C1FED9004F77C0 /* Debug */,
-				A684F78922C1FED9004F77C0 /* Release */,
+				A62D9A9D3077D1A4004EBF39 /* Debug */,
+				A62D9A9E3077D1A4004EBF39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A6609EA0203A66A600C25C7B /* Project object */;
+	rootObject = 000000000000000000000000 /* Project object */;
 }

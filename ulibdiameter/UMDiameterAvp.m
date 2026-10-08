@@ -110,7 +110,7 @@ break;
         {
             switch(avpCode)
             {
-#import <ulibdiameter/UMDiameterAvp_3GPP_object_list.inc>
+#import <ulibdiameter/UMDiameterAvp_3GPP_object_list.inc.h>
             }
             break;
         }
@@ -118,9 +118,9 @@ break;
         {
             switch(avpCode)
             {
-#import <ulibdiameter/UMDiameterAvp_base_object_list.inc>
-#import <ulibdiameter//UMDiameterAvp_rfc7683_object_list.inc>
-#import <ulibdiameter/UMDiameterAvp_draft_ietf_dime_load_object_list.inc>
+#import <ulibdiameter/UMDiameterAvp_base_object_list.inc.h>
+#import <ulibdiameter/UMDiameterAvp_rfc7683_object_list.inc.h>
+#import <ulibdiameter/UMDiameterAvp_draft_ietf_dime_load_object_list.inc.h>
             }
             break;
         }
