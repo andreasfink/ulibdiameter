@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 11.06.19.
-//  Copyright © 2019 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 
@@ -15,4 +15,5 @@ typedef enum UMDiameterVendorId
     UMDiameterVendorId_IceCell = 30783,
     UMDiameterVendorId_FinkConsulting = 30784,
     UMDiameterVendorId_FinkTelecomServices = 54013,
+    UMDiameterVendorId_Signalmover = 54013,
 } UMDiameterVendorId;
