@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 19.02.18.
-//  Copyright © 2018 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import <ulibdiameter/UMDiameterAvpFloat64.h>

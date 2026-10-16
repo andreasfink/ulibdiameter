@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 19.02.18.
-//  Copyright © 2018 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import <ulibdiameter/UMDiameterPacket.h>
@@ -100,8 +100,8 @@
     if(0)
     {
     }
-#include <ulibdiameter/UMDiameterCommands_3GPP.inc>
-#include <ulibdiameter/UMDiameterCommands_base.inc>
+#include <ulibdiameter/UMDiameterCommands_3GPP.inc.h>
+#include <ulibdiameter/UMDiameterCommands_base.inc.h>
 
 #undef COMMAND
     [packet afterDecode];

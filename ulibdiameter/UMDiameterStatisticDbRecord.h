@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 12.03.21.
-//  Copyright © 2021 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import <ulib/ulib.h>

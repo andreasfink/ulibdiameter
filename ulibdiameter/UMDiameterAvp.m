@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 19.02.18.
-//  Copyright © 2018 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import <ulibdiameter/UMDiameterAvp.h>
@@ -110,7 +110,7 @@ break;
         {
             switch(avpCode)
             {
-#import <ulibdiameter/UMDiameterAvp_3GPP_object_list.inc>
+#import <ulibdiameter/UMDiameterAvp_3GPP_object_list.inc.h>
             }
             break;
         }
@@ -118,9 +118,9 @@ break;
         {
             switch(avpCode)
             {
-#import <ulibdiameter/UMDiameterAvp_base_object_list.inc>
-#import <ulibdiameter//UMDiameterAvp_rfc7683_object_list.inc>
-#import <ulibdiameter/UMDiameterAvp_draft_ietf_dime_load_object_list.inc>
+#import <ulibdiameter/UMDiameterAvp_base_object_list.inc.h>
+#import <ulibdiameter/UMDiameterAvp_rfc7683_object_list.inc.h>
+#import <ulibdiameter/UMDiameterAvp_draft_ietf_dime_load_object_list.inc.h>
             }
             break;
         }

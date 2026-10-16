@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by afink on 2020-05-01 08:25:22.496925
-//  Copyright © 2019 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 

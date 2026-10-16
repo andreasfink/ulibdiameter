@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by Andreas Fink on 11.02.19.
-//  Copyright © 2019 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import <ulibdiameter/UMDiameterPeerState.h>

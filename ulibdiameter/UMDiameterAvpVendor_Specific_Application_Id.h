@@ -3,7 +3,7 @@
 //  ulibdiameter
 //
 //  Created by afink on 2021-03-21 13:35:20.301913
-//  Copyright © 2019 Andreas Fink. All rights reserved.
+//  Copyright (c) 2026 Andreas Fink. All rights reserved.
 //
 
 #import <ulibdiameter/UMDiameterAvpGrouped.h>
