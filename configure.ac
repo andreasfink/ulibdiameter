@@ -90,16 +90,7 @@ case "$host" in
   	then
 		SDK=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk
 	fi
-	
-   	CFLAGS="${CFLAGS} `pkg-config  --cflags ${DEPENDENT_PKGCONFIGS}`"
-	LDFLAGS="${LDFLAGS} `pkg-config --libs ${DEPENDENT_PKGCONFIGS}`"
-    UR="`uname -r | cut -f1 -d.`"
-    DONE=0
-    if [[ -d "${SDK}" ]]
-    then
-		CFLAGS="--sysroot ${SDK} ${CFLAGS}"
-		LDFLAGS="${LDFLAGS} -L ${SDK}/usr/lib"
-	fi
+
 	if [[ "${ARCH}" == "" ]]
 	then
 	    ARCH="-arch arm64 -arch x86_64"
@@ -108,6 +99,10 @@ case "$host" in
 	then
 		MACOSX_DEPLOYMENT_TARGET=12.4
 	fi
+   	CFLAGS="${CFLAGS} `pkg-config  --cflags ${DEPENDENT_PKGCONFIGS}`"
+	LDFLAGS="${LDFLAGS} `pkg-config --libs ${DEPENDENT_PKGCONFIGS}`"
+    UR="`uname -r | cut -f1 -d.`"
+    DONE=0
 	if [[ -d "${SDK}" ]]
     then
 		CFLAGS="${CFLAGS} --sysroot ${SDK} ${CFLAGS}"
@@ -125,7 +120,7 @@ case "$host" in
     INSTALL_NAME_TOOL="install_name_tool"
     SHARED_FLAGS="-dynamiclib -Wl,-dylib"
     LDFLAGS="$LDFLAGS ${ARCH}"
-    LIBTOOL="libtool -static -o"
+    LIBTOOL="libtool -static -no_warning_for_no_symbols -o"
     ;;
 
   *-linux-*)

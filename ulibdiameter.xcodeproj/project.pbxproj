@@ -7,23 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-		A61E1B0322C8F93F00025026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A61E1B0222C8F93E00025026 /* main.m */; };
-		A61E1B0B22C934DF00025026 /* UMDiameterAvpDef.m in Sources */ = {isa = PBXBuildFile; fileRef = A61E1B0A22C934DF00025026 /* UMDiameterAvpDef.m */; };
-		A6260C59228C004F00C94036 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6260C58228C004F00C94036 /* main.m */; };
-		A6260C60228C019700C94036 /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
-		A628E77322C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m in Sources */ = {isa = PBXBuildFile; fileRef = A628E77222C9DD5F00D5BD91 /* UMDiameterAvpGroupDef.m */; };
-		A628E77722C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = A628E77622C9DF0400D5BD91 /* UMDiameterGeneratorAVP.m */; };
-		A643D8AB3065399200F9798D /* libulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8AA3065399200F9798D /* libulib.a */; };
-		A643D8B7306539A700F9798D /* libulibpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8B6306539A700F9798D /* libulibpcap.a */; };
-		A643D8BD306539B600F9798D /* libulibgsmmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643D8BC306539B600F9798D /* libulibgsmmap.a */; };
-		A6609EB3203A66A600C25C7B /* ulibdiameter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6609EA9203A66A600C25C7B /* ulibdiameter.framework */; };
-		A6609EB8203A66A600C25C7B /* ulibdiameterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6609EB7203A66A600C25C7B /* ulibdiameterTests.m */; };
-		A684F78622C1FED9004F77C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A684F78522C1FED9004F77C0 /* main.m */; };
-		A6BE474A22C7462000A9353D /* UMDiameterGeneratorAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BE474922C7462000A9353D /* UMDiameterGeneratorAVP.m */; };
-		A6BE474D22C746ED00A9353D /* UMDiameterGeneratorCMD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BE474C22C746ED00A9353D /* UMDiameterGeneratorCMD.m */; };
-		A6BE474F22C7825700A9353D /* UMDiameterGeneratorCMD.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BE474B22C746ED00A9353D /* UMDiameterGeneratorCMD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-=======
 		A62DAD3E3077D58D004EBF39 /* UMDiameterApplicationId.m in Sources */ = {isa = PBXBuildFile; fileRef = A62DA6B53077D58D004EBF39 /* UMDiameterApplicationId.m */; };
 		A62DAD3F3077D58D004EBF39 /* UMDiameterAvp.m in Sources */ = {isa = PBXBuildFile; fileRef = A62DA6B83077D58D004EBF39 /* UMDiameterAvp.m */; };
 		A62DAD403077D58D004EBF39 /* UMDiameterAvp1xRTT_RCID.m in Sources */ = {isa = PBXBuildFile; fileRef = A62DA6C63077D58D004EBF39 /* UMDiameterAvp1xRTT_RCID.m */; };
@@ -1336,7 +1319,6 @@
 		A62DB3C53077D58D004EBF39 /* UMDiameterTcpConnectionAuthorisationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A62DAD393077D58D004EBF39 /* UMDiameterTcpConnectionAuthorisationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A62DB3C63077D58D004EBF39 /* UMDiameterVendorId.h in Headers */ = {isa = PBXBuildFile; fileRef = A62DAD3A3077D58D004EBF39 /* UMDiameterVendorId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A62DB3C73077D58D004EBF39 /* UMDiameterVendorIdString.h in Headers */ = {isa = PBXBuildFile; fileRef = A62DAD3B3077D58D004EBF39 /* UMDiameterVendorIdString.h */; settings = {ATTRIBUTES = (Public, ); }; };
->>>>>>> 9381479fd3b994f06ad2aa9dddd41a6f74190d61
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -4727,7 +4709,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2700;
-				LastUpgradeCheck = 2700;
+				LastUpgradeCheck = 2710;
 				TargetAttributes = {
 					A62D9A953077D1A4004EBF39 = {
 						CreatedOnToolsVersion = 27.0;
@@ -5444,6 +5426,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SW34Y6YYW3;
 				DRIVERKIT_DEPLOYMENT_TARGET = 27.0;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -5516,6 +5499,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = SW34Y6YYW3;
 				DRIVERKIT_DEPLOYMENT_TARGET = 27.0;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -5553,7 +5537,6 @@
 					x86_64,
 				);
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SW34Y6YYW3;
 				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5571,7 +5554,6 @@
 					x86_64,
 				);
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SW34Y6YYW3;
 				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
